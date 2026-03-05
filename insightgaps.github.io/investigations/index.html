@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investigations | Insight Gaps</title>
+  <meta name="description" content="National and international investigative reports by Insight Gaps — forensic data journalism bureau, Dhaka.">
+  <link rel="canonical" href="https://insightgaps.com/investigations/">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="stylesheet" href="/style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4PYE0MEK12"></script>
+  <script>
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js',new Date()); gtag('config','G-4PYE0MEK12');
+  </script>
+  <style>
+    .inv-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--s8);
+      margin-top: var(--s6);
+    }
+    .inv-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .inv-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.08); border-color: var(--text-3); }
+    .inv-card-band { height: 4px; background: var(--red); }
+    .inv-card-band.gold { background: var(--gold); }
+    .inv-card-body { padding: var(--s8); display: flex; flex-direction: column; flex: 1; }
+    .inv-scope {
+      font-family: var(--sans); font-size: var(--t-xs); font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; padding: 4px 10px;
+      border-radius: 2px; display: inline-block; margin-bottom: var(--s5);
+    }
+    .inv-scope.national { background: rgba(196,30,58,0.08); color: var(--red); border: 1px solid rgba(196,30,58,0.2); }
+    .inv-scope.international { background: rgba(184,134,11,0.08); color: var(--gold); border: 1px solid rgba(184,134,11,0.2); }
+    .inv-card h3 { font-family: var(--serif); font-size: var(--t-xl); font-weight: 700; line-height: 1.2; color: var(--text-1); margin: 0 0 var(--s4); }
+    .inv-card-meta { font-family: var(--mono); font-size: var(--t-xs); color: var(--text-4); display: flex; gap: var(--s3); flex-wrap: wrap; margin-bottom: var(--s5); }
+    .inv-stats { display: flex; gap: var(--s6); flex-wrap: wrap; margin: var(--s5) 0; }
+    .inv-stat { display: flex; flex-direction: column; gap: 2px; }
+    .inv-stat-val { font-family: var(--mono); font-size: var(--t-lg); font-weight: 700; color: var(--text-1); }
+    .inv-stat-lbl { font-family: var(--sans); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-4); }
+    .inv-card p { font-family: var(--sans); font-size: var(--t-sm); color: var(--text-2); line-height: 1.65; margin-bottom: var(--s6); max-width: 100%; }
+    .inv-findings { background: var(--cream); border-left: 3px solid var(--red); padding: var(--s4) var(--s5); margin-bottom: var(--s6); border-radius: 0 2px 2px 0; }
+    .inv-findings.gold-border { border-left-color: var(--gold); }
+    .inv-findings-label { font-family: var(--sans); font-size: 0.7rem; color: var(--text-3); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: var(--s3); }
+    .inv-findings ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 7px; }
+    .inv-findings ul li { font-family: var(--sans); font-size: var(--t-sm); color: var(--text-2); padding-left: 18px; position: relative; max-width: 100%; }
+    .inv-findings ul li::before { content: '→'; position: absolute; left: 0; color: var(--red); font-size: 0.7rem; }
+    .inv-findings.gold-border ul li::before { color: var(--gold); }
+    .inv-card-footer { margin-top: auto; padding-top: var(--s6); border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: var(--s4); flex-wrap: wrap; }
+    .inv-status { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-4); display: flex; align-items: center; gap: 6px; }
+    .inv-status::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); display: inline-block; }
+    .page-hero { background: var(--ink); padding: var(--s16) 0 var(--s12); }
+    .page-hero-label { font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); display: block; margin-bottom: var(--s3); }
+    .page-hero h1 { font-family: var(--serif); font-size: var(--t-3xl); color: var(--text-inv); margin: 0 0 var(--s4); }
+    .page-hero p { font-family: var(--sans); font-size: var(--t-sm); color: var(--text-inv-soft); max-width: 60ch; margin: 0; }
+    .section-divider { display: flex; align-items: center; gap: var(--s5); margin: var(--s12) 0 var(--s6); }
+    .section-divider-line { flex: 1; height: 1px; background: var(--border); }
+    .section-divider-label { font-family: var(--sans); font-size: var(--t-xs); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-3); white-space: nowrap; }
+  </style>
+</head>
+<body>
+
+<div data-include="header" data-path="/includes/header.html"></div>
+
+<div class="page-hero">
+  <div class="wrap">
+    <span class="page-hero-label">Insight Gaps Bureau</span>
+    <h1>Investigations</h1>
+    <p>Forensic open-source investigations into systemic failures in infrastructure, economics, and accountability. All evidence tier-rated. Public record.</p>
+  </div>
+</div>
+
+<main class="page-container" role="main">
+
+  <!-- NATIONAL -->
+  <div class="section-divider">
+    <div class="section-divider-line"></div>
+    <span class="section-divider-label">National · Bangladesh</span>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <div class="inv-grid">
+    <article class="inv-card">
+      <div class="inv-card-band"></div>
+      <div class="inv-card-body">
+        <span class="inv-scope national">National Investigation</span>
+        <h3>The Impunity Machine: Bangladesh's Crisis of Justice for Sexual Violence</h3>
+        <div class="inv-card-meta">
+          <span>BD-INV-002</span><span>·</span><span>Published March 2026</span><span>·</span><span>v1.6 Public Release</span>
+        </div>
+        <div class="inv-stats">
+          <div class="inv-stat"><div class="inv-stat-val">60+</div><div class="inv-stat-lbl">Sources</div></div>
+          <div class="inv-stat"><div class="inv-stat-val">0.46%</div><div class="inv-stat-lbl">OCC conviction rate</div></div>
+          <div class="inv-stat"><div class="inv-stat-val">66,711</div><div class="inv-stat-lbl">Women — 310 convictions</div></div>
+        </div>
+        <p>A forensic audit of Bangladesh's rape justice system. 310 convictions in 23 years for 66,711 women who reached a One-Stop Crisis Centre. Zero convictions in the first seven months of 2024. The report documents the structural chain producing this outcome: silence, shalish, forensic failure, delay, acquittal.</p>
+        <div class="inv-findings">
+          <div class="inv-findings-label">Primary Findings</div>
+          <ul>
+            <li><strong>Machine-level impunity:</strong> Fewer than 2 convictions per 10,000 sexual assaults on mid-scenario probability modelling.</li>
+            <li><strong>India recalculation:</strong> India's published 22.7% rate drops to ~2–3% on Bangladesh's denominator — the systems are structurally identical.</li>
+            <li><strong>Death penalty failure:</strong> Three mechanisms by which the 2020 amendment likely worsened, not improved, conviction rates.</li>
+          </ul>
+        </div>
+        <div class="inv-card-footer">
+          <span class="inv-status">Evidence Tier: Confirmed · Interactive Report</span>
+          <a href="/investigations/national/impunity-machine.html" class="btn-report">View Full Investigation →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="inv-card">
+      <div class="inv-card-band"></div>
+      <div class="inv-card-body">
+        <span class="inv-scope national">National Investigation</span>
+        <h3>Blood Routes: The Dhaka Bus Fatalities Investigation</h3>
+        <div class="inv-card-meta">
+          <span>BD-INV-001</span><span>·</span><span>Published Feb 2026</span><span>·</span><span>v1.0 Public Release</span>
+        </div>
+        <div class="inv-stats">
+          <div class="inv-stat"><div class="inv-stat-val">155+</div><div class="inv-stat-lbl">Sources</div></div>
+          <div class="inv-stat"><div class="inv-stat-val">5.8×</div><div class="inv-stat-lbl">Data undercount factor</div></div>
+          <div class="inv-stat"><div class="inv-stat-val">~31,578</div><div class="inv-stat-lbl">WHO est. deaths</div></div>
+        </div>
+        <p>An open-source forensic dataset on bus-related fatalities in Dhaka, the structural incentives of the waybill (Joma) system, and the accountability failures that perpetuate them. Six operators documented. Phoenix hypothesis: banned operators rebranding to evade enforcement.</p>
+        <div class="inv-findings">
+          <div class="inv-findings-label">Primary Findings</div>
+          <ul>
+            <li><strong>The Data Gap:</strong> Official figures undercount fatalities by approximately 5.8× vs WHO estimates.</li>
+            <li><strong>Phoenix Phenomenon:</strong> Banned operators (e.g. Suprobhat) rebrand as Victor Classic and Akash to bypass enforcement.</li>
+            <li><strong>Economic Incentives:</strong> The "Joma" system creates rational incentives for bus racing, directly causing pedestrian deaths.</li>
+          </ul>
+        </div>
+        <div class="inv-card-footer">
+          <span class="inv-status">Evidence Tier: Confirmed</span>
+          <a href="/investigations/national/blood-routes.html" class="btn-report">View Full Investigation →</a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="section-divider">
+    <div class="section-divider-line"></div>
+    <span class="section-divider-label">International · Global Economy</span>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <div class="inv-grid">
+    <article class="inv-card">
+      <div class="inv-card-band gold"></div>
+      <div class="inv-card-body">
+        <span class="inv-scope international">International Investigation</span>
+        <h3>The Hidden Tax of War: How Conflicts Raise Global Prices</h3>
+        <div class="inv-card-meta">
+          <span>INT-INV-001</span><span>·</span><span>Published 2025</span><span>·</span><span>Cross-conflict Data Study</span>
+        </div>
+        <div class="inv-stats">
+          <div class="inv-stat"><div class="inv-stat-val">4</div><div class="inv-stat-lbl">Conflicts analyzed</div></div>
+          <div class="inv-stat"><div class="inv-stat-val">WEI</div><div class="inv-stat-lbl">War Externality Index</div></div>
+          <div class="inv-stat"><div class="inv-stat-val">12–15pp</div><div class="inv-stat-lbl">Food inflation gap</div></div>
+        </div>
+        <p>How armed conflicts — Iraq 2003, Arab Spring 2011, Ukraine 2022, Red Sea 2023–24 — transmit economic shocks through energy, food, and shipping markets to countries that never participated. Introduces the War Externality Index (WEI) framework for comparative cross-conflict analysis.</p>
+        <div class="inv-findings gold-border">
+          <div class="inv-findings-label">Primary Findings</div>
+          <ul>
+            <li>One repeated transmission mechanism across multiple conflicts drives global price spillovers to uninvolved nations.</li>
+            <li>Import-dependent countries absorb disproportionate welfare losses — bottom-quintile households lose 3–5% of real income.</li>
+            <li>The WEI framework enables cross-conflict quantitative comparison of economic externalities.</li>
+          </ul>
+        </div>
+        <div class="inv-card-footer">
+          <span class="inv-status" style="color: var(--gold);">Cross-conflict Analysis · 2025</span>
+          <a href="/investigations/international/war-tax.html" class="btn-report" style="border-color: var(--gold); color: var(--gold);" onmouseover="this.style.background='var(--gold)';this.style.color='#fff';" onmouseout="this.style.background='transparent';this.style.color='var(--gold)';">View Full Investigation →</a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- Commission CTA -->
+  <div style="margin-top: var(--s16); background: var(--ink); padding: var(--s10); border-radius: var(--r); max-width: 640px;">
+    <p style="font-family: var(--sans); font-size: var(--t-xs); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: var(--s3);">Commissioned Investigations</p>
+    <p style="font-family: var(--sans); font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: var(--s5);">
+      Limited private investigative engagements accepted. Same forensic standards, evidence tiers, and methodology as public work.
+    </p>
+    <a href="mailto:insightgaps@gmail.com" style="font-family: var(--sans); font-size: 0.82rem; font-weight: 700; color: #fff; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 2px; text-decoration:none;" onmouseover="this.style.borderColor='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.3)'">insightgaps@gmail.com →</a>
+  </div>
+
+</main>
+
+<div data-include="footer" data-path="/includes/footer.html"></div>
+<script src="/js/components.js"></script>
+<script src="/js/ui.js"></script>
+
+</body>
+</html>
