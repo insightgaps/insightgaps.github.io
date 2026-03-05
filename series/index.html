@@ -16,53 +16,22 @@
     .series-hero h1 { font-family: var(--serif); font-size: var(--t-4xl); color: var(--text-inv); margin: 0 0 var(--s5); }
     .series-hero p { font-family: var(--sans); font-size: var(--t-sm); color: var(--text-inv-soft); max-width: 60ch; line-height: 1.7; margin: 0; }
     .dossier-list { display: flex; flex-direction: column; gap: var(--s8); margin-top: var(--s12); }
-    .dossier-row {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--r);
-      overflow: hidden;
-      transition: box-shadow 0.2s;
-    }
+    .dossier-row { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; transition: box-shadow 0.2s; }
     .dossier-row:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.07); }
-    .dossier-header {
-      padding: var(--s6) var(--s8);
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: var(--s4);
-      background: var(--cream);
-    }
+    .dossier-header { padding: var(--s6) var(--s8); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--s4); background: var(--cream); }
     .dossier-id-block { display: flex; align-items: center; gap: var(--s4); }
     .dossier-id { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 2px; }
-    .dossier-id.red { background: rgba(196,30,58,0.08); color: var(--red); border: 1px solid rgba(196,30,58,0.2); }
-    .dossier-id.gold { background: rgba(184,134,11,0.08); color: var(--gold); border: 1px solid rgba(184,134,11,0.2); }
     .dossier-pub { font-family: var(--mono); font-size: 0.6rem; color: var(--text-4); letter-spacing: 0.08em; }
     .dossier-body { padding: var(--s8); display: grid; grid-template-columns: 1fr auto; gap: var(--s8); align-items: start; }
     .dossier-title { font-family: var(--serif); font-size: var(--t-xl); color: var(--text-1); margin: 0 0 var(--s3); line-height: 1.2; }
     .dossier-summary { font-family: var(--sans); font-size: var(--t-sm); color: var(--text-2); line-height: 1.65; max-width: 65ch; margin: 0; }
-    .dossier-pages {
-      display: flex;
-      flex-direction: column;
-      gap: var(--s3);
-      min-width: 220px;
-    }
-    .dossier-page-link {
-      display: flex;
-      align-items: center;
-      gap: var(--s3);
-      padding: var(--s3) var(--s4);
-      border: 1px solid var(--border);
-      border-radius: var(--r);
-      text-decoration: none;
-      background: var(--white);
-      transition: border-color 0.15s, background 0.15s;
-    }
+    .dossier-pages { display: flex; flex-direction: column; gap: var(--s3); min-width: 220px; }
+    .dossier-page-link { display: flex; align-items: center; gap: var(--s3); padding: var(--s3) var(--s4); border: 1px solid var(--border); border-radius: var(--r); text-decoration: none; background: var(--white); transition: border-color 0.15s, background 0.15s; }
     .dossier-page-link:hover { border-color: var(--text-2); background: var(--cream); }
     .dossier-page-icon { font-family: var(--mono); font-size: 0.58rem; color: var(--text-4); min-width: 32px; text-align: center; text-transform: uppercase; }
     .dossier-page-label { font-family: var(--sans); font-size: var(--t-sm); color: var(--text-1); font-weight: 500; }
     .dossier-page-desc { font-family: var(--mono); font-size: 0.58rem; color: var(--text-4); }
+    @media (max-width: 640px) { .dossier-body { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -78,108 +47,18 @@
 </div>
 
 <main class="page-container" role="main">
-
-  <div class="dossier-list">
-
-    <!-- IMPUNITY MACHINE -->
-    <div class="dossier-row">
-      <div class="dossier-header">
-        <div class="dossier-id-block">
-          <span class="dossier-id red">BD-INV-002</span>
-          <span style="font-family: var(--mono); font-size: 0.6rem; color: var(--text-4);">Accountability &amp; Justice Program</span>
-        </div>
-        <span class="dossier-pub">Published March 2026 · v1.6</span>
-      </div>
-      <div class="dossier-body">
-        <div>
-          <h2 class="dossier-title">The Impunity Machine: Bangladesh's Rape Justice Crisis</h2>
-          <p class="dossier-summary">A forensic audit of Bangladesh's rape justice system. 310 convictions in 23 years for 66,711 women. Zero convictions in the first seven months of 2024. Documents the structural chain: silence, shalish, forensic failure, delay, acquittal.</p>
-        </div>
-        <div class="dossier-pages">
-          <a href="/investigations/national/impunity-machine.html" class="dossier-page-link">
-            <span class="dossier-page-icon">RPT</span>
-            <div><div class="dossier-page-label">Full Investigation</div><div class="dossier-page-desc">Interactive report · 60+ sources</div></div>
-          </a>
-          <a href="/series/impunity-machine/methodology.html" class="dossier-page-link">
-            <span class="dossier-page-icon">MTH</span>
-            <div><div class="dossier-page-label">Methodology</div><div class="dossier-page-desc">Evidence framework · source tiers</div></div>
-          </a>
-          <a href="/series/impunity-machine/data.html" class="dossier-page-link">
-            <span class="dossier-page-icon">DAT</span>
-            <div><div class="dossier-page-label">Data &amp; Evidence</div><div class="dossier-page-desc">OCC records · conviction dataset</div></div>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- BLOOD ROUTES -->
-    <div class="dossier-row">
-      <div class="dossier-header">
-        <div class="dossier-id-block">
-          <span class="dossier-id red">BD-INV-001</span>
-          <span style="font-family: var(--mono); font-size: 0.6rem; color: var(--text-4);">Accountability &amp; Justice Program</span>
-        </div>
-        <span class="dossier-pub">Published February 2026 · v1.0</span>
-      </div>
-      <div class="dossier-body">
-        <div>
-          <h2 class="dossier-title">Blood Routes: The Dhaka Bus Fatalities Investigation</h2>
-          <p class="dossier-summary">Forensic dataset on bus-related fatalities in Dhaka. Official figures undercount by 5.8×. Phoenix operators evade enforcement by rebranding. The Joma system creates rational economic incentives for bus racing.</p>
-        </div>
-        <div class="dossier-pages">
-          <a href="/investigations/national/blood-routes.html" class="dossier-page-link">
-            <span class="dossier-page-icon">RPT</span>
-            <div><div class="dossier-page-label">Full Investigation</div><div class="dossier-page-desc">Interactive report · 155+ sources</div></div>
-          </a>
-          <a href="/series/blood-routes/methodology.html" class="dossier-page-link">
-            <span class="dossier-page-icon">MTH</span>
-            <div><div class="dossier-page-label">Methodology</div><div class="dossier-page-desc">Evidence framework · source tiers</div></div>
-          </a>
-          <a href="/series/blood-routes/data.html" class="dossier-page-link">
-            <span class="dossier-page-icon">DAT</span>
-            <div><div class="dossier-page-label">Data &amp; Evidence</div><div class="dossier-page-desc">Operator database · fatality records</div></div>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- WAR TAX -->
-    <div class="dossier-row">
-      <div class="dossier-header">
-        <div class="dossier-id-block">
-          <span class="dossier-id gold">INT-INV-001</span>
-          <span style="font-family: var(--mono); font-size: 0.6rem; color: var(--text-4);">Conflict Economics Program</span>
-        </div>
-        <span class="dossier-pub">Published 2025 · Cross-Conflict Study</span>
-      </div>
-      <div class="dossier-body">
-        <div>
-          <h2 class="dossier-title">The Hidden Tax of War: How Conflicts Raise Global Prices</h2>
-          <p class="dossier-summary">How Iraq 2003, Arab Spring 2011, Ukraine 2022, and Red Sea 2023–24 transmit economic shocks through energy, food, and shipping to uninvolved countries. Introduces the War Externality Index (WEI) framework.</p>
-        </div>
-        <div class="dossier-pages">
-          <a href="/investigations/international/war-tax.html" class="dossier-page-link">
-            <span class="dossier-page-icon">RPT</span>
-            <div><div class="dossier-page-label">Full Investigation</div><div class="dossier-page-desc">Cross-conflict analysis · WEI framework</div></div>
-          </a>
-          <a href="/series/war-tax/methodology.html" class="dossier-page-link">
-            <span class="dossier-page-icon">MTH</span>
-            <div><div class="dossier-page-label">Methodology</div><div class="dossier-page-desc">WEI index · calculation basis</div></div>
-          </a>
-          <a href="/series/war-tax/data.html" class="dossier-page-link">
-            <span class="dossier-page-icon">DAT</span>
-            <div><div class="dossier-page-label">Data &amp; Evidence</div><div class="dossier-page-desc">Commodity prices · conflict timelines</div></div>
-          </a>
-        </div>
-      </div>
-    </div>
-
+  <div class="dossier-list" id="dossierList">
+    <!-- Populated by registry -->
   </div>
-
 </main>
 
 <div data-include="footer" data-path="/includes/footer.html"></div>
 <script src="/js/components.js"></script>
 <script src="/js/ui.js"></script>
+<script src="/js/registry.js"></script>
+<script>
+  document.getElementById('dossierList').innerHTML =
+    getPublished().map(renderDossierRow).join('');
+</script>
 </body>
 </html>
