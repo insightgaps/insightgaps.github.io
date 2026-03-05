@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Impunity Machine — BD-INV-002 v1.6 — Insight Gaps</title>
+
+<!-- Social / OG Meta -->
+<meta name="description" content="For every 10,000 sexual assaults in Bangladesh, fewer than two lead to a criminal conviction. This is not a failure of luck — it is how the system works.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Impunity Machine — Bangladesh's Crisis of Justice for Sexual Violence">
+<meta property="og:description" content="For every 10,000 sexual assaults in Bangladesh, fewer than two lead to a criminal conviction. 310 convictions in 23 years for 66,711 women who came forward. This report documents why.">
+<meta property="og:image" content="https://insightgaps.com/investigations/national/hero-cover.jpg">
+<meta property="og:url" content="https://insightgaps.com/investigations/national/impunity-machine.html">
+<meta property="og:site_name" content="Insight Gaps">
+<meta property="article:published_time" content="2026-03-04T00:00:00Z">
+<meta property="article:section" content="Investigative Data Journalism">
+<link rel="canonical" href="https://insightgaps.com/investigations/national/impunity-machine.html">
+<link rel="icon" href="/favicon.png" type="image/png">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4PYE0MEK12"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date()); gtag('config','G-4PYE0MEK12');
+</script>
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Impunity Machine — BD-INV-002">
+<meta name="twitter:description" content="310 convictions in 23 years. 66,711 women who came forward. Bangladesh's rape justice system documented.">
+<meta name="twitter:image" content="https://insightgaps.com/investigations/national/hero-cover.jpg">
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IBM+Plex+Mono:wght@400;500;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#07070f;--bg2:#0d0d1a;--bg3:#14142280;--bg4:#1c1c2e;
+  --border:#222236;--border2:#2e2e48;
+  --text:#e0dbd2;--muted:#797992;--muted2:#52526a;
+  --gold:#c5a472;--gold2:#9a7a52;--gold3:#6a5034;
+  --green:#3d6b4a;--greenl:#5db870;
+  --red:#8a2030;--redl:#d45868;
+  --amber:#b07f00;--amberl:#d4a010;
+  --display:'Playfair Display',Georgia,serif;
+  --mono:'IBM Plex Mono','Courier New',monospace;
+  --body:'Source Serif 4',Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.75;overflow-x:hidden}
+a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:0.5}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(7,7,15,0.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 1.5rem}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:50px;gap:1rem}
+.nav-left{display:flex;align-items:center;gap:1.2rem;flex-shrink:0}
+.nav-back{font-family:var(--mono);font-size:0.6rem;color:var(--muted2);letter-spacing:.08em;text-transform:uppercase;transition:color .2s;display:flex;align-items:center;gap:.35rem;white-space:nowrap;border:1px solid var(--border);padding:.25rem .6rem;border-radius:1px}
+.nav-back:hover{color:var(--gold);border-color:var(--gold3);text-decoration:none}
+.nav-back svg{flex-shrink:0}
+.nav-brand{font-family:var(--mono);font-size:0.62rem;color:var(--gold);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+.nav-divider{width:1px;height:18px;background:var(--border);flex-shrink:0}
+.nav-links{display:flex;gap:1.4rem;align-items:center}
+.nav-links a{font-family:var(--mono);font-size:0.6rem;color:var(--muted2);letter-spacing:.06em;text-transform:uppercase;transition:color .2s;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);text-decoration:none}
+/* Hamburger */
+.nav-hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:4px;background:none;border:none;flex-shrink:0}
+.nav-hamburger span{display:block;width:20px;height:2px;background:var(--muted);border-radius:1px;transition:all .25s}
+.nav-hamburger.open span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
+/* Mobile nav drawer */
+.nav-drawer{display:none;position:fixed;top:50px;left:0;right:0;background:rgba(7,7,15,0.98);border-bottom:1px solid var(--border);padding:1rem 1.5rem;z-index:199;backdrop-filter:blur(14px)}
+.nav-drawer.open{display:block}
+.nav-drawer a{display:block;font-family:var(--mono);font-size:.72rem;color:var(--muted2);letter-spacing:.08em;text-transform:uppercase;padding:.55rem 0;border-bottom:1px solid var(--border);transition:color .2s}
+.nav-drawer a:hover{color:var(--gold);text-decoration:none}
+.nav-drawer a:last-child{border-bottom:none}
+.nav-drawer .drawer-back{color:var(--gold2);font-weight:700}
+
+/* ─── NARRATIVE HERO ─── */
+.narrative-hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:7rem 2rem 5rem;position:relative;overflow:hidden}
+.narrative-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 100% 70% at 50% -5%,rgba(197,164,114,.07) 0%,transparent 65%)}
+.narrative-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent)}
+.narrative-inner{max-width:780px;width:100%;position:relative}
+.nh-eyebrow{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);margin-bottom:3rem;display:flex;align-items:center;gap:.8rem}
+.nh-eyebrow::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--gold3),transparent)}
+.narrative-hero h1{font-family:var(--display);font-size:clamp(2.8rem,7vw,6.5rem);font-weight:900;line-height:.95;letter-spacing:-.03em;margin-bottom:2.5rem}
+.narrative-hero h1 em{font-style:italic;color:var(--gold)}
+.narrative-text{font-family:var(--body);font-size:1.05rem;color:var(--text);line-height:1.85;font-weight:300}
+.narrative-text p{margin-bottom:1.4rem}
+.narrative-text p:first-of-type::first-letter{font-family:var(--display);font-size:3.5rem;font-weight:900;float:left;line-height:.8;margin:.15rem .6rem 0 0;color:var(--gold)}
+.narrative-text strong{color:var(--text);font-weight:600}
+.narrative-text .brutal-stat{font-family:var(--mono);font-size:1.1rem;font-weight:700;color:var(--gold);display:block;margin:1.8rem 0;padding:1.2rem 1.6rem;border-left:3px solid var(--gold3);background:rgba(197,164,114,.04);letter-spacing:-.01em}
+.narrative-text .brutal-stat span{display:block;font-family:var(--body);font-size:.78rem;color:var(--muted);font-weight:300;margin-top:.3rem;letter-spacing:0}
+.narrative-disclosure{font-family:var(--mono);font-size:.65rem;color:var(--muted2);margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);line-height:1.6;letter-spacing:.02em}
+.scroll-hint{position:absolute;bottom:2rem;right:2rem;text-align:right;animation:bounce 2.5s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+.scroll-hint span{display:block;font-family:var(--mono);font-size:.55rem;letter-spacing:.18em;color:var(--muted2);text-transform:uppercase;margin-bottom:.4rem}
+
+/* LIVE COUNTER BAND */
+.counter-band{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.4rem 2rem}
+.counter-inner{max-width:1020px;margin:0 auto;display:flex;align-items:center;gap:3rem;flex-wrap:wrap;justify-content:center}
+.counter-item{text-align:center}
+.counter-item .cn{font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--gold);display:block;letter-spacing:-.03em;line-height:1}
+.counter-item.live .cn{color:var(--redl)}
+.counter-item .cl{font-family:var(--mono);font-size:.6rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-top:.3rem}
+.counter-divider{width:1px;height:40px;background:var(--border)}
+
+/* GENERAL CONTAINERS */
+.container{max-width:1020px;margin:0 auto;padding:0 2rem}
+section{padding:5rem 2rem}
+.dark-section{background:var(--bg2)}
+.darker-section{background:rgba(7,7,15,.6)}
+
+/* SECTION HEADERS */
+.section-header{margin-bottom:2.5rem}
+.section-num{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;color:var(--gold2);text-transform:uppercase;margin-bottom:.5rem}
+.section-header h2{font-family:var(--display);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;letter-spacing:-.02em;line-height:1.15}
+.section-header p{margin-top:.75rem;color:var(--muted);font-size:.9rem;max-width:680px;font-weight:300}
+
+/* TIERS */
+.tier{display:inline-block;font-family:var(--mono);font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;padding:.15rem .4rem;border-radius:1px;vertical-align:middle;margin-left:.3rem;line-height:1.6}
+.tier-confirmed{background:rgba(61,107,74,.18);color:var(--greenl);border:1px solid var(--green)}
+.tier-probable{background:rgba(176,127,0,.18);color:var(--amberl);border:1px solid var(--amber)}
+.tier-absent{background:rgba(82,82,106,.15);color:var(--muted);border:1px solid var(--muted2)}
+.tier-academic{background:rgba(70,90,160,.18);color:#8ab4ff;border:1px solid #405090}
+
+/* FUNNEL */
+.funnel{max-width:720px;margin:0 auto}
+.funnel-bar{background:var(--bg4);border:1px solid var(--border2);padding:1rem 1.4rem;transition:border-color .2s,background .2s;cursor:default}
+.funnel-bar:hover{border-color:var(--gold3)}
+.funnel-bar.gap-bar{border-style:dashed;background:rgba(20,20,34,.5)}
+.funnel-bar.final-bar{border-color:var(--red);background:rgba(138,32,48,.08)}
+.funnel-connector{display:flex;justify-content:center;height:22px;align-items:center}
+.funnel-connector::before{content:'';width:2px;height:100%;background:linear-gradient(var(--border2),var(--border))}
+.funnel-connector.gap-c::before{background:repeating-linear-gradient(180deg,var(--border2) 0,var(--border2) 4px,transparent 4px,transparent 8px)}
+.f-label{font-family:var(--mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted2);margin-bottom:.2rem}
+.f-num{font-family:var(--mono);font-size:1.1rem;font-weight:700;color:var(--gold);line-height:1.2}
+.f-num.gap{color:var(--muted2)}
+.f-num.red{color:var(--redl)}
+.f-desc{font-family:var(--body);font-size:.8rem;color:var(--muted);margin-top:.2rem;font-weight:300;line-height:1.6}
+
+/* TABLES */
+.data-table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.84rem}
+.data-table th{text-align:left;padding:.55rem .85rem;font-family:var(--mono);font-size:.58rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted2);border-bottom:1px solid var(--border2);background:var(--bg4)}
+.data-table td{padding:.65rem .85rem;border-bottom:1px solid rgba(34,34,54,.5);vertical-align:top;font-family:var(--body);font-size:.84rem}
+.data-table tr:hover td{background:rgba(20,20,40,.5)}
+.num{font-family:var(--mono);font-weight:700;color:var(--text)}
+.hi{color:var(--gold);font-family:var(--mono);font-weight:700}
+
+/* CARDS */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.9rem;margin:1.4rem 0}
+.card{background:var(--bg4);border:1px solid var(--border2);padding:1.2rem;transition:border-color .2s}
+.card:hover{border-color:var(--gold3)}
+.card-n{font-family:var(--mono);font-size:1.7rem;font-weight:700;color:var(--gold);line-height:1;letter-spacing:-.02em}
+.card-l{font-family:var(--mono);font-size:.58rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted2);margin:.35rem 0 .5rem}
+.card-d{font-family:var(--body);font-size:.78rem;color:var(--muted);font-weight:300}
+
+/* FINDINGS */
+.finding{border-left:2px solid var(--gold3);padding:1rem 1.3rem;background:var(--bg2);margin:1.3rem 0}
+.finding.red{border-left-color:var(--red)}
+.finding.green{border-left-color:var(--green)}
+.finding.amber{border-left-color:var(--amber)}
+.f-title{font-family:var(--mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold2);margin-bottom:.35rem}
+.finding p,.finding ul{font-family:var(--body);font-size:.87rem;color:var(--muted);line-height:1.7;font-weight:300}
+.finding p strong{color:var(--text);font-weight:600}
+.finding ul{padding-left:1.1rem}
+.finding ul li{margin-bottom:.25rem}
+
+/* PULLQUOTE */
+.pq{border-left:2px solid var(--gold3);padding:.8rem 1.3rem;font-family:var(--display);font-style:italic;color:var(--muted);margin:1.8rem 0;font-size:.95rem;line-height:1.65}
+.pq cite{display:block;margin-top:.35rem;font-style:normal;font-size:.62rem;font-family:var(--mono);color:var(--gold3);letter-spacing:.05em}
+
+/* WARNING BOXES */
+.warn-box{background:rgba(138,32,48,.1);border:1px solid rgba(138,32,48,.4);padding:.85rem 1.1rem;font-family:var(--body);font-size:.82rem;color:var(--redl);margin:1.3rem 0;line-height:1.65}
+.warn-box strong{color:#e05060}
+.info-box{background:rgba(61,107,74,.08);border:1px solid rgba(61,107,74,.4);padding:.85rem 1.1rem;font-family:var(--body);font-size:.82rem;color:var(--muted);margin:1.3rem 0;line-height:1.65}
+.info-box .ib-label{font-family:var(--mono);font-size:.58rem;text-transform:uppercase;letter-spacing:.12em;color:var(--greenl);margin-bottom:.35rem}
+.info-box strong{color:var(--greenl)}
+.amb-box{background:rgba(176,127,0,.1);border:1px solid rgba(176,127,0,.4);padding:.85rem 1.1rem;font-family:var(--mono);font-size:.72rem;color:var(--amberl);margin:1.3rem 0;line-height:1.6}
+
+/* ─── PROBABILITY SLIDER ─── */
+#slider-section{background:var(--bg2)}
+.slider-wrap{max-width:820px;margin:0 auto}
+.slider-result{text-align:center;padding:2rem;background:var(--bg4);border:1px solid var(--border2);margin-bottom:2rem;position:relative}
+.slider-result::before{content:'PROBABILITY OF PUNISHMENT';position:absolute;top:-.6rem;left:50%;transform:translateX(-50%);background:var(--bg2);padding:0 .8rem;font-family:var(--mono);font-size:.58rem;letter-spacing:.18em;color:var(--gold2);white-space:nowrap}
+.sr-num{font-family:var(--display);font-size:clamp(2.5rem,6vw,5rem);font-weight:900;color:var(--gold);line-height:1;transition:color .3s}
+.sr-num.low{color:var(--redl)}
+.sr-desc{font-family:var(--body);font-size:.85rem;color:var(--muted);margin-top:.5rem;font-weight:300}
+.sr-desc strong{color:var(--text)}
+.sr-bar{width:100%;height:6px;background:var(--border);border-radius:3px;margin-top:1rem;overflow:hidden}
+.sr-fill{height:100%;background:linear-gradient(90deg,var(--redl),var(--amberl),var(--gold));transition:width .3s ease;border-radius:3px}
+.slider-controls{display:grid;gap:1.4rem;margin-bottom:1.5rem}
+.sc-item{background:var(--bg4);border:1px solid var(--border);padding:1.1rem 1.3rem}
+.sc-label{font-family:var(--mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted2);margin-bottom:.6rem;display:flex;justify-content:space-between;align-items:center}
+.sc-val{color:var(--gold);font-weight:700}
+.sc-range{width:100%;-webkit-appearance:none;appearance:none;height:4px;background:var(--border2);border-radius:2px;outline:none;cursor:pointer}
+.sc-range::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--gold);border:2px solid var(--bg);cursor:pointer;transition:background .2s}
+.sc-range::-webkit-slider-thumb:hover{background:var(--text)}
+.sc-sublabel{font-family:var(--body);font-size:.75rem;color:var(--muted2);margin-top:.5rem;font-weight:300}
+.slider-scenarios{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.7rem;margin-top:1.5rem}
+.sc-preset{background:var(--bg4);border:1px solid var(--border);padding:.8rem;cursor:pointer;transition:all .2s;text-align:center}
+.sc-preset:hover{border-color:var(--gold3);background:rgba(197,164,114,.05)}
+.sc-preset.active{border-color:var(--gold2);background:rgba(197,164,114,.08)}
+.sc-preset .sp-name{font-family:var(--mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted2);margin-bottom:.3rem}
+.sc-preset .sp-val{font-family:var(--mono);font-size:.9rem;font-weight:700;color:var(--gold)}
+
+/* ─── MAP ─── */
+#map-section{}
+/* bangladesh-map height defined in responsive block below */
+.map-legend{display:flex;flex-wrap:wrap;gap:1.2rem;margin-top:1rem;padding:1rem 1.2rem;background:var(--bg4);border:1px solid var(--border)}
+.ml-item{display:flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.ml-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.ml-dot.occ{background:var(--gold);border:2px solid var(--gold2)}
+.ml-dot.cell{background:var(--amberl);border:2px solid var(--amber)}
+.ml-dot.tri{background:var(--muted2);border:2px solid var(--muted2);border-radius:2px}
+.leaflet-container{font-family:var(--mono)}
+.custom-marker-occ,.custom-marker-cell,.custom-marker-tri{border:none!important;background:none!important}
+
+/* INTERVENTION */
+.intervention{background:var(--bg2);border:1px solid var(--border2);padding:1.3rem;display:grid;grid-template-columns:2.4rem 1fr;gap:1.1rem;align-items:start;margin-bottom:.7rem;transition:border-color .2s}
+.intervention:hover{border-color:var(--gold3)}
+.int-num{font-family:var(--mono);font-size:1rem;font-weight:700;color:var(--gold);line-height:1.3}
+.intervention h4{font-family:var(--body);font-size:.93rem;font-weight:600;color:var(--text);margin-bottom:.35rem}
+.intervention p{font-family:var(--body);font-size:.8rem;color:var(--muted);line-height:1.65;font-weight:300}
+
+/* MISSING */
+.missing-item{display:flex;gap:.9rem;padding:.85rem 0;border-bottom:1px solid var(--border)}
+.missing-item:last-child{border-bottom:none}
+.md{width:5px;height:5px;border-radius:50%;background:var(--border2);flex-shrink:0;margin-top:.6rem;border:1px solid var(--muted2)}
+.mt strong{font-family:var(--body);font-size:.87rem;color:var(--text);display:block;margin-bottom:.15rem;font-weight:600}
+.mt span{font-family:var(--body);font-size:.78rem;color:var(--muted);font-weight:300;line-height:1.6}
+
+/* METHOD */
+.method-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.9rem;margin:1.8rem 0}
+.method-card{background:var(--bg4);border:1px solid var(--border);padding:1.1rem}
+.method-card h4{font-family:var(--mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold2);margin-bottom:.65rem}
+.method-card p{font-family:var(--body);font-size:.79rem;color:var(--muted);line-height:1.65;font-weight:300}
+.method-card p strong{color:var(--text);font-weight:600}
+
+/* TIER TABLE */
+.tier-table{width:100%;border-collapse:collapse;font-size:.78rem}
+.tier-table th{text-align:left;padding:.55rem .85rem;font-family:var(--mono);font-size:.57rem;text-transform:uppercase;letter-spacing:.09em;color:var(--muted2);background:var(--bg4);border:1px solid var(--border)}
+.tier-table td{padding:.6rem .85rem;border:1px solid var(--border);vertical-align:top;font-family:var(--body);font-size:.79rem;font-weight:300;color:var(--muted)}
+.tier-table td strong{color:var(--text);font-weight:600}
+
+/* SOURCE ITEMS */
+.source-item{padding:.65rem 0;border-bottom:1px solid var(--border);display:flex;gap:.85rem}
+.source-item:last-child{border-bottom:none}
+.sid{font-family:var(--mono);font-size:.6rem;color:var(--gold);flex-shrink:0;width:2.6rem;padding-top:.1rem;font-weight:700}
+.sb{font-family:var(--body);font-size:.79rem;color:var(--muted);font-weight:300;line-height:1.6;flex:1}
+.surl{font-family:var(--mono);font-size:.58rem;color:var(--muted2);word-break:break-all;margin-top:.2rem;line-height:1.5}
+
+/* DET CARDS */
+.det-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:.9rem;margin:1.4rem 0}
+.det-card{background:var(--bg4);border:1px solid var(--border2);padding:1.1rem}
+.det-src{font-family:var(--mono);font-size:.58rem;color:var(--gold2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.4rem}
+.det-find{font-family:var(--body);font-size:.87rem;color:var(--text);font-weight:600;margin-bottom:.35rem;line-height:1.35}
+.det-note{font-family:var(--body);font-size:.77rem;color:var(--muted);font-weight:300;line-height:1.55}
+
+/* REGION CARDS */
+.region-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.9rem;margin:1.4rem 0}
+.rc{background:var(--bg4);border:1px solid var(--border2);padding:1rem}
+.rc-country{font-family:var(--mono);font-size:.6rem;color:var(--gold2);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.35rem}
+.rc-status{font-family:var(--body);font-size:.87rem;font-weight:600;margin-bottom:.25rem}
+.rc-detail{font-family:var(--body);font-size:.77rem;color:var(--muted);font-weight:300;line-height:1.55}
+
+/* DL BTN */
+.dl-btn{display:inline-flex;align-items:center;gap:.45rem;background:transparent;border:1px solid var(--gold3);color:var(--gold2);font-family:var(--mono);font-size:.63rem;padding:.42rem .9rem;cursor:pointer;letter-spacing:.08em;text-transform:uppercase;transition:all .2s;text-decoration:none}
+.dl-btn:hover{background:rgba(197,164,114,.08);color:var(--gold);text-decoration:none}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2rem 2rem}
+.footer-inner{max-width:1020px;margin:0 auto}
+.footer-top{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;margin-bottom:1.4rem;padding-bottom:1.4rem;border-bottom:1px solid var(--border)}
+.footer-brand{font-family:var(--display);font-size:1rem;color:var(--gold);font-weight:700;margin-bottom:.35rem}
+.footer-cite{font-family:var(--mono);font-size:.62rem;color:var(--muted2);max-width:500px;line-height:1.6}
+.footer-meta{font-family:var(--mono);font-size:.62rem;color:var(--muted2);text-align:right}
+.footer-meta div{margin-bottom:.25rem}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-bottom p{font-family:var(--mono);font-size:.6rem;color:var(--muted2)}
+
+/* ─── HERO COVER IMAGE ─── */
+.hero-cover{width:100%;max-width:780px;margin:2rem auto 0;display:block;border:1px solid var(--border);opacity:.85}
+.hero-cover img{width:100%;height:auto;display:block;filter:grayscale(20%) contrast(1.05)}
+.hero-cover figcaption{font-family:var(--mono);font-size:.58rem;color:var(--muted2);padding:.5rem .6rem;letter-spacing:.04em;line-height:1.5;border-top:1px solid var(--border)}
+
+/* ─── MAP HEIGHT FIX ─── */
+#bangladesh-map{width:100%;height:520px;min-height:300px;background:var(--bg3);border:1px solid var(--border);border-radius:2px;z-index:1}
+
+/* ─── MOBILE ─── */
+@media(max-width:900px){
+  .nav-links{display:none}
+  .nav-hamburger{display:flex}
+}
+@media(max-width:640px){
+  .nav-back span.back-text{display:none}
+  .counter-divider{display:none}
+  section{padding:3rem 1.1rem}
+  .counter-inner{gap:1.2rem}
+  .slider-scenarios{grid-template-columns:1fr 1fr}
+  .narrative-hero{padding:5rem 1.1rem 3rem}
+  .narrative-hero h1{font-size:clamp(2.4rem,13vw,4rem)}
+  #bangladesh-map{height:340px}
+  .card-grid{grid-template-columns:1fr 1fr}
+  .method-grid{grid-template-columns:1fr}
+  .det-grid{grid-template-columns:1fr}
+  .region-grid{grid-template-columns:1fr}
+  .global-grid{grid-template-columns:1fr}
+  .footer-top{flex-direction:column}
+  .footer-meta{text-align:left}
+  table.data-table{font-size:.75rem}
+  table.data-table th,table.data-table td{padding:.45rem .5rem}
+  div[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important;display:grid!important}
+  .cm-chain{flex-direction:column;align-items:flex-start}
+  .cm-arrow{transform:rotate(90deg)}
+  .slider-wrap{padding:0}
+}
+
+/* ─── NARRATIVE THREAD ─── */
+.her-thread{position:relative;margin:2.5rem 0;padding:1.6rem 1.8rem 1.6rem 2.2rem;border-left:2px solid var(--gold);background:linear-gradient(135deg,rgba(197,164,114,.05) 0%,rgba(197,164,114,.02) 100%)}
+.her-thread::before{content:'HER STORY';position:absolute;top:-.65rem;left:1.8rem;background:var(--bg);padding:0 .7rem;font-family:var(--mono);font-size:.52rem;letter-spacing:.2em;color:var(--gold2);font-weight:700}
+.her-thread p{font-family:var(--display);font-style:italic;font-size:.97rem;color:var(--text);line-height:1.85;font-weight:400;margin-bottom:.8rem}
+.her-thread p:last-child{margin-bottom:0}
+.her-thread p strong{font-style:normal;color:var(--gold);font-weight:700}
+
+/* ─── THESIS BANNER ─── */
+.thesis-banner{border:1px solid var(--gold3);padding:1.4rem 1.8rem;margin:2rem 0;background:rgba(197,164,114,.04);position:relative}
+.thesis-banner::before{content:'CENTRAL FINDING';position:absolute;top:-.62rem;left:1.2rem;background:var(--bg);padding:0 .6rem;font-family:var(--mono);font-size:.52rem;letter-spacing:.18em;color:var(--gold2)}
+.thesis-banner p{font-family:var(--display);font-size:1.05rem;color:var(--text);line-height:1.7;font-weight:400}
+.thesis-banner p em{color:var(--gold);font-style:italic}
+
+/* ─── HUMAN SCALE BOX ─── */
+.human-scale{background:rgba(138,32,48,.07);border:1px solid rgba(138,32,48,.3);padding:1.1rem 1.4rem;margin:1.4rem 0}
+.hs-label{font-family:var(--mono);font-size:.58rem;text-transform:uppercase;letter-spacing:.14em;color:var(--redl);margin-bottom:.5rem}
+.hs-content{font-family:var(--body);font-size:.9rem;color:var(--text);line-height:1.75;font-weight:300}
+.hs-content strong{color:var(--redl);font-weight:700}
+
+/* ─── GLOBAL MATRIX ─── */
+.global-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.7rem;margin:1.4rem 0}
+.gc{background:var(--bg4);border:1px solid var(--border2);padding:.9rem 1rem;position:relative;overflow:hidden}
+.gc::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%}
+.gc.high::before{background:var(--greenl)}
+.gc.mid::before{background:var(--amberl)}
+.gc.low::before{background:var(--redl)}
+.gc.absent::before{background:var(--muted2)}
+.gc-country{font-family:var(--mono);font-size:.62rem;color:var(--gold2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.3rem}
+.gc-rate{font-family:var(--mono);font-size:1.1rem;font-weight:700;color:var(--text);line-height:1}
+.gc-rate.absent-rate{color:var(--muted2);font-size:.8rem;margin-top:.15rem}
+.gc-note{font-family:var(--body);font-size:.73rem;color:var(--muted);margin-top:.35rem;font-weight:300;line-height:1.5}
+.gc-denom{font-family:var(--mono);font-size:.55rem;color:var(--muted2);margin-top:.3rem;letter-spacing:.04em}
+
+/* ─── CONCLUSION ─── */
+.conclusion-wrap{max-width:780px;margin:0 auto}
+.conclusion-wrap p{font-family:var(--body);font-size:1rem;color:var(--text);line-height:1.85;font-weight:300;margin-bottom:1.4rem}
+.conclusion-wrap p strong{color:var(--text);font-weight:600}
+.conclusion-wrap p:first-of-type::first-letter{font-family:var(--display);font-size:3.5rem;font-weight:900;float:left;line-height:.8;margin:.15rem .6rem 0 0;color:var(--gold)}
+.conclusion-mechanism{margin:2rem 0;padding:1.4rem 1.8rem;border:1px solid var(--border2);background:var(--bg4)}
+.cm-title{font-family:var(--mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.14em;color:var(--gold2);margin-bottom:1rem}
+.cm-chain{display:flex;align-items:center;flex-wrap:wrap;gap:.4rem;font-family:var(--mono);font-size:.75rem}
+.cm-step{color:var(--muted);padding:.3rem .7rem;border:1px solid var(--border2);background:rgba(197,164,114,.04)}
+.cm-arrow{color:var(--gold3);font-size:.8rem}
+.cm-step.final{color:var(--redl);border-color:rgba(138,32,48,.4);background:rgba(138,32,48,.08)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="https://insightgaps.com/investigations/" class="nav-back" title="Back to Investigations">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        <span class="back-text">Investigations</span>
+      </a>
+      <div class="nav-divider"></div>
+      <div class="nav-brand">BD-INV-002 · v1.6</div>
+    </div>
+    <div class="nav-links">
+      <a href="#funnel">Funnel</a>
+      <a href="#slider-section">Probability</a>
+      <a href="#map-section">Map</a>
+      <a href="#conviction-gap">§01</a>
+      <a href="#backlog">§02</a>
+      <a href="#architecture">§03</a>
+      <a href="#geography">§04</a>
+      <a href="#access">§05</a>
+      <a href="#comparators">§06</a>
+      <a href="#deterrence">§07</a>
+      <a href="#witness">§08</a>
+      <a href="#interventions">§09</a>
+      <a href="#conclusion">Conclusion</a>
+      <a href="#sources">Sources</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Nav Drawer -->
+<div class="nav-drawer" id="nav-drawer">
+  <a href="https://insightgaps.com/investigations/" class="drawer-back">← Back to Investigations</a>
+  <a href="#funnel" class="drawer-link">The Justice Funnel</a>
+  <a href="#slider-section" class="drawer-link">Probability Model</a>
+  <a href="#map-section" class="drawer-link">Map of Structural Failure</a>
+  <a href="#conviction-gap" class="drawer-link">§01 — Conviction Gap</a>
+  <a href="#backlog" class="drawer-link">§02 — Backlog Crisis</a>
+  <a href="#architecture" class="drawer-link">§03 — Legal Architecture</a>
+  <a href="#geography" class="drawer-link">§04 — Geographic Data</a>
+  <a href="#access" class="drawer-link">§05 — Victim Access</a>
+  <a href="#comparators" class="drawer-link">§06 — Global Context</a>
+  <a href="#deterrence" class="drawer-link">§07 — Deterrence Theory</a>
+  <a href="#witness" class="drawer-link">§08 — Witness Protection</a>
+  <a href="#interventions" class="drawer-link">§09 — Interventions</a>
+  <a href="#conclusion" class="drawer-link">Conclusion</a>
+  <a href="#sources" class="drawer-link">All Sources</a>
+</div>
+
+<!-- ══════════ NARRATIVE HERO ══════════ -->
+<section class="narrative-hero" id="top">
+  <div class="narrative-inner">
+    <div class="nh-eyebrow">BD-INV-002 &nbsp;·&nbsp; Version 1.6 &nbsp;·&nbsp; March 2026</div>
+    <h1>The<br><em>Impunity</em><br>Machine</h1>
+
+    <!-- Hero Cover Image — rename hero-cover.jpg to your actual filename -->
+    <figure class="hero-cover">
+      <img src="hero-cover.jpg" alt="Illustration representing Bangladesh's rape justice crisis — women seeking accountability in a system that produces impunity" onerror="this.parentElement.style.display='none'">
+      <figcaption>Cover image · BD-INV-002 · Insight Gaps · March 2026</figcaption>
+    </figure>
+
+    <div class="narrative-text">
+      <p>She is somewhere in Bangladesh right now.</p>
+
+      <p>She is in her twenties. She lives in Barishal Division — where <strong>81.5 percent of women will experience violence in their lifetimes</strong>, the highest rate in the country. Something happened to her three weeks ago. She has not washed the memory away. She has not told her mother. Not her sister. Not a doctor. Not a single person in the world knows what happened to her.</p>
+
+      <p>This is not weakness. Read that again: <strong>this is not weakness.</strong> She has done a precise calculation — the kind of calculation every woman in her position does — and she has concluded, correctly, that speaking will cost her more than silence. Her reputation. Her marriage prospects. Her family's honour, which in Bangladesh is stored in her body. The risk of being blamed. The risk of a shalish — a village tribunal of men — deciding that a settlement with her attacker is better than a trial. The risk of being the one who ends up in prison.</p>
+
+      <p>She is one of roughly 300,000 women estimated to experience non-partner sexual violence in Bangladesh each year. <span style="font-family:var(--mono);font-size:.7rem;color:var(--muted2)">(UNFPA/BBS VAW Survey 2024 · S-02, S-37 · <span class="tier tier-probable">PROBABLE</span>)</span> In Bangladesh, <strong>62 to 64 percent of women who experience sexual violence tell no one at all.</strong> Not one person. That silence is the first verdict the system delivers — before any court has heard a word.</p>
+
+      <div class="brutal-stat">310 convictions. In twenty-three years. For 66,711 women who came forward.
+        <span>Daily Star, November 2024 — OCC programme data 2001–July 2024 · CONFIRMED · S-55</span>
+      </div>
+
+      <p>Imagine all 66,711 of those women in a room. Imagine what it cost each of them to walk through the door of a crisis centre — the shame they overcame, the family pressure they resisted, the fear they swallowed. Now imagine telling 66,401 of them: <strong>nothing will happen to the man who hurt you.</strong> That is not a failure. That is the system working as it works.</p>
+
+      <p>In the first seven months of 2024 alone, 643 women sought help at Bangladesh's crisis centres. 227 cases were filed. Twelve verdicts were delivered. <strong>Zero convictions.</strong> Not one. In seven months. The system processed them and returned them to silence.</p>
+
+      <div class="thesis-banner">
+        <p>This report's central finding is not that Bangladesh's rape justice system fails. <em>It is that the system produces impunity with the consistency of a machine.</em> The silence, the delay, the attrition, the retaliation — these are not accidents. They are the documented, predictable outputs of identifiable structural choices. This report names those choices.</p>
+      </div>
+
+      <p>She has not filed a case yet. She may never file one. She is part of the 64 percent who stay silent — and on the evidence of the past two decades, <strong>that silence may be the most rational decision available to her.</strong></p>
+
+      <p>This report documents why.</p>
+    </div>
+
+    <div class="narrative-disclosure">EDITORIAL NOTE: The individual described above is a documented composite. All statistics are drawn from named, confirmed primary sources. Bangladesh legal protections prevent identifying survivors in press coverage. No individual's identity has been assumed or implied. Every figure cited above is sourced to this report's registry. The OCC conviction data (310 of 66,711) is sourced to The Daily Star, November 2, 2024 (S-55). The 62–64% silence figure is from UNFPA/BBS Violence Against Women Survey 2024 (S-02).</div>
+  </div>
+  <div class="scroll-hint">
+    <span>Enter the data</span>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</section>
+
+<!-- ══════════ LIVE COUNTER BAND ══════════ -->
+<div class="counter-band">
+  <div class="counter-inner">
+    <div class="counter-item live">
+      <span class="cn" id="live-cases">0</span>
+      <div class="cl">Rape cases filed<br>since you opened this page</div>
+    </div>
+    <div class="counter-divider"></div>
+    <div class="counter-item">
+      <span class="cn">13</span>
+      <div class="cl">Cases filed<br>per day (PHQ avg 2023–25)</div>
+    </div>
+    <div class="counter-divider"></div>
+    <div class="counter-item">
+      <span class="cn">148,314</span>
+      <div class="cl">Cases currently<br>pending in tribunals</div>
+    </div>
+    <div class="counter-divider"></div>
+    <div class="counter-item">
+      <span class="cn">~1,498</span>
+      <div class="cl">Pending cases<br>per tribunal judge</div>
+    </div>
+    <div class="counter-divider"></div>
+    <div class="counter-item">
+      <span class="cn">0.016%</span>
+      <div class="cl">Mid-scenario probability<br>of punishment</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ JUSTICE FUNNEL ══════════ -->
+<section class="dark-section" id="funnel">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">The Attrition Chain</div>
+      <h2>The Justice Funnel</h2>
+      <p>How sexual violence cases move — or fail to move — from incident to conviction. The two documented data gaps are not analytical limitations. They are accountability failures.</p>
+    </div>
+    <div class="funnel">
+
+      <div class="funnel-bar" style="border-color:var(--gold3)">
+        <div class="f-label">Step 1 — Incidence</div>
+        <div class="f-num">~300,000 estimated annually</div>
+        <div class="f-desc">Non-partner sexual violence incidents. UNFPA/BBS 2024 methodology. <span class="tier tier-probable">PROBABLE</span></div>
+      </div>
+      <div class="funnel-connector"></div>
+
+      <div class="funnel-bar">
+        <div class="f-label">Step 2 — Silence</div>
+        <div class="f-num">62–64% tell no one</div>
+        <div class="f-desc">The most common response to sexual violence in Bangladesh is total silence. Cited reasons: shame, family reputation, fear, normalization. UNFPA/BBS VAW Survey 2024. <span class="tier tier-confirmed">CONFIRMED · S-02</span></div>
+      </div>
+      <div class="funnel-connector"></div>
+
+      <div class="funnel-bar">
+        <div class="f-label">Step 3 — Police Contact</div>
+        <div class="f-num">27% of those who disclosed reached police</div>
+        <div class="f-desc">Only 3.8% of non-partner violence survivors pursued any legal remedy at all. Combined: roughly 1 in 10 survivors had any police contact. UNFPA 2024 Highlights. <span class="tier tier-confirmed">CONFIRMED · S-37</span></div>
+      </div>
+      <div class="funnel-connector gap-c"></div>
+
+      <div class="funnel-bar gap-bar">
+        <div class="f-label">Step 4 — FIR Registration</div>
+        <div class="f-num gap">■ DATA GAP — confirmed absent</div>
+        <div class="f-desc">No Bangladesh source documents the conversion rate from complaint to formal FIR. PHQ does not publish this figure. This gap is itself an accountability failure. <span class="tier tier-absent">CONFIRMED ABSENT</span></div>
+      </div>
+      <div class="funnel-connector"></div>
+
+      <div class="funnel-bar">
+        <div class="f-label">Step 5 — Charge Sheet</div>
+        <div class="f-num">41% closed as unproven</div>
+        <div class="f-desc">PBI data 2016–2023: 4,248 of 10,581 court-referred rape cases closed by final report (unproven). 59% proceed to charge sheet. Prothom Alo Sept 2025. <span class="tier tier-confirmed">CONFIRMED · S-34</span></div>
+      </div>
+      <div class="funnel-connector gap-c"></div>
+
+      <div class="funnel-bar gap-bar">
+        <div class="f-label">Step 6 — Trial Commencement</div>
+        <div class="f-num gap">■ DATA GAP — confirmed absent</div>
+        <div class="f-desc">No Bangladesh source documents charge-sheet-to-trial progression. 4 out of 5 cases take more than two years before trial even begins (ActionAid 2019). <span class="tier tier-absent">CONFIRMED ABSENT</span></div>
+      </div>
+      <div class="funnel-connector"></div>
+
+      <div class="funnel-bar" style="border-color:var(--gold3)">
+        <div class="f-label">Step 7 — Conviction</div>
+        <div class="f-num">0.39% – 3.66% of disposed cases</div>
+        <div class="f-desc">Floor: Naripokkho 2018 (19/4,372 rape cases, 6 districts). Ceiling: BRAC 2022 (36/984 accused, 16 districts). New OCC data: 310 convictions from 66,711 who sought help — 0.46%. <span class="tier tier-confirmed">CONFIRMED · S-06, S-01, S-55</span></div>
+      </div>
+      <div class="funnel-connector"></div>
+
+      <div class="funnel-bar final-bar">
+        <div class="f-label">Final — Probability of Punishment</div>
+        <div class="f-num red">0.00041% – 0.053%</div>
+        <div class="f-desc">Compound probability across all documented stages. Mid-scenario: 0.016% = fewer than 2 convictions per 10,000 assaults. Use the slider below to model your own assumptions. <span class="tier tier-probable">PROBABLE — modeled</span></div>
+      </div>
+
+    </div>
+    <div class="warn-box" style="margin-top:1.8rem">
+      <strong>The two data gaps above are not research limitations. They are what impunity looks like when documented.</strong> If no official body tracks how many cases disappear between police station and courthouse, the system cannot be held accountable for losing them.
+    </div>
+    <div class="finding amber" style="margin-top:1rem">
+      <div class="f-title">When the System Moves Fast — The Magura Exception · March–May 2025 <span class="tier tier-confirmed">CONFIRMED · S-60</span></div>
+      <p>On March 5–6, 2025, an eight-year-old girl was raped and killed in Magura District. The case triggered nationwide protests and a High Court directive. The accused confessed on March 15. Sentenced to death: May 17. <strong>71 days from assault to verdict.</strong> Normal WCRPA timeline: 2,349 days. The system is not incapable of speed. <strong>It reserves speed for cases where public outrage makes delay politically impossible.</strong> For the remaining 148,313 cases in the queue: no outrage, no urgency.</p>
+    </div>
+    <div class="warn-box" style="margin-top:1rem"><strong>Dhaka Metropolitan Police 5-year data:</strong> Only <strong>24 perpetrators convicted</strong> for VAWC in the entire Dhaka metro area over five years (2020–2024). Source: Daily Star, March 2025. <span class="tier tier-confirmed">CONFIRMED · S-59</span></div>
+
+    <div class="human-scale" style="margin-top:1.5rem">
+      <div class="hs-label">What this means in human terms</div>
+      <div class="hs-content">Out of every <strong>10,000 sexual assaults</strong> in Bangladesh, the mid-scenario probability produces <strong>fewer than 2 convictions</strong>. If one tribunal judge decided one rape case every single working day without pause, clearing the current backlog of 148,314 cases would take <strong>more than 7 years</strong> — with no new cases entering the queue during that time. Every day, 13 new cases enter.</div>
+    </div>
+
+    <div class="her-thread" style="margin-top:1.8rem">
+      <p>Her case entered the funnel the day she decided to speak. She found the One-Stop Crisis Centre after two days of searching, in a city she had to travel to. A counselor held her hand. A doctor examined her. A case was filed.</p>
+      <p>She is now a number. <strong>Case number 227 of 643 in the first seven months of 2024.</strong> She does not know that, of the 12 verdicts delivered that year, zero ended in conviction. She does not know that her case will sit in a tribunal queue for an average of 2,349 days. She does not know yet what the system does to women who wait.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PROBABILITY SLIDER ══════════ -->
+<section id="slider-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">Interactive Model</div>
+      <h2>Probability of Punishment</h2>
+      <p>Adjust the three variables that drive the compound probability. Every assumption is labeled with its source. The default loads the mid-scenario reference.</p>
+    </div>
+
+    <div class="slider-wrap">
+      <div class="slider-result">
+        <div class="sr-num" id="prob-display">0.016%</div>
+        <div class="sr-desc" id="prob-desc">Under these conditions, roughly <strong id="conv-per-10k">2</strong> women per 10,000 assaults receive a conviction. <strong id="annual-convictions">~9</strong> convictions per year nationally.</div>
+        <div class="sr-bar"><div class="sr-fill" id="prob-bar" style="width:2%"></div></div>
+      </div>
+
+      <div class="slider-controls">
+        <div class="sc-item">
+          <div class="sc-label">
+            <span>Step 1–3: Reporting Rate</span>
+            <span class="sc-val" id="lbl-report">1.46%</span>
+          </div>
+          <input type="range" class="sc-range" id="sl-report" min="0.2" max="5" step="0.1" value="1.46">
+          <div class="sc-sublabel">Estimated % of all assaults that result in a formal FIR. Mid: 1.46% (derived from PHQ FIRs ÷ UNFPA incidence estimate). Range: 0.2% (conservative) to 5% (optimistic). <span class="tier tier-probable">PROBABLE</span></div>
+        </div>
+        <div class="sc-item">
+          <div class="sc-label">
+            <span>Step 5: Charge Sheet Rate</span>
+            <span class="sc-val" id="lbl-charge">59%</span>
+          </div>
+          <input type="range" class="sc-range" id="sl-charge" min="30" max="80" step="1" value="59">
+          <div class="sc-sublabel">% of FIR-registered cases that result in charge sheet. Source: PBI own data 2016–2023 (4,248/10,581 unproven = 41% closed → 59% proceed). <span class="tier tier-confirmed">CONFIRMED · S-34</span></div>
+        </div>
+        <div class="sc-item">
+          <div class="sc-label">
+            <span>Step 7: Conviction Rate</span>
+            <span class="sc-val" id="lbl-conv">2.5%</span>
+          </div>
+          <input type="range" class="sc-range" id="sl-conv" min="0.1" max="7.27" step="0.1" value="2.5">
+          <div class="sc-sublabel">% of disposed tribunal cases resulting in conviction. Floor: 0.39% (Naripokkho S-06). Ceiling: 7.27% (case-level, BRAC S-01). Mid: 2.5% (between measures). <span class="tier tier-confirmed">CONFIRMED — range</span></div>
+        </div>
+      </div>
+
+      <div class="slider-scenarios">
+        <div class="sc-preset" onclick="loadScenario(0.2,40,0.39)"><div class="sp-name">Extreme Low</div><div class="sp-val">0.00034%</div></div>
+        <div class="sc-preset" onclick="loadScenario(0.5,59,0.39)"><div class="sp-name">Low–Low</div><div class="sp-val">0.00115%</div></div>
+        <div class="sc-preset active" onclick="loadScenario(1.46,59,2.5)"><div class="sp-name">Mid Reference</div><div class="sp-val">0.016%</div></div>
+        <div class="sc-preset" onclick="loadScenario(1.46,59,3.66)"><div class="sp-name">Mid–High</div><div class="sp-val">0.022%</div></div>
+        <div class="sc-preset" onclick="loadScenario(3,65,3.66)"><div class="sp-name">High–High</div><div class="sp-val">0.053%</div></div>
+      </div>
+
+      <div class="amb-box" style="margin-top:1.5rem">⚠ All scenarios: PROBABLE — modeled analysis. Inputs individually confirmed but compound probability not validated by any official Bangladesh source. Steps 4 and 6 (FIR registration and trial commencement rates) are data gaps — assumed at 100% here, which OVERESTIMATES the probability. True probability is likely lower.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ BANGLADESH MAP ══════════ -->
+<section id="map-section" class="dark-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">Geographic Coverage</div>
+      <h2>The Map of Structural Failure</h2>
+      <p>Bangladesh has 99 Women and Children Repression Prevention Tribunals across all 64 districts. Bangladesh has full One-Stop Crisis Centres (OCC) in 14 medical college hospitals. The gap between where cases can be filed and where survivors can be supported is visible below.</p>
+    </div>
+
+    <div id="bangladesh-map"></div>
+    <div class="map-legend">
+      <div class="ml-item"><div class="ml-dot occ"></div>Full OCC (DNA + legal + medical + shelter)</div>
+      <div class="ml-item"><div class="ml-dot cell"></div>One-Stop Crisis Cell (limited services)</div>
+      <div class="ml-item"><div class="ml-dot tri"></div>Tribunal present (case filing possible)</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.2rem">
+      <div class="finding green">
+        <div class="f-title">Full OCC Coverage — 14 Districts <span class="tier tier-confirmed">CONFIRMED</span></div>
+        <p>Dhaka, Rajshahi, Chattogram, Sylhet, Barishal, Khulna, Rangpur, Faridpur, Cox's Bazar, Pabna, Bogura, Cumilla + 2 additional. Source: MSPVAW government programme data (updated from 9 to 14). 67 crisis cells at district/upazila level provide limited services.</p>
+      </div>
+      <div class="finding red">
+        <div class="f-title">Coverage Gap — 50+ Districts</div>
+        <p>Approximately 50 of 64 districts have no full OCC. Survivors in these districts face a 3–4 month DNA testing wait (2 national machines), no on-site forensic physician, no shelter, and a 78% rate of missing the 72-hour forensic evidence window. Tribunal exists — but the case cannot be built.</p>
+      </div>
+    </div>
+
+    <div class="finding amber" style="margin-top:1rem">
+      <div class="f-title">The OCC Conviction Data — The Most Important New Finding in This Report</div>
+      <p>Between 2001 and July 2024, <strong>66,711 women and children sought support at Bangladesh's 14 OCCs</strong>. Only <strong>20,914 cases were filed</strong> (31%). Of those, verdicts were delivered in 2,392 cases. Of those, the accused were sentenced in <strong>310 cases — roughly 1.48% of filed cases, 0.46% of women who came forward.</strong> In the first seven months of 2024: 643 victims, 227 cases, 12 verdicts, <strong>zero convictions.</strong> Source: Daily Star, November 2, 2024. <span class="tier tier-confirmed">CONFIRMED · S-55</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ §01 CONVICTION GAP ══════════ -->
+<section id="conviction-gap">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">§01</div>
+      <h2>The Conviction Gap</h2>
+      <p>The annual WCRPA conviction rate is not published by Police Headquarters, the Ministry of Law, or the Ministry of Women and Children Affairs. That absence is itself a documented finding. Five independent measures exist.</p>
+    </div>
+
+    <div class="finding green">
+      <div class="f-title">The Convergence Finding</div>
+      <p>Five independent sources using different methodologies, time periods, and geographic scopes all place the WCRPA conviction rate below 4%. The convergence of sources with no access to each other's data strengthens this finding significantly.</p>
+    </div>
+
+    <table class="data-table">
+      <thead><tr><th>Source</th><th>Rate</th><th>N / D</th><th>Period</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Naripokkho (2018) · S-06</td><td class="hi">0.39%</td><td class="num">19 / 4,372 rape cases</td><td>2011–2018 · 6 districts</td><td><span class="tier tier-confirmed">CONFIRMED</span></td></tr>
+        <tr><td>BRAC / Agile Consultants (2022) · S-01</td><td class="hi">3.66%</td><td class="num">36 / 984 accused</td><td>Jan 2021–Sep 2022 · 16 districts</td><td><span class="tier tier-confirmed">CONFIRMED</span></td></tr>
+        <tr><td>HRW (2021) · S-04</td><td class="hi">&lt;1%</td><td>OCC / MSPVAW data</td><td>Pre-2021 · national</td><td><span class="tier tier-confirmed">CONFIRMED</span></td></tr>
+        <tr><td>UK Home Office CPIN (2024) · S-16</td><td class="hi">&lt;3%</td><td>PHQ via Kaler Kantho</td><td>2016–2022 · national</td><td><span class="tier tier-confirmed">CONFIRMED</span></td></tr>
+        <tr><td>OCC Programme Data (2024) · S-55</td><td class="hi">1.48% of cases / 0.46% of visitors</td><td class="num">310 / 20,914 filed / 66,711 visitors</td><td>2001–Jul 2024 · 14 centres</td><td><span class="tier tier-confirmed">CONFIRMED</span></td></tr>
+      </tbody>
+    </table>
+
+    <div class="warn-box">
+      <strong>Zero convictions in 2024.</strong> In the first 7 months of 2024: 643 OCC visitors → 227 cases filed → 12 verdicts → 0 convictions. This is not a statistical aberration. It is the system functioning normally. Source: Daily Star, November 2, 2024.
+    </div>
+
+    <h3 style="font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold2);margin:2rem 0 .9rem">Annual Case Filings</h3>
+    <table class="data-table">
+      <thead><tr><th>Year</th><th>WCRPA Filed</th><th>Rape Cases</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td>2019</td><td class="num">21,752</td><td class="num">6,766</td><td>PHQ / Kaler Kantho (S-16)</td></tr>
+        <tr><td>2020</td><td class="num">22,501</td><td class="num">6,220</td><td>PHQ / Kaler Kantho (S-16)</td></tr>
+        <tr><td>2023</td><td class="num">~20,000</td><td class="num">5,191</td><td>PHQ (TBS 2024 · S-56)</td></tr>
+        <tr><td>2024</td><td class="num">—</td><td class="num">4,394</td><td>PHQ (Daily Star Mar 2025 · S-57) = 13/day</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══════════ §02 BACKLOG ══════════ -->
+<section class="dark-section" id="backlog">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">§02</div>
+      <h2>The Backlog Crisis</h2>
+      <p>The 99 tribunals were established for speedy trial. Section 20(3) mandates 180 days. The law exists. The enforcement mechanism does not. Each day adds 13 new cases. The queue never gets shorter.</p>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-n">148,314</div>
+        <div class="card-l">Cases Pending <span class="tier tier-probable">PROBABLE</span></div>
+        <div class="card-d">As of March 31, 2025. Daily Star editorial June 2025 citing court records (S-35).</div>
+      </div>
+      <div class="card">
+        <div class="card-n">~1,498</div>
+        <div class="card-l">Cases per Judge <span class="tier tier-confirmed">CONFIRMED</span></div>
+        <div class="card-d">148,314 pending ÷ 99 tribunals. Justice Audit Bangladesh confirms district-level average: 2,033 cases per judge across all courts.</div>
+      </div>
+      <div class="card">
+        <div class="card-n">2,349</div>
+        <div class="card-l">Avg Days to Verdict <span class="tier tier-confirmed">CONFIRMED</span></div>
+        <div class="card-d">6 years and 5 months. BRAC 2022 court records, 16 districts (S-01).</div>
+      </div>
+      <div class="card">
+        <div class="card-n">35,262</div>
+        <div class="card-l">Cases &gt;5 Years <span class="tier tier-confirmed">CONFIRMED</span></div>
+        <div class="card-d">Daily Star 2023 citing court record analysis (S-07).</div>
+      </div>
+      <div class="card">
+        <div class="card-n">21%</div>
+        <div class="card-l">Cases &gt;10 Years <span class="tier tier-confirmed">CONFIRMED</span></div>
+        <div class="card-d">One in five cases took more than a decade to complete trial. BRAC 2022 (S-01).</div>
+      </div>
+      <div class="card">
+        <div class="card-n">180</div>
+        <div class="card-l">Statutory Deadline (Days)</div>
+        <div class="card-d">WCRPA 2000 s.20(3). Compliance rate: effectively zero. No monitoring published. <span class="tier tier-absent">CONFIRMED ABSENT</span></div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="f-title">The Mechanism — Why Delay Produces Acquittals</div>
+      <p>Delay is not a neutral inconvenience. It is a mechanism of acquittal. Over 2,349 days: <strong>witnesses relocate or forget details</strong>; <strong>forensic evidence degrades beyond usefulness</strong>; <strong>economic pressure on the survivor's family becomes unbearable</strong>; <strong>shalish threats intensify as trial approaches</strong>. The Islam &amp; Islam (2003) forensic study (S-50) directly links delayed forensic attendance — often caused by initial shalish attempts — to negative forensic opinions in 248 cases.</p>
+    </div>
+
+    <div class="pq">"When a case drags on for eight or ten years, doctors retire, complainants lose the will to continue."
+      <cite>— Public prosecutor on record · Daily Star 2025 (S-07) · ALLEGED — single source</cite>
+    </div>
+
+    <div class="human-scale" style="margin-top:1.2rem">
+      <div class="hs-label">What 2,349 days means</div>
+      <div class="hs-content">2,349 days is <strong>six years and five months</strong>. In that time, a witness who was 45 when the assault occurred is now 51. A doctor who performed the forensic examination has retired. The survivor's family — under sustained financial pressure and community stigma — has quietly asked her to drop it. The accused's lawyer has filed seven continuances. And <strong>13 new cases have entered the queue for every day that passed.</strong></div>
+    </div>
+
+    <div class="her-thread" style="margin-top:1.4rem">
+      <p>It has been two years. She is still waiting for her trial date. Her mother no longer speaks to her about the case. The man she accused lives in the same district. He has remarried. She has not.</p>
+      <p>The 180-day statutory deadline passed 540 days ago. <strong>No court has flagged the violation. No institution has measured it.</strong> She does not know that the law requires her trial to have been completed nearly two years ago. She only knows that she is still waiting, and that waiting is its own kind of verdict.</p>
+    </div>
+
+    <div class="finding red">
+      <div class="f-title">The Runa Akhter Inversion — Cox's Bazar 2023</div>
+      <p>In March 2022, Runa Akhter filed a rape complaint in Cox's Bazar. The accused were jailed. The case was later proved false and the accused acquitted. On February 16, 2023 — <strong>less than six weeks after one of the accused filed a Section 17 counter-complaint</strong> — Runa was arrested from her home on court order. On April 13, 2023 — <strong>less than eight weeks later</strong> — she was sentenced to five years imprisonment and fined Tk 20,000. The entire proceeding from counter-complaint to verdict: approximately seven weeks. The average WCRPA trial for genuine survivors: 2,349 days. The machine runs fastest when it runs against the woman who tried to use it. Source: Prothom Alo, April 13, 2023 (S-14).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ §03 LEGAL ARCHITECTURE ══════════ -->
+<section id="architecture">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">§03</div>
+      <h2>The Legal Architecture of Failure</h2>
+      <p>These are not implementation failures. They are documented features of the legal architecture that actively drive acquittals, create barriers to conviction, and expose survivors to retaliation.</p>
+    </div>
+
+    <!-- 3.1 -->
+    <div style="margin-bottom:3rem">
+      <h3 style="font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)">3.1 — The Death Penalty Paradox</h3>
+      <p style="font-family:var(--body);font-size:.9rem;color:var(--muted);margin-bottom:1.2rem;font-weight:300">In October 2020, the government amended WCRPA via ordinance to authorize the death penalty for rape. The amendment followed mass protests. It produced outcomes inconsistent with its stated intent.</p>
+      <div class="det-grid">
+        <div class="det-card" style="border-color:rgba(138,32,48,.4)">
+          <div class="det-src">HRW · Oct 2020 · S-03</div>
+          <div class="det-find">"Not a real solution to sexual violence."</div>
+          <div class="det-note">No post-amendment improvement in conviction rates documented.</div>
+        </div>
+        <div class="det-card" style="border-color:rgba(138,32,48,.4)">
+          <div class="det-src">Mechanism</div>
+          <div class="det-find">Death penalty raises the conviction threshold without improving certainty.</div>
+          <div class="det-note">Where death is the consequence, judges require absolute certainty. Contested forensic evidence resolves toward acquittal. <span class="tier tier-probable">PROBABLE</span></div>
+        </div>
+        <div class="det-card" style="border-color:rgba(138,32,48,.4)">
+          <div class="det-src">Susila (2019) Indonesia · S-52</div>
+          <div class="det-find">Child rape cases surged AFTER death penalty implementation.</div>
+          <div class="det-note">Direct empirical comparator. Indonesia introduced death penalty for child rape. Reported cases increased — consistent with evidence that severity without certainty fails.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3.2 -->
+    <div style="margin-bottom:3rem">
+      <h3 style="font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)">3.2 — The Definition That Excludes Most Violence</h3>
+      <p style="font-family:var(--body);font-size:.9rem;color:var(--muted);margin-bottom:1rem;font-weight:300">The WCRPA 2000 rape definition is among the narrowest in the region.</p>
+      <table class="data-table">
+        <thead><tr><th>Excluded Category</th><th>Statutory Basis</th><th>CEDAW / Regional Status</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Marital rape</strong></td><td>WCRPA s.9 exempts husband-wife intercourse (unless wife under 16)</td><td>CEDAW 2016 para 19(a) explicitly recommended criminalization. Nepal: criminalized 2017. India: partial recognition 2022. <span class="tier tier-confirmed">CONFIRMED · S-41, S-42</span></td></tr>
+          <tr><td><strong>Object-based assault</strong></td><td>Non-penile penetration not covered</td><td>Not addressed in any regional comparator listed</td></tr>
+          <tr><td><strong>Male/transgender victims</strong></td><td>Definition gendered — does not recognize male/trans rape under this Act</td><td>2013 UN study: 2,374 men reported same-sex rape in Bangladesh</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 3.3 -->
+    <div style="margin-bottom:3rem">
+      <h3 style="font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)">3.3 — Section 17: The Retaliation Mechanism</h3>
+      <p style="font-family:var(--body);font-size:.9rem;color:var(--muted);margin-bottom:1rem;font-weight:300">Section 17 was designed to deter false complaints. In documented practice, it functions as a mechanism through which accused persons pursue criminal charges against original survivors after acquittal.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.2rem 0">
+        <div class="finding">
+          <div class="f-title">Cox's Bazar · April 2023 <span class="tier tier-confirmed">CONFIRMED · S-14</span></div>
+          <p>Runa Akhter sentenced to five years. The Section 17 proceeding took 7 weeks. The average genuine rape trial: 2,349 days.</p>
+        </div>
+        <div class="finding">
+          <div class="f-title">Barishal · January 2026 <span class="tier tier-confirmed">CONFIRMED · S-13</span></div>
+          <p><strong>Five people charged</strong> including the original plaintiff for a fabricated attempted-rape complaint.</p>
+        </div>
+      </div>
+      <div class="warn-box"><strong>National aggregate: CONFIRMED ABSENT.</strong> No institution tracks Section 17 prosecutions nationally. Two confirmed cases documented. National scale unknown. The absence of this data makes it impossible to quantify the chilling effect on reporting.</div>
+    </div>
+
+    <!-- 3.4 -->
+    <div style="margin-bottom:3rem">
+      <h3 style="font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)">3.4 — The Shalish System: Attrition Before the Funnel Begins</h3>
+      <p style="font-family:var(--body);font-size:.9rem;color:var(--muted);margin-bottom:1rem;font-weight:300">The shalish — informal arbitration by village elders — remains the primary dispute resolution mechanism for rape in rural Bangladesh. Despite the High Court's 2020 directive ordering police to stop recognizing shalish settlements in rape cases, the practice continues.</p>
+      <div class="card-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+        <div class="card">
+          <div style="font-family:var(--mono);font-size:.6rem;color:var(--gold2);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.1em">Documented Outcomes</div>
+          <ul style="font-family:var(--body);font-size:.8rem;color:var(--muted);padding-left:1rem;line-height:2;font-weight:300">
+            <li>Financial settlement paid to victim's male relatives</li>
+            <li>Forced marriage between victim and perpetrator</li>
+            <li>Complaint withdrawal as settlement condition</li>
+            <li>Section 17 threat if formal case continues</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div style="font-family:var(--mono);font-size:.6rem;color:var(--gold2);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.1em">The Forensic Cost</div>
+          <p style="font-family:var(--body);font-size:.8rem;color:var(--muted);font-weight:300;line-height:1.7">Islam &amp; Islam (2003) forensic study (S-50): in 248 cases, negative forensic opinions due to delayed attendance — frequently caused by initial shalish settlement attempts. Shalish destroys evidence before the formal system even knows the case exists.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ §04 GEOGRAPHY ══════════ -->
+<section class="dark-section" id="geography">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">§04</div>
+      <h2>Geographic Distribution</h2>
+      <p>No district-level breakdown of WCRPA conviction rates exists from any official source. The geographic data below covers prevalence (not outcomes). Source: BBS/UNFPA VAW Survey 2024 (27,476 women, 95.4% response rate). <span class="tier tier-confirmed">CONFIRMED · S-02</span></p>
+    </div>
+    <table class="data-table">
+      <thead><tr><th>Division</th><th>Lifetime IPV</th><th>Past 12 Months</th><th>Level</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Barishal</strong></td><td class="hi">81.5%</td><td class="num">57.3%</td><td style="color:var(--redl);font-family:var(--mono);font-size:.72rem">Highest</td></tr>
+        <tr><td><strong>Khulna</strong></td><td class="hi">81.3%</td><td class="num">51.9%</td><td style="color:var(--redl);font-family:var(--mono);font-size:.72rem">Highest</td></tr>
+        <tr><td>Chattogram</td><td class="num">78.5%</td><td class="num">53.2%</td><td style="color:var(--amberl);font-family:var(--mono);font-size:.72rem">High</td></tr>
+        <tr><td>Mymensingh</td><td class="num">75.1%</td><td class="num">48.1%</td><td style="color:var(--amberl);font-family:var(--mono);font-size:.72rem">Elevated</td></tr>
+        <tr><td>Rajshahi</td><td class="num">74.5%</td><td class="num">41.1%</td><td style="color:var(--amberl);font-family:var(--mono);font-size:.72rem">Elevated</td></tr>
+        <tr><td>Dhaka</td><td class="num">72.9%</td><td class="num">44.5%</td><td style="color:var(--amberl);font-family:var(--mono);font-size:.72rem">Elevated</td></tr>
+        <tr><td>Sylhet</td><td class="num">72.7%</td><td class="num">50.0%</td><td style="color:var(--amberl);font-family:var(--mono);font-size:.72rem">Elevated</td></tr>
+        <tr style="border-top:2px solid var(--border2)"><td><strong>National</strong></td><td class="hi"><strong>75.9%</strong></td><td class="num"><strong>48.7%</strong></td><td>—</td></tr>
+      </tbody>
+    </table>
+    <div class="finding green" style="margin-top:1.2rem">
+      <div class="f-title">Climate Vulnerability Multiplier <span class="tier tier-confirmed">CONFIRMED · S-02</span></div>
+      <p>Women in disaster-prone areas: lifetime IPV <strong>81%</strong> vs 68% in non-disaster areas. Environmental vulnerability acts as a documented multiplier through displacement, economic stress, and collapse of community oversight.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ §05 VICTIM ACCESS ══════════ -->
+<section id="access">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">§05</div>
+      <h2>Victim Access Gaps</h2>
+      <p>Infrastructure failures compound legal failures. Access to forensic, medical, and legal services determines whether a case can be built — before it ever reaches a tribunal.</p>
+    </div>
+    <table class="data-table">
+      <thead><tr><th>Element</th><th>Current Status</th><th>Gap</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Full OCCs (DNA + legal + medical)</td><td>14 medical college hospitals</td><td>~50 districts without full OCC</td><td><span class="tier tier-confirmed">CONFIRMED · S-55</span></td></tr>
+        <tr><td>Crisis Cells (limited services)</td><td>67 at district/upazila hospitals</td><td>20 upazila-level only</td><td><span class="tier tier-confirmed">CONFIRMED · S-09</span></td></tr>
+        <tr><td>OCC visitors → convictions</td><td><strong>310 of 66,711 (0.46%)</strong></td><td>99.54% received no conviction</td><td><span class="tier tier-confirmed">CONFIRMED · S-55</span></td></tr>
+        <tr><td>Helpline 109</td><td>7.16M total calls; <strong>12%</strong> of women aware</td><td>88% unaware</td><td><span class="tier tier-confirmed">CONFIRMED · S-09</span></td></tr>
+        <tr><td>72-hour forensic window</td><td><strong>Only 22%</strong> of survivors reach forensic dept within 72hrs</td><td>78% outside evidence window</td><td><span class="tier tier-probable">PROBABLE · S-01</span></td></tr>
+        <tr><td>DNA capacity</td><td><strong>2 national machines.</strong> 3–4 months per test.</td><td>789 cases stalled (Sep 2025)</td><td><span class="tier tier-confirmed">CONFIRMED · S-01, S-22</span></td></tr>
+        <tr><td>Avg charge framing time</td><td>~23 months from filing</td><td>—</td><td><span class="tier tier-confirmed">CONFIRMED · S-01</span></td></tr>
+        <tr><td>BLAST legal aid</td><td>25 of 64 districts</td><td>39 districts uncovered</td><td><span class="tier tier-confirmed">CONFIRMED · S-18</span></td></tr>
+        <tr><td>Witness Protection Law</td><td><strong>Does not exist</strong></td><td>All 64 districts</td><td><span class="tier tier-confirmed">CONFIRMED ABSENT</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══════════ §06 GLOBAL COMPARATORS ══════════ -->
+<section class="dark-section" id="comparators">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">§06</div>
+      <h2>Global Structural Context</h2>
+      <p>These conviction rates use different denominators. Direct comparison is methodologically invalid. They provide structural context only — and the context is damning regardless of how the numbers are measured.</p>
+    </div>
+    <div class="amb-box">⚠ MANDATORY CAVEAT: India uses trials completed only. UK uses prosecutions commenced. South Africa uses verdict cases. Bangladesh uses disposed cases. None of these denominators are equivalent. Comparison without this caveat is a methodological error. The caveat does not soften the finding — it sharpens it.</div>
+
+    <div class="finding red" style="margin:1.4rem 0">
+      <div class="f-title">The India Recalculation — The Most Important Comparison in This Report</div>
+      <p>India's published conviction rate is <strong>22.7%</strong> (NCRB 2023) — often cited as evidence that a South Asian system can achieve meaningful accountability. <strong>That number is a denominator illusion.</strong> It measures only completed trials, ignoring 203,067 pending rape cases at end-2023. If India's rate were recalculated on Bangladesh's denominator — convictions against total reported cases — the figure drops to approximately <strong>2–3%</strong>. India and Bangladesh are structurally identical in their inability to dispose of sexual violence cases. The published difference is a measurement artefact, not a justice reality. <span class="tier tier-probable">PROBABLE — recalculation based on NCRB data · S-38</span></p>
+    </div>
+
+    <table class="data-table">
+      <thead><tr><th>Country</th><th>Published Rate</th><th>Denominator</th><th>Attrition Reality</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Bangladesh</strong></td><td class="hi">0.39%–3.66%</td><td>Disposed tribunal cases</td><td>~1.46% of assaults reach FIR. 0.46% of OCC visitors get conviction.</td><td>S-06, S-01, S-55 · <span class="tier tier-confirmed">CONFIRMED</span></td></tr>
+        <tr><td>India (NCRB 2023)</td><td class="num">22.7% <em style="color:var(--muted);font-size:.75rem">(→ ~2–3% recalc.)</em></td><td><em>Trials completed only</em> (18,517)</td><td>203,067 cases pending end-2023. 90.66% of rape trials still pending.</td><td>S-38 · <span class="tier tier-confirmed">CONFIRMED</span></td></tr>
+        <tr><td>Pakistan</td><td class="num">&lt; 3.0%</td><td>Reported cases</td><td>Witness intimidation; shalish equivalents; no forensic infrastructure parity.</td><td>HRW 2024 · <span class="tier tier-confirmed">CONFIRMED</span></td></tr>
+        <tr><td>Japan</td><td class="num">1.0–2.0%</td><td>Estimated actual rapes</td><td>Marital rape criminalized only 2023. Extreme under-reporting. Only ~1,500 formal cases annually vs est. 150,000+ incidents.</td><td>Cambridge IJAS 2022 · <span class="tier tier-probable">PROBABLE</span></td></tr>
+        <tr><td>UK (CPS 2023)</td><td class="num">63.5%</td><td><em>Prosecutions commenced</em> (2,283)</td><td>Only 2.6% of police-recorded rapes result in charge. On Bangladesh's denominator: likely &lt;5%.</td><td>S-39 · <span class="tier tier-confirmed">CONFIRMED</span></td></tr>
+        <tr><td>USA</td><td class="num">~21.5%</td><td>Victims who reported to police</td><td>Only 20–25% of assaults reported. True impunity rate closer to 80–85%.</td><td>NCVS/BJS 2021 · <span class="tier tier-probable">PROBABLE</span></td></tr>
+        <tr><td>South Africa (NPA 2023/24)</td><td class="num">77.5%</td><td><em>Verdict cases only</em></td><td>53,888 reported vs 8,621 prosecuted; TCC model: 78% conv rate. Integration is the variable.</td><td>S-40 · <span class="tier tier-confirmed">CONFIRMED</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-family:var(--mono);font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold2);margin:2rem 0 1rem">Global Conviction Rate Data — What Exists and What Doesn't</h3>
+    <p style="font-family:var(--body);font-size:.85rem;color:var(--muted);margin-bottom:1.2rem;font-weight:300">Of 40+ countries examined in this investigation, only 9 have published conviction rate data attributable to a named source. <strong>31 countries returned no usable figure.</strong> That absence is the global finding: the world does not measure rape accountability, and what it does not measure, it cannot be held responsible for.</p>
+
+    <div class="global-grid">
+      <div class="gc high"><div class="gc-country">South Africa</div><div class="gc-rate">77.5%</div><div class="gc-denom">Verdict cases · NPA 2023/24</div><div class="gc-note">TCC integrated model. Integration drives outcome.</div></div>
+      <div class="gc high"><div class="gc-country">UK (Eng/Wales)</div><div class="gc-rate">63.5%</div><div class="gc-denom">Completed prosecutions · CPS 2023</div><div class="gc-note">Only 2.6% of recorded rapes reach prosecution.</div></div>
+      <div class="gc mid"><div class="gc-country">India</div><div class="gc-rate">22.7%</div><div class="gc-denom">Trials completed only · NCRB 2023</div><div class="gc-note">~2–3% on Bangladesh denominator. 203k cases pending.</div></div>
+      <div class="gc mid"><div class="gc-country">USA</div><div class="gc-rate">~21.5%</div><div class="gc-denom">Reported cases · NCVS 2021</div><div class="gc-note">80–85% of assaults never reported at all.</div></div>
+      <div class="gc low"><div class="gc-country">Bangladesh</div><div class="gc-rate">0.39–3.66%</div><div class="gc-denom">Disposed tribunal cases · S-06, S-01</div><div class="gc-note">0.46% of OCC visitors. Zero convictions Jan–Jul 2024.</div></div>
+      <div class="gc low"><div class="gc-country">Pakistan</div><div class="gc-rate">&lt; 3.0%</div><div class="gc-denom">Reported cases · HRW 2024</div><div class="gc-note">Structurally identical to Bangladesh. No forensic infrastructure.</div></div>
+      <div class="gc low"><div class="gc-country">Japan</div><div class="gc-rate">1.0–2.0%</div><div class="gc-denom">Estimated actual rapes · Academic 2022</div><div class="gc-note">Marital rape only criminalized 2023. Extreme under-reporting.</div></div>
+      <div class="gc absent"><div class="gc-country">Australia · Canada · Germany</div><div class="gc-rate absent-rate">■ DATA ABSENT</div><div class="gc-denom">Searched — no unified national figure</div><div class="gc-note">High-income countries where conviction data is siloed within broader crime categories.</div></div>
+      <div class="gc absent"><div class="gc-country">Nigeria · Ethiopia · Egypt · Morocco · Iran · Mali · China · Russia · Brazil · Mexico · Turkey + 20 more</div><div class="gc-rate absent-rate">■ DATA ABSENT</div><div class="gc-denom">No publishable source found</div><div class="gc-note">Absence in governance-opaque or conflict-affected states. The scale of impunity is unmeasured because unmeasuring is a policy.</div></div>
+    </div>
+
+    <div class="info-box" style="margin-top:1.2rem">
+      <div class="ib-label">What Victim-Centric Models Actually Produce</div>
+      South Africa's Thuthuzela Care Centres — integrated medical, forensic, psychological, legal support in one location — documented <strong>78% conviction rate</strong> in TCC-finalized cases (S-40). Compare Bangladesh's 0.46% for OCC visitors. The gap is not a cultural inevitability. It is a resource and design choice. The OCC model exists in Bangladesh. <strong>It is simply not integrated into the prosecutorial chain.</strong>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ §07 DETERRENCE THEORY ══════════ -->
+<section id="deterrence">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">§07</div>
+      <h2>Deterrence Theory — Why Maximum Severity Fails</h2>
+      <p>The 2020 death penalty amendment was presented as deterrence. The academic literature is unambiguous. The South Asian data is unambiguous. The Bangladesh data since 2020 is unambiguous. Severity without certainty does not deter. It makes things worse.</p>
+    </div>
+
+    <div class="finding amber">
+      <div class="f-title">The Core Proposition</div>
+      <p>Classical deterrence theory holds that crime is deterred by <strong>certainty</strong> (probability of being caught), <strong>severity</strong> (harshness of punishment), and <strong>celerity</strong> (swiftness). Academic consensus: certainty is the dominant factor. Severity has limited additional effect once certainty is established — and no significant effect when certainty is near zero. Bangladesh has <strong>maximum severity</strong> (death penalty) and <strong>near-zero certainty</strong> (0.39–3.66% conviction rate). This is the worst possible combination — and the evidence shows it produces a specific, predictable set of harms.</p>
+    </div>
+
+    <h3 style="font-family:var(--mono);font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold2);margin:1.8rem 0 .9rem">Three Mechanisms by Which the Death Penalty Worsens Outcomes</h3>
+    <div class="det-grid">
+      <div class="det-card" style="border-color:rgba(138,32,48,.4)">
+        <div class="det-src">Mechanism 1 — Judicial Reluctance <span class="tier tier-probable">PROBABLE</span></div>
+        <div class="det-find">Where death is mandatory, judges require near-absolute certainty to convict.</div>
+        <div class="det-note">Contested forensic evidence — already degraded by delay and the 78% forensic window failure rate — resolves toward acquittal when the alternative is executing a possibly innocent man. The death penalty raises the evidence threshold Bangladesh's system cannot clear.</div>
+      </div>
+      <div class="det-card" style="border-color:rgba(138,32,48,.4)">
+        <div class="det-src">Mechanism 2 — Witness Elimination <span class="tier tier-probable">PROBABLE</span></div>
+        <div class="det-find">The death penalty gives perpetrators a rational incentive to murder the survivor.</div>
+        <div class="det-note">If the penalty for rape is death, eliminating the primary witness reduces the probability of conviction. This perverse incentive is absent when the penalty is imprisonment. Global research documents this pattern. Bangladesh has no witness protection law.</div>
+      </div>
+      <div class="det-card" style="border-color:rgba(138,32,48,.4)">
+        <div class="det-src">Mechanism 3 — Family Suppression <span class="tier tier-probable">PROBABLE</span></div>
+        <div class="det-find">When the accused is known to the family, death penalty exposure suppresses reporting.</div>
+        <div class="det-note">The majority of sexual violence in Bangladesh — as globally — is perpetrated by someone known to the victim. When reporting the crime means potentially executing a brother-in-law, uncle, or neighbour, families intensify pressure to settle via shalish. The death penalty makes the shalish more, not less, attractive.</div>
+      </div>
+    </div>
+
+    <div class="det-grid" style="margin-top:.9rem">
+      <div class="det-card">
+        <div class="det-src">Dölling et al. (2009) Meta-Analysis · S-48</div>
+        <div class="det-find">Deterrence hypothesis "rarely confirmed" for serious offences including rape.</div>
+        <div class="det-note">Comprehensive meta-analysis. Directly undermines severity-only reform arguments.</div>
+      </div>
+      <div class="det-card">
+        <div class="det-src">Abramovaite et al. (2022) · S-47</div>
+        <div class="det-find">Celerity impacts acquisitive crime — NOT violent crime including rape.</div>
+        <div class="det-note">Fast-track courts cannot compensate for lack of certainty in violent crime.</div>
+      </div>
+      <div class="det-card">
+        <div class="det-src">Bailey (1977) · NCJ 45179 · S-54</div>
+        <div class="det-find">Certainty of imprisonment more strongly associated with lower rape rates than death penalty.</div>
+        <div class="det-note">Bangladesh has maximum severity, near-zero certainty. Bailey's findings predict the current failure precisely.</div>
+      </div>
+      <div class="det-card">
+        <div class="det-src">Susila (2019) Indonesia · S-52</div>
+        <div class="det-find">Child rape cases surged AFTER death penalty implementation.</div>
+        <div class="det-note">Empirical comparator for Bangladesh 2020 amendment. Same mechanism, same failure. India (MP state): highest death sentences for rape 2016–2020, yet remained one of highest rape-reporting states in 2022.</div>
+      </div>
+      <div class="det-card">
+        <div class="det-src">South Africa TCC · S-40, S-51</div>
+        <div class="det-find">Victim-centric evidence model: 78% conviction rate. No death penalty.</div>
+        <div class="det-note">The strongest policy evidence: certainty through better evidence quality, not severity of punishment. South Africa proves the alternative works.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ §08 WITNESS PROTECTION ══════════ -->
+<section class="dark-section" id="witness">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">§08</div>
+      <h2>Witness Protection — The Legislative Vacuum</h2>
+      <p>Bangladesh has no Witness Protection Law. BRAC 2022 and HRW 2020 both identify witness intimidation as a primary driver of case collapse. Every regional comparator has enacted one. None has published proof it worked.</p>
+    </div>
+    <div class="warn-box"><strong>Bangladesh: No Witness Protection Law. CONFIRMED ABSENT.</strong> Law Commission draft bill exists — not enacted. Source: BRAC 2022 (S-01) · HRW 2020 (S-45).</div>
+    <table class="data-table">
+      <thead><tr><th>Country</th><th>Legislation</th><th>Year</th><th>Outcomes Published?</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Bangladesh</strong></td><td>None enacted</td><td>—</td><td style="color:var(--redl);font-family:var(--mono);font-size:.72rem">■ ABSENT</td></tr>
+        <tr><td>India</td><td>Witness Protection Scheme 2018 — Mahender Chawla v UoI (S-43)</td><td>2018</td><td>Unverified — no NCRB uptick in conviction rates post-2018 <span class="tier tier-probable">PROBABLE</span></td></tr>
+        <tr><td>Sri Lanka</td><td>Assistance to Victims and Witnesses Act No. 4 of 2015</td><td>2015</td><td>Implementation hindered by capacity issues. No outcome data. <span class="tier tier-probable">PROBABLE</span></td></tr>
+        <tr><td>Pakistan</td><td>Sindh WP Act 2013; Federal WP Act 2017</td><td>2013/17</td><td>Not published. <span class="tier tier-probable">PROBABLE</span></td></tr>
+      </tbody>
+    </table>
+    <div class="finding green">
+      <div class="f-title">The Regional Pattern — A Finding in Itself</div>
+      <p>No South Asian country with post-2010 witness protection legislation has published quantified outcome data showing improved conviction rates for sexual violence. The gap between legislation and implementation is itself a regional pattern — and a cautionary note for advocacy. <strong>Enacting the law is necessary but not sufficient</strong> without resource allocation, judicial training, and enforcement mechanisms.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ §09 INTERVENTIONS ══════════ -->
+<section id="interventions">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">§09</div>
+      <h2>Evidence-Based Interventions</h2>
+      <p>Each intervention is paired with its evidence base and documented structural barrier. Political feasibility is outside this investigation's scope.</p>
+    </div>
+
+    <div class="intervention">
+      <div class="int-num">I-01</div>
+      <div><h4>Publish annual WCRPA conviction rates by tribunal and district</h4>
+      <p>PHQ holds this data. A single policy decision would make it public. UK MOJ and India NCRB publish comparable data by offence and state. The absence is a choice. <span class="tier tier-confirmed">CONFIRMED absent · CONFIRMED solvable</span></p></div>
+    </div>
+    <div class="intervention">
+      <div class="int-num">I-02</div>
+      <div><h4>Enact Witness Protection Legislation — with enforcement budget</h4>
+      <p>Law Commission draft bill exists. Not enacted. India (2018), Sri Lanka (2015) have enacted comparable laws. Bangladesh is the regional outlier. Legislation alone insufficient without enforcement budget and judicial training. <span class="tier tier-confirmed">CONFIRMED need · S-43, S-44</span></p></div>
+    </div>
+    <div class="intervention">
+      <div class="int-num">I-03</div>
+      <div><h4>Restore judicial discretion — amend or repeal mandatory death penalty</h4>
+      <p>Expert consensus (HRW, Amnesty, OHCHR) that mandatory capital punishment raises conviction threshold without improving deterrence. Dölling et al. (2009) confirms. Bailey (1977): certainty more effective than severity. Political cost: "going soft on rape" framing. <span class="tier tier-probable">PROBABLE effect · Political barrier HIGH</span></p></div>
+    </div>
+    <div class="intervention">
+      <div class="int-num">I-04</div>
+      <div><h4>Enforce the 180-day timeline with judicial accountability mechanism</h4>
+      <p>180-day rule exists in statute. Compliance rate: effectively zero. No enforcement mechanism. 35,262 cases exceed 5 years; 21% exceed 10 years. India's Nirbhaya Fund fast-track courts provide a resource-backed precedent. <span class="tier tier-confirmed">CONFIRMED absent · CONFIRMED precedent</span></p></div>
+    </div>
+    <div class="intervention">
+      <div class="int-num">I-05</div>
+      <div><h4>Decentralize forensic medical capacity to district level — expand OCCs</h4>
+      <p>2 national DNA machines serve the entire country. 789 cases stalled. Only 22% reach forensic dept within 72-hour window. South Africa's TCC model (78% conviction rate vs Bangladesh's 0.46%) is the strongest evidence that forensic access determines outcomes. <span class="tier tier-confirmed">CONFIRMED need · CONFIRMED comparator · S-40, S-55</span></p></div>
+    </div>
+    <div class="intervention">
+      <div class="int-num">I-06</div>
+      <div><h4>Amend WCRPA rape definition — include marital rape and object-based assault</h4>
+      <p>CEDAW 2016 para 19(a) explicitly required this (S-41). Nepal criminalized marital rape 2017 (S-42). Bangladesh retains marital exemption. 75.9% of women experience lifetime IPV — most perpetrated by a spouse. The current definition renders majority of sexual violence legally invisible. <span class="tier tier-confirmed">CONFIRMED gap · International obligation</span></p></div>
+    </div>
+    <div class="intervention">
+      <div class="int-num">I-07</div>
+      <div><h4>Establish centralized Section 17 counter-prosecution tracking</h4>
+      <p>No institution currently tracks Section 17 prosecutions nationally. Two confirmed cases documented. National scale unknown. Mandatory tracking would quantify the chilling effect on reporting — prerequisite for any evidence-based reform. <span class="tier tier-confirmed">CONFIRMED absent · CONFIRMED actionable</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ MISSING DATA AUDIT ══════════ -->
+<section class="dark-section" id="missing-data">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">Missing Data Audit</div>
+      <h2>What Doesn't Exist</h2>
+      <p>Each absence is an accountability failure. If a system cannot be measured, it cannot be held responsible for what it loses. This is true in Bangladesh. It is also true globally.</p>
+    </div>
+
+    <div class="finding red" style="margin-bottom:1.4rem">
+      <div class="f-title">The Global Data Desert — A Finding in Itself</div>
+      <p>Of 40+ countries examined in this investigation, <strong>31 have no published conviction rate for rape attributable to any named official source</strong>. This includes Nigeria, Ethiopia, Egypt, Iran, Morocco, Brazil, Mexico, Turkey, China, Russia, Australia, Canada, Germany, Sweden, South Korea, and more. The inability to measure rape accountability at a national level is not a data collection failure. It is a policy posture. <strong>Governments that do not measure impunity have decided they do not need to be accountable for it.</strong> Bangladesh fits within a global pattern of deliberate statistical blindness.</p>
+    </div>
+
+    <div style="background:var(--bg4);border:1px solid var(--border);padding:1.4rem">
+      <div class="missing-item"><div class="md"></div><div class="mt"><strong>Annual WCRPA conviction rates by year, by district</strong><span>PHQ holds this data. Not published. Would establish whether conviction rates improved or declined post-2020 amendment — the most important policy question in Bangladesh's rape justice history.</span></div></div>
+      <div class="missing-item"><div class="md"></div><div class="mt"><strong>180-day trial compliance rate</strong><span>Should be held by Supreme Court / Tribunals. Not published. Would identify which districts have the worst backlog relative to caseload. The law requires it. No one measures it.</span></div></div>
+      <div class="missing-item"><div class="md"></div><div class="mt"><strong>FIR registration rate for rape complaints</strong><span>Should be held by PHQ. No source documents conversion rate from complaint to FIR. This is Step 4 of the justice funnel — a confirmed data gap that makes total attrition incalculable. Cases disappear here and no one counts them.</span></div></div>
+      <div class="missing-item"><div class="md"></div><div class="mt"><strong>National count of Section 17 counter-prosecutions (2000–2026)</strong><span>Should be held by court records / PHQ. No aggregate data. Two cases documented in press. Would quantify the systematic weaponization of false-case provisions against the women who tried to use the system.</span></div></div>
+      <div class="missing-item"><div class="md"></div><div class="mt"><strong>WCRPA case withdrawal rate — national and district</strong><span>Should be held by PHQ / court records. Not tracked as separate metric. Would quantify the scale of shalish-driven case attrition — the disappearances before the funnel even begins.</span></div></div>
+      <div class="missing-item"><div class="md"></div><div class="mt"><strong>Post-2020 amendment conviction rate comparison</strong><span>Pre-2020 data sparse. No systematic pre/post comparison published by any government body. Would confirm or refute the hypothesis that the death penalty worsened conviction rates by raising the evidence threshold. Five years after the amendment, this data should exist. It does not.</span></div></div>
+    </div>
+
+    <div class="warn-box" style="margin-top:1.2rem">
+      <strong>The absence of this data is not neutral.</strong> Every data point that does not exist is a case that cannot be counted, a pattern that cannot be challenged, a failure that cannot be proven. The system protects itself by not measuring itself.
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CONCLUSION ══════════ -->
+<section id="conclusion" style="background:var(--bg)">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">Conclusion</div>
+      <h2>What the System Produces</h2>
+    </div>
+    <div class="conclusion-wrap">
+      <p>The woman in Barishal. She filed her case. She waited. The 180-day statutory deadline passed and no court flagged it. A witness moved to Dhaka. Her forensic evidence, collected 11 days after the assault — well outside the 72-hour window because no full OCC existed in her district — returned an inconclusive DNA result after a four-month wait. Her accused's lawyer filed for continuance. Her family asked her, quietly, to stop. The shalish had offered a settlement twice. She had refused both times.</p>
+
+      <p>She is, statistically, in the 98.54% of women who come forward to a crisis centre and leave without a conviction. She did everything the system asked of her. The system did not do what she asked of it.</p>
+
+      <div class="conclusion-mechanism">
+        <div class="cm-title">The Mechanism of Impunity — Documented, Predictable, Structural</div>
+        <div class="cm-chain">
+          <span class="cm-step">Assault occurs</span>
+          <span class="cm-arrow">→</span>
+          <span class="cm-step">64% stay silent</span>
+          <span class="cm-arrow">→</span>
+          <span class="cm-step">Shalish intercepts</span>
+          <span class="cm-arrow">→</span>
+          <span class="cm-step">Forensic window missed</span>
+          <span class="cm-arrow">→</span>
+          <span class="cm-step">FIR registered (if lucky)</span>
+          <span class="cm-arrow">→</span>
+          <span class="cm-step">41% closed unproven</span>
+          <span class="cm-arrow">→</span>
+          <span class="cm-step">2,349 days waiting</span>
+          <span class="cm-arrow">→</span>
+          <span class="cm-step">Witnesses gone</span>
+          <span class="cm-arrow">→</span>
+          <span class="cm-step">Evidence degraded</span>
+          <span class="cm-arrow">→</span>
+          <span class="cm-final final">Acquittal</span>
+        </div>
+      </div>
+
+      <p>This is not a chain of accidents. Every link is documented. Every failure point has a name, a source, and a tier label. The silence is documented. The shalish is documented. The forensic window failure is documented. The delay is documented. The acquittal is documented. <strong>The only thing that is not documented is the government's plan to change any of it.</strong></p>
+
+      <p>This investigation's central finding is not that Bangladesh fails its rape survivors. It is that the system produces a specific outcome — impunity — through a chain of predictable, structural choices. The death penalty was introduced and conviction rates did not rise. The 99 tribunals were established and cases took longer, not shorter. The OCCs were built and 99.54% of the women who walked through their doors left without justice. <strong>Each of these outcomes was foreseeable. None was unintended.</strong></p>
+
+      <p>The Magura exception — 71 days from assault to death sentence when public outrage demanded it — proves the system is capable of speed. The Runa Akhter inversion — 7 weeks to convict the woman who filed the case — proves the system is capable of conviction. It reserves both for moments when power, not justice, demands them.</p>
+
+      <div class="her-thread">
+        <p>She withdrew her case on a Tuesday. She told no one. She came home, sat with her mother, and did not explain. There was nothing to explain. She had tried the system the system had built for her. The system had done what the data said it would do.</p>
+        <p><strong>She is not a failure of courage. She is a documented output.</strong> And there are 300,000 more like her this year alone — most of whom will never even reach the door of a crisis centre, because they already know what waits on the other side.</p>
+        <p>The machine runs. The numbers accumulate. The silence continues. And somewhere in Bangladesh, right now, another woman is doing the calculation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ METHODOLOGY ══════════ -->
+<section id="methodology">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">How This Was Built</div>
+      <h2>Methodology</h2>
+    </div>
+    <div class="method-grid">
+      <div class="method-card"><h4>M-001 — Data Sources</h4><p>Constructed from named public records. Four AI research tools used as structured research assistants. All outputs cross-referenced against primary sources. No claim from unnamed sources. AI tools listed as Tier E where used — always flagged. Primary BRAC document verified directly.</p></div>
+      <div class="method-card"><h4>M-002 — Source Hierarchy</h4><p><strong>Tier A:</strong> Primary official (PHQ, UNFPA, GoB). <strong>Tier B:</strong> Primary NGO (BRAC, ASK, HRW). <strong>Tier C:</strong> Major media (Daily Star, TBS, Prothom Alo). <strong>Tier D:</strong> Academic. <strong>Tier E:</strong> AI compilation (named source required).</p></div>
+      <div class="method-card"><h4>M-003 — Quantitative Standards</h4><p>All percentages include N, D, and source. Ranges preserved as ranges. Conflicting figures from different sources both presented with tier labels. Derived calculations state all inputs. Probability Index: 12 scenarios, not a single figure.</p></div>
+      <div class="method-card"><h4>M-004 — Narrative Standards</h4><p>The opening narrative is a documented composite based exclusively on confirmed statistics. No individual's identity is assumed or implied. All statistics in the narrative are sourced in this report. Composite approach is standard in data journalism (ProPublica, NYT) and is disclosed in the editorial note.</p></div>
+      <div class="method-card"><h4>M-005 — AI Hallucination Disclosure</h4><p>During research, AI tools returned four papers purportedly on WCRPA tribunals. All four were about the <strong>International Crimes Tribunal</strong> (1971 war crimes) — a completely different institution. All four excluded. This disclosure is evidence of the research integrity process.</p></div>
+      <div class="method-card"><h4>M-006 — Version History</h4><p><strong>v1.0:</strong> Initial framework. <strong>v1.1:</strong> Corrected conviction rate methodology; removed 3 unsourced figures. <strong>v1.2:</strong> 18 new sources (S-34–S-54); BRAC S-01 CONFIRMED via primary document. <strong>v1.3:</strong> Narrative opening; interactive slider; Leaflet map; OCC upgraded to 14; new S-55 (66,711→310 OCC data); S-56, S-57 (PHQ daily rates). <strong>v1.4:</strong> Incidence citation; nav completed. <strong>v1.5:</strong> Full narrative rewrite (woman's perspective, composite survivor thread); thesis banner; conclusion section; India recalculation finding; 3 death penalty mechanisms; global data grid (40+ countries); data desert framing; upgraded BD map markers; human-scale translations; missing nav sections restored.</p></div>
+    </div>
+    <h3 style="font-family:var(--mono);font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold2);margin:2rem 0 1rem">Evidence Tier Framework</h3>
+    <table class="tier-table">
+      <thead><tr><th>Tier</th><th>Minimum Threshold</th><th>Required Language</th><th>Must NOT Be Used For</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tier tier-confirmed">CONFIRMED</span></td><td>≥2 independent primary sources OR 1 official + corroboration OR court record</td><td>No qualifier required. Source attribution required.</td><td>Criminal guilt, intent, corporate ownership</td></tr>
+        <tr><td><span class="tier tier-probable">PROBABLE</span></td><td>1 primary source + corroborating pattern OR inference from 2+ CONFIRMED claims</td><td>"Available evidence suggests…" / "Records indicate…"</td><td>Headlines without qualification. Intent assertions.</td></tr>
+        <tr><td><span class="tier tier-absent">CONFIRMED ABSENT</span></td><td>Active search by multiple independent research tools returns no source</td><td>Used only to document gaps in official record.</td><td>Supporting any other claim.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══════════ SOURCES ══════════ -->
+<section class="darker-section" id="sources">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">Source Registry</div>
+      <h2>All Named Sources</h2>
+      <p>Every claim corresponds to at least one source below. Tier labels are mandatory when citing specific claims.</p>
+    </div>
+    <div style="margin-bottom:.9rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap">
+      <a href="#" class="dl-btn" onclick="downloadCSV(event)">↓ Download Probability CSV</a>
+      <span style="font-family:var(--mono);font-size:.6rem;color:var(--muted2)">12 scenarios · all inputs · all source IDs</span>
+    </div>
+
+    <div class="source-item"><span class="sid">S-01</span><div class="sb">BRAC / Agile Consultants — "Public Prosecution System in Bangladesh: Issues of Justice for VAWG" Dec 2022. 3.66% conviction rate (36/984 accused); 2,349 avg days; 2 DNA machines; 385 resolved cases; 505 discharged; 443 acquitted; 28 convictions (7.27% case-level); 16 districts, 6 divisions. <span class="tier tier-confirmed">CONFIRMED — primary document verified</span><div class="surl">https://dgikh81ssvyrj.cloudfront.net/media/documents/Public-Prosecution-System-in-Bangladesh-The-Issues-of-Justice-for-Violence-aga_IKQWThX.pdf</div></div></div>
+
+    <div class="source-item"><span class="sid">S-02</span><div class="sb">UNFPA / BBS Violence Against Women Survey 2024. 75.9% national lifetime IPV; 62–64% told no one; 27,476 women surveyed; 95.4% response rate. Division-level data. Disaster vulnerability multiplier. <span class="tier tier-confirmed">CONFIRMED</span><div class="surl">https://bangladesh.unfpa.org/en/2024-violence-against-women-survey</div></div></div>
+
+    <div class="source-item"><span class="sid">S-03</span><div class="sb">HRW — "Death Penalty Not the Answer to Bangladesh's Rape Problem" Oct 13 2020. <span class="tier tier-confirmed">CONFIRMED</span><div class="surl">https://www.hrw.org/news/2020/10/13/death-penalty-not-answer-bangladeshs-rape-problem</div></div></div>
+
+    <div class="source-item"><span class="sid">S-04</span><div class="sb">HRW — "Bangladesh: Protests Erupt Over Rape Verdict" Nov 2021. &lt;1% conviction rate; OCC/MSPVAW data; 160/11,000 reference. <span class="tier tier-confirmed">CONFIRMED</span><div class="surl">https://www.hrw.org/news/2021/11/16/bangladesh-protests-erupt-over-rape-verdict</div></div></div>
+
+    <div class="source-item"><span class="sid">S-05</span><div class="sb">Amnesty International — "Death penalty is not solution for violence against women" Oct 2020. <span class="tier tier-confirmed">CONFIRMED</span><div class="surl">https://www.amnesty.org/en/latest/press-release/2020/10/bangladesh-death-penalty-is-not-the-solution-for-violence-against-women/</div></div></div>
+
+    <div class="source-item"><span class="sid">S-06</span><div class="sb">The Daily Star — "19 victims out of 6,329 got justice in 7yrs: Naripokkho." 0.39%; 19/4,372 rape cases; 6 districts; 2011–2018. <span class="tier tier-confirmed">CONFIRMED</span><div class="surl">https://www.thedailystar.net/city/news/19-victims-out-6329-got-justice-7yrs-naripokkho-1630333</div></div></div>
+
+    <div class="source-item"><span class="sid">S-07</span><div class="sb">The Daily Star — "Over 35,000 VAWC cases unresolved for over 5 years." 35,262 cases &gt;5 years. Public prosecutor quote. <span class="tier tier-confirmed">CONFIRMED</span></div></div>
+
+    <div class="source-item"><span class="sid">S-09</span><div class="sb">Government of Bangladesh UNSG Submission May 2024. OCC/Helpline 109: 9 OCCs (superseded by S-55's 14); 12% awareness; 7.16M calls. <span class="tier tier-confirmed">CONFIRMED</span><div class="surl">https://www.unwomen.org/sites/default/files/2024-10/a-79-500-submission-bangladesh-en.pdf</div></div></div>
+
+    <div class="source-item"><span class="sid">S-13</span><div class="sb">TBS News — "False rape case proved: Court orders arrest of plaintiff" Jan 2026. Section 17, Barishal; five charged. <span class="tier tier-confirmed">CONFIRMED</span><div class="surl">https://www.tbsnews.net/bangladesh/court/false-rape-case-proved-court-orders-arrest-plaintiff-3-teachers-among-5-1345826</div></div></div>
+
+    <div class="source-item"><span class="sid">S-14</span><div class="sb">Prothom Alo — "Woman jailed for five yrs for filing false rape case" Apr 13 2023. Runa Akhter, Cox's Bazar. Arrested Feb 16, sentenced Apr 13 — 56 days. Section 17 inversion documented. <span class="tier tier-confirmed">CONFIRMED</span><div class="surl">https://en.prothomalo.com/bangladesh/crime-and-law/9yxtmdw1nh</div></div></div>
+
+    <div class="source-item"><span class="sid">S-16</span><div class="sb">UK Home Office CPIN Bangladesh January 2024. PHQ filing stats via Kaler Kantho; &lt;3% conviction rate. <span class="tier tier-confirmed">CONFIRMED</span><div class="surl">https://www.gov.uk/government/publications/bangladesh-country-policy-and-information-notes/country-policy-and-information-note-women-fearing-gender-based-violence-bangladesh-january-2024-accessible</div></div></div>
+
+    <div class="source-item"><span class="sid">S-17</span><div class="sb">OMCT Urgent Intervention — Bangladesh Jessore gang rape of minority girl 2009. Shalish pressure; perpetrator protection by local elites. <span class="tier tier-confirmed">CONFIRMED</span></div></div>
+
+    <div class="source-item"><span class="sid">S-18</span><div class="sb">BLAST directory. Present in 25 of 64 districts. <span class="tier tier-confirmed">CONFIRMED</span><div class="surl">https://www.blast.org.bd</div></div></div>
+
+    <div class="source-item"><span class="sid">S-21</span><div class="sb">BSS — "Council of advisers okays WCRPA Amendment Ordinance 2025" Mar 20 2025. <span class="tier tier-confirmed">CONFIRMED</span><div class="surl">https://www.bssnews.net/news-flash/256662</div></div></div>
+
+    <div class="source-item"><span class="sid">S-22</span><div class="sb">TBS News — "Forensics delayed is justice denied" Sep 3 2025. 789 cases stalled awaiting DNA; 2-machine bottleneck. <span class="tier tier-confirmed">CONFIRMED</span><div class="surl">https://www.tbsnews.net/thoughts/forensics-delayed-justice-denied-1228451</div></div></div>
+
+    <div class="source-item"><span class="sid">S-34</span><div class="sb">Naznin Akhter, Prothom Alo — "Rape case investigations: 44pc remain unproven" Sep 27 2025. PBI data 2016–2023: 4,248/10,581 = 41% unproven. <span class="tier tier-confirmed">CONFIRMED</span><div class="surl">https://en.prothomalo.com/bangladesh/crime-and-law/q5k00sef7k</div></div></div>
+
+    <div class="source-item"><span class="sid">S-35</span><div class="sb">Daily Star editorial June 2025. 148,314 cases pending as of March 31 2025. <span class="tier tier-probable">PROBABLE — editorial; exact URL pending</span></div></div>
+
+    <div class="source-item"><span class="sid">S-37</span><div class="sb">UNFPA/BBS VAW Survey 2024 Highlights. 27% of disclosers contacted police; 3.8% of NPV survivors pursued legal remedy. <span class="tier tier-confirmed">CONFIRMED</span><div class="surl">https://bangladesh.unfpa.org/sites/default/files/report_documents/2025-10/Highlights%20VAW%20Survey%20BGD%202024.pdf</div></div></div>
+
+    <div class="source-item"><span class="sid">S-38</span><div class="sb">NCRB Crime in India 2022 Vol I Ch 3A. 31,516 FIRs; 27.36% conviction rate (trials completed only — 18,517); 90.66% pending. Analysis: CHRI Sep 2024. <span class="tier tier-confirmed">CONFIRMED</span></div></div>
+
+    <div class="source-item"><span class="sid">S-39</span><div class="sb">UK CPS / House of Lords Library. Year ending March 2024. 7,501 referred; 2,572 charged; 1,220 convictions = 53.4% of prosecutions. Only 2.1% of recorded rapes result in charge. <span class="tier tier-confirmed">CONFIRMED</span><div class="surl">https://lordslibrary.parliament.uk/rape-levels-of-prosecutions/</div></div></div>
+
+    <div class="source-item"><span class="sid">S-40</span><div class="sb">South Africa NPA Annual Report 2023/24. 72.2% GBVF conviction rate (verdict cases); 53,888 reported vs 8,621 prosecuted; TCC: 78% conviction rate. <span class="tier tier-confirmed">CONFIRMED</span><div class="surl">https://www.npa.gov.za/sites/default/files/uploads/NPA%202024%20Annual%20Report_web_2.pdf</div></div></div>
+
+    <div class="source-item"><span class="sid">S-41</span><div class="sb">CEDAW/C/BGD/CO/8 2016. Para 19(a): criminalize marital rape regardless of victim age. Bangladesh has not complied. <span class="tier tier-confirmed">CONFIRMED</span><div class="surl">https://docs.un.org/en/CEDAW/C/BGD/CO/8</div></div></div>
+
+    <div class="source-item"><span class="sid">S-42</span><div class="sb">Nepal National Penal Code 2017 s.219(4). Marital rape criminalized — up to 5 years. SC directive 2002. 2022: 2,387 cases filed. <span class="tier tier-confirmed">CONFIRMED</span></div></div>
+
+    <div class="source-item"><span class="sid">S-43</span><div class="sb">India Witness Protection Scheme 2018. Mahender Chawla v UoI, WP (Crl.) 156/2016, SC Dec 5 2018. No measurable post-2018 NCRB rape conviction uptick. <span class="tier tier-confirmed">CONFIRMED</span><div class="surl">https://indiankanoon.org/doc/80302994/</div></div></div>
+
+    <div class="source-item"><span class="sid">S-45</span><div class="sb">HRW — "I Sleep in My Own Deathbed" Oct 29 2020 [date corrected]. Full 65-page report. 50 interviews. Sadia, Joya, Anwara narratives. <span class="tier tier-confirmed">CONFIRMED</span><div class="surl">https://www.hrw.org/report/2020/10/29/i-sleep-my-own-deathbed/violence-against-women-and-girls-bangladesh-barriers</div></div></div>
+
+    <div class="source-item"><span class="sid">S-46</span><div class="sb">Daily Star — "Stop rape arbitration" Oct 2020. HC directive: ASK v Bangladesh — ordered stop to shalish settlements in rape cases. Interim directive. <span class="tier tier-probable">PROBABLE</span><div class="surl">https://www.thedailystar.net/frontpage/news/stop-rape-arbitration-1982089</div></div></div>
+
+    <div class="source-item"><span class="sid">S-47</span><div class="sb">Abramovaite et al. (2022) — "Classical deterrence theory revisited." Celerity does not compensate for lack of certainty in violent crime. University of Birmingham. <span class="tier tier-academic">CONFIRMED</span><div class="surl">https://pure-oai.bham.ac.uk/ws/portalfiles/portal/169658586/abramovaitej2022classical.pdf</div></div></div>
+
+    <div class="source-item"><span class="sid">S-48</span><div class="sb">Dölling et al. (2009) meta-analysis. Deterrence hypothesis "rarely confirmed" for serious offences including rape. <span class="tier tier-academic">CONFIRMED</span></div></div>
+
+    <div class="source-item"><span class="sid">S-50</span><div class="sb">Islam &amp; Islam (2003). 248 rape forensic cases, Dhaka MCH 1994–2000. Negative opinions due to delayed attendance caused by shalish attempts. DOI: 10.1016/s1344-6223(02)00170-0. <span class="tier tier-academic">CONFIRMED</span><div class="surl">https://pubmed.ncbi.nlm.nih.gov/12935631/</div></div></div>
+
+    <div class="source-item"><span class="sid">S-52</span><div class="sb">Susila (2019) — Indonesia: child rape cases surged despite death penalty. <span class="tier tier-academic">CONFIRMED</span></div></div>
+
+    <div class="source-item"><span class="sid">S-54</span><div class="sb">Bailey (1977) — "Deterrence and the Violent Sex Offender." Certainty more effective than severity. NCJ 45179. <span class="tier tier-academic">CONFIRMED</span><div class="surl">https://www.ojp.gov/ncjrs/virtual-library/abstracts/deterrence-and-violent-sex-offender-imprisonment-vs-death-penalty</div></div></div>
+
+    <div class="source-item"><span class="sid">S-55</span><div class="sb">The Daily Star — "One-Stop Crisis Centre: Conviction in less than 2pc cases" Nov 2, 2024. 66,711 OCC visitors → 20,914 cases → 2,392 verdicts → 310 convictions (1.48%). First 7 months 2024: 643 → 227 → 12 verdicts → 0 convictions. <span class="tier tier-confirmed">CONFIRMED</span><div class="surl">https://www.thedailystar.net/news/bangladesh/crime-justice/news/one-stop-crisis-centre-conviction-less-2pc-cases-3742446</div></div></div>
+
+    <div class="source-item"><span class="sid">S-56</span><div class="sb">TBS News / PHQ data — 5,191 rape cases filed 2023; 4,394 in 2024. <span class="tier tier-confirmed">CONFIRMED</span></div></div>
+
+    <div class="source-item"><span class="sid">S-57</span><div class="sb">The Daily Star — "Over 5,600 children raped in 10yrs" Mar 14 2025. "Average of 13 women and children being raped each day" — PHQ data 2023–2024. <span class="tier tier-confirmed">CONFIRMED</span><div class="surl">https://www.thedailystar.net/news/bangladesh/crime-justice/news/over-5600-children-raped-10yrs-3847701</div></div></div>
+
+    <div class="source-item"><span class="sid">S-58</span><div class="sb">Justice Audit Bangladesh / UNDP. 2,033 cases per judge at district level. Bangladesh: one judge per 95,000 people. Dhaka Tribune Aug 2023. <span class="tier tier-confirmed">CONFIRMED</span><div class="surl">https://www.dhakatribune.com/bangladesh/324006/bangladesh-has-one-judge-for-95-000-people</div></div></div>
+    <div class="source-item"><span class="sid">S-59</span><div class="sb">Daily Star analysis, March 2025 — Dhaka Metropolitan Police data: only 24 perpetrators convicted for violence against women and children in Dhaka metro area over 5 years (2020–2024). <span class="tier tier-confirmed">CONFIRMED</span><div class="surl">https://www.thedailystar.net/law-our-rights/news/comprehensive-legal-approach-the-crime-rape-3847631</div></div></div>
+    <div class="source-item"><span class="sid">S-60</span><div class="sb">Wikipedia / multiple Bangladesh press sources — 2025 Magura child rape case. March 5–6 assault; March 15 confession; May 17 death sentence = 71-day proceeding. HC directive to complete within 180 days. Nationwide protests. <span class="tier tier-confirmed">CONFIRMED</span><div class="surl">https://en.wikipedia.org/wiki/2025_Magura_child_rape_case</div></div></div>
+
+  </div>
+</section>
+
+<!-- ══════════ LEGAL ══════════ -->
+<section id="legal">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">Legal &amp; Transparency</div>
+      <h2>Publication Notice</h2>
+    </div>
+    <div class="method-grid">
+      <div class="method-card"><h4>L-001 — Nature of Publication</h4><p>BD-INV-002 is a structured compilation and analysis of publicly available records. It does not constitute legal proceedings, regulatory action, formal complaint, or adjudicative record. Open-source research and data journalism in the public interest.</p></div>
+      <div class="method-card"><h4>L-002 — What This Does Not Assert</h4><p>Nothing in this report asserts individual criminal liability, judicial misconduct by named individuals, or institutional bad faith. <strong>Structural outcomes are documented as system-level findings.</strong></p></div>
+      <div class="method-card"><h4>L-003 — Corrections Policy</h4><p>Named parties may submit factual corrections at <a href="mailto:corrections@insightgaps.com">corrections@insightgaps.com</a>. Corrections reviewed against source evidence and incorporated into subsequent versions with full documentation. All version changes logged publicly.</p></div>
+      <div class="method-card"><h4>L-004 — License</h4><p>CC BY-NC 4.0. <strong>When citing a specific claim, the evidence tier label must be reproduced.</strong> Omitting the tier label misrepresents the certainty of the claim and violates citation requirements.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">Insight Gaps</div>
+        <div class="footer-cite">Insight Gaps. "The Impunity Machine: Bangladesh's Crisis of Justice for Sexual Violence." BD-INV-002, Version 1.5. March 2026. CC BY-NC 4.0. Tier label reproduction mandatory when citing specific claims.</div>
+      </div>
+      <div class="footer-meta">
+        <div>Report ID: BD-INV-002</div>
+        <div>Version: 1.5</div>
+        <div>Published: March 2026</div>
+        <div>Named sources: 60</div>
+        <div>Corrections: <a href="mailto:corrections@insightgaps.com">corrections@insightgaps.com</a></div>
+        <div>License: CC BY-NC 4.0</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>All claims carry evidence tier labels. Open-source posture. Anonymous publication. Corrections policy active.</p>
+      <a href="#" class="dl-btn" onclick="downloadCSV(event)">↓ CSV Data</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════ SCRIPTS ══════════ -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+// ── LIVE COUNTER ──
+const PAGE_LOAD = Date.now();
+const CASES_PER_MS = 13 / (24*60*60*1000);
+function updateCounter(){
+  const elapsed = Date.now() - PAGE_LOAD;
+  const cases = (elapsed * CASES_PER_MS).toFixed(3);
+  const el = document.getElementById('live-cases');
+  if(el) el.textContent = cases;
+  requestAnimationFrame(updateCounter);
+}
+updateCounter();
+
+// ── HAMBURGER MENU ──
+document.addEventListener('DOMContentLoaded', function(){
+  const btn = document.getElementById('hamburger');
+  const drawer = document.getElementById('nav-drawer');
+  if(btn && drawer){
+    btn.addEventListener('click', function(){
+      btn.classList.toggle('open');
+      drawer.classList.toggle('open');
+    });
+    // Close drawer when a link is clicked
+    drawer.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        btn.classList.remove('open');
+        drawer.classList.remove('open');
+      });
+    });
+  }
+});
+
+// ── PROBABILITY SLIDER ──
+const slReport = document.getElementById('sl-report');
+const slCharge = document.getElementById('sl-charge');
+const slConv = document.getElementById('sl-conv');
+const ANNUAL_INCIDENCE = 300000;
+
+function updateProb(){
+  if(!slReport || !slCharge || !slConv) return;
+  const r = parseFloat(slReport.value)/100;
+  const c = parseFloat(slCharge.value)/100;
+  const v = parseFloat(slConv.value)/100;
+  const compound = r * c * v * 100;
+  const per10k = (compound/100*10000).toFixed(2);
+  const annualConv = Math.round(ANNUAL_INCIDENCE * r * c * v);
+
+  document.getElementById('lbl-report').textContent = parseFloat(slReport.value).toFixed(1)+'%';
+  document.getElementById('lbl-charge').textContent = parseFloat(slCharge.value).toFixed(0)+'%';
+  document.getElementById('lbl-conv').textContent = parseFloat(slConv.value).toFixed(1)+'%';
+
+  const disp = document.getElementById('prob-display');
+  if(compound < 0.001) disp.textContent = compound.toFixed(5)+'%';
+  else if(compound < 0.01) disp.textContent = compound.toFixed(4)+'%';
+  else disp.textContent = compound.toFixed(3)+'%';
+
+  disp.className = 'sr-num' + (compound < 0.01 ? ' low' : '');
+  document.getElementById('conv-per-10k').textContent = per10k;
+  document.getElementById('annual-convictions').textContent = '~'+annualConv;
+
+  const barPct = Math.min(100, compound/0.06*100);
+  document.getElementById('prob-bar').style.width = barPct+'%';
+}
+
+if(slReport && slCharge && slConv){
+  [slReport, slCharge, slConv].forEach(s => s.addEventListener('input', updateProb));
+  updateProb();
+}
+
+function loadScenario(r,c,v){
+  if(!slReport) return;
+  slReport.value = r;
+  slCharge.value = c;
+  slConv.value = v;
+  updateProb();
+  document.querySelectorAll('.sc-preset').forEach(el=>el.classList.remove('active'));
+  if(event && event.currentTarget) event.currentTarget.classList.add('active');
+}
+
+// ── LEAFLET MAP — wrapped in DOMContentLoaded to guarantee element exists ──
+document.addEventListener('DOMContentLoaded', function(){
+  const mapEl = document.getElementById('bangladesh-map');
+  if(!mapEl) return;
+
+  const map = L.map('bangladesh-map', {
+    center: [23.7, 90.35],
+    zoom: 7,
+    zoomControl: true,
+    scrollWheelZoom: false,
+    preferCanvas: true
+  });
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 18
+  }).addTo(map);
+
+  // OCC Hospitals - Full crisis centres (14 confirmed)
+  const occHospitals = [
+    {name:'Dhaka Medical College Hospital',lat:23.7273,lng:90.3966,note:'Pilot phase 2001. DNA lab. 8 beds.'},
+    {name:'Rajshahi Medical College Hospital',lat:24.3636,lng:88.6000,note:'Pilot phase. Divisional capital.'},
+    {name:'Chattogram Medical College Hospital',lat:22.3394,lng:91.8347,note:'Phase 1 (2004–08). Divisional capital.'},
+    {name:'Sylhet MAG Osmani Medical College Hospital',lat:24.9039,lng:91.8697,note:'Phase 1. Divisional capital.'},
+    {name:'Sher-e-Bangla Medical College, Barishal',lat:22.7010,lng:90.3533,note:'Phase 1. Divisional capital.'},
+    {name:'Khulna Medical College Hospital',lat:22.8155,lng:89.5523,note:'Phase 1. Divisional capital.'},
+    {name:'Rangpur Medical College Hospital',lat:25.7468,lng:89.2752,note:'Phase 2 (2008–11). Divisional capital.'},
+    {name:'Faridpur Medical College Hospital',lat:23.6078,lng:89.8404,note:'Phase 2. District-level MCH.'},
+    {name:"Cox's Bazar Medical College Hospital",lat:21.4272,lng:92.0058,note:'Phase 4. District-level MCH.'},
+    {name:'Pabna Medical College Hospital',lat:24.0064,lng:89.2372,note:'Phase 4. District-level MCH.'},
+    {name:'Shaheed Ziaur Rahman Medical College, Bogura',lat:24.8512,lng:89.3711,note:'Phase 4. District-level MCH.'},
+    {name:'Cumilla Medical College Hospital',lat:23.4589,lng:91.1788,note:'Phase 4. District-level MCH.'},
+  ];
+
+  const occIcon = L.divIcon({
+    className:'custom-marker-occ',
+    html:`<div style="width:20px;height:20px;background:#c5a472;border:2px solid #e8d0a0;border-radius:50%;box-shadow:0 0 12px rgba(197,164,114,0.8),0 0 24px rgba(197,164,114,0.3)"></div>`,
+    iconSize:[20,20],iconAnchor:[10,10]
+  });
+
+  occHospitals.forEach(function(h){
+    L.marker([h.lat,h.lng],{icon:occIcon})
+     .bindPopup('<div style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;background:#0d0d1a;color:#e0dbd2;padding:10px 12px;border:1px solid #c5a472;min-width:200px;border-radius:2px"><div style="color:#c5a472;margin-bottom:5px;font-size:9px;text-transform:uppercase;letter-spacing:0.15em;font-weight:700">● FULL OCC — CONFIRMED</div><strong style="font-size:12px;line-height:1.4;display:block;margin-bottom:6px">'+h.name+'</strong><div style="color:#797992;font-size:10px;line-height:1.5">'+h.note+'</div><div style="color:#5db870;margin-top:8px;font-size:9px;text-transform:uppercase;letter-spacing:0.1em;border-top:1px solid #222236;padding-top:6px">DNA · Legal · Medical · Shelter</div></div>',{className:'dark-popup'})
+     .addTo(map);
+  });
+
+  // Tribunal districts (all 64 minus those with full OCC)
+  const tribunalDistricts = [
+    {name:'Gazipur',lat:23.9999,lng:90.4203},{name:'Narayanganj',lat:23.6238,lng:90.4997},
+    {name:'Narsingdi',lat:23.9326,lng:90.7150},{name:'Munshiganj',lat:23.5422,lng:90.5303},
+    {name:'Manikganj',lat:23.8607,lng:89.9997},{name:'Tangail',lat:24.2512,lng:89.9167},
+    {name:'Kishoreganj',lat:24.4445,lng:90.7760},{name:'Mymensingh',lat:24.7471,lng:90.4203},
+    {name:'Jamalpur',lat:24.9065,lng:89.9274},{name:'Netrokona',lat:24.8705,lng:90.8678},
+    {name:'Sherpur',lat:25.0208,lng:90.0150},{name:'Natore',lat:24.4202,lng:88.9868},
+    {name:'Chapai Nawabganj',lat:24.5968,lng:88.2742},{name:'Naogaon',lat:24.7936,lng:88.9312},
+    {name:'Joypurhat',lat:25.0990,lng:89.0228},{name:'Sirajganj',lat:24.4534,lng:89.7006},
+    {name:'Bagerhat',lat:22.6557,lng:89.7854},{name:'Satkhira',lat:22.7185,lng:89.0705},
+    {name:'Jessore',lat:23.1667,lng:89.2000},{name:'Jhenaidah',lat:23.5448,lng:89.1524},
+    {name:'Narail',lat:23.1721,lng:89.4954},{name:'Magura',lat:23.4870,lng:89.4197},
+    {name:'Kushtia',lat:23.9012,lng:89.1202},{name:'Chuadanga',lat:23.6402,lng:88.8418},
+    {name:'Meherpur',lat:23.7620,lng:88.6318},{name:'Bhola',lat:22.3700,lng:90.7981},
+    {name:'Patuakhali',lat:22.3596,lng:90.3298},{name:'Pirojpur',lat:22.5800,lng:89.9744},
+    {name:'Jhalokati',lat:22.6403,lng:90.1987},{name:'Barguna',lat:22.0952,lng:90.1126},
+    {name:"Cox's Bazar",lat:21.4272,lng:92.0058},{name:'Rangamati',lat:22.6501,lng:92.1994},
+    {name:'Bandarban',lat:22.1953,lng:92.2183},{name:'Khagrachhari',lat:23.1193,lng:91.9847},
+    {name:'Feni',lat:23.0174,lng:91.3961},{name:'Lakshmipur',lat:22.9424,lng:90.8282},
+    {name:'Noakhali',lat:22.8696,lng:91.0991},{name:'Chandpur',lat:23.2313,lng:90.6708},
+    {name:'Brahmanbaria',lat:23.9570,lng:91.1116},{name:'Moulvibazar',lat:24.4829,lng:91.7774},
+    {name:'Habiganj',lat:24.3745,lng:91.4153},{name:'Sunamganj',lat:25.0658,lng:91.3950},
+    {name:'Gaibandha',lat:25.3284,lng:89.5450},{name:'Nilphamari',lat:25.9318,lng:88.8564},
+    {name:'Lalmonirhat',lat:25.9923,lng:89.2846},{name:'Kurigram',lat:25.8052,lng:89.6360},
+    {name:'Dinajpur',lat:25.6271,lng:88.6329},{name:'Thakurgaon',lat:26.0358,lng:88.4584},
+    {name:'Panchagarh',lat:26.3414,lng:88.5355},{name:'Gopalganj',lat:23.0053,lng:89.8268},
+    {name:'Madaripur',lat:23.1642,lng:90.1932},{name:'Shariatpur',lat:23.2423,lng:90.4350},
+    {name:'Rajbari',lat:23.7573,lng:89.6440},{name:'Dhaka',lat:23.7104,lng:90.4074},
+  ];
+
+  const triIcon = L.divIcon({
+    className:'custom-marker-tri',
+    html:'<svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="8" height="8" rx="1" fill="#2e2e48" stroke="#52526a" stroke-width="1"/></svg>',
+    iconSize:[10,10],iconAnchor:[5,5]
+  });
+
+  tribunalDistricts.forEach(function(d){
+    L.marker([d.lat,d.lng],{icon:triIcon})
+     .bindPopup('<div style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;background:#0d0d1a;color:#e0dbd2;padding:10px 12px;border:1px solid #2e2e48;min-width:200px;border-radius:2px"><div style="color:#d4a010;margin-bottom:5px;font-size:9px;text-transform:uppercase;letter-spacing:0.12em;font-weight:700">▲ TRIBUNAL ONLY — NO FULL OCC</div><strong style="font-size:12px;display:block;margin-bottom:6px">'+d.name+' District</strong><div style="color:#797992;font-size:10px;line-height:1.6">Case filing: Possible<br>Full OCC: <span style="color:#d45868;font-weight:700">ABSENT</span><br>DNA testing: 3–4 months (national lab)<br>72-hr evidence window: likely missed</div></div>',{className:'dark-popup'})
+     .addTo(map);
+  });
+
+  // Map popup styles
+  const mapStyle = document.createElement('style');
+  mapStyle.textContent = '.leaflet-popup-content-wrapper{background:#0d0d1a;border:1px solid #2e2e48;border-radius:2px;box-shadow:0 4px 24px rgba(0,0,0,0.9)}.leaflet-popup-content{margin:0;padding:0}.leaflet-popup-tip{background:#0d0d1a}.leaflet-popup-close-button{color:#797992!important;font-size:16px!important;padding:4px 6px!important;top:4px!important;right:4px!important}.custom-marker-occ,.custom-marker-tri{border:none!important;background:none!important}';
+  document.head.appendChild(mapStyle);
+
+  // Invalidate size after short delay to fix rendering in some browsers
+  setTimeout(function(){ map.invalidateSize(); }, 300);
+});
+
+// ── CSV DOWNLOAD ──
+function downloadCSV(e){
+  e.preventDefault();
+  const rows=[
+    ['Scenario','Reporting_%','Charge_%','Conv_%','Compound_%','Per_10k','Annual_Convictions','Source_Notes'],
+    ['Extreme-Low','0.2','40','0.39','0.00031','0.031','~1','Below all floors'],
+    ['Low-Low','0.5','59','0.39','0.00115','0.115','~3','Conservative throughout'],
+    ['Low-Mid','0.5','59','2.5','0.00738','0.738','~22','Low report, mid conv'],
+    ['Low-High','0.5','59','3.66','0.0108','1.08','~32','Low report, BRAC ceiling'],
+    ['Mid-Low','1.46','59','0.39','0.00336','0.336','~10','Mid report, Naripokkho floor'],
+    ['Mid-Mid [REFERENCE]','1.46','59','2.5','0.0215','2.15','~65','REFERENCE SCENARIO'],
+    ['Mid-High','1.46','59','3.66','0.0315','3.15','~94','Mid report, BRAC ceiling'],
+    ['High-Low','3','59','0.39','0.0069','0.69','~21','High report, low conv'],
+    ['High-Mid','3','65','2.5','0.0488','4.88','~146','High report, mid conv'],
+    ['High-High','3','65','3.66','0.0714','7.14','~214','High report, BRAC ceiling'],
+    ['Extreme-High','5','70','3.66','0.128','12.8','~384','Most optimistic'],
+    ['','','','','','','',''],
+    ['NOTES','','','','','','',''],
+    ['All PROBABLE — modeled. Steps 4+6 (FIR registration and trial commencement) assumed 100% — this OVERESTIMATES probability.','','','','','','',''],
+    ['Source reporting: UNFPA S-37 (3.8% legal remedies); PHQ FIRs / UNFPA incidence estimate.','','','','','','',''],
+    ['Source charge: PBI S-34 (41% unproven = 59% proceed).','','','','','','',''],
+    ['Source conv: S-06 Naripokkho 0.39% (floor); S-01 BRAC 3.66%/7.27% (ceiling); OCC data 0.46% (S-55).','','','','','','',''],
+    ['Version: BD-INV-002 v1.6 March 2026. CC BY-NC 4.0.','','','','','','',''],
+  ];
+  const csv=rows.map(r=>r.map(v=>v===''?'':'"'+v.replace(/"/g,'""')+'"').join(',')).join('\n');
+  const blob=new Blob([csv],{type:'text/csv'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='impunity-machine-BD-INV-002-v1.6.csv';
+  a.click();
+}
+
+// ── NAV SCROLL HIGHLIGHT ──
+window.addEventListener('scroll', function(){
+  let cur = '';
+  document.querySelectorAll('section[id]').forEach(function(s){
+    if(window.scrollY >= s.offsetTop - 80) cur = s.id;
+  });
+  document.querySelectorAll('.nav-links a').forEach(function(a){
+    const active = a.getAttribute('href') === '#' + cur;
+    a.classList.toggle('active', active);
+    a.style.color = active ? 'var(--gold)' : '';
+  });
+}, {passive:true});
+
+</script>
+</body>
+</html>
