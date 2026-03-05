@@ -1,199 +1,41 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Research Topics | Insight Gaps</title>
-  <meta name="description" content="Insight Gaps research programs — Accountability & Justice, Conflict Economics, and Operational Intelligence. Forensic data journalism bureau, Dhaka.">
+  <meta name="description" content="Insight Gaps research programs — Accountability & Justice, Conflict Economics, and Operational Intelligence.">
   <link rel="canonical" href="https://www.insightgaps.com/topics/">
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="stylesheet" href="/style.css">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4PYE0MEK12"></script>
-  <script>
-    window.dataLayer=window.dataLayer||[];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js',new Date()); gtag('config','G-4PYE0MEK12');
-  </script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4PYE0MEK12');</script>
   <style>
-    .topics-hero {
-      background: var(--ink);
-      padding: var(--s16) 0 var(--s12);
-      border-bottom: 1px solid var(--border-dark);
-    }
-    .topics-hero-label {
-      font-family: var(--mono);
-      font-size: var(--t-xs);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--red);
-      display: block;
-      margin-bottom: var(--s3);
-    }
-    .topics-hero h1 {
-      font-family: var(--serif);
-      font-size: var(--t-4xl);
-      color: var(--text-inv);
-      margin: 0 0 var(--s5);
-    }
-    .topics-hero p {
-      font-family: var(--sans);
-      font-size: var(--t-sm);
-      color: var(--text-inv-soft);
-      max-width: 60ch;
-      margin: 0;
-    }
-    .bureau-stat-bar {
-      display: flex;
-      gap: var(--s10);
-      flex-wrap: wrap;
-      margin-top: var(--s10);
-      padding-top: var(--s8);
-      border-top: 1px solid var(--border-inv);
-    }
-    .bureau-stat {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    .bureau-stat-val {
-      font-family: var(--mono);
-      font-size: var(--t-2xl);
-      font-weight: 700;
-      color: var(--text-inv);
-    }
-    .bureau-stat-lbl {
-      font-family: var(--sans);
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.35);
-    }
-    .topics-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: var(--s8);
-      margin-top: var(--s12);
-    }
-    .topic-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--r);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
-    }
-    .topic-card:hover {
-      box-shadow: 0 8px 40px rgba(0,0,0,0.1);
-      border-color: var(--text-3);
-      transform: translateY(-2px);
-    }
+    .topics-hero { background: var(--ink); padding: var(--s16) 0 var(--s12); border-bottom: 1px solid var(--border-dark); }
+    .topics-hero-label { font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); display: block; margin-bottom: var(--s3); }
+    .topics-hero h1 { font-family: var(--serif); font-size: var(--t-4xl); color: var(--text-inv); margin: 0 0 var(--s5); }
+    .topics-hero p { font-family: var(--sans); font-size: var(--t-sm); color: var(--text-inv-soft); max-width: 60ch; margin: 0; }
+    .bureau-stat-bar { display: flex; gap: var(--s10); flex-wrap: wrap; margin-top: var(--s10); padding-top: var(--s8); border-top: 1px solid var(--border-inv); }
+    .bureau-stat { display: flex; flex-direction: column; gap: 4px; }
+    .bureau-stat-val { font-family: var(--mono); font-size: var(--t-2xl); font-weight: 700; color: var(--text-inv); }
+    .bureau-stat-lbl { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+    .topics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: var(--s8); margin-top: var(--s12); }
+    .topic-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; display: flex; flex-direction: column; transition: box-shadow 0.2s, transform 0.2s; }
+    .topic-card:hover { box-shadow: 0 8px 40px rgba(0,0,0,0.1); transform: translateY(-2px); }
     .topic-card-accent { height: 4px; }
-    .topic-card-accent.red { background: var(--red); }
-    .topic-card-accent.gold { background: var(--gold); }
-    .topic-card-accent.teal { background: var(--teal); }
     .topic-card-body { padding: var(--s8); display: flex; flex-direction: column; flex: 1; }
-    .topic-tag {
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 2px;
-      display: inline-block;
-      margin-bottom: var(--s5);
-    }
-    .topic-tag.red { background: rgba(196,30,58,0.08); color: var(--red); border: 1px solid rgba(196,30,58,0.2); }
-    .topic-tag.gold { background: rgba(184,134,11,0.08); color: var(--gold); border: 1px solid rgba(184,134,11,0.2); }
-    .topic-tag.teal { background: rgba(0,109,91,0.08); color: var(--teal); border: 1px solid rgba(0,109,91,0.2); }
-    .topic-card h2 {
-      font-family: var(--serif);
-      font-size: var(--t-xl);
-      font-weight: 700;
-      color: var(--text-1);
-      margin: 0 0 var(--s4);
-      line-height: 1.2;
-    }
-    .topic-card-mandate {
-      font-family: var(--sans);
-      font-size: var(--t-sm);
-      color: var(--text-2);
-      line-height: 1.65;
-      margin-bottom: var(--s6);
-      max-width: 100%;
-    }
-    .topic-inv-list {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 var(--s6);
-      border-top: 1px solid var(--border);
-      padding-top: var(--s5);
-      display: flex;
-      flex-direction: column;
-      gap: var(--s3);
-    }
-    .topic-inv-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: var(--s3);
-    }
-    .topic-inv-num {
-      font-family: var(--mono);
-      font-size: 0.6rem;
-      color: var(--red);
-      flex-shrink: 0;
-      padding-top: 3px;
-    }
-    .topic-inv-num.gold { color: var(--gold); }
-    .topic-inv-num.teal { color: var(--teal); }
-    .topic-inv-list a {
-      font-family: var(--sans);
-      font-size: var(--t-sm);
-      color: var(--text-1);
-      font-weight: 500;
-      transition: color 0.15s;
-    }
+    .topic-tag { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; padding: 4px 10px; border-radius: 2px; display: inline-block; margin-bottom: var(--s5); }
+    .topic-card h2 { font-family: var(--serif); font-size: var(--t-xl); font-weight: 700; color: var(--text-1); margin: 0 0 var(--s4); line-height: 1.2; }
+    .topic-card-mandate { font-family: var(--sans); font-size: var(--t-sm); color: var(--text-2); line-height: 1.65; margin-bottom: var(--s6); }
+    .topic-inv-list { list-style: none; padding: 0; margin: 0 0 var(--s6); border-top: 1px solid var(--border); padding-top: var(--s5); display: flex; flex-direction: column; gap: var(--s3); }
+    .topic-inv-list li { display: flex; align-items: flex-start; gap: var(--s3); }
+    .topic-inv-list a { font-family: var(--sans); font-size: var(--t-sm); color: var(--text-1); font-weight: 500; text-decoration: none; transition: color 0.15s; }
     .topic-inv-list a:hover { color: var(--red); }
-    .topic-card-footer {
-      margin-top: auto;
-      padding-top: var(--s5);
-      border-top: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .topic-count {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-4);
-    }
-    .mandate-section {
-      background: var(--cream);
-      border: 1px solid var(--border);
-      border-radius: var(--r);
-      padding: var(--s10);
-      margin-top: var(--s16);
-    }
-    .mandate-section h3 {
-      font-family: var(--sans);
-      font-size: var(--t-xs);
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text-3);
-      margin: 0 0 var(--s4);
-    }
-    .mandate-section p {
-      font-family: var(--sans);
-      font-size: var(--t-sm);
-      color: var(--text-2);
-      line-height: 1.7;
-      max-width: 72ch;
-      margin: 0;
-    }
+    .topic-card-footer { margin-top: auto; padding-top: var(--s5); border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+    .topic-count { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-4); }
+    .mandate-section { background: var(--cream); border: 1px solid var(--border); border-radius: var(--r); padding: var(--s10); margin-top: var(--s16); }
+    .mandate-section h3 { font-family: var(--sans); font-size: var(--t-xs); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-3); margin: 0 0 var(--s4); }
+    .mandate-section p { font-family: var(--sans); font-size: var(--t-sm); color: var(--text-2); line-height: 1.7; max-width: 72ch; margin: 0; }
   </style>
 </head>
 <body>
@@ -205,144 +47,75 @@
     <span class="topics-hero-label">Insight Gaps Bureau</span>
     <h1>Research Programs</h1>
     <p>Structured investigation domains. Each program clusters related investigations, datasets, and analysis under a defined research mandate — building systematic knowledge, not isolated articles.</p>
-    <div class="bureau-stat-bar">
-      <div class="bureau-stat">
-        <div class="bureau-stat-val">3</div>
-        <div class="bureau-stat-lbl">Active Programs</div>
-      </div>
-      <div class="bureau-stat">
-        <div class="bureau-stat-val">3</div>
-        <div class="bureau-stat-lbl">Investigations Published</div>
-      </div>
-      <div class="bureau-stat">
-        <div class="bureau-stat-val">310+</div>
-        <div class="bureau-stat-lbl">Sources Documented</div>
-      </div>
-      <div class="bureau-stat">
-        <div class="bureau-stat-val">2026</div>
-        <div class="bureau-stat-lbl">Program Year</div>
-      </div>
-    </div>
+    <div class="bureau-stat-bar" id="heroStats"><!-- populated by registry --></div>
   </div>
 </div>
 
 <main class="page-container" role="main">
+  <div class="topics-grid" id="topicsGrid"><!-- populated by registry --></div>
 
-  <div class="topics-grid">
-
-    <!-- ACCOUNTABILITY -->
-    <article class="topic-card">
-      <div class="topic-card-accent red"></div>
-      <div class="topic-card-body">
-        <span class="topic-tag red">Research Program · National</span>
-        <h2>Accountability &amp; Justice</h2>
-        <p class="topic-card-mandate">
-          Forensic examination of how institutional systems — police, courts, prosecutors — produce systematic impunity. 
-          Documents the structural mechanisms that make justice failure consistent, not accidental.
-        </p>
-        <ul class="topic-inv-list">
-          <li>
-            <span class="topic-inv-num">BD-INV-002</span>
-            <a href="/investigations/national/impunity-machine.html">The Impunity Machine: Bangladesh's Rape Justice Crisis</a>
-          </li>
-          <li>
-            <span class="topic-inv-num">BD-INV-001</span>
-            <a href="/investigations/national/blood-routes.html">Blood Routes: Dhaka Bus Fatalities Investigation</a>
-          </li>
-        </ul>
-        <div class="topic-card-footer">
-          <span class="topic-count">2 Investigations · 215+ Sources</span>
-          <a href="/topics/accountability/" class="btn-report">View Program →</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- CONFLICT ECONOMICS -->
-    <article class="topic-card">
-      <div class="topic-card-accent gold"></div>
-      <div class="topic-card-body">
-        <span class="topic-tag gold">Research Program · International</span>
-        <h2>Conflict Economics</h2>
-        <p class="topic-card-mandate">
-          Quantitative analysis of how armed conflicts transmit economic harm across borders — through energy, food, 
-          and shipping markets — to countries that never participated. Introduces comparative frameworks for cross-conflict analysis.
-        </p>
-        <ul class="topic-inv-list">
-          <li>
-            <span class="topic-inv-num gold">INT-INV-001</span>
-            <a href="/investigations/international/war-tax.html">The Hidden Tax of War: How Conflicts Raise Global Prices</a>
-          </li>
-          <li style="opacity: 0.4;">
-            <span class="topic-inv-num gold">UPCOMING</span>
-            <span style="font-family: var(--sans); font-size: var(--t-sm); color: var(--text-3);">Sanctions Spillover: Civilian Economic Impact</span>
-          </li>
-        </ul>
-        <div class="topic-card-footer">
-          <span class="topic-count">1 Investigation · In development</span>
-          <a href="/topics/conflict-economics/" class="btn-report" style="border-color: var(--gold); color: var(--gold);" onmouseover="this.style.background='var(--gold)';this.style.color='#fff';" onmouseout="this.style.background='transparent';this.style.color='var(--gold)';">View Program →</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- OPERATIONAL INTELLIGENCE -->
-    <article class="topic-card">
-      <div class="topic-card-accent teal"></div>
-      <div class="topic-card-body">
-        <span class="topic-tag teal">Research Program · Applied</span>
-        <h2>Operational Intelligence</h2>
-        <p class="topic-card-mandate">
-          Forensic diagnostics applied to operational systems — cash flow, vendor risk, work order patterns. 
-          Exposes where value leaks, where risk accumulates, and where systems quietly fail. 
-          Available as public analysis and private commissioned diagnostics.
-        </p>
-        <ul class="topic-inv-list">
-          <li>
-            <span class="topic-inv-num teal">01</span>
-            <a href="/analysis/property-preservation/financial-health.html">Financial Health: The Cash Chain</a>
-          </li>
-          <li>
-            <span class="topic-inv-num teal">02</span>
-            <a href="/analysis/property-preservation/leakage-breakdown.html">Leakage Breakdown: Structural Autopsy</a>
-          </li>
-          <li>
-            <span class="topic-inv-num teal">03</span>
-            <a href="/analysis/property-preservation/work-order-breakdown.html">Work Order Risk Breakdown</a>
-          </li>
-        </ul>
-        <div class="topic-card-footer">
-          <span class="topic-count">3 Reports · Property Preservation</span>
-          <a href="/topics/operational-intelligence/" class="btn-report" style="border-color: var(--teal); color: var(--teal);" onmouseover="this.style.background='var(--teal)';this.style.color='#fff';" onmouseout="this.style.background='transparent';this.style.color='var(--teal)';">View Program →</a>
-        </div>
-      </div>
-    </article>
-
-  </div>
-
-  <!-- Bureau mandate note -->
   <div class="mandate-section">
     <h3>How Research Programs Work</h3>
-    <p>
-      Each program defines a domain of systemic failure and publishes investigations, datasets, and analysis under that mandate. 
-      Investigations within a program are related — they share methodologies, build on each other's findings, and collectively 
-      build toward a comprehensive picture of a systemic problem. Programs expand as new investigations are published. 
-      New programs are added when sufficient evidence justifies a new research domain.
-    </p>
+    <p>Each program defines a domain of systemic failure and publishes investigations, datasets, and analysis under that mandate. Investigations within a program are related — they share methodologies, build on each other's findings, and collectively build toward a comprehensive picture of a systemic problem. Programs expand as new investigations are published.</p>
   </div>
 
-  <!-- Commission CTA -->
-  <div style="margin-top: var(--s10); background: var(--ink); padding: var(--s10); border-radius: var(--r); max-width: 640px;">
-    <p style="font-family: var(--sans); font-size: var(--t-xs); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: var(--s3);">Commissioned Research</p>
-    <p style="font-family: var(--sans); font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: var(--s5);">
-      Private research engagements accepted across all program areas. Same forensic standards, evidence tiers, and methodology as public work. Results are confidential.
-    </p>
-    <a href="mailto:insightgaps@gmail.com" style="font-family: var(--sans); font-size: 0.82rem; font-weight: 700; color: #fff; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 2px; text-decoration:none;" onmouseover="this.style.borderColor='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.3)'">insightgaps@gmail.com →</a>
+  <div style="margin-top:var(--s10);background:var(--ink);padding:var(--s10);border-radius:var(--r);max-width:640px;">
+    <p style="font-family:var(--sans);font-size:var(--t-xs);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:var(--s3);">Commissioned Research</p>
+    <p style="font-family:var(--sans);font-size:0.88rem;color:rgba(255,255,255,0.55);line-height:1.65;margin-bottom:var(--s5);">Private research engagements accepted across all program areas. Same forensic standards, evidence tiers, and methodology as public work. Results are confidential.</p>
+    <a href="mailto:insightgaps@gmail.com" style="font-family:var(--sans);font-size:0.82rem;font-weight:700;color:#fff;border-bottom:1px solid rgba(255,255,255,0.3);padding-bottom:2px;text-decoration:none;">insightgaps@gmail.com →</a>
   </div>
-
 </main>
 
 <div data-include="footer" data-path="/includes/footer.html"></div>
 <script src="/js/components.js"></script>
 <script src="/js/ui.js"></script>
+<script src="/js/registry.js"></script>
+<script>
+(function() {
+  var published = getPublished();
 
+  // Hero stats
+  document.getElementById('heroStats').innerHTML =
+    '<div class="bureau-stat"><div class="bureau-stat-val">' + Object.keys(TOPICS).length + '</div><div class="bureau-stat-lbl">Active Programs</div></div>' +
+    '<div class="bureau-stat"><div class="bureau-stat-val">' + published.length + '</div><div class="bureau-stat-lbl">Investigations Published</div></div>' +
+    '<div class="bureau-stat"><div class="bureau-stat-val">310+</div><div class="bureau-stat-lbl">Sources Documented</div></div>' +
+    '<div class="bureau-stat"><div class="bureau-stat-val">2026</div><div class="bureau-stat-lbl">Program Year</div></div>';
+
+  // Topic cards
+  var colorMap = {
+    red:  { bg:'rgba(196,30,58,0.08)', color:'var(--red)', border:'rgba(196,30,58,0.2)', accent:'var(--red)', btnStyle:'' },
+    gold: { bg:'rgba(184,134,11,0.08)', color:'var(--gold)', border:'rgba(184,134,11,0.2)', accent:'var(--gold)', btnStyle:'border-color:var(--gold);color:var(--gold);' },
+    teal: { bg:'rgba(0,109,91,0.08)', color:'var(--teal)', border:'rgba(0,109,91,0.2)', accent:'var(--teal)', btnStyle:'border-color:var(--teal);color:var(--teal);' }
+  };
+
+  var topicScopeLabel = { 'accountability':'National', 'conflict-economics':'International', 'operational-intelligence':'Applied' };
+
+  document.getElementById('topicsGrid').innerHTML = Object.keys(TOPICS).map(function(key) {
+    var t = TOPICS[key];
+    var c = colorMap[t.color];
+    var invs = getByTopic(key);
+    var invListHtml = invs.map(function(inv) {
+      return '<li><a href="' + inv.url + '">' + inv.title + '</a></li>';
+    }).join('');
+    if (!invs.length) invListHtml = '<li style="font-family:var(--sans);font-size:var(--t-sm);color:var(--text-4);">No published investigations yet</li>';
+
+    return '<article class="topic-card">' +
+      '<div class="topic-card-accent" style="background:' + c.accent + '"></div>' +
+      '<div class="topic-card-body">' +
+        '<span class="topic-tag" style="background:' + c.bg + ';color:' + c.color + ';border:1px solid ' + c.border + ';">Research Program · ' + topicScopeLabel[key] + '</span>' +
+        '<h2>' + t.label + '</h2>' +
+        '<p class="topic-card-mandate">' + t.mandate + '</p>' +
+        '<ul class="topic-inv-list">' + invListHtml + '</ul>' +
+        '<div class="topic-card-footer">' +
+          '<span class="topic-count">' + invs.length + ' Investigation' + (invs.length !== 1 ? 's' : '') + '</span>' +
+          '<a href="' + t.url + '" class="btn-report" style="' + c.btnStyle + '" ' +
+            (t.color !== 'red' ? 'onmouseover="this.style.background=\'' + c.accent + '\';this.style.color=\'#fff\';" onmouseout="this.style.background=\'transparent\';this.style.color=\'' + c.accent + '\';"' : '') +
+          '>View Program →</a>' +
+        '</div>' +
+      '</div>' +
+    '</article>';
+  }).join('');
+})();
+</script>
 </body>
 </html>
