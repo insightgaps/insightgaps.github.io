@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Investigations | Insight Gaps</title>
-  <meta name="description" content="National and international investigative reports by Insight Gaps — forensic data journalism bureau, Dhaka.">
-  <link rel="canonical" href="https://insightgaps.com/investigations/">
+  <meta name="description" content="National and international forensic investigations by Insight Gaps — accountability, conflict economics, and systemic failure. Evidence tier-rated. Dhaka.">
+  <link rel="canonical" href="https://www.insightgaps.com/investigations/">
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="stylesheet" href="/style.css">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4PYE0MEK12"></script>
@@ -15,6 +15,49 @@
     gtag('js',new Date()); gtag('config','G-4PYE0MEK12');
   </script>
   <style>
+    .page-hero { background: var(--ink); padding: var(--s16) 0 var(--s12); }
+    .page-hero-label { font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); display: block; margin-bottom: var(--s3); }
+    .page-hero h1 { font-family: var(--serif); font-size: var(--t-4xl); color: var(--text-inv); margin: 0 0 var(--s4); }
+    .page-hero p { font-family: var(--sans); font-size: var(--t-sm); color: var(--text-inv-soft); max-width: 60ch; margin: 0; }
+    .bureau-stats-bar {
+      display: flex;
+      gap: var(--s10);
+      flex-wrap: wrap;
+      margin-top: var(--s10);
+      padding-top: var(--s8);
+      border-top: 1px solid var(--border-inv);
+    }
+    .bs-stat { display: flex; flex-direction: column; gap: 4px; }
+    .bs-stat-val { font-family: var(--mono); font-size: var(--t-2xl); font-weight: 700; color: #fff; }
+    .bs-stat-lbl { font-family: var(--sans); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+    /* Filter bar */
+    .filter-bar {
+      display: flex;
+      gap: var(--s3);
+      flex-wrap: wrap;
+      padding: var(--s6) 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: var(--s10);
+    }
+    .filter-btn {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 2px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-3);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .filter-btn:hover { border-color: var(--text-2); color: var(--text-1); }
+    .filter-btn.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .filter-btn.red.active { background: var(--red); border-color: var(--red); }
+    .filter-btn.gold.active { background: var(--gold); border-color: var(--gold); }
+    .filter-btn.teal.active { background: var(--teal); border-color: var(--teal); }
+    /* Investigation cards */
     .inv-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -37,10 +80,22 @@
     .inv-scope {
       font-family: var(--sans); font-size: var(--t-xs); font-weight: 700;
       letter-spacing: 0.14em; text-transform: uppercase; padding: 4px 10px;
-      border-radius: 2px; display: inline-block; margin-bottom: var(--s5);
+      border-radius: 2px; display: inline-block; margin-bottom: var(--s3);
     }
     .inv-scope.national { background: rgba(196,30,58,0.08); color: var(--red); border: 1px solid rgba(196,30,58,0.2); }
     .inv-scope.international { background: rgba(184,134,11,0.08); color: var(--gold); border: 1px solid rgba(184,134,11,0.2); }
+    .inv-topic-tag {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-4);
+      border: 1px solid var(--border);
+      padding: 2px 8px;
+      border-radius: 2px;
+      margin-left: var(--s2);
+    }
     .inv-card h3 { font-family: var(--serif); font-size: var(--t-xl); font-weight: 700; line-height: 1.2; color: var(--text-1); margin: 0 0 var(--s4); }
     .inv-card-meta { font-family: var(--mono); font-size: var(--t-xs); color: var(--text-4); display: flex; gap: var(--s3); flex-wrap: wrap; margin-bottom: var(--s5); }
     .inv-stats { display: flex; gap: var(--s6); flex-wrap: wrap; margin: var(--s5) 0; }
@@ -58,13 +113,21 @@
     .inv-card-footer { margin-top: auto; padding-top: var(--s6); border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: var(--s4); flex-wrap: wrap; }
     .inv-status { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-4); display: flex; align-items: center; gap: 6px; }
     .inv-status::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); display: inline-block; }
-    .page-hero { background: var(--ink); padding: var(--s16) 0 var(--s12); }
-    .page-hero-label { font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); display: block; margin-bottom: var(--s3); }
-    .page-hero h1 { font-family: var(--serif); font-size: var(--t-3xl); color: var(--text-inv); margin: 0 0 var(--s4); }
-    .page-hero p { font-family: var(--sans); font-size: var(--t-sm); color: var(--text-inv-soft); max-width: 60ch; margin: 0; }
+    .inv-topic-link {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      color: var(--text-4);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .inv-topic-link:hover { color: var(--text-1); border-color: var(--text-2); }
     .section-divider { display: flex; align-items: center; gap: var(--s5); margin: var(--s12) 0 var(--s6); }
     .section-divider-line { flex: 1; height: 1px; background: var(--border); }
     .section-divider-label { font-family: var(--sans); font-size: var(--t-xs); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-3); white-space: nowrap; }
+    .inv-card.hidden { display: none; }
   </style>
 </head>
 <body>
@@ -75,24 +138,57 @@
   <div class="wrap">
     <span class="page-hero-label">Insight Gaps Bureau</span>
     <h1>Investigations</h1>
-    <p>Forensic open-source investigations into systemic failures in infrastructure, economics, and accountability. All evidence tier-rated. Public record.</p>
+    <p>Forensic open-source investigations into systemic failures in accountability, conflict economics, and governance. All evidence tier-rated. Public record.</p>
+    <div class="bureau-stats-bar">
+      <div class="bs-stat">
+        <div class="bs-stat-val">3</div>
+        <div class="bs-stat-lbl">Published</div>
+      </div>
+      <div class="bs-stat">
+        <div class="bs-stat-val">310+</div>
+        <div class="bs-stat-lbl">Sources Total</div>
+      </div>
+      <div class="bs-stat">
+        <div class="bs-stat-val">3</div>
+        <div class="bs-stat-lbl">Research Programs</div>
+      </div>
+      <div class="bs-stat">
+        <div class="bs-stat-val">2</div>
+        <div class="bs-stat-lbl">Countries</div>
+      </div>
+    </div>
   </div>
 </div>
 
 <main class="page-container" role="main">
 
+  <!-- Filter Bar -->
+  <div class="filter-bar" role="toolbar" aria-label="Filter investigations">
+    <button class="filter-btn active" data-filter="all" onclick="filterInv('all', this)">All Investigations</button>
+    <button class="filter-btn red" data-filter="accountability" onclick="filterInv('accountability', this)">Accountability &amp; Justice</button>
+    <button class="filter-btn gold" data-filter="conflict" onclick="filterInv('conflict', this)">Conflict Economics</button>
+    <button class="filter-btn" data-filter="national" onclick="filterInv('national', this)">National</button>
+    <button class="filter-btn" data-filter="international" onclick="filterInv('international', this)">International</button>
+    <button class="filter-btn" data-filter="2026" onclick="filterInv('2026', this)">2026</button>
+    <button class="filter-btn" data-filter="2025" onclick="filterInv('2025', this)">2025</button>
+  </div>
+
   <!-- NATIONAL -->
-  <div class="section-divider">
+  <div class="section-divider" id="section-national">
     <div class="section-divider-line"></div>
     <span class="section-divider-label">National · Bangladesh</span>
     <div class="section-divider-line"></div>
   </div>
 
   <div class="inv-grid">
-    <article class="inv-card">
+
+    <article class="inv-card" data-topics="accountability national 2026">
       <div class="inv-card-band"></div>
       <div class="inv-card-body">
-        <span class="inv-scope national">National Investigation</span>
+        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: var(--s2); margin-bottom: var(--s5);">
+          <span class="inv-scope national">National Investigation</span>
+          <a href="/topics/accountability/" class="inv-topic-link">Accountability &amp; Justice ↗</a>
+        </div>
         <h3>The Impunity Machine: Bangladesh's Crisis of Justice for Sexual Violence</h3>
         <div class="inv-card-meta">
           <span>BD-INV-002</span><span>·</span><span>Published March 2026</span><span>·</span><span>v1.6 Public Release</span>
@@ -118,10 +214,13 @@
       </div>
     </article>
 
-    <article class="inv-card">
+    <article class="inv-card" data-topics="accountability national 2026">
       <div class="inv-card-band"></div>
       <div class="inv-card-body">
-        <span class="inv-scope national">National Investigation</span>
+        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: var(--s2); margin-bottom: var(--s5);">
+          <span class="inv-scope national">National Investigation</span>
+          <a href="/topics/accountability/" class="inv-topic-link">Accountability &amp; Justice ↗</a>
+        </div>
         <h3>Blood Routes: The Dhaka Bus Fatalities Investigation</h3>
         <div class="inv-card-meta">
           <span>BD-INV-001</span><span>·</span><span>Published Feb 2026</span><span>·</span><span>v1.0 Public Release</span>
@@ -146,20 +245,25 @@
         </div>
       </div>
     </article>
+
   </div>
 
   <!-- INTERNATIONAL -->
-  <div class="section-divider">
+  <div class="section-divider" id="section-international">
     <div class="section-divider-line"></div>
     <span class="section-divider-label">International · Global Economy</span>
     <div class="section-divider-line"></div>
   </div>
 
   <div class="inv-grid">
-    <article class="inv-card">
+
+    <article class="inv-card" data-topics="conflict international 2025">
       <div class="inv-card-band gold"></div>
       <div class="inv-card-body">
-        <span class="inv-scope international">International Investigation</span>
+        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: var(--s2); margin-bottom: var(--s5);">
+          <span class="inv-scope international">International Investigation</span>
+          <a href="/topics/conflict-economics/" class="inv-topic-link">Conflict Economics ↗</a>
+        </div>
         <h3>The Hidden Tax of War: How Conflicts Raise Global Prices</h3>
         <div class="inv-card-meta">
           <span>INT-INV-001</span><span>·</span><span>Published 2025</span><span>·</span><span>Cross-conflict Data Study</span>
@@ -184,6 +288,7 @@
         </div>
       </div>
     </article>
+
   </div>
 
   <!-- Commission CTA -->
@@ -200,6 +305,44 @@
 <div data-include="footer" data-path="/includes/footer.html"></div>
 <script src="/js/components.js"></script>
 <script src="/js/ui.js"></script>
+
+<script>
+function filterInv(filter, btn) {
+  // Update button states
+  document.querySelectorAll('.filter-btn').forEach(function(b) {
+    b.classList.remove('active');
+  });
+  btn.classList.add('active');
+
+  // Filter cards
+  var cards = document.querySelectorAll('.inv-card');
+  cards.forEach(function(card) {
+    if (filter === 'all') {
+      card.classList.remove('hidden');
+    } else {
+      var topics = card.getAttribute('data-topics') || '';
+      if (topics.indexOf(filter) !== -1) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    }
+  });
+
+  // Show/hide section dividers based on visible cards
+  ['national', 'international'].forEach(function(section) {
+    var sectionEl = document.getElementById('section-' + section);
+    if (!sectionEl) return;
+    var hasVisible = false;
+    document.querySelectorAll('.inv-card[data-topics*="' + section + '"]').forEach(function(c) {
+      if (!c.classList.contains('hidden')) hasVisible = true;
+    });
+    sectionEl.style.display = hasVisible ? '' : 'none';
+    var nextGrid = sectionEl.nextElementSibling;
+    if (nextGrid) nextGrid.style.display = hasVisible ? '' : 'none';
+  });
+}
+</script>
 
 </body>
 </html>
