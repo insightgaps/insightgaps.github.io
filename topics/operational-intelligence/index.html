@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operational Intelligence | Insight Gaps Research Program</title>
+  <meta name="description" content="Insight Gaps forensic diagnostics applied to operational systems — cash flow, vendor risk, work order patterns. Property preservation intelligence bureau.">
+  <link rel="canonical" href="https://www.insightgaps.com/topics/operational-intelligence/">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="stylesheet" href="/style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4PYE0MEK12"></script>
+  <script>
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js',new Date()); gtag('config','G-4PYE0MEK12');
+  </script>
+  <style>
+    .program-hero {
+      background: var(--ink);
+      padding: var(--s16) 0 var(--s12);
+      border-bottom: 3px solid var(--teal);
+    }
+    .breadcrumb {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: var(--s5);
+      display: flex;
+      gap: var(--s3);
+      align-items: center;
+    }
+    .breadcrumb a { color: rgba(255,255,255,0.4); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--teal); }
+    .breadcrumb span { color: rgba(255,255,255,0.2); }
+    .program-label {
+      font-family: var(--mono);
+      font-size: var(--t-xs);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      display: block;
+      margin-bottom: var(--s3);
+    }
+    .program-hero h1 {
+      font-family: var(--serif);
+      font-size: var(--t-4xl);
+      color: var(--text-inv);
+      margin: 0 0 var(--s5);
+      line-height: 1.05;
+    }
+    .program-mandate {
+      font-family: var(--sans);
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      max-width: 65ch;
+      line-height: 1.7;
+      margin: 0;
+    }
+    .program-stats {
+      display: flex;
+      gap: var(--s10);
+      flex-wrap: wrap;
+      margin-top: var(--s10);
+      padding-top: var(--s8);
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .p-stat { display: flex; flex-direction: column; gap: 4px; }
+    .p-stat-val { font-family: var(--mono); font-size: var(--t-2xl); font-weight: 700; color: #fff; }
+    .p-stat-lbl { font-family: var(--sans); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--s3);
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-4);
+      text-decoration: none;
+      margin-bottom: var(--s8);
+      transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--teal); }
+    .back-link::before { content: '←'; }
+    .section-label {
+      font-family: var(--sans);
+      font-size: var(--t-xs);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      border-bottom: 2px solid var(--teal);
+      padding-bottom: var(--s3);
+      margin-bottom: var(--s8);
+      display: block;
+    }
+    .report-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--s6);
+      margin-bottom: var(--s12);
+    }
+    .report-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--teal);
+      border-radius: var(--r);
+      padding: var(--s8);
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .report-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
+    .report-num {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: var(--s3);
+    }
+    .report-card h3 {
+      font-family: var(--serif);
+      font-size: var(--t-lg);
+      color: var(--text-1);
+      margin: 0 0 var(--s3);
+      line-height: 1.2;
+    }
+    .report-card p {
+      font-family: var(--sans);
+      font-size: var(--t-sm);
+      color: var(--text-2);
+      line-height: 1.6;
+      margin: 0 0 var(--s5);
+      flex: 1;
+      max-width: 100%;
+    }
+    .report-tag {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 2px;
+      margin-bottom: var(--s5);
+    }
+    .report-tag.financial { background: rgba(0,109,91,0.08); color: var(--teal); border: 1px solid rgba(0,109,91,0.2); }
+    .report-tag.leakage { background: rgba(196,30,58,0.08); color: var(--red); border: 1px solid rgba(196,30,58,0.2); }
+    .report-tag.workorder { background: rgba(184,134,11,0.08); color: var(--gold); border: 1px solid rgba(184,134,11,0.2); }
+    .report-card-footer {
+      padding-top: var(--s5);
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .report-date {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--text-4);
+      letter-spacing: 0.08em;
+    }
+    .private-box {
+      background: var(--ink);
+      border-radius: var(--r);
+      padding: var(--s10);
+      margin-top: var(--s6);
+    }
+    .private-box-label {
+      font-family: var(--sans);
+      font-size: var(--t-xs);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: var(--s5);
+      display: block;
+    }
+    .private-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--s5);
+      margin-bottom: var(--s8);
+    }
+    .private-feature {
+      border-left: 2px solid rgba(0,109,91,0.4);
+      padding-left: var(--s4);
+    }
+    .private-feature-label {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 4px;
+    }
+    .private-feature-val {
+      font-family: var(--sans);
+      font-size: var(--t-sm);
+      color: rgba(255,255,255,0.6);
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+<div data-include="header" data-path="/includes/header.html"></div>
+
+<div class="program-hero">
+  <div class="wrap">
+    <div class="breadcrumb">
+      <a href="/topics/">Research Programs</a>
+      <span>→</span>
+      <span>Operational Intelligence</span>
+    </div>
+    <span class="program-label">Research Program · Applied · Sector Intelligence</span>
+    <h1>Operational<br>Intelligence</h1>
+    <p class="program-mandate">
+      Forensic diagnostics applied to operational systems — cash flow, vendor risk, work order patterns. 
+      Exposes where value leaks, where risk accumulates, and where systems quietly fail before they visibly break. 
+      Published openly as research. Available as private commissioned diagnostics.
+    </p>
+    <div class="program-stats">
+      <div class="p-stat">
+        <div class="p-stat-val">3</div>
+        <div class="p-stat-lbl">Reports Published</div>
+      </div>
+      <div class="p-stat">
+        <div class="p-stat-val">1</div>
+        <div class="p-stat-lbl">Sector Analyzed</div>
+      </div>
+      <div class="p-stat">
+        <div class="p-stat-val">Jan 2026</div>
+        <div class="p-stat-lbl">Program Launch</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main class="page-container" role="main">
+
+  <a href="/topics/" class="back-link">All Research Programs</a>
+
+  <span class="section-label">Property Preservation Intelligence — Published Reports</span>
+
+  <div class="report-grid">
+
+    <article class="report-card">
+      <div class="report-num">Report 01 · Cash Flow</div>
+      <span class="report-tag financial">Cash Flow Risk</span>
+      <h3>Financial Health: The Cash Chain</h3>
+      <p>Tracks how revenue moves through invoicing and collection to expose where retention breaks down. Maps the full cash chain from work order completion to payment.</p>
+      <div class="report-card-footer">
+        <span class="report-date">January 2026</span>
+        <a href="/analysis/property-preservation/financial-health.html" class="btn-report" style="border-color: var(--teal); color: var(--teal);" onmouseover="this.style.background='var(--teal)';this.style.color='#fff';" onmouseout="this.style.background='transparent';this.style.color='var(--teal)';">View Report →</a>
+      </div>
+    </article>
+
+    <article class="report-card">
+      <div class="report-num">Report 02 · Leakage</div>
+      <span class="report-tag leakage">Profit Leakage</span>
+      <h3>Leakage Breakdown: Structural Autopsy</h3>
+      <p>Recurring margin erosion caused by vendor overruns and rework loops — mapped and classified. Identifies the structural patterns that generate persistent profit leakage.</p>
+      <div class="report-card-footer">
+        <span class="report-date">January 2026</span>
+        <a href="/analysis/property-preservation/leakage-breakdown.html" class="btn-report" style="border-color: var(--teal); color: var(--teal);" onmouseover="this.style.background='var(--teal)';this.style.color='#fff';" onmouseout="this.style.background='transparent';this.style.color='var(--teal)';">View Report →</a>
+      </div>
+    </article>
+
+    <article class="report-card">
+      <div class="report-num">Report 03 · Work Order</div>
+      <span class="report-tag workorder">Work Order Risk</span>
+      <h3>Work Order Breakdown</h3>
+      <p>Identifies which service types scale profitably and which quietly magnify operational risk. Risk matrix analysis of work order categories against margin and rework probability.</p>
+      <div class="report-card-footer">
+        <span class="report-date">January 2026</span>
+        <a href="/analysis/property-preservation/work-order-breakdown.html" class="btn-report" style="border-color: var(--teal); color: var(--teal);" onmouseover="this.style.background='var(--teal)';this.style.color='#fff';" onmouseout="this.style.background='transparent';this.style.color='var(--teal)';">View Report →</a>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- Private diagnostics box -->
+  <div class="private-box">
+    <span class="private-box-label">Private Commissioned Diagnostics</span>
+    <div class="private-features">
+      <div class="private-feature">
+        <div class="private-feature-label">What's included</div>
+        <div class="private-feature-val">Full forensic audit of your operational data — cash flow, vendor risk, work order patterns</div>
+      </div>
+      <div class="private-feature">
+        <div class="private-feature-label">Standards</div>
+        <div class="private-feature-val">Same methodology as public work — pattern-first, data-driven, no assumptions</div>
+      </div>
+      <div class="private-feature">
+        <div class="private-feature-label">Confidentiality</div>
+        <div class="private-feature-val">Results are confidential. No identifying data in published work.</div>
+      </div>
+      <div class="private-feature">
+        <div class="private-feature-label">Delivery</div>
+        <div class="private-feature-val">Structured report with findings, visualizations, and operational recommendations</div>
+      </div>
+    </div>
+    <p style="font-family: var(--sans); font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: var(--s5);">
+      Limited private engagements accepted. Same forensic standards as public work.
+    </p>
+    <a href="mailto:insightgaps@gmail.com" style="font-family: var(--sans); font-size: 0.82rem; font-weight: 700; color: #fff; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 2px; text-decoration:none;" onmouseover="this.style.borderColor='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.3)'">insightgaps@gmail.com →</a>
+  </div>
+
+</main>
+
+<div data-include="footer" data-path="/includes/footer.html"></div>
+<script src="/js/components.js"></script>
+<script src="/js/ui.js"></script>
+
+</body>
+</html>

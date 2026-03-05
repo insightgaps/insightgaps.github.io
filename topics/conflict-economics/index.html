@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conflict Economics | Insight Gaps Research Program</title>
+  <meta name="description" content="Insight Gaps investigates how armed conflicts transmit economic harm across borders — through energy, food, and shipping markets — to uninvolved countries.">
+  <link rel="canonical" href="https://www.insightgaps.com/topics/conflict-economics/">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="stylesheet" href="/style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4PYE0MEK12"></script>
+  <script>
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js',new Date()); gtag('config','G-4PYE0MEK12');
+  </script>
+  <style>
+    .program-hero {
+      background: var(--ink);
+      padding: var(--s16) 0 var(--s12);
+      border-bottom: 3px solid var(--gold);
+    }
+    .breadcrumb {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: var(--s5);
+      display: flex;
+      gap: var(--s3);
+      align-items: center;
+    }
+    .breadcrumb a { color: rgba(255,255,255,0.4); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--gold); }
+    .breadcrumb span { color: rgba(255,255,255,0.2); }
+    .program-label {
+      font-family: var(--mono);
+      font-size: var(--t-xs);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: var(--s3);
+    }
+    .program-hero h1 {
+      font-family: var(--serif);
+      font-size: var(--t-4xl);
+      color: var(--text-inv);
+      margin: 0 0 var(--s5);
+      line-height: 1.05;
+    }
+    .program-mandate {
+      font-family: var(--sans);
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      max-width: 65ch;
+      line-height: 1.7;
+      margin: 0;
+    }
+    .program-stats {
+      display: flex;
+      gap: var(--s10);
+      flex-wrap: wrap;
+      margin-top: var(--s10);
+      padding-top: var(--s8);
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .p-stat { display: flex; flex-direction: column; gap: 4px; }
+    .p-stat-val { font-family: var(--mono); font-size: var(--t-2xl); font-weight: 700; color: #fff; }
+    .p-stat-lbl { font-family: var(--sans); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--s3);
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-4);
+      text-decoration: none;
+      margin-bottom: var(--s8);
+      transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--gold); }
+    .back-link::before { content: '←'; }
+    .section-label {
+      font-family: var(--sans);
+      font-size: var(--t-xs);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: var(--s3);
+      margin-bottom: var(--s8);
+      display: block;
+    }
+    .inv-row-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 var(--r) var(--r) 0;
+      padding: var(--s8);
+      display: flex;
+      gap: var(--s8);
+      align-items: flex-start;
+      transition: box-shadow 0.2s;
+      margin-bottom: var(--s6);
+    }
+    .inv-row-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+    .inv-row-num {
+      font-family: var(--mono);
+      font-size: var(--t-3xl);
+      font-weight: 700;
+      color: rgba(184,134,11,0.12);
+      flex-shrink: 0;
+      line-height: 1;
+      min-width: 60px;
+    }
+    .inv-row-meta {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: var(--s3);
+    }
+    .inv-row-content h3 {
+      font-family: var(--serif);
+      font-size: var(--t-xl);
+      color: var(--text-1);
+      margin: 0 0 var(--s3);
+    }
+    .inv-row-content p {
+      font-family: var(--sans);
+      font-size: var(--t-sm);
+      color: var(--text-2);
+      line-height: 1.65;
+      margin: 0 0 var(--s5);
+      max-width: 100%;
+    }
+    .key-findings {
+      background: var(--cream);
+      border-left: 3px solid var(--gold);
+      padding: var(--s4) var(--s5);
+      margin-bottom: var(--s5);
+      border-radius: 0 2px 2px 0;
+    }
+    .key-findings-label {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: var(--s3);
+    }
+    .key-findings ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .key-findings ul li {
+      font-family: var(--sans);
+      font-size: var(--t-sm);
+      color: var(--text-2);
+      padding-left: 16px;
+      position: relative;
+      max-width: 100%;
+    }
+    .key-findings ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 0.7rem;
+    }
+    .inv-row-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--s4);
+    }
+    .evidence-tag {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .upcoming-card {
+      background: var(--cream);
+      border: 1px dashed var(--border);
+      border-radius: var(--r);
+      padding: var(--s8);
+      opacity: 0.6;
+    }
+    .upcoming-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-4);
+      margin-bottom: var(--s3);
+      display: block;
+    }
+    .upcoming-card h3 {
+      font-family: var(--serif);
+      font-size: var(--t-lg);
+      color: var(--text-3);
+      margin: 0 0 var(--s3);
+    }
+    .upcoming-card p {
+      font-family: var(--sans);
+      font-size: var(--t-sm);
+      color: var(--text-4);
+      margin: 0;
+      max-width: 100%;
+    }
+    .framework-box {
+      background: var(--ink);
+      border-radius: var(--r);
+      padding: var(--s10);
+      margin-top: var(--s12);
+    }
+    .framework-box h3 {
+      font-family: var(--sans);
+      font-size: var(--t-xs);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 0 0 var(--s5);
+    }
+    .framework-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: var(--s5);
+    }
+    .framework-item {
+      border-left: 2px solid rgba(184,134,11,0.3);
+      padding-left: var(--s4);
+    }
+    .framework-item-label {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 6px;
+    }
+    .framework-item-val {
+      font-family: var(--sans);
+      font-size: var(--t-sm);
+      color: rgba(255,255,255,0.65);
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+<div data-include="header" data-path="/includes/header.html"></div>
+
+<div class="program-hero">
+  <div class="wrap">
+    <div class="breadcrumb">
+      <a href="/topics/">Research Programs</a>
+      <span>→</span>
+      <span>Conflict Economics</span>
+    </div>
+    <span class="program-label">Research Program · International · Cross-Conflict</span>
+    <h1>Conflict<br>Economics</h1>
+    <p class="program-mandate">
+      Quantitative investigation of how armed conflicts transmit economic harm across borders — through energy, food, 
+      and shipping markets — to countries that never participated. Introduces comparative frameworks for measuring 
+      war's economic externalities on uninvolved civilian populations.
+    </p>
+    <div class="program-stats">
+      <div class="p-stat">
+        <div class="p-stat-val">1</div>
+        <div class="p-stat-lbl">Investigation Published</div>
+      </div>
+      <div class="p-stat">
+        <div class="p-stat-val">4</div>
+        <div class="p-stat-lbl">Conflicts Analyzed</div>
+      </div>
+      <div class="p-stat">
+        <div class="p-stat-val">WEI</div>
+        <div class="p-stat-lbl">Framework Introduced</div>
+      </div>
+      <div class="p-stat">
+        <div class="p-stat-val">12–15pp</div>
+        <div class="p-stat-lbl">Food Inflation Gap</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main class="page-container" role="main">
+
+  <a href="/topics/" class="back-link">All Research Programs</a>
+
+  <span class="section-label">Investigations in this Program</span>
+
+  <!-- WAR TAX -->
+  <div class="inv-row-card">
+    <div class="inv-row-num">01</div>
+    <div class="inv-row-content">
+      <div class="inv-row-meta">INT-INV-001 · Published 2025 · Cross-Conflict Data Study</div>
+      <h3>The Hidden Tax of War: How Conflicts Raise Global Prices</h3>
+      <p>
+        How armed conflicts — Iraq 2003, Arab Spring 2011, Ukraine 2022, Red Sea 2023–24 — transmit economic shocks 
+        through energy, food, and shipping markets to countries that never participated. 
+        Introduces the War Externality Index (WEI) framework for comparative cross-conflict analysis.
+      </p>
+      <div class="key-findings">
+        <div class="key-findings-label">Primary Findings</div>
+        <ul>
+          <li>One repeated transmission mechanism across multiple conflicts drives global price spillovers to uninvolved nations.</li>
+          <li>Import-dependent countries absorb disproportionate welfare losses — bottom-quintile households lose 3–5% of real income.</li>
+          <li>The WEI framework enables cross-conflict quantitative comparison of economic externalities for the first time.</li>
+        </ul>
+      </div>
+      <div class="inv-row-footer">
+        <span class="evidence-tag">Cross-Conflict Analysis · 2025</span>
+        <a href="/investigations/international/war-tax.html" class="btn-report" style="border-color: var(--gold); color: var(--gold);" onmouseover="this.style.background='var(--gold)';this.style.color='#fff';" onmouseout="this.style.background='transparent';this.style.color='var(--gold)';">Read Investigation →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- UPCOMING -->
+  <div class="upcoming-card">
+    <span class="upcoming-label">In Development</span>
+    <h3>Sanctions Spillover: Civilian Economic Impact</h3>
+    <p>How economic sanctions on state actors transmit harm to civilian populations in third-party countries. Next investigation in this program.</p>
+  </div>
+
+  <!-- WEI Framework box -->
+  <div class="framework-box">
+    <h3>The War Externality Index — Program Framework</h3>
+    <div class="framework-grid">
+      <div class="framework-item">
+        <div class="framework-item-label">What it measures</div>
+        <div class="framework-item-val">Economic harm transmitted to uninvolved countries per conflict</div>
+      </div>
+      <div class="framework-item">
+        <div class="framework-item-label">Transmission channels</div>
+        <div class="framework-item-val">Energy markets, food supply chains, global shipping routes</div>
+      </div>
+      <div class="framework-item">
+        <div class="framework-item-label">Conflicts analyzed</div>
+        <div class="framework-item-val">Iraq 2003, Arab Spring 2011, Ukraine 2022, Red Sea 2023–24</div>
+      </div>
+      <div class="framework-item">
+        <div class="framework-item-label">Application</div>
+        <div class="framework-item-val">Comparative cross-conflict quantitative analysis</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Commission -->
+  <div style="margin-top: var(--s10); background: var(--ink); padding: var(--s10); border-radius: var(--r); max-width: 640px;">
+    <p style="font-family: var(--sans); font-size: var(--t-xs); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: var(--s3);">Commissioned Research</p>
+    <p style="font-family: var(--sans); font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: var(--s5);">
+      Private research on conflict economic spillovers, sanctions analysis, or commodity price transmission accepted.
+    </p>
+    <a href="mailto:insightgaps@gmail.com" style="font-family: var(--sans); font-size: 0.82rem; font-weight: 700; color: #fff; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 2px; text-decoration:none;" onmouseover="this.style.borderColor='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.3)'">insightgaps@gmail.com →</a>
+  </div>
+
+</main>
+
+<div data-include="footer" data-path="/includes/footer.html"></div>
+<script src="/js/components.js"></script>
+<script src="/js/ui.js"></script>
+
+</body>
+</html>
