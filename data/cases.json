@@ -3,7 +3,7 @@
     "investigation": "BD-INV-002",
     "title": "The Impunity Machine — Case Register",
     "description": "Individual case tracking for Bangladesh rape justice accountability. Each case is tracked from incident to final outcome. Status updated automatically when new leads match a case.",
-    "last_updated": "2026-03-06T00:00:00Z",
+    "last_updated": "2026-03-06T01:13:31Z",
     "total_cases": 3,
     "license": "CC BY-NC 4.0",
     "bureau": "Insight Gaps — insightgaps.com",
@@ -63,7 +63,9 @@
         }
       ],
       "notes": "The Magura Exception — documented in §02 of BD-INV-002. System capable of 71-day resolution when public outrage makes delay politically impossible. 148,313 other cases in queue: no outrage, no urgency.",
-      "related_leads": ["LDR-2025-0001"],
+      "related_leads": [
+        "LDR-2025-0001"
+      ],
       "source_primary": "https://en.wikipedia.org/wiki/2025_Magura_child_rape_case",
       "tier": "CONFIRMED"
     },
@@ -117,7 +119,9 @@
         }
       ],
       "notes": "The Runa Akhter Inversion — documented in §02 and §03 of BD-INV-002. Section 17 proceeding: 7 weeks. Average WCRPA trial for genuine survivor: 2,349 days. The machine runs fastest when it runs against the woman who tried to use it.",
-      "related_leads": ["LDR-2023-0001"],
+      "related_leads": [
+        "LDR-2023-0001"
+      ],
       "source_primary": "https://en.prothomalo.com/bangladesh/crime-and-law/9yxtmdw1nh",
       "tier": "CONFIRMED"
     },
@@ -152,7 +156,9 @@
         }
       ],
       "notes": "Second documented Section 17 case. Part of §03 analysis. No national aggregate data on Section 17 prosecutions exists — CONFIRMED ABSENT. This case and CX-2023-001 are the two confirmed cases tracked by this investigation.",
-      "related_leads": ["LDR-2026-0001"],
+      "related_leads": [
+        "LDR-2026-0001"
+      ],
       "source_primary": "https://www.tbsnews.net/bangladesh/court/false-rape-case-proved-court-orders-arrest-plaintiff-3-teachers-among-5-1345826",
       "tier": "CONFIRMED"
     }

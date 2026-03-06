@@ -3,9 +3,9 @@
     "investigation": "BD-INV-002",
     "title": "The Impunity Machine — Ongoing Record",
     "description": "Automated lead collection for Bangladesh rape justice accountability. All items carry evidence tier labels. Source must be named. Nothing is published without a confirmed primary source.",
-    "last_updated": "2026-03-06T00:00:00Z",
-    "last_run": "2026-03-06T00:00:00Z",
-    "total_leads": 6,
+    "last_updated": "2026-03-06T01:13:31Z",
+    "last_run": "2026-03-06T01:13:31Z",
+    "total_leads": 16,
     "license": "CC BY-NC 4.0",
     "bureau": "Insight Gaps — insightgaps.com",
     "note": "CONFIRMED requires 2+ independent primary sources or 1 official + corroboration. PROBABLE requires 1 primary source + corroborating pattern. UNVERIFIED = single source, no cross-reference yet."
@@ -20,8 +20,17 @@
       "headline": "Magura child rape accused sentenced to death — 71 days from assault to verdict",
       "claim": "Eight-year-old girl raped and killed in Magura, March 5–6 2025. Accused confessed March 15. Death sentence delivered May 17. Total proceeding: 71 days. Nationwide protests preceded High Court directive.",
       "tier": "CONFIRMED",
-      "cross_references": ["LDR-2025-0002"],
-      "tags": ["verdict", "conviction", "death-sentence", "Magura", "child-rape", "fast-track"],
+      "cross_references": [
+        "LDR-2025-0002"
+      ],
+      "tags": [
+        "verdict",
+        "conviction",
+        "death-sentence",
+        "Magura",
+        "child-rape",
+        "fast-track"
+      ],
       "related_investigation": "BD-INV-002",
       "linked_case_id": "MG-2025-001",
       "notes": "The Magura exception — proves system capability when political pressure demands it. Average WCRPA timeline: 2,349 days. This: 71 days."
@@ -35,8 +44,16 @@
       "headline": "Woman jailed five years for filing rape complaint — Cox's Bazar Section 17 inversion",
       "claim": "Runa Akhter, Cox's Bazar. Filed rape complaint 2022. Accused acquitted. Section 17 counter-complaint filed. Runa arrested February 16 2023 — sentenced April 13 2023. Seven weeks from counter-complaint to her conviction. Average genuine rape trial: 2,349 days.",
       "tier": "CONFIRMED",
-      "cross_references": ["LDR-2026-0001"],
-      "tags": ["Section-17", "counter-prosecution", "Cox's-Bazar", "retaliation", "inversion"],
+      "cross_references": [
+        "LDR-2026-0001"
+      ],
+      "tags": [
+        "Section-17",
+        "counter-prosecution",
+        "Cox's-Bazar",
+        "retaliation",
+        "inversion"
+      ],
       "related_investigation": "BD-INV-002",
       "linked_case_id": "CX-2023-001",
       "notes": "The Runa Akhter Inversion. Documents Section 17 as retaliation mechanism, not just false-case deterrent."
@@ -51,7 +68,12 @@
       "claim": "Barishal court ordered arrest of original rape complainant after case proved false. Five people charged including three teachers. January 2026. Section 17 mechanism operational.",
       "tier": "CONFIRMED",
       "cross_references": [],
-      "tags": ["Section-17", "counter-prosecution", "Barishal", "retaliation"],
+      "tags": [
+        "Section-17",
+        "counter-prosecution",
+        "Barishal",
+        "retaliation"
+      ],
       "related_investigation": "BD-INV-002",
       "linked_case_id": "BS-2026-001",
       "notes": "Second documented Section 17 case in report. National aggregate remains CONFIRMED ABSENT."
@@ -66,7 +88,13 @@
       "claim": "789 cases stalled awaiting DNA test results as of September 2025. Bangladesh operates only 2 national DNA machines. Average wait: 3–4 months per test. Directly causes evidence degradation beyond the 72-hour forensic window.",
       "tier": "CONFIRMED",
       "cross_references": [],
-      "tags": ["DNA", "forensics", "bottleneck", "evidence-gap", "access"],
+      "tags": [
+        "DNA",
+        "forensics",
+        "bottleneck",
+        "evidence-gap",
+        "access"
+      ],
       "related_investigation": "BD-INV-002",
       "linked_case_id": null,
       "notes": "Updates §05 access data. 789 cases confirmed stalled. Two-machine figure confirmed S-01, S-22."
@@ -81,7 +109,13 @@
       "claim": "Police Bureau of Investigation data 2016–2023: 4,248 of 10,581 court-referred rape cases closed as unproven (final report). 59 percent proceed to charge sheet. Source: Naznin Akhter, Prothom Alo.",
       "tier": "CONFIRMED",
       "cross_references": [],
-      "tags": ["charge-sheet", "unproven", "PBI", "attrition", "funnel"],
+      "tags": [
+        "charge-sheet",
+        "unproven",
+        "PBI",
+        "attrition",
+        "funnel"
+      ],
       "related_investigation": "BD-INV-002",
       "linked_case_id": null,
       "notes": "Updates §01 and funnel Step 5. Primary PBI data. Confirms 41 percent unproven figure used in probability model."
@@ -96,10 +130,166 @@
       "claim": "PHQ data 2023–2024: average of 13 women and children reported raped per day in Bangladesh. 4,394 cases filed in 2024. Over 5,600 children raped in 10 years. 24 perpetrators convicted in Dhaka metro in 5 years.",
       "tier": "CONFIRMED",
       "cross_references": [],
-      "tags": ["PHQ", "filing-rate", "Dhaka", "conviction", "children"],
+      "tags": [
+        "PHQ",
+        "filing-rate",
+        "Dhaka",
+        "conviction",
+        "children"
+      ],
       "related_investigation": "BD-INV-002",
       "linked_case_id": null,
       "notes": "Updates counter band figures and §01 annual filing data. PHQ primary source."
+    },
+    {
+      "id": "LDR-2026-0005",
+      "date_collected": "2026-03-06T01:12:44Z",
+      "date_published": "2021-11-12",
+      "source_name": "TBS News",
+      "source_url": "https://www.tbsnews.net/economy/bazaar/commodities-continue-be-dearer-328855",
+      "headline": "Commodities continue to be dearer",
+      "claim": "Commodities continue to be dearer",
+      "tier": "UNVERIFIED",
+      "cross_references": [],
+      "tags": [],
+      "related_investigation": "BD-INV-002",
+      "linked_case_id": null,
+      "notes": "Gemini classification unavailable this run. Keyword-matched only. Requires manual review."
+    },
+    {
+      "id": "LDR-2026-0006",
+      "date_collected": "2026-03-06T01:12:49Z",
+      "date_published": "2019-07-23",
+      "source_name": "TBS News",
+      "source_url": "https://www.tbsnews.net/sports/mithun-mushfiqur-fifties-guide-tigers-win-warm",
+      "headline": "Mithun, Mushfiqur fifties guide Tigers to win in warm-up",
+      "claim": "Mithun, Mushfiqur fifties guide Tigers to win in warm-up",
+      "tier": "UNVERIFIED",
+      "cross_references": [],
+      "tags": [],
+      "related_investigation": "BD-INV-002",
+      "linked_case_id": null,
+      "notes": "Gemini classification unavailable this run. Keyword-matched only. Requires manual review."
+    },
+    {
+      "id": "LDR-2026-0007",
+      "date_collected": "2026-03-06T01:12:54Z",
+      "date_published": "2019-07-08",
+      "source_name": "TBS News",
+      "source_url": "https://www.tbsnews.net/sports/jesus-takes-centre-stage-brazil-win-copa-america",
+      "headline": "Jesus takes centre stage as Brazil win Copa America",
+      "claim": "Jesus takes centre stage as Brazil win Copa America",
+      "tier": "UNVERIFIED",
+      "cross_references": [],
+      "tags": [],
+      "related_investigation": "BD-INV-002",
+      "linked_case_id": null,
+      "notes": "Gemini classification unavailable this run. Keyword-matched only. Requires manual review."
+    },
+    {
+      "id": "LDR-2026-0008",
+      "date_collected": "2026-03-06T01:12:59Z",
+      "date_published": "2019-06-23",
+      "source_name": "TBS News",
+      "source_url": "https://www.tbsnews.net/sports/south-africa-and-pakistan-battle-survival",
+      "headline": "South Africa and Pakistan battle for survival",
+      "claim": "South Africa and Pakistan battle for survival",
+      "tier": "UNVERIFIED",
+      "cross_references": [],
+      "tags": [],
+      "related_investigation": "BD-INV-002",
+      "linked_case_id": null,
+      "notes": "Gemini classification unavailable this run. Keyword-matched only. Requires manual review."
+    },
+    {
+      "id": "LDR-2026-0009",
+      "date_collected": "2026-03-06T01:13:04Z",
+      "date_published": "2019-06-18",
+      "source_name": "TBS News",
+      "source_url": "https://www.tbsnews.net/sports/afghans-search-maiden-win-face-mighty-england",
+      "headline": "Afghans search for maiden win but face mighty England",
+      "claim": "Afghans search for maiden win but face mighty England",
+      "tier": "UNVERIFIED",
+      "cross_references": [],
+      "tags": [],
+      "related_investigation": "BD-INV-002",
+      "linked_case_id": null,
+      "notes": "Gemini classification unavailable this run. Keyword-matched only. Requires manual review."
+    },
+    {
+      "id": "LDR-2026-0010",
+      "date_collected": "2026-03-06T01:13:10Z",
+      "date_published": "2019-06-17",
+      "source_name": "TBS News",
+      "source_url": "https://www.tbsnews.net/sports/shakib-believes-batting-no3-best-him",
+      "headline": "Shakib believes batting at no.3 best for him",
+      "claim": "Shakib believes batting at no.3 best for him",
+      "tier": "UNVERIFIED",
+      "cross_references": [],
+      "tags": [],
+      "related_investigation": "BD-INV-002",
+      "linked_case_id": null,
+      "notes": "Gemini classification unavailable this run. Keyword-matched only. Requires manual review."
+    },
+    {
+      "id": "LDR-2026-0011",
+      "date_collected": "2026-03-06T01:13:15Z",
+      "date_published": "2019-06-16",
+      "source_name": "TBS News",
+      "source_url": "https://www.tbsnews.net/sports/ruman-becomes-first-bangladeshi-archer-win-world-cup-medal",
+      "headline": "Ruman becomes first Bangladeshi Archer to win World Cup medal",
+      "claim": "Ruman becomes first Bangladeshi Archer to win World Cup medal",
+      "tier": "UNVERIFIED",
+      "cross_references": [],
+      "tags": [],
+      "related_investigation": "BD-INV-002",
+      "linked_case_id": null,
+      "notes": "Gemini classification unavailable this run. Keyword-matched only. Requires manual review."
+    },
+    {
+      "id": "LDR-2026-0012",
+      "date_collected": "2026-03-06T01:13:20Z",
+      "date_published": "2019-06-16",
+      "source_name": "TBS News",
+      "source_url": "https://www.tbsnews.net/sports/sarfaraz-blames-another-batting-collapse-loss",
+      "headline": "Sarfaraz blames another batting collapse for loss",
+      "claim": "Sarfaraz blames another batting collapse for loss",
+      "tier": "UNVERIFIED",
+      "cross_references": [],
+      "tags": [],
+      "related_investigation": "BD-INV-002",
+      "linked_case_id": null,
+      "notes": "Gemini classification unavailable this run. Keyword-matched only. Requires manual review."
+    },
+    {
+      "id": "LDR-2026-0013",
+      "date_collected": "2026-03-06T01:13:25Z",
+      "date_published": "2019-06-16",
+      "source_name": "TBS News",
+      "source_url": "https://www.tbsnews.net/sports/rohit-ton-guides-india-seventh-straight-wc-win-over-pakistan",
+      "headline": "Rohit ton guides India to seventh straight WC win over Pakistan",
+      "claim": "Rohit ton guides India to seventh straight WC win over Pakistan",
+      "tier": "UNVERIFIED",
+      "cross_references": [],
+      "tags": [],
+      "related_investigation": "BD-INV-002",
+      "linked_case_id": null,
+      "notes": "Gemini classification unavailable this run. Keyword-matched only. Requires manual review."
+    },
+    {
+      "id": "LDR-2026-0014",
+      "date_collected": "2026-03-06T01:13:30Z",
+      "date_published": "2019-06-16",
+      "source_name": "TBS News",
+      "source_url": "https://www.tbsnews.net/sports/proteas-thrash-afghans-grab-first-win",
+      "headline": "Proteas thrash Afghans to grab first win",
+      "claim": "Proteas thrash Afghans to grab first win",
+      "tier": "UNVERIFIED",
+      "cross_references": [],
+      "tags": [],
+      "related_investigation": "BD-INV-002",
+      "linked_case_id": null,
+      "notes": "Gemini classification unavailable this run. Keyword-matched only. Requires manual review."
     }
   ]
 }
