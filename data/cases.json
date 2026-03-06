@@ -1,0 +1,160 @@
+{
+  "_meta": {
+    "investigation": "BD-INV-002",
+    "title": "The Impunity Machine — Case Register",
+    "description": "Individual case tracking for Bangladesh rape justice accountability. Each case is tracked from incident to final outcome. Status updated automatically when new leads match a case.",
+    "last_updated": "2026-03-06T00:00:00Z",
+    "total_cases": 3,
+    "license": "CC BY-NC 4.0",
+    "bureau": "Insight Gaps — insightgaps.com",
+    "status_legend": {
+      "REPORTED": "Complaint filed — no further confirmed action",
+      "ARRESTED": "Accused arrested",
+      "CHARGE_SHEET": "Charge sheet filed by police",
+      "TRIAL": "Trial commenced in tribunal",
+      "CONVICTED": "Guilty verdict delivered",
+      "ACQUITTED": "Accused acquitted",
+      "COUNTER_CHARGED": "Survivor charged under Section 17 or similar",
+      "CLOSED_UNPROVEN": "Case closed as unproven by police",
+      "UNKNOWN": "Status unknown — monitoring active"
+    }
+  },
+  "cases": [
+    {
+      "id": "MG-2025-001",
+      "label": "Magura Child Rape & Murder",
+      "district": "Magura",
+      "division": "Khulna",
+      "date_incident": "2025-03-05",
+      "date_first_reported": "2025-03-06",
+      "victim_description": "Eight-year-old girl. Identity protected.",
+      "accused_description": "Male adult. Name suppressed — victim is minor.",
+      "status": "CONVICTED",
+      "status_date": "2025-05-17",
+      "sentence": "Death penalty",
+      "section17_filed": false,
+      "survivor_counter_charged": false,
+      "days_to_verdict": 71,
+      "avg_wcrpa_days": 2349,
+      "timeline": [
+        {
+          "date": "2025-03-05",
+          "event": "Assault and murder — Magura District",
+          "tier": "CONFIRMED",
+          "source": "Wikipedia / BD press multiple"
+        },
+        {
+          "date": "2025-03-06",
+          "event": "Case registered. Nationwide protests begin.",
+          "tier": "CONFIRMED",
+          "source": "Multiple BD press"
+        },
+        {
+          "date": "2025-03-15",
+          "event": "Accused confessed. High Court directive issued to complete within 180 days.",
+          "tier": "CONFIRMED",
+          "source": "Wikipedia / BD press"
+        },
+        {
+          "date": "2025-05-17",
+          "event": "Death sentence delivered. 71 days from assault.",
+          "tier": "CONFIRMED",
+          "source": "https://en.wikipedia.org/wiki/2025_Magura_child_rape_case"
+        }
+      ],
+      "notes": "The Magura Exception — documented in §02 of BD-INV-002. System capable of 71-day resolution when public outrage makes delay politically impossible. 148,313 other cases in queue: no outrage, no urgency.",
+      "related_leads": ["LDR-2025-0001"],
+      "source_primary": "https://en.wikipedia.org/wiki/2025_Magura_child_rape_case",
+      "tier": "CONFIRMED"
+    },
+    {
+      "id": "CX-2023-001",
+      "label": "Runa Akhter — Section 17 Inversion",
+      "district": "Cox's Bazar",
+      "division": "Chattogram",
+      "date_incident": "2022-03-01",
+      "date_first_reported": "2022-03-01",
+      "victim_description": "Adult woman. Named: Runa Akhter (name in public record — she was the convicted party).",
+      "accused_description": "Male adult. Case later proved false. Accused acquitted.",
+      "status": "COUNTER_CHARGED",
+      "status_date": "2023-04-13",
+      "sentence": "Runa Akhter sentenced to 5 years imprisonment + Tk 20,000 fine under Section 17",
+      "section17_filed": true,
+      "survivor_counter_charged": true,
+      "days_to_verdict": null,
+      "days_section17_to_conviction": 56,
+      "avg_wcrpa_days": 2349,
+      "timeline": [
+        {
+          "date": "2022-03-01",
+          "event": "Runa Akhter files rape complaint, Cox's Bazar. Accused arrested and jailed.",
+          "tier": "CONFIRMED",
+          "source": "Prothom Alo April 2023"
+        },
+        {
+          "date": "2022-2023",
+          "event": "Case proceeds. Eventually proved false. Accused acquitted.",
+          "tier": "CONFIRMED",
+          "source": "Prothom Alo April 2023"
+        },
+        {
+          "date": "2023-01-01",
+          "event": "Accused files Section 17 counter-complaint (approximate — less than 6 weeks before arrest).",
+          "tier": "PROBABLE",
+          "source": "Prothom Alo — exact date not confirmed"
+        },
+        {
+          "date": "2023-02-16",
+          "event": "Runa Akhter arrested from her home on court order.",
+          "tier": "CONFIRMED",
+          "source": "https://en.prothomalo.com/bangladesh/crime-and-law/9yxtmdw1nh"
+        },
+        {
+          "date": "2023-04-13",
+          "event": "Runa Akhter sentenced: 5 years imprisonment + Tk 20,000 fine. 56 days from arrest to conviction.",
+          "tier": "CONFIRMED",
+          "source": "https://en.prothomalo.com/bangladesh/crime-and-law/9yxtmdw1nh"
+        }
+      ],
+      "notes": "The Runa Akhter Inversion — documented in §02 and §03 of BD-INV-002. Section 17 proceeding: 7 weeks. Average WCRPA trial for genuine survivor: 2,349 days. The machine runs fastest when it runs against the woman who tried to use it.",
+      "related_leads": ["LDR-2023-0001"],
+      "source_primary": "https://en.prothomalo.com/bangladesh/crime-and-law/9yxtmdw1nh",
+      "tier": "CONFIRMED"
+    },
+    {
+      "id": "BS-2026-001",
+      "label": "Barishal — Section 17 Counter-Prosecution",
+      "district": "Barishal",
+      "division": "Barishal",
+      "date_incident": "2025",
+      "date_first_reported": "2026-01-15",
+      "victim_description": "Adult woman. Identity protected.",
+      "accused_description": "Multiple accused including three teachers.",
+      "status": "COUNTER_CHARGED",
+      "status_date": "2026-01-15",
+      "sentence": "Original complainant arrested. Five charged including three teachers.",
+      "section17_filed": true,
+      "survivor_counter_charged": true,
+      "days_to_verdict": null,
+      "avg_wcrpa_days": 2349,
+      "timeline": [
+        {
+          "date": "2025",
+          "event": "Original rape complaint filed. Attempted-rape allegation.",
+          "tier": "CONFIRMED",
+          "source": "TBS News January 2026"
+        },
+        {
+          "date": "2026-01-15",
+          "event": "Court rules case false. Orders arrest of original plaintiff. Five people charged including original complainant and three teachers.",
+          "tier": "CONFIRMED",
+          "source": "https://www.tbsnews.net/bangladesh/court/false-rape-case-proved-court-orders-arrest-plaintiff-3-teachers-among-5-1345826"
+        }
+      ],
+      "notes": "Second documented Section 17 case. Part of §03 analysis. No national aggregate data on Section 17 prosecutions exists — CONFIRMED ABSENT. This case and CX-2023-001 are the two confirmed cases tracked by this investigation.",
+      "related_leads": ["LDR-2026-0001"],
+      "source_primary": "https://www.tbsnews.net/bangladesh/court/false-rape-case-proved-court-orders-arrest-plaintiff-3-teachers-among-5-1345826",
+      "tier": "CONFIRMED"
+    }
+  ]
+}
