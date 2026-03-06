@@ -1,166 +1,203 @@
 {
   "_meta": {
-    "investigation": "BD-INV-002",
-    "title": "The Impunity Machine — Case Register",
-    "description": "Individual case tracking for Bangladesh rape justice accountability. Each case is tracked from incident to final outcome. Status updated automatically when new leads match a case.",
-    "last_updated": "2026-03-06T01:13:31Z",
-    "total_cases": 3,
-    "license": "CC BY-NC 4.0",
-    "bureau": "Insight Gaps — insightgaps.com",
-    "status_legend": {
-      "REPORTED": "Complaint filed — no further confirmed action",
-      "ARRESTED": "Accused arrested",
-      "CHARGE_SHEET": "Charge sheet filed by police",
-      "TRIAL": "Trial commenced in tribunal",
-      "CONVICTED": "Guilty verdict delivered",
-      "ACQUITTED": "Accused acquitted",
-      "COUNTER_CHARGED": "Survivor charged under Section 17 or similar",
-      "CLOSED_UNPROVEN": "Case closed as unproven by police",
-      "UNKNOWN": "Status unknown — monitoring active"
-    }
+    "last_updated": "2026-03-06",
+    "version": "2.0",
+    "description": "Insight Gaps — BD-INV-002 Case Register. Tracks individual cases in the Bangladesh rape justice system. All tiers mandatory. CC BY-NC 4.0.",
+    "total_cases": 4
   },
   "cases": [
     {
       "id": "MG-2025-001",
-      "label": "Magura Child Rape & Murder",
+      "label": "Magura Child Rape and Murder — Achia Case",
       "district": "Magura",
       "division": "Khulna",
       "date_incident": "2025-03-05",
-      "date_first_reported": "2025-03-06",
-      "victim_description": "Eight-year-old girl. Identity protected.",
-      "accused_description": "Male adult. Name suppressed — victim is minor.",
-      "status": "CONVICTED",
-      "status_date": "2025-05-17",
-      "sentence": "Death penalty",
+      "status": "DEATH_SENTENCE_APPEAL",
+      "status_date": "2025-07-01",
       "section17_filed": false,
-      "survivor_counter_charged": false,
       "days_to_verdict": 71,
       "avg_wcrpa_days": 2349,
+      "tier": "CONFIRMED",
+      "notes": "Eight-year-old victim (Achia) died March 13 at CMH Dhaka. Primary accused Hitu Sheikh (50, mason) confessed under Section 164 on March 15. Charge sheet filed April 13. Trial completed in 21 working days. Verdict May 17: death sentence for Hitu Sheikh. Three co-accused acquitted for insufficient evidence. Death reference reached High Court May 21. Appeal admitted July 1, 2025 by bench of Justice Mostafizur Rahman and Justice Sagir Hossain. HC stayed BDT 100,000 fine pending review. As of March 2026: appeal under active review. This case triggered the 2025 WCRPA Amendment Ordinance.",
       "timeline": [
         {
           "date": "2025-03-05",
-          "event": "Assault and murder — Magura District",
+          "event": "Assault — Achia raped in Magura, Sreepur, during Ramadan holidays",
           "tier": "CONFIRMED",
-          "source": "Wikipedia / BD press multiple"
+          "source": "Wikipedia / BSS",
+          "source_url": "https://en.wikipedia.org/wiki/2025_Magura_child_rape_case"
         },
         {
-          "date": "2025-03-06",
-          "event": "Case registered. Nationwide protests begin.",
+          "date": "2025-03-08",
+          "event": "FIR filed at Magura Sadar Police Station. Victim transferred to CMH Dhaka by helicopter",
           "tier": "CONFIRMED",
-          "source": "Multiple BD press"
+          "source": "BSS",
+          "source_url": "https://www.bssnews.net/news-flash/254661"
+        },
+        {
+          "date": "2025-03-13",
+          "event": "Victim Achia dies at CMH Dhaka. Case elevated to rape-murder",
+          "tier": "CONFIRMED",
+          "source": "Wikipedia / BSS",
+          "source_url": "https://en.wikipedia.org/wiki/2025_Magura_child_rape_case"
         },
         {
           "date": "2025-03-15",
-          "event": "Accused confessed. High Court directive issued to complete within 180 days.",
+          "event": "Hitu Sheikh confesses under Section 164 before Magistrate Sabyasachi Ray",
           "tier": "CONFIRMED",
-          "source": "Wikipedia / BD press"
+          "source": "BSS",
+          "source_url": "https://www.bssnews.net/news-flash/254661"
+        },
+        {
+          "date": "2025-04-13",
+          "event": "Charge sheet submitted by Inspector Mo. Alauddin — within 30 days",
+          "tier": "CONFIRMED",
+          "source": "BSS",
+          "source_url": "https://www.bssnews.net/news-flash/272404"
+        },
+        {
+          "date": "2025-04-23",
+          "event": "Trial formally commences in Special Tribunal. 29 witnesses over 21 working days",
+          "tier": "CONFIRMED",
+          "source": "BSS",
+          "source_url": "https://www.bssnews.net/news-flash/272404"
         },
         {
           "date": "2025-05-17",
-          "event": "Death sentence delivered. 71 days from assault.",
+          "event": "VERDICT: Hitu Sheikh sentenced to DEATH. Three co-accused acquitted. 71 days assault to verdict — vs WCRPA average 2,349 days",
           "tier": "CONFIRMED",
-          "source": "https://en.wikipedia.org/wiki/2025_Magura_child_rape_case"
+          "source": "BSS / Prothom Alo",
+          "source_url": "https://www.bssnews.net/news-flash/273816"
+        },
+        {
+          "date": "2025-05-21",
+          "event": "Death reference documents reach High Court Division",
+          "tier": "CONFIRMED",
+          "source": "BSS",
+          "source_url": "https://www.bssnews.net/news/275308"
+        },
+        {
+          "date": "2025-07-01",
+          "event": "HC admits Hitu Sheikh appeal. Bench: Justice Mostafizur Rahman + Justice Sagir Hossain. Fine of BDT 100,000 stayed pending review",
+          "tier": "CONFIRMED",
+          "source": "Prothom Alo / Desh Rupantor",
+          "source_url": "https://www.prothomalo.com/bangladesh/3ogez6pzm2"
+        },
+        {
+          "date": "2026-03-06",
+          "event": "STATUS AS OF MARCH 2026: Appeal under active review at High Court Division. Execution cannot proceed until appeal decided",
+          "tier": "CONFIRMED",
+          "source": "Insight Gaps case monitoring",
+          "source_url": null
         }
-      ],
-      "notes": "The Magura Exception — documented in §02 of BD-INV-002. System capable of 71-day resolution when public outrage makes delay politically impossible. 148,313 other cases in queue: no outrage, no urgency.",
-      "related_leads": [
-        "LDR-2025-0001"
-      ],
-      "source_primary": "https://en.wikipedia.org/wiki/2025_Magura_child_rape_case",
-      "tier": "CONFIRMED"
+      ]
     },
     {
       "id": "CX-2023-001",
-      "label": "Runa Akhter — Section 17 Inversion",
+      "label": "Runa Akhter — Cox's Bazar Section 17 Inversion",
       "district": "Cox's Bazar",
-      "division": "Chattogram",
+      "division": "Chittagong",
       "date_incident": "2022-03-01",
-      "date_first_reported": "2022-03-01",
-      "victim_description": "Adult woman. Named: Runa Akhter (name in public record — she was the convicted party).",
-      "accused_description": "Male adult. Case later proved false. Accused acquitted.",
-      "status": "COUNTER_CHARGED",
+      "status": "SECTION17_CONVICTED",
       "status_date": "2023-04-13",
-      "sentence": "Runa Akhter sentenced to 5 years imprisonment + Tk 20,000 fine under Section 17",
       "section17_filed": true,
-      "survivor_counter_charged": true,
-      "days_to_verdict": null,
-      "days_section17_to_conviction": 56,
-      "avg_wcrpa_days": 2349,
+      "tier": "CONFIRMED",
+      "notes": "Runa Akhter filed a gang rape case in March 2022 against four men (Firoz Ahmad, Rashel Uddin, Mo. Sharif, Nurul Islam). Police final report July 25, 2022 found allegations unfounded. Accused Rashel Uddin filed Section 17(2) counter-suit. Runa Akhter arrested Feb 16, 2023. CONVICTED under Section 17 and sentenced to FIVE YEARS imprisonment on April 13, 2023 — 56 days after arrest. The woman who filed a rape case spent 56 days between arrest and sentencing. A rape case in this same system takes 2,349 days on average. Section 17 case may continue with additional counts. Case ongoing 2025-2026.",
       "timeline": [
         {
-          "date": "2022-03-01",
-          "event": "Runa Akhter files rape complaint, Cox's Bazar. Accused arrested and jailed.",
+          "date": "2022-03",
+          "event": "Runa Akhter files gang rape complaint against four men at Cox's Bazar court premises",
           "tier": "CONFIRMED",
-          "source": "Prothom Alo April 2023"
+          "source": "CoxsbazarJournal / Parbattanews",
+          "source_url": "https://www.coxsbazarjournal.com/99200/"
         },
         {
-          "date": "2022-2023",
-          "event": "Case proceeds. Eventually proved false. Accused acquitted.",
+          "date": "2022-07-25",
+          "event": "Police submit Final Report: allegations found unfounded. All accused recommended for acquittal",
           "tier": "CONFIRMED",
-          "source": "Prothom Alo April 2023"
-        },
-        {
-          "date": "2023-01-01",
-          "event": "Accused files Section 17 counter-complaint (approximate — less than 6 weeks before arrest).",
-          "tier": "PROBABLE",
-          "source": "Prothom Alo — exact date not confirmed"
+          "source": "Parbattanews",
+          "source_url": "https://www.parbattanews.com/"
         },
         {
           "date": "2023-02-16",
-          "event": "Runa Akhter arrested from her home on court order.",
+          "event": "Runa Akhter ARRESTED under Section 17(2) counter-suit filed by accused Rashel Uddin",
           "tier": "CONFIRMED",
-          "source": "https://en.prothomalo.com/bangladesh/crime-and-law/9yxtmdw1nh"
+          "source": "CoxsbazarJournal",
+          "source_url": "https://www.coxsbazarjournal.com/99200/"
         },
         {
           "date": "2023-04-13",
-          "event": "Runa Akhter sentenced: 5 years imprisonment + Tk 20,000 fine. 56 days from arrest to conviction.",
+          "event": "CONVICTED under Section 17 — sentenced to FIVE YEARS imprisonment. 56 days arrest to sentencing. System that takes 2,349 days to try a rape case took 56 days to convict the woman who reported one",
           "tier": "CONFIRMED",
-          "source": "https://en.prothomalo.com/bangladesh/crime-and-law/9yxtmdw1nh"
+          "source": "Prothom Alo (English) — S-14",
+          "source_url": "https://en.prothomalo.com/bangladesh/crime-and-law/9yxtmdw1nh"
+        },
+        {
+          "date": "2026-03-06",
+          "event": "STATUS AS OF MARCH 2026: Section 17 case and Rashel Uddin counter-suit ongoing. Further developments monitored by automated collector",
+          "tier": "PROBABLE",
+          "source": "Insight Gaps case monitoring",
+          "source_url": null
         }
-      ],
-      "notes": "The Runa Akhter Inversion — documented in §02 and §03 of BD-INV-002. Section 17 proceeding: 7 weeks. Average WCRPA trial for genuine survivor: 2,349 days. The machine runs fastest when it runs against the woman who tried to use it.",
-      "related_leads": [
-        "LDR-2023-0001"
-      ],
-      "source_primary": "https://en.prothomalo.com/bangladesh/crime-and-law/9yxtmdw1nh",
-      "tier": "CONFIRMED"
+      ]
     },
     {
       "id": "BS-2026-001",
-      "label": "Barishal — Section 17 Counter-Prosecution",
+      "label": "Barishal Section 17 Counter-Charge — Rape Survivor Prosecuted",
       "district": "Barishal",
       "division": "Barishal",
-      "date_incident": "2025",
-      "date_first_reported": "2026-01-15",
-      "victim_description": "Adult woman. Identity protected.",
-      "accused_description": "Multiple accused including three teachers.",
+      "date_incident": "2025-12",
       "status": "COUNTER_CHARGED",
-      "status_date": "2026-01-15",
-      "sentence": "Original complainant arrested. Five charged including three teachers.",
+      "status_date": "2026-01",
       "section17_filed": true,
-      "survivor_counter_charged": true,
-      "days_to_verdict": null,
-      "avg_wcrpa_days": 2349,
+      "tier": "CONFIRMED",
+      "notes": "A court in Barishal in January 2026 ordered the arrest of a woman and five others — including three teachers — after a rape case she filed was found to be false. The woman had filed a rape case, which the tribunal found unsubstantiated, and she was then counter-prosecuted under Section 17 of the WCRPA. Source: TBS News, January 2026 (S-13). Further updates monitored by automated collector.",
       "timeline": [
         {
-          "date": "2025",
-          "event": "Original rape complaint filed. Attempted-rape allegation.",
+          "date": "2026-01",
+          "event": "Barishal tribunal orders arrest of rape complainant and five others under Section 17 after original rape case found unsubstantiated. Three teachers among the charged",
           "tier": "CONFIRMED",
-          "source": "TBS News January 2026"
+          "source": "TBS News — S-13",
+          "source_url": "https://www.tbsnews.net/bangladesh/court/false-rape-case-proved-court-orders-arrest-plaintiff-3-teachers-among-5-1345826"
         },
         {
-          "date": "2026-01-15",
-          "event": "Court rules case false. Orders arrest of original plaintiff. Five people charged including original complainant and three teachers.",
-          "tier": "CONFIRMED",
-          "source": "https://www.tbsnews.net/bangladesh/court/false-rape-case-proved-court-orders-arrest-plaintiff-3-teachers-among-5-1345826"
+          "date": "2026-03-06",
+          "event": "STATUS AS OF MARCH 2026: Case ongoing. No further updates confirmed. Automated collector monitoring.",
+          "tier": "PROBABLE",
+          "source": "Insight Gaps case monitoring",
+          "source_url": null
         }
-      ],
-      "notes": "Second documented Section 17 case. Part of §03 analysis. No national aggregate data on Section 17 prosecutions exists — CONFIRMED ABSENT. This case and CX-2023-001 are the two confirmed cases tracked by this investigation.",
-      "related_leads": [
-        "LDR-2026-0001"
-      ],
-      "source_primary": "https://www.tbsnews.net/bangladesh/court/false-rape-case-proved-court-orders-arrest-plaintiff-3-teachers-among-5-1345826",
-      "tier": "CONFIRMED"
+      ]
+    },
+    {
+      "id": "BS-2016-001",
+      "label": "Barishal Trish Godown Gang Rape — 2016 Incident, 2026 Verdict",
+      "district": "Barishal",
+      "division": "Barishal",
+      "date_incident": "2016-11",
+      "status": "CONVICTED",
+      "status_date": "2026-02",
+      "section17_filed": false,
+      "days_to_verdict": 3380,
+      "avg_wcrpa_days": 2349,
+      "tier": "CONFIRMED",
+      "notes": "A woman traveling to Sher-e-Bangla Medical College Hospital in November 2016 was abducted by an auto-rickshaw driver and taken to a forest in the Trish Godown area of Barishal city. She was beaten and gang-raped by four men. The case took nearly a decade to conclude — a direct contrast to the Magura case (71 days). Verdict February 2026 by Judge M Rakibul Islam. One convict (Khokon Khan) absconding at time of verdict. This case illustrates the normal WCRPA timeline for cases without public outrage or political attention.",
+      "timeline": [
+        {
+          "date": "2016-11",
+          "event": "Assault — woman abducted on way to hospital, taken to Trish Godown forest area, beaten and gang-raped by four men",
+          "tier": "CONFIRMED",
+          "source": "BSS — S-70",
+          "source_url": "https://www.bssnews.net/others/325122"
+        },
+        {
+          "date": "2026-02",
+          "event": "VERDICT: Four men (Russell Gazi, Rajib Jamaddar, Md. Zahid, Khokon Khan) sentenced to DEATH by Judge M Rakibul Islam. BDT 100,000 fine each. Khokon Khan absconding — verdict delivered in absentia. ~3,380 days from assault to verdict",
+          "tier": "CONFIRMED",
+          "source": "BSS — S-70",
+          "source_url": "https://www.bssnews.net/others/325122"
+        }
+      ]
     }
   ]
 }
