@@ -21,11 +21,6 @@ name: BD-INV-002 Lead Collector
   schedule:
     - cron: '0 0,6,12,18 * * *'
   workflow_dispatch:
-    inputs:
-      reason:
-        description: 'Reason for manual run'
-        required: false
-        default: 'Manual trigger'
 
 jobs:
   collect-leads:
