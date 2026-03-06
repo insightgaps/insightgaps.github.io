@@ -1,14 +1,11 @@
 name: BD-INV-002 Lead Collector
-
 on:
   schedule:
     - cron: '0 0,6,12,18 * * *'
   workflow_dispatch:
-
 jobs:
   collect-leads:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
     permissions:
       contents: write
     steps:
@@ -18,13 +15,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install dependencies
+      - name: Install
         run: pip install feedparser google-generativeai
-      - name: Run collector
+      - name: Run
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python scripts/collector.py
-      - name: Commit changes
+      - name: Commit
         run: |
           git config user.email "collector@insightgaps.com"
           git config user.name "Insight Gaps Collector"
@@ -32,6 +29,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes."
           else
-            git commit -m "auto: leads update $(date -u '+%Y-%m-%d %H:%M UTC') [BD-INV-002]"
+            git commit -m "auto: update [BD-INV-002]"
             git push
           fi
