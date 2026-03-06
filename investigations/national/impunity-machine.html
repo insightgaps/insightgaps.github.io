@@ -351,6 +351,73 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2
 .gc-note{font-family:var(--body);font-size:.73rem;color:var(--muted);margin-top:.35rem;font-weight:300;line-height:1.5}
 .gc-denom{font-family:var(--mono);font-size:.55rem;color:var(--muted2);margin-top:.3rem;letter-spacing:.04em}
 
+/* ─── §10 ONGOING RECORD ─── */
+.live-badge{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--greenl);border:1px solid rgba(93,184,112,.3);background:rgba(61,107,74,.12);padding:.2rem .6rem;border-radius:1px}
+.live-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--greenl);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.record-meta{font-family:var(--mono);font-size:.62rem;color:var(--muted2);display:flex;align-items:center;flex-wrap:wrap;gap:1.2rem;margin:1rem 0 1.8rem}
+.record-meta span{display:flex;align-items:center;gap:.4rem}
+.record-notice{background:rgba(197,164,114,.05);border:1px solid var(--gold3);padding:.85rem 1.1rem;font-family:var(--mono);font-size:.65rem;color:var(--muted2);line-height:1.65;letter-spacing:.01em;margin-bottom:2rem}
+.record-notice strong{color:var(--gold2)}
+.record-tabs{display:flex;gap:0;margin-bottom:1.4rem;border-bottom:1px solid var(--border2)}
+.rtab{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2);padding:.55rem 1.1rem;cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .2s}
+.rtab:hover{color:var(--gold)}
+.rtab.active{color:var(--gold);border-bottom-color:var(--gold)}
+.record-panel{display:none}
+.record-panel.active{display:block}
+/* Filter chips */
+.filter-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.2rem}
+.fchip{font-family:var(--mono);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .7rem;border:1px solid var(--border2);background:transparent;color:var(--muted2);cursor:pointer;border-radius:1px;transition:all .2s}
+.fchip:hover{border-color:var(--gold3);color:var(--gold)}
+.fchip.active{border-color:var(--gold2);background:rgba(197,164,114,.08);color:var(--gold)}
+/* Case cards */
+.case-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:.9rem;margin-bottom:1.4rem}
+.case-card{background:var(--bg4);border:1px solid var(--border2);padding:1.1rem;position:relative;transition:border-color .2s}
+.case-card:hover{border-color:var(--gold3)}
+.cc-id{font-family:var(--mono);font-size:.55rem;color:var(--gold2);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.35rem}
+.cc-label{font-family:var(--body);font-size:.93rem;font-weight:600;color:var(--text);margin-bottom:.5rem;line-height:1.3}
+.cc-loc{font-family:var(--mono);font-size:.6rem;color:var(--muted2);margin-bottom:.6rem}
+.cc-status{display:inline-flex;align-items:center;gap:.35rem;font-family:var(--mono);font-size:.62rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.3rem .7rem;border-radius:1px;margin-bottom:.7rem}
+.status-convicted{background:rgba(61,107,74,.2);color:var(--greenl);border:1px solid var(--green)}
+.status-counter{background:rgba(138,32,48,.2);color:var(--redl);border:1px solid var(--red)}
+.status-pending{background:rgba(176,127,0,.15);color:var(--amberl);border:1px solid var(--amber)}
+.status-acquitted{background:rgba(82,82,106,.15);color:var(--muted);border:1px solid var(--muted2)}
+.status-arrested{background:rgba(70,90,160,.15);color:#8ab4ff;border:1px solid #405090}
+.status-unknown{background:rgba(30,30,50,.4);color:var(--muted2);border:1px solid var(--border2)}
+.cc-timeline{margin-top:.8rem;border-top:1px solid var(--border);padding-top:.8rem}
+.ct-item{display:flex;gap:.7rem;font-family:var(--mono);font-size:.6rem;color:var(--muted2);padding:.3rem 0;border-bottom:1px solid rgba(34,34,54,.4);line-height:1.5}
+.ct-item:last-child{border-bottom:none}
+.ct-date{color:var(--gold3);flex-shrink:0;width:5.5rem}
+.ct-event{flex:1;line-height:1.5}
+.ct-src{color:var(--muted2);font-size:.55rem;margin-top:.15rem}
+.ct-src a{color:var(--muted2);text-decoration:none}
+.ct-src a:hover{color:var(--gold)}
+.cc-notes{font-family:var(--body);font-size:.76rem;color:var(--muted2);line-height:1.6;margin-top:.6rem;font-style:italic;font-weight:300}
+.cc-s17{display:inline-block;font-family:var(--mono);font-size:.55rem;color:var(--redl);border:1px solid rgba(138,32,48,.4);background:rgba(138,32,48,.1);padding:.15rem .45rem;margin-top:.3rem;letter-spacing:.06em}
+/* Lead feed */
+.lead-item{padding:.9rem 0;border-bottom:1px solid var(--border)}
+.lead-item:last-child{border-bottom:none}
+.lead-header{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:.3rem;flex-wrap:wrap}
+.lead-headline{font-family:var(--body);font-size:.9rem;font-weight:600;color:var(--text);line-height:1.35;flex:1}
+.lead-claim{font-family:var(--body);font-size:.8rem;color:var(--muted);line-height:1.6;font-weight:300;margin:.3rem 0}
+.lead-footer{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:.4rem}
+.lead-source{font-family:var(--mono);font-size:.6rem;color:var(--gold2);letter-spacing:.04em}
+.lead-date{font-family:var(--mono);font-size:.58rem;color:var(--muted2)}
+.lead-tags{display:flex;flex-wrap:wrap;gap:.3rem}
+.lead-tag{font-family:var(--mono);font-size:.52rem;color:var(--muted2);border:1px solid var(--border);padding:.1rem .4rem;letter-spacing:.04em}
+.lead-src-link{font-family:var(--mono);font-size:.58rem;color:var(--muted2);text-decoration:none;margin-left:auto}
+.lead-src-link:hover{color:var(--gold);text-decoration:underline}
+.record-empty{text-align:center;padding:3rem;font-family:var(--mono);font-size:.72rem;color:var(--muted2);letter-spacing:.06em;border:1px dashed var(--border2)}
+.record-dl-bar{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding:1rem 1.2rem;background:var(--bg4);border:1px solid var(--border);margin-top:1.4rem}
+.record-dl-label{font-family:var(--mono);font-size:.6rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-right:auto}
+.record-count-bar{display:flex;gap:2rem;flex-wrap:wrap;padding:.8rem 0;margin-bottom:1rem}
+.rcb-item{text-align:center}
+.rcb-val{font-family:var(--mono);font-size:1.4rem;font-weight:700;color:var(--gold);display:block;line-height:1}
+.rcb-lbl{font-family:var(--mono);font-size:.56rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-top:.3rem}
+/* §10 live signal in counter band */
+.counter-live-link{font-family:var(--mono);font-size:.6rem;color:var(--greenl);border:1px solid rgba(93,184,112,.25);padding:.2rem .6rem;white-space:nowrap;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:all .2s}
+.counter-live-link:hover{background:rgba(61,107,74,.15);text-decoration:none;color:var(--greenl)}
+
 /* ─── CONCLUSION ─── */
 .conclusion-wrap{max-width:780px;margin:0 auto}
 .conclusion-wrap p{font-family:var(--body);font-size:1rem;color:var(--text);line-height:1.85;font-weight:300;margin-bottom:1.4rem}
@@ -389,6 +456,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2
       <a href="#deterrence">§07</a>
       <a href="#witness">§08</a>
       <a href="#interventions">§09</a>
+      <a href="#live-record">§10</a>
       <a href="#conclusion">Conclusion</a>
       <a href="#sources">Sources</a>
     </div>
@@ -413,6 +481,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2
   <a href="#deterrence" class="drawer-link">§07 — Deterrence Theory</a>
   <a href="#witness" class="drawer-link">§08 — Witness Protection</a>
   <a href="#interventions" class="drawer-link">§09 — Interventions</a>
+  <a href="#live-record" class="drawer-link">§10 — Ongoing Record</a>
   <a href="#conclusion" class="drawer-link">Conclusion</a>
   <a href="#sources" class="drawer-link">All Sources</a>
 </div>
@@ -489,6 +558,11 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2
     <div class="counter-item">
       <span class="cn">0.016%</span>
       <div class="cl">Mid-scenario probability<br>of punishment</div>
+    </div>
+    <div class="counter-divider"></div>
+    <div class="counter-item">
+      <a href="#live-record" class="counter-live-link">● Live Record ↓</a>
+      <div class="cl" style="margin-top:.4rem">Cases tracked<br>automatically</div>
     </div>
   </div>
 </div>
@@ -1133,6 +1207,98 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2
   </div>
 </section>
 
+<!-- ══════════ §10 — ONGOING RECORD ══════════ -->
+<section class="dark-section" id="live-record">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">§10 — Live Monitoring</div>
+      <h2>The Ongoing Record</h2>
+      <p>This investigation is live. New leads are collected automatically every six hours from major Bangladesh news sources. Every item carries an evidence tier label. Every source is named. Nothing is published here without a confirmed primary source.</p>
+    </div>
+
+    <div style="display:flex;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:1rem">
+      <span class="live-badge">Live</span>
+      <div class="record-meta" style="margin:0">
+        <span>Last updated: <strong id="rec-last-updated" style="color:var(--text)">Loading…</strong></span>
+        <span style="color:var(--border2)">·</span>
+        <span>Runs every 6 hours · GitHub Actions</span>
+        <span style="color:var(--border2)">·</span>
+        <span id="rec-total-leads" style="color:var(--gold)">—</span> leads collected
+        <span style="color:var(--border2)">·</span>
+        <span id="rec-total-cases" style="color:var(--gold)">—</span> cases tracked
+      </div>
+    </div>
+
+    <div class="record-notice">
+      <strong>What this section is:</strong> An automated accountability tracker. It does not assert new findings. It records what happens to cases already documented in this investigation, and collects new leads about Bangladesh's rape justice system from named sources.<br>
+      <strong>What it is not:</strong> A news feed. Items here are filtered, classified against Insight Gaps evidence tier rules, and cross-referenced. The raw data is publicly downloadable below.
+    </div>
+
+    <!-- ── TABS ────────────────────── -->
+    <div class="record-tabs">
+      <button class="rtab active" onclick="switchTab('cases',this)">Case Register</button>
+      <button class="rtab" onclick="switchTab('leads',this)">Leads Feed</button>
+    </div>
+
+    <!-- ═══════════ CASE REGISTER PANEL ═══════════ -->
+    <div class="record-panel active" id="panel-cases">
+
+      <div class="record-count-bar" id="cases-count-bar">
+        <div class="rcb-item"><span class="rcb-val" id="cnt-total-cases">—</span><div class="rcb-lbl">Cases tracked</div></div>
+        <div class="rcb-item"><span class="rcb-val" id="cnt-convicted" style="color:var(--greenl)">—</span><div class="rcb-lbl">Convicted</div></div>
+        <div class="rcb-item"><span class="rcb-val" id="cnt-s17" style="color:var(--redl)">—</span><div class="rcb-lbl">Survivor counter-charged</div></div>
+        <div class="rcb-item"><span class="rcb-val" id="cnt-pending" style="color:var(--amberl)">—</span><div class="rcb-lbl">Pending / Active</div></div>
+      </div>
+
+      <div class="filter-chips">
+        <button class="fchip active" onclick="filterCases('ALL',this)">All</button>
+        <button class="fchip" onclick="filterCases('CONVICTED',this)">Convicted</button>
+        <button class="fchip" onclick="filterCases('COUNTER_CHARGED',this)">Counter-charged §17</button>
+        <button class="fchip" onclick="filterCases('PENDING',this)">Pending</button>
+        <button class="fchip" onclick="filterCases('ACQUITTED',this)">Acquitted</button>
+      </div>
+
+      <div class="case-grid" id="case-grid">
+        <div class="record-empty">Loading case register…</div>
+      </div>
+    </div>
+
+    <!-- ═══════════ LEADS FEED PANEL ═══════════ -->
+    <div class="record-panel" id="panel-leads">
+
+      <div class="record-count-bar">
+        <div class="rcb-item"><span class="rcb-val" id="cnt-leads-total">—</span><div class="rcb-lbl">Total leads</div></div>
+        <div class="rcb-item"><span class="rcb-val" id="cnt-leads-confirmed" style="color:var(--greenl)">—</span><div class="rcb-lbl">Confirmed</div></div>
+        <div class="rcb-item"><span class="rcb-val" id="cnt-leads-probable" style="color:var(--amberl)">—</span><div class="rcb-lbl">Probable</div></div>
+        <div class="rcb-item"><span class="rcb-val" id="cnt-leads-unverified" style="color:var(--muted)">—</span><div class="rcb-lbl">Unverified</div></div>
+      </div>
+
+      <div class="filter-chips">
+        <button class="fchip active" onclick="filterLeads('ALL',this)">All</button>
+        <button class="fchip" onclick="filterLeads('CONFIRMED',this)">Confirmed</button>
+        <button class="fchip" onclick="filterLeads('PROBABLE',this)">Probable</button>
+        <button class="fchip" onclick="filterLeads('UNVERIFIED',this)">Unverified</button>
+        <button class="fchip" onclick="filterLeads('Section-17',this)">Section 17</button>
+        <button class="fchip" onclick="filterLeads('verdict',this)">Verdict</button>
+        <button class="fchip" onclick="filterLeads('conviction',this)">Conviction</button>
+      </div>
+
+      <div id="leads-feed">
+        <div class="record-empty">Loading leads…</div>
+      </div>
+    </div>
+
+    <!-- ── DOWNLOAD BAR ───────────────── -->
+    <div class="record-dl-bar">
+      <span class="record-dl-label">Raw Data</span>
+      <a href="/data/leads.json" download="insightgaps-BD-INV-002-leads.json" class="dl-btn">↓ leads.json</a>
+      <a href="/data/cases.json" download="insightgaps-BD-INV-002-cases.json" class="dl-btn">↓ cases.json</a>
+      <span style="font-family:var(--mono);font-size:.58rem;color:var(--muted2)">CC BY-NC 4.0 · Source must be attributed · Tier labels mandatory</span>
+    </div>
+
+  </div>
+</section>
+
 <!-- ══════════ CONCLUSION ══════════ -->
 <section id="conclusion" style="background:var(--bg)">
   <div class="container">
@@ -1552,7 +1718,228 @@ function downloadCSV(e){
   a.click();
 }
 
-// ── NAV SCROLL HIGHLIGHT ──
+
+// ══════════════════════════════════════════════════════════
+// §10 — ONGOING RECORD
+// Loads data/leads.json and data/cases.json, renders both panels
+// ══════════════════════════════════════════════════════════
+
+let _allLeads = [];
+let _allCases = [];
+
+// ── TAB SWITCHER ──
+function switchTab(tab, btn){
+  document.querySelectorAll('.rtab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.record-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('panel-' + tab).classList.add('active');
+}
+
+// ── TIER BADGE HTML ──
+function tierBadge(tier){
+  const map = {
+    'CONFIRMED':  'tier tier-confirmed',
+    'PROBABLE':   'tier tier-probable',
+    'UNVERIFIED': 'tier tier-absent',
+  };
+  const cls = map[tier] || 'tier tier-absent';
+  return `<span class="${cls}">${tier}</span>`;
+}
+
+// ── STATUS BADGE HTML ──
+function statusBadge(status){
+  const map = {
+    'CONVICTED':       ['status-convicted', '✓ Convicted'],
+    'COUNTER_CHARGED': ['status-counter',   '⚠ Counter-charged §17'],
+    'ACQUITTED':       ['status-acquitted', '○ Acquitted'],
+    'ARRESTED':        ['status-arrested',  '● Arrested'],
+    'TRIAL':           ['status-pending',   '◷ Trial commenced'],
+    'CHARGE_SHEET':    ['status-pending',   '◷ Charge sheet filed'],
+    'REPORTED':        ['status-pending',   '◷ Reported'],
+    'CLOSED_UNPROVEN': ['status-acquitted', '✕ Closed unproven'],
+    'UNKNOWN':         ['status-unknown',   '? Unknown'],
+  };
+  const [cls, label] = map[status] || ['status-unknown', status];
+  return `<span class="cc-status ${cls}">${label}</span>`;
+}
+
+// ── FORMAT DATE ──
+function fmtDate(str){
+  if(!str) return '—';
+  try {
+    const d = new Date(str);
+    return d.toLocaleDateString('en-GB', {day:'numeric', month:'short', year:'numeric'});
+  } catch(e){ return str; }
+}
+
+// ── RENDER CASE CARD ──
+function renderCase(c){
+  const timeline = (c.timeline || []).slice(-4).map(t => `
+    <div class="ct-item">
+      <span class="ct-date">${t.date || '—'}</span>
+      <div>
+        <div class="ct-event">${t.event || ''} ${tierBadge(t.tier || 'PROBABLE')}</div>
+        ${t.source_url
+          ? `<div class="ct-src"><a href="${t.source_url}" target="_blank" rel="noopener">↗ ${t.source_name || t.source || 'Source'}</a></div>`
+          : `<div class="ct-src">${t.source || ''}</div>`}
+      </div>
+    </div>`).join('');
+
+  const s17Flag = c.section17_filed
+    ? `<span class="cc-s17">⚠ SECTION 17 FILED</span>` : '';
+
+  return `
+    <div class="case-card" data-status="${c.status || 'UNKNOWN'}">
+      <div class="cc-id">${c.id || '—'} · ${c.district || '—'}</div>
+      <div class="cc-label">${c.label || 'Unnamed case'}</div>
+      <div class="cc-loc">
+        ${c.division || ''} Division · Incident: ${c.date_incident || '—'}
+      </div>
+      ${statusBadge(c.status || 'UNKNOWN')}
+      ${s17Flag}
+      ${c.status_date ? `<div style="font-family:var(--mono);font-size:.58rem;color:var(--muted2);margin-bottom:.5rem">Status date: ${c.status_date}</div>` : ''}
+      ${c.days_to_verdict ? `<div style="font-family:var(--mono);font-size:.62rem;color:var(--gold2);margin-bottom:.5rem">Days to verdict: <strong style="color:var(--gold)">${c.days_to_verdict}</strong> <span style="color:var(--muted2)">(avg: ${c.avg_wcrpa_days || 2349})</span></div>` : ''}
+      <div class="cc-timeline">${timeline || '<div style="font-family:var(--mono);font-size:.6rem;color:var(--muted2)">No timeline events yet.</div>'}</div>
+      ${c.notes ? `<div class="cc-notes">${c.notes}</div>` : ''}
+      <div style="margin-top:.6rem">${tierBadge(c.tier || 'PROBABLE')}</div>
+    </div>`;
+}
+
+// ── RENDER LEAD ITEM ──
+function renderLead(l){
+  const tags = (l.tags || []).map(t =>
+    `<span class="lead-tag">${t}</span>`
+  ).join('');
+
+  return `
+    <div class="lead-item" data-tier="${l.tier}" data-tags="${(l.tags||[]).join(' ')}">
+      <div class="lead-header">
+        <div class="lead-headline">${l.headline || l.claim || '—'}</div>
+        ${tierBadge(l.tier || 'UNVERIFIED')}
+      </div>
+      ${l.claim && l.claim !== l.headline ? `<div class="lead-claim">${l.claim}</div>` : ''}
+      <div class="lead-footer">
+        <span class="lead-source">${l.source_name || '—'}</span>
+        <span class="lead-date">${fmtDate(l.date_published)}</span>
+        ${tags ? `<div class="lead-tags">${tags}</div>` : ''}
+        ${l.source_url ? `<a href="${l.source_url}" target="_blank" rel="noopener" class="lead-src-link">↗ Source</a>` : ''}
+      </div>
+    </div>`;
+}
+
+// ── FILTER CASES ──
+function filterCases(status, btn){
+  document.querySelectorAll('#panel-cases .fchip').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const filtered = status === 'ALL' ? _allCases
+    : _allCases.filter(c => {
+        if(status === 'PENDING') return !['CONVICTED','ACQUITTED','COUNTER_CHARGED','CLOSED_UNPROVEN'].includes(c.status);
+        return c.status === status;
+      });
+  const grid = document.getElementById('case-grid');
+  if(!filtered.length){
+    grid.innerHTML = `<div class="record-empty">No cases with this status yet.</div>`;
+  } else {
+    grid.innerHTML = filtered.map(renderCase).join('');
+  }
+}
+
+// ── FILTER LEADS ──
+function filterLeads(filter, btn){
+  document.querySelectorAll('#panel-leads .fchip').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const tiers = ['CONFIRMED','PROBABLE','UNVERIFIED'];
+  const filtered = filter === 'ALL' ? _allLeads
+    : tiers.includes(filter)
+      ? _allLeads.filter(l => l.tier === filter)
+      : _allLeads.filter(l => (l.tags || []).some(t => t.toLowerCase().includes(filter.toLowerCase())));
+  const feed = document.getElementById('leads-feed');
+  if(!filtered.length){
+    feed.innerHTML = `<div class="record-empty">No leads matching this filter yet.</div>`;
+  } else {
+    feed.innerHTML = filtered.map(renderLead).join('');
+  }
+}
+
+// ── LOAD & RENDER ──
+async function loadRecord(){
+  // Load leads
+  try {
+    const r = await fetch('/data/leads.json');
+    if(!r.ok) throw new Error('HTTP ' + r.status);
+    const data = await r.json();
+    _allLeads = (data.leads || []).slice().reverse(); // newest first
+
+    // Update meta
+    const lastUpdated = data._meta && data._meta.last_updated
+      ? fmtDate(data._meta.last_updated) : '—';
+    const el = document.getElementById('rec-last-updated');
+    if(el) el.textContent = lastUpdated;
+
+    const total = document.getElementById('rec-total-leads');
+    if(total) total.textContent = _allLeads.length;
+
+    // Lead counts
+    const conf = _allLeads.filter(l => l.tier === 'CONFIRMED').length;
+    const prob = _allLeads.filter(l => l.tier === 'PROBABLE').length;
+    const unv  = _allLeads.filter(l => l.tier === 'UNVERIFIED').length;
+    const lt = document.getElementById('cnt-leads-total'); if(lt) lt.textContent = _allLeads.length;
+    const lc = document.getElementById('cnt-leads-confirmed'); if(lc) lc.textContent = conf;
+    const lp = document.getElementById('cnt-leads-probable'); if(lp) lp.textContent = prob;
+    const lu = document.getElementById('cnt-leads-unverified'); if(lu) lu.textContent = unv;
+
+    // Render default (all)
+    const feed = document.getElementById('leads-feed');
+    if(feed){
+      feed.innerHTML = _allLeads.length
+        ? _allLeads.map(renderLead).join('')
+        : `<div class="record-empty">No leads collected yet — collection running.</div>`;
+    }
+  } catch(e){
+    console.warn('§10 leads load failed:', e);
+    const feed = document.getElementById('leads-feed');
+    if(feed) feed.innerHTML = `<div class="record-empty">Leads data unavailable. Collection running in background.</div>`;
+  }
+
+  // Load cases
+  try {
+    const r2 = await fetch('/data/cases.json');
+    if(!r2.ok) throw new Error('HTTP ' + r2.status);
+    const cdata = await r2.json();
+    _allCases = cdata.cases || [];
+
+    const totalCases = document.getElementById('rec-total-cases');
+    if(totalCases) totalCases.textContent = _allCases.length;
+
+    // Case counts
+    const convicted = _allCases.filter(c => c.status === 'CONVICTED').length;
+    const s17 = _allCases.filter(c => c.section17_filed).length;
+    const pending = _allCases.filter(c => !['CONVICTED','ACQUITTED','COUNTER_CHARGED','CLOSED_UNPROVEN'].includes(c.status)).length;
+
+    const ctt = document.getElementById('cnt-total-cases'); if(ctt) ctt.textContent = _allCases.length;
+    const ctc = document.getElementById('cnt-convicted'); if(ctc) ctc.textContent = convicted;
+    const cts = document.getElementById('cnt-s17'); if(cts) cts.textContent = s17;
+    const ctp = document.getElementById('cnt-pending'); if(ctp) ctp.textContent = pending;
+
+    const grid = document.getElementById('case-grid');
+    if(grid){
+      grid.innerHTML = _allCases.length
+        ? _allCases.map(renderCase).join('')
+        : `<div class="record-empty">No cases seeded yet.</div>`;
+    }
+  } catch(e){
+    console.warn('§10 cases load failed:', e);
+    const grid = document.getElementById('case-grid');
+    if(grid) grid.innerHTML = `<div class="record-empty">Case register unavailable. Data loading.</div>`;
+  }
+}
+
+// Init on DOM ready
+document.addEventListener('DOMContentLoaded', function(){
+  loadRecord();
+});
+
+
 window.addEventListener('scroll', function(){
   let cur = '';
   document.querySelectorAll('section[id]').forEach(function(s){
