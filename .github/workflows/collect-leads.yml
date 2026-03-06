@@ -1,1 +1,116 @@
+# ============================================================
+# INSIGHT GAPS — BD-INV-002 Automated Lead Collector
+# GitHub Actions Workflow
+# ============================================================
+#
+# Runs every 6 hours. Scrapes Bangladesh news RSS feeds.
+# Classifies relevant items using Gemini Flash API.
+# Commits updated data/leads.json and data/cases.json if changed.
+# Vercel auto-deploys on every commit — site updates in ~30 seconds.
+#
+# SETUP REQUIRED:
+# Add GEMINI_API_KEY to your GitHub repo secrets:
+#   Settings → Secrets and variables → Actions → New repository secret
+#   Name: GEMINI_API_KEY
+#   Value: your Gemini API key from https://aistudio.google.com/apikey
+# ============================================================
 
+name: BD-INV-002 Lead Collector
+
+"on":
+  schedule:
+    - cron: '0 0,6,12,18 * * *'
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Reason for manual run'
+        required: false
+        default: 'Manual trigger'
+
+jobs:
+  collect-leads:
+    name: Collect & Classify Leads
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    permissions:
+      contents: write   # Needed to commit updated JSON files
+
+    steps:
+
+      # ── Step 1: Check out the repo ──────────────────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # ── Step 2: Set up Python ───────────────────────────────
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # ── Step 3: Install dependencies ───────────────────────
+      - name: Install dependencies
+        run: |
+          pip install feedparser google-generativeai --quiet
+
+      # ── Step 4: Run the collector ───────────────────────────
+      - name: Run lead collector
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          echo "Starting BD-INV-002 lead collection..."
+          python scripts/collector.py
+          echo "Collection complete."
+
+      # ── Step 5: Commit if data changed ─────────────────────
+      - name: Commit updated data files
+        run: |
+          git config --local user.email "collector@insightgaps.com"
+          git config --local user.name "Insight Gaps Collector"
+
+          git add data/leads.json data/cases.json
+
+          # Only commit if something actually changed
+          if git diff --staged --quiet; then
+            echo "No changes to data files — nothing to commit."
+          else
+            TIMESTAMP=$(date -u '+%Y-%m-%d %H:%M UTC')
+            COUNT=$(python3 -c "
+          import json
+          with open('data/leads.json') as f:
+              d = json.load(f)
+          print(len(d.get('leads', [])))
+          ")
+            git commit -m "auto: leads update ${TIMESTAMP} — ${COUNT} total leads [BD-INV-002]"
+            git push
+            echo "Data files committed and pushed. Vercel will deploy in ~30 seconds."
+          fi
+
+      # ── Step 6: Log run summary ─────────────────────────────
+      - name: Log run summary
+        if: always()
+        run: |
+          echo "======================================"
+          echo "BD-INV-002 Collector Run Complete"
+          echo "Time: $(date -u)"
+          echo "Trigger: ${{ github.event_name }}"
+          echo "======================================"
+          python3 -c "
+          import json
+          try:
+              with open('data/leads.json') as f:
+                  d = json.load(f)
+              leads = d.get('leads', [])
+              confirmed = sum(1 for l in leads if l.get('tier') == 'CONFIRMED')
+              probable = sum(1 for l in leads if l.get('tier') == 'PROBABLE')
+              unverified = sum(1 for l in leads if l.get('tier') == 'UNVERIFIED')
+              print(f'Total leads: {len(leads)}')
+              print(f'  CONFIRMED:  {confirmed}')
+              print(f'  PROBABLE:   {probable}')
+              print(f'  UNVERIFIED: {unverified}')
+              print(f'Last updated: {d[\"_meta\"].get(\"last_updated\", \"unknown\")}')
+          except Exception as e:
+              print(f'Could not read leads.json: {e}')
+          "
