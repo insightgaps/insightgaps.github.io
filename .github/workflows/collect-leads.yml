@@ -1,5 +1,5 @@
 name: BD-INV-002 Lead Collector
-on:
+"on":
   schedule:
     - cron: '0 0,6,12,18 * * *'
   workflow_dispatch:
