@@ -96,16 +96,28 @@ FEEDS = [
 KEYWORDS_EN = [
     "rape", "sexual assault", "sexual violence", "gang rape",
     "WCRPA", "women and children repression",
-    "tribunal", "OCC", "one-stop crisis",
-    "conviction", "acquittal", "acquitted", "convicted", "sentenced",
+    "nari-o-shishu", "nari o shishu", "nirjatan",
+    "OCC", "one-stop crisis",
     "section 17", "false rape case", "counter-complaint",
-    "shalish", "arbitration", "settlement",
+    "shalish", "rape case", "rape verdict", "rape sentence",
     "VAWC", "violence against women",
-    "charge sheet", "FIR", "police report",
-    "survivor", "victim", "perpetrator", "accused",
-    "forensic", "DNA test", "medical evidence",
-    "PHQ", "police headquarters", "tribunal backlog",
-    "rape case", "rape verdict", "rape sentence",
+    "charge sheet rape", "FIR rape", "rape conviction",
+    "rape acquittal", "rape accused", "rape survivor",
+    "forensic rape", "DNA test rape", "medical evidence rape",
+    "PHQ rape", "police headquarters rape", "tribunal backlog",
+]
+
+# Sports / irrelevant title exclusion — if ANY of these appear in the
+# title, skip immediately even if a broad keyword matched elsewhere.
+EXCLUSION_TITLE_KEYWORDS = [
+    "cricket", "football", "fifa", "copa america", "world cup",
+    "ipl", "bpl", "premier league", "champions league",
+    "batting", "bowling", "wicket", "run rate", "over ", "fifties",
+    "archer", "medal", "archery", "sarfaraz", "rohit", "mushfiq",
+    "mithun", "shakib", "proteas", "tigers ", "afghanistan ",
+    "pakistan cricket", "india cricket", "south africa cricket",
+    "warm-up match", "dearer", "commodities", "inflation",
+    "stock market", "taka exchange", "currency",
 ]
 
 KEYWORDS_BN = [
@@ -114,6 +126,14 @@ KEYWORDS_BN = [
     "সালিশ", "বিচার", "সাজা", "আসামি", "আদালত",
     "মামলা", "চার্জশিট", "ভুক্তভোগী",
 ]
+
+def is_excluded_by_title(title):
+    """Returns True if the title matches sports/irrelevant exclusion list."""
+    title_lower = title.lower()
+    for ex in EXCLUSION_TITLE_KEYWORDS:
+        if ex.lower() in title_lower:
+            return True
+    return False
 
 def keyword_match(text):
     """Returns True if text contains any relevant keyword."""
@@ -396,6 +416,11 @@ def run_collection():
             if not keyword_match(combined_text):
                 continue
 
+            # Skip if title matches sports/irrelevant exclusion list
+            if is_excluded_by_title(title):
+                print(f"  [SKIP-EXCL] Excluded by title filter: {title[:60]}")
+                continue
+
             items_processed += 1
             print(f"\n  [ITEM {items_processed}] {title[:80]}")
             print(f"    URL: {url[:80]}")
@@ -414,15 +439,11 @@ def run_collection():
             classification = classify_item(title, description, feed_name, url)
 
             if classification is None:
-                # If Gemini unavailable, add as UNVERIFIED with keyword match
-                classification = {
-                    "relevant": True,
-                    "tier": "UNVERIFIED",
-                    "claim": title,
-                    "tags": [],
-                    "linked_case_id": None,
-                    "notes": "Gemini classification unavailable this run. Keyword-matched only. Requires manual review."
-                }
+                # Gemini unavailable — SKIP rather than pollute the database
+                # with unverified non-relevant items. Log for manual review.
+                print(f"    [SKIP-NO-GEMINI] Gemini unavailable. Skipping: {title[:60]}")
+                print(f"    Manual review URL: {url}")
+                continue
 
             if not classification.get("relevant", False):
                 print(f"    [SKIP] Not relevant")
