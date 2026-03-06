@@ -15,7 +15,9 @@
       "verdicts": null,
       "convictions": null,
       "notable_cases": [],
-      "sources": ["PHQ via Kaler Kantho — S-16"],
+      "sources": [
+        "PHQ via Kaler Kantho — S-16"
+      ],
       "tier": "CONFIRMED",
       "notes": "Includes Section 9(4) attempt to rape. This is Figure A (PHQ total). Figure B (completed rape only) = 5,872."
     },
@@ -26,8 +28,14 @@
       "occ_visitors": null,
       "verdicts": null,
       "convictions": null,
-      "notable_cases": ["Death penalty introduced Oct 2020 (Ordinance)", "Begumganj video — nationwide protests", "Sylhet MC College gang rape — nationwide protests"],
-      "sources": ["PHQ via Kaler Kantho — S-16"],
+      "notable_cases": [
+        "Death penalty introduced Oct 2020 (Ordinance)",
+        "Begumganj video — nationwide protests",
+        "Sylhet MC College gang rape — nationwide protests"
+      ],
+      "sources": [
+        "PHQ via Kaler Kantho — S-16"
+      ],
       "tier": "CONFIRMED",
       "notes": "Death penalty introduced October 2020 following mass protests. Figure B (ResearchGate/Ipas) gives 6,555 — higher than Figure A due to late-year protest-driven filing surge captured in different administrative cutoff. Discrepancy explained by methodology, not data error."
     },
@@ -38,8 +46,13 @@
       "occ_visitors": null,
       "verdicts": null,
       "convictions": null,
-      "notable_cases": ["Raintree Hotel verdict and judge's 72-hour rule statement (Nov 2021) — documented chilling effect on 2022 filings"],
-      "sources": ["University of Asia Pacific study May 2024 — S-62", "Prothom Alo Jul 2025 — S-61"],
+      "notable_cases": [
+        "Raintree Hotel verdict and judge's 72-hour rule statement (Nov 2021) — documented chilling effect on 2022 filings"
+      ],
+      "sources": [
+        "University of Asia Pacific study May 2024 — S-62",
+        "Prothom Alo Jul 2025 — S-61"
+      ],
       "tier": "PROBABLE",
       "notes": "Two independent sources both cite PHQ data and agree on 6,341. Neither is the primary PHQ document. Tier will upgrade to CONFIRMED once primary PHQ annual report 2021 is located."
     },
@@ -50,8 +63,13 @@
       "occ_visitors": null,
       "verdicts": null,
       "convictions": null,
-      "notable_cases": ["DNA lab manpower crisis — May 2022, 54 staff unpaid across 8 labs", "25% drop from 2021 peak — three documented causes"],
-      "sources": ["ResearchGate University of Asia Pacific study May 2024 — S-62"],
+      "notable_cases": [
+        "DNA lab manpower crisis — May 2022, 54 staff unpaid across 8 labs",
+        "25% drop from 2021 peak — three documented causes"
+      ],
+      "sources": [
+        "ResearchGate University of Asia Pacific study May 2024 — S-62"
+      ],
       "tier": "PROBABLE",
       "notes": "25% drop from 2021 explained by three documented causes: (1) DNA lab manpower transition crisis May 2022 — 54 scientific officers unpaid, 8 labs stalled; (2) Raintree Hotel judge 72-hour rule statement chilling effect; (3) death penalty paradox suppressing reporting of domestic perpetrators. NOTE: Prothom Alo (S-61) gives 6,032 for 2022 — this conflicts with ResearchGate figure of 4,762. Discrepancy under investigation. S-62 figure (4,762) used here as it is consistent with two academic corroborations. Do not upgrade tier until conflict resolved."
     },
@@ -63,7 +81,9 @@
       "verdicts": null,
       "convictions": null,
       "notable_cases": [],
-      "sources": ["PHQ via TBS News 2024 — S-56"],
+      "sources": [
+        "PHQ via TBS News 2024 — S-56"
+      ],
       "tier": "CONFIRMED",
       "notes": "Standard annual PHQ data. 13/day average referenced in counter band."
     },
@@ -74,8 +94,15 @@
       "occ_visitors": 643,
       "verdicts": 12,
       "convictions": 0,
-      "notable_cases": ["Jan-Jul 2024: ZERO OCC convictions from 12 verdicts", "Aug 2024: Political revolution — Awami League government fell", "Aug 2024 onwards: 8,307 cases in 6 months (surge post-revolution)"],
-      "sources": ["PHQ via Daily Star Mar 2025 — S-57", "OCC data Daily Star Nov 2024 — S-55"],
+      "notable_cases": [
+        "Jan-Jul 2024: ZERO OCC convictions from 12 verdicts",
+        "Aug 2024: Political revolution — Awami League government fell",
+        "Aug 2024 onwards: 8,307 cases in 6 months (surge post-revolution)"
+      ],
+      "sources": [
+        "PHQ via Daily Star Mar 2025 — S-57",
+        "OCC data Daily Star Nov 2024 — S-55"
+      ],
       "tier": "CONFIRMED",
       "notes": "Annual total 4,394 confirmed. OCC data Jan-Jul 2024: 643 visitors, 227 cases filed, 12 verdicts, ZERO convictions. Post-August surge documented separately (Aug 2024-Jan 2025: 8,307 total cases per S-65 — this is WCRPA total, not rape-specific). 2024 tribunal throughput: 17,544 new cases filed vs 5,648 disposed — net backlog growth ~12,000 (S-65, PROBABLE)."
     },
@@ -86,7 +113,10 @@
       "occ_visitors": null,
       "verdicts": null,
       "convictions": null,
-      "notable_cases": ["Post-revolution — interim government took power Aug 8, 2024", "Police system collapsed for several weeks after revolution"],
+      "notable_cases": [
+        "Post-revolution — interim government took power Aug 8, 2024",
+        "Police system collapsed for several weeks after revolution"
+      ],
       "sources": [],
       "tier": "CONFIRMED_ABSENT",
       "notes": "PHQ does not publish monthly breakdowns. No August 2024 monthly figure exists in any public source. The political revolution of August 5, 2024 caused a reported surge in crime filings — but no monthly-disaggregated data is available. CONFIRMED ABSENT after exhaustive search."
@@ -146,8 +176,12 @@
       "occ_visitors": null,
       "verdicts": null,
       "convictions": null,
-      "notable_cases": ["Jan-Feb 2025 combined: 832 rape cases (PROBABLE — S-65)"],
-      "sources": ["Prothom Alo crime analysis — S-65 (Jan-Feb combined only, not January alone)"],
+      "notable_cases": [
+        "Jan-Feb 2025 combined: 832 rape cases (PROBABLE — S-65)"
+      ],
+      "sources": [
+        "Prothom Alo crime analysis — S-65 (Jan-Feb combined only, not January alone)"
+      ],
       "tier": "CONFIRMED_ABSENT",
       "notes": "January figure cannot be disaggregated from Jan-Feb combined total of 832 cases (S-65). Monthly-specific figure: CONFIRMED ABSENT. Combined Jan-Feb figure is PROBABLE."
     },
@@ -158,8 +192,12 @@
       "occ_visitors": null,
       "verdicts": null,
       "convictions": null,
-      "notable_cases": ["Jan-Feb 2025 combined: 832 rape cases (PROBABLE — S-65)"],
-      "sources": ["Prothom Alo crime analysis — S-65 (Jan-Feb combined only)"],
+      "notable_cases": [
+        "Jan-Feb 2025 combined: 832 rape cases (PROBABLE — S-65)"
+      ],
+      "sources": [
+        "Prothom Alo crime analysis — S-65 (Jan-Feb combined only)"
+      ],
       "tier": "CONFIRMED_ABSENT",
       "notes": "February figure cannot be disaggregated from Jan-Feb combined total. CONFIRMED ABSENT for monthly-specific."
     },
@@ -170,7 +208,13 @@
       "occ_visitors": null,
       "verdicts": null,
       "convictions": null,
-      "notable_cases": ["Magura child rape case (MG-2025-001) — national crisis", "WCRPA Amendment Ordinance passed March 20, 2025", "148,314 backlog figure published — March 31, 2025"],
+      "notable_cases": [
+        "Magura child rape case (MG-2025-001) — national crisis",
+        "WCRPA Amendment Ordinance passed March 20, 2025",
+        "148,314 backlog figure published — March 31, 2025",
+        "Q1 2025 (Jan–Mar): 342 rape cases recorded — ASK/HRCBM Aug 2025 PIL · PROBABLE · S-72",
+        "UNICEF: 50 child rape cases in first 10 weeks of 2025 — March 23, 2025 · S-79"
+      ],
       "sources": [],
       "tier": "CONFIRMED_ABSENT",
       "notes": "Monthly case filing total not published. CONFIRMED ABSENT. Notable: March 2025 was the month that triggered the largest legislative reform in 25 years (2025 Ordinance) and established the Magura precedent."
@@ -182,7 +226,10 @@
       "occ_visitors": null,
       "verdicts": null,
       "convictions": null,
-      "notable_cases": ["Magura charge sheet filed April 13", "Magura trial commenced April 23"],
+      "notable_cases": [
+        "Magura charge sheet filed April 13",
+        "Magura trial commenced April 23"
+      ],
       "sources": [],
       "tier": "CONFIRMED_ABSENT",
       "notes": "Monthly filing total: CONFIRMED ABSENT. PHQ does not publish monthly breakdowns."
@@ -194,8 +241,12 @@
       "occ_visitors": null,
       "verdicts": 1,
       "convictions": 1,
-      "notable_cases": ["Magura verdict May 17 — Hitu Sheikh death sentence (MG-2025-001)"],
-      "sources": ["BSS — S-60, S-67"],
+      "notable_cases": [
+        "Magura verdict May 17 — Hitu Sheikh death sentence (MG-2025-001)"
+      ],
+      "sources": [
+        "BSS — S-60, S-67"
+      ],
       "tier": "CONFIRMED_ABSENT",
       "notes": "Monthly total filing: CONFIRMED ABSENT. However: May 17 verdict in Magura case (death sentence) is CONFIRMED. This is 1 confirmed conviction for this month from tracked cases — actual monthly national total unknown."
     },
@@ -218,8 +269,12 @@
       "occ_visitors": null,
       "verdicts": null,
       "convictions": null,
-      "notable_cases": ["Magura HC appeal admitted July 1 by Justice Mostafizur Rahman + Justice Sagir Hossain"],
-      "sources": ["Prothom Alo / Desh Rupantor — S-67"],
+      "notable_cases": [
+        "Magura HC appeal admitted July 1 by Justice Mostafizur Rahman + Justice Sagir Hossain"
+      ],
+      "sources": [
+        "Prothom Alo / Desh Rupantor — S-67"
+      ],
       "tier": "CONFIRMED_ABSENT",
       "notes": "Monthly filing total: CONFIRMED ABSENT. HC appeal admission for Magura case CONFIRMED."
     },
@@ -230,9 +285,12 @@
       "occ_visitors": null,
       "verdicts": null,
       "convictions": null,
-      "notable_cases": ["Daily Star (Sep 25, 2025) reported a figure of 10,475 in context of 2025 WCRPA statistics — exact category UNVERIFIED"],
+      "notable_cases": [
+        "BMP Aug 2025 report: 223 violence cases reported; 115 murder or rape cases — News on Air Sept 2, 2025 · PROBABLE · S-73",
+        "Supreme Court Article 116 ruling Sept 2 2025: SC restored full control over lower court judges — S-77"
+      ],
       "sources": [],
-      "tier": "CONFIRMED_ABSENT",
+      "tier": "PROBABLE",
       "notes": "Monthly filing total: CONFIRMED ABSENT. A figure of 10,475 appeared in Daily Star Sep 25, 2025 in the context of 2025 WCRPA statistics — but exact category (total WCRPA vs rape-specific, cumulative vs monthly) requires original article verification before use. Currently UNVERIFIED for this purpose."
     },
     {
@@ -242,8 +300,14 @@
       "occ_visitors": null,
       "verdicts": null,
       "convictions": null,
-      "notable_cases": ["DNA backlog: 1,204 of 1,304 samples pending (92%) — Prothom Alo Sep 2025"],
-      "sources": ["Prothom Alo Bangla — S-66"],
+      "notable_cases": [
+        "Supreme Court backlog: 4.65 million cases as of June 2025; lower courts hold 86% — Daily Industry BD, Sept 22, 2025 · S-75",
+        "Art. 116 struck down Sept 2, 2025 — SC restored control over lower judiciary · S-77",
+        "DNA lab: 1,204 of 1,304 samples (92%) pending — Prothom Alo · S-66"
+      ],
+      "sources": [
+        "Prothom Alo Bangla — S-66"
+      ],
       "tier": "CONFIRMED_ABSENT",
       "notes": "Monthly filing total: CONFIRMED ABSENT. DNA backlog figure (1,204/1,304) confirmed from this period."
     },
@@ -254,7 +318,9 @@
       "occ_visitors": null,
       "verdicts": null,
       "convictions": null,
-      "notable_cases": [],
+      "notable_cases": [
+        "BBS/UNFPA VAW Survey Oct 13 2025: 76% lifetime IPV; 49% past 12 months; 62% tell no one — S-02 updated · CONFIRMED · S-74"
+      ],
       "sources": [],
       "tier": "CONFIRMED_ABSENT",
       "notes": "PHQ does not publish monthly breakdowns. CONFIRMED ABSENT. Automated collector monitoring from this point forward."
@@ -278,7 +344,10 @@
       "occ_visitors": null,
       "verdicts": null,
       "convictions": null,
-      "notable_cases": ["Barishal Section 17 counter-charge case filed (BS-2026-001) — incident month approximate"],
+      "notable_cases": [
+        "Supreme Court Secretariat launched Dec 11, 2025 — decoupled judicial admin from Law Ministry — S-78",
+        "Supreme Court Secretariat Ordinance 2025 promulgated · CONFIRMED"
+      ],
       "sources": [],
       "tier": "CONFIRMED_ABSENT",
       "notes": "Automated collector monitoring."
@@ -290,8 +359,13 @@
       "occ_visitors": null,
       "verdicts": null,
       "convictions": null,
-      "notable_cases": ["Barishal Section 17 counter-charge order (BS-2026-001) — January 2026"],
-      "sources": ["TBS News Jan 2026 — S-13"],
+      "notable_cases": [
+        "SC Secretariat: total national cases pending = 4,516,603 as of Jan 10, 2026 — Lawyers Club BD · S-76",
+        "PHQ minority incident report released Jan 19, 2026: 645 total incidents; 58 rape (non-communal) — BSS · S-71"
+      ],
+      "sources": [
+        "TBS News Jan 2026 — S-13"
+      ],
       "tier": "CONFIRMED_ABSENT",
       "notes": "Monthly filing total not published. CONFIRMED ABSENT. BS-2026-001 counter-charge documented this month."
     },
@@ -302,8 +376,13 @@
       "occ_visitors": null,
       "verdicts": 4,
       "convictions": 4,
-      "notable_cases": ["Barishal Trish Godown verdict — 4 death sentences for 2016 gang rape (BS-2016-001)"],
-      "sources": ["BSS Feb 2026 — S-70"],
+      "notable_cases": [
+        "Barishal Trish Godown verdict Feb 2026: 4 death sentences for Nov 2016 assault (~3,380 days) — S-70",
+        "HRW Jan 14 2026: Bangladeshi Women, Girls, Minorities Face Rising Violence — S-80"
+      ],
+      "sources": [
+        "BSS Feb 2026 — S-70"
+      ],
       "tier": "CONFIRMED_ABSENT",
       "notes": "Monthly total filing: CONFIRMED ABSENT. However February 2026 Barishal verdict (4 death sentences, 2016 case) is CONFIRMED. A case from 2016 reached verdict in February 2026 — approximately 3,380 days."
     },
@@ -314,10 +393,14 @@
       "occ_visitors": null,
       "verdicts": null,
       "convictions": null,
-      "notable_cases": ["Magura HC appeal ongoing as of March 2026"],
+      "notable_cases": [
+        "BMP March 2026 press conference: 442 violence cases in March; 125 girls + 38 women raped; 36 gang-rape victims — News on Air · PROBABLE · S-73b",
+        "Magura (MG-2025-001): HC appeal ongoing — S-67"
+      ],
       "sources": [],
-      "tier": "CONFIRMED_ABSENT",
+      "tier": "PROBABLE",
       "notes": "Current month. Automated collector active. No monthly total published."
     }
-  ]
+  ],
+  "last_updated": "2026-03-06T12:00:00Z"
 }
