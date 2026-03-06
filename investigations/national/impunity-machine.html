@@ -393,9 +393,9 @@ canvas{display:block;width:100%}
 
 <nav aria-label="Main navigation">
   <div class="nav-inner">
-    <div class="nav-brand"><a href="https://insightgaps.github.io/">Insight <span>Gaps</span></a> <span style="color:var(--muted2);margin-left:.8rem;font-size:.5rem">BD-INV-002 · v3.1 · Mar 2026</span></div>
+    <div class="nav-brand"><a href="https://insightgaps.github.io/">Insight <span>Gaps</span></a> <span style="color:var(--muted2);margin-left:.8rem;font-size:.5rem">BD-INV-002 · v4.0 · Mar 2026</span></div>
     <div class="nav-links">
-      <a href="#live" class="nav-live">● Live</a>
+      <a href="#dashboard" class="nav-live">● Live Dashboard</a>
       <a href="#conviction-gap">§01 Conviction</a>
       <a href="#backlog">§02 Backlog</a>
       <a href="#architecture">§03 Law</a>
@@ -453,6 +453,10 @@ canvas{display:block;width:100%}
   </div>
   <h1 class="open-title">The<br><em>Impunity</em><br>Machine</h1>
   <div class="open-sub">Bangladesh · Rape Justice Crisis · Data Investigation · March 2026</div>
+  <div style="max-width:760px;margin:2.5rem auto 0;padding:0 2rem">
+    <img src="hero-cover.jpg" alt="Illustration representing Bangladesh's rape justice crisis — women seeking accountability in a system that produces impunity" style="width:100%;display:block;border:1px solid var(--border2);opacity:.85">
+    <div style="font-family:var(--mono);font-size:.46rem;color:var(--muted2);text-align:right;margin-top:.4rem;letter-spacing:.08em">Cover image · BD-INV-002 · Insight Gaps · March 2026</div>
+  </div>
   <div class="scroll-hint" aria-hidden="true"><span>Enter the record</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
 </section>
 
@@ -472,36 +476,80 @@ canvas{display:block;width:100%}
   </div>
 </div>
 
-<!-- ══ LIVE RECORD ══ -->
-<section id="live" class="dark" aria-label="Live monitoring dashboard">
-  <div class="wrap">
-    <div style="border-bottom:1px solid var(--border);padding-bottom:1.4rem;margin-bottom:1.8rem">
-      <div class="sh-eye" style="margin-bottom:.6rem">§ Live Monitoring</div>
-      <h2 style="font-family:var(--display);font-size:clamp(1.6rem,3vw,2.5rem);font-weight:700;letter-spacing:-.02em">The Ongoing Record</h2>
-      <div class="live-badge-sm" style="margin-top:.7rem">Updated every 6 hours via GitHub Actions</div>
-      <div class="live-meta" style="margin-top:.5rem">
-        <span id="rec-last-updated">Last updated: <strong style="color:var(--text)">Loading…</strong></span>
-        <span>Leads: <strong style="color:var(--gold)" id="rec-total-leads">—</strong></span>
-        <span>Cases tracked: <strong style="color:var(--gold)" id="rec-total-cases">—</strong></span>
+
+<!-- ══ NATIONAL LIVE DASHBOARD ══ -->
+<section id="dashboard" style="background:var(--ink2);border-top:2px solid var(--blood)" aria-label="National live dashboard">
+  <div class="wrap" style="padding-top:3rem;padding-bottom:3rem">
+
+    <!-- Dashboard Header -->
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-bottom:1px solid var(--border);padding-bottom:1.4rem;margin-bottom:1.8rem">
+      <div>
+        <div style="display:flex;align-items:center;gap:.7rem;margin-bottom:.5rem">
+          <span style="font-family:var(--mono);font-size:.5rem;color:var(--bloodl);letter-spacing:.18em;text-transform:uppercase;animation:blink 1.5s ease-in-out infinite">● LIVE</span>
+          <span style="font-family:var(--mono);font-size:.5rem;color:var(--muted2);letter-spacing:.1em;text-transform:uppercase">Updated every 6 hours · GitHub Actions</span>
+        </div>
+        <h2 style="font-family:var(--display);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;letter-spacing:-.02em;margin-bottom:.4rem">Bangladesh Sexual Violence — National Tracker</h2>
+        <p style="font-family:var(--body);font-size:.85rem;color:var(--muted);max-width:540px">This dashboard tracks every reported case, verdict, and policy development in real time. Any journalist, NGO, or citizen can use this data — with tier labels mandatory when citing.</p>
+      </div>
+      <div style="font-family:var(--mono);font-size:.52rem;color:var(--muted2);text-align:right;line-height:1.7">
+        <span id="rec-last-updated">Last updated: loading…</span><br>
+        Leads tracked: <strong style="color:var(--gold)" id="rec-total-leads">—</strong> &nbsp;|&nbsp;
+        Cases monitored: <strong style="color:var(--gold)" id="rec-total-cases">—</strong>
       </div>
     </div>
 
-    <div class="stat-strip reveal">
-      <div class="ss-item"><div class="ss-num">~150,000</div><div class="ss-lbl">Cases pending · Mar 2025<br><span class="tier tc" style="margin-left:0">Confirmed · 2 sources</span></div></div>
-      <div class="ss-item"><div class="ss-num" style="font-size:1rem;color:var(--gold)">~12/day</div><div class="ss-lbl">Cases filed per day<br>(2024 annual avg · PHQ · S-57)<br><span class="tier tc" style="margin-left:0">CONFIRMED</span></div></div>
-      <div class="ss-item"><div class="ss-num">5,648</div><div class="ss-lbl">Disposed 2024 vs 17,544<br>new filed<br><span class="tier tp" style="margin-left:0">Probable</span></div></div>
-      <div class="ss-item"><div class="ss-num">0.0215%</div><div class="ss-lbl">Mid-scenario probability<br>of punishment · modelled</div></div>
-      <div class="ss-item"><div class="ss-num" style="color:var(--bloodl)">0</div><div class="ss-lbl">OCC convictions Jan–Jul 2024<br>from 12 verdicts<br><span class="tier tc" style="margin-left:0">Confirmed</span></div></div>
-      <div class="ss-item"><div class="ss-num">92%</div><div class="ss-lbl">DNA samples unprocessed<br>early 2025<br><span class="tier tp" style="margin-left:0">Probable</span></div></div>
+    <!-- Big Number Strip — Plain Language -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:2rem">
+      <div style="background:var(--ink3);padding:1.1rem 1.2rem">
+        <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--bloodl);line-height:1;letter-spacing:-.03em">442</div>
+        <div style="font-family:var(--mono);font-size:.5rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-top:.35rem;line-height:1.6">Violence cases<br>in March 2026</div>
+        <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);margin-top:.3rem">BMP Mar 2026 · <span class="tier tp" style="margin-left:0">PROBABLE · S-73b</span></div>
+      </div>
+      <div style="background:var(--ink3);padding:1.1rem 1.2rem">
+        <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--amberl);line-height:1;letter-spacing:-.03em">~150k</div>
+        <div style="font-family:var(--mono);font-size:.5rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-top:.35rem;line-height:1.6">Cases waiting<br>in courts</div>
+        <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);margin-top:.3rem">Mar 2025 · <span class="tier tc" style="margin-left:0">CONFIRMED · S-63, S-64</span></div>
+      </div>
+      <div style="background:var(--ink3);padding:1.1rem 1.2rem">
+        <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--bloodl);line-height:1;letter-spacing:-.03em">0</div>
+        <div style="font-family:var(--mono);font-size:.5rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-top:.35rem;line-height:1.6">OCC convictions<br>Jan–Jul 2024</div>
+        <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);margin-top:.3rem">Daily Star Nov 2024 · <span class="tier tc" style="margin-left:0">CONFIRMED · S-55</span></div>
+      </div>
+      <div style="background:var(--ink3);padding:1.1rem 1.2rem">
+        <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--gold);line-height:1;letter-spacing:-.03em">~12/day</div>
+        <div style="font-family:var(--mono);font-size:.5rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-top:.35rem;line-height:1.6">New cases filed<br>every day</div>
+        <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);margin-top:.3rem">PHQ 2024 avg · <span class="tier tc" style="margin-left:0">CONFIRMED · S-57</span></div>
+      </div>
+      <div style="background:var(--ink3);padding:1.1rem 1.2rem">
+        <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--bloodl);line-height:1;letter-spacing:-.03em">0.46%</div>
+        <div style="font-family:var(--mono);font-size:.5rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-top:.35rem;line-height:1.6">Conviction rate<br>OCC (23 years)</div>
+        <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);margin-top:.3rem">310/66,711 · <span class="tier tc" style="margin-left:0">CONFIRMED · S-55</span></div>
+      </div>
+      <div style="background:var(--ink3);padding:1.1rem 1.2rem">
+        <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--amberl);line-height:1;letter-spacing:-.03em">6.4yr</div>
+        <div style="font-family:var(--mono);font-size:.5rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-top:.35rem;line-height:1.6">Average wait<br>for trial</div>
+        <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);margin-top:.3rem">2,349 days · <span class="tier tc" style="margin-left:0">CONFIRMED · S-01</span></div>
+      </div>
     </div>
 
+    <!-- Context Bar -->
+    <div style="background:rgba(196,30,58,.07);border:1px solid rgba(196,30,58,.3);padding:1rem 1.2rem;margin-bottom:2rem;font-family:var(--mono);font-size:.58rem;color:var(--text2);line-height:1.8">
+      <strong style="color:var(--bloodl)">What these numbers mean in plain language:</strong> In March 2026 alone, 442 women and girls were reported as victims of violence — including 163 rapes and gang-rapes. Every day, ~12 new rape cases enter a system that already has 150,000 cases waiting. The average case takes over 6 years to reach a verdict. Of every 100 women who walked into a crisis centre over 23 years, fewer than 1 got a conviction. This tracker updates every 6 hours. <a href="#sources" style="color:var(--gold)">All sources cited.</a>
+    </div>
+
+    <!-- Tabs -->
     <div class="tabs" role="tablist">
-      <button class="tab active" role="tab" onclick="switchTab('cases',this)">Case Register</button>
-      <button class="tab" role="tab" onclick="switchTab('monthly',this)">Monthly Record</button>
-      <button class="tab" role="tab" onclick="switchTab('leads',this)">Leads Feed</button>
+      <button class="tab active" role="tab" onclick="switchTab('cases',this)" aria-selected="true">📋 Tracked Cases</button>
+      <button class="tab" role="tab" onclick="switchTab('monthly',this)" aria-selected="false">📅 Month by Month</button>
+      <button class="tab" role="tab" onclick="switchTab('leads',this)" aria-selected="false">📰 Latest Reports</button>
+      <button class="tab" role="tab" onclick="switchTab('divisions',this)" aria-selected="false">🗺 By Division</button>
     </div>
 
+    <!-- Tab: Tracked Cases -->
     <div class="tab-panel active" id="panel-cases">
+      <div style="font-family:var(--mono);font-size:.58rem;color:var(--muted2);padding:.7rem 0;margin-bottom:1rem;border-bottom:1px solid var(--border)">
+        These are specific cases this investigation is tracking — with full timelines, sources, and current status. <span style="color:var(--gold)">Click any case for details.</span>
+      </div>
       <div class="stat-strip" style="margin-bottom:1rem">
         <div class="ss-item"><div class="ss-num" id="cnt-total-cases">—</div><div class="ss-lbl">Cases tracked</div></div>
         <div class="ss-item"><div class="ss-num" id="cnt-sentenced" style="color:var(--greenl)">—</div><div class="ss-lbl">Sentenced / Convicted</div></div>
@@ -518,25 +566,32 @@ canvas{display:block;width:100%}
       <div class="case-grid" id="case-grid"><div class="record-empty">Loading case register…</div></div>
     </div>
 
+    <!-- Tab: Monthly Record -->
     <div class="tab-panel" id="panel-monthly">
+      <div style="font-family:var(--mono);font-size:.58rem;color:var(--muted2);padding:.7rem 0;margin-bottom:1rem;border-bottom:1px solid var(--border)">
+        Monthly data since August 2024. Red cells = PHQ published nothing. Green = confirmed data. Each absence is documented, not assumed. <strong>Click any cell to see what happened that month.</strong>
+      </div>
       <div class="stat-strip" style="margin-bottom:1rem">
         <div class="ss-item"><div class="ss-num" id="cnt-m-total">—</div><div class="ss-lbl">Months in ledger</div></div>
-        <div class="ss-item"><div class="ss-num" id="cnt-m-conf" style="color:var(--greenl)">—</div><div class="ss-lbl">Confirmed data</div></div>
-        <div class="ss-item"><div class="ss-num" id="cnt-m-prob" style="color:var(--amberl)">—</div><div class="ss-lbl">Probable data</div></div>
-        <div class="ss-item"><div class="ss-num" id="cnt-m-abs" style="color:var(--bloodl)">—</div><div class="ss-lbl">Confirmed absent</div></div>
+        <div class="ss-item"><div class="ss-num" id="cnt-m-conf" style="color:var(--greenl)" id="mdt-conf-count">—</div><div class="ss-lbl">Confirmed data</div></div>
+        <div class="ss-item"><div class="ss-num" id="cnt-m-prob" style="color:var(--amberl)" id="mdt-prob-count">—</div><div class="ss-lbl">Probable data</div></div>
+        <div class="ss-item"><div class="ss-num" id="cnt-m-abs" style="color:var(--bloodl)" id="mdt-abs-count">—</div><div class="ss-lbl">PHQ published nothing</div></div>
       </div>
-      <div class="amb">COLLECTION START: August 2024. Earlier periods covered by annual sources. Each month from Aug 2024 is CONFIRMED data-present or CONFIRMED ABSENT — an accountability failure, not a research limitation. Each red cell is a month for which PHQ published nothing.</div>
       <div id="heatmap-container" style="margin:1.5rem 0;overflow-x:auto"></div>
       <div class="hm-legend">
-        <div class="hm-legend-item"><div class="hm-dot" style="background:rgba(82,183,136,.5);border:1px solid rgba(82,183,136,.7)"></div>CONFIRMED</div>
-        <div class="hm-legend-item"><div class="hm-dot" style="background:rgba(212,160,96,.4);border:1px solid rgba(212,160,96,.6)"></div>PROBABLE</div>
-        <div class="hm-legend-item"><div class="hm-dot" style="background:rgba(196,30,58,.3);border:1px solid rgba(196,30,58,.5)"></div>CONFIRMED ABSENT</div>
-        <div class="hm-legend-item"><div class="hm-dot" style="background:rgba(201,168,76,.25);border:2px solid rgba(201,168,76,.55)"></div>ANNUAL TOTAL</div>
+        <div class="hm-legend-item"><div class="hm-dot" style="background:rgba(82,183,136,.5);border:1px solid rgba(82,183,136,.7)"></div>CONFIRMED data</div>
+        <div class="hm-legend-item"><div class="hm-dot" style="background:rgba(212,160,96,.4);border:1px solid rgba(212,160,96,.6)"></div>PROBABLE data</div>
+        <div class="hm-legend-item"><div class="hm-dot" style="background:rgba(196,30,58,.3);border:1px solid rgba(196,30,58,.5)"></div>PHQ published nothing — accountability failure</div>
+        <div class="hm-legend-item"><div class="hm-dot" style="background:rgba(201,168,76,.25);border:2px solid rgba(201,168,76,.55)"></div>Annual total</div>
       </div>
-      <div class="hm-detail" id="hm-detail">Click any cell to see details</div>
+      <div class="hm-detail" id="hm-detail">Click any cell to see what happened that month</div>
     </div>
 
+    <!-- Tab: Latest Reports -->
     <div class="tab-panel" id="panel-leads">
+      <div style="font-family:var(--mono);font-size:.58rem;color:var(--muted2);padding:.7rem 0;margin-bottom:1rem;border-bottom:1px solid var(--border)">
+        Auto-collected every 6 hours from Daily Star, Prothom Alo, TBS News, bdnews24, and BSS. Each item is classified by Gemini AI and reviewed weekly. <strong>CONFIRMED = 2+ independent sources. PROBABLE = 1 named source. UNVERIFIED = single source, no cross-reference yet.</strong>
+      </div>
       <div class="stat-strip" style="margin-bottom:1rem">
         <div class="ss-item"><div class="ss-num" id="cnt-l-total">—</div><div class="ss-lbl">Total leads</div></div>
         <div class="ss-item"><div class="ss-num" id="cnt-l-conf" style="color:var(--greenl)">—</div><div class="ss-lbl">Confirmed</div></div>
@@ -551,15 +606,41 @@ canvas{display:block;width:100%}
         <button class="fchip" onclick="filterLeads('Section-17',this)">Section 17</button>
         <button class="fchip" onclick="filterLeads('verdict',this)">Verdict</button>
       </div>
-      <div id="leads-feed"><div class="record-empty">Loading leads…</div></div>
+      <div id="leads-feed"><div class="record-empty">Loading latest reports…</div></div>
     </div>
 
+    <!-- Tab: By Division -->
+    <div class="tab-panel" id="panel-divisions">
+      <div style="font-family:var(--mono);font-size:.58rem;color:var(--muted2);padding:.7rem 0;margin-bottom:1rem;border-bottom:1px solid var(--border)">
+        Lifetime and recent intimate partner violence by division. Source: BBS/UNFPA VAW Survey 2024 (27,476 women surveyed · 95.4% response rate) · <span class="tier tc">CONFIRMED · S-02</span>. No district-level conviction rate data exists from any official source — that absence is itself documented in this report.
+      </div>
+      <table class="dt" style="width:100%">
+        <thead><tr><th>Division</th><th>Lifetime violence</th><th>Past 12 months</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr style="background:rgba(196,30,58,.06)"><td><strong style="color:var(--bloodl)">Barishal</strong></td><td><strong>81.5%</strong></td><td>57.3%</td><td><span style="font-family:var(--mono);font-size:.5rem;color:var(--bloodl)">HIGHEST</span></td></tr>
+          <tr style="background:rgba(196,30,58,.04)"><td><strong>Khulna</strong></td><td>81.3%</td><td>51.9%</td><td><span style="font-family:var(--mono);font-size:.5rem;color:var(--bloodl)">HIGHEST</span></td></tr>
+          <tr><td>Chattogram</td><td>78.5%</td><td>53.2%</td><td><span style="font-family:var(--mono);font-size:.5rem;color:var(--amberl)">HIGH</span></td></tr>
+          <tr><td>Mymensingh</td><td>75.1%</td><td>48.1%</td><td><span style="font-family:var(--mono);font-size:.5rem;color:var(--amberl)">ELEVATED</span></td></tr>
+          <tr><td>Rajshahi</td><td>74.5%</td><td>41.1%</td><td><span style="font-family:var(--mono);font-size:.5rem;color:var(--amberl)">ELEVATED</span></td></tr>
+          <tr><td>Dhaka</td><td>72.9%</td><td>44.5%</td><td><span style="font-family:var(--mono);font-size:.5rem;color:var(--amberl)">ELEVATED</span></td></tr>
+          <tr><td>Sylhet</td><td>72.7%</td><td>50.0%</td><td><span style="font-family:var(--mono);font-size:.5rem;color:var(--amberl)">ELEVATED</span></td></tr>
+          <tr><td>Rangpur</td><td>—</td><td>—</td><td><span style="font-family:var(--mono);font-size:.5rem;color:var(--muted2)">DATA ABSENT</span></td></tr>
+          <tr style="border-top:2px solid var(--border2)"><td><strong>National average</strong></td><td><strong>76%</strong></td><td><strong>49%</strong></td><td><span class="tier tc">CONFIRMED · S-02, S-74</span></td></tr>
+        </tbody>
+      </table>
+      <div style="margin-top:1.2rem;padding:.9rem;background:var(--ink3);border:1px solid var(--border);font-family:var(--mono);font-size:.56rem;color:var(--muted2);line-height:1.7">
+        <strong style="color:var(--text)">Climate vulnerability multiplier:</strong> Women in disaster-prone areas: lifetime IPV 81% vs 68% in non-disaster areas. Environmental stress acts as a documented amplifier through displacement and collapse of community oversight. · BBS/UNFPA 2024 · S-02<br>
+        <strong style="color:var(--text)">No district-level conviction data:</strong> PHQ has never published conviction rates broken down by district or tribunal. This is documented in the Missing Data Audit section below. It is a policy choice, not a data collection limitation.
+      </div>
+    </div>
+
+    <!-- Download Bar -->
     <div class="dl-bar">
-      <span class="dl-lbl">Raw Data</span>
+      <span class="dl-lbl">Raw Data — Open to all</span>
       <a href="/data/leads.json" download class="dl-btn">↓ leads.json</a>
       <a href="/data/cases.json" download class="dl-btn">↓ cases.json</a>
       <a href="/data/monthly.json" download class="dl-btn">↓ monthly.json</a>
-      <span style="font-family:var(--mono);font-size:.5rem;color:var(--muted2)">CC BY-NC 4.0 · Tier labels mandatory when citing</span>
+      <span style="font-family:var(--mono);font-size:.5rem;color:var(--muted2)">CC BY-NC 4.0 · Tier labels mandatory when citing · <a href="#sources" style="color:var(--gold2)">All sources →</a></span>
     </div>
   </div>
 </section>
@@ -830,7 +911,7 @@ canvas{display:block;width:100%}
         <tr><td><strong>Chittagong</strong></td><td class="num">74.3%</td><td class="num">3</td><td>Chittagong MC, Cox's Bazar MC, Cumilla MC. Rohingya displacement adds unmeasured dimension.</td></tr>
       </tbody>
     </table>
-    <div class="info reveal"><div class="ib">UNFPA/BBS 2024 — S-02</div>National lifetime IPV rate: <strong>75.9%</strong>. Three women in every four experience intimate partner violence in their lifetimes. The OCC system — designed to support them — operates in 14 of 64 districts.</div>
+    <div class="info reveal"><div class="ib">UNFPA/BBS 2024–2025 — S-02, S-74</div>National lifetime IPV rate: <strong>76%</strong> (October 2025 updated survey, S-74; earlier 2024 survey: 75.9%, S-02). Three women in every four experience intimate partner violence in their lifetimes. The OCC system — designed to support them — operates in 14 of 64 districts.</div>
   </div>
 </section>
 
@@ -839,9 +920,9 @@ canvas{display:block;width:100%}
   <div class="wrap">
     <div class="sh"><div class="sh-eye">§05</div><h2 id="acc-h">What Survivors Face</h2><p>The path from assault to justice requires navigating multiple hostile institutions within a shrinking forensic window. At every step, the system creates conditions for evidence loss, abandonment, and retraumatization.</p></div>
     <div class="card-grid reveal">
-      <div class="card"><div class="cn">14.2%</div><div class="cl">Forensic Exams Within 24hr <span class="tier tp">PROBABLE</span></div><div class="cd">Most survivors reach a forensic examiner days after the assault. Evidence degrades irreversibly. DNA becomes inconclusive. The conviction rate is downstream of this window. S-17.</div></div>
-      <div class="card"><div class="cn">78%</div><div class="cl">OCC Visitors Who Don't File <span class="tier tp">PROBABLE</span></div><div class="cd">Between 2001–2013, 78% of rape survivors who sought medical treatment at OCCs did not pursue legal action. S-35. They came for help. The legal system was not safe enough to enter.</div></div>
-      <div class="card"><div class="cn">87%</div><div class="cl">Experience Secondary Victimization <span class="tier tp">PROBABLE</span></div><div class="cd">By the justice system: police attitudes, forensic procedures, court processes, defense cross-examination. The journey through the system is itself a form of harm. ASK + World Bank data.</div></div>
+      <div class="card"><div class="cn">22%</div><div class="cl">Reach Forensic Dept Within 72hr <span class="tier tp">PROBABLE</span></div><div class="cd">Only 22% of survivors reach a forensic examiner within the critical 72-hour evidence window. 78% arrive after the window closes. Evidence degrades irreversibly. The conviction rate is downstream of this failure. <span class="tier tp">PROBABLE · S-01</span></div></div>
+      <div class="card"><div class="cn">71%</div><div class="cl">OCC Visitors Who Don't File <span class="tier tp">PROBABLE</span></div><div class="cd">71% of rape survivors who sought treatment at OCCs opt not to file police cases (BRAC USA late 2025 context). Earlier OCC data (2001–2013): 78% did not pursue legal action. Fear of retaliation, cost, stigma. <span class="tier tp">PROBABLE · S-72, S-01</span></div></div>
+      <div class="card"><div class="cn">87%</div><div class="cl">Experience Secondary Victimization <span class="tier tp">PROBABLE</span></div><div class="cd">By the justice system: police attitudes, forensic procedures, court processes, defense cross-examination. The journey through the system is itself a form of harm. <span class="tier tp">PROBABLE · S-72 (HRCBM PIL Aug 2025, citing ASK + World Bank data)</span></div></div>
       <div class="card"><div class="cn">Sec 375</div><div class="cl">Marital Rape Exemption <span class="tier tc">CONFIRMED</span></div><div class="cd">Penal Code 1860: marital rape is not a crime unless wife is under 13. 75.9% of women experience lifetime IPV — predominantly by a spouse. The majority of sexual violence is legally invisible. CEDAW para 19(a) requires criminalization. S-41.</div></div>
     </div>
     <div class="finding red reveal"><div class="f-title">The Shalish — Village Mediation as Impunity Mechanism</div><p>The most common response to sexual violence is not a police report. It is a shalish — an informal village tribunal, almost always of men, resolving disputes through compensation and community pressure. The shalish removes the assault from the formal legal system, produces no criminal record, and creates intense pressure on the survivor to agree. The death penalty for rape has made the shalish <strong>more</strong> attractive: when reporting means a possible execution of a family member, settlement becomes rational.</p></div>
@@ -1040,7 +1121,7 @@ canvas{display:block;width:100%}
       <div class="meth-card"><h4>M-004 — Narrative Standards</h4><p>The opening narrative is a documented composite based exclusively on confirmed statistics. No individual's identity is assumed or implied. Composite approach is standard in data journalism (ProPublica, NYT, Reuters) and is disclosed in the editorial note at the opening.</p></div>
       <div class="meth-card"><h4>M-005 — AI Hallucination Disclosure</h4><p>During research, AI tools returned four papers purportedly about WCRPA tribunals — all were about the 1971 International Crimes Tribunal. All four excluded. This disclosure is evidence of the research integrity process, not a limitation of it.</p></div>
       <div class="meth-card"><h4>M-006 — Data Conflict Log</h4><p>2022 filing figures: ResearchGate (S-62) gives 4,762; Prothom Alo (S-61) gives 6,032. Discrepancy = 27%. Likely cause: Figure A (total WCRPA inc. attempts) vs Figure B (completed rape only). Cannot confirm without primary PHQ document. 4,762 used pending resolution.</p></div>
-      <div class="meth-card"><h4>M-007 — Version History</h4><p>v1.0–1.6: Foundational research, interactive tools, OCC data, global context. v2.0: Live record to front, monthly ledger, backlog CONFIRMED, 2021/2022 data. v3.0 (Mar 2026): Full emotional rebuild, cinematic opening, Her thread, all charts visual, filing trend, timeline comparison, dot plot, reform matrix, full SEO, monthly heatmap. <strong>v3.1 (Mar 2026):</strong> Probability model corrected (0.016% → 0.0215%); hero counter replaced with evidence-based static display; 310/66,711 derivation box added; 2022 data conflict flagged in-line; §10 Monthly Data Ledger added; annual convictions formula corrected.</p></div>
+      <div class="meth-card"><h4>M-007 — Version History</h4><p>v1.0–1.6: Foundational research, interactive tools, OCC data, global context. v2.0: Live record, monthly ledger, backlog CONFIRMED. v3.0–3.1 (Mar 2026): Full emotional rebuild, cinematic opening, Her thread, all charts, probability correction, monthly heatmap. <strong>v4.0 (Mar 2026):</strong> National Live Dashboard rebuilt and moved to top of report; hero image restored; four dashboard tabs (Tracked Cases, Month by Month, Latest Reports, By Division); S-35 source collision fixed; 14.2% forensic figure corrected to 22% with correct BRAC citation; 87% secondary victimization sourced to HRCBM S-72; IPV updated to 76% (Oct 2025 BBS/UNFPA); 11 new sources S-71–S-81 added covering Aug 2025–Mar 2026; collector.py fixed to prevent sports/irrelevant RSS items entering leads; leads.json cleaned.</p></div>
     </div>
   </div>
 </section>
@@ -1048,7 +1129,7 @@ canvas{display:block;width:100%}
 <!-- ══ SOURCES ══ -->
 <section class="darker" id="sources" aria-labelledby="src-h">
   <div class="wrap">
-    <div class="sh"><div class="sh-eye">Source Registry</div><h2 id="src-h">All Named Sources</h2><p>Every claim corresponds to at least one source below. Tier labels are mandatory when citing. <span style="font-family:var(--mono);font-size:.56rem">70 sources · BD-INV-002 · v3.0 · CC BY-NC 4.0</span></p></div>
+    <div class="sh"><div class="sh-eye">Source Registry</div><h2 id="src-h">All Named Sources</h2><p>Every claim corresponds to at least one source below. Tier labels are mandatory when citing. <span style="font-family:var(--mono);font-size:.56rem">81 sources · BD-INV-002 · v4.0 · CC BY-NC 4.0</span></p></div>
     <div id="sources-list">
       <div class="src-item"><span class="sid">S-01</span><div class="sb">BRAC/Agile — "Public Prosecution System in Bangladesh" Dec 2022. 3.66% conviction rate; 2,349 avg days; 2 DNA machines; 16 districts. <span class="tier tc">CONFIRMED</span><div class="surl">https://dgikh81ssvyrj.cloudfront.net/media/documents/Public-Prosecution-System-in-Bangladesh-The-Issues-of-Justice-for-Violence-aga_IKQWThX.pdf</div></div></div>
       <div class="src-item"><span class="sid">S-02</span><div class="sb">UNFPA/BBS Violence Against Women Survey 2024. 75.9% national lifetime IPV; 62–64% told no one; 27,476 women surveyed. <span class="tier tc">CONFIRMED</span><div class="surl">https://bangladesh.unfpa.org/en/2024-violence-against-women-survey</div></div></div>
@@ -1078,7 +1159,18 @@ canvas{display:block;width:100%}
       <div class="src-item"><span class="sid">S-68</span><div class="sb">BSS + bdlaws.minlaw.gov.bd — WCRPA Amendment Ordinance 2025. Full text confirmed. <span class="tier tc">CONFIRMED</span><div class="surl">http://bdlaws.minlaw.gov.bd/act-details-1524.html</div></div></div>
       <div class="src-item"><span class="sid">S-69</span><div class="sb">CoxsbazarJournal/Parbattanews — Runa Akhter Section 17 case details. Filed March 2022; arrested Feb 16, 2023; convicted Apr 13, 2023. <span class="tier tp">PROBABLE</span><div class="surl">https://www.coxsbazarjournal.com/99200/</div></div></div>
       <div class="src-item"><span class="sid">S-70</span><div class="sb">BSS — "4 to die in Barishal rape case" Feb 2026. Russell Gazi, Rajib Jamaddar, Md. Zahid, Khokon Khan. November 2016 assault. ~3,380 days. <span class="tier tc">CONFIRMED</span><div class="surl">https://www.bssnews.net/others/325122</div></div></div>
-    </div>
+      <div class="src-item"><span class="sid">S-71</span><div class="sb">BSS/PHQ — Minority incidents report Jan 19 2026. 645 total incidents in 2025; 58 rape (non-communal category); 574 of 645 classified non-communal. <span class="tier tc">CONFIRMED</span><div class="surl">https://www.bssnews.net/at-a-glance/352571</div></div></div>
+      <div class="src-item"><span class="sid">S-72</span><div class="sb">HRCBM — Public Interest Litigation Aug 1 2025. 342 rape cases Q1 2025 (ASK data); 87% of Q1 2025 rape victims girls under 18; 87% experienced secondary victimization by justice system (ASK + World Bank). <span class="tier tp">PROBABLE</span><div class="surl">https://www.hrcbm.org/wp-new/pil/public-interest-litigation-2025-sexual-violence/</div></div></div>
+      <div class="src-item"><span class="sid">S-73</span><div class="sb">News on Air / BMP Report — Bangladesh Mahila Parishad Aug 2025: 223 violence cases in August; 115 murder/rape. <span class="tier tp">PROBABLE</span><div class="surl">https://www.newsonair.gov.in/bangladesh-mahila-parishad-reports-rising-cases-of-murder-rape-and-abuse-against-women/</div></div></div>
+      <div class="src-item"><span class="sid">S-73b</span><div class="sb">News on Air / BMP Press Conference March 2026: 442 violence cases in March 2026; 125 girls + 38 women raped; 36 gang-rape victims. <span class="tier tp">PROBABLE</span><div class="surl">https://www.newsonair.gov.in/bangladesh-mahila-parishad-urges-stronger-action-against-rising-violence-towards-women/</div></div></div>
+      <div class="src-item"><span class="sid">S-74</span><div class="sb">UNFPA Bangladesh — "Three out of four women experience violence" Oct 13 2025 press release. 76% lifetime IPV (updates S-02 75.9%); 49% past 12 months; 62% never disclose. <span class="tier tc">CONFIRMED</span><div class="surl">https://bangladesh.unfpa.org/en/news/three-out-four-women-bangladesh-experience-violence-bangladesh-bureau-statistics-survey-finds</div></div></div>
+      <div class="src-item"><span class="sid">S-75</span><div class="sb">Daily Industry BD — "Case backlog surpasses 4.65 million" Sept 22, 2025. 4,652,260 cases as of June 2025; 86% in lower courts; 161,476 new cases in lower courts Sept 2024–June 2025. <span class="tier tc">CONFIRMED</span><div class="surl">https://www.dailyindustrybd.com/news/1699</div></div></div>
+      <div class="src-item"><span class="sid">S-76</span><div class="sb">Lawyers Club Bangladesh — "Supreme Court Secretariat and Challenges" Jan 10 2026. 4,516,603 total cases pending Jan 2026. SC Secretariat launched Dec 11 2025. <span class="tier tc">CONFIRMED</span><div class="surl">https://lawyersclubbangladesh.com/en/2026/01/10/the-supreme-court-secretariat-and-challenges/</div></div></div>
+      <div class="src-item"><span class="sid">S-77</span><div class="sb">skmahdi.com / Supreme Court BD — "Landmark Judgments 2025." Art. 116 struck down Sept 2 2025 (WP 10356/2025) — SC restored full admin control over lower courts. <span class="tier tc">CONFIRMED</span><div class="surl">https://skmahdi.com/2025/12/supreme-court-of-bangladesh-in-2025-a-year-of-landmark-judgments/</div></div></div>
+      <div class="src-item"><span class="sid">S-78</span><div class="sb">BSS — Supreme Court Secretariat Ordinance 2025. Launched Dec 11, 2025. Decouples judicial administration from Law Ministry. <span class="tier tc">CONFIRMED</span></div></div>
+      <div class="src-item"><span class="sid">S-79</span><div class="sb">UNICEF Bangladesh — Statement March 23, 2025. 50 child rape cases in first 10 weeks of 2025. Confirms escalating child vulnerability. <span class="tier tc">CONFIRMED</span><div class="surl">https://www.unicef.org/bangladesh/en/press-releases/statement-rana-flowers-unicef-representative-bangladesh-recent-cases-violence</div></div></div>
+      <div class="src-item"><span class="sid">S-80</span><div class="sb">HRW — "Bangladeshi Women, Girls, Minorities Face Rising Violence" Jan 14 2026. BMP: GBV increase attributed to hardline religious group activities and anti-gender-equality rhetoric. <span class="tier tc">CONFIRMED</span><div class="surl">https://www.hrw.org/news/2026/01/14/bangladeshi-women-girls-minorities-face-rising-violence</div></div></div>
+      <div class="src-item"><span class="sid">S-81</span><div class="sb">CEDAW/C/BGD/9-10 — Government of Bangladesh 9th/10th Periodic Report 2025. Investigation period reduced from 30 to 15 days for rape cases under March 2025 WCRPA ordinance. <span class="tier tc">CONFIRMED</span><div class="surl">https://digitallibrary.un.org/record/4094631/files/CEDAW_C_BGD_9-10-EN.pdf</div></div></div>
   </div>
 </section>
 
@@ -1104,7 +1196,7 @@ canvas{display:block;width:100%}
           <a href="/data/monthly.json" download><span>JSON</span>monthly.json — 2019–2026 ledger</a>
           <a href="/data/leads.json" download><span>JSON</span>leads.json — automated feed</a>
         </div>
-        <p style="font-family:var(--mono);font-size:.52rem;color:var(--muted2);line-height:1.6">BD-INV-002 · v3.1 · March 2026<br>CC BY-NC 4.0 · Tier labels mandatory when citing<br>Automated collector: GitHub Actions every 6h</p>
+        <p style="font-family:var(--mono);font-size:.52rem;color:var(--muted2);line-height:1.6">BD-INV-002 · v4.0 · March 2026<br>CC BY-NC 4.0 · Tier labels mandatory when citing<br>Automated collector: GitHub Actions every 6h</p>
       </div>
     </div>
   </div>
