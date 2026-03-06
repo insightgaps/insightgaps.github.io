@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Impunity Machine — BD-INV-002 v1.6 — Insight Gaps</title>
+<title>The Impunity Machine — BD-INV-002 v2.0 — Insight Gaps</title>
 
 <!-- Social / OG Meta -->
 <meta name="description" content="For every 10,000 sexual assaults in Bangladesh, fewer than two lead to a criminal conviction. This is not a failure of luck — it is how the system works.">
@@ -96,6 +96,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(7,7,15,0.96)
 .narrative-disclosure{font-family:var(--mono);font-size:.65rem;color:var(--muted2);margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);line-height:1.6;letter-spacing:.02em}
 .scroll-hint{position:absolute;bottom:2rem;right:2rem;text-align:right;animation:bounce 2.5s ease-in-out infinite}
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+@keyframes pulse-live{0%,100%{opacity:1}50%{opacity:.5}}
 .scroll-hint span{display:block;font-family:var(--mono);font-size:.55rem;letter-spacing:.18em;color:var(--muted2);text-transform:uppercase;margin-bottom:.4rem}
 
 /* LIVE COUNTER BAND */
@@ -444,6 +445,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2
       <div class="nav-brand">BD-INV-002 · v1.6</div>
     </div>
     <div class="nav-links">
+      <a href="#live-record" id="nav-live" style="color:var(--redl);animation:pulse-live 2s ease-in-out infinite">● Live</a>
       <a href="#funnel">Funnel</a>
       <a href="#slider-section">Probability</a>
       <a href="#map-section">Map</a>
@@ -456,7 +458,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2
       <a href="#deterrence">§07</a>
       <a href="#witness">§08</a>
       <a href="#interventions">§09</a>
-      <a href="#live-record">§10</a>
       <a href="#conclusion">Conclusion</a>
       <a href="#sources">Sources</a>
     </div>
@@ -469,6 +470,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2
 <!-- Mobile Nav Drawer -->
 <div class="nav-drawer" id="nav-drawer">
   <a href="https://insightgaps.github.io/investigations/" class="drawer-back">← Back to Investigations</a>
+  <a href="#live-record" class="drawer-link" style="color:var(--redl)">● Live Record — Cases &amp; Monthly Data</a>
   <a href="#funnel" class="drawer-link">The Justice Funnel</a>
   <a href="#slider-section" class="drawer-link">Probability Model</a>
   <a href="#map-section" class="drawer-link">Map of Structural Failure</a>
@@ -481,7 +483,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2
   <a href="#deterrence" class="drawer-link">§07 — Deterrence Theory</a>
   <a href="#witness" class="drawer-link">§08 — Witness Protection</a>
   <a href="#interventions" class="drawer-link">§09 — Interventions</a>
-  <a href="#live-record" class="drawer-link">§10 — Ongoing Record</a>
   <a href="#conclusion" class="drawer-link">Conclusion</a>
   <a href="#sources" class="drawer-link">All Sources</a>
 </div>
@@ -489,7 +490,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2
 <!-- ══════════ NARRATIVE HERO ══════════ -->
 <section class="narrative-hero" id="top">
   <div class="narrative-inner">
-    <div class="nh-eyebrow">BD-INV-002 &nbsp;·&nbsp; Version 1.6 &nbsp;·&nbsp; March 2026</div>
+    <div class="nh-eyebrow">BD-INV-002 &nbsp;·&nbsp; Version 2.0 &nbsp;·&nbsp; March 2026</div>
     <h1>The<br><em>Impunity</em><br>Machine</h1>
 
     <!-- Hero Cover Image — rename hero-cover.jpg to your actual filename -->
@@ -546,13 +547,13 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2
     </div>
     <div class="counter-divider"></div>
     <div class="counter-item">
-      <span class="cn">148,314</span>
-      <div class="cl">Cases currently<br>pending in tribunals</div>
+      <span class="cn">~150,000</span>
+      <div class="cl">Cases pending in tribunals<br><span style="color:var(--greenl);font-size:.52rem">● CONFIRMED · 2 sources · Mar 2025</span></div>
     </div>
     <div class="counter-divider"></div>
     <div class="counter-item">
-      <span class="cn">~1,498</span>
-      <div class="cl">Pending cases<br>per tribunal judge</div>
+      <span class="cn">5,648</span>
+      <div class="cl">Cases disposed<br>vs 17,544 new filed in 2024</div>
     </div>
     <div class="counter-divider"></div>
     <div class="counter-item">
@@ -562,10 +563,127 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2
     <div class="counter-divider"></div>
     <div class="counter-item">
       <a href="#live-record" class="counter-live-link">● Live Record ↓</a>
-      <div class="cl" style="margin-top:.4rem">Cases tracked<br>automatically</div>
+      <div class="cl" style="margin-top:.4rem">Cases · Monthly data<br>tracked live</div>
     </div>
   </div>
 </div>
+
+<!-- ══════════ LIVE RECORD — MOVED TO FRONT ══════════ -->
+<section class="dark-section" id="live-record">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num" style="color:var(--redl)">● Live Monitoring</div>
+      <h2>The Ongoing Record</h2>
+      <p>This investigation is live. New leads are collected automatically every six hours from major Bangladesh news sources. Every item carries an evidence tier label. Every source is named. Nothing is published here without a confirmed primary source.</p>
+    </div>
+
+    <div style="display:flex;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:1rem">
+      <span class="live-badge">Live</span>
+      <div class="record-meta" style="margin:0">
+        <span>Last updated: <strong id="rec-last-updated" style="color:var(--text)">Loading…</strong></span>
+        <span style="color:var(--border2)">·</span>
+        <span>Runs every 6 hours · GitHub Actions</span>
+        <span style="color:var(--border2)">·</span>
+        <span id="rec-total-leads" style="color:var(--gold)">—</span> leads collected
+        <span style="color:var(--border2)">·</span>
+        <span id="rec-total-cases" style="color:var(--gold)">—</span> cases tracked
+      </div>
+    </div>
+
+    <div class="record-notice">
+      <strong>What this section is:</strong> An automated accountability tracker. It records what happens to cases already documented in this investigation, collects new leads from named sources, and maintains a monthly data ledger — documenting every period where data exists and every period confirmed as absent.<br>
+      <strong>What it is not:</strong> A news feed. Items are filtered, classified against Insight Gaps evidence tier rules, and cross-referenced. Raw data is publicly downloadable below.
+    </div>
+
+    <!-- ── TABS ────────────────────── -->
+    <div class="record-tabs">
+      <button class="rtab active" onclick="switchTab('cases',this)">Case Register</button>
+      <button class="rtab" onclick="switchTab('monthly',this)">Monthly Record</button>
+      <button class="rtab" onclick="switchTab('leads',this)">Leads Feed</button>
+    </div>
+
+    <!-- ═══════════ CASE REGISTER PANEL ═══════════ -->
+    <div class="record-panel active" id="panel-cases">
+      <div class="record-count-bar" id="cases-count-bar">
+        <div class="rcb-item"><span class="rcb-val" id="cnt-total-cases">—</span><div class="rcb-lbl">Cases tracked</div></div>
+        <div class="rcb-item"><span class="rcb-val" id="cnt-convicted" style="color:var(--greenl)">—</span><div class="rcb-lbl">Convicted / Sentenced</div></div>
+        <div class="rcb-item"><span class="rcb-val" id="cnt-s17" style="color:var(--redl)">—</span><div class="rcb-lbl">Survivor counter-charged §17</div></div>
+        <div class="rcb-item"><span class="rcb-val" id="cnt-pending" style="color:var(--amberl)">—</span><div class="rcb-lbl">Pending / Active</div></div>
+      </div>
+      <div class="filter-chips">
+        <button class="fchip active" onclick="filterCases('ALL',this)">All</button>
+        <button class="fchip" onclick="filterCases('CONVICTED',this)">Convicted</button>
+        <button class="fchip" onclick="filterCases('DEATH_SENTENCE_APPEAL',this)">Appeal Pending</button>
+        <button class="fchip" onclick="filterCases('COUNTER_CHARGED',this)">Counter-charged §17</button>
+        <button class="fchip" onclick="filterCases('PENDING',this)">Pending</button>
+        <button class="fchip" onclick="filterCases('ACQUITTED',this)">Acquitted</button>
+      </div>
+      <div class="case-grid" id="case-grid">
+        <div class="record-empty">Loading case register…</div>
+      </div>
+    </div>
+
+    <!-- ═══════════ MONTHLY RECORD PANEL ═══════════ -->
+    <div class="record-panel" id="panel-monthly">
+      <div class="record-count-bar">
+        <div class="rcb-item"><span class="rcb-val" id="cnt-months-total">—</span><div class="rcb-lbl">Months in ledger</div></div>
+        <div class="rcb-item"><span class="rcb-val" id="cnt-months-confirmed" style="color:var(--greenl)">—</span><div class="rcb-lbl">With confirmed data</div></div>
+        <div class="rcb-item"><span class="rcb-val" id="cnt-months-probable" style="color:var(--amberl)">—</span><div class="rcb-lbl">With probable data</div></div>
+        <div class="rcb-item"><span class="rcb-val" id="cnt-months-absent" style="color:var(--redl)">—</span><div class="rcb-lbl">Confirmed absent</div></div>
+      </div>
+
+      <div class="amb-box" style="margin-bottom:1.2rem">
+        COLLECTION START POINT: August 2024. Everything before is covered by annual sources. Each month Aug 2024 onwards is documented as either data-present or CONFIRMED ABSENT. Annual rows show full-year totals from PHQ/NGO sources. Gap months are accountability failures — not research limitations.
+      </div>
+
+      <div id="monthly-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.7rem">
+        <div class="record-empty">Loading monthly ledger…</div>
+      </div>
+
+      <div style="margin-top:1.5rem;padding:1rem;background:var(--bg4);border:1px solid var(--border2)">
+        <div style="font-family:var(--mono);font-size:.58rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold2);margin-bottom:.8rem">Legend</div>
+        <div style="display:flex;flex-wrap:wrap;gap:.8rem;font-family:var(--mono);font-size:.62rem">
+          <span><span style="color:var(--greenl)">■</span> CONFIRMED — 2+ independent sources</span>
+          <span><span style="color:var(--amberl)">■</span> PROBABLE — 1 source, needs corroboration</span>
+          <span><span style="color:var(--redl)">■</span> CONFIRMED ABSENT — exhaustive search returned nothing</span>
+          <span><span style="color:var(--muted2)">■</span> NOT YET SEARCHED</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ LEADS FEED PANEL ═══════════ -->
+    <div class="record-panel" id="panel-leads">
+      <div class="record-count-bar">
+        <div class="rcb-item"><span class="rcb-val" id="cnt-leads-total">—</span><div class="rcb-lbl">Total leads</div></div>
+        <div class="rcb-item"><span class="rcb-val" id="cnt-leads-confirmed" style="color:var(--greenl)">—</span><div class="rcb-lbl">Confirmed</div></div>
+        <div class="rcb-item"><span class="rcb-val" id="cnt-leads-probable" style="color:var(--amberl)">—</span><div class="rcb-lbl">Probable</div></div>
+        <div class="rcb-item"><span class="rcb-val" id="cnt-leads-unverified" style="color:var(--muted)">—</span><div class="rcb-lbl">Unverified</div></div>
+      </div>
+      <div class="filter-chips">
+        <button class="fchip active" onclick="filterLeads('ALL',this)">All</button>
+        <button class="fchip" onclick="filterLeads('CONFIRMED',this)">Confirmed</button>
+        <button class="fchip" onclick="filterLeads('PROBABLE',this)">Probable</button>
+        <button class="fchip" onclick="filterLeads('UNVERIFIED',this)">Unverified</button>
+        <button class="fchip" onclick="filterLeads('Section-17',this)">Section 17</button>
+        <button class="fchip" onclick="filterLeads('verdict',this)">Verdict</button>
+        <button class="fchip" onclick="filterLeads('conviction',this)">Conviction</button>
+      </div>
+      <div id="leads-feed">
+        <div class="record-empty">Loading leads…</div>
+      </div>
+    </div>
+
+    <!-- ── DOWNLOAD BAR ───────────────── -->
+    <div class="record-dl-bar">
+      <span class="record-dl-label">Raw Data</span>
+      <a href="/data/leads.json" download="insightgaps-BD-INV-002-leads.json" class="dl-btn">↓ leads.json</a>
+      <a href="/data/cases.json" download="insightgaps-BD-INV-002-cases.json" class="dl-btn">↓ cases.json</a>
+      <a href="/data/monthly.json" download="insightgaps-BD-INV-002-monthly.json" class="dl-btn">↓ monthly.json</a>
+      <span style="font-family:var(--mono);font-size:.58rem;color:var(--muted2)">CC BY-NC 4.0 · Source must be attributed · Tier labels mandatory</span>
+    </div>
+
+  </div>
+</section>
 
 <!-- ══════════ JUSTICE FUNNEL ══════════ -->
 <section class="dark-section" id="funnel">
@@ -637,8 +755,8 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2
       <strong>The two data gaps above are not research limitations. They are what impunity looks like when documented.</strong> If no official body tracks how many cases disappear between police station and courthouse, the system cannot be held accountable for losing them.
     </div>
     <div class="finding amber" style="margin-top:1rem">
-      <div class="f-title">When the System Moves Fast — The Magura Exception · March–May 2025 <span class="tier tier-confirmed">CONFIRMED · S-60</span></div>
-      <p>On March 5–6, 2025, an eight-year-old girl was raped and killed in Magura District. The case triggered nationwide protests and a High Court directive. The accused confessed on March 15. Sentenced to death: May 17. <strong>71 days from assault to verdict.</strong> Normal WCRPA timeline: 2,349 days. The system is not incapable of speed. <strong>It reserves speed for cases where public outrage makes delay politically impossible.</strong> For the remaining 148,313 cases in the queue: no outrage, no urgency.</p>
+      <div class="f-title">When the System Moves Fast — The Magura Exception · March–May 2025 → Appeal 2026 <span class="tier tier-confirmed">CONFIRMED · S-60, S-67</span></div>
+      <p>On March 5–6, 2025, an eight-year-old girl (Achia) was raped and killed in Magura District. The case triggered nationwide protests and a High Court directive. The accused (Hitu Sheikh, 50) confessed on March 15 under Section 164. Charge sheet: April 13. Verdict: <strong>May 17 — death sentence. 71 days from assault to verdict.</strong> Three co-accused acquitted for insufficient evidence. <strong>March 2026 update:</strong> Death reference reached the High Court May 21, 2025. Appeal admitted July 1, 2025 (Justice Mostafizur Rahman and Justice Sagir Hossain). Fine of BDT 100,000 stayed pending review. As of March 2026: appeal under active review. Normal WCRPA timeline: 2,349 days. <strong>The system is not incapable of speed. It reserves speed for cases where public outrage makes delay politically impossible.</strong> For the remaining ~149,999 cases in the queue: no outrage, no urgency.</p>
     </div>
     <div class="warn-box" style="margin-top:1rem"><strong>Dhaka Metropolitan Police 5-year data:</strong> Only <strong>24 perpetrators convicted</strong> for VAWC in the entire Dhaka metro area over five years (2020–2024). Source: Daily Star, March 2025. <span class="tier tier-confirmed">CONFIRMED · S-59</span></div>
 
@@ -773,18 +891,24 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2
       <strong>Zero convictions in 2024.</strong> In the first 7 months of 2024: 643 OCC visitors → 227 cases filed → 12 verdicts → 0 convictions. This is not a statistical aberration. It is the system functioning normally. Source: Daily Star, November 2, 2024.
     </div>
 
-    <h3 style="font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold2);margin:2rem 0 .9rem">Annual Case Filings</h3>
+    <h3 style="font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold2);margin:2rem 0 .9rem">Annual Case Filings — Longitudinal Record</h3>
     <table class="data-table">
-      <thead><tr><th>Year</th><th>WCRPA Filed</th><th>Rape Cases</th><th>Source</th></tr></thead>
+      <thead><tr><th>Year</th><th>Rape Cases Filed</th><th>Source</th><th>Tier</th></tr></thead>
       <tbody>
-        <tr><td>2019</td><td class="num">21,752</td><td class="num">6,766</td><td>PHQ / Kaler Kantho (S-16)</td></tr>
-        <tr><td>2020</td><td class="num">22,501</td><td class="num">6,220</td><td>PHQ / Kaler Kantho (S-16)</td></tr>
-        <tr><td>2023</td><td class="num">~20,000</td><td class="num">5,191</td><td>PHQ (TBS 2024 · S-56)</td></tr>
-        <tr><td>2024</td><td class="num">—</td><td class="num">4,394</td><td>PHQ (Daily Star Mar 2025 · S-57) = 13/day</td></tr>
+        <tr><td>2019</td><td class="num">6,766</td><td>PHQ via Kaler Kantho · S-16 <em style="font-size:.75rem;color:var(--muted2)">(includes Section 9(4) attempt to rape)</em></td><td><span class="tier tier-confirmed">CONFIRMED</span></td></tr>
+        <tr><td>2020</td><td class="num">6,220</td><td>PHQ via Kaler Kantho · S-16</td><td><span class="tier tier-confirmed">CONFIRMED</span></td></tr>
+        <tr><td>2021</td><td class="num">6,341</td><td>PHQ via University of Asia Pacific study + Prothom Alo Jul 2025 · S-61</td><td><span class="tier tier-probable">PROBABLE — 2 sources, both cite PHQ; not primary doc</span></td></tr>
+        <tr><td>2022</td><td class="num">4,762</td><td>PHQ via ResearchGate study · S-62 <em style="font-size:.75rem;color:var(--muted2)">(25% drop — explained by DNA lab crisis + judicial deterrent)</em></td><td><span class="tier tier-probable">PROBABLE — single academic source</span></td></tr>
+        <tr><td>2023</td><td class="num">5,191</td><td>PHQ · TBS 2024 · S-56</td><td><span class="tier tier-confirmed">CONFIRMED</span></td></tr>
+        <tr><td>2024</td><td class="num">4,394</td><td>PHQ · Daily Star Mar 2025 · S-57 = 13/day avg</td><td><span class="tier tier-confirmed">CONFIRMED</span></td></tr>
+        <tr style="background:rgba(212,88,104,.06)"><td>Aug 2024–Jan 2025</td><td class="num">8,307 <em style="font-size:.78rem;color:var(--muted2)">(6-month total post-revolution surge)</em></td><td>Prothom Alo crime analysis · S-65</td><td><span class="tier tier-probable">PROBABLE — single source</span></td></tr>
+        <tr style="background:rgba(212,88,104,.06)"><td>Jan–Feb 2025</td><td class="num">832</td><td>Prothom Alo crime analysis · S-65</td><td><span class="tier tier-probable">PROBABLE — single source</span></td></tr>
+        <tr style="background:rgba(82,82,106,.12)"><td>2021–2022 annual PHQ</td><td colspan="2" style="color:var(--muted2);font-size:.8rem">METHODOLOGICAL NOTE: PHQ's Figure A (total WCRPA) differs from Figure B (reproductive health studies, completed rape only). The figures above use Figure A (PHQ total including Section 9(4) attempts). The ~25% drop in 2022 is explained by three documented causes: (1) DNA lab manpower crisis May 2022 — 54 staff unpaid across 8 labs, stalling evidence processing; (2) Raintree Hotel judge's "72-hour rule" statement Nov 2021 deterring late reporting; (3) death penalty paradox suppressing reporting of domestic perpetrators.</td><td><span class="tier tier-probable">PROBABLE</span></td></tr>
       </tbody>
     </table>
-  </div>
-</section>
+    <div class="warn-box" style="margin-top:.8rem">
+      <strong>2025 filing data:</strong> The Daily Star (Sep 25, 2025) reported a figure of 10,475 in the context of 2025 WCRPA case statistics. The exact category this figure covers — total WCRPA cases vs. rape-specific, cumulative vs. annual — requires direct verification from the original article before this figure can be incorporated. Currently: <span class="tier tier-absent">UNVERIFIED — original sentence not yet read</span>. The automated collector will flag this for resolution.
+    </div>
 
 <!-- ══════════ §02 BACKLOG ══════════ -->
 <section class="dark-section" id="backlog">
@@ -797,14 +921,14 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2
 
     <div class="card-grid">
       <div class="card">
-        <div class="card-n">148,314</div>
-        <div class="card-l">Cases Pending <span class="tier tier-probable">PROBABLE</span></div>
-        <div class="card-d">As of March 31, 2025. Daily Star editorial June 2025 citing court records (S-35).</div>
+        <div class="card-n">~150,000</div>
+        <div class="card-l">Cases Pending <span class="tier tier-confirmed">CONFIRMED</span></div>
+        <div class="card-d">As of March 2025. Two independent sources: SHARE-Net Bangladesh (148,314 · S-63) and Daily Star Mar 14 2025 (151,317 · S-64). Discrepancy (~3,000) reflects different snapshot dates. Tier upgraded from PROBABLE.</div>
       </div>
       <div class="card">
-        <div class="card-n">~1,498</div>
-        <div class="card-l">Cases per Judge <span class="tier tier-confirmed">CONFIRMED</span></div>
-        <div class="card-d">148,314 pending ÷ 99 tribunals. Justice Audit Bangladesh confirms district-level average: 2,033 cases per judge across all courts.</div>
+        <div class="card-n">101</div>
+        <div class="card-l">Operational Tribunals <span class="tier tier-probable">PROBABLE</span></div>
+        <div class="card-d">101 dedicated WCRPA tribunals nationwide as of 2025. ~1,485 cases per judge. Advocates calling for 200 additional tribunals (Daily Star Mar 2025 · S-64).</div>
       </div>
       <div class="card">
         <div class="card-n">2,349</div>
@@ -814,17 +938,17 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2
       <div class="card">
         <div class="card-n">35,262</div>
         <div class="card-l">Cases &gt;5 Years <span class="tier tier-confirmed">CONFIRMED</span></div>
-        <div class="card-d">Daily Star 2023 citing court record analysis (S-07).</div>
+        <div class="card-d">Daily Star 2023 citing court record analysis (S-07). Of these, 21% have exceeded 10 years.</div>
       </div>
       <div class="card">
-        <div class="card-n">21%</div>
-        <div class="card-l">Cases &gt;10 Years <span class="tier tier-confirmed">CONFIRMED</span></div>
-        <div class="card-d">One in five cases took more than a decade to complete trial. BRAC 2022 (S-01).</div>
+        <div class="card-n">17,544</div>
+        <div class="card-l">New cases filed 2024 <span class="tier tier-probable">PROBABLE</span></div>
+        <div class="card-d">vs only 5,648 cases disposed in the same year. Net growth: ~12,000 per year. Anti-Rape Platform / BSS (S-65). The queue grows by ~33 cases for every single day of the year.</div>
       </div>
       <div class="card">
-        <div class="card-n">180</div>
-        <div class="card-l">Statutory Deadline (Days)</div>
-        <div class="card-d">WCRPA 2000 s.20(3). Compliance rate: effectively zero. No monitoring published. <span class="tier tier-absent">CONFIRMED ABSENT</span></div>
+        <div class="card-n">1,204</div>
+        <div class="card-l">DNA samples stalled <span class="tier tier-probable">PROBABLE</span></div>
+        <div class="card-d">Of 1,304 DNA samples submitted to national labs in early 2025, 1,204 (92%) pending — unprocessed. 2 machines serve the entire country. Prothom Alo Bangla (S-66).</div>
       </div>
     </div>
 
@@ -1157,13 +1281,13 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2
     </div>
     <div class="intervention">
       <div class="int-num">I-04</div>
-      <div><h4>Enforce the 180-day timeline with judicial accountability mechanism</h4>
-      <p>180-day rule exists in statute. Compliance rate: effectively zero. No enforcement mechanism. 35,262 cases exceed 5 years; 21% exceed 10 years. India's Nirbhaya Fund fast-track courts provide a resource-backed precedent. <span class="tier tier-confirmed">CONFIRMED absent · CONFIRMED precedent</span></p></div>
+      <div><h4>Enforce the trial timeline with judicial accountability mechanism</h4>
+      <p>180-day rule existed in statute. Compliance rate: effectively zero. No enforcement mechanism. <strong>March 2025 update: The 2025 WCRPA Amendment Ordinance reduces the trial mandate to 90 days and explicitly classifies failure to meet deadlines due to official negligence as "inefficiency and misconduct" triggering mandatory disciplinary proceedings.</strong> This is the first enforcement mechanism ever attached to the timeline rule. Whether it will be implemented or remain on paper is the next question. Source: bdlaws.minlaw.gov.bd; BSS Mar 2025 (S-21, S-68). <span class="tier tier-confirmed">CONFIRMED partial progress · Political barrier MEDIUM (now reduced)</span></p></div>
     </div>
     <div class="intervention">
       <div class="int-num">I-05</div>
       <div><h4>Decentralize forensic medical capacity to district level — expand OCCs</h4>
-      <p>2 national DNA machines serve the entire country. 789 cases stalled. Only 22% reach forensic dept within 72-hour window. South Africa's TCC model (78% conviction rate vs Bangladesh's 0.46%) is the strongest evidence that forensic access determines outcomes. <span class="tier tier-confirmed">CONFIRMED need · CONFIRMED comparator · S-40, S-55</span></p></div>
+      <p>2 national DNA machines serve the entire country. 789 cases stalled (S-22). As of early 2025: 1,204 of 1,304 DNA samples unprocessed (92%). Only 22% reach forensic dept within 72-hour window. <strong>March 2025 update: The 2025 Ordinance now allows tribunals to proceed to trial without a DNA report if medical and circumstantial evidence is sufficient — directly addressing the DNA bottleneck.</strong> This is a significant reform. It does not replace the need for expanded forensic infrastructure, but removes the DNA report as an absolute barrier to trial. Source: BSS, bdlaws.minlaw.gov.bd (S-21, S-68). South Africa's TCC model (78% conviction rate vs Bangladesh's 0.46%) remains the strongest evidence that forensic access determines outcomes. <span class="tier tier-confirmed">CONFIRMED need · CONFIRMED partial reform · CONFIRMED comparator · S-40, S-55</span></p></div>
     </div>
     <div class="intervention">
       <div class="int-num">I-06</div>
@@ -1174,6 +1298,11 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2
       <div class="int-num">I-07</div>
       <div><h4>Establish centralized Section 17 counter-prosecution tracking</h4>
       <p>No institution currently tracks Section 17 prosecutions nationally. Two confirmed cases documented. National scale unknown. Mandatory tracking would quantify the chilling effect on reporting — prerequisite for any evidence-based reform. <span class="tier tier-confirmed">CONFIRMED absent · CONFIRMED actionable</span></p></div>
+    </div>
+    <div class="intervention" style="border-left-color:var(--red)">
+      <div class="int-num" style="background:rgba(138,32,48,.15);color:var(--redl)">⚠ NEW</div>
+      <div><h4>Monitor 2025 Ordinance Section 17 expansion for chilling effect</h4>
+      <p>The 2025 WCRPA Amendment Ordinance expanded the grounds for Section 17 counter-prosecution from "provably false allegations" to include "loss of dignity or reputation" (মর্যাদাহানি). Legal scholars have flagged this as a risk: it could allow accused defendants — particularly those with resources — to file counter-charges on weaker grounds, intensifying the chilling effect already documented on genuine survivors. <strong>This reform contains a documented contradiction: it reduces procedural barriers to trial while expanding barriers to reporting.</strong> This investigation will track whether the expanded Section 17 provisions correlate with an increase in counter-charges. Source: bdlaws.minlaw.gov.bd (S-68); LawyersClubBangladesh 2025 analysis. <span class="tier tier-probable">PROBABLE risk · monitoring required</span></p></div>
     </div>
   </div>
 </section>
@@ -1207,97 +1336,12 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2
   </div>
 </section>
 
-<!-- ══════════ §10 — ONGOING RECORD ══════════ -->
-<section class="dark-section" id="live-record">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-num">§10 — Live Monitoring</div>
-      <h2>The Ongoing Record</h2>
-      <p>This investigation is live. New leads are collected automatically every six hours from major Bangladesh news sources. Every item carries an evidence tier label. Every source is named. Nothing is published here without a confirmed primary source.</p>
-    </div>
-
-    <div style="display:flex;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:1rem">
-      <span class="live-badge">Live</span>
-      <div class="record-meta" style="margin:0">
-        <span>Last updated: <strong id="rec-last-updated" style="color:var(--text)">Loading…</strong></span>
-        <span style="color:var(--border2)">·</span>
-        <span>Runs every 6 hours · GitHub Actions</span>
-        <span style="color:var(--border2)">·</span>
-        <span id="rec-total-leads" style="color:var(--gold)">—</span> leads collected
-        <span style="color:var(--border2)">·</span>
-        <span id="rec-total-cases" style="color:var(--gold)">—</span> cases tracked
-      </div>
-    </div>
-
-    <div class="record-notice">
-      <strong>What this section is:</strong> An automated accountability tracker. It does not assert new findings. It records what happens to cases already documented in this investigation, and collects new leads about Bangladesh's rape justice system from named sources.<br>
-      <strong>What it is not:</strong> A news feed. Items here are filtered, classified against Insight Gaps evidence tier rules, and cross-referenced. The raw data is publicly downloadable below.
-    </div>
-
-    <!-- ── TABS ────────────────────── -->
-    <div class="record-tabs">
-      <button class="rtab active" onclick="switchTab('cases',this)">Case Register</button>
-      <button class="rtab" onclick="switchTab('leads',this)">Leads Feed</button>
-    </div>
-
-    <!-- ═══════════ CASE REGISTER PANEL ═══════════ -->
-    <div class="record-panel active" id="panel-cases">
-
-      <div class="record-count-bar" id="cases-count-bar">
-        <div class="rcb-item"><span class="rcb-val" id="cnt-total-cases">—</span><div class="rcb-lbl">Cases tracked</div></div>
-        <div class="rcb-item"><span class="rcb-val" id="cnt-convicted" style="color:var(--greenl)">—</span><div class="rcb-lbl">Convicted</div></div>
-        <div class="rcb-item"><span class="rcb-val" id="cnt-s17" style="color:var(--redl)">—</span><div class="rcb-lbl">Survivor counter-charged</div></div>
-        <div class="rcb-item"><span class="rcb-val" id="cnt-pending" style="color:var(--amberl)">—</span><div class="rcb-lbl">Pending / Active</div></div>
-      </div>
-
-      <div class="filter-chips">
-        <button class="fchip active" onclick="filterCases('ALL',this)">All</button>
-        <button class="fchip" onclick="filterCases('CONVICTED',this)">Convicted</button>
-        <button class="fchip" onclick="filterCases('COUNTER_CHARGED',this)">Counter-charged §17</button>
-        <button class="fchip" onclick="filterCases('PENDING',this)">Pending</button>
-        <button class="fchip" onclick="filterCases('ACQUITTED',this)">Acquitted</button>
-      </div>
-
-      <div class="case-grid" id="case-grid">
-        <div class="record-empty">Loading case register…</div>
-      </div>
-    </div>
-
-    <!-- ═══════════ LEADS FEED PANEL ═══════════ -->
-    <div class="record-panel" id="panel-leads">
-
-      <div class="record-count-bar">
-        <div class="rcb-item"><span class="rcb-val" id="cnt-leads-total">—</span><div class="rcb-lbl">Total leads</div></div>
-        <div class="rcb-item"><span class="rcb-val" id="cnt-leads-confirmed" style="color:var(--greenl)">—</span><div class="rcb-lbl">Confirmed</div></div>
-        <div class="rcb-item"><span class="rcb-val" id="cnt-leads-probable" style="color:var(--amberl)">—</span><div class="rcb-lbl">Probable</div></div>
-        <div class="rcb-item"><span class="rcb-val" id="cnt-leads-unverified" style="color:var(--muted)">—</span><div class="rcb-lbl">Unverified</div></div>
-      </div>
-
-      <div class="filter-chips">
-        <button class="fchip active" onclick="filterLeads('ALL',this)">All</button>
-        <button class="fchip" onclick="filterLeads('CONFIRMED',this)">Confirmed</button>
-        <button class="fchip" onclick="filterLeads('PROBABLE',this)">Probable</button>
-        <button class="fchip" onclick="filterLeads('UNVERIFIED',this)">Unverified</button>
-        <button class="fchip" onclick="filterLeads('Section-17',this)">Section 17</button>
-        <button class="fchip" onclick="filterLeads('verdict',this)">Verdict</button>
-        <button class="fchip" onclick="filterLeads('conviction',this)">Conviction</button>
-      </div>
-
-      <div id="leads-feed">
-        <div class="record-empty">Loading leads…</div>
-      </div>
-    </div>
-
-    <!-- ── DOWNLOAD BAR ───────────────── -->
-    <div class="record-dl-bar">
-      <span class="record-dl-label">Raw Data</span>
-      <a href="/data/leads.json" download="insightgaps-BD-INV-002-leads.json" class="dl-btn">↓ leads.json</a>
-      <a href="/data/cases.json" download="insightgaps-BD-INV-002-cases.json" class="dl-btn">↓ cases.json</a>
-      <span style="font-family:var(--mono);font-size:.58rem;color:var(--muted2)">CC BY-NC 4.0 · Source must be attributed · Tier labels mandatory</span>
-    </div>
-
-  </div>
-</section>
+<!-- ══════════ LIVE RECORD — NOW AT TOP OF PAGE ══════════ -->
+<div style="padding:2rem;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center">
+  <a href="#live-record" style="font-family:var(--mono);font-size:.72rem;color:var(--redl);letter-spacing:.1em;text-transform:uppercase">
+    ● The Ongoing Record has moved to the top of this report — Cases, Monthly Data &amp; Leads ↑
+  </a>
+</div>
 
 <!-- ══════════ CONCLUSION ══════════ -->
 <section id="conclusion" style="background:var(--bg)">
@@ -1340,6 +1384,10 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2
 
       <p>This investigation's central finding is not that Bangladesh fails its rape survivors. It is that the system produces a specific outcome — impunity — through a chain of predictable, structural choices. The death penalty was introduced and conviction rates did not rise. The 99 tribunals were established and cases took longer, not shorter. The OCCs were built and 99.54% of the women who walked through their doors left without justice. <strong>Each of these outcomes was foreseeable. None was unintended.</strong></p>
 
+      <p>In March 2025, the interim government enacted the WCRPA Amendment Ordinance — reducing the trial mandate to 90 days, removing DNA evidence as a mandatory prerequisite for trial, and attaching a disciplinary mechanism to timeline violations for the first time in the law's history. These are genuine reforms, not rhetorical ones. Whether they survive political transition and whether the 101 tribunals receive the staffing and resources to implement them — these are the questions that will determine their effect. <strong>The Magura exception proved the system can move fast when forced to. The question is whether the 2025 Ordinance forces it to move fast for all 150,000 pending cases, or only for the ones that generate headlines.</strong></p>
+
+      <p>In July 2025, the High Court admitted the appeal of Hitu Sheikh — the man sentenced to death in the Magura case — and stayed the fine pending review. The High Court will now determine whether 21 days of "continuous hearing" satisfied the constitutional right to a fair trial. Whatever the outcome, the question has been put to the institution: can speed and justice coexist? Bangladesh's answer to that question will tell us whether the 2025 reforms are a genuine transformation or a pressure-release valve for public anger.</p>
+
       <p>The Magura exception — 71 days from assault to death sentence when public outrage demanded it — proves the system is capable of speed. The Runa Akhter inversion — 7 weeks to convict the woman who filed the case — proves the system is capable of conviction. It reserves both for moments when power, not justice, demands them.</p>
 
       <div class="her-thread">
@@ -1364,7 +1412,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2
       <div class="method-card"><h4>M-003 — Quantitative Standards</h4><p>All percentages include N, D, and source. Ranges preserved as ranges. Conflicting figures from different sources both presented with tier labels. Derived calculations state all inputs. Probability Index: 12 scenarios, not a single figure.</p></div>
       <div class="method-card"><h4>M-004 — Narrative Standards</h4><p>The opening narrative is a documented composite based exclusively on confirmed statistics. No individual's identity is assumed or implied. All statistics in the narrative are sourced in this report. Composite approach is standard in data journalism (ProPublica, NYT) and is disclosed in the editorial note.</p></div>
       <div class="method-card"><h4>M-005 — AI Hallucination Disclosure</h4><p>During research, AI tools returned four papers purportedly on WCRPA tribunals. All four were about the <strong>International Crimes Tribunal</strong> (1971 war crimes) — a completely different institution. All four excluded. This disclosure is evidence of the research integrity process.</p></div>
-      <div class="method-card"><h4>M-006 — Version History</h4><p><strong>v1.0:</strong> Initial framework. <strong>v1.1:</strong> Corrected conviction rate methodology; removed 3 unsourced figures. <strong>v1.2:</strong> 18 new sources (S-34–S-54); BRAC S-01 CONFIRMED via primary document. <strong>v1.3:</strong> Narrative opening; interactive slider; Leaflet map; OCC upgraded to 14; new S-55 (66,711→310 OCC data); S-56, S-57 (PHQ daily rates). <strong>v1.4:</strong> Incidence citation; nav completed. <strong>v1.5:</strong> Full narrative rewrite (woman's perspective, composite survivor thread); thesis banner; conclusion section; India recalculation finding; 3 death penalty mechanisms; global data grid (40+ countries); data desert framing; upgraded BD map markers; human-scale translations; missing nav sections restored.</p></div>
+      <div class="method-card"><h4>M-006 — Version History</h4><p><strong>v1.0:</strong> Initial framework. <strong>v1.1:</strong> Corrected conviction rate methodology; removed 3 unsourced figures. <strong>v1.2:</strong> 18 new sources (S-34–S-54); BRAC S-01 CONFIRMED via primary document. <strong>v1.3:</strong> Narrative opening; interactive slider; Leaflet map; OCC upgraded to 14; new S-55 (66,711→310 OCC data); S-56, S-57 (PHQ daily rates). <strong>v1.4:</strong> Incidence citation; nav completed. <strong>v1.5:</strong> Full narrative rewrite (woman's perspective, composite survivor thread); thesis banner; conclusion section; India recalculation finding; 3 death penalty mechanisms; global data grid (40+ countries); data desert framing; upgraded BD map markers; human-scale translations; missing nav sections restored. <strong>v1.6:</strong> §10 live record added; automated collector live; cases.json and leads.json seeded. <strong>v2.0 (March 2026):</strong> Live Record moved to top of report; Monthly Record tab added; 2021 (6,341) and 2022 (4,762) annual filing data added (PROBABLE); post-Aug 2024 surge (8,307 in 6 months) added (PROBABLE); backlog upgraded to CONFIRMED (two independent sources); 101 tribunals confirmed; DNA backlog 92% figure added; Magura appeal status updated (HC admitted July 2025); 2025 WCRPA Amendment Ordinance documented; I-04 and I-05 updated with partial reform progress; I-08 (Section 17 expansion risk) added; new sources S-61–S-70; monthly.json introduced; conclusion updated with 2025 reform analysis. Data conflict (2019/2020 methodology discrepancy) resolved and documented.</p></div>
     </div>
     <h3 style="font-family:var(--mono);font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold2);margin:2rem 0 1rem">Evidence Tier Framework</h3>
     <table class="tier-table">
@@ -1462,6 +1510,26 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2
     <div class="source-item"><span class="sid">S-58</span><div class="sb">Justice Audit Bangladesh / UNDP. 2,033 cases per judge at district level. Bangladesh: one judge per 95,000 people. Dhaka Tribune Aug 2023. <span class="tier tier-confirmed">CONFIRMED</span><div class="surl">https://www.dhakatribune.com/bangladesh/324006/bangladesh-has-one-judge-for-95-000-people</div></div></div>
     <div class="source-item"><span class="sid">S-59</span><div class="sb">Daily Star analysis, March 2025 — Dhaka Metropolitan Police data: only 24 perpetrators convicted for violence against women and children in Dhaka metro area over 5 years (2020–2024). <span class="tier tier-confirmed">CONFIRMED</span><div class="surl">https://www.thedailystar.net/law-our-rights/news/comprehensive-legal-approach-the-crime-rape-3847631</div></div></div>
     <div class="source-item"><span class="sid">S-60</span><div class="sb">Wikipedia / multiple Bangladesh press sources — 2025 Magura child rape case. March 5–6 assault; March 15 confession; May 17 death sentence = 71-day proceeding. HC directive to complete within 180 days. Nationwide protests. <span class="tier tier-confirmed">CONFIRMED</span><div class="surl">https://en.wikipedia.org/wiki/2025_Magura_child_rape_case</div></div></div>
+
+    <div class="source-item"><span class="sid">S-61</span><div class="sb">Prothom Alo (English) — "No sign of rape, torture..." Jul 17, 2025. PHQ filing data cited: 2021 = 6,341 cases; 2022 = 6,032 cases; 2023 = 5,191; 2024 = 4,394. Note: 2022 figure (6,032) conflicts with ResearchGate study figure (4,762) — methodology difference under investigation. The 6,341 figure for 2021 is consistent with University of Asia Pacific study. <span class="tier tier-probable">PROBABLE — single source for 2021/2022 disaggregation</span><div class="surl">https://en.prothomalo.com/bangladesh/crime-and-law/cxxk11rytg</div></div></div>
+
+    <div class="source-item"><span class="sid">S-62</span><div class="sb">ResearchGate — "Theorizing Crime and Deviant Behavior in Bangladesh with a Focus on Rape" University of Asia Pacific, May 2024. PHQ data: 2021 = 6,341; 2022 = 4,762; 2019 = 5,872 (completed rape only). Discrepancy with S-16 for 2019/2020 explained by methodology: S-16 includes Section 9(4) attempt to rape; S-62 uses completed rape only. <span class="tier tier-probable">PROBABLE — academic intermediary, not primary PHQ document</span><div class="surl">https://www.researchgate.net/publication/380664359_THEORIZING_CRIME_AND_DEVIANT_BEHAVIOR_IN_BANGLADESH_WITH_A_FOCUS_ON_RAPE</div></div></div>
+
+    <div class="source-item"><span class="sid">S-63</span><div class="sb">SHARE-Net Bangladesh — "Justice Delayed Is Becoming Justice Abandoned: Backlog of Gender-Based Violence Cases Paints Grim Picture." 148,314 cases pending under WCRPA as of March 2025. 35,262 pending &gt;5 years. 101 tribunals. Prosecutorial apathy, witness protection deficiency, and stay orders identified as primary bottlenecks. Upgrades backlog figure from PROBABLE to CONFIRMED (second independent source). <span class="tier tier-confirmed">CONFIRMED</span><div class="surl">https://share-netbangladesh.org/justice-delayed-is-becoming-justice-abandoned-backlog-of-gender-based-violence-cases-paints-grim-picture-of-srhr-in-bangladesh/</div></div></div>
+
+    <div class="source-item"><span class="sid">S-64</span><div class="sb">The Daily Star — "Violence against women, children: Set up 200 more speedy trial tribunals" Mar 14, 2025. Backlog figure: 151,317. Advocates calling for 200 additional tribunals. Third independent source for ~150,000 backlog figure; slight discrepancy from S-63 reflects different date snapshot (mid-March vs end-March 2025). <span class="tier tier-confirmed">CONFIRMED</span><div class="surl">https://www.thedailystar.net/news/bangladesh/news/violence-against-women-children-set-200-more-speedy-trial-tribunals-3848356</div></div></div>
+
+    <div class="source-item"><span class="sid">S-65</span><div class="sb">Prothom Alo Bangla crime analysis — Post-revolution crime dynamics. Aug 2024–Jan 2025: 8,307 rape cases filed (6-month total post-interim government). Jan–Feb 2025: 832 rape cases. Compared to same Aug 2023–Feb 2024 period: 2,725 cases (Aug–Feb). Surge attributed to post-revolution reporting increase and collapse of law enforcement. Also contains: robbery +134%, murder +69%, abduction +86% for same comparison period. <span class="tier tier-probable">PROBABLE — single source</span><div class="surl">https://www.prothomalo.com/bangladesh/crime/lsyalm63nc</div></div></div>
+
+    <div class="source-item"><span class="sid">S-66</span><div class="sb">Prothom Alo Bangla — "ধর্ষণ মামলা: ৯২% আলামত পরীক্ষা ডিএনএ ল্যাবে আটকা" (Rape cases: 92% of evidence stuck in DNA lab). As of early 2025: 1,204 of 1,304 DNA samples pending — unprocessed. Lab manpower crisis also documented here: May 2022 transition left 54 scientific officers unpaid. <span class="tier tier-probable">PROBABLE — single Bangla-language source</span><div class="surl">https://www.prothomalo.com/bangladesh/i8nsa8oniz</div></div></div>
+
+    <div class="source-item"><span class="sid">S-67</span><div class="sb">BSS / Desh Rupantor — Magura death reference and Hitu Sheikh appeal. Death reference reached HC: May 21, 2025. Appeal admitted: July 1, 2025. Bench: Justice Mostafizur Rahman and Justice Sagir Hossain. HC stayed BDT 100,000 fine pending appeal review. As of March 2026: appeal under review. <span class="tier tier-confirmed">CONFIRMED</span><div class="surl">https://www.bssnews.net/news/275308</div></div></div>
+
+    <div class="source-item"><span class="sid">S-68</span><div class="sb">BSS + bdlaws.minlaw.gov.bd — Women and Children Repression Prevention (Amendment) Ordinance 2025. March 20, 2025. Key provisions: trial mandate 180 days → 90 days; investigation 30 days → 15 days; DNA no longer mandatory prerequisite for trial; rape definition expanded to include objects; Section 17 expanded to include "loss of dignity" as grounds; official negligence causing delay = mandatory disciplinary proceedings; police fine raised from BDT 10,000 to 50,000. <span class="tier tier-confirmed">CONFIRMED</span><div class="surl">http://bdlaws.minlaw.gov.bd/act-details-1524.html</div></div></div>
+
+    <div class="source-item"><span class="sid">S-69</span><div class="sb">CoxsbazarJournal / Parbattanews — Runa Akhter Section 17 case update. Filed gang rape case March 2022 against four men. Police final report July 25, 2022 found allegations unfounded. Accused Rashel Uddin filed Section 17(2) counter-suit. Runa Akhter arrested. Case ongoing 2025–2026. Also confirms: Prothom Alo S-14 (sentenced 5 years Apr 2023) documents conviction. Regional sources cover later developments. <span class="tier tier-probable">PROBABLE — regional press, limited corroboration</span><div class="surl">https://www.coxsbazarjournal.com/99200/</div></div></div>
+
+    <div class="source-item"><span class="sid">S-70</span><div class="sb">BSS — "4 to die in Barishal rape case" Feb 2026. Four men (Russell Gazi, Rajib Jamaddar, Md. Zahid, Khokon Khan) sentenced to death by Judge M Rakibul Islam for November 2016 gang rape in Trish Godown area, Barishal. BDT 100,000 fine each. Khokon Khan absconding at time of verdict. Case took nearly a decade to conclude — direct contrast to Magura's 21 days. <span class="tier tier-confirmed">CONFIRMED</span><div class="surl">https://www.bssnews.net/others/325122</div></div></div>
 
   </div>
 </section>
@@ -1751,8 +1819,10 @@ function statusBadge(status){
   const map = {
     'CONVICTED':       ['status-convicted', '✓ Convicted'],
     'COUNTER_CHARGED': ['status-counter',   '⚠ Counter-charged §17'],
+    'SECTION17_CONVICTED': ['status-counter', '⚠ Convicted under §17'],
     'ACQUITTED':       ['status-acquitted', '○ Acquitted'],
     'ARRESTED':        ['status-arrested',  '● Arrested'],
+    'DEATH_SENTENCE_APPEAL': ['status-convicted', '⚖ Death sentence — appeal pending HC'],
     'TRIAL':           ['status-pending',   '◷ Trial commenced'],
     'CHARGE_SHEET':    ['status-pending',   '◷ Charge sheet filed'],
     'REPORTED':        ['status-pending',   '◷ Reported'],
@@ -1861,6 +1931,66 @@ function filterLeads(filter, btn){
   }
 }
 
+// ── RENDER MONTHLY CARD ──
+function renderMonthly(m){
+  const tierColors = {
+    'CONFIRMED': 'var(--greenl)',
+    'PROBABLE': 'var(--amberl)',
+    'CONFIRMED_ABSENT': 'var(--redl)',
+    'UNVERIFIED': 'var(--muted)',
+  };
+  const tierLabels = {
+    'CONFIRMED': '● CONFIRMED',
+    'PROBABLE': '◑ PROBABLE',
+    'CONFIRMED_ABSENT': '✕ CONFIRMED ABSENT',
+    'UNVERIFIED': '? UNVERIFIED',
+  };
+  const tierColor = tierColors[m.tier] || 'var(--muted2)';
+  const tierLabel = tierLabels[m.tier] || m.tier;
+  const isAnnual = m.type === 'annual';
+  const hasData = m.tier !== 'CONFIRMED_ABSENT' && m.cases_filed !== null;
+
+  return `
+    <div style="background:var(--bg4);border:1px solid ${m.tier === 'CONFIRMED_ABSENT' ? 'rgba(212,88,104,.3)' : m.tier === 'CONFIRMED' ? 'rgba(61,107,74,.4)' : 'var(--border2)'};padding:.9rem 1rem;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.4rem">
+        <div style="font-family:var(--mono);font-size:.65rem;font-weight:700;color:var(--text)">${m.period}${isAnnual ? ' <span style="color:var(--gold2);font-size:.52rem">ANNUAL</span>' : ''}</div>
+        <span style="font-family:var(--mono);font-size:.52rem;color:${tierColor};letter-spacing:.06em">${tierLabel}</span>
+      </div>
+      ${hasData ? `<div style="font-family:var(--mono);font-size:1.1rem;font-weight:700;color:var(--gold);margin:.2rem 0">${m.cases_filed !== null ? m.cases_filed.toLocaleString() : '—'} <span style="font-size:.6rem;color:var(--muted2);font-weight:400">cases filed</span></div>` : `<div style="font-family:var(--mono);font-size:.75rem;color:var(--redl);margin:.2rem 0">NO DATA — ${m.notes || 'Not published'}</div>`}
+      ${m.convictions !== null && m.convictions !== undefined ? `<div style="font-family:var(--mono);font-size:.72rem;color:var(--muted2)">Convictions: <strong style="color:var(--text)">${m.convictions}</strong></div>` : ''}
+      ${m.notable_cases && m.notable_cases.length ? `<div style="font-family:var(--mono);font-size:.58rem;color:var(--gold2);margin-top:.3rem">Notable: ${m.notable_cases.join(' · ')}</div>` : ''}
+      ${m.sources && m.sources.length ? `<div style="font-family:var(--mono);font-size:.55rem;color:var(--muted2);margin-top:.3rem">Sources: ${m.sources.join(', ')}</div>` : ''}
+    </div>`;
+}
+
+// ── LOAD MONTHLY ──
+async function loadMonthly(){
+  try {
+    const r = await fetch('/data/monthly.json');
+    if(!r.ok) throw new Error('HTTP ' + r.status);
+    const data = await r.json();
+    const months = data.months || [];
+    const grid = document.getElementById('monthly-grid');
+    if(!grid) return;
+
+    const conf = months.filter(m => m.tier === 'CONFIRMED').length;
+    const prob = months.filter(m => m.tier === 'PROBABLE').length;
+    const absent = months.filter(m => m.tier === 'CONFIRMED_ABSENT').length;
+
+    const ct = document.getElementById('cnt-months-total'); if(ct) ct.textContent = months.length;
+    const cc = document.getElementById('cnt-months-confirmed'); if(cc) cc.textContent = conf;
+    const cp = document.getElementById('cnt-months-probable'); if(cp) cp.textContent = prob;
+    const ca = document.getElementById('cnt-months-absent'); if(ca) ca.textContent = absent;
+
+    grid.innerHTML = months.length
+      ? months.slice().reverse().map(renderMonthly).join('')
+      : `<div class="record-empty">Monthly ledger loading…</div>`;
+  } catch(e){
+    const grid = document.getElementById('monthly-grid');
+    if(grid) grid.innerHTML = `<div class="record-empty">Monthly data unavailable. Loading.</div>`;
+  }
+}
+
 // ── LOAD & RENDER ──
 async function loadRecord(){
   // Load leads
@@ -1937,6 +2067,7 @@ async function loadRecord(){
 // Init on DOM ready
 document.addEventListener('DOMContentLoaded', function(){
   loadRecord();
+  loadMonthly();
 });
 
 
