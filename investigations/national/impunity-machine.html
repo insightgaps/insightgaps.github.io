@@ -50,10 +50,10 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(6,6,14,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 2rem}
 .nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:48px;gap:1rem}
-.nav-brand{font-family:var(--mono);font-size:.58rem;color:var(--gold);letter-spacing:.18em;text-transform:uppercase;flex-shrink:0}
+.nav-brand{font-family:var(--mono);font-size:.78rem;color:var(--gold);letter-spacing:.18em;text-transform:uppercase;flex-shrink:0}
 .nav-brand a{color:inherit;text-decoration:none}.nav-brand span{color:var(--muted2)}
 .nav-links{display:flex;gap:1.1rem;align-items:center;overflow:hidden}
-.nav-links a{font-family:var(--mono);font-size:.54rem;color:var(--muted2);letter-spacing:.08em;text-transform:uppercase;transition:color .2s;white-space:nowrap}
+.nav-links a{font-family:var(--mono);font-size:.75rem;color:var(--muted2);letter-spacing:.08em;text-transform:uppercase;transition:color .2s;white-space:nowrap}
 .nav-links a:hover,.nav-links a.active{color:var(--gold);text-decoration:none}
 .nav-live{color:var(--bloodl)!important;animation:blink 2s ease-in-out infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
@@ -70,10 +70,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(6,6,14,.96);
 /* FLOAT COUNTER */
 .float-counter{position:fixed;bottom:1.5rem;right:1.5rem;z-index:400;background:rgba(6,6,14,.95);border:1px solid var(--blood);padding:.6rem 1rem;font-family:var(--mono);backdrop-filter:blur(8px)}
 .fc-num{font-size:1.4rem;font-weight:700;color:var(--bloodl);display:block;line-height:1;letter-spacing:-.02em}
-.fc-lbl{font-size:.46rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;display:block;margin-top:.2rem}
+.fc-lbl{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;display:block;margin-top:.2rem}
 
 /* TIERS */
-.tier{display:inline-block;font-family:var(--mono);font-size:.46rem;letter-spacing:.08em;text-transform:uppercase;padding:.1rem .35rem;border-radius:1px;vertical-align:middle;margin-left:.3rem;line-height:1.7}
+.tier{display:inline-block;font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;padding:.1rem .35rem;border-radius:1px;vertical-align:middle;margin-left:.3rem;line-height:1.7}
 .tc{background:rgba(45,106,79,.15);color:var(--greenl);border:1px solid var(--green)}
 .tp{background:rgba(176,125,74,.15);color:var(--amberl);border:1px solid var(--amber)}
 .ta{background:rgba(78,75,96,.15);color:var(--muted);border:1px solid var(--muted2)}
@@ -86,7 +86,7 @@ section{padding:5rem 0}
 .darker{background:rgba(6,6,14,.7)}
 
 /* SECTION HEADER */
-.sh-eye{font-family:var(--mono);font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);margin-bottom:.5rem;display:flex;align-items:center;gap:.8rem}
+.sh-eye{font-family:var(--mono);font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);margin-bottom:.5rem;display:flex;align-items:center;gap:.8rem}
 .sh-eye::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--gold3),transparent)}
 .sh h2{font-family:var(--display);font-size:clamp(1.7rem,3vw,2.6rem);font-weight:700;letter-spacing:-.02em;line-height:1.15}
 .sh p{margin-top:.7rem;color:var(--muted);font-size:.9rem;max-width:640px;font-family:var(--body)}
@@ -96,7 +96,7 @@ section{padding:5rem 0}
 #opening{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden}
 #opening::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(196,30,58,.06),transparent 65%)}
 #opening::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(196,30,58,.3),transparent)}
-.open-badge{font-family:var(--mono);font-size:.54rem;letter-spacing:.2em;text-transform:uppercase;color:var(--blood);margin-bottom:2.5rem;display:flex;align-items:center;gap:.7rem}
+.open-badge{font-family:var(--mono);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--blood);margin-bottom:2.5rem;display:flex;align-items:center;gap:.7rem}
 .open-badge::before{content:'●';animation:blink 1.5s ease-in-out infinite}
 .open-counter-hero{font-family:var(--mono);font-size:clamp(4.5rem,14vw,9rem);font-weight:700;color:var(--bloodl);line-height:1;letter-spacing:-.04em;text-shadow:0 0 80px rgba(200,30,58,.25)}
 .open-counter-lbl{font-family:var(--mono);font-size:.64rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-top:.5rem;text-align:center}
@@ -108,14 +108,14 @@ section{padding:5rem 0}
 .os-line strong{color:var(--bloodl)}
 .open-title{font-family:var(--display);font-size:clamp(3.2rem,9vw,8rem);font-weight:900;line-height:.9;letter-spacing:-.04em;margin-top:3rem;text-align:center}
 .open-title em{font-style:italic;color:var(--blood)}
-.open-sub{font-family:var(--mono);font-size:.54rem;color:var(--muted2);letter-spacing:.14em;text-transform:uppercase;text-align:center;margin-top:1.1rem}
+.open-sub{font-family:var(--mono);font-size:.75rem;color:var(--muted2);letter-spacing:.14em;text-transform:uppercase;text-align:center;margin-top:1.1rem}
 .scroll-hint{position:absolute;bottom:2rem;right:2rem;text-align:right;animation:bob 2.5s ease-in-out infinite}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
-.scroll-hint span{display:block;font-family:var(--mono);font-size:.46rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.16em;margin-bottom:.4rem}
+.scroll-hint span{display:block;font-family:var(--mono);font-size:.75rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.16em;margin-bottom:.4rem}
 
 /* HER THREAD */
 .her{font-family:var(--display);font-style:italic;font-size:1.05rem;line-height:1.9;color:#b07d4a;padding:2.2rem 1.8rem 2.2rem 2.2rem;border-left:2px solid #b07d4a;background:rgba(176,125,74,.04);margin:3rem 0;position:relative}
-.her::before{content:'HER STORY';position:absolute;top:-.55rem;left:2.2rem;font-family:var(--mono);font-style:normal;font-size:.46rem;letter-spacing:.2em;color:#b07d4a;background:var(--ink2);padding:0 .6rem}
+.her::before{content:'HER STORY';position:absolute;top:-.55rem;left:2.2rem;font-family:var(--mono);font-style:normal;font-size:.75rem;letter-spacing:.2em;color:#b07d4a;background:var(--ink2);padding:0 .6rem}
 .her p{margin-bottom:1rem}
 .her p:last-child{margin-bottom:0}
 .her strong{font-style:normal;font-weight:600;color:var(--amberl)}
@@ -124,19 +124,19 @@ section{padding:5rem 0}
 
 /* LIVE DASHBOARD */
 #live{background:var(--ink2);border-top:1px solid var(--border)}
-.live-badge-sm{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.54rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bloodl)}
+.live-badge-sm{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bloodl)}
 .live-badge-sm::before{content:'●';animation:blink 1.5s ease-in-out infinite}
-.live-meta{font-family:var(--mono);font-size:.54rem;color:var(--muted2);display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;margin-top:.5rem}
+.live-meta{font-family:var(--mono);font-size:.75rem;color:var(--muted2);display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;margin-top:.5rem}
 
 /* STAT STRIP */
 .stat-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:1.8rem}
 .ss-item{background:var(--ink3);padding:1rem 1.1rem}
 .ss-num{font-family:var(--mono);font-size:1.5rem;font-weight:700;color:var(--gold);line-height:1;letter-spacing:-.02em}
-.ss-lbl{font-family:var(--mono);font-size:.48rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-top:.3rem;line-height:1.55}
+.ss-lbl{font-family:var(--mono);font-size:.75rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-top:.3rem;line-height:1.55}
 
 /* TABS */
 .tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:1.5rem}
-.tab{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2);padding:.65rem 1.3rem;cursor:pointer;background:none;border:none;border-bottom:2px solid transparent;transition:all .2s}
+.tab{font-family:var(--mono);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2);padding:.65rem 1.3rem;cursor:pointer;background:none;border:none;border-bottom:2px solid transparent;transition:all .2s}
 .tab:hover{color:var(--text)}
 .tab.active{color:var(--gold);border-bottom-color:var(--gold)}
 .tab-panel{display:none}.tab-panel.active{display:block}
@@ -145,7 +145,7 @@ section{padding:5rem 0}
 .case-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem}
 .case-card{background:var(--ink3);border:1px solid var(--border2);padding:1.2rem;transition:border-color .2s}
 .case-card:hover{border-color:var(--gold3)}
-.cc-id{font-family:var(--mono);font-size:.52rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em}
+.cc-id{font-family:var(--mono);font-size:.75rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em}
 .cc-label{font-family:var(--display);font-size:1rem;font-weight:600;margin:.3rem 0 .5rem;line-height:1.3}
 .cc-meta{font-family:var(--mono);font-size:.55rem;color:var(--muted2);margin-bottom:.6rem}
 .cc-status{display:inline-block;font-family:var(--mono);font-size:.5rem;text-transform:uppercase;letter-spacing:.08em;padding:.14rem .45rem;margin-bottom:.5rem}
@@ -153,17 +153,17 @@ section{padding:5rem 0}
 .st-cv{background:rgba(45,106,79,.15);color:var(--greenl);border:1px solid var(--green)}
 .st-s17{background:rgba(176,125,74,.15);color:var(--amberl);border:1px solid var(--amber)}
 .st-pr{background:rgba(78,75,96,.15);color:var(--muted);border:1px solid var(--muted2)}
-.cc-s17flag{display:block;font-family:var(--mono);font-size:.48rem;color:var(--bloodl);margin:.2rem 0;letter-spacing:.06em}
+.cc-s17flag{display:block;font-family:var(--mono);font-size:.75rem;color:var(--bloodl);margin:.2rem 0;letter-spacing:.06em}
 .cc-tl{margin-top:.7rem;border-top:1px solid var(--border)}
 .ct-item{display:grid;grid-template-columns:5rem 1fr;gap:.4rem;padding:.45rem 0;border-bottom:1px solid rgba(30,30,48,.5);font-size:.78rem}
 .ct-item:last-child{border-bottom:none}
-.ct-date{font-family:var(--mono);font-size:.52rem;color:var(--muted2)}
+.ct-date{font-family:var(--mono);font-size:.75rem;color:var(--muted2)}
 .ct-ev{font-family:var(--body);font-size:.78rem;color:var(--text2);line-height:1.5}
 .ct-src{font-family:var(--mono);font-size:.5rem;color:var(--muted2);margin-top:.1rem}
 .ct-src a{color:var(--gold2)}
 .cc-notes{font-family:var(--body);font-size:.76rem;color:var(--muted);margin-top:.6rem;padding-top:.6rem;border-top:1px solid var(--border);line-height:1.6;font-style:italic}
 .fchips{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.9rem}
-.fchip{font-family:var(--mono);font-size:.52rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted2);padding:.28rem .65rem;background:var(--ink3);border:1px solid var(--border2);cursor:pointer;transition:all .2s}
+.fchip{font-family:var(--mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted2);padding:.28rem .65rem;background:var(--ink3);border:1px solid var(--border2);cursor:pointer;transition:all .2s}
 .fchip:hover,.fchip.active{color:var(--gold);border-color:var(--gold3)}
 .record-empty{font-family:var(--mono);font-size:.62rem;color:var(--muted2);padding:2rem;text-align:center;border:1px dashed var(--border2)}
 
@@ -179,7 +179,7 @@ section{padding:5rem 0}
 .hm-annual{background:rgba(201,168,76,.25)!important;border:2px solid rgba(201,168,76,.55)!important}
 .hm-empty{background:rgba(30,30,48,.35)!important;border-color:rgba(30,30,48,.5)!important}
 .hm-detail{margin-top:1rem;padding:.8rem;background:var(--ink4);border:1px solid var(--border);font-family:var(--mono);font-size:.6rem;color:var(--muted2);min-height:3rem;line-height:1.6}
-.hm-legend{display:flex;flex-wrap:wrap;gap:.5rem 1.3rem;font-family:var(--mono);font-size:.54rem;color:var(--muted);margin-top:.8rem}
+.hm-legend{display:flex;flex-wrap:wrap;gap:.5rem 1.3rem;font-family:var(--mono);font-size:.75rem;color:var(--muted);margin-top:.8rem}
 .hm-legend-item{display:flex;align-items:center;gap:.4rem}
 .hm-dot{width:10px;height:10px;flex-shrink:0}
 
@@ -187,19 +187,19 @@ section{padding:5rem 0}
 .lead-item{padding:.85rem 0;border-bottom:1px solid var(--border)}
 .lead-item:last-child{border-bottom:none}
 .lead-hl{font-family:var(--body);font-size:.88rem;color:var(--text);font-weight:500;line-height:1.5;margin-bottom:.3rem}
-.lead-foot{display:flex;flex-wrap:wrap;gap:.3rem .8rem;font-family:var(--mono);font-size:.52rem;color:var(--muted2);margin-top:.3rem;align-items:center}
+.lead-foot{display:flex;flex-wrap:wrap;gap:.3rem .8rem;font-family:var(--mono);font-size:.75rem;color:var(--muted2);margin-top:.3rem;align-items:center}
 .lead-src a{color:var(--gold2)}
 
 /* DL BAR */
 .dl-bar{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--border)}
-.dl-lbl{font-family:var(--mono);font-size:.52rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em}
-.dl-btn{font-family:var(--mono);font-size:.54rem;color:var(--gold2);border:1px solid var(--gold3);padding:.28rem .65rem;letter-spacing:.06em;text-transform:uppercase;transition:all .2s;text-decoration:none}
+.dl-lbl{font-family:var(--mono);font-size:.75rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em}
+.dl-btn{font-family:var(--mono);font-size:.75rem;color:var(--gold2);border:1px solid var(--gold3);padding:.28rem .65rem;letter-spacing:.06em;text-transform:uppercase;transition:all .2s;text-decoration:none}
 .dl-btn:hover{color:var(--gold);border-color:var(--gold);text-decoration:none}
 </style>
 <style>
 /* CHARTS */
 .chart-wrap{background:var(--ink3);border:1px solid var(--border2);padding:1.4rem;margin:1.4rem 0}
-.chart-title{font-family:var(--mono);font-size:.58rem;text-transform:uppercase;letter-spacing:.14em;color:var(--gold2);margin-bottom:1rem}
+.chart-title{font-family:var(--mono);font-size:.78rem;text-transform:uppercase;letter-spacing:.14em;color:var(--gold2);margin-bottom:1rem}
 canvas{display:block;width:100%}
 
 /* FUNNEL */
@@ -210,14 +210,14 @@ canvas{display:block;width:100%}
 .fs-conn{height:18px;display:flex;justify-content:center}
 .fs-conn::before{content:'';width:2px;background:linear-gradient(var(--border2),var(--border))}
 .fs-conn.gap::before{background:repeating-linear-gradient(180deg,var(--border2) 0,var(--border2) 3px,transparent 3px,transparent 7px)}
-.f-lbl{font-family:var(--mono);font-size:.52rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted2);margin-bottom:.2rem}
+.f-lbl{font-family:var(--mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted2);margin-bottom:.2rem}
 .f-num{font-family:var(--mono);font-size:.95rem;font-weight:700;color:var(--gold);line-height:1.2}
 .f-num.gap{color:var(--muted2)}.f-num.red{color:var(--bloodl)}
 .f-desc{font-family:var(--body);font-size:.76rem;color:var(--muted);margin-top:.2rem;line-height:1.55}
 
 /* DOT PLOT */
 .dotplot{padding:1.4rem;background:var(--ink3);border:1px solid var(--border2);margin:1.4rem 0}
-.dp-title{font-family:var(--mono);font-size:.58rem;text-transform:uppercase;letter-spacing:.14em;color:var(--gold2);margin-bottom:1.1rem}
+.dp-title{font-family:var(--mono);font-size:.78rem;text-transform:uppercase;letter-spacing:.14em;color:var(--gold2);margin-bottom:1.1rem}
 .dp-row{display:flex;align-items:center;gap:.8rem;margin-bottom:.8rem}
 .dp-label{font-family:var(--body);font-size:.76rem;color:var(--muted);flex:0 0 200px;text-align:right}
 .dp-track{flex:1;height:6px;background:var(--border);border-radius:3px;position:relative}
@@ -226,9 +226,9 @@ canvas{display:block;width:100%}
 
 /* TIMELINE */
 .tc-cmp{padding:1.4rem;background:var(--ink3);border:1px solid var(--border2);margin:1.4rem 0}
-.tc-title{font-family:var(--mono);font-size:.58rem;text-transform:uppercase;letter-spacing:.14em;color:var(--gold2);margin-bottom:1.2rem}
+.tc-title{font-family:var(--mono);font-size:.78rem;text-transform:uppercase;letter-spacing:.14em;color:var(--gold2);margin-bottom:1.2rem}
 .tc-row{margin-bottom:1rem}
-.tc-lbl{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.56rem;color:var(--text2);margin-bottom:.3rem}
+.tc-lbl{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.78rem;color:var(--text2);margin-bottom:.3rem}
 .tc-lbl span:last-child{color:var(--gold)}
 .tc-bar-wrap{height:11px;background:var(--border);border-radius:2px;overflow:hidden}
 .tc-bar{height:100%;border-radius:2px;width:0%;transition:width 1.2s ease}
@@ -253,21 +253,21 @@ canvas{display:block;width:100%}
 /* FINDINGS, WARN, INFO */
 .finding{border-left:2px solid var(--gold3);padding:.85rem 1.1rem;background:var(--ink2);margin:1.1rem 0}
 .finding.red{border-left-color:var(--blood)}.finding.green{border-left-color:var(--green)}.finding.amber{border-left-color:var(--amber)}
-.f-title{font-family:var(--mono);font-size:.54rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold2);margin-bottom:.3rem}
+.f-title{font-family:var(--mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold2);margin-bottom:.3rem}
 .finding p{font-family:var(--body);font-size:.84rem;color:var(--muted);line-height:1.65}
 .finding p strong{color:var(--text)}
 .warn{background:rgba(196,30,58,.08);border:1px solid rgba(196,30,58,.35);padding:.8rem 1rem;font-family:var(--body);font-size:.82rem;color:var(--text2);margin:1.1rem 0;line-height:1.65}
 .warn strong{color:var(--bloodl)}
 .info{background:rgba(45,106,79,.07);border:1px solid rgba(45,106,79,.35);padding:.8rem 1rem;font-family:var(--body);font-size:.82rem;color:var(--muted);margin:1.1rem 0;line-height:1.65}
-.ib{font-family:var(--mono);font-size:.52rem;text-transform:uppercase;letter-spacing:.12em;color:var(--greenl);margin-bottom:.3rem}
+.ib{font-family:var(--mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:var(--greenl);margin-bottom:.3rem}
 .info strong{color:var(--greenl)}
 .amb{background:rgba(176,125,74,.08);border:1px solid rgba(176,125,74,.3);padding:.8rem 1rem;font-family:var(--mono);font-size:.65rem;color:var(--amberl);margin:1rem 0;line-height:1.6}
 .pq{border-left:2px solid var(--gold3);padding:.65rem 1.1rem;font-family:var(--display);font-style:italic;color:var(--muted);margin:1.6rem 0;font-size:.93rem;line-height:1.65}
-.pq cite{display:block;margin-top:.3rem;font-style:normal;font-size:.54rem;font-family:var(--mono);color:var(--gold3);letter-spacing:.06em}
+.pq cite{display:block;margin-top:.3rem;font-style:normal;font-size:.75rem;font-family:var(--mono);color:var(--gold3);letter-spacing:.06em}
 
 /* TABLE */
 .dt{width:100%;border-collapse:collapse;font-size:.82rem;margin:1rem 0}
-.dt th{text-align:left;padding:.5rem .8rem;font-family:var(--mono);font-size:.52rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted2);border-bottom:1px solid var(--border2);background:var(--ink4)}
+.dt th{text-align:left;padding:.5rem .8rem;font-family:var(--mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted2);border-bottom:1px solid var(--border2);background:var(--ink4)}
 .dt td{padding:.56rem .8rem;border-bottom:1px solid rgba(30,30,48,.4);vertical-align:top;line-height:1.55}
 .dt tr:hover td{background:rgba(20,20,40,.4)}
 .num{font-family:var(--mono);font-weight:700;color:var(--text)}.hi{color:var(--gold);font-family:var(--mono);font-weight:700}.conflict{background:rgba(196,30,58,.05)}
@@ -280,7 +280,7 @@ canvas{display:block;width:100%}
 .sr-bar{width:100%;height:4px;background:var(--border);border-radius:2px;margin-top:.9rem;overflow:hidden}
 .sr-fill{height:100%;background:linear-gradient(90deg,var(--bloodl),var(--amberl),var(--gold));transition:width .3s ease;border-radius:2px}
 .sc-item{background:var(--ink4);border:1px solid var(--border);padding:.9rem 1.1rem;margin-bottom:.7rem}
-.sc-label{font-family:var(--mono);font-size:.56rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted2);margin-bottom:.45rem;display:flex;justify-content:space-between}
+.sc-label{font-family:var(--mono);font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted2);margin-bottom:.45rem;display:flex;justify-content:space-between}
 .sc-val{color:var(--gold);font-weight:700}
 .sc-range{width:100%;-webkit-appearance:none;appearance:none;height:3px;background:var(--border2);border-radius:2px;outline:none;cursor:pointer}
 .sc-range::-webkit-slider-thumb{-webkit-appearance:none;width:13px;height:13px;border-radius:50%;background:var(--gold);border:2px solid var(--ink);cursor:pointer}
@@ -294,22 +294,22 @@ canvas{display:block;width:100%}
 /* MAP */
 #bangladesh-map{height:460px;background:var(--ink3);border:1px solid var(--border2)}
 .map-leg{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:.7rem;padding:.7rem 1rem;background:var(--ink3);border:1px solid var(--border)}
-.ml-i{display:flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.54rem;color:var(--muted2)}
+.ml-i{display:flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.75rem;color:var(--muted2)}
 
 /* GLOBAL GRID */
 .gg{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:.7rem;margin:1.2rem 0}
 .gc{padding:.85rem;border:1px solid var(--border2);background:var(--ink3)}
 .gc.high{border-color:rgba(82,183,136,.4)}.gc.mid{border-color:rgba(201,168,76,.3)}.gc.low{border-color:rgba(196,30,58,.35)}.gc.abs{border-style:dashed}
-.gc-c{font-family:var(--mono);font-size:.52rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted2);margin-bottom:.28rem}
+.gc-c{font-family:var(--mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted2);margin-bottom:.28rem}
 .gc-r{font-family:var(--mono);font-size:1.05rem;font-weight:700;color:var(--gold);line-height:1}
 .gc-r.abs{color:var(--muted2);font-size:.68rem}
-.gc-d{font-family:var(--mono);font-size:.48rem;color:var(--muted2);margin-top:.18rem}
+.gc-d{font-family:var(--mono);font-size:.75rem;color:var(--muted2);margin-top:.18rem}
 .gc-n{font-family:var(--body);font-size:.7rem;color:var(--muted);margin-top:.35rem;line-height:1.5}
 
 /* INTERVENTIONS */
 .int{display:grid;grid-template-columns:2.5rem 1fr;gap:.8rem;padding:.95rem 0;border-bottom:1px solid var(--border)}
 .int:last-child{border-bottom:none}
-.int-n{font-family:var(--mono);font-size:.58rem;color:var(--gold2);font-weight:700;padding:.28rem;background:var(--ink3);border:1px solid var(--gold3);text-align:center;height:fit-content;letter-spacing:.06em}
+.int-n{font-family:var(--mono);font-size:.78rem;color:var(--gold2);font-weight:700;padding:.28rem;background:var(--ink3);border:1px solid var(--gold3);text-align:center;height:fit-content;letter-spacing:.06em}
 .int h4{font-family:var(--display);font-size:.98rem;font-weight:600;margin-bottom:.35rem;line-height:1.25}
 .int p{font-family:var(--body);font-size:.82rem;color:var(--muted);line-height:1.65}
 
@@ -319,23 +319,23 @@ canvas{display:block;width:100%}
 .rm-row:last-child{border-bottom:none}.rm-row.hd{background:var(--ink4)}
 .rm-cell{padding:.65rem .85rem;font-family:var(--body);font-size:.78rem;border-right:1px solid var(--border)}
 .rm-cell:last-child{border-right:none}
-.rm-cell.hd{font-family:var(--mono);font-size:.52rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted2)}
+.rm-cell.hd{font-family:var(--mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted2)}
 .rm-before{color:var(--muted)}.rm-after{color:var(--greenl)}
 .rm-warn{color:var(--bloodl);font-style:italic;font-size:.73rem}
 
 /* DETERRENCE CARDS */
 .det-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(225px,1fr));gap:.8rem;margin:1.2rem 0}
 .det-card{background:var(--ink3);border:1px solid var(--border2);padding:.95rem}
-.det-src{font-family:var(--mono);font-size:.52rem;color:var(--gold2);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.35rem}
+.det-src{font-family:var(--mono);font-size:.75rem;color:var(--gold2);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.35rem}
 .det-find{font-family:var(--body);font-size:.84rem;color:var(--text);font-weight:500;margin-bottom:.35rem;line-height:1.4}
 .det-note{font-family:var(--body);font-size:.74rem;color:var(--muted);line-height:1.55}
 
 /* SOURCES */
 .src-item{display:grid;grid-template-columns:3rem 1fr;gap:.65rem;padding:.65rem 0;border-bottom:1px solid rgba(30,30,48,.4)}
 .src-item:last-child{border-bottom:none}
-.sid{font-family:var(--mono);font-size:.58rem;font-weight:700;color:var(--gold2);padding-top:.1rem}
+.sid{font-family:var(--mono);font-size:.78rem;font-weight:700;color:var(--gold2);padding-top:.1rem}
 .sb{font-family:var(--body);font-size:.76rem;color:var(--muted);line-height:1.6}
-.surl{font-family:var(--mono);font-size:.54rem;color:var(--muted2);margin-top:.18rem;word-break:break-all}
+.surl{font-family:var(--mono);font-size:.75rem;color:var(--muted2);margin-top:.18rem;word-break:break-all}
 
 /* CONCLUSION */
 #conclusion{min-height:80vh;display:flex;align-items:center;position:relative;overflow:hidden}
@@ -344,9 +344,9 @@ canvas{display:block;width:100%}
 .concl-wrap p{font-family:var(--display);font-size:clamp(.93rem,1.8vw,1.08rem);line-height:1.9;color:var(--text2);margin-bottom:1.3rem}
 .concl-wrap p strong{color:var(--text);font-weight:600}
 .mech{margin:2.2rem 0;padding:1.3rem;background:var(--ink2);border:1px solid var(--border2)}
-.mech-title{font-family:var(--mono);font-size:.54rem;text-transform:uppercase;letter-spacing:.14em;color:var(--gold2);margin-bottom:.9rem}
+.mech-title{font-family:var(--mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.14em;color:var(--gold2);margin-bottom:.9rem}
 .mech-chain{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center}
-.mc{font-family:var(--mono);font-size:.58rem;color:var(--muted);padding:.22rem .55rem;background:var(--ink3);border:1px solid var(--border2)}
+.mc{font-family:var(--mono);font-size:.78rem;color:var(--muted);padding:.22rem .55rem;background:var(--ink3);border:1px solid var(--border2)}
 .mc-arr{font-family:var(--mono);font-size:.65rem;color:var(--border2)}
 .mc-fin{background:rgba(196,30,58,.15)!important;color:var(--bloodl)!important;border-color:rgba(196,30,58,.4)!important}
 
@@ -366,10 +366,10 @@ canvas{display:block;width:100%}
 /* BUREAU */
 .bureau{background:var(--ink2);border-top:1px solid var(--border);padding:3rem 0}
 .bureau-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;align-items:start}
-.blabel{font-family:var(--mono);font-size:.52rem;letter-spacing:.16em;text-transform:uppercase;color:var(--blood);margin-bottom:.5rem}
+.blabel{font-family:var(--mono);font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--blood);margin-bottom:.5rem}
 .bureau h3{font-family:var(--display);font-size:1.05rem;color:var(--text);margin-bottom:.4rem;line-height:1.2}
 .bureau p{font-family:var(--body);font-size:.78rem;color:rgba(255,255,255,.38);line-height:1.6;margin-bottom:.7rem}
-.bureau a.sm{font-family:var(--mono);font-size:.58rem;letter-spacing:.08em;color:var(--blood);border-bottom:1px solid rgba(196,30,58,.35);padding-bottom:1px}
+.bureau a.sm{font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;color:var(--blood);border-bottom:1px solid rgba(196,30,58,.35);padding-bottom:1px}
 .inv-link{display:block;padding:.65rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);margin-bottom:.45rem;transition:background .15s;text-decoration:none}
 .inv-link:hover{background:rgba(255,255,255,.07);text-decoration:none}
 .inv-id{font-family:var(--mono);font-size:.5rem;color:var(--blood);letter-spacing:.08em;text-transform:uppercase;margin-bottom:2px}
@@ -377,7 +377,7 @@ canvas{display:block;width:100%}
 .dlinks{display:flex;flex-direction:column;gap:.35rem;margin-bottom:.9rem}
 .dlinks a{font-family:var(--body);font-size:.78rem;color:rgba(255,255,255,.45);display:flex;align-items:center;gap:.5rem;transition:color .15s}
 .dlinks a:hover{color:#fff;text-decoration:none}
-.dlinks a span{font-family:var(--mono);font-size:.54rem;color:#20c997}
+.dlinks a span{font-family:var(--mono);font-size:.75rem;color:#20c997}
 
 /* REVEAL */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
@@ -433,14 +433,14 @@ canvas{display:block;width:100%}
 
 <div class="float-counter" role="status" aria-live="polite" title="Based on 2024 annual average of 4,394 cases. PHQ does not publish real-time data.">
   <span class="fc-num" style="font-size:1rem;color:var(--gold)">~12/day</span>
-  <span class="fc-lbl">Cases filed today<br><span style="color:var(--muted2);font-size:.42rem">2024 avg · PHQ · S-57</span></span>
+  <span class="fc-lbl">Cases filed today<br><span style="color:var(--muted2);font-size:.72rem">2024 avg · PHQ · S-57</span></span>
 </div>
 
 <!-- ══ OPENING ══ -->
 <section id="opening" aria-label="Investigation opening">
   <div class="open-badge">BD-INV-002 · Bangladesh · Active Investigation · v5.0 · March 2026</div>
   <div class="open-counter-hero" id="hero-counter" aria-hidden="true" style="font-size:clamp(3rem,10vw,7rem)">~12</div>
-  <div class="open-counter-lbl">Rape cases filed in Bangladesh today<br><span style="font-size:.48rem;color:var(--muted2);letter-spacing:.1em">Based on 2024 annual average of 4,394 · PHQ via Daily Star Mar 2025 · <span class="tier tc" style="margin-left:0">CONFIRMED · S-57</span></span></div>
+  <div class="open-counter-lbl">Rape cases filed in Bangladesh today<br><span style="font-size:.75rem;color:var(--muted2);letter-spacing:.1em">Based on 2024 annual average of 4,394 · PHQ via Daily Star Mar 2025 · <span class="tier tc" style="margin-left:0">CONFIRMED · S-57</span></span></div>
   <div class="open-div"></div>
   <div class="open-stmt" role="text">
     <div class="os-line" id="os1">Three numbers.</div>
@@ -457,7 +457,7 @@ canvas{display:block;width:100%}
   <div class="open-sub">Bangladesh · Rape Justice Crisis · Data Investigation · March 2026</div>
   <div style="max-width:760px;margin:2.5rem auto 0;padding:0 2rem">
     <img src="hero-cover.jpg" alt="Illustration representing Bangladesh's rape justice crisis — women seeking accountability in a system that produces impunity" style="width:100%;display:block;border:1px solid var(--border2);opacity:.85">
-    <div style="font-family:var(--mono);font-size:.46rem;color:var(--muted2);text-align:right;margin-top:.4rem;letter-spacing:.08em">Cover image · BD-INV-002 · Insight Gaps · March 2026</div>
+    <div style="font-family:var(--mono);font-size:.75rem;color:var(--muted2);text-align:right;margin-top:.4rem;letter-spacing:.08em">Cover image · BD-INV-002 · Insight Gaps · March 2026</div>
   </div>
   <div class="scroll-hint" aria-hidden="true"><span>Enter the record</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
 </section>
@@ -474,7 +474,7 @@ canvas{display:block;width:100%}
     <div style="background:rgba(196,30,58,.07);border:1px solid rgba(196,30,58,.35);padding:1.8rem;text-align:center;margin:2rem 0">
       <p style="font-family:var(--display);font-size:clamp(1rem,2.3vw,1.3rem);color:var(--text2);line-height:1.8;font-style:italic">"This report's central finding is not that Bangladesh's rape justice system fails.<br><strong style="font-style:normal;color:var(--text)">It is that the system produces impunity with the consistency of a machine.</strong><br>The silence, the delay, the attrition, the retaliation — these are not accidents.<br>They are the documented, predictable outputs of identifiable structural choices."</p>
     </div>
-    <div style="font-family:var(--mono);font-size:.56rem;color:var(--muted2);line-height:1.6;border-top:1px solid var(--border);padding-top:1rem">EDITORIAL NOTE: The individual above is a documented composite. All statistics are primary-sourced. No individual's identity is assumed. Composite method is standard in data journalism (ProPublica, NYT, Reuters) and is disclosed here. OCC conviction data (310 of 66,711) sourced to Daily Star, November 2, 2024 (S-55). Silence figure from UNFPA/BBS VAW Survey 2024 (S-02).</div>
+    <div style="font-family:var(--mono);font-size:.78rem;color:var(--muted2);line-height:1.6;border-top:1px solid var(--border);padding-top:1rem">EDITORIAL NOTE: The individual above is a documented composite. All statistics are primary-sourced. No individual's identity is assumed. Composite method is standard in data journalism (ProPublica, NYT, Reuters) and is disclosed here. OCC conviction data (310 of 66,711) sourced to Daily Star, November 2, 2024 (S-55). Silence figure from UNFPA/BBS VAW Survey 2024 (S-02).</div>
   </div>
 </div>
 
@@ -493,7 +493,7 @@ canvas{display:block;width:100%}
         <h2 style="font-family:var(--display);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;letter-spacing:-.02em;margin-bottom:.4rem">Bangladesh Sexual Violence — National Tracker</h2>
         <p style="font-family:var(--body);font-size:.85rem;color:var(--muted);max-width:540px">This dashboard tracks every reported case, verdict, and policy development in real time. Any journalist, NGO, or citizen can use this data — with tier labels mandatory when citing.</p>
       </div>
-      <div style="font-family:var(--mono);font-size:.52rem;color:var(--muted2);text-align:right;line-height:1.7">
+      <div style="font-family:var(--mono);font-size:.75rem;color:var(--muted2);text-align:right;line-height:1.7">
         <span id="rec-last-updated">Last updated: loading…</span><br>
         Leads tracked: <strong style="color:var(--gold)" id="rec-total-leads">—</strong> &nbsp;|&nbsp;
         Cases monitored: <strong style="color:var(--gold)" id="rec-total-cases">—</strong>
@@ -505,47 +505,47 @@ canvas{display:block;width:100%}
       <div style="background:var(--ink3);padding:1.1rem 1.2rem">
         <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--bloodl);line-height:1;letter-spacing:-.03em">+52%</div>
         <div style="font-family:var(--mono);font-size:.5rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-top:.35rem;line-height:1.6">Rape victims<br>2024 → 2025</div>
-        <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);margin-top:.3rem">BMP 786 vs 516 · <span class="tier tc" style="margin-left:0">CONFIRMED · S-85</span></div>
+        <div style="font-family:var(--mono);font-size:.75rem;color:var(--muted2);margin-top:.3rem">BMP 786 vs 516 · <span class="tier tc" style="margin-left:0">CONFIRMED · S-85</span></div>
       </div>
       <div style="background:var(--ink3);padding:1.1rem 1.2rem">
         <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--bloodl);line-height:1;letter-spacing:-.03em">+75%</div>
         <div style="font-family:var(--mono);font-size:.5rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-top:.35rem;line-height:1.6">Child rape<br>H1 2024→2025</div>
-        <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);margin-top:.3rem">306 vs 175 H1 · <span class="tier tc" style="margin-left:0">CONFIRMED · S-83</span></div>
+        <div style="font-family:var(--mono);font-size:.75rem;color:var(--muted2);margin-top:.3rem">306 vs 175 H1 · <span class="tier tc" style="margin-left:0">CONFIRMED · S-83</span></div>
       </div>
       <div style="background:var(--ink3);padding:1.1rem 1.2rem">
         <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--amberl);line-height:1;letter-spacing:-.03em">442</div>
         <div style="font-family:var(--mono);font-size:.5rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-top:.35rem;line-height:1.6">Violence cases<br>in March 2026</div>
-        <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);margin-top:.3rem">BMP Mar 2026 · <span class="tier tp" style="margin-left:0">PROBABLE · S-73b</span></div>
+        <div style="font-family:var(--mono);font-size:.75rem;color:var(--muted2);margin-top:.3rem">BMP Mar 2026 · <span class="tier tp" style="margin-left:0">PROBABLE · S-73b</span></div>
       </div>
       <div style="background:var(--ink3);padding:1.1rem 1.2rem">
         <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--amberl);line-height:1;letter-spacing:-.03em">~150k</div>
         <div style="font-family:var(--mono);font-size:.5rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-top:.35rem;line-height:1.6">Cases waiting<br>in courts</div>
-        <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);margin-top:.3rem">Mar 2025 · <span class="tier tc" style="margin-left:0">CONFIRMED · S-63, S-64</span></div>
+        <div style="font-family:var(--mono);font-size:.75rem;color:var(--muted2);margin-top:.3rem">Mar 2025 · <span class="tier tc" style="margin-left:0">CONFIRMED · S-63, S-64</span></div>
       </div>
       <div style="background:var(--ink3);padding:1.1rem 1.2rem">
         <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--bloodl);line-height:1;letter-spacing:-.03em">0</div>
         <div style="font-family:var(--mono);font-size:.5rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-top:.35rem;line-height:1.6">OCC convictions<br>Jan–Jul 2024</div>
-        <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);margin-top:.3rem">Daily Star Nov 2024 · <span class="tier tc" style="margin-left:0">CONFIRMED · S-55</span></div>
+        <div style="font-family:var(--mono);font-size:.75rem;color:var(--muted2);margin-top:.3rem">Daily Star Nov 2024 · <span class="tier tc" style="margin-left:0">CONFIRMED · S-55</span></div>
       </div>
       <div style="background:var(--ink3);padding:1.1rem 1.2rem">
         <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--gold);line-height:1;letter-spacing:-.03em">~12/day</div>
         <div style="font-family:var(--mono);font-size:.5rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-top:.35rem;line-height:1.6">New cases filed<br>every day</div>
-        <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);margin-top:.3rem">PHQ 2024 avg · <span class="tier tc" style="margin-left:0">CONFIRMED · S-57</span></div>
+        <div style="font-family:var(--mono);font-size:.75rem;color:var(--muted2);margin-top:.3rem">PHQ 2024 avg · <span class="tier tc" style="margin-left:0">CONFIRMED · S-57</span></div>
       </div>
       <div style="background:var(--ink3);padding:1.1rem 1.2rem">
         <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--bloodl);line-height:1;letter-spacing:-.03em">0.46%</div>
         <div style="font-family:var(--mono);font-size:.5rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-top:.35rem;line-height:1.6">Conviction rate<br>OCC (23 years)</div>
-        <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);margin-top:.3rem">310/66,711 · <span class="tier tc" style="margin-left:0">CONFIRMED · S-55</span></div>
+        <div style="font-family:var(--mono);font-size:.75rem;color:var(--muted2);margin-top:.3rem">310/66,711 · <span class="tier tc" style="margin-left:0">CONFIRMED · S-55</span></div>
       </div>
       <div style="background:var(--ink3);padding:1.1rem 1.2rem">
         <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--amberl);line-height:1;letter-spacing:-.03em">6.4yr</div>
         <div style="font-family:var(--mono);font-size:.5rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-top:.35rem;line-height:1.6">Average wait<br>for trial</div>
-        <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);margin-top:.3rem">2,349 days · <span class="tier tc" style="margin-left:0">CONFIRMED · S-01</span></div>
+        <div style="font-family:var(--mono);font-size:.75rem;color:var(--muted2);margin-top:.3rem">2,349 days · <span class="tier tc" style="margin-left:0">CONFIRMED · S-01</span></div>
       </div>
     </div>
 
     <!-- Context Bar -->
-    <div style="background:rgba(196,30,58,.07);border:1px solid rgba(196,30,58,.3);padding:1rem 1.2rem;margin-bottom:2rem;font-family:var(--mono);font-size:.58rem;color:var(--text2);line-height:1.8">
+    <div style="background:rgba(196,30,58,.07);border:1px solid rgba(196,30,58,.3);padding:1rem 1.2rem;margin-bottom:2rem;font-family:var(--mono);font-size:.78rem;color:var(--text2);line-height:1.8">
       <strong style="color:var(--bloodl)">What these numbers mean in plain language:</strong> In 2025, Bangladesh recorded a 52% rise in documented rape victims (BMP), a 75% surge in child rape in the first half of the year alone, and 442 women and girls reported as victims of violence in March 2026. Every day, ~12 new rape cases enter a system that already has 150,000 cases waiting. The average case takes over 6 years to reach a verdict. Of every 100 women who walked into a crisis centre over 23 years, fewer than 1 got a conviction. <strong style="color:var(--amberl)">The dashboard below is an active investigation register — not a real-time incident counter.</strong> PHQ does not publish real-time data. All figures are source-dated. <a href="#sources" style="color:var(--gold)">All sources cited.</a>
     </div>
 
@@ -559,7 +559,7 @@ canvas{display:block;width:100%}
 
     <!-- Tab: Tracked Cases -->
     <div class="tab-panel active" id="panel-cases">
-      <div style="font-family:var(--mono);font-size:.58rem;color:var(--muted2);padding:.7rem 0;margin-bottom:1rem;border-bottom:1px solid var(--border)">
+      <div style="font-family:var(--mono);font-size:.78rem;color:var(--muted2);padding:.7rem 0;margin-bottom:1rem;border-bottom:1px solid var(--border)">
         These are specific cases this investigation is tracking — with full timelines, sources, and current status. <span style="color:var(--gold)">Click any case for details.</span>
       </div>
       <div class="stat-strip" style="margin-bottom:1rem">
@@ -580,7 +580,7 @@ canvas{display:block;width:100%}
 
     <!-- Tab: Monthly Record -->
     <div class="tab-panel" id="panel-monthly">
-      <div style="font-family:var(--mono);font-size:.58rem;color:var(--muted2);padding:.7rem 0;margin-bottom:1rem;border-bottom:1px solid var(--border)">
+      <div style="font-family:var(--mono);font-size:.78rem;color:var(--muted2);padding:.7rem 0;margin-bottom:1rem;border-bottom:1px solid var(--border)">
         Monthly data since August 2024. Red cells = PHQ published nothing. Green = confirmed data. Each absence is documented, not assumed. <strong>Click any cell to see what happened that month.</strong>
       </div>
       <div class="stat-strip" style="margin-bottom:1rem">
@@ -601,7 +601,7 @@ canvas{display:block;width:100%}
 
     <!-- Tab: Latest Reports -->
     <div class="tab-panel" id="panel-leads">
-      <div style="font-family:var(--mono);font-size:.58rem;color:var(--muted2);padding:.7rem 0;margin-bottom:1rem;border-bottom:1px solid var(--border)">
+      <div style="font-family:var(--mono);font-size:.78rem;color:var(--muted2);padding:.7rem 0;margin-bottom:1rem;border-bottom:1px solid var(--border)">
         Auto-collected every 6 hours from Daily Star, Prothom Alo, TBS News, bdnews24, and BSS. Each item is classified by Gemini AI and reviewed weekly. <strong>CONFIRMED = 2+ independent sources. PROBABLE = 1 named source. UNVERIFIED = single source, no cross-reference yet.</strong>
       </div>
       <div class="stat-strip" style="margin-bottom:1rem">
@@ -623,7 +623,7 @@ canvas{display:block;width:100%}
 
     <!-- Tab: By Division -->
     <div class="tab-panel" id="panel-divisions">
-      <div style="font-family:var(--mono);font-size:.58rem;color:var(--muted2);padding:.7rem 0;margin-bottom:1rem;border-bottom:1px solid var(--border)">
+      <div style="font-family:var(--mono);font-size:.78rem;color:var(--muted2);padding:.7rem 0;margin-bottom:1rem;border-bottom:1px solid var(--border)">
         Lifetime and recent intimate partner violence by division. Source: BBS/UNFPA VAW Survey 2024 (27,476 women surveyed · 95.4% response rate) · <span class="tier tc">CONFIRMED · S-02</span>. No district-level conviction rate data exists from any official source — that absence is itself documented in this report.
       </div>
       <table class="dt" style="width:100%">
@@ -640,7 +640,7 @@ canvas{display:block;width:100%}
           <tr style="border-top:2px solid var(--border2)"><td><strong>National average</strong></td><td><strong>76%</strong></td><td><strong>49%</strong></td><td><span class="tier tc">CONFIRMED · S-02, S-74</span></td></tr>
         </tbody>
       </table>
-      <div style="margin-top:1.2rem;padding:.9rem;background:var(--ink3);border:1px solid var(--border);font-family:var(--mono);font-size:.56rem;color:var(--muted2);line-height:1.7">
+      <div style="margin-top:1.2rem;padding:.9rem;background:var(--ink3);border:1px solid var(--border);font-family:var(--mono);font-size:.78rem;color:var(--muted2);line-height:1.7">
         <strong style="color:var(--text)">Climate vulnerability multiplier:</strong> Women in disaster-prone areas: lifetime IPV 81% vs 68% in non-disaster areas. Environmental stress acts as a documented amplifier through displacement and collapse of community oversight. · BBS/UNFPA 2024 · S-02<br>
         <strong style="color:var(--text)">No district-level conviction data:</strong> PHQ has never published conviction rates broken down by district or tribunal. This is documented in the Missing Data Audit section below. It is a policy choice, not a data collection limitation.
       </div>
@@ -788,7 +788,7 @@ canvas{display:block;width:100%}
 
     <!-- DERIVATION BOX — 310 / 66,711 -->
     <div style="background:var(--ink3);border:1px solid var(--border2);padding:1.2rem 1.4rem;margin:1.2rem 0" class="reveal">
-      <div style="font-family:var(--mono);font-size:.54rem;text-transform:uppercase;letter-spacing:.14em;color:var(--gold2);margin-bottom:.7rem">How 310 and 66,711 are derived · Source: S-55</div>
+      <div style="font-family:var(--mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.14em;color:var(--gold2);margin-bottom:.7rem">How 310 and 66,711 are derived · Source: S-55</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.8rem">
         <div style="font-family:var(--body);font-size:.8rem;color:var(--muted);line-height:1.6">
           <strong style="color:var(--text)">66,711</strong> = total women who visited One-Stop Crisis Centres (OCCs) across Bangladesh since the OCC programme launched in 2001, through 2024. This is <em>not</em> total national rape case filings — it is OCC programme visitors. Source: Daily Star, November 2, 2024 · <span class="tier tc">CONFIRMED · S-55</span>
@@ -874,14 +874,14 @@ canvas{display:block;width:100%}
 
     <!-- NAMED EXTREME CASES TABLE -->
     <div style="margin:1.5rem 0" class="reveal">
-      <div style="font-family:var(--mono);font-size:.54rem;text-transform:uppercase;letter-spacing:.14em;color:var(--gold2);margin-bottom:.8rem">Named Cases — The Range of the System</div>
+      <div style="font-family:var(--mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.14em;color:var(--gold2);margin-bottom:.8rem">Named Cases — The Range of the System</div>
       <table class="dt">
         <thead><tr><th>Case</th><th>Crime Year</th><th>Verdict Year</th><th>Wait</th><th>Outcome</th><th>Note</th></tr></thead>
         <tbody>
           <tr style="background:rgba(82,183,136,.04)"><td><strong>Magura Child Rape-Murder — Achia</strong></td><td>2025</td><td>2025</td><td class="num" style="color:var(--greenl)"><strong>71 days</strong></td><td>Death sentence — appeal pending</td><td style="font-size:.72rem;font-style:italic;color:var(--muted)">Nationwide outrage + HC directive. System's fastest recorded response.</td></tr>
           <tr><td><strong>Barishal Trish Godown Gang Rape</strong></td><td>2016</td><td>2026</td><td class="num" style="color:var(--amberl)">~3,380 days</td><td>4 death sentences. 1 absconding.</td><td style="font-size:.72rem;font-style:italic;color:var(--muted)">9 years 3 months. BSS · S-70. Normal trajectory for a case that is not Magura.</td></tr>
-          <tr style="background:rgba(196,30,58,.04)"><td><strong>Jamalpur Child Rape Case <span class="tier tc" style="font-size:.4rem">CONFIRMED</span></strong></td><td>2004</td><td>2025</td><td class="num" style="color:var(--bloodl)"><strong>21 years</strong></td><td>2 defendants: Life imprisonment. Victim age 13 at time of crime.</td><td style="font-size:.72rem;font-style:italic;color:var(--muted)">The longest documented individual trial in this dataset. 2004 to 2025. The survivor waited 21 years. BSS News via Bangladesh_Rape_Verdicts_Data_Compilation.</td></tr>
-          <tr><td><strong>Sylhet MC College Gang Rape <span class="tier tp" style="font-size:.4rem">PROBABLE</span></strong></td><td>2020</td><td>Pending</td><td class="num" style="color:var(--amberl)">5+ years</td><td>Still in proceedings. Transferred to Speedy Trial Tribunal March 2025 after Supreme Court order.</td><td style="font-size:.72rem;font-style:italic;color:var(--muted)">High-profile case. Still pending despite being one of Bangladesh's most-publicised assaults. Status: as of March 2025. Bangladesh_Rape_Case_Verdict_Analysis.docx</td></tr>
+          <tr style="background:rgba(196,30,58,.04)"><td><strong>Jamalpur Child Rape Case <span class="tier tc" style="font-size:.72rem">CONFIRMED</span></strong></td><td>2004</td><td>2025</td><td class="num" style="color:var(--bloodl)"><strong>21 years</strong></td><td>2 defendants: Life imprisonment. Victim age 13 at time of crime.</td><td style="font-size:.72rem;font-style:italic;color:var(--muted)">The longest documented individual trial in this dataset. 2004 to 2025. The survivor waited 21 years. BSS News via Bangladesh_Rape_Verdicts_Data_Compilation.</td></tr>
+          <tr><td><strong>Sylhet MC College Gang Rape <span class="tier tp" style="font-size:.72rem">PROBABLE</span></strong></td><td>2020</td><td>Pending</td><td class="num" style="color:var(--amberl)">5+ years</td><td>Still in proceedings. Transferred to Speedy Trial Tribunal March 2025 after Supreme Court order.</td><td style="font-size:.72rem;font-style:italic;color:var(--muted)">High-profile case. Still pending despite being one of Bangladesh's most-publicised assaults. Status: as of March 2025. Bangladesh_Rape_Case_Verdict_Analysis.docx</td></tr>
         </tbody>
       </table>
     </div>
@@ -890,10 +890,10 @@ canvas{display:block;width:100%}
       <p>The Master Evidence File (Sheet 4 — TRIBUNAL_CASES) documents 60 individual WCRPA verdicts with full trial durations, court names, outcomes, and sources. The average trial duration across these 60 completed cases is <strong>4.7 years</strong>. The shortest: Magura 2025 at 71 days under public pressure. The longest: Jamalpur 2004–2025 at 21 years. This is not the same number as the 2,349-day average for all pending cases.</p>
       <p style="margin-top:.7rem">The difference reveals the system's selection mechanism: <strong>cases that finish faster tend to be the ones where public outrage, media attention, or political pressure forces judicial action.</strong> The 150,000 ordinary cases — the ones without protests, without a special public prosecutor, without HC directives — produce the 6-year average. The 60 documented verdicts are the exception. They are not the system. They are what the system looks like when it is forced to work.</p>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin-top:1rem">
-        <div style="background:var(--ink3);padding:.9rem 1rem"><div style="font-family:var(--mono);font-size:1.3rem;font-weight:700;color:var(--amberl)">4.7 yrs</div><div style="font-family:var(--mono);font-size:.48rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-top:.25rem">Avg — completed cases<br>60 verdicts documented</div></div>
-        <div style="background:var(--ink3);padding:.9rem 1rem"><div style="font-family:var(--mono);font-size:1.3rem;font-weight:700;color:var(--bloodl)">6.4 yrs</div><div style="font-family:var(--mono);font-size:.48rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-top:.25rem">Avg — all pending cases<br>2,349 days · BRAC 2022</div></div>
-        <div style="background:var(--ink3);padding:.9rem 1rem"><div style="font-family:var(--mono);font-size:1.3rem;font-weight:700;color:var(--gold)">71 days</div><div style="font-family:var(--mono);font-size:.48rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-top:.25rem">Fastest — Magura 2025<br>nationwide protest + HC</div></div>
-        <div style="background:var(--ink3);padding:.9rem 1rem"><div style="font-family:var(--mono);font-size:1.3rem;font-weight:700;color:var(--bloodl)">21 yrs</div><div style="font-family:var(--mono);font-size:.48rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-top:.25rem">Longest — Jamalpur 2004<br>victim age 13 at crime</div></div>
+        <div style="background:var(--ink3);padding:.9rem 1rem"><div style="font-family:var(--mono);font-size:1.3rem;font-weight:700;color:var(--amberl)">4.7 yrs</div><div style="font-family:var(--mono);font-size:.75rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-top:.25rem">Avg — completed cases<br>60 verdicts documented</div></div>
+        <div style="background:var(--ink3);padding:.9rem 1rem"><div style="font-family:var(--mono);font-size:1.3rem;font-weight:700;color:var(--bloodl)">6.4 yrs</div><div style="font-family:var(--mono);font-size:.75rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-top:.25rem">Avg — all pending cases<br>2,349 days · BRAC 2022</div></div>
+        <div style="background:var(--ink3);padding:.9rem 1rem"><div style="font-family:var(--mono);font-size:1.3rem;font-weight:700;color:var(--gold)">71 days</div><div style="font-family:var(--mono);font-size:.75rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-top:.25rem">Fastest — Magura 2025<br>nationwide protest + HC</div></div>
+        <div style="background:var(--ink3);padding:.9rem 1rem"><div style="font-family:var(--mono);font-size:1.3rem;font-weight:700;color:var(--bloodl)">21 yrs</div><div style="font-family:var(--mono);font-size:.75rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-top:.25rem">Longest — Jamalpur 2004<br>victim age 13 at crime</div></div>
       </div>
     </div>
   </div>
@@ -1190,19 +1190,19 @@ canvas{display:block;width:100%}
     </div>
 
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.5rem;margin-top:1.2rem" class="reveal">
-      <div style="padding:.7rem;background:rgba(82,183,136,.08);border:1px solid rgba(82,183,136,.3);font-family:var(--mono);font-size:.56rem;text-align:center">
+      <div style="padding:.7rem;background:rgba(82,183,136,.08);border:1px solid rgba(82,183,136,.3);font-family:var(--mono);font-size:.78rem;text-align:center">
         <div style="font-size:1.1rem;font-weight:700;color:var(--greenl)" id="mdt-conf-count">—</div>
         <div style="color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-top:.2rem">Periods with confirmed data</div>
       </div>
-      <div style="padding:.7rem;background:rgba(176,125,74,.08);border:1px solid rgba(176,125,74,.3);font-family:var(--mono);font-size:.56rem;text-align:center">
+      <div style="padding:.7rem;background:rgba(176,125,74,.08);border:1px solid rgba(176,125,74,.3);font-family:var(--mono);font-size:.78rem;text-align:center">
         <div style="font-size:1.1rem;font-weight:700;color:var(--amberl)" id="mdt-prob-count">—</div>
         <div style="color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-top:.2rem">Periods probable only</div>
       </div>
-      <div style="padding:.7rem;background:rgba(196,30,58,.08);border:1px solid rgba(196,30,58,.3);font-family:var(--mono);font-size:.56rem;text-align:center">
+      <div style="padding:.7rem;background:rgba(196,30,58,.08);border:1px solid rgba(196,30,58,.3);font-family:var(--mono);font-size:.78rem;text-align:center">
         <div style="font-size:1.1rem;font-weight:700;color:var(--bloodl)" id="mdt-abs-count">—</div>
         <div style="color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-top:.2rem">Months PHQ withheld data</div>
       </div>
-      <div style="padding:.7rem;background:var(--ink3);border:1px solid var(--border2);font-family:var(--mono);font-size:.56rem;text-align:center">
+      <div style="padding:.7rem;background:var(--ink3);border:1px solid var(--border2);font-family:var(--mono);font-size:.78rem;text-align:center">
         <div style="font-size:1.1rem;font-weight:700;color:var(--gold)" id="mdt-total-filed">—</div>
         <div style="color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-top:.2rem">Total filed (annual records)</div>
       </div>
@@ -1242,7 +1242,7 @@ canvas{display:block;width:100%}
       <p><strong>She is not a failure of courage. She is a documented output.</strong></p>
       <p>And there are 300,000 more like her this year alone — most of whom will never even reach the door of a crisis centre, because they already know, from watching women like her, what waits on the other side. In 2025, 749 women and children were tracked by ASK. 786 by BMP. 306 children in the first six months. 106 children in March alone.</p>
       <p>The machine runs. The numbers accumulate. The silence continues. Somewhere in Bangladesh right now, another woman is doing the calculation. And the system — 150,000 cases deep, 12,000 more every year, 2,349 days average — is waiting patiently for her to decide it isn't worth it.</p>
-      <p style="margin-top:1.5rem;font-family:var(--mono);font-size:.54rem;color:var(--muted2);font-style:normal;letter-spacing:.08em">BD-INV-002 · THE IMPUNITY MACHINE · Insight Gaps · v5.0 · March 2026 · insightgaps@gmail.com</p>
+      <p style="margin-top:1.5rem;font-family:var(--mono);font-size:.75rem;color:var(--muted2);font-style:normal;letter-spacing:.08em">BD-INV-002 · THE IMPUNITY MACHINE · Insight Gaps · v5.0 · March 2026 · insightgaps@gmail.com</p>
     </div>
   </div>
 </section>
@@ -1269,10 +1269,10 @@ canvas{display:block;width:100%}
   <div class="wrap" style="max-width:860px">
     <div style="display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;flex-wrap:wrap">
       <div>
-        <div style="font-family:var(--mono);font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold2);margin-bottom:.8rem">BD-INV-002 · Master Evidence File · Open Data</div>
+        <div style="font-family:var(--mono);font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold2);margin-bottom:.8rem">BD-INV-002 · Master Evidence File · Open Data</div>
         <h3 style="font-family:var(--display);font-size:clamp(1.3rem,2.5vw,1.9rem);font-weight:700;letter-spacing:-.02em;margin-bottom:.8rem;line-height:1.2">Every figure in this report is in the master evidence file.</h3>
         <p style="font-family:var(--body);font-size:.88rem;color:var(--muted);line-height:1.75;max-width:580px">10 sheets. 132 sourced data points. 60 documented tribunal verdicts. 40 acquittals. All 91 sources with full citations and URLs. Evidence tier labels on every single claim. A dedicated sheet of <strong style="color:var(--amberl)">Confirmed Absent</strong> data — the official records that should exist and do not. Structured for court submissions, academic citation, and journalism.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.2rem;font-family:var(--mono);font-size:.54rem;color:var(--muted2)">
+        <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.2rem;font-family:var(--mono);font-size:.75rem;color:var(--muted2)">
           <span style="background:rgba(45,106,79,.15);color:var(--greenl);border:1px solid var(--green);padding:.2rem .55rem">AGGREGATE_STATISTICS</span>
           <span style="background:rgba(45,106,79,.15);color:var(--greenl);border:1px solid var(--green);padding:.2rem .55rem">CONVICTION_RATES</span>
           <span style="background:rgba(45,106,79,.15);color:var(--greenl);border:1px solid var(--green);padding:.2rem .55rem">TRIBUNAL_CASES</span>
@@ -1289,7 +1289,7 @@ canvas{display:block;width:100%}
         <a href="/data/BD-INV-002_Master_Evidence_File.xlsx" download style="display:block;background:var(--gold3);border:1px solid var(--gold2);padding:1.2rem 1.8rem;font-family:var(--mono);font-size:.6rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:all .2s;margin-bottom:.6rem" onmouseover="this.style.background='rgba(201,168,76,.25)'" onmouseout="this.style.background='var(--gold3)'">
           ↓ Download Master Evidence File<br><span style="color:var(--muted2);font-size:.5rem;letter-spacing:.08em;display:block;margin-top:.3rem">.xlsx · 10 sheets · Open data</span>
         </a>
-        <div style="font-family:var(--mono);font-size:.48rem;color:var(--muted2);line-height:1.7">
+        <div style="font-family:var(--mono);font-size:.75rem;color:var(--muted2);line-height:1.7">
           Also available:<br>
           <a href="/data/cases.json" style="color:var(--gold2)">cases.json</a> · <a href="/data/monthly.json" style="color:var(--gold2)">monthly.json</a> · <a href="/data/leads.json" style="color:var(--gold2)">leads.json</a>
         </div>
@@ -1301,7 +1301,7 @@ canvas{display:block;width:100%}
 <!-- ══ SOURCES ══ -->
 <section class="darker" id="sources" aria-labelledby="src-h">
   <div class="wrap">
-    <div class="sh"><div class="sh-eye">Source Registry</div><h2 id="src-h">All Named Sources</h2><p>Every claim corresponds to at least one source below. Tier labels are mandatory when citing. <span style="font-family:var(--mono);font-size:.56rem">91 sources · BD-INV-002 · v5.0 · CC BY-NC 4.0 · Full registry with URLs: Master Evidence File (Sheet 9)</span></p></div>
+    <div class="sh"><div class="sh-eye">Source Registry</div><h2 id="src-h">All Named Sources</h2><p>Every claim corresponds to at least one source below. Tier labels are mandatory when citing. <span style="font-family:var(--mono);font-size:.78rem">91 sources · BD-INV-002 · v5.0 · CC BY-NC 4.0 · Full registry with URLs: Master Evidence File (Sheet 9)</span></p></div>
     <div id="sources-list">
       <div class="src-item"><span class="sid">S-01</span><div class="sb">BRAC/Agile — "Public Prosecution System in Bangladesh" Dec 2022. 3.66% conviction rate; 2,349 avg days; 2 DNA machines; 16 districts. <span class="tier tc">CONFIRMED</span><div class="surl">https://dgikh81ssvyrj.cloudfront.net/media/documents/Public-Prosecution-System-in-Bangladesh-The-Issues-of-Justice-for-Violence-aga_IKQWThX.pdf</div></div></div>
       <div class="src-item"><span class="sid">S-02</span><div class="sb">UNFPA/BBS Violence Against Women Survey 2024. 75.9% national lifetime IPV; 62–64% told no one; 27,476 women surveyed. <span class="tier tc">CONFIRMED</span><div class="surl">https://bangladesh.unfpa.org/en/2024-violence-against-women-survey</div></div></div>
@@ -1383,7 +1383,7 @@ canvas{display:block;width:100%}
           <a href="/data/monthly.json" download><span>JSON</span>monthly.json — 2019–2026 ledger</a>
           <a href="/data/leads.json" download><span>JSON</span>leads.json — automated press feed</a>
         </div>
-        <p style="font-family:var(--mono);font-size:.52rem;color:var(--muted2);line-height:1.6">BD-INV-002 · v5.0 · March 2026<br>CC BY-NC 4.0 · Tier labels mandatory when citing<br>Automated collector: GitHub Actions every 6h</p>
+        <p style="font-family:var(--mono);font-size:.75rem;color:var(--muted2);line-height:1.6">BD-INV-002 · v5.0 · March 2026<br>CC BY-NC 4.0 · Tier labels mandatory when citing<br>Automated collector: GitHub Actions every 6h</p>
       </div>
     </div>
   </div>
@@ -1562,7 +1562,7 @@ function renderHeatmap() {
   html += '<div class="hm-year-col"><div class="hm-year-lbl">Annual</div>';
   annuals.forEach(a => {
     const cls = a.tier === 'CONFIRMED' ? 'hm-confirmed' : a.tier === 'PROBABLE' ? 'hm-probable' : 'hm-absent';
-    html += `<div class="hm-cell hm-annual ${cls}" onclick="showHmDetail(${JSON.stringify(a).replace(/"/g,'&quot;')})" title="${a.period}"><div class="hm-year-lbl" style="font-size:.38rem;line-height:26px;text-align:center;color:rgba(255,255,255,.5)">${a.period}</div></div>`;
+    html += `<div class="hm-cell hm-annual ${cls}" onclick="showHmDetail(${JSON.stringify(a).replace(/"/g,'&quot;')})" title="${a.period}"><div class="hm-year-lbl" style="font-size:.72rem;line-height:26px;text-align:center;color:rgba(255,255,255,.5)">${a.period}</div></div>`;
   });
   html += '</div>';
   // Monthly columns by year

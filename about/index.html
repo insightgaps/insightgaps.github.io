@@ -5,8 +5,17 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>About the Bureau | Insight Gaps</title>
 <meta name="description" content="About Insight Gaps — an independent forensic data journalism bureau. No funders. No sponsors. Evidence-tiered public-interest investigations from Dhaka.">
-<link rel="canonical" href="https://insightgaps.com/about/">
+<link rel="canonical" href="https://www.insightgaps.com/about/">
 <link rel="icon" href="/favicon.png" type="image/png">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="About the Bureau | Insight Gaps">
+<meta property="og:description" content="An independent forensic data journalism bureau. No funders. No sponsors. Evidence-tiered public-interest investigations from Dhaka, Bangladesh.">
+<meta property="og:image" content="https://www.insightgaps.com/investigations/national/hero-cover.jpg">
+<meta property="og:url" content="https://www.insightgaps.com/about/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About the Bureau | Insight Gaps">
+<meta name="twitter:description" content="Independent forensic data journalism bureau. No funders. No sponsors. Dhaka, Bangladesh.">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4PYE0MEK12"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-4PYE0MEK12");</script>
@@ -25,23 +34,33 @@ body{background:var(--ink);color:var(--text);font-family:var(--body);overflow-x:
 a{color:var(--gold);text-decoration:none}
 a:hover{color:var(--text)}
 
-nav{background:rgba(6,6,14,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 1.5rem;height:50px;display:flex;align-items:center;justify-content:space-between;gap:1rem;position:sticky;top:0;z-index:900}
-.nav-brand{font-family:var(--mono);font-size:.54rem;color:var(--gold);letter-spacing:.2em;text-transform:uppercase}
+nav{background:rgba(6,6,14,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 1.5rem;height:52px;display:flex;align-items:center;justify-content:space-between;gap:1rem;position:sticky;top:0;z-index:900}
+.nav-brand{font-family:var(--mono);font-size:.75rem;color:var(--gold);letter-spacing:.2em;text-transform:uppercase}
 .nav-links{display:flex;gap:.35rem}
-.nlink{font-family:var(--mono);font-size:.42rem;color:var(--muted);border:1px solid transparent;padding:.22rem .65rem;transition:all .2s;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.nlink{font-family:var(--mono);font-size:.72rem;color:var(--muted);border:1px solid transparent;padding:.22rem .65rem;transition:all .2s;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
 .nlink:hover{color:var(--text2);border-color:var(--border)}
 .nlink.active{color:var(--text2);border-color:var(--border)}
 .nlink.hot{color:var(--text2);border:1px solid rgba(196,30,58,.35)}
 .nlink.hot:hover{color:var(--bloodl);border-color:var(--bloodl)}
-@media(max-width:700px){.nlink:not(.hot){display:none}}
+.nav-ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;flex-shrink:0;padding:6px}
+.nav-ham span{display:block;width:20px;height:2px;background:var(--muted);border-radius:1px;transition:all .25s}
+.nav-ham.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.nav-ham.open span:nth-child(2){opacity:0}
+.nav-ham.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-drawer{display:none;position:fixed;top:52px;left:0;right:0;background:rgba(6,6,14,.99);border-bottom:1px solid var(--border);padding:1.2rem 1.5rem;z-index:890}
+.nav-drawer.open{display:block}
+.nav-drawer a{display:block;font-family:var(--mono);font-size:.8rem;color:var(--muted2);letter-spacing:.08em;text-transform:uppercase;padding:.65rem 0;border-bottom:1px solid var(--border);transition:color .2s;text-decoration:none}
+.nav-drawer a:hover{color:var(--gold)}
+.nav-drawer a:last-child{border-bottom:none}
+@media(max-width:700px){.nav-links{display:none}.nav-ham{display:flex}}
 
 .page-hero{padding:5rem 2rem 4.5rem;position:relative;overflow:hidden}
 .page-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 55% 35% at 80% 50%,rgba(201,168,76,.04),transparent 65%);pointer-events:none}
 .ph-inner{max-width:900px;margin:0 auto;position:relative;z-index:1}
-.ph-breadcrumb{font-family:var(--mono);font-size:.44rem;letter-spacing:.1em;color:var(--muted2);margin-bottom:1.8rem;display:flex;align-items:center;gap:.5rem}
+.ph-breadcrumb{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:var(--muted2);margin-bottom:1.8rem;display:flex;align-items:center;gap:.5rem}
 .ph-breadcrumb a{color:var(--muted2)}.ph-breadcrumb a:hover{color:var(--gold)}
 .ph-breadcrumb span{color:rgba(201,168,76,.3)}
-.ph-label{font-family:var(--mono);font-size:.52rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold2);margin-bottom:1rem;display:block}
+.ph-label{font-family:var(--mono);font-size:.75rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold2);margin-bottom:1rem;display:block}
 .ph-title{font-family:var(--display);font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;line-height:.92;letter-spacing:-.03em;margin-bottom:1.1rem}
 .ph-title em{font-style:italic;color:var(--blood)}
 .ph-lead{font-family:var(--body);font-size:1.05rem;color:var(--text2);max-width:56ch;line-height:1.85}
@@ -64,14 +83,14 @@ nav{background:rgba(6,6,14,.97);backdrop-filter:blur(16px);border-bottom:1px sol
 .principles{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin:1.5rem 0}
 @media(max-width:560px){.principles{grid-template-columns:1fr}}
 .principle{background:var(--ink2);border:1px solid var(--border);padding:1.2rem}
-.principle-n{font-family:var(--mono);font-size:.4rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold2);margin-bottom:.4rem}
+.principle-n{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold2);margin-bottom:.4rem}
 .principle-title{font-family:var(--display);font-size:.92rem;font-weight:700;color:var(--text);margin-bottom:.35rem}
 .principle-desc{font-size:.78rem;color:var(--muted);line-height:1.65}
 
 /* EVIDENCE TIERS */
 .tier-grid{display:flex;flex-direction:column;gap:.6rem;margin:1.5rem 0}
 .tier{display:flex;gap:1rem;align-items:flex-start;padding:.9rem 1rem;background:var(--ink2);border:1px solid var(--border)}
-.tier-badge{font-family:var(--mono);font-size:.4rem;letter-spacing:.12em;text-transform:uppercase;padding:.18rem .55rem;flex-shrink:0;font-weight:700;white-space:nowrap;margin-top:.1rem}
+.tier-badge{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.18rem .55rem;flex-shrink:0;font-weight:700;white-space:nowrap;margin-top:.1rem}
 .tier-badge.confirmed{color:#52b788;border:1px solid rgba(82,183,136,.3);background:rgba(82,183,136,.05)}
 .tier-badge.probable{color:var(--gold);border:1px solid rgba(201,168,76,.3);background:rgba(201,168,76,.05)}
 .tier-badge.alleged{color:var(--muted);border:1px solid var(--border);background:rgba(255,255,255,.02)}
@@ -87,7 +106,7 @@ nav{background:rgba(6,6,14,.97);backdrop-filter:blur(16px);border-bottom:1px sol
 .work-table tr:hover td{background:rgba(255,255,255,.015)}
 .wt-id{color:var(--blood);font-weight:700}
 .wt-title{color:var(--text2)}
-.wt-scope{display:inline-block;padding:.12rem .4rem;font-size:.38rem;letter-spacing:.1em;text-transform:uppercase}
+.wt-scope{display:inline-block;padding:.12rem .4rem;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
 .wt-scope.nat{color:var(--blood);border:1px solid rgba(196,30,58,.2);background:rgba(196,30,58,.04)}
 .wt-scope.intl{color:var(--gold);border:1px solid rgba(201,168,76,.2);background:rgba(201,168,76,.04)}
 .wt-date{color:var(--muted2)}
@@ -97,7 +116,7 @@ nav{background:rgba(6,6,14,.97);backdrop-filter:blur(16px);border-bottom:1px sol
 .contact-block{background:var(--ink2);border:1px solid var(--border);border-top:3px solid var(--blood);padding:2rem;margin-top:3rem}
 .contact-block h3{font-family:var(--display);font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:.6rem}
 .contact-block p{font-size:.85rem;color:var(--muted);line-height:1.75;margin-bottom:1.2rem}
-.contact-link{font-family:var(--mono);font-size:.48rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold2);padding:.6rem 1.1rem;transition:all .2s;display:inline-block}
+.contact-link{font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold2);padding:.6rem 1.1rem;transition:all .2s;display:inline-block}
 .contact-link:hover{background:rgba(201,168,76,.08)}
 
 footer{background:var(--ink2);border-top:1px solid var(--border);padding:3rem 2rem 1.8rem}
@@ -107,11 +126,11 @@ footer{background:var(--ink2);border-top:1px solid var(--border);padding:3rem 2r
 .fb3{font-family:var(--display);font-size:1.3rem;font-weight:900;color:var(--text);margin-bottom:.4rem}
 .fb3 em{font-style:italic;color:var(--blood)}
 .fst{font-size:.76rem;color:var(--muted);line-height:1.7;max-width:26ch}
-.fc h5{font-family:var(--mono);font-size:.42rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted2);margin-bottom:.65rem;border-bottom:1px solid var(--border);padding-bottom:.4rem}
+.fc h5{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted2);margin-bottom:.65rem;border-bottom:1px solid var(--border);padding-bottom:.4rem}
 .fc ul{list-style:none}.fc li{margin-bottom:.35rem}
-.fc a{font-size:.76rem;color:var(--muted)}.fc a:hover{color:var(--text)}
+.fc a{font-size:.85rem;color:var(--muted)}.fc a:hover{color:var(--text)}
 .fbot{max-width:900px;margin:1.3rem auto 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-.fc4{font-family:var(--mono);font-size:.4rem;color:var(--muted2);line-height:1.8}
+.fc4{font-family:var(--mono);font-size:.72rem;color:var(--muted2);line-height:1.8}
 .fc4 a{color:var(--muted);border-bottom:1px solid var(--border)}.fc4 a:hover{color:var(--text)}
 
 @keyframes fadein{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
@@ -130,7 +149,20 @@ footer{background:var(--ink2);border-top:1px solid var(--border);padding:3rem 2r
     <a class="nlink" href="/methods/">Methods</a>
     <a class="nlink hot" href="/investigations/national/impunity-machine-visual.html">Visual&#160;Story&#160;&#8599;</a>
   </div>
+  <button class="nav-ham" id="navHam" aria-label="Open navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="nav-drawer" id="navDrawer">
+  <a href="/">Home</a>
+  <a href="/investigations/">Investigations</a>
+  <a href="/topics/">Topics</a>
+  <a href="/analysis/">Analysis</a>
+  <a href="/about/">About</a>
+  <a href="/methods/">Methods</a>
+  <a href="/investigations/national/impunity-machine-visual.html">Visual Story ↗</a>
+</div>
 
 <div class="page-hero">
   <div class="ph-inner">
@@ -218,7 +250,7 @@ footer{background:var(--ink2);border-top:1px solid var(--border);padding:3rem 2r
     <div><div class="fb3">Insight <em>Gaps</em></div><p class="fst">Independent forensic data journalism bureau. Dhaka, Bangladesh.</p></div>
     <div class="fc"><h5>Journalism</h5><ul><li><a href="/investigations/">All Investigations</a></li><li><a href="/investigations/national/impunity-machine.html">The Impunity Machine</a></li><li><a href="/investigations/national/blood-routes.html">Blood Routes</a></li></ul></div>
     <div class="fc"><h5>Research</h5><ul><li><a href="/topics/">All Topics</a></li><li><a href="/topics/accountability/">Accountability &amp; Justice</a></li><li><a href="/topics/conflict-economics/">Conflict Economics</a></li></ul></div>
-    <div class="fc"><h5>Analysis</h5><ul><li><a href="/analysis/">All Domains</a></li><li><a href="/analysis/property-preservation/">Property Preservation</a></li></ul></div>
+    <div class="fc"><h5>Analysis</h5><ul><li><a href="/analysis/">Commissioned Work</a></li><li><a href="mailto:insightgaps@gmail.com">Request a Diagnostic</a></li></ul></div>
     <div class="fc"><h5>Bureau</h5><ul><li><a href="/about/">About</a></li><li><a href="/methods/">Methods</a></li><li><a href="mailto:insightgaps@gmail.com">Contact</a></li></ul></div>
   </div>
   <div class="fbot">
@@ -227,5 +259,22 @@ footer{background:var(--ink2);border-top:1px solid var(--border);padding:3rem 2r
   </div>
 </footer>
 
+<script>
+(function(){
+  var ham=document.getElementById('navHam'),drawer=document.getElementById('navDrawer');
+  if(!ham||!drawer)return;
+  ham.addEventListener('click',function(){
+    var open=drawer.classList.toggle('open');
+    ham.classList.toggle('open',open);
+    ham.setAttribute('aria-expanded',String(open));
+  });
+  document.addEventListener('click',function(e){
+    if(!ham.contains(e.target)&&!drawer.contains(e.target)){
+      drawer.classList.remove('open');ham.classList.remove('open');
+      ham.setAttribute('aria-expanded','false');
+    }
+  });
+})();
+</script>
 </body>
 </html>

@@ -1,74 +1,72 @@
+<style>
+.site-header{background:rgba(6,6,14,.97);border-bottom:1px solid #1e1e32;position:sticky;top:0;z-index:900;backdrop-filter:blur(16px)}
+.header-inner{max-width:1280px;margin:0 auto;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;gap:1rem}
+.logo img{height:36px;width:auto;display:block}
+.logo:hover{opacity:.8}
+.main-nav{display:flex;gap:.2rem;height:100%;align-items:center}
+.nav-item{height:100%;display:flex;align-items:center;position:relative}
+.nav-link{font-family:'JetBrains Mono','Courier New',monospace;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(196,187,181,.55);padding:.22rem .65rem;height:100%;display:flex;align-items:center;text-decoration:none;border:1px solid transparent;transition:all .2s;white-space:nowrap}
+.nav-link:hover,.nav-link.active{color:#e8e3da;border-color:#1e1e32}
+.nav-link.hot{color:#c4bfb5;border:1px solid rgba(196,30,58,.35)}
+.nav-link.hot:hover{color:#e84060;border-color:#e84060}
+.nav-ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;flex-shrink:0;padding:6px}
+.nav-ham span{display:block;width:20px;height:2px;background:#7a7590;border-radius:1px;transition:all .25s}
+.nav-ham.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.nav-ham.open span:nth-child(2){opacity:0}
+.nav-ham.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-drawer{display:none;position:fixed;top:52px;left:0;right:0;background:rgba(6,6,14,.99);border-bottom:1px solid #1e1e32;padding:1.2rem 1.5rem;z-index:890}
+.nav-drawer.open{display:block}
+.nav-drawer a{display:block;font-family:'JetBrains Mono','Courier New',monospace;font-size:.8rem;color:#7a7590;letter-spacing:.08em;text-transform:uppercase;padding:.65rem 0;border-bottom:1px solid #1e1e32;transition:color .2s;text-decoration:none}
+.nav-drawer a:hover{color:#c9a84c}
+.nav-drawer a:last-child{border-bottom:none}
+@media(max-width:760px){.main-nav{display:none}.nav-ham{display:flex}}
+</style>
+
 <header class="site-header" role="banner">
   <div class="header-inner">
     <a href="/" class="logo" aria-label="Insight Gaps — Home">
-      <img src="/logo.png" alt="Insight Gaps" width="auto" height="42">
+      <img src="/logo.png" alt="Insight Gaps" width="auto" height="36">
     </a>
     <nav class="main-nav" role="navigation" aria-label="Main navigation">
-
-      <div class="nav-item">
-        <a href="/" class="nav-link">Home</a>
-      </div>
-
-      <div class="nav-item">
-        <a href="/investigations/" class="nav-link">Investigations</a>
-      </div>
-
-      <div class="nav-item">
-        <a href="/topics/" class="nav-link">Topics ▾</a>
-        <div class="mega-menu-container" role="region" aria-label="Topics submenu">
-          <div class="mega-sidebar">
-            <a href="/topics/accountability/" class="mega-sidebar-link">Accountability &amp; Justice</a>
-            <a href="/topics/conflict-economics/" class="mega-sidebar-link">Conflict Economics</a>
-            <a href="/topics/operational-intelligence/" class="mega-sidebar-link">Operational Intelligence</a>
-          </div>
-          <div class="mega-content">
-            <p class="mega-section-label">Research Programs</p>
-            <div class="mega-grid">
-              <a href="/topics/accountability/" class="mega-grid-link">Impunity Machine</a>
-              <a href="/topics/accountability/" class="mega-grid-link">Blood Routes</a>
-              <a href="/topics/conflict-economics/" class="mega-grid-link">Hidden Tax of War</a>
-              <a href="/topics/operational-intelligence/" class="mega-grid-link">Property Preservation</a>
-              <span class="mega-grid-link" style="opacity:0.35;cursor:not-allowed;">Corruption Networks</span>
-              <span class="mega-grid-link" style="opacity:0.35;cursor:not-allowed;">Governance Failures</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="nav-item">
-        <a href="/data/" class="nav-link">Data</a>
-      </div>
-
-      <div class="nav-item">
-        <a href="/analysis/" class="nav-link">Analysis ▾</a>
-        <div class="mega-menu-container" role="region" aria-label="Analysis submenu">
-          <div class="mega-sidebar">
-            <a href="/analysis/property-preservation/" class="mega-sidebar-link">Property Preservation</a>
-            <a href="#" class="mega-sidebar-link" style="opacity:0.4;cursor:not-allowed;" aria-disabled="true">Financial Erosion</a>
-            <a href="#" class="mega-sidebar-link" style="opacity:0.4;cursor:not-allowed;" aria-disabled="true">Compliance Gaps</a>
-          </div>
-          <div class="mega-content">
-            <p class="mega-section-label">Property Preservation Reports</p>
-            <div class="mega-grid">
-              <a href="/analysis/property-preservation/financial-health.html" class="mega-grid-link">Cash Flow Risk</a>
-              <a href="/analysis/property-preservation/leakage-breakdown.html" class="mega-grid-link">Profit Leakage</a>
-              <a href="/analysis/property-preservation/work-order-breakdown.html" class="mega-grid-link">Work Order Risk</a>
-              <span class="mega-grid-link" style="opacity:0.35;cursor:not-allowed;">CRM Sync Failures</span>
-              <span class="mega-grid-link" style="opacity:0.35;cursor:not-allowed;">GeoTagging Risks</span>
-              <span class="mega-grid-link" style="opacity:0.35;cursor:not-allowed;">Metadata Loss</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="nav-item">
-        <a href="/about/" class="nav-link">About</a>
-      </div>
-
-      <div class="nav-item">
-        <a href="/methods/" class="nav-link">Methods</a>
-      </div>
-
+      <div class="nav-item"><a href="/" class="nav-link">Home</a></div>
+      <div class="nav-item"><a href="/investigations/" class="nav-link">Investigations</a></div>
+      <div class="nav-item"><a href="/topics/" class="nav-link">Topics</a></div>
+      <div class="nav-item"><a href="/analysis/" class="nav-link">Analysis</a></div>
+      <div class="nav-item"><a href="/about/" class="nav-link">About</a></div>
+      <div class="nav-item"><a href="/methods/" class="nav-link">Methods</a></div>
+      <div class="nav-item"><a href="/investigations/national/impunity-machine-visual.html" class="nav-link hot">Visual&nbsp;Story&nbsp;↗</a></div>
     </nav>
+    <button class="nav-ham" id="sharedNavHam" aria-label="Open navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
+
+<div class="nav-drawer" id="sharedNavDrawer" role="navigation" aria-label="Mobile navigation">
+  <a href="/">Home</a>
+  <a href="/investigations/">Investigations</a>
+  <a href="/topics/">Topics</a>
+  <a href="/analysis/">Analysis</a>
+  <a href="/about/">About</a>
+  <a href="/methods/">Methods</a>
+  <a href="/investigations/national/impunity-machine-visual.html">Visual Story ↗</a>
+</div>
+
+<script>
+(function(){
+  var ham = document.getElementById('sharedNavHam');
+  var drawer = document.getElementById('sharedNavDrawer');
+  if(!ham||!drawer) return;
+  ham.addEventListener('click',function(){
+    var open=drawer.classList.toggle('open');
+    ham.classList.toggle('open',open);
+    ham.setAttribute('aria-expanded',String(open));
+  });
+  document.addEventListener('click',function(e){
+    if(!ham.contains(e.target)&&!drawer.contains(e.target)){
+      drawer.classList.remove('open');ham.classList.remove('open');
+      ham.setAttribute('aria-expanded','false');
+    }
+  });
+})();
+</script>
