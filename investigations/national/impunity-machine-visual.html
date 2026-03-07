@@ -3,373 +3,235 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="The Impunity Machine — A visual scrollytelling investigation into Bangladesh's rape justice crisis. BD-INV-002 · Insight Gaps.">
-<meta property="og:title" content="The Impunity Machine · Visual Investigation · Insight Gaps">
-<meta property="og:description" content="310 convictions from 66,711 survivors. Every link in the chain of impunity — animated.">
-<meta property="og:type" content="article">
+<meta name="description" content="The Impunity Machine — A visual data investigation into Bangladesh's rape justice crisis. BD-INV-002.">
 <title>The Impunity Machine · Visual Investigation · Insight Gaps</title>
-<link rel="icon" href="/favicon.png" type="image/png">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4PYE0MEK12"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4PYE0MEK12');</script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#06060e;--ink2:#0d0d1a;--ink3:#12121f;--ink4:#0a0a15;
-  --border:#1c1c2e;--border2:#252535;--text:#e8e3da;--text2:#c4bfb5;--muted:#7a7590;--muted2:#3a3850;
+  --ink:#06060e;--ink2:#0d0d18;--ink3:#12121e;
+  --border:#1e1e32;--text:#e8e3da;--text2:#c4bfb5;--muted:#7a7590;--muted2:#3e3c50;
   --blood:#c41e3a;--bloodl:#e84060;--bloodd:#8b1428;
-  --gold:#c9a84c;--gold2:#9a7e36;--goldl:#e2c87e;
+  --gold:#c9a84c;--gold2:#9a7e36;
   --amber:#d4a060;--amberl:#e8c080;
   --green:#2d6a4f;--greenl:#52b788;
-  --teal:#40b8b8;
+  --teall:#40c0c0;
   --mono:"JetBrains Mono","Courier New",monospace;
   --display:"Playfair Display",Georgia,serif;
   --body:"Lora",Georgia,serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--ink);color:var(--text);font-family:var(--body);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{background:var(--ink);color:var(--text);font-family:var(--body);overflow-x:hidden}
 a{color:var(--gold);text-decoration:none}
-img{max-width:100%}
-
-/* ─── SITE NAV BAR ─── */
-.series-bar{background:rgba(6,6,14,.98);border-bottom:1px solid var(--border);padding:.5rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
-.sb-left{display:flex;align-items:center;gap:.6rem;font-family:var(--mono);font-size:.48rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
-.sb-sep{color:var(--muted2)}
-.sb-inv{color:var(--gold);font-weight:700}
-.sb-right{display:flex;gap:.5rem;flex-wrap:wrap}
-.sb-btn{font-family:var(--mono);font-size:.44rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border:1px solid var(--muted2);padding:.22rem .7rem;transition:all .2s;white-space:nowrap}
-.sb-btn:hover{color:var(--gold);border-color:var(--gold2)}
-.sb-btn.current{color:var(--text);border-color:var(--border2);background:var(--ink2)}
-
-/* ─── INVESTIGATION NAV ─── */
-nav.inv-nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(6,6,14,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 1.5rem;height:52px;display:flex;align-items:center;justify-content:space-between;gap:1rem;transition:transform .3s}
-nav.inv-nav.hidden{transform:translateY(-100%)}
-.nav-brand{font-family:var(--mono);font-size:.54rem;color:var(--gold);letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;flex-shrink:0}
-.nav-brand span{color:var(--muted2)}
-.nav-scenes{display:flex;gap:.5rem;overflow-x:auto;scrollbar-width:none}
-.nav-scenes::-webkit-scrollbar{display:none}
-.ns-dot{width:6px;height:6px;border-radius:50%;background:var(--muted2);cursor:pointer;transition:all .25s;flex-shrink:0}
-.ns-dot.active{background:var(--gold);transform:scale(1.5)}
-.ns-dot.done{background:var(--muted)}
-.nav-links{display:flex;gap:.4rem;flex-shrink:0}
+nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(6,6,14,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 1.5rem;height:50px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.nav-brand{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+.nav-scenes{display:flex;gap:.7rem}
+.nav-scenes a{font-family:var(--mono);font-size:.42rem;color:var(--muted2);letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+.nav-scenes a:hover,.nav-scenes a.active{color:var(--gold)}
+.nav-links{display:flex;gap:.5rem}
 .nbtn{font-family:var(--mono);font-size:.42rem;color:var(--muted);border:1px solid var(--border);padding:.22rem .65rem;transition:all .2s;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
 .nbtn:hover{color:var(--gold);border-color:var(--gold2)}
-.nbtn.live{color:var(--bloodl);border-color:rgba(196,30,58,.3);animation:livepulse 2s ease-in-out infinite}
-@keyframes livepulse{0%,100%{border-color:rgba(196,30,58,.3)}50%{border-color:rgba(196,30,58,.7)}}
-@media(max-width:640px){.nav-scenes{display:none}.nbtn:not(.live){display:none}}
+.nbtn.hot{color:var(--text2);border-color:rgba(200,30,58,.4)}
+.nbtn.hot:hover{color:var(--bloodl);border-color:var(--bloodl)}
+@media(max-width:900px){.nav-scenes{display:none}}
+@media(max-width:600px){.nbtn:not(.hot){display:none}}
 
-/* ─── FLOATING COUNTER ─── */
-.float-counter{position:fixed;bottom:1.5rem;right:1.5rem;z-index:800;background:rgba(12,12,20,.95);border:1px solid rgba(196,30,58,.25);padding:.6rem .9rem;text-align:center;backdrop-filter:blur(12px);max-width:160px;transition:opacity .3s}
-.fc-num{font-family:var(--mono);font-size:1.8rem;font-weight:700;color:var(--bloodl);line-height:1}
-.fc-lbl{font-family:var(--mono);font-size:.38rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-top:.3rem;line-height:1.5}
-@media(max-width:480px){.float-counter{bottom:1rem;right:1rem;padding:.5rem .7rem}.fc-num{font-size:1.4rem}}
-
-/* ─── HERO ─── */
-#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:5rem 2rem 4rem;position:relative;overflow:hidden}
-#hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 80% 55% at 50% 35%,rgba(196,30,58,.09),transparent 65%)}
-#hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 48px,rgba(30,30,50,.04) 48px,rgba(30,30,50,.04) 49px),repeating-linear-gradient(90deg,transparent,transparent 48px,rgba(30,30,50,.03) 48px,rgba(30,30,50,.03) 49px);pointer-events:none}
-.hero-eyebrow{font-family:var(--mono);font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:var(--bloodl);margin-bottom:2.5rem;animation:fadein .9s ease .2s both;position:relative;z-index:1}
-.hero-prob{font-family:var(--mono);font-size:clamp(5rem,16vw,11rem);font-weight:700;color:var(--bloodl);line-height:.88;letter-spacing:-.04em;text-shadow:0 0 140px rgba(200,30,58,.3);margin-bottom:.4rem;position:relative;z-index:1;animation:fadein .9s ease .4s both}
-.hero-prob-sub{font-family:var(--mono);font-size:.68rem;color:var(--muted);letter-spacing:.16em;text-transform:uppercase;margin-bottom:3.5rem;position:relative;z-index:1;animation:fadein .9s ease .6s both}
-.hero-stmts{display:flex;flex-direction:column;gap:.4rem;margin:1.5rem 0;position:relative;z-index:1}
-.hs{font-family:var(--display);font-size:clamp(1rem,2vw,1.5rem);color:var(--text2);opacity:0;transform:translateY(12px);transition:opacity .8s,transform .8s}
-.hs.big{font-size:clamp(1.5rem,2.6vw,2.2rem);font-weight:700;color:var(--text)}
+#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden}
+#hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 30%,rgba(196,30,58,.08),transparent 65%)}
+#hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 40px,rgba(30,30,48,.05) 40px,rgba(30,30,48,.05) 41px),repeating-linear-gradient(90deg,transparent,transparent 40px,rgba(30,30,48,.04) 40px,rgba(30,30,48,.04) 41px);pointer-events:none}
+.hero-eyebrow{font-family:var(--mono);font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:var(--bloodl);margin-bottom:2rem;animation:fadein 1s ease .3s both;position:relative;z-index:1}
+.hero-prob{font-family:var(--mono);font-size:clamp(4.5rem,14vw,10rem);font-weight:700;color:var(--bloodl);line-height:.9;letter-spacing:-.04em;text-shadow:0 0 120px rgba(200,30,58,.35);margin-bottom:.5rem;position:relative;z-index:1}
+.hero-prob-sub{font-family:var(--mono);font-size:.72rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:3rem;position:relative;z-index:1}
+.hero-statements{display:flex;flex-direction:column;gap:.3rem;margin:2rem 0;position:relative;z-index:1}
+.hs{font-family:var(--display);font-size:clamp(1.1rem,2.2vw,1.6rem);color:var(--text2);opacity:0;transform:translateY(10px);transition:opacity .8s,transform .8s}
+.hs.big{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;color:var(--text)}
 .hs strong{color:var(--bloodl)}
 .hs.vis{opacity:1;transform:none}
-.hero-title{font-family:var(--display);font-size:clamp(3.5rem,11vw,8.5rem);font-weight:900;line-height:.88;letter-spacing:-.04em;margin-top:3rem;opacity:0;transition:opacity 1s ease 2s;position:relative;z-index:1}
+.hero-title{font-family:var(--display);font-size:clamp(3.5rem,10vw,8rem);font-weight:900;line-height:.9;letter-spacing:-.04em;margin-top:3.5rem;opacity:0;transition:opacity 1s ease 2.2s;position:relative;z-index:1}
 .hero-title em{font-style:italic;color:var(--blood)}
 .hero-title.vis{opacity:1}
-.hero-subtitle{font-family:var(--mono);font-size:.54rem;color:var(--muted2);letter-spacing:.16em;text-transform:uppercase;margin-top:.8rem;opacity:0;transition:opacity 1s ease 2.6s;position:relative;z-index:1}
-.hero-subtitle.vis{opacity:1}
-.scroll-cue{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;animation:bob 2.5s ease-in-out infinite;opacity:.45;z-index:1;cursor:pointer}
-.scroll-cue span{font-family:var(--mono);font-size:.42rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted2)}
-@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(9px)}}
-@keyframes fadein{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.hero-sub-title{font-family:var(--mono);font-size:.54rem;color:var(--muted2);letter-spacing:.14em;text-transform:uppercase;margin-top:1rem;opacity:0;transition:opacity 1s ease 2.8s;position:relative;z-index:1}
+.hero-sub-title.vis{opacity:1}
+.scroll-dn{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;animation:bob 2.5s ease-in-out infinite;opacity:.5;z-index:1}
+.scroll-dn span{font-family:var(--mono);font-size:.44rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted2)}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+@keyframes fadein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
-/* ─── SCENE STRUCTURE ─── */
 .scene{position:relative}
-.scene-title{text-align:center;padding:5rem 2rem 0;max-width:820px;margin:0 auto}
-.scene-title .eyebrow{font-family:var(--mono);font-size:.54rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);margin-bottom:.7rem}
+.scene-title{text-align:center;padding:5rem 2rem 0;max-width:800px;margin:0 auto}
+.scene-title .eyebrow{font-family:var(--mono);font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);margin-bottom:.8rem}
 .scene-title h2{font-family:var(--display);font-size:clamp(1.8rem,3.5vw,3rem);font-weight:700;letter-spacing:-.02em;line-height:1.1}
-.scene-title p{margin-top:.9rem;color:var(--muted);font-size:.88rem;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.75}
-.scroll-scene{display:grid;grid-template-columns:52% 48%;align-items:flex-start;max-width:1320px;margin:0 auto;padding:0 2rem}
-.viz-sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:1rem}
-.steps-col{padding:16vh 2rem 28vh}
-.step{min-height:80vh;display:flex;flex-direction:column;justify-content:center;padding:2rem 0;transition:opacity .5s,transform .4s}
-.step:not(.active){opacity:.18}
-.step.active{opacity:1}
-.step-num{font-family:var(--mono);font-size:.48rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);margin-bottom:.6rem}
-.step h3{font-family:var(--display);font-size:clamp(1.2rem,1.9vw,1.6rem);font-weight:700;line-height:1.25;margin-bottom:.75rem}
-.step p{font-size:.88rem;color:var(--muted);line-height:1.9}
+.scene-title p{margin-top:.8rem;color:var(--muted);font-size:.9rem;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.7}
+.scroll-scene{display:grid;grid-template-columns:55% 45%;align-items:flex-start;max-width:1280px;margin:0 auto;padding:0 2rem}
+.viz-sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.steps-col{padding:15vh 2rem 30vh}
+.step{min-height:80vh;display:flex;flex-direction:column;justify-content:center;padding:2rem 0;transition:opacity .5s}
+.step:not(.active){opacity:.2}
+.step-num{font-family:var(--mono);font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold2);margin-bottom:.6rem}
+.step h3{font-family:var(--display);font-size:clamp(1.2rem,2vw,1.6rem);font-weight:700;line-height:1.25;margin-bottom:.7rem}
+.step p{font-size:.88rem;color:var(--muted);line-height:1.85}
 .step p strong{color:var(--text)}
-.step .stat{font-family:var(--mono);font-size:clamp(2rem,4.5vw,3.8rem);font-weight:700;color:var(--bloodl);line-height:1;margin:.5rem 0}
+.step .stat{font-family:var(--mono);font-size:clamp(2rem,4vw,3.5rem);font-weight:700;color:var(--bloodl);line-height:1;margin:.5rem 0}
 .step .stat.gold{color:var(--gold)}
 .step .stat.green{color:var(--greenl)}
-.step .note{font-family:var(--mono);font-size:.44rem;color:var(--muted2);margin-top:.9rem;line-height:1.8;border-left:2px solid var(--border2);padding-left:.9rem}
+.step .note{font-family:var(--mono);font-size:.46rem;color:var(--muted2);margin-top:.8rem;line-height:1.75;border-left:2px solid var(--border);padding-left:.8rem}
+.ok{color:var(--greenl)}
+.prob{color:var(--gold)}
 .full-scene{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6rem 2rem;position:relative}
 .full-scene.dark{background:var(--ink2)}
 .divider{border:none;border-top:1px solid var(--border);margin:0}
-.ok{color:var(--greenl)}
-.prob{color:var(--gold)}
 
-/* ─── MOBILE SCROLLYTELLING ─── */
-@media(max-width:900px){
-  .scroll-scene{display:block}
-  .viz-sticky{position:relative;height:auto;min-height:auto;padding:2rem 1rem 1rem;top:auto}
-  .steps-col{padding:2rem 1.5rem 4rem}
-  .step{min-height:auto;padding:2.5rem 0;border-bottom:1px solid var(--border2)}
-  .step:not(.active){opacity:1}
-  .step:last-child{border-bottom:none}
-}
+.clock-pair{display:flex;gap:clamp(2rem,6vw,6rem);align-items:center;justify-content:center;flex-wrap:wrap;margin:3rem 0}
+.clock-card{text-align:center}
+.clock-label{font-family:var(--mono);font-size:.52rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:1rem;line-height:1.6}
+.clock-num{font-family:var(--mono);font-size:clamp(1.8rem,4vw,3rem);font-weight:700;margin-top:.8rem}
+.clock-unit{font-family:var(--mono);font-size:.56rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-top:.25rem}
+.clock-name{font-size:.8rem;color:var(--muted);margin-top:.4rem;font-style:italic;line-height:1.5}
 
-/* ─── SCENE 01: FUNNEL ─── */
-.dot-status-bar{position:absolute;bottom:-2.5rem;left:0;right:0;text-align:center;font-family:var(--mono);font-size:.5rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
-
-/* ─── SCENE 02: CLOCKS ─── */
-.clock-pair{display:flex;gap:clamp(2rem,7vw,7rem);align-items:flex-start;justify-content:center;flex-wrap:wrap;margin:3rem 0}
-.clock-card{text-align:center;max-width:220px}
-.clock-label{font-family:var(--mono);font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1rem;line-height:1.7}
-.clock-num{font-family:var(--mono);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;margin-top:.8rem}
-.clock-unit{font-family:var(--mono);font-size:.52rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-top:.25rem}
-.clock-name{font-size:.78rem;color:var(--muted);margin-top:.5rem;font-style:italic;line-height:1.55}
-.clock-caption{max-width:660px;text-align:center;opacity:0;transition:opacity .8s;margin-top:1.5rem}
-.clock-caption.vis{opacity:1}
-
-/* ─── SCENE 03: INVERSION ─── */
-.inv-wrap{width:100%;max-width:660px}
+.inv-wrap{width:100%;max-width:640px}
 .inv-block{margin-bottom:2.5rem}
-.inv-label-row{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:.5rem;flex-wrap:wrap;gap:.3rem}
-.inv-who{font-family:var(--mono);font-size:.52rem;text-transform:uppercase;letter-spacing:.08em}
+.inv-label-row{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:.5rem}
+.inv-who{font-family:var(--mono);font-size:.54rem;text-transform:uppercase;letter-spacing:.1em}
 .inv-daycount{font-family:var(--mono);font-size:1.5rem;font-weight:700;line-height:1}
-.inv-track{height:46px;background:rgba(255,255,255,.025);border:1px solid var(--border);position:relative;overflow:hidden}
+.inv-track{height:42px;background:rgba(255,255,255,.03);border:1px solid var(--border);position:relative;overflow:hidden}
 .inv-fill{height:100%;width:0;transition:width 2s cubic-bezier(.35,0,.15,1)}
-.inv-fill-lbl{position:absolute;right:10px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:.48rem;font-weight:700;white-space:nowrap;opacity:0;transition:opacity .4s .4s;color:rgba(255,255,255,.9)}
-.inv-verdict{font-family:var(--mono);font-size:.48rem;letter-spacing:.1em;text-transform:uppercase;margin-top:.45rem;opacity:0;transition:opacity .5s;line-height:1.6}
-.inv-foot{font-family:var(--mono);font-size:.42rem;color:var(--muted2);line-height:1.8;border-left:2px solid var(--border2);padding-left:.9rem;margin-top:.65rem}
-.inv-quote{opacity:0;transition:opacity .8s;margin-top:2.5rem;border-left:3px solid rgba(196,30,58,.4);padding-left:1.2rem}
-.inv-quote.vis{opacity:1}
+.inv-fill-lbl{position:absolute;right:10px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:.5rem;font-weight:700;white-space:nowrap;opacity:0;transition:opacity .4s .4s;color:rgba(255,255,255,.9)}
+.inv-verdict{font-family:var(--mono);font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;margin-top:.45rem;opacity:0;transition:opacity .5s;line-height:1.5}
+.inv-foot{font-family:var(--mono);font-size:.44rem;color:var(--muted2);line-height:1.7;border-left:2px solid var(--border);padding-left:.8rem;margin-top:.6rem}
 
-/* ─── SCENE 04: RACE BARS ─── */
-.race-container{width:100%;max-width:640px}
-.denom-warn{font-family:var(--mono);font-size:.44rem;color:rgba(200,30,58,.8);border:1px solid rgba(200,30,58,.2);border-left:3px solid var(--bloodl);padding:.65rem .9rem;margin-bottom:1.4rem;line-height:1.75;background:rgba(196,30,58,.04)}
-.scale-note{font-family:var(--mono);font-size:.42rem;color:var(--muted2);border:1px solid var(--border2);padding:.5rem .8rem;margin-bottom:1.4rem;line-height:1.7;background:rgba(201,168,76,.03)}
-.race-row{margin-top:1.2rem}
-.race-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:.35rem}
-.race-country{font-family:var(--mono);font-size:.54rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text2)}
-.race-val{font-family:var(--mono);font-size:1.2rem;font-weight:700}
-.race-track{height:38px;background:rgba(255,255,255,.025);border:1px solid var(--border);position:relative;overflow:hidden}
-.race-bar{height:100%;width:0;transition:width 1.8s cubic-bezier(.25,0,.2,1);display:flex;align-items:center;justify-content:flex-end;padding-right:6px;font-family:var(--mono);font-size:.44rem;font-weight:700;color:rgba(0,0,0,.7);position:relative;min-width:0}
-.race-bar-note{font-family:var(--mono);font-size:.42rem;color:var(--muted2);margin-top:.3rem;line-height:1.6}
-.race-bd-callout{font-family:var(--mono);font-size:.46rem;color:var(--bloodl);border:1px solid rgba(196,30,58,.3);padding:.55rem .85rem;margin-top:1.2rem;line-height:1.8;background:rgba(196,30,58,.04);opacity:0;transition:opacity .6s}
-.race-bd-callout.vis{opacity:1}
+.race-container{width:100%;max-width:640px;padding:0 1rem}
+.race-row{margin-bottom:1.4rem}
+.race-label{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.4rem}
+.race-country{font-family:var(--mono);font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text2)}
+.race-val{font-family:var(--mono);font-size:.6rem;font-weight:700}
+.race-track{height:28px;background:rgba(255,255,255,.04);border:1px solid var(--border);position:relative;overflow:hidden}
+.race-bar{height:100%;width:0;transition:width 1.4s cubic-bezier(.4,0,.2,1);position:relative}
+.race-bar::after{content:attr(data-val);position:absolute;right:8px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:.5rem;font-weight:700;color:rgba(255,255,255,.9);white-space:nowrap}
+.race-note{font-family:var(--mono);font-size:.44rem;color:var(--muted2);margin-top:.3rem;line-height:1.5}
+.denom-warn{background:rgba(196,30,58,.07);border:1px solid rgba(196,30,58,.2);border-left:3px solid var(--bloodl);padding:.7rem 1rem;font-family:var(--mono);font-size:.46rem;color:rgba(232,64,96,.85);line-height:1.7;margin-bottom:1.5rem}
 
-/* ─── SCENE 05: BACKLOG ─── */
-.chart-legend{display:flex;gap:1rem;margin-top:.5rem;flex-wrap:wrap}
-.leg-item{display:flex;align-items:center;gap:.35rem;font-family:var(--mono);font-size:.44rem;color:var(--muted2)}
-.leg-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.chart-legend{display:flex;gap:1rem;margin-top:.8rem;flex-wrap:wrap}
+.leg-item{display:flex;align-items:center;gap:.4rem;font-family:var(--mono);font-size:.44rem;color:var(--muted2);letter-spacing:.04em}
+.leg-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0}
 
-/* ─── SCENE 06: MAP ─── */
-.div-label-svg{font-family:"JetBrains Mono",monospace;font-size:8px;fill:rgba(228,225,218,.7);text-anchor:middle;pointer-events:none}
-.occ-dot{fill:var(--gold);r:6;filter:drop-shadow(0 0 4px rgba(201,168,76,.5));transition:opacity .4s}
-.occ-dot:not(.vis){opacity:0}
-@keyframes vpulse{0%,100%{opacity:.3;r:28}50%{opacity:.9;r:36}}
-.map-info-box{background:var(--ink3);border:1px solid var(--border2);padding:.8rem 1rem;font-family:var(--mono);font-size:.5rem;line-height:1.7;min-height:68px;margin-top:.6rem}
+.occ-dot{fill:var(--gold);filter:drop-shadow(0 0 4px rgba(201,168,76,.7));opacity:0;transition:opacity .6s}
+.occ-dot.vis{opacity:1}
+.div-label-svg{font-family:"JetBrains Mono","Courier New",monospace;font-size:9px;fill:rgba(255,255,255,.85);text-anchor:middle;pointer-events:none}
 
-/* ─── SCENE 07: EVIDENCE ─── */
 .fwrap{width:100%;max-width:680px}
-.fstat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2.5rem}
-.fstat{background:rgba(255,255,255,.02);border:1px solid var(--border);padding:1rem;text-align:center}
-.fstat-val{font-family:var(--mono);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;margin-bottom:.4rem;line-height:1}
-.fstat-lbl{font-family:var(--mono);font-size:.42rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.08em;line-height:1.6}
-.evbar-section{margin-bottom:2.2rem}
-.evbar-label{font-family:var(--mono);font-size:.48rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text2);margin-bottom:.5rem;display:flex;justify-content:space-between;align-items:center}
-.evbar-qual{font-family:var(--mono);font-size:.42rem;color:var(--muted2)}
-.evbar-track{position:relative;background:rgba(255,255,255,.02);border:1px solid var(--border);overflow:visible;margin-bottom:.6rem}
-.evbar-fill{height:100%;width:0;transition:width 2s cubic-bezier(.35,0,.15,1)}
-.ev-tick{position:absolute;top:-2px;bottom:-2px;width:2px;background:rgba(255,255,255,.25);pointer-events:none}
-.ev-tick-lbl{position:absolute;top:-18px;font-family:var(--mono);font-size:.35rem;color:var(--muted2);transform:translateX(-50%);white-space:nowrap}
-.ev-avg-tick{position:absolute;top:-2px;bottom:-2px;width:2px;background:rgba(201,168,76,.5)}
-.ev-avg-lbl{position:absolute;top:-18px;font-family:var(--mono);font-size:.35rem;color:var(--gold);transform:translateX(-50%);white-space:nowrap}
+.fstat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem}
+.fstat{background:var(--ink3);border:1px solid var(--border);padding:1rem;text-align:center}
+.fstat-val{font-family:var(--mono);font-size:clamp(1.4rem,3vw,2rem);font-weight:700;line-height:1}
+.fstat-lbl{font-family:var(--mono);font-size:.42rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-top:.3rem;line-height:1.5}
+.evbar-row{margin-bottom:1.1rem}
+.evbar-lbl{font-family:var(--mono);font-size:.46rem;color:var(--text2);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.4rem}
+.evbar-track{height:22px;background:rgba(255,255,255,.03);border:1px solid var(--border);position:relative;overflow:hidden}
+.evbar-fill{height:100%;position:absolute;left:0;top:0;width:0;transition:width 1.2s ease}
 .fsub-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem}
-.fsub{background:rgba(255,255,255,.02);border:1px solid var(--border2);padding:.8rem 1rem}
-@media(max-width:600px){.fstat-row{grid-template-columns:1fr 1fr}.fstat:nth-child(3){grid-column:span 2}.fsub-grid{grid-template-columns:1fr}}
+.fsub{background:rgba(255,255,255,.02);border:1px solid var(--border);padding:.9rem 1rem}
 
-/* ─── SCENE 08: SCATTER ─── */
-.scatter-note{font-family:var(--mono);font-size:.44rem;color:var(--muted2);margin-top:.6rem;line-height:1.6}
+.void-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:1.1rem;max-width:1100px;width:100%;margin:2rem 0}
+.void-card{background:var(--ink3);border:1px solid var(--border);padding:1.3rem;display:flex;flex-direction:column;align-items:center;text-align:center;opacity:0;transform:scale(.96);transition:opacity .55s,transform .55s}
+.void-card.vis{opacity:1;transform:scale(1)}
+.void-circle{position:relative;width:60px;height:60px;margin:0 auto .7rem}
+.void-core{width:100%;height:100%;border-radius:50%;border:1px solid rgba(196,30,58,.25);background:radial-gradient(circle,rgba(196,30,58,.04) 0%,rgba(6,6,14,.95) 70%);animation:vpulse 3s ease-in-out infinite}
+@keyframes vpulse{0%,100%{box-shadow:0 0 0 0 rgba(196,30,58,.25)}50%{box-shadow:0 0 0 7px rgba(196,30,58,.07)}}
+.void-inner{position:absolute;inset:22%;border-radius:50%;background:#06060e;border:1px solid rgba(30,30,48,.7)}
+.void-gapid{font-family:var(--mono);font-size:.38rem;color:rgba(196,30,58,.4);margin-bottom:.25rem;letter-spacing:.1em}
+.void-lbl{font-family:var(--mono);font-size:.46rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;line-height:1.5;margin-top:.35rem}
+.void-why{font-size:.74rem;color:var(--muted2);margin-top:.3rem;line-height:1.5;font-style:italic}
 
-/* ─── SCENE 09: VOIDS ─── */
-.void-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1.2rem;max-width:1100px;width:100%;margin-top:2.5rem}
-@media(max-width:900px){.void-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:600px){.void-grid{grid-template-columns:repeat(2,1fr)}}
-.void-card{background:rgba(255,255,255,.015);border:1px solid var(--border2);padding:1.2rem .9rem;text-align:center;opacity:0;transform:translateY(16px) scale(.97);transition:opacity .5s,transform .5s;position:relative;overflow:hidden}
-.void-card::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(196,30,58,.07),transparent);pointer-events:none}
-.void-card.vis{opacity:1;transform:none}
-.void-gapid{font-family:var(--mono);font-size:.42rem;color:var(--bloodl);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.8rem;opacity:.7}
-.void-circle{width:44px;height:44px;border-radius:50%;background:rgba(196,30,58,.06);border:1px solid rgba(196,30,58,.2);margin:0 auto .8rem;display:flex;align-items:center;justify-content:center;position:relative}
-.void-core{width:12px;height:12px;border-radius:50%;background:rgba(196,30,58,.4)}
-.void-inner{position:absolute;inset:4px;border-radius:50%;border:1px solid rgba(196,30,58,.15)}
-.void-lbl{font-family:var(--mono);font-size:.46rem;color:var(--text2);line-height:1.6;margin-bottom:.6rem;text-transform:uppercase;letter-spacing:.05em}
-.void-why{font-size:.74rem;color:var(--muted);line-height:1.65;font-family:var(--body)}
-.void-conclusion{max-width:700px;text-align:center;margin-top:2.5rem;opacity:0;transition:opacity .8s}
-.void-conclusion.vis{opacity:1}
+.ivs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:.9rem;max-width:960px;width:100%;margin:2rem 0}
+.iv{border:1px solid var(--border);padding:1.1rem 1.3rem;background:rgba(255,255,255,.018)}
+.iv-n{font-family:var(--mono);font-size:.46rem;color:var(--gold2);letter-spacing:.12em;margin-bottom:.35rem}
+.iv-t{font-family:var(--display);font-size:.95rem;font-weight:700;margin-bottom:.35rem;line-height:1.25}
+.iv-d{font-size:.78rem;color:var(--muted);line-height:1.65}
+.iv-m{font-family:var(--mono);font-size:.42rem;color:var(--greenl);margin-top:.45rem;opacity:.75}
 
-/* ─── SCENE 10: LIVE RECORD ─── */
-#s10{background:var(--ink4);border-top:2px solid rgba(196,30,58,.5)}
-.live-header{max-width:800px;margin:0 auto;text-align:center;padding:4rem 2rem 2rem}
-.live-badge{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.52rem;letter-spacing:.16em;text-transform:uppercase;color:var(--bloodl);margin-bottom:1rem}
-.live-badge::before{content:"●";animation:blink 1.8s ease-in-out infinite}
-@keyframes blink{0%,100%{opacity:.3}50%{opacity:1}}
-.live-stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin:0 auto;max-width:900px}
-.lsr-item{background:var(--ink4);padding:1.2rem;text-align:center}
-.lsr-num{font-family:var(--mono);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;color:var(--gold);margin-bottom:.3rem}
-.lsr-lbl{font-family:var(--mono);font-size:.42rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.08em;line-height:1.5}
-@media(max-width:640px){.live-stats-row{grid-template-columns:repeat(2,1fr)}}
-.tabs{display:flex;border-bottom:1px solid var(--border2);max-width:900px;margin:2rem auto 0;overflow-x:auto;scrollbar-width:none}
-.tabs::-webkit-scrollbar{display:none}
-.tab-btn{font-family:var(--mono);font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:.8rem 1.2rem;border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap;cursor:pointer;background:none;border:none;border-bottom:2px solid transparent}
-.tab-btn.active{color:var(--gold);border-bottom-color:var(--gold)}
-.tab-btn:hover{color:var(--text2)}
-.tab-panel{display:none;max-width:900px;margin:0 auto;padding:1.5rem 2rem 3rem}
-.tab-panel.active{display:block}
-.case-card{background:rgba(255,255,255,.02);border:1px solid var(--border2);margin-bottom:1rem;overflow:hidden}
-.cc-header{padding:.9rem 1.1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:.8rem;transition:background .2s}
-.cc-header:hover{background:rgba(255,255,255,.03)}
-.cc-title{font-family:var(--display);font-size:1rem;font-weight:700;line-height:1.3;margin-bottom:.3rem}
-.cc-meta{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
-.cc-status{font-family:var(--mono);font-size:.42rem;letter-spacing:.1em;text-transform:uppercase;padding:.18rem .5rem;border:1px solid}
-.cc-status.conviction{color:var(--bloodl);border-color:rgba(196,30,58,.4)}
-.cc-status.pending{color:var(--gold);border-color:rgba(201,168,76,.4)}
-.cc-status.counter{color:var(--amberl);border-color:rgba(212,160,96,.4)}
-.cc-chevron{font-size:.7rem;color:var(--muted2);transition:transform .3s;flex-shrink:0;margin-top:.2rem}
-.cc-chevron.open{transform:rotate(180deg)}
-.cc-body{display:none;padding:0 1.1rem 1.1rem;border-top:1px solid var(--border2)}
-.cc-body.open{display:block}
-.tl-item{display:flex;gap:.8rem;padding:.5rem 0;border-bottom:1px solid var(--border)}
-.tl-item:last-child{border-bottom:none}
-.tl-date{font-family:var(--mono);font-size:.44rem;color:var(--muted2);white-space:nowrap;min-width:74px;padding-top:.1rem}
-.tl-event{font-size:.8rem;line-height:1.6;color:var(--text2)}
-.tl-src{font-family:var(--mono);font-size:.4rem;color:var(--muted2);margin-top:.2rem}
-.lead-item{padding:.9rem 0;border-bottom:1px solid var(--border)}
-.lead-item:last-child{border-bottom:none}
-.lead-hl{font-family:var(--display);font-size:.95rem;line-height:1.45;margin-bottom:.4rem}
-.lead-foot{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
-.lead-tier{font-family:var(--mono);font-size:.42rem;letter-spacing:.1em;text-transform:uppercase;padding:.15rem .45rem;border:1px solid}
-.lead-tier.conf{color:var(--greenl);border-color:rgba(82,183,136,.35)}
-.lead-tier.prob{color:var(--amberl);border-color:rgba(212,160,96,.35)}
-.lead-tag{font-family:var(--mono);font-size:.4rem;background:var(--border2);padding:.1rem .4rem;color:var(--muted2)}
-.lead-src{font-family:var(--mono);font-size:.42rem;color:var(--gold)}
-.monthly-row{display:flex;gap:.5rem;align-items:center;padding:.5rem 0;border-bottom:1px solid var(--border)}
-.monthly-row:last-child{border-bottom:none}
-.mr-period{font-family:var(--mono);font-size:.52rem;font-weight:700;min-width:70px;color:var(--text2)}
-.mr-bar-track{flex:1;height:8px;background:rgba(255,255,255,.04);border:1px solid var(--border);position:relative;overflow:hidden}
-.mr-bar-fill{height:100%;transition:width 1s ease .2s}
-.mr-val{font-family:var(--mono);font-size:.48rem;font-weight:700;min-width:50px;text-align:right;color:var(--text)}
-.mr-tier{font-family:var(--mono);font-size:.38rem;text-transform:uppercase;padding:.1rem .38rem;border:1px solid;margin-left:.3rem;flex-shrink:0}
-.mr-tier.conf{color:var(--greenl);border-color:rgba(82,183,136,.3)}
-.mr-tier.prob{color:var(--amberl);border-color:rgba(212,160,96,.3)}
-.mr-tier.abs{color:var(--bloodl);border-color:rgba(196,30,58,.3)}
-
-/* ─── CLOSING ─── */
-#closing{background:var(--ink2);padding:6rem 2rem;text-align:center}
-.closing-v{font-family:var(--display);font-size:clamp(2.5rem,6vw,5rem);font-weight:900;line-height:1;letter-spacing:-.03em;margin-bottom:1.5rem}
-.closing-v em{font-style:italic;color:var(--gold)}
-.closing-sub{font-size:.88rem;color:var(--muted);max-width:620px;margin:0 auto 2.5rem;line-height:1.9}
-.closing-stmt{font-family:var(--display);font-style:italic;font-size:clamp(.9rem,1.5vw,1.15rem);color:var(--text2);max-width:700px;margin:0 auto 3rem;line-height:1.9;border-left:3px solid rgba(201,168,76,.3);padding-left:1.5rem;text-align:left}
-.closing-stmt strong{font-style:normal;color:var(--gold)}
-.ivs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;max-width:1000px;margin:0 auto 3rem}
-@media(max-width:780px){.ivs{grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.ivs{grid-template-columns:1fr}}
-.iv{background:rgba(255,255,255,.02);border:1px solid var(--border2);padding:1.2rem;text-align:left}
-.iv-n{font-family:var(--mono);font-size:.44rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.4rem}
-.iv-t{font-family:var(--display);font-size:1.05rem;font-weight:700;margin-bottom:.6rem;line-height:1.3}
-.iv-d{font-size:.78rem;color:var(--muted);line-height:1.75;margin-bottom:.6rem}
-.iv-m{font-family:var(--mono);font-size:.42rem;color:var(--gold2);border-top:1px solid var(--border);padding-top:.5rem;line-height:1.5}
-.btn-row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin:2rem 0}
-.btn{font-family:var(--mono);font-size:.48rem;letter-spacing:.12em;text-transform:uppercase;padding:.65rem 1.4rem;border:1px solid;transition:all .2s;cursor:pointer;background:none}
-.btn-red{color:var(--text);background:rgba(196,30,58,.15);border-color:var(--blood);padding:.65rem 1.4rem}
-.btn-red:hover{background:var(--blood);color:#fff}
-.btn-gold{color:var(--gold);border-color:var(--gold2)}
+#closing{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem;background:var(--ink)}
+.closing-v{font-family:var(--display);font-size:clamp(2rem,5vw,4rem);font-weight:700;line-height:1.1;letter-spacing:-.02em;margin-bottom:1rem}
+.closing-v em{font-style:italic;color:var(--blood)}
+.closing-sub{font-size:1rem;color:var(--muted);max-width:600px;line-height:1.85;margin-bottom:1.2rem}
+.closing-stmt{font-family:var(--display);font-style:italic;font-size:clamp(.9rem,1.7vw,1.15rem);color:var(--amberl);max-width:640px;line-height:1.9;margin-bottom:2.5rem;border-left:3px solid rgba(201,168,76,.3);padding-left:1.4rem;text-align:left}
+.btn-row{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center}
+.btn{font-family:var(--mono);font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;padding:.8rem 1.5rem;border-radius:2px;transition:all .2s}
+.btn-red{background:var(--blood);color:var(--text);border:1px solid var(--bloodl)}
+.btn-red:hover{background:var(--bloodl)}
+.btn-gold{background:transparent;color:var(--gold);border:1px solid var(--gold2)}
 .btn-gold:hover{background:rgba(201,168,76,.1)}
-.btn-teal{color:var(--teal);border-color:rgba(64,184,184,.4)}
-.btn-teal:hover{background:rgba(64,184,184,.08)}
-.tier-note{font-family:var(--mono);font-size:.42rem;color:var(--muted2);line-height:2;margin-top:2rem;border-top:1px solid var(--border);padding-top:1.5rem}
-.tier-note a{color:var(--gold2)}
+.btn-teal{background:transparent;color:var(--teall);border:1px solid rgba(64,192,192,.3)}
+.btn-teal:hover{background:rgba(64,192,192,.07)}
+.tier-note{font-family:var(--mono);font-size:.43rem;color:var(--muted2);margin-top:2.5rem;line-height:1.9;max-width:640px;border-top:1px solid var(--border);padding-top:1.5rem}
+@media(max-width:768px){
+  .scroll-scene{grid-template-columns:1fr}
+  .viz-sticky{position:relative;height:60vw;min-height:280px;max-height:420px;top:auto}
+  .steps-col{padding:4rem 1rem 8rem}
+  .step{min-height:auto;padding:3rem 0}
+  .fstat-row,.fsub-grid,.ivs{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
-
-<!-- SERIES NAVIGATION BAR -->
-<div class="series-bar">
-  <div class="sb-left">
-    <a href="/" style="color:var(--muted)">Insight Gaps</a>
-    <span class="sb-sep">›</span>
-    <span class="sb-inv">BD-INV-002 · The Impunity Machine</span>
+<div style="background:rgba(6,6,14,.98);border-bottom:1px solid rgba(30,30,48,.8);padding:.35rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:.8rem;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;position:relative;z-index:950">
+  <div style="display:flex;align-items:center;gap:.5rem;font-size:.44rem;color:rgba(200,190,175,.5);text-transform:uppercase;letter-spacing:.1em">
+    <a href="/" style="color:rgba(200,190,175,.4);text-decoration:none">Insight Gaps</a>
+    <span style="color:rgba(100,95,120,.4)">›</span>
+    <span style="color:rgba(201,168,76,.6)">BD-INV-002 · The Impunity Machine</span>
   </div>
-  <div class="sb-right">
-    <a href="/investigations/national/impunity-machine.html" class="sb-btn">Data Investigation</a>
-    <a href="/investigations/national/impunity-machine-visual.html" class="sb-btn current">Visual Story</a>
-    <a href="/series/impunity-machine/methodology.html" class="sb-btn">Methodology</a>
-    <a href="/series/impunity-machine/data.html" class="sb-btn">Evidence Files</a>
+  <div style="display:flex;gap:.35rem;flex-wrap:wrap">
+    <a href="/investigations/national/impunity-machine.html" style="font-size:.4rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(200,190,175,.6);border:1px solid rgba(60,58,80,.7);padding:.18rem .55rem;text-decoration:none">Data Investigation</a>
+    <a href="/investigations/national/impunity-machine-visual.html" style="font-size:.4rem;letter-spacing:.06em;text-transform:uppercase;color:#c9a84c;border:1px solid rgba(180,130,50,.35);padding:.18rem .55rem;text-decoration:none">▶ Visual Story</a>
+    <a href="/series/impunity-machine/methodology.html" style="font-size:.4rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(200,190,175,.6);border:1px solid rgba(60,58,80,.7);padding:.18rem .55rem;text-decoration:none">Methodology</a>
+    <a href="/series/impunity-machine/data.html" style="font-size:.4rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(200,190,175,.6);border:1px solid rgba(60,58,80,.7);padding:.18rem .55rem;text-decoration:none">Evidence Files</a>
   </div>
 </div>
-
-<!-- INVESTIGATION NAV -->
-<nav class="inv-nav" id="invNav" aria-label="Investigation navigation">
-  <div class="nav-brand"><span>BD-INV-002 ·</span> The Impunity Machine</div>
-  <div class="nav-scenes" id="sceneDots" aria-label="Scene progress"></div>
+<nav>
+  <div class="nav-brand">Insight Gaps · BD-INV-002 · v2.0</div>
+  <div class="nav-scenes">
+    <a href="#s1">Funnel</a><a href="#s2">Clocks</a><a href="#sinv">Inversion</a>
+    <a href="#s3">Race</a><a href="#s4">Backlog</a><a href="#s5">Map</a>
+    <a href="#sdna">Forensic</a><a href="#s6">Deterrence</a><a href="#s7">Voids</a>
+  </div>
   <div class="nav-links">
-    <a href="#s10" class="nbtn live">● Live Record</a>
-    <a href="/investigations/national/impunity-machine.html" class="nbtn">Full Report →</a>
+    <a class="nbtn" href="/data/tribunal-cases.html">Case Registry</a>
+    <a class="nbtn" href="/series/impunity-machine/methodology.html">Methodology</a>
+    <a class="nbtn hot" href="/investigations/national/impunity-machine.html">Full Report &#8594;</a>
   </div>
 </nav>
 
-<!-- FLOATING CASE COUNTER -->
-<div class="float-counter" id="floatCounter" title="Based on 2024 average: 4,394 cases / 365 days = ~12 per day">
-  <div class="fc-num" id="fcNum">0</div>
-  <div class="fc-lbl">New rape cases filed<br>in Bangladesh today</div>
-</div>
-
-<!-- ═══════════════════════════════════════ -->
-<!-- HERO                                   -->
-<!-- ═══════════════════════════════════════ -->
-<section id="hero" aria-label="Investigation introduction">
-  <div class="hero-eyebrow">BD-INV-002 · Visual Data Investigation · Bangladesh Rape Justice Crisis</div>
-  <div class="hero-prob" id="heroProb">0.02%</div>
-  <div class="hero-prob-sub">probability of punishment for rape in Bangladesh</div>
-
-  <div class="hero-stmts">
-    <div class="hs big" id="hs1">The system has been tried. It produced <strong>310 convictions</strong> from 66,711 cases.</div>
-    <div class="hs" id="hs2">That is not a malfunction. That is the machine working exactly as built.</div>
-    <div class="hs" id="hs3">Every link in this chain is named, sourced, and evidence-tiered below.</div>
-    <div class="hs" id="hs4">None of it requires new theory. It requires political decision.</div>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-eyebrow">BD-INV-002 &middot; Bangladesh &middot; March 2026 &middot; Active Investigation</div>
+  <div class="hero-prob">1 in 4,650</div>
+  <div class="hero-prob-sub">Probability a rape in Bangladesh results in punishment</div>
+  <div class="hero-statements">
+    <div class="hs" id="hs1">Three numbers define this system.</div>
+    <div class="hs big" id="hs2"><strong>310 convictions.</strong></div>
+    <div class="hs" id="hs3">In twenty-three years of crisis centres.</div>
+    <div class="hs big" id="hs4">For <strong>66,711 women</strong> who came forward.</div>
   </div>
-
   <h1 class="hero-title" id="htitle">The<br><em>Impunity</em><br>Machine</h1>
-  <div class="hero-subtitle" id="hsub">A Visual Investigation · Insight Gaps · March 2026 · CC BY-NC 4.0</div>
-
-  <div class="scroll-cue" onclick="document.getElementById('s1').scrollIntoView({behavior:'smooth'})">
-    <span>Scroll to investigate</span>
+  <div class="hero-sub-title" id="hsub">A Visual Data Investigation &middot; Bangladesh Rape Justice Crisis</div>
+  <div class="scroll-dn"><span>Scroll to investigate</span>
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
   </div>
 </section>
 
 <hr class="divider">
 
-<!-- ═══════════════════════════════════════ -->
-<!-- SCENE 01: THE ATTRITION               -->
-<!-- ═══════════════════════════════════════ -->
-<section id="s1" class="scene" data-scene-name="Attrition">
+<!-- S1: FUNNEL -->
+<section id="s1" class="scene">
   <div class="scene-title">
-    <div class="eyebrow">Scene 01 · The Attrition</div>
+    <div class="eyebrow">Scene 01 &middot; The Attrition</div>
     <h2>Watch 10,000 Women Disappear</h2>
-    <p>Each dot is one assault. Watch what the system does to them. The dots are not metaphors — they are derived from UNFPA's 2024 survey of 27,476 women.</p>
+    <p>Each dot is one assault. Watch what the system does to them.</p>
   </div>
   <div class="scroll-scene" style="margin-top:2rem">
     <div class="viz-sticky">
       <div style="position:relative">
-        <canvas id="dotCanvas" style="display:block;max-width:100%;max-height:88vh" aria-label="Dot matrix showing attrition of 10,000 assault cases through the justice system"></canvas>
-        <div class="dot-status-bar">
-          <span id="dot-count">10,000</span> <span id="dot-status">women — all assaults</span>
+        <canvas id="dotCanvas" style="display:block;max-width:100%;max-height:90vh"></canvas>
+        <div style="position:absolute;bottom:-2rem;left:0;right:0;text-align:center;font-family:var(--mono);font-size:.52rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase">
+          <span id="dot-count">10,000</span> <span id="dot-status">women &#8212; all assaults</span>
         </div>
       </div>
     </div>
@@ -377,43 +239,43 @@ nav.inv-nav.hidden{transform:translateY(-100%)}
       <div class="step" data-scene="funnel" data-step="0">
         <div class="step-num">Step 01 of 06</div>
         <h3>Start here. 10,000 dots. 10,000 lives.</h3>
-        <p>Each gold dot represents one assault. One year in Bangladesh — estimated from UNFPA 2024 methodology applied to the adult female population. This is not the official count. It is what the data produces when you account for the 62% who never disclose at all.</p>
-        <div class="note">UNFPA/BBS VAW Survey 2024 · <span class="prob">PROBABLE</span> · IG-MODEL</div>
+        <p>Each gold dot represents one assault. One year in Bangladesh &#8212; an estimated 10,000 non-partner sexual violence incidents, derived from UNFPA 2024 survey methodology applied to the adult female population.</p>
+        <div class="note">UNFPA/BBS VAW Survey 2024 &middot; <span class="prob">PROBABLE</span> &middot; IG-MODEL</div>
       </div>
       <div class="step" data-scene="funnel" data-step="1">
         <div class="step-num">Step 02 of 06</div>
-        <div class="stat">62–64%</div>
+        <div class="stat">62&#8211;64%</div>
         <h3>told no one.</h3>
-        <p>Not a sister. Not a doctor. <strong>Not a single person knew what happened to them.</strong> This is not weakness. This is a precise calculation of what speaking costs — reputation, family honour, risk of shalish, risk of Section 17 counter-prosecution. The silence is rational. The system made it so.</p>
-        <div class="note">UNFPA/BBS VAW Survey 2024 · 27,476 women interviewed · <span class="ok">CONFIRMED</span> · S-02</div>
+        <p>Not a sister. Not a doctor. <strong>Not a single person knew what happened to them.</strong> This is not weakness. This is a precise calculation of what speaking costs &#8212; reputation, family honour, risk of shalish, risk of Section 17 counter-prosecution. The silence is rational. The system made it so.</p>
+        <div class="note">UNFPA/BBS VAW Survey 2024 &middot; 27,476 women interviewed &middot; <span class="ok">CONFIRMED</span> &middot; S-02</div>
       </div>
       <div class="step" data-scene="funnel" data-step="2">
         <div class="step-num">Step 03 of 06</div>
         <div class="stat">73%</div>
-        <h3>of those who spoke up didn't contact police.</h3>
-        <p>The shalish arrived first. Local elders, financial settlements, forced marriage, silence in exchange for "social peace." The state never knew these women existed. Only 3.8% of non-partner violence survivors pursued any legal remedy.</p>
-        <div class="note">UNFPA 2024 Highlights · <span class="ok">CONFIRMED</span> · S-26</div>
+        <h3>of those who spoke up didn&#8217;t contact police.</h3>
+        <p>The shalish arrived first. Local elders, financial settlements, forced marriage, silence in exchange for &#8220;social peace.&#8221; The state never knew these women existed. Only 3.8% of non-partner violence survivors pursued any legal remedy.</p>
+        <div class="note">UNFPA 2024 Highlights &middot; <span class="ok">CONFIRMED</span> &middot; S-26</div>
       </div>
       <div class="step" data-scene="funnel" data-step="3">
         <div class="step-num">Step 04 of 06</div>
         <div class="stat">41%</div>
         <h3>of referred cases closed as unproven.</h3>
-        <p>Police Bureau of Investigation examined 10,581 court-referred rape cases. 4,248 closed by final report — unsubstantiated. No charge. No trial. No record. <strong>The investigation became the verdict.</strong></p>
-        <div class="note">Prothom Alo Sept 2025 · PBI data 2016–2023 · <span class="ok">CONFIRMED</span> · S-23</div>
+        <p>Police Bureau of Investigation examined 10,581 court-referred rape cases. 4,248 closed by final report &#8212; unsubstantiated. No charge. No trial. No record. <strong>The investigation became the verdict.</strong></p>
+        <div class="note">Prothom Alo Sept 2025 &middot; PBI data 2016&#8211;2023 &middot; <span class="ok">CONFIRMED</span> &middot; S-23</div>
       </div>
       <div class="step" data-scene="funnel" data-step="4">
         <div class="step-num">Step 05 of 06</div>
         <div class="stat">2,349 days</div>
         <h3>average wait for those who remain.</h3>
-        <p>Six years and five months. Witnesses relocate. Forensic evidence degrades. Families exhaust savings. The 2025 Ordinance cut the statutory limit to 90 days. The compliance rate in 2025: <strong>unknown — no one publishes it.</strong></p>
-        <div class="note">BRAC/Agile Consultants 2022 · 16 districts, 385 resolved cases · <span class="ok">CONFIRMED</span> · S-01</div>
+        <p>Six years and five months. Witnesses relocate. Forensic evidence degrades. Families exhaust savings. The 2025 Ordinance cut the statutory limit to 90 days. The compliance rate in 2025: <strong>unknown &#8212; no one publishes it.</strong></p>
+        <div class="note">BRAC/Agile Consultants 2022 &middot; 16 districts, 385 resolved cases &middot; <span class="ok">CONFIRMED</span> &middot; S-01</div>
       </div>
       <div class="step" data-scene="funnel" data-step="5">
         <div class="step-num">Step 06 of 06</div>
-        <div class="stat" style="font-size:clamp(3.5rem,8vw,6rem)">2</div>
+        <div class="stat" style="font-size:clamp(3rem,7vw,5.5rem)">2</div>
         <h3>convictions. From 10,000 assaults.</h3>
-        <p><strong>Two red dots.</strong> Nine thousand nine hundred and ninety-eight dark ones. In 23 years of the OCC programme: 310 convictions from 66,711 women who came forward. This is the normal functioning of the machine.</p>
-        <div class="note">Daily Star Nov 2024 · OCC 23yr programme · <span class="ok">CONFIRMED</span> · S-55</div>
+        <p><strong>Two red dots.</strong> Nine thousand nine hundred and ninety-eight dark ones. This is not a statistic about rare events. This is the normal functioning of the machine. In 23 years, the OCC programme recorded 310 convictions from 66,711 women who came forward.</p>
+        <div class="note">Daily Star Nov 2024 &middot; OCC 23yr programme &middot; <span class="ok">CONFIRMED</span> &middot; S-55</div>
       </div>
     </div>
   </div>
@@ -421,81 +283,77 @@ nav.inv-nav.hidden{transform:translateY(-100%)}
 
 <hr class="divider">
 
-<!-- ═══════════════════════════════════════ -->
-<!-- SCENE 02: THE TWO VERDICTS            -->
-<!-- ═══════════════════════════════════════ -->
-<section id="s2" class="full-scene dark" data-scene-name="Two Verdicts" aria-label="Comparison of prosecution speeds">
+<!-- S2: TWO CLOCKS -->
+<section id="s2" class="full-scene dark">
   <div class="scene-title">
-    <div class="eyebrow">Scene 02 · The Two Verdicts</div>
+    <div class="eyebrow">Scene 02 &middot; The Two Verdicts</div>
     <h2>The System Moved Fast Once</h2>
-    <p>The same legal system. Two very different speeds. Scroll to watch both arcs fill simultaneously.</p>
+    <p>The same legal system. Two very different speeds. Watch the arcs fill.</p>
   </div>
-  <div class="clock-pair" id="clockPair">
+  <div class="clock-pair">
     <div class="clock-card">
       <div class="clock-label" style="color:var(--bloodl)">Time to Convict<br>The Woman Who Reported</div>
-      <svg width="190" height="190" viewBox="0 0 190 190" role="img" aria-label="Arc showing 56 days to conviction">
-        <circle cx="95" cy="95" r="78" fill="none" stroke="rgba(30,30,50,.9)" stroke-width="9"/>
-        <circle cx="95" cy="95" r="78" fill="none" stroke="var(--bloodl)" stroke-width="9"
-          stroke-dasharray="490.1" stroke-dashoffset="490.1" stroke-linecap="round"
-          transform="rotate(-90 95 95)" id="arc-runa" style="transition:stroke-dashoffset 1.4s cubic-bezier(.4,0,.2,1)"/>
-        <text x="95" y="87" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="32" font-weight="700" fill="var(--bloodl)" id="num-runa">0</text>
-        <text x="95" y="107" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="var(--muted)" letter-spacing="2">DAYS</text>
+      <svg width="180" height="180" viewBox="0 0 180 180">
+        <circle cx="90" cy="90" r="75" fill="none" stroke="rgba(30,30,48,.8)" stroke-width="8"/>
+        <circle cx="90" cy="90" r="75" fill="none" stroke="var(--bloodl)" stroke-width="8"
+          stroke-dasharray="471.2" stroke-dashoffset="471.2" stroke-linecap="round"
+          transform="rotate(-90 90 90)" id="arc-runa" style="transition:stroke-dashoffset 1s cubic-bezier(.4,0,.2,1)"/>
+        <text x="90" y="82" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="28" font-weight="700" fill="var(--bloodl)" id="num-runa">0</text>
+        <text x="90" y="100" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="var(--muted)" letter-spacing="2">DAYS</text>
       </svg>
       <div class="clock-num" style="color:var(--bloodl)" id="display-runa">0</div>
-      <div class="clock-unit">days to §17 conviction</div>
-      <div class="clock-name">Runa Akhter · Cox's Bazar 2023<br>Filed a rape case. Was convicted instead.</div>
+      <div class="clock-unit">days to &#167;17 conviction</div>
+      <div class="clock-name">Runa Akhter &middot; Cox&#8217;s Bazar 2023<br>Filed rape case. Was convicted instead.</div>
     </div>
     <div style="text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1rem">
-      <div style="font-family:var(--mono);font-size:.5rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.5rem">vs</div>
-      <div style="font-family:var(--display);font-size:1.1rem;font-style:italic;color:var(--muted);max-width:140px;line-height:1.7">The same system.</div>
+      <div style="font-family:var(--mono);font-size:.52rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.5rem">vs</div>
+      <div style="font-family:var(--display);font-size:1.1rem;font-style:italic;color:var(--muted);max-width:160px;line-height:1.6">The same system.</div>
     </div>
     <div class="clock-card">
       <div class="clock-label" style="color:var(--gold)">Time for the<br>Average Rape Case</div>
-      <svg width="190" height="190" viewBox="0 0 190 190" role="img" aria-label="Arc showing 2349 days average for rape verdict">
-        <circle cx="95" cy="95" r="78" fill="none" stroke="rgba(30,30,50,.9)" stroke-width="9"/>
-        <circle cx="95" cy="95" r="78" fill="none" stroke="var(--gold)" stroke-width="9"
-          stroke-dasharray="490.1" stroke-dashoffset="490.1" stroke-linecap="round"
-          transform="rotate(-90 95 95)" id="arc-avg" style="transition:stroke-dashoffset 3.2s cubic-bezier(.4,0,.2,1)"/>
-        <text x="95" y="87" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="24" font-weight="700" fill="var(--gold)" id="num-avg">0</text>
-        <text x="95" y="107" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="var(--muted)" letter-spacing="2">DAYS</text>
+      <svg width="180" height="180" viewBox="0 0 180 180">
+        <circle cx="90" cy="90" r="75" fill="none" stroke="rgba(30,30,48,.8)" stroke-width="8"/>
+        <circle cx="90" cy="90" r="75" fill="none" stroke="var(--gold)" stroke-width="8"
+          stroke-dasharray="471.2" stroke-dashoffset="471.2" stroke-linecap="round"
+          transform="rotate(-90 90 90)" id="arc-avg" style="transition:stroke-dashoffset 2.5s cubic-bezier(.4,0,.2,1)"/>
+        <text x="90" y="82" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="22" font-weight="700" fill="var(--gold)" id="num-avg">0</text>
+        <text x="90" y="100" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="var(--muted)" letter-spacing="2">DAYS</text>
       </svg>
       <div class="clock-num" style="color:var(--gold)" id="display-avg">0</div>
       <div class="clock-unit">days to verdict (average)</div>
-      <div class="clock-name">BRAC 2022 · 16 districts<br>385 resolved tribunal cases</div>
+      <div class="clock-name">BRAC 2022 &middot; 16 districts<br>385 resolved tribunal cases</div>
     </div>
   </div>
-  <div class="clock-caption" id="clock-caption">
-    <p style="font-family:var(--display);font-style:italic;font-size:clamp(1rem,2vw,1.3rem);color:var(--amberl);line-height:1.75">In the time it took the system to move through a normal rape case — <strong style="font-style:normal;color:var(--text)">Runa Akhter had already served months of her sentence</strong> for filing one.</p>
-    <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);margin-top:.9rem;line-height:1.9">56 days · §17 conviction · Arrested Feb 16, sentenced Apr 13 2023 · Prothom Alo (S-14) · <span class="ok">CONFIRMED</span><br>Average rape verdict: 2,349 days · BRAC 2022 (S-01) · <span class="ok">CONFIRMED</span> · The arc for the average case is <strong style="color:var(--gold)">41.9×</strong> larger</div>
+  <div id="clock-caption" style="max-width:640px;text-align:center;opacity:0;transition:opacity .8s;margin-top:1rem">
+    <p style="font-family:var(--display);font-style:italic;font-size:clamp(1rem,2vw,1.3rem);color:var(--amberl);line-height:1.7">In the time it took the system to move through a normal rape case &#8212; <strong style="font-style:normal;color:var(--text)">Runa Akhter had already served 6 months of her sentence</strong> for filing one.</p>
+    <div style="font-family:var(--mono);font-size:.46rem;color:var(--muted2);margin-top:.8rem;line-height:1.8">56 days &middot; &#167;17 conviction &middot; Arrested Feb 16, sentenced Apr 13 2023 &middot; Prothom Alo (S-14) &middot; <span class="ok">CONFIRMED</span></div>
   </div>
 </section>
 
 <hr class="divider">
 
-<!-- ═══════════════════════════════════════ -->
-<!-- SCENE 03: THE INVERSION               -->
-<!-- ═══════════════════════════════════════ -->
-<section id="s3" class="scene" data-scene-name="Inversion">
+<!-- SINV: THE INVERSION -->
+<section id="sinv" class="scene">
   <div class="scene-title">
-    <div class="eyebrow">Scene 03 · The Inversion</div>
+    <div class="eyebrow">Scene 03 &middot; The Inversion</div>
     <h2>The State Moved For the Woman Who Reported. Against Her.</h2>
-    <p>Section 17 WCRPA allows counter-prosecution of survivors. Two confirmed cases on record. National scale: unknown — no institution tracks it.</p>
+    <p>Section 17 WCRPA allows counter-prosecution of survivors. Two documented cases. National scale: unknown.</p>
   </div>
   <div class="scroll-scene" style="margin-top:2rem">
     <div class="viz-sticky">
       <div class="inv-wrap">
-        <div style="font-family:var(--mono);font-size:.42rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1.4rem">Both timelines start at Day 0 from complaint filing.</div>
+        <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1.4rem">Both cases. Same legal system. Both start at Day 0.</div>
         <div class="inv-block">
           <div class="inv-label-row">
-            <span class="inv-who" style="color:var(--bloodl)">§17 prosecution — Runa Akhter</span>
+            <span class="inv-who" style="color:var(--bloodl)">&#167;17 prosecution &#8212; Runa Akhter</span>
             <span class="inv-daycount" style="color:var(--bloodl)" id="inv-d17">0 days</span>
           </div>
           <div class="inv-track">
-            <div class="inv-fill" id="inv-f17" style="background:linear-gradient(to right,rgba(139,20,40,.9),var(--bloodl))"></div>
-            <div class="inv-fill-lbl" id="inv-fl17">CONVICTED ▌ 100%</div>
+            <div class="inv-fill" id="inv-f17" style="background:linear-gradient(to right,rgba(139,20,40,.8),var(--bloodl))"></div>
+            <div class="inv-fill-lbl" id="inv-fl17">CONVICTED &#8212; 100%</div>
           </div>
-          <div class="inv-verdict" id="inv-v17" style="color:var(--bloodl)">▶ CONVICTED — Day 56 · 5 years imprisonment · BDT 20,000 fine</div>
-          <div class="inv-foot">Filed rape case Mar 2022 → §17 complaint ~Jan 2023 → Arrested Feb 16 → <strong style="color:var(--bloodl)">Convicted Apr 13, 2023</strong><br>Prothom Alo (S-14) · CoxsbazarJournal (S-69) · <span class="ok">CONFIRMED</span></div>
+          <div class="inv-verdict" id="inv-v17" style="color:var(--bloodl)">&#9658; CONVICTED &#8212; Day 56 &middot; 5 years imprisonment &middot; BDT 20,000 fine</div>
+          <div class="inv-foot">Rape case filed Mar 2022 &#8594; &#167;17 complaint ~Jan 2023 &#8594; Arrested Feb 16 &#8594; <strong style="color:var(--bloodl)">Convicted Apr 13, 2023</strong><br>Prothom Alo (S-14) &middot; CoxsbazarJournal (S-69) &middot; <span class="ok">CONFIRMED</span></div>
         </div>
         <div class="inv-block" style="margin-top:2.5rem">
           <div class="inv-label-row">
@@ -503,15 +361,15 @@ nav.inv-nav.hidden{transform:translateY(-100%)}
             <span class="inv-daycount" style="color:var(--gold)" id="inv-drape">0 / 2,349 days</span>
           </div>
           <div class="inv-track">
-            <div class="inv-fill" id="inv-frape" style="background:linear-gradient(to right,rgba(90,70,28,.9),var(--gold))"></div>
+            <div class="inv-fill" id="inv-frape" style="background:linear-gradient(to right,rgba(90,72,32,.8),var(--gold))"></div>
             <div class="inv-fill-lbl" id="inv-flrape" style="color:rgba(201,168,76,.9)">2.38% of journey</div>
           </div>
-          <div class="inv-verdict" id="inv-vrape" style="color:var(--gold)">▪ STILL PENDING — 1,461+ days as of March 2026 · No published verdict</div>
-          <div class="inv-foot">Filed Mar 2022 → Average case: 2,349 days → At Day 56 this case is at <strong style="color:var(--gold)">2.38%</strong> of average journey<br>BRAC 2022 (S-01) · <span class="ok">CONFIRMED</span></div>
+          <div class="inv-verdict" id="inv-vrape" style="color:var(--gold)">&#9632; STILL PENDING &#8212; 1,461+ days as of March 2026 &middot; No published verdict</div>
+          <div class="inv-foot">Filed Mar 2022 &#8594; Average case: 2,349 days &#8594; At Day 56 this case is at <strong style="color:var(--gold)">2.38%</strong> of average journey<br>BRAC 2022 (S-01) &middot; <span class="ok">CONFIRMED</span></div>
         </div>
-        <div class="inv-quote" id="inv-quote">
-          <p style="font-family:var(--display);font-style:italic;font-size:clamp(.9rem,1.6vw,1.1rem);color:var(--amberl);line-height:1.9">The system convicts the woman who reports <em style="font-style:normal;color:var(--bloodl);font-weight:700">faster</em> than it convicts the man she reported against.</p>
-          <div style="font-family:var(--mono);font-size:.42rem;color:var(--muted2);margin-top:.5rem">BD-INV-002 · §17 analysis · Master Evidence File · March 2026</div>
+        <div id="inv-quote" style="opacity:0;transition:opacity .8s;margin-top:2.5rem;border-left:3px solid rgba(196,30,58,.4);padding-left:1.2rem">
+          <p style="font-family:var(--display);font-style:italic;font-size:clamp(.9rem,1.6vw,1.1rem);color:var(--amberl);line-height:1.85">The system convicts the woman who reports <em style="font-style:normal;color:var(--bloodl);font-weight:700">faster</em> than it convicts the man she reported against.</p>
+          <div style="font-family:var(--mono);font-size:.42rem;color:var(--muted2);margin-top:.5rem">BD-INV-002 &middot; Master Evidence File &middot; &#167;17 analysis &middot; March 2026</div>
         </div>
       </div>
     </div>
@@ -519,28 +377,28 @@ nav.inv-nav.hidden{transform:translateY(-100%)}
       <div class="step" data-scene="inversion" data-step="0">
         <div class="step-num">Step 01 of 04</div>
         <h3>Section 17. Designed to deter false reports. Used to silence real ones.</h3>
-        <p>WCRPA Section 17 criminalises filing a "false" rape case. Punishment: up to 7 years imprisonment. Two confirmed cases are on record. The national count: <strong>unknown — no institution tracks it.</strong></p>
-        <div class="note">Master Evidence File · S17-001, S17-002 · National tracking: <span class="ok">CONFIRMED ABSENT</span> · GA-004</div>
+        <p>WCRPA Section 17 criminalises filing a &#8220;false&#8221; rape case. Punishment: up to 7 years imprisonment. Two confirmed cases are on record. The national count: <strong>unknown &#8212; no institution tracks it.</strong></p>
+        <div class="note">Master Evidence File &middot; S17-001, S17-002 &middot; National tracking: <span class="ok">CONFIRMED ABSENT</span> &middot; GA-004</div>
       </div>
       <div class="step" data-scene="inversion" data-step="1">
         <div class="step-num">Step 02 of 04</div>
         <div class="stat">56 days</div>
         <h3>Runa Akhter. Convicted before her rape case had a single hearing.</h3>
-        <p>She filed a rape case in March 2022. Eleven months later, a Section 17 counter-complaint was filed against her. Arrested February 16, 2023. Tried. Convicted April 13. <strong>The entire §17 process from arrest to conviction: 56 days.</strong> Her original case: still unresolved in March 2026.</p>
-        <div class="note">Cox's Bazar · Prothom Alo · <span class="ok">CONFIRMED</span> · S-14, S-69</div>
+        <p>She filed a rape case in March 2022. Eleven months later, a Section 17 counter-complaint was filed against her. Arrested February 16, 2023. Tried. Convicted April 13. <strong>The entire &#167;17 process from complaint to conviction: 56 days.</strong> Her original case: still unresolved in March 2026.</p>
+        <div class="note">Cox&#8217;s Bazar &middot; Prothom Alo &middot; <span class="ok">CONFIRMED</span> &middot; S-14, S-69</div>
       </div>
       <div class="step" data-scene="inversion" data-step="2">
         <div class="step-num">Step 03 of 04</div>
         <div class="stat gold">2.38%</div>
         <h3>Where an average rape case stands at Day 56.</h3>
-        <p>The gold bar shows exactly how far a rape case would have progressed at the moment she was already convicted and imprisoned. Average trial: 2,349 days. At Day 56: <strong>2.38% complete.</strong> The two bars are drawn to the same justice scale, not the same time scale.</p>
-        <div class="note">BRAC 2022 avg trial duration (S-01) · <span class="ok">CONFIRMED</span></div>
+        <p>The gold bar shows exactly how far her rape case would have progressed at the moment she was already convicted and imprisoned. Average trial: 2,349 days. At Day 56: 2.38% complete. The two bars are drawn to the same justice scale, not the same time scale.</p>
+        <div class="note">BRAC 2022 avg trial duration (S-01) &middot; <span class="ok">CONFIRMED</span></div>
       </div>
       <div class="step" data-scene="inversion" data-step="3">
         <div class="step-num">Step 04 of 04</div>
-        <h3>Second case: Barishal 2026. Three teachers arrested under §17.</h3>
-        <p>A woman who reported rape in 2025 faced §17 counter-prosecution in January 2026. Arrest orders for her, three teachers, and two others. Under the 2025 Amendment Ordinance, §17 was expanded to include "loss of dignity or reputation." <strong>The chilling effect on future reports: unquantifiable. The trend: now documented.</strong></p>
-        <div class="note">TBS News Jan 2026 · <span class="ok">CONFIRMED</span> · S-13</div>
+        <h3>Second case: Barishal 2026. Three teachers arrested under &#167;17.</h3>
+        <p>A woman who reported rape in 2025 faced &#167;17 counter-prosecution in January 2026. Arrest orders for her, three teachers, and two others. Under the 2025 Amendment Ordinance, &#167;17 was expanded to include &#8220;loss of dignity or reputation.&#8221; <strong>The chilling effect on future reports: unquantifiable. The trend: now documented.</strong></p>
+        <div class="note">TBS News Jan 2026 &middot; <span class="ok">CONFIRMED</span> &middot; S-13</div>
       </div>
     </div>
   </div>
@@ -548,50 +406,40 @@ nav.inv-nav.hidden{transform:translateY(-100%)}
 
 <hr class="divider">
 
-<!-- ═══════════════════════════════════════ -->
-<!-- SCENE 04: THE RACE                    -->
-<!-- ═══════════════════════════════════════ -->
-<section id="s4" class="scene dark" data-scene-name="The Race">
+<!-- S3: RACE -->
+<section id="s3" class="scene dark">
   <div class="scene-title">
-    <div class="eyebrow">Scene 04 · The Race</div>
+    <div class="eyebrow">Scene 04 &middot; The Race</div>
     <h2>Watch Countries Try to Convict Rapists</h2>
-    <p>All bars start at zero. Watch what justice systems produce when they invest in certainty, not just severity.</p>
+    <p>All bars start at zero. Watch what justice systems produce when they invest.</p>
   </div>
   <div class="scroll-scene" style="margin-top:2rem">
     <div class="viz-sticky">
       <div class="race-container">
-        <div class="denom-warn">⚠ DENOMINATOR ALERT: These countries measure from different starting points. SA: trial-stage cases. UK: prosecutions commenced. India: completed trials only (90%+ still pending). Bangladesh: 23-year programme visitors — the broadest base. Direct ratio comparison is methodologically invalid. The <em>pattern of scale difference</em> is valid.</div>
-        <div class="scale-note">▤ SCALE NOTE: These bars use a square-root scale for readability. At linear scale, the Bangladesh bar would be ~0.5 pixels wide — less than a human hair — and invisible. Exact percentages are labeled on each bar. Chart values: SA=72.2%, UK=53.4%, India=27.4%, Bangladesh=0.46%.</div>
-        <div style="font-family:var(--mono);font-size:.46rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1rem">Conviction rate at each system's measured stage (√ scaled)</div>
-
+        <div class="denom-warn">&#9888; DENOMINATOR ALERT: These countries measure from different starting points. SA: trial-stage cases. UK: prosecutions commenced. India: completed trials only (90%+ still pending). Bangladesh: 23-year programme visitors &#8212; the broadest base. Direct ratio comparison is methodologically invalid. The pattern of scale difference is valid.</div>
+        <div style="font-family:var(--mono);font-size:.48rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1.2rem">Conviction rate at each system&#8217;s measured stage</div>
         <div class="race-row">
           <div class="race-label"><span class="race-country">South Africa</span><span class="race-val" style="color:var(--greenl)">72.2%</span></div>
-          <div class="race-track"><div class="race-bar" id="rb-sa" style="background:var(--greenl)"></div></div>
-          <div class="race-bar-note">Thuthuzela Care Centres · No death penalty for rape · NPA 2023/24</div>
+          <div class="race-track"><div class="race-bar" id="rb-sa" style="background:var(--greenl)" data-val="72.2%"></div></div>
+          <div class="race-note">Thuthuzela Care Centres &middot; No death penalty for rape &middot; NPA 2023/24</div>
         </div>
-
-        <div class="race-row">
+        <div class="race-row" style="margin-top:1rem">
           <div class="race-label"><span class="race-country">United Kingdom</span><span class="race-val" style="color:var(--gold)">53.4%</span></div>
-          <div class="race-track"><div class="race-bar" id="rb-uk" style="background:var(--gold)"></div></div>
-          <div class="race-bar-note">Denominator: prosecutions commenced only · CPS 2024</div>
+          <div class="race-track"><div class="race-bar" id="rb-uk" style="background:var(--gold)" data-val="53.4%"></div></div>
+          <div class="race-note">Denominator: prosecutions commenced only &middot; CPS 2024</div>
         </div>
-
-        <div class="race-row">
+        <div class="race-row" style="margin-top:1rem">
           <div class="race-label"><span class="race-country">India</span><span class="race-val" style="color:var(--amber)">27.4%</span></div>
-          <div class="race-track"><div class="race-bar" id="rb-in" style="background:var(--amber)"></div></div>
-          <div class="race-bar-note">Completed trials only · 90%+ still pending · NCRB 2022</div>
+          <div class="race-track"><div class="race-bar" id="rb-in" style="background:var(--amber)" data-val="27.4%"></div></div>
+          <div class="race-note">Completed trials only &middot; 90%+ pending &middot; NCRB 2022</div>
         </div>
-
-        <div class="race-row">
+        <div class="race-row" style="margin-top:1rem">
           <div class="race-label"><span class="race-country">Bangladesh</span><span class="race-val" style="color:var(--bloodl)">0.46%</span></div>
-          <div class="race-track" style="border-color:rgba(196,30,58,.4)">
-            <div class="race-bar" id="rb-bd" style="background:var(--bloodl)"></div>
-          </div>
-          <div class="race-bar-note" style="color:rgba(200,30,58,.7)">OCC 23yr programme · 310 of 66,711 · Broadest denominator listed</div>
+          <div class="race-track"><div class="race-bar" id="rb-bd" style="background:var(--bloodl)" data-val="0.46%"></div></div>
+          <div class="race-note">OCC 23yr programme &middot; 310 of 66,711 &middot; Broadest denominator listed</div>
         </div>
-
-        <div class="race-bd-callout" id="bdCallout">
-          ▲ AT LINEAR SCALE: The Bangladesh bar would be <strong style="color:var(--bloodl)">invisible</strong> — 0.46px wide on a 100px track. Even from only the 20,914 women who formally filed WCRPA cases, Bangladesh's rate is <strong style="color:var(--bloodl)">1.48%</strong>. Still the furthest bar from the leader by an order of magnitude.
+        <div id="race-note2" style="opacity:0;transition:opacity .6s;margin-top:1.5rem;background:rgba(196,30,58,.06);border:1px solid rgba(196,30,58,.2);padding:.8rem 1rem">
+          <div style="font-family:var(--mono);font-size:.46rem;color:var(--muted2);line-height:1.8">Even from only the 20,914 women who formally filed WCRPA cases &#8212; not all 66,711 OCC visitors &#8212; Bangladesh&#8217;s rate is <strong style="color:var(--bloodl)">1.48%</strong>. Still the furthest bar by an order of magnitude.</div>
         </div>
       </div>
     </div>
@@ -599,28 +447,28 @@ nav.inv-nav.hidden{transform:translateY(-100%)}
       <div class="step" data-scene="race" data-step="0">
         <div class="step-num">Step 01 of 04</div>
         <h3>All countries start at zero. All systems try.</h3>
-        <p>Every justice system loses most rape cases before trial. What matters is what infrastructure they built — and what they chose to invest in. The choice of investment is also a choice of outcome.</p>
+        <p>Every justice system loses most rape cases before trial. What matters is what infrastructure they built &#8212; and what they chose to invest in. The choice of investment is also a choice of outcome.</p>
       </div>
       <div class="step" data-scene="race" data-step="1">
         <div class="step-num">Step 02 of 04</div>
         <div class="stat green">72.2%</div>
         <h3>South Africa built Thuthuzela Care Centres.</h3>
-        <p>One location: medical, forensic, and legal support integrated. Survivors don't navigate a system — the system comes to them. No death penalty for rape. <strong>The investment was in certainty, not severity.</strong> 72.2% conviction rate at trial stage.</p>
-        <div class="note">NPA Annual Report 2023/24 (S-29) · <span class="ok">CONFIRMED</span></div>
+        <p>One location: medical, forensic, and legal support integrated. Survivors don&#8217;t navigate a system &#8212; the system comes to them. No death penalty for rape. <strong>The investment was in certainty, not severity.</strong> 72.2% conviction rate at trial stage.</p>
+        <div class="note">NPA Annual Report 2023/24 (S-29) &middot; <span class="ok">CONFIRMED</span></div>
       </div>
       <div class="step" data-scene="race" data-step="2">
         <div class="step-num">Step 03 of 04</div>
         <div class="stat gold">53.4%</div>
         <h3>UK: 53.4%. India: 27.4%. Both imperfect. Both visible. Both accountable.</h3>
-        <p>Both publish conviction data annually. Both can be challenged on it. <strong>Bangladesh has never published an official conviction rate.</strong> The absence of data is not a limitation of research — it is a feature of the system.</p>
-        <div class="note">UK: CPS VAWG 2024 (S-28) · India: NCRB 2022 (S-27) · <span class="ok">CONFIRMED</span></div>
+        <p>Both publish conviction data annually. Both can be challenged on it. Bangladesh has never published an official conviction rate. <strong>The absence of data is not a limitation of research &#8212; it is a feature of the system.</strong></p>
+        <div class="note">UK: CPS VAWG 2024 (S-28) &middot; India: NCRB 2022 (S-27) &middot; <span class="ok">CONFIRMED</span></div>
       </div>
       <div class="step" data-scene="race" data-step="3">
         <div class="step-num">Step 04 of 04</div>
         <div class="stat" style="color:var(--bloodl)">0.46%</div>
         <h3>Bangladesh. Maximum severity. The bar barely moves.</h3>
-        <p>Death penalty since 2020. Conviction rate: 0.46% over 23 years. The reform pathway is not more punishment — it is <strong>more certainty.</strong> Forensic access. Witness protection. Time-limited trials with real enforcement. Six interventions. All documented. All achievable. None enacted.</p>
-        <div class="note">OCC programme 2001–2024 · 310/66,711 (S-55) · <span class="ok">CONFIRMED</span></div>
+        <p>Death penalty since 2020. Conviction rate: 0.46% over 23 years. The reform pathway is not more punishment &#8212; it is <strong>more certainty.</strong> Forensic access. Witness protection. Time-limited trials with real enforcement. Six interventions. All documented. All achievable. None enacted.</p>
+        <div class="note">OCC programme 2001&#8211;2024 &middot; 310/66,711 (S-55) &middot; <span class="ok">CONFIRMED</span></div>
       </div>
     </div>
   </div>
@@ -628,25 +476,23 @@ nav.inv-nav.hidden{transform:translateY(-100%)}
 
 <hr class="divider">
 
-<!-- ═══════════════════════════════════════ -->
-<!-- SCENE 05: THE MOUNTAIN                -->
-<!-- ═══════════════════════════════════════ -->
-<section id="s5" class="scene" data-scene-name="The Mountain">
+<!-- S4: BACKLOG -->
+<section id="s4" class="scene">
   <div class="scene-title">
-    <div class="eyebrow">Scene 05 · The Mountain</div>
+    <div class="eyebrow">Scene 05 &middot; The Mountain</div>
     <h2>The Queue That Never Shrinks</h2>
-    <p>Cases enter. Cases do not leave. Watch the gap between filings and disposals grow every year.</p>
+    <p>Cases enter. Cases do not leave. Watch the mountain grow.</p>
   </div>
   <div class="scroll-scene" style="margin-top:2rem">
     <div class="viz-sticky">
       <div style="width:100%;max-width:580px">
-        <canvas id="backlogCanvas" height="340" style="width:100%" aria-label="Bar chart showing filed vs disposed WCRPA cases 2019-2024"></canvas>
+        <canvas id="backlogCanvas" height="340" style="width:100%"></canvas>
         <div class="chart-legend">
           <div class="leg-item"><div class="leg-dot" style="background:var(--bloodl)"></div>Cases Filed</div>
           <div class="leg-item"><div class="leg-dot" style="background:var(--gold)"></div>Cases Disposed</div>
-          <div class="leg-item"><div class="leg-dot" style="background:rgba(196,30,58,.25);width:14px;height:9px;border-radius:2px"></div>Growing Backlog</div>
+          <div class="leg-item"><div class="leg-dot" style="background:rgba(196,30,58,.25)"></div>Growing Backlog</div>
         </div>
-        <div style="font-family:var(--mono);font-size:.4rem;color:var(--muted2);margin-top:.6rem;line-height:1.6;border-top:1px solid var(--border);padding-top:.6rem">PHQ via Kaler Kantho 2019–2020 · PHQ via TBS 2023 · PHQ via Daily Star 2024 · Anti-Rape Platform 2024</div>
+        <div style="font-family:var(--mono);font-size:.42rem;color:var(--muted2);margin-top:.6rem;line-height:1.6;border-top:1px solid var(--border);padding-top:.6rem">PHQ via Kaler Kantho 2019&#8211;2020 &middot; PHQ via TBS 2023 &middot; PHQ via Daily Star 2024 &middot; Anti-Rape Platform 2024</div>
       </div>
     </div>
     <div class="steps-col">
@@ -654,26 +500,26 @@ nav.inv-nav.hidden{transform:translateY(-100%)}
         <div class="step-num">Step 01 of 04</div>
         <h3>2019. The system receives 6,766 rape cases.</h3>
         <p>101 tribunals. A caseload already unmanageable. The 180-day statutory deadline was being violated in almost every case. This was the baseline before the crisis.</p>
-        <div class="note">PHQ via Kaler Kantho · <span class="ok">CONFIRMED</span> · S-16</div>
+        <div class="note">PHQ via Kaler Kantho &middot; <span class="ok">CONFIRMED</span> &middot; S-16</div>
       </div>
       <div class="step" data-scene="backlog" data-step="1">
         <div class="step-num">Step 02 of 04</div>
         <h3>Every year: more enter than leave.</h3>
-        <p>The system disposes ~5,648 cases per year. In 2024: 17,544 new VAWC cases filed. <strong>Net annual backlog growth: ~12,000 cases.</strong> The queue has never shrunk in six years of documented data.</p>
-        <div class="note">2024: Anti-Rape Platform / BSS (S-65) · <span class="prob">PROBABLE</span></div>
+        <p>The system disposes ~5,648 cases per year. In 2024: 17,544 new cases filed. <strong>Net annual backlog growth: ~12,000 cases.</strong> The queue has never shrunk in six years of documented data.</p>
+        <div class="note">2024: Anti-Rape Platform / BSS (S-65) &middot; <span class="prob">PROBABLE</span></div>
       </div>
       <div class="step" data-scene="backlog" data-step="2">
         <div class="step-num">Step 03 of 04</div>
         <div class="stat" style="color:var(--amberl)">~150,000</div>
         <h3>cases pending. March 2025.</h3>
-        <p>35,262 waiting more than five years. The longest documented case: Jamalpur 2004–2025. A 13-year-old girl. Crime: 2004. Verdict: 2025. <strong>Twenty-one years.</strong></p>
-        <div class="note">SHARE-Net (148,314) + Daily Star (151,317) · <span class="ok">CONFIRMED</span> · S-63, S-64</div>
+        <p>35,262 waiting more than five years. The longest documented case: TC-002 in the Case Registry. A 13-year-old girl in Jamalpur. Crime: 2004. Verdict: 2025. <strong>Twenty-one years.</strong></p>
+        <div class="note">SHARE-Net (148,314) + Daily Star (151,317) &middot; <span class="ok">CONFIRMED</span> &middot; S-63, S-64</div>
       </div>
       <div class="step" data-scene="backlog" data-step="3">
         <div class="step-num">Step 04 of 04</div>
         <h3>The math of permanent crisis.</h3>
-        <p>At current disposal rate, clearing the existing backlog with <em>zero new filings</em> would take <strong>over 26 years.</strong> New cases arrive every day. The system cannot self-correct. This is not a temporary backlog. It is the permanent architecture of impunity.</p>
-        <div class="note">Derived from confirmed filing and disposal data · <span class="prob">PROBABLE</span></div>
+        <p>At current disposal rate, clearing the existing backlog with zero new filings would take <strong>over 26 years.</strong> New cases arrive every day. The system cannot self-correct. This is not a temporary backlog. It is the permanent architecture of impunity.</p>
+        <div class="note">Derived from confirmed filing and disposal data &middot; <span class="prob">PROBABLE</span></div>
       </div>
     </div>
   </div>
@@ -681,39 +527,43 @@ nav.inv-nav.hidden{transform:translateY(-100%)}
 
 <hr class="divider">
 
-<!-- ═══════════════════════════════════════ -->
-<!-- SCENE 06: THE GEOGRAPHY               -->
-<!-- ═══════════════════════════════════════ -->
-<section id="s6" class="scene dark" data-scene-name="Geography">
+<!-- S5: MAP &#8212; DATA CORRECTED v2.0 -->
+<section id="s5" class="scene dark">
   <div class="scene-title">
-    <div class="eyebrow">Scene 06 · The Geography</div>
+    <div class="eyebrow">Scene 06 &middot; The Geography</div>
     <h2>In a Room of Ten Women in Barishal, Eight Have Experienced Violence</h2>
     <p>That is not a statistic about marginal populations. That is a room. Click any division.</p>
   </div>
   <div class="scroll-scene" style="margin-top:2rem">
     <div class="viz-sticky">
       <div style="width:100%;max-width:440px">
-        <svg id="mapSvg" viewBox="0 0 400 500" style="width:100%;max-height:82vh" role="img" aria-label="Map of Bangladesh showing IPV rates by division">
+        <svg id="mapSvg" viewBox="0 0 400 500" style="width:100%;max-height:80vh">
           <defs>
             <radialGradient id="gBlood" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="rgba(200,30,58,.85)"/><stop offset="100%" stop-color="rgba(139,20,40,.4)"/></radialGradient>
             <radialGradient id="gAmber" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="rgba(212,160,96,.75)"/><stop offset="100%" stop-color="rgba(160,110,60,.4)"/></radialGradient>
-            <radialGradient id="gGreen" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="rgba(82,183,136,.55)"/><stop offset="100%" stop-color="rgba(45,106,79,.28)"/></radialGradient>
+            <radialGradient id="gGreen" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="rgba(82,183,136,.5)"/><stop offset="100%" stop-color="rgba(45,106,79,.25)"/></radialGradient>
           </defs>
-          <polygon id="div-rangpur" points="40,15 175,15 175,120 40,120" fill="url(#gAmber)" stroke="#1e1e32" stroke-width="1.5" opacity="0" style="transition:opacity .7s;cursor:pointer" onclick="showMapInfo('Rangpur','74.1%','1 crisis cell','Northern agricultural zone. High climate displacement. 1 crisis cell only.')"/>
+          <polygon id="div-rangpur" points="40,15 175,15 175,120 40,120" fill="url(#gAmber)" stroke="#1e1e32" stroke-width="1.5" opacity="0" style="transition:opacity .7s;cursor:pointer" onclick="showMapInfo(&#39;Rangpur&#39;,&#39;74.1%&#39;,&#39;1 crisis cell&#39;,&#39;Northern agricultural zone. High climate displacement. 1 crisis cell.&#39;)"/>
           <text x="107" y="73" class="div-label-svg">Rangpur</text>
-          <polygon id="div-mym" points="175,15 285,15 285,108 175,120" fill="url(#gAmber)" stroke="#1e1e32" stroke-width="1.5" opacity="0" style="transition:opacity .7s .1s;cursor:pointer" onclick="showMapInfo('Mymensingh','75.1%','1 crisis cell','Separated division 2015. 75.1% lifetime IPV. 1 crisis cell.')"/>
+          <polygon id="div-mym" points="175,15 285,15 285,108 175,120" fill="url(#gAmber)" stroke="#1e1e32" stroke-width="1.5" opacity="0" style="transition:opacity .7s .1s;cursor:pointer" onclick="showMapInfo(&#39;Mymensingh&#39;,&#39;75.1%&#39;,&#39;1 crisis cell&#39;,&#39;Separated division 2015. 75.1% lifetime IPV. 1 crisis cell.&#39;)"/>
           <text x="230" y="66" class="div-label-svg">Mymensingh</text>
-          <polygon id="div-sylhet" points="285,15 390,15 390,152 285,152 285,108" fill="url(#gGreen)" stroke="#1e1e32" stroke-width="1.5" opacity="0" style="transition:opacity .7s .2s;cursor:pointer" onclick="showMapInfo('Sylhet','72.7%','1 full OCC','Lowest IPV rate nationally at 72.7%. MAG Osmani Medical College OCC. MC College gang rape 2020 verdict still pending.')"/>
+          <!-- CORRECTED: Sylhet 72.7% not 79.2% -->
+          <polygon id="div-sylhet" points="285,15 390,15 390,152 285,152 285,108" fill="url(#gGreen)" stroke="#1e1e32" stroke-width="1.5" opacity="0" style="transition:opacity .7s .2s;cursor:pointer" onclick="showMapInfo(&#39;Sylhet&#39;,&#39;72.7%&#39;,&#39;1 full OCC&#39;,&#39;72.7% lifetime IPV. CORRECTED v2.0 (was 79.2%). MAG Osmani Medical College OCC. MC College gang rape 2020 still pending.&#39;)"/>
           <text x="337" y="82" class="div-label-svg">Sylhet</text>
-          <polygon id="div-raj" points="15,120 165,120 152,240 15,240" fill="url(#gAmber)" stroke="#1e1e32" stroke-width="1.5" opacity="0" style="transition:opacity .7s .3s;cursor:pointer" onclick="showMapInfo('Rajshahi','74.5%','1 full OCC','74.5% lifetime IPV. Rajshahi Medical College OCC — oldest programme centre.')"/>
+          <!-- CORRECTED: Rajshahi 74.5% not 78.9% -->
+          <polygon id="div-raj" points="15,120 165,120 152,240 15,240" fill="url(#gAmber)" stroke="#1e1e32" stroke-width="1.5" opacity="0" style="transition:opacity .7s .3s;cursor:pointer" onclick="showMapInfo(&#39;Rajshahi&#39;,&#39;74.5%&#39;,&#39;1 full OCC&#39;,&#39;74.5% lifetime IPV. CORRECTED v2.0 (was 78.9%). Rajshahi Medical College OCC, oldest programme centre.&#39;)"/>
           <text x="88" y="183" class="div-label-svg">Rajshahi</text>
-          <polygon id="div-dhaka" points="152,120 285,108 285,285 162,285 152,240" fill="url(#gGreen)" stroke="#1e1e32" stroke-width="1.5" opacity="0" style="transition:opacity .7s .4s;cursor:pointer" onclick="showMapInfo('Dhaka','72.9%','3 full OCCs','Lowest IPV nationally at 72.9%. 3 OCCs: DMCH, Faridpur MC, Gazipur. Highest court backlog. Resources concentrated in capital.')"/>
+          <!-- CORRECTED: Dhaka 72.9% not 72.1% -->
+          <polygon id="div-dhaka" points="152,120 285,108 285,285 162,285 152,240" fill="url(#gGreen)" stroke="#1e1e32" stroke-width="1.5" opacity="0" style="transition:opacity .7s .4s;cursor:pointer" onclick="showMapInfo(&#39;Dhaka&#39;,&#39;72.9%&#39;,&#39;3 full OCCs&#39;,&#39;Lowest IPV nationally at 72.9%. CORRECTED v2.0 (was 72.1%). Highest court backlog. 3 OCCs: DMCH, Faridpur MC, Gazipur. Resources concentrated in capital.&#39;)"/>
           <text x="218" y="200" class="div-label-svg">Dhaka</text>
-          <polygon id="div-ctg" points="285,108 390,152 390,388 285,365 285,285" fill="url(#gBlood)" stroke="#1e1e32" stroke-width="1.5" opacity="0" style="transition:opacity .7s .5s;cursor:pointer" onclick="showMapInfo('Chattogram','78.5%','3 full OCCs','78.5% lifetime IPV. Third highest nationally. 1M+ Rohingya refugees with zero GBV data.')"/>
+          <!-- CORRECTED: Chattogram 78.5% not 74.3% -->
+          <polygon id="div-ctg" points="285,108 390,152 390,388 285,365 285,285" fill="url(#gBlood)" stroke="#1e1e32" stroke-width="1.5" opacity="0" style="transition:opacity .7s .5s;cursor:pointer" onclick="showMapInfo(&#39;Chattogram&#39;,&#39;78.5%&#39;,&#39;3 full OCCs&#39;,&#39;78.5% lifetime IPV. CORRECTED v2.0 (was 74.3%). Third highest nationally. 1M+ Rohingya refugees with zero GBV data.&#39;)"/>
           <text x="337" y="258" class="div-label-svg">Chattogram</text>
-          <polygon id="div-khulna" points="15,240 152,240 162,285 152,390 15,390" fill="url(#gBlood)" stroke="#1e1e32" stroke-width="2" opacity="0" style="transition:opacity .7s .6s;cursor:pointer" onclick="showMapInfo('Khulna','81.3%','2 centres','81.3% lifetime IPV — SECOND HIGHEST nationally. Khulna MC + Magura. Magura 2025: 8yr-old victim. No full OCC in Magura district.')"/>
+          <!-- CORRECTED: Khulna 81.3% not 76.4% -->
+          <polygon id="div-khulna" points="15,240 152,240 162,285 152,390 15,390" fill="url(#gBlood)" stroke="#1e1e32" stroke-width="2" opacity="0" style="transition:opacity .7s .6s;cursor:pointer" onclick="showMapInfo(&#39;Khulna&#39;,&#39;81.3%&#39;,&#39;2 centres&#39;,&#39;81.3% lifetime IPV. SECOND HIGHEST nationally. CORRECTED v2.0 (was 76.4%). Khulna MC + Magura. Magura 2025: 8yr old survivor. No full OCC in Magura.&#39;)"/>
           <text x="88" y="322" class="div-label-svg">Khulna</text>
-          <polygon id="div-barishal" points="152,285 285,285 285,445 162,445 152,390" fill="url(#gBlood)" stroke="#1e1e32" stroke-width="2.5" opacity="0" style="transition:opacity .7s .7s;cursor:pointer" onclick="showMapInfo('Barishal','81.5%','1 full OCC','HIGHEST IN BANGLADESH. 81.5% lifetime IPV. 1 OCC for 9 million people. Highest food insecurity. Highest climate vulnerability.')"/>
+          <!-- Barishal 81.5% CORRECT -->
+          <polygon id="div-barishal" points="152,285 285,285 285,445 162,445 152,390" fill="url(#gBlood)" stroke="#1e1e32" stroke-width="2.5" opacity="0" style="transition:opacity .7s .7s;cursor:pointer" onclick="showMapInfo(&#39;Barishal&#39;,&#39;81.5%&#39;,&#39;1 full OCC&#39;,&#39;HIGHEST IN BANGLADESH. 81.5% lifetime IPV. 1 OCC for 9 million people. Highest food insecurity. Highest climate vulnerability.&#39;)"/>
           <text x="218" y="372" class="div-label-svg">Barishal</text>
           <text x="200" y="488" font-family="JetBrains Mono,monospace" font-size="7" fill="rgba(78,75,96,.6)" text-anchor="middle">Bay of Bengal</text>
           <g id="occ-dots">
@@ -727,46 +577,46 @@ nav.inv-nav.hidden{transform:translateY(-100%)}
           </g>
           <circle id="barishal-pulse" cx="218" cy="372" r="28" fill="none" stroke="var(--bloodl)" stroke-width="1.5" opacity="0"/>
         </svg>
-        <div class="map-info-box" id="map-info"><span style="color:var(--muted2)">← Click any division to explore data</span></div>
+        <div id="map-info" style="background:var(--ink3);border:1px solid var(--border);padding:.8rem 1rem;font-family:var(--mono);font-size:.5rem;line-height:1.7;min-height:64px;margin-top:.5rem"><span style="color:var(--muted2)">&#8592; Click any division to explore data</span></div>
         <div style="display:flex;gap:.8rem;margin-top:.6rem;flex-wrap:wrap">
-          <div style="display:flex;align-items:center;gap:.3rem;font-family:var(--mono);font-size:.4rem;color:var(--muted2)"><div style="width:10px;height:10px;background:rgba(200,30,58,.7)"></div>&gt;78% IPV</div>
-          <div style="display:flex;align-items:center;gap:.3rem;font-family:var(--mono);font-size:.4rem;color:var(--muted2)"><div style="width:10px;height:10px;background:rgba(212,160,96,.7)"></div>74–78%</div>
-          <div style="display:flex;align-items:center;gap:.3rem;font-family:var(--mono);font-size:.4rem;color:var(--muted2)"><div style="width:10px;height:10px;background:rgba(82,183,136,.5)"></div>&lt;74%</div>
-          <div style="display:flex;align-items:center;gap:.3rem;font-family:var(--mono);font-size:.4rem;color:var(--muted2)"><div style="width:10px;height:10px;border-radius:50%;background:var(--gold)"></div>Full OCC</div>
+          <div style="display:flex;align-items:center;gap:.3rem;font-family:var(--mono);font-size:.4rem;color:var(--muted2)"><div style="width:9px;height:9px;background:rgba(200,30,58,.7)"></div>&gt;78% IPV</div>
+          <div style="display:flex;align-items:center;gap:.3rem;font-family:var(--mono);font-size:.4rem;color:var(--muted2)"><div style="width:9px;height:9px;background:rgba(212,160,96,.7)"></div>74&#8211;78%</div>
+          <div style="display:flex;align-items:center;gap:.3rem;font-family:var(--mono);font-size:.4rem;color:var(--muted2)"><div style="width:9px;height:9px;background:rgba(82,183,136,.5)"></div>&lt;74%</div>
+          <div style="display:flex;align-items:center;gap:.3rem;font-family:var(--mono);font-size:.4rem;color:var(--muted2)"><div style="width:9px;height:9px;border-radius:50%;background:var(--gold)"></div>Full OCC</div>
         </div>
-        <div style="font-family:var(--mono);font-size:.37rem;color:rgba(196,30,58,.5);margin-top:.5rem">✓ Data corrected v2.0 — UNFPA/BBS VAW Survey 2024</div>
+        <div style="font-family:var(--mono);font-size:.38rem;color:rgba(196,30,58,.45);margin-top:.4rem">&#10003; Corrected v2.0 &#8212; source: UNFPA/BBS VAW Survey 2024 (AGG-002 to AGG-009)</div>
       </div>
     </div>
     <div class="steps-col">
       <div class="step" data-scene="mapscene" data-step="0">
         <div class="step-num">Step 01 of 05</div>
         <h3>Bangladesh has eight divisions. Violence is everywhere.</h3>
-        <p>The UNFPA/BBS VAW Survey 2024 interviewed 27,476 women across all divisions. National lifetime IPV rate: 76.0%. The lowest division — Sylhet — is 72.7%. There is no safe geography in this data.</p>
-        <div class="note">UNFPA/BBS Oct 2025 updated survey · <span class="ok">CONFIRMED</span> · S-74</div>
+        <p>The UNFPA/BBS VAW Survey 2024 interviewed 27,476 women across all divisions. National lifetime IPV rate: 76.0%. The lowest division &#8212; Sylhet &#8212; is 72.7%. There is no safe geography in this data.</p>
+        <div class="note">UNFPA/BBS Oct 2025 updated survey &middot; <span class="ok">CONFIRMED</span> &middot; S-74</div>
       </div>
       <div class="step" data-scene="mapscene" data-step="1">
         <div class="step-num">Step 02 of 05</div>
         <div class="stat" style="color:var(--bloodl)">81.5%</div>
         <h3>Barishal highest. Khulna second: 81.3%. Chattogram third: 78.5%.</h3>
         <p>In a room of ten women in Barishal or Khulna, eight have experienced intimate partner violence in their lifetime. The entire country sits in a 9-percentage-point band of violence. The floor is 72.7%. The ceiling is 81.5%.</p>
-        <div class="note">UNFPA/BBS VAW Survey 2024 (S-02) · <span class="ok">CONFIRMED</span></div>
+        <div class="note">UNFPA/BBS VAW Survey 2024 (S-02) &middot; <span class="ok">CONFIRMED</span></div>
       </div>
       <div class="step" data-scene="mapscene" data-step="2">
         <div class="step-num">Step 03 of 05</div>
         <h3>The gold circles are One-Stop Crisis Centres.</h3>
-        <p>Count them carefully. Fourteen centres across the entire country. Integrated medical, forensic, and legal support. The infrastructure designed to turn assaults into evidence into convictions. <strong>Fourteen circles for 170 million people.</strong></p>
-        <div class="note">GoB UNSG Submission May 2024 (S-09) · <span class="ok">CONFIRMED</span></div>
+        <p>Count them carefully. Fourteen centres across the entire country. Integrated medical, forensic, and legal support. The infrastructure designed to turn assaults into evidence into convictions. Fourteen circles for 170 million people.</p>
+        <div class="note">GoB UNSG Submission May 2024 (S-09) &middot; <span class="ok">CONFIRMED</span></div>
       </div>
       <div class="step" data-scene="mapscene" data-step="3">
         <div class="step-num">Step 04 of 05</div>
         <h3>The pattern is the verdict.</h3>
-        <p>Barishal: 81.5% IPV, <strong>1 OCC.</strong> Khulna: 81.3%, <strong>2 centres.</strong> Chattogram: 78.5%, 3 OCCs but 1M+ Rohingya with zero GBV data. Dhaka: 72.9% — the lowest nationally — <strong>3 OCCs.</strong> The resources flow to the capital. Not to the crisis.</p>
+        <p>Barishal: 81.5% IPV, <strong>1 OCC.</strong> Khulna: 81.3%, <strong>2 centres.</strong> Chattogram: 78.5%, 3 OCCs but 1M+ Rohingya with zero GBV data. Dhaka: 72.9% &#8212; the lowest nationally &#8212; <strong>3 OCCs.</strong> The resources flow to the capital. Not to the crisis.</p>
       </div>
       <div class="step" data-scene="mapscene" data-step="4">
         <div class="step-num">Step 05 of 05</div>
         <h3>50 of 64 districts have no full OCC.</h3>
-        <p>In those districts: no forensic physician. No integrated support. A 3–4 month wait for DNA results from the single national lab in Dhaka. <strong>78% of survivors arrive after the 72-hour forensic evidence window.</strong> The evidence that produces convictions is destroyed before the system begins.</p>
-        <div class="note">BRAC 2022 (S-01) · GoB UNSG Submission (S-09) · <span class="ok">CONFIRMED</span></div>
+        <p>In those districts: no forensic physician. No integrated support. A 3&#8211;4 month wait for DNA results from the single national lab in Dhaka. 78% of survivors arrive after the 72-hour forensic evidence window. The evidence that produces convictions is destroyed before the system begins.</p>
+        <div class="note">BRAC 2022 (S-01) &middot; GoB UNSG Submission (S-09) &middot; <span class="ok">CONFIRMED</span></div>
       </div>
     </div>
   </div>
@@ -774,127 +624,112 @@ nav.inv-nav.hidden{transform:translateY(-100%)}
 
 <hr class="divider">
 
-<!-- ═══════════════════════════════════════ -->
-<!-- SCENE 07: THE EVIDENCE WINDOW         -->
-<!-- ═══════════════════════════════════════ -->
-<section id="s7" class="full-scene" data-scene-name="Evidence" aria-label="Forensic evidence degradation over time">
+<!-- SDNA: FORENSIC DESTRUCTION -->
+<section id="sdna" class="full-scene">
   <div class="scene-title">
-    <div class="eyebrow">Scene 07 · The Evidence Window</div>
-    <h2>Evidence Doesn't Wait for the System</h2>
+    <div class="eyebrow">Scene 07 &middot; The Evidence Window</div>
+    <h2>Evidence Doesn&#8217;t Wait for the System</h2>
     <p>Biology has a deadline. The law acknowledged it: 72 hours. The system misses it in 78% of cases.</p>
   </div>
   <div class="fwrap" style="margin-top:3rem" id="forensicWrap">
     <div class="fstat-row">
       <div class="fstat">
         <div class="fstat-val" style="color:var(--bloodl)">78%</div>
-        <div class="fstat-lbl">survivors arrive after the 72-hour evidence window has closed</div>
+        <div class="fstat-lbl">of survivors arrive after the 72-hour evidence window has closed</div>
       </div>
       <div class="fstat">
         <div class="fstat-val" style="color:var(--gold)">2 machines</div>
-        <div class="fstat-lbl">DNA profiling machines serving all of Bangladesh's 170 million people</div>
+        <div class="fstat-lbl">DNA profiling machines serving all of Bangladesh&#8217;s 170 million people</div>
       </div>
       <div class="fstat">
         <div class="fstat-val" style="color:var(--amberl)">92%</div>
-        <div class="fstat-lbl">of 2025 DNA samples unprocessed — 1,204 of 1,304 samples backlogged</div>
+        <div class="fstat-lbl">of 2025 DNA samples unprocessed &#8212; 1,204 of 1,304 samples backlogged</div>
       </div>
     </div>
-
-    <div style="font-family:var(--mono);font-size:.5rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1.4rem">Evidence quality over time — relative degradation after assault</div>
-
-    <!-- Physical/biological evidence -->
-    <div class="evbar-section">
-      <div class="evbar-label">
-        Physical / Biological Evidence (DNA, fibres, injuries)
-        <span class="evbar-qual" style="color:var(--bloodl)">FASTEST DECAY</span>
+    <div id="evidenceBars">
+      <div style="font-family:var(--mono);font-size:.52rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1.2rem">Evidence quality over time &#8212; relative degradation after assault</div>
+      <div class="evbar-row">
+        <div class="evbar-lbl" style="display:flex;justify-content:space-between"><span>Physical / Biological Evidence (DNA, fibres, injuries)</span><span style="color:var(--bloodl);font-size:.4rem">FASTEST DECAY</span></div>
+        <div class="evbar-track">
+          <div class="evbar-fill" id="ev-bio" style="background:linear-gradient(to right,#52b788 0%,#52b788 18%,#c9a84c 28%,#e84060 50%,rgba(30,30,48,.35) 65%,rgba(30,30,48,.1) 100%)"></div>
+          <div style="position:absolute;left:28%;top:0;bottom:0;width:2px;background:rgba(232,64,96,.7)"></div>
+          <div style="position:absolute;left:28%;top:-18px;font-family:var(--mono);font-size:.38rem;color:var(--bloodl);transform:translateX(-50%);white-space:nowrap">72 HRS</div>
+          <div style="position:absolute;left:55%;top:0;bottom:0;width:2px;background:rgba(201,168,76,.5)"></div>
+          <div style="position:absolute;left:55%;top:-18px;font-family:var(--mono);font-size:.38rem;color:var(--gold);transform:translateX(-50%);white-space:nowrap">AVG ARRIVAL</div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:.36rem;color:var(--muted2);margin-top:.3rem"><span>Hour 0 — OPTIMAL</span><span>72 hrs</span><span>1 week</span><span>1 month</span><span>1 year+ — LOST</span></div>
       </div>
-      <div class="evbar-track" style="height:52px;">
-        <div class="ev-tick" style="left:28%"><div class="ev-tick-lbl">72 HRS</div></div>
-        <div class="ev-avg-tick" style="left:55%"><div class="ev-avg-lbl">AVG ARRIVAL</div></div>
-        <div class="evbar-fill" id="ev-bio" style="height:100%;background:linear-gradient(to right,#52b788 0%,#52b788 18%,#d4a060 28%,#c41e3a 45%,rgba(139,20,40,.35) 58%,rgba(20,10,20,.15) 80%,rgba(10,8,14,.08) 100%)"></div>
+      <div class="evbar-row" style="margin-top:1.6rem">
+        <div class="evbar-lbl" style="display:flex;justify-content:space-between"><span>Witness memory reliability</span><span style="color:var(--gold);font-size:.4rem">GRADUAL DECAY</span></div>
+        <div class="evbar-track">
+          <div class="evbar-fill" id="ev-mem" style="background:linear-gradient(to right,#52b788 0%,#52b788 35%,#c9a84c 50%,#d4a060 65%,rgba(212,160,96,.3) 85%,rgba(212,160,96,.08) 100%)"></div>
+          <div style="position:absolute;left:28%;top:0;bottom:0;width:1px;background:rgba(232,64,96,.35)"></div>
+          <div style="position:absolute;left:55%;top:0;bottom:0;width:1px;background:rgba(201,168,76,.35)"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:.36rem;color:var(--muted2);margin-top:.3rem"><span>Hour 0 — RELIABLE</span><span style="color:var(--gold)">FADING</span><span style="color:rgba(212,160,96,.5)">1 year+ — DEGRADED</span></div>
       </div>
-      <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:.36rem;color:var(--muted2);margin-top:.3rem"><span>Hour 0 — OPTIMAL</span><span>72 hrs</span><span>1 week</span><span>1 month</span><span>3 months</span><span>1 year+ — LOST</span></div>
+      <div class="evbar-row" style="margin-top:1.6rem">
+        <div class="evbar-lbl" style="display:flex;justify-content:space-between"><span>Medical documentation completeness</span><span style="color:var(--amberl);font-size:.4rem">STEEPEST INITIAL LOSS</span></div>
+        <div class="evbar-track">
+          <div class="evbar-fill" id="ev-med" style="background:linear-gradient(to right,#52b788 0%,#c9a84c 10%,#e84060 20%,rgba(139,20,40,.4) 35%,rgba(139,20,40,.15) 60%,rgba(30,30,48,.05) 100%)"></div>
+          <div style="position:absolute;left:28%;top:0;bottom:0;width:1px;background:rgba(232,64,96,.4)"></div>
+          <div style="position:absolute;left:55%;top:0;bottom:0;width:1px;background:rgba(201,168,76,.3)"></div>
+          <div style="position:absolute;left:10%;top:0;bottom:0;width:2px;background:rgba(232,64,96,.5)"></div>
+          <div style="position:absolute;left:10%;bottom:-18px;font-family:var(--mono);font-size:.35rem;color:var(--bloodl);transform:translateX(-50%);white-space:nowrap">&#8593; THRESHOLD: 72 HRS</div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:.36rem;color:var(--muted2);margin-top:1.2rem"><span>Hour 0 — COMPLETE</span><span style="color:var(--bloodl)">&#8593; AVG ARRIVAL</span><span style="color:rgba(139,20,40,.5)">INCOMPLETE</span></div>
+      </div>
     </div>
-
-    <!-- Witness memory -->
-    <div class="evbar-section" style="margin-top:1.4rem">
-      <div class="evbar-label">
-        Witness Memory Reliability
-        <span class="evbar-qual" style="color:var(--amber)">GRADUAL DECAY</span>
-      </div>
-      <div class="evbar-track" style="height:42px;">
-        <div class="ev-tick" style="left:28%"></div>
-        <div class="ev-avg-tick" style="left:55%"></div>
-        <div class="evbar-fill" id="ev-mem" style="height:100%;background:linear-gradient(to right,#52b788 0%,#52b788 28%,#52b788 35%,#c9a84c 50%,#d4a060 68%,rgba(181,131,70,.35) 82%,rgba(80,60,30,.2) 100%)"></div>
-      </div>
-      <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:.36rem;color:var(--muted2);margin-top:.3rem"><span>Hour 0 — RELIABLE</span><span></span><span></span><span>FADING</span><span></span><span>1 year+ — DEGRADED</span></div>
-    </div>
-
-    <!-- Medical documentation -->
-    <div class="evbar-section" style="margin-top:1.4rem">
-      <div class="evbar-label">
-        Medical Documentation Completeness
-        <span class="evbar-qual" style="color:var(--bloodd)">STEEPEST INITIAL LOSS</span>
-      </div>
-      <div class="evbar-track" style="height:34px;">
-        <div class="ev-tick" style="left:28%"></div>
-        <div class="ev-avg-tick" style="left:55%"></div>
-        <div class="evbar-fill" id="ev-med" style="height:100%;background:linear-gradient(to right,#52b788 0%,#d4a060 10%,#c41e3a 18%,rgba(139,20,40,.45) 30%,rgba(50,20,25,.25) 50%,rgba(18,10,14,.12) 100%)"></div>
-      </div>
-      <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:.36rem;color:var(--muted2);margin-top:.3rem"><span>Hour 0 — COMPLETE</span><span style="color:var(--bloodl)">↑ THRESHOLD: 72 HRS</span><span></span><span></span><span style="color:var(--gold)">↑ AVG ARRIVAL</span><span>INCOMPLETE</span></div>
-    </div>
-
     <div class="fsub-grid">
       <div class="fsub">
-        <div style="font-family:var(--mono);font-size:.46rem;color:var(--bloodl);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem">The Pipeline Failure</div>
-        <div style="font-family:var(--mono);font-size:1.7rem;font-weight:700;color:var(--text);margin:.3rem 0">789</div>
-        <div style="font-family:var(--mono);font-size:.42rem;color:var(--muted2);line-height:1.65">cases completely stalled nationwide due to DNA processing backlog (September 2025)</div>
+        <div style="font-family:var(--mono);font-size:.48rem;color:var(--bloodl);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem">The Pipeline Failure</div>
+        <div style="font-family:var(--mono);font-size:1.6rem;font-weight:700;color:var(--text);margin:.3rem 0">789</div>
+        <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);line-height:1.6">cases completely stalled nationwide due to DNA processing backlog (September 2025)</div>
       </div>
       <div class="fsub">
-        <div style="font-family:var(--mono);font-size:.46rem;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem">Report Issuance Rate</div>
-        <div style="font-family:var(--mono);font-size:1.7rem;font-weight:700;color:var(--text);margin:.3rem 0">55%</div>
-        <div style="font-family:var(--mono);font-size:.42rem;color:var(--muted2);line-height:1.65">of DNA cases evaluated by NFDPL result in a court report — 6,333 of 11,501 cases since 2006</div>
+        <div style="font-family:var(--mono);font-size:.48rem;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem">Report Issuance Rate</div>
+        <div style="font-family:var(--mono);font-size:1.6rem;font-weight:700;color:var(--text);margin:.3rem 0">55%</div>
+        <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);line-height:1.6">of DNA cases evaluated by NFDPL result in a court report (6,333 of 11,501 cases since 2006)</div>
       </div>
     </div>
-    <div style="font-family:var(--mono);font-size:.42rem;color:var(--muted2);margin-top:1.2rem;line-height:1.85;border-top:1px solid var(--border);padding-top:1rem">BRAC 2022 (S-01) · MoWCA NFDPL data 2025 · <span class="ok">CONFIRMED</span> · Only 1 national DNA profiling lab (NFDPL, Dhaka Medical College Hospital) + 8 divisional screening labs. Average processing: 3–4 months per case. 72.2% of identified rape victims in Faridpur study never reached full DNA profiling (S-01).</div>
+    <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);margin-top:1.2rem;line-height:1.8;border-top:1px solid var(--border);padding-top:1rem">Sources: BRAC 2022 (S-01) &middot; MoWCA NFDPL data 2025 &middot; <span class="ok">CONFIRMED</span> &middot; Only 1 national DNA profiling lab (NFDPL, Dhaka) + 5 regional screening labs. Average processing: 3&#8211;4 months per case.</div>
   </div>
 </section>
 
 <hr class="divider">
 
-<!-- ═══════════════════════════════════════ -->
-<!-- SCENE 08: THE PARADOX (SCATTER)       -->
-<!-- ═══════════════════════════════════════ -->
-<section id="s8" class="scene dark" data-scene-name="Paradox">
+<!-- S6: DETERRENCE -->
+<section id="s6" class="scene dark">
   <div class="scene-title">
-    <div class="eyebrow">Scene 08 · The Paradox</div>
+    <div class="eyebrow">Scene 08 &middot; The Paradox</div>
     <h2>Maximum Severity. Near-Zero Certainty.</h2>
     <p>Criminological consensus: certainty deters crime. Severity alone does not. Bangladesh chose severity. Watch where it places them.</p>
   </div>
   <div class="scroll-scene" style="margin-top:2rem">
     <div class="viz-sticky">
       <div style="width:100%;max-width:620px">
-        <canvas id="scatterCanvas" height="400" style="width:100%" aria-label="Scatter plot comparing conviction rates against sentence severity across countries"></canvas>
-        <div class="scatter-note">Nagin 2013 · Dölling 2009 · Abramovaite 2022 · NPA 2023/24 · CPS 2024 · NCRB 2022 · OCC 2024</div>
+        <canvas id="scatterCanvas" height="380" style="width:100%"></canvas>
+        <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);margin-top:.6rem;line-height:1.6">Nagin 2013 &middot; D&#246;lling 2009 &middot; Abramovaite 2022 &middot; NPA 2023/24 &middot; CPS 2024 &middot; NCRB 2022 &middot; OCC 2024</div>
       </div>
     </div>
     <div class="steps-col">
       <div class="step" data-scene="scatter" data-step="0">
         <div class="step-num">Step 01 of 03</div>
         <h3>Criminological consensus: certainty is the primary deterrent.</h3>
-        <p>Nagin (2013): certainty of apprehension — not severity of punishment — is the primary deterrent to crime. Dölling et al. (2009) meta-analysis: deterrence hypothesis "rarely confirmed" for serious offences. This is not a minority view. It is the 50-year consensus across jurisdictions.</p>
-        <div class="note">Academic consensus · Cross-jurisdictional · No credible counter-evidence for rape specifically</div>
+        <p>Nagin (2013): certainty of apprehension &#8212; not severity of punishment &#8212; is the primary deterrent to crime. D&#246;lling et al. (2009) meta-analysis: deterrence hypothesis &#8220;rarely confirmed&#8221; for serious offences. This is not a minority view. It is the 50-year consensus across jurisdictions.</p>
+        <div class="note">Academic consensus &middot; Cross-jurisdictional &middot; No credible counter-evidence for rape specifically</div>
       </div>
       <div class="step" data-scene="scatter" data-step="1">
         <div class="step-num">Step 02 of 03</div>
         <h3>Countries with higher certainty achieve higher conviction rates.</h3>
-        <p>South Africa: high certainty (forensic infrastructure, integrated support) → 72.2% conviction rate. No death penalty for rape. Indonesia: implemented death penalty for child rape → documented post-implementation <strong>surge in child rape rates.</strong> The mechanism is known. Certainty deters. Severity alone does not.</p>
-        <div class="note">Susila 2019 · S-52 · <span class="ok">CONFIRMED</span></div>
+        <p>South Africa: high certainty (forensic infrastructure, integrated support) &#8594; 72.2% conviction rate. No death penalty for rape. Indonesia: implemented death penalty for child rape &#8594; documented post-implementation <strong>surge in child rape rates.</strong> The mechanism is known. Certainty deters. Severity alone does not.</p>
+        <div class="note">Susila 2019 &middot; S-52 &middot; <span class="ok">CONFIRMED</span></div>
       </div>
       <div class="step" data-scene="scatter" data-step="2">
         <div class="step-num">Step 03 of 03</div>
         <h3>Bangladesh is in the worst possible corner.</h3>
-        <p>Maximum severity: mandatory death penalty since October 2020. Near-zero certainty: 0.46% conviction rate. <strong>The data places Bangladesh exactly where the literature predicts.</strong> The reform pathway requires no new theory. It requires political decision.</p>
-        <div class="note">Three documented mechanisms: judicial reluctance when penalty is death · witness elimination incentive · family suppression when accused is known</div>
+        <p>Maximum severity: mandatory death penalty since October 2020. Near-zero certainty: 0.46% conviction rate. <strong>The data places Bangladesh exactly where the literature predicts.</strong> The reform pathway requires no new theory. It requires political decision. Six evidence-based interventions. All documented below.</p>
+        <div class="note">Three documented mechanisms: judicial reluctance when penalty is death &middot; witness elimination incentive &middot; family suppression when accused is known</div>
       </div>
     </div>
   </div>
@@ -902,827 +737,210 @@ nav.inv-nav.hidden{transform:translateY(-100%)}
 
 <hr class="divider">
 
-<!-- ═══════════════════════════════════════ -->
-<!-- SCENE 09: THE VOIDS                   -->
-<!-- ═══════════════════════════════════════ -->
-<section id="s9" class="full-scene" data-scene-name="Voids">
+<!-- S7: VOIDS &#8212; EXPANDED TO 10 -->
+<section id="s7" class="full-scene">
   <div class="scene-title">
-    <div class="eyebrow">Scene 09 · The Voids</div>
+    <div class="eyebrow">Scene 09 &middot; The Voids</div>
     <h2>What the Government Holds and Does Not Publish</h2>
     <p>Ten datasets. Ten black holes. Each one a point where the system hides its own failure from scrutiny.</p>
   </div>
   <div class="void-grid" id="voidGrid">
-    <div class="void-card" id="void-0"><div class="void-gapid">GA-001</div><div class="void-circle"><div class="void-core"></div><div class="void-inner"></div></div><div class="void-lbl">Annual conviction rates<br>by tribunal · by district</div><div class="void-why">Would confirm whether the 2020 death penalty worsened rates. PHQ holds it. 25 years of data. Never published.</div></div>
-    <div class="void-card" id="void-1"><div class="void-gapid">GA-002</div><div class="void-circle"><div class="void-core"></div><div class="void-inner"></div></div><div class="void-lbl">FIR registration rate<br>for rape complaints</div><div class="void-why">The most critical funnel stage. Unknown what % of complaints become formal FIRs. This is where most cases may be lost — completely unmeasured.</div></div>
+    <div class="void-card" id="void-0"><div class="void-gapid">GA-001</div><div class="void-circle"><div class="void-core"></div><div class="void-inner"></div></div><div class="void-lbl">Annual conviction rates<br>by tribunal &middot; by district</div><div class="void-why">Would confirm whether the 2020 death penalty worsened conviction rates. PHQ holds it. 25 years of data. Never published.</div></div>
+    <div class="void-card" id="void-1"><div class="void-gapid">GA-002</div><div class="void-circle"><div class="void-core"></div><div class="void-inner"></div></div><div class="void-lbl">FIR registration rate<br>for rape complaints</div><div class="void-why">The most critical funnel stage. Unknown what % of complaints become formal FIRs. This is where most cases may be lost &#8212; completely unmeasured.</div></div>
     <div class="void-card" id="void-2"><div class="void-gapid">GA-003</div><div class="void-circle"><div class="void-core"></div><div class="void-inner"></div></div><div class="void-lbl">90-day trial timeline<br>compliance rate</div><div class="void-why">Statutory mandate exists. Compliance data does not. In 25 years, the government has never published whether tribunals meet their own deadline.</div></div>
-    <div class="void-card" id="void-3"><div class="void-gapid">GA-004</div><div class="void-circle"><div class="void-core"></div><div class="void-inner"></div></div><div class="void-lbl">National Section 17<br>prosecution count</div><div class="void-why">Two confirmed cases documented. National count: unknown. Under 2025 Ordinance, §17 expanded to include "loss of dignity" — monitoring now critical.</div></div>
-    <div class="void-card" id="void-4"><div class="void-gapid">GA-005</div><div class="void-circle"><div class="void-core"></div><div class="void-inner"></div></div><div class="void-lbl">Case withdrawal and<br>abandonment rate</div><div class="void-why">Not tracked. Scale of shalish-driven attrition is unknown. The funnel's largest leak is invisible to any accountability mechanism.</div></div>
-    <div class="void-card" id="void-5"><div class="void-gapid">GA-006</div><div class="void-circle"><div class="void-core"></div><div class="void-inner"></div></div><div class="void-lbl">Post-2020 amendment<br>conviction comparison</div><div class="void-why">Five years of data exists. One published table would confirm or refute the judicial reluctance hypothesis. It does not exist.</div></div>
-    <div class="void-card" id="void-6"><div class="void-gapid">GA-007</div><div class="void-circle"><div class="void-core"></div><div class="void-inner"></div></div><div class="void-lbl">DNA processing time<br>by district · by case type</div><div class="void-why">789 cases stalled. 92% of 2025 samples unprocessed. NFDPL holds the data. No public disclosure. The bottleneck is invisible to policymakers by design.</div></div>
+    <div class="void-card" id="void-3"><div class="void-gapid">GA-004</div><div class="void-circle"><div class="void-core"></div><div class="void-inner"></div></div><div class="void-lbl">National Section 17<br>prosecution count</div><div class="void-why">Two confirmed cases documented. National count: unknown. Under 2025 Ordinance, &#167;17 expanded to include &#8220;loss of dignity&#8221; &#8212; monitoring now critical.</div></div>
+    <div class="void-card" id="void-4"><div class="void-gapid">GA-005</div><div class="void-circle"><div class="void-core"></div><div class="void-inner"></div></div><div class="void-lbl">Case withdrawal and<br>abandonment rate</div><div class="void-why">Not tracked. Scale of shalish-driven attrition is unknown. The funnel&#8217;s largest leak is invisible to any accountability mechanism.</div></div>
+    <div class="void-card" id="void-5"><div class="void-gapid">GA-006</div><div class="void-circle"><div class="void-core"></div><div class="void-inner"></div></div><div class="void-lbl">Post-2020 amendment<br>conviction comparison</div><div class="void-why">Five years of data exists. One published table would confirm or refute the judicial reluctance hypothesis. It does not exist. The government cannot not know this.</div></div>
+    <div class="void-card" id="void-6"><div class="void-gapid">GA-007</div><div class="void-circle"><div class="void-core"></div><div class="void-inner"></div></div><div class="void-lbl">DNA processing time<br>by district &middot; by case type</div><div class="void-why">789 cases stalled. 92% of 2025 samples unprocessed. NFDPL holds the data. No public disclosure. The bottleneck is invisible to policymakers by design.</div></div>
     <div class="void-card" id="void-7"><div class="void-gapid">GA-008</div><div class="void-circle"><div class="void-core"></div><div class="void-inner"></div></div><div class="void-lbl">Witness Protection Law<br>(pending since 2015)</div><div class="void-why">Bill drafted. Not enacted. Witnesses are unprotected. Conviction requires witness. The logical chain is broken by deliberate legislative inaction across four governments.</div></div>
-    <div class="void-card" id="void-8"><div class="void-gapid">GA-009</div><div class="void-circle"><div class="void-core"></div><div class="void-inner"></div></div><div class="void-lbl">Marital rape exemption<br>still in force 2026</div><div class="void-why">CEDAW Committee required removal in 2016. Still unresolved in 2026. 47 countries have criminalised marital rape since 2016.</div></div>
-    <div class="void-card" id="void-9"><div class="void-gapid">GA-012</div><div class="void-circle"><div class="void-core"></div><div class="void-inner"></div></div><div class="void-lbl">Section 32 violations<br>hospital refusal tracking</div><div class="void-why">WCRPA §32 mandates hospitals examine rape survivors. No institution tracks compliance. Hospital refusals — a documented pattern — completely invisible.</div></div>
+    <div class="void-card" id="void-8"><div class="void-gapid">GA-009</div><div class="void-circle"><div class="void-core"></div><div class="void-inner"></div></div><div class="void-lbl">Marital rape exemption<br>still in force 2026</div><div class="void-why">CEDAW Committee required removal in 2016. Still unresolved in 2026. An entire category of violence is legally invisible. 47 countries have criminalised marital rape since 2016.</div></div>
+    <div class="void-card" id="void-9"><div class="void-gapid">GA-012</div><div class="void-circle"><div class="void-core"></div><div class="void-inner"></div></div><div class="void-lbl">Section 32 violations<br>hospital refusal tracking</div><div class="void-why">WCRPA &#167;32 mandates hospitals examine rape survivors. No institution tracks compliance. Hospital refusals &#8212; a documented pattern &#8212; are completely invisible to any accountability system.</div></div>
   </div>
-  <div class="void-conclusion" id="void-conclusion">
+  <div id="void-conclusion" style="max-width:700px;text-align:center;margin-top:2.5rem;opacity:0;transition:opacity .8s">
     <p style="font-family:var(--display);font-style:italic;font-size:clamp(1.1rem,2.2vw,1.5rem);color:var(--amberl);line-height:1.7">Ten datasets the government holds. Ten datasets the government does not publish.</p>
-    <p style="font-family:var(--mono);font-size:.58rem;color:var(--muted);margin-top:.8rem;letter-spacing:.08em">This is not a limitation of research. <strong style="color:var(--text)">This is a feature of impunity.</strong></p>
+    <p style="font-family:var(--mono);font-size:.6rem;color:var(--muted);margin-top:.8rem;letter-spacing:.08em">This is not a limitation of research. <strong style="color:var(--text)">This is a feature of impunity.</strong></p>
   </div>
 </section>
 
-<hr class="divider">
-
-<!-- ═══════════════════════════════════════ -->
-<!-- SCENE 10: LIVE RECORD                 -->
-<!-- ═══════════════════════════════════════ -->
-<section id="s10" data-scene-name="Live Record">
-  <div class="live-header">
-    <div class="live-badge">Live Record — BD-INV-002</div>
-    <h2 style="font-family:var(--display);font-size:clamp(1.8rem,3.5vw,3rem);font-weight:700;line-height:1.1;margin-bottom:.8rem">The Machine in Real Time</h2>
-    <p style="font-size:.88rem;color:var(--muted);line-height:1.8;max-width:580px;margin:0 auto">Cases tracked. Leads logged. Monthly data — confirmed, probable, and confirmed absent. Updated every 6 hours via automated collector. All items carry evidence tier labels.</p>
-  </div>
-
-  <div class="live-stats-row" id="liveStatsRow">
-    <div class="lsr-item"><div class="lsr-num" id="ls-leads">—</div><div class="lsr-lbl">Leads tracked</div></div>
-    <div class="lsr-item"><div class="lsr-num" id="ls-cases">—</div><div class="lsr-lbl">Cases monitored</div></div>
-    <div class="lsr-item"><div class="lsr-num" id="ls-conf">—</div><div class="lsr-lbl">Confirmed items</div></div>
-    <div class="lsr-item"><div class="lsr-num" id="ls-absent">—</div><div class="lsr-lbl">Confirmed absent months</div></div>
-  </div>
-
-  <div class="tabs" role="tablist">
-    <button class="tab-btn active" role="tab" aria-selected="true" onclick="switchLiveTab('cases',this)">📋 Tracked Cases</button>
-    <button class="tab-btn" role="tab" aria-selected="false" onclick="switchLiveTab('monthly',this)">📅 Monthly Data</button>
-    <button class="tab-btn" role="tab" aria-selected="false" onclick="switchLiveTab('leads',this)">📰 Latest Reports</button>
-  </div>
-
-  <!-- Cases Panel -->
-  <div class="tab-panel active" id="live-panel-cases">
-    <div id="cases-container"><div style="font-family:var(--mono);font-size:.52rem;color:var(--muted2);padding:2rem 0;text-align:center">Loading cases…</div></div>
-  </div>
-
-  <!-- Monthly Panel -->
-  <div class="tab-panel" id="live-panel-monthly">
-    <div style="font-family:var(--mono);font-size:.48rem;color:var(--muted2);margin-bottom:1rem;line-height:1.7">Bars show relative filing volume. Red = CONFIRMED ABSENT (PHQ does not publish monthly breakdowns). Click any row for notes.</div>
-    <div id="monthly-container"><div style="font-family:var(--mono);font-size:.52rem;color:var(--muted2);padding:2rem 0;text-align:center">Loading monthly data…</div></div>
-  </div>
-
-  <!-- Leads Panel -->
-  <div class="tab-panel" id="live-panel-leads">
-    <div id="leads-container"><div style="font-family:var(--mono);font-size:.52rem;color:var(--muted2);padding:2rem 0;text-align:center">Loading latest reports…</div></div>
-  </div>
-
-  <div style="max-width:900px;margin:0 auto;padding:0 2rem 2rem;border-top:1px solid var(--border);margin-top:1rem;padding-top:1rem;display:flex;gap:.6rem;flex-wrap:wrap;align-items:center">
-    <span style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.08em">Download raw data:</span>
-    <a href="/data/leads.json" download style="font-family:var(--mono);font-size:.44rem;color:var(--gold);border:1px solid var(--gold2);padding:.2rem .6rem">↓ leads.json</a>
-    <a href="/data/cases.json" download style="font-family:var(--mono);font-size:.44rem;color:var(--gold);border:1px solid var(--gold2);padding:.2rem .6rem">↓ cases.json</a>
-    <a href="/data/monthly.json" download style="font-family:var(--mono);font-size:.44rem;color:var(--gold);border:1px solid var(--gold2);padding:.2rem .6rem">↓ monthly.json</a>
-    <span style="font-family:var(--mono);font-size:.4rem;color:var(--muted2);margin-left:auto">CC BY-NC 4.0 · Evidence tiers mandatory when citing</span>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- ═══════════════════════════════════════ -->
-<!-- CLOSING                               -->
-<!-- ═══════════════════════════════════════ -->
+<!-- CLOSING -->
 <section id="closing">
   <div class="closing-v">The machine is<br><em>documented.</em></div>
-  <p class="closing-sub">Every link in the chain of impunity is named, sourced, and evidence-tiered. 91 named sources. All claims carry CONFIRMED / PROBABLE / ALLEGED tier labels. The reform pathway exists. None of it requires new theory.</p>
+  <p class="closing-sub">Every link in the chain of impunity is named, sourced, and evidence-tiered. 91 named sources. All claims carry CONFIRMED / PROBABLE / ALLEGED tier labels. The reform pathway exists.</p>
   <div class="closing-stmt">
-    "None of these interventions require new theory. They require political decision.<br>
-    Forensic centres exist. 50 districts have none. <strong>This is not a resource problem — it is a decision.</strong><br>
-    Witness Protection Bill drafted. Pending since 2015. Not enacted. <strong>This is a decision.</strong><br>
-    Marital rape exemption: required removed by CEDAW in 2016. Still in force in 2026. <strong>This is a decision.</strong>"
+    &#8220;None of these interventions require new theory. They require political decision.<br>
+    Forensic centres exist. 50 districts have none. This is not a resource problem &#8212; it is a decision.<br>
+    Witness Protection Bill drafted. Pending since 2015. Not enacted. This is a decision.<br>
+    Marital rape exemption: required removed by CEDAW in 2016. Still in force in 2026. This is a decision.&#8221;
   </div>
   <div class="ivs">
-    <div class="iv"><div class="iv-n">Intervention 01</div><div class="iv-t">OCC Geographic Redistribution</div><div class="iv-d">14 centres in divisional HQs. Expand to 50+ district-level centres, prioritising Barishal (81.5% IPV, 1 OCC), Khulna (81.3%, 2 centres), Chattogram (78.5%). Required: 36 new district OCCs.</div><div class="iv-m">Model: South Africa Thuthuzela Care Centres</div></div>
+    <div class="iv"><div class="iv-n">Intervention 01</div><div class="iv-t">OCC Geographic Redistribution</div><div class="iv-d">14 centres concentrated in divisional HQs. Expand to 50+ district-level centres, prioritising Barishal (81.5% IPV, 1 OCC), Khulna (81.3%, 2 centres), Chattogram (78.5%). Required: 36 new district OCCs.</div><div class="iv-m">Model: South Africa Thuthuzela Care Centres</div></div>
     <div class="iv"><div class="iv-n">Intervention 02</div><div class="iv-t">DNA Infrastructure Expansion</div><div class="iv-d">2 DNA machines for 170M people. 92% of 2025 samples unprocessed. 789 cases stalled. Minimum viable: 8 fully operational regional labs with 72-hour processing target.</div><div class="iv-m">Model: NPA South Africa regional forensic centres</div></div>
-    <div class="iv"><div class="iv-n">Intervention 03</div><div class="iv-t">Witness Protection Enactment</div><div class="iv-d">Witness Protection Bill pending since 2015. Conviction requires witness. Witness requires protection. The Bill exists. Parliament needs to pass it. No new drafting required.</div><div class="iv-m">Status: Draft law exists — enactment only</div></div>
-    <div class="iv"><div class="iv-n">Intervention 04</div><div class="iv-t">Mandatory Data Publication</div><div class="iv-d">PHQ annual conviction rates. Supreme Court trial compliance rates. NFDPL processing times. A single ministerial order mandating quarterly disclosure of 6 key metrics ends the data void at near-zero cost.</div><div class="iv-m">Cost: administrative — no new institution required</div></div>
-    <div class="iv"><div class="iv-n">Intervention 05</div><div class="iv-t">Section 17 National Registry</div><div class="iv-d">No institution tracks §17 prosecutions. Under the 2025 expansion, monitoring is urgent. A court-level reporting requirement creates the first national registry. Required: Supreme Court administrative order.</div><div class="iv-m">Required: one administrative directive</div></div>
-    <div class="iv"><div class="iv-n">Intervention 06</div><div class="iv-t">Marital Rape Criminalisation</div><div class="iv-d">CEDAW required this in 2016. 47 countries have enacted it since. The exemption creates a legal category of invisible violence. Required: one amendment to WCRPA Section 2.</div><div class="iv-m">CEDAW/C/BGD/CO/8 · 2016 · Para 19(a)</div></div>
+    <div class="iv"><div class="iv-n">Intervention 03</div><div class="iv-t">Witness Protection Enactment</div><div class="iv-d">Witness Protection Bill pending since 2015. Conviction requires witness. Witness requires protection. The Bill exists. Parliament needs to pass it. No new drafting required.</div><div class="iv-m">Status: Draft law exists &#8212; enactment only</div></div>
+    <div class="iv"><div class="iv-n">Intervention 04</div><div class="iv-t">Mandatory Data Publication</div><div class="iv-d">PHQ annual conviction rates. Supreme Court trial compliance rates. NFDPL processing times. A single ministerial order mandating quarterly disclosure of 6 key metrics ends the data void at near-zero cost.</div><div class="iv-m">Cost: administrative &#8212; no new institution required</div></div>
+    <div class="iv"><div class="iv-n">Intervention 05</div><div class="iv-t">Section 17 National Registry</div><div class="iv-d">No institution tracks &#167;17 prosecutions. Under the 2025 expansion, monitoring is urgent. A court-level reporting requirement creates the first national registry. Required: Supreme Court administrative order.</div><div class="iv-m">Required: one administrative directive</div></div>
+    <div class="iv"><div class="iv-n">Intervention 06</div><div class="iv-t">Marital Rape Criminalisation</div><div class="iv-d">CEDAW required this in 2016. 47 countries have enacted it since. The exemption creates a legal category of invisible violence. Required: one amendment to WCRPA Section 2.</div><div class="iv-m">CEDAW/C/BGD/CO/8 &middot; 2016 &middot; Para 19(a)</div></div>
   </div>
   <div class="btn-row">
-    <a class="btn btn-red" href="/investigations/national/impunity-machine.html">Read Full Investigation →</a>
-    <a class="btn btn-teal" href="/investigations/national/impunity-machine.html#dashboard">Live Dashboard →</a>
-    <a class="btn btn-gold" href="/series/impunity-machine/methodology.html">Methodology →</a>
-    <a class="btn btn-gold" href="#" id="dlBtn">↓ Download Evidence Data</a>
+    <a class="btn btn-red" href="/investigations/national/impunity-machine.html">Read Full Investigation &#8594;</a>
+    <a class="btn btn-teal" href="/data/tribunal-cases.html">Case Registry (60 verdicts) &#8594;</a>
+    <a class="btn btn-gold" href="/series/impunity-machine/methodology.html">Methodology &#8594;</a>
+    <a class="btn btn-gold" href="#" onclick="dlCSV(event)">&#8595; Download Evidence Data</a>
   </div>
-  <div class="tier-note">
-    BD-INV-002 · The Impunity Machine · Version 2.1 · March 2026 · Insight Gaps<br>
-    91 named sources · All claims evidence-tiered · Corrections: <a href="mailto:insightgaps@gmail.com">insightgaps@gmail.com</a> · CC BY-NC 4.0<br>
-    Anonymous publication · Open-source posture · <a href="/series/impunity-machine/methodology.html">Full methodology →</a>
-  </div>
+  <div class="tier-note">BD-INV-002 &middot; The Impunity Machine &middot; Version 2.0 &middot; March 2026 &middot; Insight Gaps<br>91 named sources &middot; All claims evidence-tiered &middot; Corrections: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5a333429333d322e3d3b2a291a3d373b333674393537">[email&#160;protected]</a> &middot; CC BY-NC 4.0<br>Anonymous publication &middot; Open-source posture &middot; <a href="/series/impunity-machine/methodology.html">Full methodology &#8594;</a></div>
 </section>
 
-<script>
-'use strict';
-
-// ═══════════════════════════════════════════
-// FLOATING COUNTER
-// ═══════════════════════════════════════════
-(function(){
-  const now = new Date();
-  const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  const elapsed = (now - startOfDay) / 1000; // seconds
-  const annualRate = 4394;
-  const perSecond = annualRate / (365.25 * 86400);
-  let count = elapsed * perSecond;
-  const el = document.getElementById('fcNum');
-  if (el) {
-    el.textContent = Math.floor(count);
-    setInterval(() => {
-      count += perSecond * 5;
-      el.textContent = Math.floor(count);
-    }, 5000);
-  }
-})();
-
-// ═══════════════════════════════════════════
-// SCENE NAVIGATION DOTS
-// ═══════════════════════════════════════════
-const SCENES = ['hero','s1','s2','s3','s4','s5','s6','s7','s8','s9','s10','closing'];
-const dotContainer = document.getElementById('sceneDots');
-SCENES.forEach((id, i) => {
-  const d = document.createElement('div');
-  d.className = 'ns-dot';
-  d.title = 'Scene ' + (i+1);
-  d.onclick = () => document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
-  dotContainer.appendChild(d);
-});
-
-// ═══════════════════════════════════════════
-// NAV HIDE/SHOW ON SCROLL
-// ═══════════════════════════════════════════
-let lastY = 0, ticking = false;
-window.addEventListener('scroll', () => {
-  if (!ticking) {
-    requestAnimationFrame(() => {
-      const y = window.scrollY;
-      const nav = document.getElementById('invNav');
-      if (nav) nav.classList.toggle('hidden', y > lastY + 50 && y > 200);
-      lastY = y;
-      // Update active scene dot
-      let active = 0;
-      SCENES.forEach((id, i) => {
-        const el = document.getElementById(id);
-        if (el && el.getBoundingClientRect().top <= 120) active = i;
-      });
-      dotContainer.querySelectorAll('.ns-dot').forEach((d,i) => {
-        d.classList.toggle('active', i === active);
-        d.classList.toggle('done', i < active);
-      });
-      ticking = false;
-    });
-    ticking = true;
-  }
-}, {passive:true});
-
-// ═══════════════════════════════════════════
-// HERO ANIMATIONS
-// ═══════════════════════════════════════════
-const stmtIds = ['hs1','hs2','hs3','hs4'];
-stmtIds.forEach((id, i) => {
-  setTimeout(() => {
-    const el = document.getElementById(id);
-    if (el) el.classList.add('vis');
-  }, 600 + i * 520);
-});
-setTimeout(() => {
-  document.getElementById('htitle')?.classList.add('vis');
-  document.getElementById('hsub')?.classList.add('vis');
-}, 2200);
-
-// ═══════════════════════════════════════════
-// DOT CANVAS — SCENE 01
-// ═══════════════════════════════════════════
-const DC = document.getElementById('dotCanvas');
-const dpr = Math.min(window.devicePixelRatio || 1, 2);
-const COLS = 100, ROWS = 100, TOT = 10000, CELL = 5;
-DC.width = COLS * CELL * dpr; DC.height = ROWS * CELL * dpr;
-DC.style.width = (COLS * CELL) + 'px'; DC.style.height = (ROWS * CELL) + 'px';
-const ctx = DC.getContext('2d'); ctx.scale(dpr, dpr);
-let seed = 42;
-function rng() { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; }
-const order = Array.from({length:TOT}, (_, i) => i).sort(() => rng() - .5);
-const rankOf = new Uint16Array(TOT);
-order.forEach((idx, rank) => { rankOf[idx] = rank; });
-const dotOp = new Float32Array(TOT).fill(1);
-const dotTgt = new Float32Array(TOT).fill(1);
-const dotSt = new Uint8Array(TOT);
-function setDotStep(alive, surv = 0) {
-  for (let i = 0; i < TOT; i++) {
-    const r = rankOf[i];
-    if (r >= alive) { dotTgt[i] = .04; dotSt[i] = 2; }
-    else if (r < surv) { dotTgt[i] = 1; dotSt[i] = 1; }
-    else { dotTgt[i] = .75; dotSt[i] = 0; }
-  }
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const DC=document.getElementById("dotCanvas");
+const dpr=Math.min(window.devicePixelRatio||1,2);
+const COLS=100,ROWS=100,TOT=10000,CELL=5;
+DC.width=COLS*CELL*dpr;DC.height=ROWS*CELL*dpr;
+DC.style.width=(COLS*CELL)+"px";DC.style.height=(ROWS*CELL)+"px";
+const ctx=DC.getContext("2d");ctx.scale(dpr,dpr);
+let seed=42;function rng(){seed=(seed*1664525+1013904223)>>>0;return seed/4294967296;}
+const order=Array.from({length:TOT},(_,i)=>i).sort(()=>rng()-.5);
+const rankOf=new Uint16Array(TOT);order.forEach((idx,rank)=>{rankOf[idx]=rank;});
+const dotOp=new Float32Array(TOT).fill(1);
+const dotTgt=new Float32Array(TOT).fill(1);
+const dotSt=new Uint8Array(TOT);
+function setDotStep(alive,surv=0){
+  for(let i=0;i<TOT;i++){const r=rankOf[i];if(r>=alive){dotTgt[i]=.04;dotSt[i]=2;}else if(r<surv){dotTgt[i]=1;dotSt[i]=1;}else{dotTgt[i]=.75;dotSt[i]=0;}}
 }
-setDotStep(TOT, 0);
-const FSTEPS = [
-  {alive:10000, surv:0, lbl:'10,000', st:'women — all assaults'},
-  {alive:3800,  surv:0, lbl:'3,800',  st:'disclosed to someone'},
-  {alive:1000,  surv:0, lbl:'~1,000', st:'contacted police'},
-  {alive:590,   surv:0, lbl:'~590',   st:'cases charge-sheeted'},
-  {alive:46,    surv:0, lbl:'~46',    st:'reached trial'},
-  {alive:2,     surv:2, lbl:'2',      st:'convictions — from 10,000'}
-];
-let animating = false;
-function drawDots() {
-  let dirty = false;
-  for (let i = 0; i < TOT; i++) {
-    const d = dotTgt[i] - dotOp[i];
-    if (Math.abs(d) > .001) { dotOp[i] += d * .07; dirty = true; }
-    else dotOp[i] = dotTgt[i];
-  }
-  ctx.clearRect(0, 0, COLS*CELL, ROWS*CELL);
-  for (let i = 0; i < TOT; i++) {
-    const op = dotOp[i];
-    if (op < .01) continue;
-    ctx.globalAlpha = op;
-    const c = i % COLS, r = Math.floor(i / COLS);
-    ctx.fillStyle = dotSt[i] === 1 ? '#e84060' : dotSt[i] === 2 ? '#1a1a2c' : '#c9a84c';
-    ctx.fillRect(c * CELL + 1, r * CELL + 1, 3, 3);
-  }
-  ctx.globalAlpha = 1;
-  if (dirty) requestAnimationFrame(drawDots);
-  else animating = false;
+setDotStep(TOT,0);
+const FSTEPS=[{alive:10000,surv:0,lbl:"10,000",st:"women — all assaults"},{alive:3800,surv:0,lbl:"3,800",st:"disclosed to someone"},{alive:1000,surv:0,lbl:"~1,000",st:"contacted police"},{alive:590,surv:0,lbl:"~590",st:"cases charge-sheeted"},{alive:46,surv:0,lbl:"~46",st:"reached trial"},{alive:2,surv:2,lbl:"2",st:"convictions — from 10,000"}];
+function drawDots(){
+  for(let i=0;i<TOT;i++){const d=dotTgt[i]-dotOp[i];if(Math.abs(d)>.001)dotOp[i]+=d*.07;else dotOp[i]=dotTgt[i];}
+  ctx.clearRect(0,0,COLS*CELL,ROWS*CELL);
+  for(let i=0;i<TOT;i++){const op=dotOp[i];if(op<.01)continue;ctx.globalAlpha=op;const c=i%COLS,r=Math.floor(i/COLS);if(dotSt[i]===1)ctx.fillStyle="#e84060";else if(dotSt[i]===2)ctx.fillStyle="#1e1e32";else ctx.fillStyle="#c9a84c";ctx.fillRect(c*CELL+1,r*CELL+1,3,3);}
+  ctx.globalAlpha=1;requestAnimationFrame(drawDots);
 }
-function triggerDots() { if (!animating) { animating = true; drawDots(); } }
-triggerDots();
+drawDots();
 
-// ═══════════════════════════════════════════
-// BACKLOG CANVAS — SCENE 05
-// ═══════════════════════════════════════════
-const BC = document.getElementById('backlogCanvas');
-const bdpr = Math.min(window.devicePixelRatio||1, 2);
-const BW = 580, BH = 340;
-BC.width = BW*bdpr; BC.height = BH*bdpr; BC.style.width = BW+'px'; BC.style.height = BH+'px';
-const bctx = BC.getContext('2d'); bctx.scale(bdpr, bdpr);
-const YEARS = [2019,2020,2021,2022,2023,2024];
-const FILED = [6766,6220,6341,4762,5191,17544];
-const DISP  = [4800,4900,5100,5100,5400,5648];
-const BP = {t:42,r:30,b:62,l:70};
-const BCW = BW-BP.l-BP.r, BCH = BH-BP.t-BP.b;
-let bprog = 0, btgt = 0;
-function drawBacklog() {
+const BC=document.getElementById("backlogCanvas");
+const bdpr=Math.min(window.devicePixelRatio||1,2);
+const BW=580,BH=340;BC.width=BW*bdpr;BC.height=BH*bdpr;BC.style.width=BW+"px";BC.style.height=BH+"px";
+const bctx=BC.getContext("2d");bctx.scale(bdpr,bdpr);
+const YEARS=[2019,2020,2021,2022,2023,2024];
+const FILED=[6766,6220,6341,4762,5191,17544];
+const DISP=[4800,4900,5100,5100,5400,5648];
+const BP={t:40,r:30,b:60,l:70};
+const BCW=BW-BP.l-BP.r,BCH=BH-BP.t-BP.b;
+let bprog=0,btgt=0;
+function drawBacklog(){
   bctx.clearRect(0,0,BW,BH);
-  const maxV = Math.max(...FILED)*1.15;
-  const xp = i => BP.l + (i/(YEARS.length-1)) * BCW;
-  const yp = v => BP.t + BCH - (v/maxV) * BCH;
-  const prog = Math.min(bprog, 1);
-  // Grid
-  bctx.strokeStyle = 'rgba(30,30,50,.8)'; bctx.lineWidth = 1;
-  [4000,6000,8000,10000,14000,18000].forEach(v => {
-    if (v > maxV) return;
-    const y = yp(v);
-    bctx.beginPath(); bctx.moveTo(BP.l,y); bctx.lineTo(BP.l+BCW,y); bctx.stroke();
-    bctx.fillStyle = 'rgba(78,75,96,.7)'; bctx.font = '10px JetBrains Mono,monospace'; bctx.textAlign = 'right';
-    bctx.fillText(v>=1000?(v/1000)+'k':v, BP.l-8, y+4);
-  });
-  // Area fill
-  if (prog > .1) {
-    bctx.beginPath();
-    bctx.moveTo(xp(0), yp(FILED[0]));
-    FILED.slice(1).forEach((v,i) => bctx.lineTo(xp(i+1), yp(v)));
-    DISP.slice().reverse().forEach((v,i) => bctx.lineTo(xp(YEARS.length-1-i), yp(v)));
-    bctx.closePath(); bctx.fillStyle = 'rgba(196,30,58,'+(0.12+prog*.12)+')'; bctx.fill();
-  }
-  // Filed line
-  bctx.beginPath(); bctx.strokeStyle = '#e84060'; bctx.lineWidth = 2.5; bctx.lineJoin = 'round';
-  for (let i = 0; i < YEARS.length; i++) {
-    const t = prog*(YEARS.length-1);
-    if (i === 0) bctx.moveTo(xp(0), yp(FILED[0]));
-    else if (i <= t) {
-      const p = Math.min(1, t-i+1);
-      bctx.lineTo(xp(i-1+p), yp(FILED[i-1])+(yp(FILED[i])-yp(FILED[i-1]))*p);
-    }
-  }
+  const maxV=Math.max(...FILED)*1.15;
+  const xp=i=>BP.l+(i/(YEARS.length-1))*BCW;
+  const yp=v=>BP.t+BCH-(v/maxV)*BCH;
+  const prog=Math.min(bprog,1);
+  bctx.strokeStyle="rgba(30,30,50,.8)";bctx.lineWidth=1;
+  [4000,6000,8000,10000,14000,18000].forEach(v=>{if(v>maxV)return;const y=yp(v);bctx.beginPath();bctx.moveTo(BP.l,y);bctx.lineTo(BP.l+BCW,y);bctx.stroke();bctx.fillStyle="rgba(78,75,96,.7)";bctx.font="10px JetBrains Mono,monospace";bctx.textAlign="right";bctx.fillText(v>=1000?(v/1000)+"k":v,BP.l-8,y+4);});
+  if(prog>.1){bctx.beginPath();bctx.moveTo(xp(0),yp(FILED[0]));FILED.slice(1).forEach((v,i)=>bctx.lineTo(xp(i+1),yp(v)));DISP.slice().reverse().forEach((v,i)=>bctx.lineTo(xp(YEARS.length-1-i),yp(v)));bctx.closePath();bctx.fillStyle="rgba(196,30,58,"+(0.15+prog*.1)+")";bctx.fill();}
+  bctx.beginPath();bctx.strokeStyle="#e84060";bctx.lineWidth=2.5;bctx.lineJoin="round";
+  for(let i=0;i<YEARS.length;i++){const t=prog*(YEARS.length-1);if(i===0)bctx.moveTo(xp(0),yp(FILED[0]));else if(i<=t){const p=Math.min(1,t-i+1);bctx.lineTo(xp(i-1+p),yp(FILED[i-1])+(yp(FILED[i])-yp(FILED[i-1]))*p);}}
   bctx.stroke();
-  // Disposed line (dashed)
-  bctx.beginPath(); bctx.strokeStyle = '#c9a84c'; bctx.lineWidth = 2; bctx.setLineDash([6,4]);
-  for (let i = 0; i < YEARS.length; i++) {
-    const t = prog*(YEARS.length-1);
-    if (i === 0) bctx.moveTo(xp(0), yp(DISP[0]));
-    else if (i <= t) bctx.lineTo(xp(i), yp(DISP[i]));
-  }
-  bctx.stroke(); bctx.setLineDash([]);
-  // Points & labels
-  YEARS.forEach((yr, i) => {
-    if (i/(YEARS.length-1) < prog*.99) {
-      bctx.beginPath(); bctx.arc(xp(i), yp(FILED[i]), 5, 0, Math.PI*2);
-      bctx.fillStyle = '#e84060'; bctx.fill();
-      bctx.strokeStyle = '#06060e'; bctx.lineWidth = 2; bctx.stroke();
-      bctx.fillStyle = '#e8e3da'; bctx.font = '10px JetBrains Mono,monospace'; bctx.textAlign = 'center';
-      bctx.fillText(FILED[i]>=1000?(FILED[i]/1000).toFixed(1)+'k':FILED[i], xp(i), yp(FILED[i])-10);
-      bctx.fillStyle = 'rgba(78,75,96,.8)';
-      bctx.fillText(yr, xp(i), BP.t+BCH+22);
-    }
-  });
-  // Legend
-  bctx.fillStyle = 'rgba(200,30,58,.8)'; bctx.font = 'bold 10px JetBrains Mono,monospace'; bctx.textAlign = 'left';
-  bctx.fillText('Cases Filed', BP.l, BP.t-14);
-  bctx.fillStyle = 'rgba(201,168,76,.8)'; bctx.fillText('Cases Disposed', BP.l+104, BP.t-14);
-  if (prog > .88) {
-    bctx.fillStyle = 'rgba(200,30,58,.85)'; bctx.font = 'bold 10px JetBrains Mono,monospace';
-    bctx.textAlign = 'right';
-    bctx.fillText('+12,000/yr net backlog growth', BP.l+BCW, BP.t+BCH/2);
-  }
-  bprog += (btgt - bprog) * .04;
-  if (Math.abs(btgt-bprog) > .001) requestAnimationFrame(drawBacklog);
+  bctx.beginPath();bctx.strokeStyle="var(--gold)";bctx.lineWidth=2;bctx.setLineDash([5,3]);
+  for(let i=0;i<YEARS.length;i++){const t=prog*(YEARS.length-1);if(i===0)bctx.moveTo(xp(0),yp(DISP[0]));else if(i<=t)bctx.lineTo(xp(i),yp(DISP[i]));}
+  bctx.stroke();bctx.setLineDash([]);
+  YEARS.forEach((yr,i)=>{if(i/(YEARS.length-1)<prog*.99){bctx.beginPath();bctx.arc(xp(i),yp(FILED[i]),5,0,Math.PI*2);bctx.fillStyle="#e84060";bctx.fill();bctx.strokeStyle="#06060e";bctx.lineWidth=2;bctx.stroke();bctx.fillStyle="#e8e3da";bctx.font="10px JetBrains Mono,monospace";bctx.textAlign="center";bctx.fillText(FILED[i]>=1000?(FILED[i]/1000).toFixed(1)+"k":FILED[i],xp(i),yp(FILED[i])-10);bctx.fillStyle="rgba(78,75,96,.8)";bctx.fillText(yr,xp(i),BP.t+BCH+20);}});
+  bctx.fillStyle="rgba(200,30,58,.8)";bctx.font="bold 10px JetBrains Mono,monospace";bctx.textAlign="left";bctx.fillText("Cases Filed",BP.l,BP.t-10);bctx.fillStyle="rgba(201,168,76,.8)";bctx.fillText("Cases Disposed",BP.l+100,BP.t-10);
+  if(prog>.88){bctx.fillStyle="rgba(200,30,58,.85)";bctx.font="bold 10px JetBrains Mono,monospace";bctx.textAlign="right";bctx.fillText("+12,000/yr net backlog growth",BP.l+BCW,BP.t+BCH/2);}
+  bprog+=(btgt-bprog)*.04;if(Math.abs(btgt-bprog)>.001)requestAnimationFrame(drawBacklog);
 }
 drawBacklog();
 
-// ═══════════════════════════════════════════
-// SCATTER CANVAS — SCENE 08 (FIXED LABELS)
-// ═══════════════════════════════════════════
-const SC = document.getElementById('scatterCanvas');
-const sdpr = Math.min(window.devicePixelRatio||1, 2);
-const SW = 620, SH = 400;
-SC.width = SW*sdpr; SC.height = SH*sdpr; SC.style.width = SW+'px'; SC.style.height = SH+'px';
-const sctx = SC.getContext('2d'); sctx.scale(sdpr, sdpr);
-
-// Countries with explicit label positioning to prevent overlap
-const COUNTRIES = [
-  {n:'South Africa', x:4,  y:72.2, c:'var(--greenl)', note:'TCCs No DP', lAnchor:'left',  lDX:14,  lDY:4},
-  {n:'United Kingdom',x:5, y:53.4, c:'var(--gold)',   note:'CPS 2024',   lAnchor:'left',  lDX:14,  lDY:4},
-  {n:'India',         x:6, y:27.4, c:'var(--amber)',  note:'NCRB 2022',  lAnchor:'left',  lDX:14,  lDY:4},
-  {n:'Nepal',         x:7, y:5.2,  c:'rgba(122,200,160,.85)', note:'Limited data', lAnchor:'right', lDX:-14, lDY:4},
-  {n:'Indonesia',     x:9, y:2.1,  c:'rgba(190,130,80,.85)', note:'Post-DP surge', lAnchor:'left', lDX:14, lDY:-18},
-  {n:'Bangladesh',    x:10,y:.46,  c:'#e84060', note:'DP 2020', hi:true, lAnchor:'left', lDX:-95, lDY:-38, arrow:true}
-];
-
-const SP = {t:45,r:160,b:65,l:72};
-const SCW2 = SW-SP.l-SP.r, SCH2 = SH-SP.t-SP.b;
-let scStep = -1;
-
-function drawScatter(step) {
+const SC=document.getElementById("scatterCanvas");
+const sdpr=Math.min(window.devicePixelRatio||1,2);
+const SW=620,SH=380;SC.width=SW*sdpr;SC.height=SH*sdpr;SC.style.width=SW+"px";SC.style.height=SH+"px";
+const sctx=SC.getContext("2d");sctx.scale(sdpr,sdpr);
+const COUNTRIES=[{n:"South Africa",x:4,y:72.2,c:"var(--greenl)",note:"TCCs No DP"},{n:"UK",x:5,y:53.4,c:"var(--gold)",note:"CPS 2024"},{n:"India",x:6,y:27.4,c:"var(--amber)",note:"NCRB 2022"},{n:"Nepal",x:7,y:5,c:"rgba(122,200,160,.8)",note:"Limited data"},{n:"Indonesia",x:9,y:2,c:"rgba(180,120,80,.8)",note:"Post-DP surge"},{n:"Bangladesh",x:10,y:.46,c:"#e84060",note:"DP 2020",hi:true}];
+const SP={t:40,r:150,b:60,l:70};const SCW2=SW-SP.l-SP.r,SCH2=SH-SP.t-SP.b;
+let scStep=-1;
+function drawScatter(step){
   sctx.clearRect(0,0,SW,SH);
-  // Y axis range extended below 0 to give breathing room for Bangladesh label
-  const yMin = -4, yMax = 80;
-  const xp = x => SP.l + (x/10) * SCW2;
-  const yp = y => SP.t + SCH2 - ((y - yMin)/(yMax - yMin)) * SCH2;
-
-  // Grid
-  sctx.strokeStyle = 'rgba(42,42,64,.9)'; sctx.lineWidth = 1;
-  [0,20,40,60,80].forEach(v => {
-    sctx.beginPath(); sctx.moveTo(SP.l, yp(v)); sctx.lineTo(SP.l+SCW2, yp(v)); sctx.stroke();
-    sctx.fillStyle = 'rgba(78,75,96,.7)'; sctx.font = '10px JetBrains Mono,monospace'; sctx.textAlign = 'right';
-    sctx.fillText(v+'%', SP.l-8, yp(v)+4);
-  });
-  // X grid
-  [0,2,4,6,8,10].forEach(x => {
-    sctx.beginPath(); sctx.strokeStyle = 'rgba(42,42,64,.6)';
-    sctx.moveTo(xp(x), SP.t); sctx.lineTo(xp(x), SP.t+SCH2); sctx.stroke();
-  });
-  // Axis labels
-  sctx.fillStyle = 'rgba(100,96,128,.85)'; sctx.font = '10px JetBrains Mono,monospace'; sctx.textAlign = 'center';
-  sctx.fillText('← LOWER SEVERITY', xp(2), SP.t+SCH2+42);
-  sctx.fillText('HIGHER SEVERITY →', xp(8.5), SP.t+SCH2+42);
-  sctx.save(); sctx.translate(16, SP.t+SCH2/2); sctx.rotate(-Math.PI/2);
-  sctx.textAlign = 'center'; sctx.fillText('CONVICTION RATE →', 0, 0); sctx.restore();
-
-  // Trend line (step >= 1)
-  if (step >= 1) {
-    sctx.beginPath(); sctx.strokeStyle = 'rgba(82,183,136,.18)'; sctx.lineWidth = 1.5; sctx.setLineDash([6,4]);
-    sctx.moveTo(xp(0), yp(78)); sctx.lineTo(xp(10), yp(60)); sctx.stroke(); sctx.setLineDash([]);
-  }
-
-  const vis = step <= 0 ? 2 : step <= 1 ? 4 : COUNTRIES.length;
-  COUNTRIES.slice(0, vis).forEach(c => {
-    const px = xp(c.x), py = yp(c.y);
-    const r = c.hi ? 11 : 7;
-
-    // Draw dot
-    sctx.beginPath(); sctx.arc(px, py, r, 0, Math.PI*2);
-    sctx.fillStyle = c.c; sctx.fill();
-    if (c.hi) { sctx.strokeStyle = 'rgba(232,64,96,.7)'; sctx.lineWidth = 2; sctx.stroke(); }
-
-    // Draw label with explicit positioning
-    const lx = px + c.lDX;
-    const ly = py + c.lDY;
-    const align = c.lAnchor || 'left';
-
-    // Background box for Bangladesh label
-    if (c.hi) {
-      sctx.fillStyle = 'rgba(6,6,14,.85)';
-      sctx.fillRect(px - 110, py - 58, 106, 46);
-      sctx.strokeStyle = 'rgba(232,64,96,.35)'; sctx.lineWidth = 1;
-      sctx.strokeRect(px - 110, py - 58, 106, 46);
-      // Arrow
-      sctx.beginPath(); sctx.strokeStyle = 'rgba(232,64,96,.5)'; sctx.lineWidth = 1.5; sctx.setLineDash([3,2]);
-      sctx.moveTo(px-4, py-10); sctx.lineTo(px-5, py-13); sctx.stroke(); sctx.setLineDash([]);
-    }
-
-    sctx.textAlign = c.hi ? 'left' : align;
-    sctx.fillStyle = c.c;
-    sctx.font = (c.hi ? 'bold ' : '') + '10px JetBrains Mono,monospace';
-    sctx.fillText(c.n, c.hi ? px-106 : lx, c.hi ? py-43 : ly);
-    sctx.fillStyle = 'rgba(122,117,144,.8)'; sctx.font = '9px JetBrains Mono,monospace';
-    sctx.fillText(c.y + '% ' + c.note, c.hi ? px-106 : lx, c.hi ? py-29 : ly+13);
-
-    // Bangladesh "WORST CORNER" annotation
-    if (c.hi && step >= 2) {
-      sctx.beginPath(); sctx.strokeStyle = 'rgba(232,64,96,.3)'; sctx.lineWidth = 1; sctx.setLineDash([3,3]);
-      sctx.moveTo(px, py); sctx.lineTo(px, SP.t+SCH2);
-      sctx.moveTo(SP.l, py); sctx.lineTo(px, py);
-      sctx.stroke(); sctx.setLineDash([]);
-      sctx.fillStyle = 'rgba(232,64,96,.85)'; sctx.font = 'bold 10px JetBrains Mono,monospace'; sctx.textAlign = 'center';
-      sctx.fillText('WORST CORNER', xp(8.2), SP.t+SCH2-28);
-      sctx.fillStyle = 'rgba(122,117,144,.7)'; sctx.font = '9px JetBrains Mono,monospace';
-      sctx.fillText('Max severity + Near-zero certainty', xp(8.2), SP.t+SCH2-15);
-    }
-  });
+  const xp=x=>SP.l+(x/10)*SCW2;const yp=y=>SP.t+SCH2-(y/80)*SCH2;
+  sctx.strokeStyle="rgba(42,42,64,.9)";sctx.lineWidth=1;
+  [0,20,40,60,80].forEach(v=>{sctx.beginPath();sctx.moveTo(SP.l,yp(v));sctx.lineTo(SP.l+SCW2,yp(v));sctx.stroke();sctx.fillStyle="rgba(78,75,96,.7)";sctx.font="10px JetBrains Mono,monospace";sctx.textAlign="right";sctx.fillText(v+"%",SP.l-8,yp(v)+4);});
+  [0,2,4,6,8,10].forEach(x=>{sctx.beginPath();sctx.moveTo(xp(x),SP.t);sctx.lineTo(xp(x),SP.t+SCH2);sctx.stroke();});
+  sctx.fillStyle="rgba(122,117,144,.9)";sctx.font="10px JetBrains Mono,monospace";sctx.textAlign="center";
+  sctx.fillText("<- LOWER SEVERITY",xp(1),SP.t+SCH2+40);sctx.fillText("HIGHER SEVERITY ->",xp(8),SP.t+SCH2+40);
+  sctx.save();sctx.translate(18,SP.t+SCH2/2);sctx.rotate(-Math.PI/2);sctx.textAlign="center";sctx.fillText("CONVICTION RATE ->",0,0);sctx.restore();
+  if(step>=1){sctx.beginPath();sctx.strokeStyle="rgba(82,183,136,.2)";sctx.lineWidth=1.5;sctx.setLineDash([6,4]);sctx.moveTo(xp(0),yp(75));sctx.lineTo(xp(10),yp(60));sctx.stroke();sctx.setLineDash([]);}
+  const vis=step===0?2:step===1?4:COUNTRIES.length;
+  COUNTRIES.slice(0,vis).forEach(c=>{const px=xp(c.x),py=yp(c.y);sctx.beginPath();sctx.arc(px,py,c.hi?10:7,0,Math.PI*2);sctx.fillStyle=c.c;sctx.fill();if(c.hi){sctx.strokeStyle="rgba(232,64,96,.6)";sctx.lineWidth=2;sctx.stroke();}
+    // Per-country label positioning to avoid overlap at bottom
+    let lx=px+14,ly=py+4,ta="left";
+    if(c.n==="Bangladesh"){lx=px-14;ly=py-22;ta="right";}  // above-left, avoids bottom edge
+    else if(c.n==="Indonesia"){lx=px-14;ly=py-22;ta="right";}  // above-left avoids Bangladesh
+    else if(c.n==="Nepal"){lx=px+14;ly=py-10;ta="left";}
+    sctx.fillStyle=c.c;sctx.font=(c.hi?"bold ":"")+"10px JetBrains Mono,monospace";sctx.textAlign=ta;sctx.fillText(c.n,lx,ly);sctx.fillStyle="rgba(122,117,144,.8)";sctx.font="9px JetBrains Mono,monospace";sctx.fillText(c.y+"% "+c.note,lx,ly+13);});
+  if(step>=2&&vis>=COUNTRIES.length){const bd=COUNTRIES[5];const px=xp(bd.x),py=yp(bd.y);sctx.strokeStyle="rgba(232,64,96,.4)";sctx.lineWidth=1;sctx.setLineDash([3,3]);sctx.beginPath();sctx.moveTo(px,py);sctx.lineTo(px,SP.t+SCH2);sctx.stroke();sctx.beginPath();sctx.moveTo(SP.l,py);sctx.lineTo(px,py);sctx.stroke();sctx.setLineDash([]);sctx.fillStyle="rgba(232,64,96,.8)";sctx.font="bold 10px JetBrains Mono,monospace";sctx.textAlign="center";sctx.fillText("WORST CORNER",xp(8.5),yp(2));sctx.fillStyle="rgba(122,117,144,.7)";sctx.font="9px JetBrains Mono,monospace";sctx.fillText("Max severity + Near-zero certainty",xp(8.5),yp(2)+14);}
 }
 drawScatter(0);
 
-// ═══════════════════════════════════════════
-// CLOCK ANIMATION — SCENE 02
-// (Lowered threshold for reliable triggering)
-// ═══════════════════════════════════════════
-let clocksDone = false;
-function runClocks() {
-  if (clocksDone) return;
-  clocksDone = true;
-  const aR = document.getElementById('arc-runa'), aA = document.getElementById('arc-avg');
-  const nR = document.getElementById('num-runa'), nA = document.getElementById('num-avg');
-  const dR = document.getElementById('display-runa'), dA = document.getElementById('display-avg');
-  const cap = document.getElementById('clock-caption');
-  // Arc lengths: r=78, circumference=490.1
-  // Runa: 56/2349 fraction of the arc
-  const runaFrac = 56/2349;
-  aR.style.strokeDashoffset = (490.1 * (1 - runaFrac)).toFixed(2);
-  aA.style.strokeDashoffset = '0';
-  let t = 0;
-  function tick() {
-    t += 1/60;
-    const rt = Math.min(t/1.6, 1), at = Math.min(t/3.8, 1);
-    const rv = Math.round(rt*56), av = Math.round(at*2349);
-    if (nR) nR.textContent = rv;
-    if (nA) nA.textContent = av;
-    if (dR) dR.textContent = rv;
-    if (dA) dA.textContent = av;
-    if (t < 4) requestAnimationFrame(tick);
-    else {
-      if (nR) nR.textContent = 56;
-      if (nA) nA.textContent = '2,349';
-      if (dR) dR.textContent = 56;
-      if (dA) dA.textContent = '2,349';
-      if (cap) cap.classList.add('vis');
-    }
+let clocksDone=false;
+function runClocks(){
+  const aR=document.getElementById("arc-runa"),aA=document.getElementById("arc-avg");
+  const nR=document.getElementById("num-runa"),nA=document.getElementById("num-avg");
+  const dR=document.getElementById("display-runa"),dA=document.getElementById("display-avg");
+  const cap=document.getElementById("clock-caption");
+  aR.style.strokeDashoffset=471.2*(1-56/2349);aA.style.strokeDashoffset=0;
+  let t=0;function tick(){t+=1/60;const rt=Math.min(t/1.5,1),at=Math.min(t/3.5,1);const rv=Math.round(rt*56),av=Math.round(at*2349);nR.textContent=rv;nA.textContent=av;dR.textContent=rv;dA.textContent=av;if(t<3.6)requestAnimationFrame(tick);else{nR.textContent=56;nA.textContent=2349;dR.textContent=56;dA.textContent=2349;cap.style.opacity=1;}}
+  setTimeout(tick,300);
+}
+
+let invDone=false;
+function runInversion(){
+  const f17=document.getElementById("inv-f17"),frape=document.getElementById("inv-frape");
+  const d17=document.getElementById("inv-d17"),drape=document.getElementById("inv-drape");
+  const fl17=document.getElementById("inv-fl17"),flrape=document.getElementById("inv-flrape");
+  const v17=document.getElementById("inv-v17"),vrape=document.getElementById("inv-vrape");
+  const q=document.getElementById("inv-quote");
+  let t=0;function tick(){t+=1/60;const p=Math.min(t/1.8,1);const days=Math.round(p*56);
+    f17.style.width=(p*100)+"%";frape.style.width=(p*56/2349*100)+"%";
+    d17.textContent=days+" days";drape.textContent=days+" / 2,349 days";
+    if(p>=1&&!f17.style.opacity){fl17.style.opacity=1;fl17.style.transition="opacity .3s";fl17.style.opacity=1;v17.style.opacity=1;}
+    if(t<2.5)requestAnimationFrame(tick);else{flrape.style.opacity=1;vrape.style.opacity=1;setTimeout(()=>q.style.opacity=1,600);}
   }
-  setTimeout(tick, 200);
+  setTimeout(tick,400);
 }
 
-// ═══════════════════════════════════════════
-// INVERSION ANIMATION
-// ═══════════════════════════════════════════
-let invDone = false;
-function runInversion() {
-  if (invDone) return;
-  invDone = true;
-  const f17=document.getElementById('inv-f17'), frape=document.getElementById('inv-frape');
-  const d17=document.getElementById('inv-d17'), drape=document.getElementById('inv-drape');
-  const fl17=document.getElementById('inv-fl17'), flrape=document.getElementById('inv-flrape');
-  const v17=document.getElementById('inv-v17'), vrape=document.getElementById('inv-vrape');
-  const q=document.getElementById('inv-quote');
-  let t=0;
-  function tick() {
-    t += 1/60;
-    const p = Math.min(t/1.8, 1);
-    const days = Math.round(p*56);
-    if (f17) f17.style.width = (p*100)+'%';
-    if (frape) frape.style.width = (p*56/2349*100)+'%';
-    if (d17) d17.textContent = days+' days';
-    if (drape) drape.textContent = days+' / 2,349 days';
-    if (p >= 1) {
-      if (fl17) { fl17.style.opacity='1'; fl17.style.transition='opacity .3s'; }
-      if (v17) v17.style.opacity='1';
-      if (flrape) flrape.style.opacity='1';
-      if (vrape) vrape.style.opacity='1';
-    }
-    if (t < 2.5) requestAnimationFrame(tick);
-    else { setTimeout(() => { if(q) q.classList.add('vis'); }, 600); }
-  }
-  setTimeout(tick, 300);
-}
+let forensicDone=false;
+function runForensic(){document.getElementById("ev-bio").style.width="100%";document.getElementById("ev-mem").style.width="100%";document.getElementById("ev-med").style.width="100%";}
 
-// ═══════════════════════════════════════════
-// FORENSIC BARS (SCENE 07) — distinct widths
-// ═══════════════════════════════════════════
-let forensicDone = false;
-function runForensic() {
-  if (forensicDone) return;
-  forensicDone = true;
-  // Different widths to reinforce visual distinction between decay rates
-  const evBio = document.getElementById('ev-bio');
-  const evMem = document.getElementById('ev-mem');
-  const evMed = document.getElementById('ev-med');
-  if (evBio) evBio.style.width = '100%'; // full timeline shown, fast decay in gradient
-  if (evMem) evMem.style.width = '100%'; // full timeline, slower decay
-  if (evMed) evMed.style.width = '100%'; // full timeline, steepest initial drop
-}
+let rStep=-1;
+function runRace(s){if(s===rStep)return;rStep=s;const targets={sa:72.2,uk:53.4,in:27.4,bd:.46};const n=s===0?0:s===1?1:s===2?3:4;["sa","uk","in","bd"].slice(0,n).forEach(id=>{const b=document.getElementById("rb-"+id);if(b)b.style.width=targets[id]+"%";});const rn=document.getElementById("race-note2");if(rn)rn.style.opacity=s>=3?"1":"0";}
 
-// ═══════════════════════════════════════════
-// RACE BARS — SQRT SCALE
-// ═══════════════════════════════════════════
-const RACE_DATA = {sa:72.2, uk:53.4, in_:27.4, bd:0.46};
-let rStep = -1;
-function sqrtScale(val, maxVal) {
-  return (Math.sqrt(val) / Math.sqrt(maxVal)) * 88;
-}
-function runRace(step) {
-  if (step === rStep) return;
-  rStep = step;
-  if (step >= 1) {
-    const sa = document.getElementById('rb-sa');
-    if (sa) sa.style.width = sqrtScale(72.2, 72.2)+'%';
-  }
-  if (step >= 2) {
-    const uk = document.getElementById('rb-uk');
-    const rb = document.getElementById('rb-in');
-    if (uk) uk.style.width = sqrtScale(53.4, 72.2)+'%';
-    if (rb) rb.style.width = sqrtScale(27.4, 72.2)+'%';
-  }
-  if (step >= 3) {
-    const bd = document.getElementById('rb-bd');
-    if (bd) bd.style.width = Math.max(sqrtScale(0.46, 72.2), 3)+'%';
-    const c = document.getElementById('bdCallout');
-    if (c) c.classList.add('vis');
-  }
-}
+let mapSt=-1;
+const mapDivs=["rangpur","mym","sylhet","raj","dhaka","ctg","khulna","barishal"];
+function updateMap(s){if(s===mapSt)return;mapSt=s;mapDivs.forEach(d=>{const el=document.getElementById("div-"+d);if(el)el.style.opacity=s>=0?"1":"0";});for(let i=1;i<=14;i++){const el=document.getElementById("occ"+i);if(el)el.classList.toggle("vis",s>=2);}const p=document.getElementById("barishal-pulse");if(p){if(s>=4){p.style.opacity="1";p.style.animation="vpulse 2s ease-in-out infinite";}else{p.style.opacity="0";p.style.animation="none";}}}
+function showMapInfo(name,ipv,occ,desc){const el=document.getElementById("map-info");if(!el)return;el.innerHTML="<strong style=color:var(--gold)>"+name+"</strong> &middot; <strong style=color:var(--bloodl)>"+ipv+"</strong> lifetime IPV &middot; <span style=color:var(--amberl)>"+occ+"</span><br><span style=color:var(--muted)>"+desc+"</span>";}
 
-// ═══════════════════════════════════════════
-// MAP
-// ═══════════════════════════════════════════
-let mapSt = -1;
-const mapDivs = ['rangpur','mym','sylhet','raj','dhaka','ctg','khulna','barishal'];
-function updateMap(step) {
-  if (step === mapSt) return;
-  mapSt = step;
-  mapDivs.forEach(d => {
-    const el = document.getElementById('div-'+d);
-    if (el) el.style.opacity = step >= 0 ? '1' : '0';
-  });
-  for (let i = 1; i <= 14; i++) {
-    const el = document.getElementById('occ'+i);
-    if (el) el.classList.toggle('vis', step >= 2);
-  }
-  const p = document.getElementById('barishal-pulse');
-  if (p) {
-    if (step >= 4) { p.style.opacity='1'; p.style.animation='vpulse 2.2s ease-in-out infinite'; }
-    else { p.style.opacity='0'; p.style.animation='none'; }
-  }
-}
-function showMapInfo(name, ipv, occ, desc) {
-  const el = document.getElementById('map-info');
-  if (!el) return;
-  el.innerHTML = `<strong style="color:var(--gold)">${name}</strong> · <strong style="color:var(--bloodl)">${ipv}</strong> lifetime IPV · <span style="color:var(--amberl)">${occ}</span><br><span style="color:var(--muted)">${desc}</span>`;
-}
+function showVoids(n){for(let i=0;i<10;i++){const el=document.getElementById("void-"+i);if(el)el.classList.toggle("vis",i<=n);}const c=document.getElementById("void-conclusion");if(c)c.style.opacity=n>=9?"1":"0";}
 
-// ═══════════════════════════════════════════
-// VOIDS
-// ═══════════════════════════════════════════
-function showVoids(n) {
-  for (let i = 0; i < 10; i++) {
-    const el = document.getElementById('void-'+i);
-    if (el) el.classList.toggle('vis', i <= n);
-  }
-  const c = document.getElementById('void-conclusion');
-  if (c) c.classList.toggle('vis', n >= 9);
-}
+setTimeout(()=>["hs1","hs2","hs3","hs4"].forEach((id,i)=>setTimeout(()=>{const el=document.getElementById(id);if(el)el.classList.add("vis");},i*500)),600);
+setTimeout(()=>{const t=document.getElementById("htitle");if(t)t.classList.add("vis");const s=document.getElementById("hsub");if(s)s.classList.add("vis");},2200);
 
-// ═══════════════════════════════════════════
-// INTERSECTION OBSERVER — STEP TRIGGERS
-// ═══════════════════════════════════════════
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('active');
-      const sc = e.target.dataset.scene, st = parseInt(e.target.dataset.step);
-      if (sc === 'funnel') {
-        const fs = FSTEPS[st] || FSTEPS[0];
-        setDotStep(fs.alive, fs.surv);
-        triggerDots();
-        const c = document.getElementById('dot-count'), s2 = document.getElementById('dot-status');
-        if (c) c.textContent = fs.lbl;
-        if (s2) s2.textContent = fs.st;
-      }
-      if (sc === 'inversion' && st >= 1) runInversion();
-      if (sc === 'race') runRace(st);
-      if (sc === 'backlog') {
-        const tgts = [.12,.45,.78,1];
-        btgt = tgts[st] || .12;
-        requestAnimationFrame(drawBacklog);
-      }
-      if (sc === 'mapscene') updateMap(st);
-      if (sc === 'scatter' && st !== scStep) { scStep = st; drawScatter(st); }
-    } else {
-      e.target.classList.remove('active');
-    }
-  });
-}, {rootMargin:'-30% 0px -30% 0px'});
-let scStep = -1;
-document.querySelectorAll('[data-step]').forEach(el => io.observe(el));
+const navLinks=document.querySelectorAll(".nav-scenes a");
+window.addEventListener("scroll",()=>{let cur="";document.querySelectorAll("section[id]").forEach(s=>{if(window.scrollY>=s.offsetTop-100)cur=s.id;});navLinks.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+cur));},{passive:true});
 
-// Void cards observer
-document.querySelectorAll('.void-card').forEach(el => {
-  new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const v = parseInt(el.id.replace('void-',''));
-        if (!isNaN(v)) setTimeout(() => el.classList.add('vis'), v * 130);
-      }
-    });
-  }, {rootMargin:'-10% 0px -10% 0px'}).observe(el);
-});
-new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) document.getElementById('void-conclusion')?.classList.add('vis');
-  });
-}, {threshold:.5}).observe(document.getElementById('void-conclusion') || document.body);
+let scSt=-1;
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("active");const sc=e.target.dataset.scene,st=parseInt(e.target.dataset.step);
+    if(sc==="funnel"){const fs=FSTEPS[st]||FSTEPS[0];setDotStep(fs.alive,fs.surv);const c=document.getElementById("dot-count"),s2=document.getElementById("dot-status");if(c)c.textContent=fs.lbl;if(s2)s2.textContent=fs.st;}
+    if(sc==="inversion"&&!invDone&&st>=1){invDone=true;runInversion();}
+    if(sc==="race")runRace(st);
+    if(sc==="backlog"){const targets=[.1,.4,.75,1];btgt=targets[st]||.1;requestAnimationFrame(drawBacklog);}
+    if(sc==="mapscene")updateMap(st);
+    if(sc==="scatter"&&st!==scSt){scSt=st;drawScatter(st);}
+  }else e.target.classList.remove("active");});
+},{rootMargin:"-35% 0px -35% 0px"});
+document.querySelectorAll("[data-step]").forEach(el=>io.observe(el));
 
-// Clock observer — reduced threshold for reliable triggering
-new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) runClocks(); });
-}, {threshold:.1}).observe(document.getElementById('s2') || document.body);
+new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const v=parseInt(e.target.id.replace("void-",""));if(!isNaN(v)){setTimeout(()=>e.target.classList.add("vis"),v*140);if(v===9)setTimeout(()=>{const c=document.getElementById("void-conclusion");if(c)c.style.opacity="1";},1500);}}});},{rootMargin:"-10% 0px -10% 0px"}).observe.call(null,null)||document.querySelectorAll(".void-card").forEach(el=>new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const v=parseInt(e.target.id.replace("void-",""));if(!isNaN(v))setTimeout(()=>e.target.classList.add("vis"),v*140);}});},{rootMargin:"-10% 0px -10% 0px"}).observe(el));
 
-// Forensic observer
-new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) runForensic(); });
-}, {threshold:.2}).observe(document.getElementById('s7') || document.body);
+new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting&&!clocksDone){clocksDone=true;runClocks();}});},{threshold:.1}).observe(document.getElementById("s2")||document.body);
+new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting&&!forensicDone){forensicDone=true;runForensic();}});},{threshold:.3}).observe(document.getElementById("sdna")||document.body);
 
-// ═══════════════════════════════════════════
-// LIVE RECORD — SCENE 10
-// ═══════════════════════════════════════════
-function switchLiveTab(id, btn) {
-  document.querySelectorAll('.tab-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
-  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-  btn.classList.add('active'); btn.setAttribute('aria-selected','true');
-  document.getElementById('live-panel-'+id)?.classList.add('active');
-}
+function dlCSV(e){e.preventDefault();const rows=[["Source","Figure","N_D","Tier"],["BRAC 2022","3.66% conviction rate","36/984","CONFIRMED"],["OCC 2001-2024","0.46% conviction rate","310/66711","CONFIRMED"],["PBI 2025","41% cases closed unproven","4248/10581","CONFIRMED"],["UNFPA 2024","76.0% national lifetime IPV","27476 women","CONFIRMED"],["UNFPA 2024","81.5% IPV Barishal","","CONFIRMED"],["UNFPA 2024","81.3% IPV Khulna","","CONFIRMED"],["UNFPA 2024","78.5% IPV Chattogram","","CONFIRMED"],["UNFPA 2024","72.7% IPV Sylhet","","CONFIRMED"],["UNFPA 2024","72.9% IPV Dhaka","","CONFIRMED"],["PHQ 2025","~150k cases pending","","CONFIRMED"],["NFDPL 2025","92% DNA samples unprocessed","1204/1304","CONFIRMED"],["Prothom Alo 2023","Runa Akhter S17 conviction 56 days","1 case","CONFIRMED"],["NPA SA 2023/24","72.2% conviction rate","trial-stage","CONFIRMED"],["BRAC 2022","2 DNA machines nationally","","CONFIRMED"]];const csv=rows.map(r=>r.map(c=>'"'+c+'"').join(",")).join("\n");const a=document.createElement("a");a.href="data:text/csv;charset=utf-8,"+encodeURIComponent(csv);a.download="BD-INV-002-evidence-export.csv";a.click();}
 
-function statusClass(s) {
-  if (!s) return 'pending';
-  const su = s.toUpperCase();
-  if (su.includes('CONVICT') || su.includes('SENTENCE')) return 'conviction';
-  if (su.includes('COUNTER') || su.includes('SECTION17') || su.includes('S17')) return 'counter';
-  return 'pending';
-}
-function statusLabel(s) {
-  const m = {
-    'DEATH_SENTENCE_APPEAL':'Death Sentence · HC Appeal',
-    'SECTION17_CONVICTED':'§17 Convicted',
-    'COUNTER_CHARGED':'Counter-Charged §17',
-    'CONVICTED':'Convicted',
-    'PENDING':'Pending',
-    'ACQUITTED':'Acquitted'
-  };
-  return m[s] || (s||'').replace(/_/g,' ');
-}
-
-async function loadLiveData() {
-  let cases = [], leads = [], monthly = [];
-  try { const r = await fetch('/data/cases.json'); const d = await r.json(); cases = d.cases || []; } catch(e) {}
-  try { const r = await fetch('/data/leads.json'); const d = await r.json(); leads = d.leads || []; } catch(e) {}
-  try { const r = await fetch('/data/monthly.json'); const d = await r.json(); monthly = d.months || []; } catch(e) {}
-
-  // Update stats
-  const conf = leads.filter(l=>l.tier==='CONFIRMED').length + cases.filter(c=>c.tier==='CONFIRMED').length;
-  const absent = monthly.filter(m=>m.tier==='CONFIRMED_ABSENT').length;
-  document.getElementById('ls-leads').textContent = leads.length || '—';
-  document.getElementById('ls-cases').textContent = cases.length || '—';
-  document.getElementById('ls-conf').textContent = conf || '—';
-  document.getElementById('ls-absent').textContent = absent || '—';
-
-  // Render cases
-  const cc = document.getElementById('cases-container');
-  if (cases.length) {
-    cc.innerHTML = cases.map(c => `
-      <div class="case-card">
-        <div class="cc-header" onclick="toggleCase(this)">
-          <div>
-            <div class="cc-title">${c.label}</div>
-            <div class="cc-meta">
-              <span class="cc-status ${statusClass(c.status)}">${statusLabel(c.status)}</span>
-              <span style="font-family:var(--mono);font-size:.42rem;color:var(--muted2)">${c.district||''}</span>
-              ${c.days_to_verdict ? `<span style="font-family:var(--mono);font-size:.42rem;color:${c.days_to_verdict < 100?'var(--bloodl)':'var(--amberl)'}">⏱ ${c.days_to_verdict} days to verdict</span>` : ''}
-              <span style="font-family:var(--mono);font-size:.4rem;color:var(--muted2)">${c.id}</span>
-            </div>
-          </div>
-          <span class="cc-chevron">▼</span>
-        </div>
-        <div class="cc-body">
-          ${c.notes ? `<p style="font-size:.82rem;color:var(--muted);margin:.8rem 0;line-height:1.8;font-style:italic;border-left:2px solid var(--border2);padding-left:.8rem">${c.notes}</p>` : ''}
-          <div>
-            ${(c.timeline||[]).map(t=>`
-              <div class="tl-item">
-                <div class="tl-date">${t.date}</div>
-                <div>
-                  <div class="tl-event">${t.event}</div>
-                  ${t.source?`<div class="tl-src">${t.source_url?`<a href="${t.source_url}" target="_blank" rel="noopener" style="color:var(--gold2)">${t.source}</a>`:t.source}</div>`:''}
-                </div>
-              </div>`).join('')}
-          </div>
-        </div>
-      </div>`).join('');
-  } else {
-    cc.innerHTML = '<div style="font-family:var(--mono);font-size:.52rem;color:var(--muted2);padding:2rem 0">No case data available.</div>';
-  }
-
-  // Render monthly
-  const mc = document.getElementById('monthly-container');
-  if (monthly.length) {
-    const maxFiled = Math.max(...monthly.map(m=>m.cases_filed||0).filter(Boolean));
-    mc.innerHTML = monthly.map(m => {
-      const tierCls = m.tier==='CONFIRMED'?'conf':m.tier==='PROBABLE'?'prob':'abs';
-      const tierLbl = m.tier==='CONFIRMED_ABSENT'?'ABSENT':m.tier==='CONFIRMED'?'CONF':m.tier==='PROBABLE'?'PROB':'?';
-      const barPct = m.cases_filed ? (m.cases_filed/maxFiled*100).toFixed(1) : 0;
-      const barColor = m.tier==='CONFIRMED_ABSENT'?'rgba(196,30,58,.3)':m.tier==='CONFIRMED'?'var(--gold)':'var(--amber)';
-      return `<div class="monthly-row" title="${m.notes||''}">
-        <div class="mr-period">${m.period}</div>
-        <div class="mr-bar-track">
-          ${m.cases_filed ? `<div class="mr-bar-fill" style="width:${barPct}%;background:${barColor}"></div>` : '<div style="height:100%;background:rgba(196,30,58,.08)"></div>'}
-        </div>
-        <div class="mr-val" style="${m.tier==='CONFIRMED_ABSENT'?'color:rgba(196,30,58,.5)':''}">${m.cases_filed!=null?m.cases_filed.toLocaleString():'—'}</div>
-        <span class="mr-tier ${tierCls}">${tierLbl}</span>
-      </div>`;
-    }).join('');
-  } else {
-    mc.innerHTML = '<div style="font-family:var(--mono);font-size:.52rem;color:var(--muted2);padding:2rem 0">Monthly data loading…</div>';
-  }
-
-  // Render leads
-  const lc = document.getElementById('leads-container');
-  if (leads.length) {
-    lc.innerHTML = `<div id="leads-feed">${leads.slice(0,20).map(l=>`
-      <div class="lead-item">
-        <div class="lead-hl">${l.headline}</div>
-        <div class="lead-foot">
-          <span class="lead-tier ${l.tier==='CONFIRMED'?'conf':'prob'}">${l.tier||'UNVERIFIED'}</span>
-          ${l.date_published?`<span style="font-family:var(--mono);font-size:.42rem;color:var(--muted2)">${l.date_published.slice(0,10)}</span>`:''}
-          ${(l.tags||[]).slice(0,4).map(t=>`<span class="lead-tag">${t}</span>`).join('')}
-          ${l.source_name?`<span class="lead-src">${l.source_url?`<a href="${l.source_url}" target="_blank" rel="noopener">${l.source_name}</a>`:l.source_name}</span>`:''}
-        </div>
-        ${l.claim?`<p style="font-size:.8rem;color:var(--muted);line-height:1.7;margin:.4rem 0">${l.claim}</p>`:''}
-      </div>`).join('')}</div>`;
-  } else {
-    lc.innerHTML = '<div style="font-family:var(--mono);font-size:.52rem;color:var(--muted2);padding:2rem 0">Leads feed loads from /data/leads.json — updated automatically every 6 hours.</div>';
-  }
-}
-
-function toggleCase(header) {
-  const body = header.nextElementSibling;
-  const chev = header.querySelector('.cc-chevron');
-  body.classList.toggle('open');
-  if (chev) chev.classList.toggle('open');
-}
-
-// Load when section comes into view
-new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) loadLiveData(); });
-}, {threshold:.05}).observe(document.getElementById('s10') || document.body);
-
-// ═══════════════════════════════════════════
-// CSV DOWNLOAD
-// ═══════════════════════════════════════════
-document.getElementById('dlBtn')?.addEventListener('click', e => {
-  e.preventDefault();
-  const rows = [
-    ['Source','Figure','N_D','Tier'],
-    ['BRAC 2022','3.66% conviction rate','36/984','CONFIRMED'],
-    ['OCC 2001-2024','0.46% conviction rate','310/66711','CONFIRMED'],
-    ['PBI 2025','41% cases closed unproven','4248/10581','CONFIRMED'],
-    ['UNFPA 2024','76.0% national lifetime IPV','27476 women','CONFIRMED'],
-    ['UNFPA 2024','81.5% IPV Barishal','','CONFIRMED'],
-    ['UNFPA 2024','81.3% IPV Khulna','','CONFIRMED'],
-    ['UNFPA 2024','78.5% IPV Chattogram','','CONFIRMED'],
-    ['UNFPA 2024','72.7% IPV Sylhet','','CONFIRMED'],
-    ['PHQ 2025','~150,000 cases pending','','CONFIRMED'],
-    ['NFDPL 2025','92% DNA samples unprocessed','1204/1304','CONFIRMED'],
-    ['Prothom Alo 2023','Runa Akhter §17 conviction 56 days','1 case','CONFIRMED'],
-    ['NPA SA 2023/24','72.2% conviction rate','trial-stage','CONFIRMED'],
-    ['BRAC 2022','2 DNA machines nationally','','CONFIRMED'],
-    ['BRAC 2022','2349 days average verdict','385 cases','CONFIRMED']
-  ];
-  const csv = rows.map(r => r.map(c => '"'+c+'"').join(',')).join('\n');
-  const a = document.createElement('a');
-  a.href = 'data:text/csv;charset=utf-8,'+encodeURIComponent(csv);
-  a.download = 'BD-INV-002-evidence-export.csv';
-  a.click();
-});
-
-// ═══════════════════════════════════════════
-// WINDOW RESIZE — redraw canvases
-// ═══════════════════════════════════════════
-let resizeTimer;
-window.addEventListener('resize', () => {
-  clearTimeout(resizeTimer);
-  resizeTimer = setTimeout(() => {
-    drawScatter(scStep);
-    drawBacklog();
-  }, 300);
-});
-
-</script>
-</body>
-</html>
+// Fix void observer
+document.querySelectorAll(".void-card").forEach(el=>{new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const v=parseInt(e.target.id.replace("void-",""));if(!isNaN(v)){setTimeout(
