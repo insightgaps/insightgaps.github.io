@@ -30,19 +30,19 @@ const INVESTIGATIONS = [
     region:   "Bangladesh",
     date:     "March 2026",
     year:     2026,
-    sources:  "60+",
-    version:  "v1.6",
+    sources:  "91",
+    version:  "v5.0",
     status:   "published",              // published | in-development
     featured: true,                     // true = shows in homepage hero
     evidence: "Confirmed",
-    summary:  "A forensic audit of Bangladesh's rape justice system. 310 convictions in 23 years for 66,711 women who reached a One-Stop Crisis Centre. Zero convictions in the first seven months of 2024.",
+    summary:  "A forensic audit of Bangladesh's rape justice system. 310 convictions in 23 years for 66,711 women who reached a One-Stop Crisis Centre. Zero convictions in the first seven months of 2024. Child rape cases surged 75% in H1 2025. The machine runs.",
     findings: [
-      "<strong>0.46% conviction rate:</strong> Of 66,711 women who reached a crisis centre (2001–Jul 2024), only 310 resulted in conviction.",
-      "<strong>Zero convictions (Jan–Jul 2024):</strong> 643 women sought help. 227 cases filed. 12 verdicts. Not one conviction.",
-      "<strong>Death penalty failure:</strong> Three mechanisms by which the 2020 amendment likely worsened, not improved, conviction rates."
+      "<strong>0.46% conviction rate:</strong> Of 66,711 women who reached a crisis centre (2001–2024), only 310 resulted in conviction across 23 years.",
+      "<strong>52.3% surge (2024→2025):</strong> BMP documented 786 rape victims in 2025 vs 516 in 2024. Child rape cases rose 75% in the first half of the year.",
+      "<strong>13 women every day:</strong> PHQ data confirms ~13 women and children raped per day in Bangladesh. 24 perpetrators convicted in five years across all of Dhaka."
     ],
     stats: [
-      { val: "60+",    lbl: "Sources" },
+      { val: "91",     lbl: "Sources" },
       { val: "0.46%",  lbl: "OCC conviction rate" },
       { val: "66,711", lbl: "Women — 310 convictions" }
     ],
