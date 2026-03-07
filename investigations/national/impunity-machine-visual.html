@@ -942,5 +942,8 @@ new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting&&!for
 
 function dlCSV(e){e.preventDefault();const rows=[["Source","Figure","N_D","Tier"],["BRAC 2022","3.66% conviction rate","36/984","CONFIRMED"],["OCC 2001-2024","0.46% conviction rate","310/66711","CONFIRMED"],["PBI 2025","41% cases closed unproven","4248/10581","CONFIRMED"],["UNFPA 2024","76.0% national lifetime IPV","27476 women","CONFIRMED"],["UNFPA 2024","81.5% IPV Barishal","","CONFIRMED"],["UNFPA 2024","81.3% IPV Khulna","","CONFIRMED"],["UNFPA 2024","78.5% IPV Chattogram","","CONFIRMED"],["UNFPA 2024","72.7% IPV Sylhet","","CONFIRMED"],["UNFPA 2024","72.9% IPV Dhaka","","CONFIRMED"],["PHQ 2025","~150k cases pending","","CONFIRMED"],["NFDPL 2025","92% DNA samples unprocessed","1204/1304","CONFIRMED"],["Prothom Alo 2023","Runa Akhter S17 conviction 56 days","1 case","CONFIRMED"],["NPA SA 2023/24","72.2% conviction rate","trial-stage","CONFIRMED"],["BRAC 2022","2 DNA machines nationally","","CONFIRMED"]];const csv=rows.map(r=>r.map(c=>'"'+c+'"').join(",")).join("\n");const a=document.createElement("a");a.href="data:text/csv;charset=utf-8,"+encodeURIComponent(csv);a.download="BD-INV-002-evidence-export.csv";a.click();}
 
-// Fix void observer
-document.querySelectorAll(".void-card").forEach(el=>{new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const v=parseInt(e.target.id.replace("void-",""));if(!isNaN(v)){setTimeout(
+// Fix void observer - complete implementation
+document.querySelectorAll(".void-card").forEach(el=>{new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const v=parseInt(e.target.id.replace("void-",""));if(!isNaN(v)){setTimeout(()=>e.target.classList.add("vis"),v*140);if(v===9)setTimeout(()=>{const c=document.getElementById("void-conclusion");if(c)c.style.opacity="1";},1500);}}});},{rootMargin:"-10% 0px -10% 0px"}).observe(el);});
+</script>
+</body>
+</html>
