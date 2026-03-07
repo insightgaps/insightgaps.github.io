@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /analysis/property-preservation/
+
+User-agent: Googlebot
+Allow: /
+Disallow: /analysis/property-preservation/

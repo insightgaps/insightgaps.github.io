@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accountability &amp; Justice | Insight Gaps Research Program</title>
+  <meta name="description" content="Insight Gaps investigates how institutional systems produce systematic impunity — police, courts, prosecutors. Forensic data journalism bureau, Dhaka.">
+  <link rel="canonical" href="https://www.insightgaps.com/topics/accountability/">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Accountability &amp; Justice | Insight Gaps Research Program">
+  <meta property="og:description" content="Insight Gaps investigates how institutional systems produce systematic impunity — police, courts, prosecutors. Forensic data journalism bureau, Dhaka.">
+  <meta property="og:image" content="https://www.insightgaps.com/investigations/national/hero-cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Accountability &amp; Justice | Insight Gaps Research Program">
+  <link rel="stylesheet" href="/style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4PYE0MEK12"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4PYE0MEK12');</script>
+  <style>
+    .program-hero { background: var(--ink); padding: var(--s16) 0 var(--s12); border-bottom: 3px solid var(--red); }
+    .breadcrumb { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: var(--s5); display: flex; gap: var(--s3); align-items: center; }
+    .breadcrumb a { color: rgba(255,255,255,0.4); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--red); }
+    .program-hero h1 { font-family: var(--serif); font-size: var(--t-4xl); color: var(--text-inv); margin: 0 0 var(--s5); line-height: 1.05; }
+    .program-mandate { font-family: var(--sans); font-size: 1rem; color: rgba(255,255,255,0.6); max-width: 65ch; line-height: 1.7; margin: 0; }
+    .program-stats { display: flex; gap: var(--s10); flex-wrap: wrap; margin-top: var(--s10); padding-top: var(--s8); border-top: 1px solid var(--border-inv); }
+    .p-stat { display: flex; flex-direction: column; gap: 4px; }
+    .p-stat-val { font-family: var(--mono); font-size: var(--t-2xl); font-weight: 700; color: #fff; }
+    .p-stat-lbl { font-family: var(--sans); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+    .back-link { display: inline-flex; align-items: center; gap: var(--s3); font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-4); text-decoration: none; margin-bottom: var(--s8); transition: color 0.15s; }
+    .back-link:hover { color: var(--red); }
+    .back-link::before { content: '←'; }
+    .section-label { font-family: var(--sans); font-size: var(--t-xs); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); border-bottom: 2px solid var(--red); padding-bottom: var(--s3); margin-bottom: var(--s8); display: block; }
+    .inv-row { display: grid; grid-template-columns: 1fr; gap: var(--s6); }
+    .inv-row-card { background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--red); border-radius: 0 var(--r) var(--r) 0; padding: var(--s8); display: flex; gap: var(--s8); align-items: flex-start; transition: box-shadow 0.2s; }
+    .inv-row-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+    .inv-row-num { font-family: var(--mono); font-size: var(--t-3xl); font-weight: 700; color: rgba(196,30,58,0.1); flex-shrink: 0; line-height: 1; min-width: 60px; }
+    .inv-row-content { flex: 1; }
+    .inv-row-meta { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); margin-bottom: var(--s3); }
+    .inv-row-content h3 { font-family: var(--serif); font-size: var(--t-xl); color: var(--text-1); margin: 0 0 var(--s3); line-height: 1.2; }
+    .inv-row-content p { font-family: var(--sans); font-size: var(--t-sm); color: var(--text-2); line-height: 1.65; margin: 0 0 var(--s5); max-width: 100%; }
+    .inv-key-findings { background: var(--cream); border-left: 3px solid var(--red); padding: var(--s4) var(--s5); margin-bottom: var(--s5); border-radius: 0 2px 2px 0; }
+    .inv-key-findings-label { font-family: var(--sans); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); margin-bottom: var(--s3); }
+    .inv-key-findings ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+    .inv-key-findings ul li { font-family: var(--sans); font-size: var(--t-sm); color: var(--text-2); padding-left: 16px; position: relative; max-width: 100%; }
+    .inv-key-findings ul li::before { content: '→'; position: absolute; left: 0; color: var(--red); font-size: 0.7rem; }
+    .inv-row-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--s4); }
+    .inv-evidence-tag { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-4); display: flex; align-items: center; gap: 6px; }
+    .inv-evidence-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); display: inline-block; }
+  </style>
+</head>
+<body>
+
+<div data-include="header" data-path="/includes/header.html"></div>
+
+<div class="program-hero" id="programHero">
+  <div class="wrap">
+    <div class="breadcrumb">
+      <a href="/topics/">Research Programs</a>
+      <span>→</span>
+      <span>Accountability &amp; Justice</span>
+    </div>
+    <span style="font-family:var(--mono);font-size:var(--t-xs);letter-spacing:0.18em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:var(--s3);">Research Program · National · Bangladesh</span>
+    <h1>Accountability<br>&amp; Justice</h1>
+    <p class="program-mandate">Forensic examination of how institutional systems — police, courts, prosecutors — produce systematic impunity. Documents the structural mechanisms that make justice failure consistent, not accidental.</p>
+    <div class="program-stats" id="programStats"><!-- populated by registry --></div>
+  </div>
+</div>
+
+<main class="page-container" role="main">
+
+  <a href="/topics/" class="back-link">All Research Programs</a>
+  <span class="section-label">Investigations in this Program</span>
+  <div class="inv-row" id="invRow"><!-- populated by registry --></div>
+
+  <div style="margin-top:var(--s12);background:var(--cream);border:1px solid var(--border);border-radius:var(--r);padding:var(--s10);">
+    <h3 style="font-family:var(--sans);font-size:var(--t-xs);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-3);margin:0 0 var(--s5);">Program Scope</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--s6);">
+      <div><div style="font-family:var(--sans);font-size: 0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-4);margin-bottom:6px;">Geography</div><div style="font-family:var(--sans);font-size:var(--t-sm);color:var(--text-2);">Bangladesh — national institutional systems</div></div>
+      <div><div style="font-family:var(--sans);font-size: 0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-4);margin-bottom:6px;">Evidence Standard</div><div style="font-family:var(--sans);font-size:var(--t-sm);color:var(--text-2);">Confirmed tier — primary sources, government data</div></div>
+      <div><div style="font-family:var(--sans);font-size: 0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-4);margin-bottom:6px;">Research Question</div><div style="font-family:var(--sans);font-size:var(--t-sm);color:var(--text-2);">How do accountability systems produce impunity with structural consistency?</div></div>
+    </div>
+  </div>
+
+  <div style="margin-top:var(--s10);background:var(--ink);padding:var(--s10);border-radius:var(--r);max-width:640px;">
+    <p style="font-family:var(--sans);font-size:var(--t-xs);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:var(--s3);">Commissioned Investigations</p>
+    <p style="font-family:var(--sans);font-size:0.88rem;color:rgba(255,255,255,0.55);line-height:1.65;margin-bottom:var(--s5);">Private investigations accepted within this research domain. Same forensic standards and evidence tiers as public work.</p>
+    <a href="mailto:insightgaps@gmail.com" style="font-family:var(--sans);font-size:0.82rem;font-weight:700;color:#fff;border-bottom:1px solid rgba(255,255,255,0.3);padding-bottom:2px;text-decoration:none;">insightgaps@gmail.com →</a>
+  </div>
+
+</main>
+
+<div data-include="footer" data-path="/includes/footer.html"></div>
+<script src="/js/components.js"></script>
+<script src="/js/ui.js"></script>
+<script src="/js/registry.js"></script>
+<script>
+(function() {
+  var invs = getByTopic('accountability');
+
+  // Stats bar
+  var totalSources = invs.reduce(function(sum, i) {
+    var n = parseInt(i.sources); return sum + (isNaN(n) ? 0 : n);
+  }, 0);
+  document.getElementById('programStats').innerHTML =
+    '<div class="p-stat"><div class="p-stat-val">' + invs.length + '</div><div class="p-stat-lbl">Investigations</div></div>' +
+    '<div class="p-stat"><div class="p-stat-val">' + totalSources + '+</div><div class="p-stat-lbl">Sources</div></div>' +
+    '<div class="p-stat"><div class="p-stat-val">0.46%</div><div class="p-stat-lbl">OCC Conviction Rate</div></div>' +
+    '<div class="p-stat"><div class="p-stat-val">5.8×</div><div class="p-stat-lbl">Fatality Undercount</div></div>';
+
+  // Investigations
+  document.getElementById('invRow').innerHTML = invs.map(function(inv, i) {
+    return renderTopicRow(inv, i);
+  }).join('');
+})();
+</script>
+</body>
+</html>

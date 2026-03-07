@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Repository | Insight Gaps</title>
+  <meta name="description" content="Insight Gaps public data repository — evidence packages, datasets, and source documentation for all published investigations. Forensic data journalism bureau, Dhaka.">
+  <link rel="canonical" href="https://www.insightgaps.com/data/">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Data Repository | Insight Gaps">
+  <meta property="og:description" content="Insight Gaps public data repository — evidence packages, datasets, and source documentation for all published investigations. Forensic data journalism bureau, Dhaka.">
+  <meta property="og:image" content="https://www.insightgaps.com/investigations/national/hero-cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Data Repository | Insight Gaps">
+  <link rel="stylesheet" href="/style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4PYE0MEK12"></script>
+  <script>
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js',new Date()); gtag('config','G-4PYE0MEK12');
+  </script>
+  <style>
+    .data-hero {
+      background: var(--ink);
+      padding: var(--s16) 0 var(--s12);
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .data-hero-label {
+      font-family: var(--mono);
+      font-size: var(--t-xs);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      display: block;
+      margin-bottom: var(--s3);
+    }
+    .data-hero h1 {
+      font-family: var(--serif);
+      font-size: var(--t-4xl);
+      color: var(--text-inv);
+      margin: 0 0 var(--s5);
+    }
+    .data-hero p {
+      font-family: var(--sans);
+      font-size: var(--t-sm);
+      color: var(--text-inv-soft);
+      max-width: 65ch;
+      line-height: 1.7;
+      margin: 0;
+    }
+    .data-policy-bar {
+      display: flex;
+      gap: var(--s8);
+      flex-wrap: wrap;
+      margin-top: var(--s10);
+      padding-top: var(--s8);
+      border-top: 1px solid var(--border-inv);
+    }
+    .data-policy-item {
+      display: flex;
+      align-items: center;
+      gap: var(--s3);
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+    .data-policy-item::before {
+      content: '✓';
+      color: var(--teal);
+      font-size: 0.75rem;
+    }
+    .section-rule {
+      display: flex;
+      align-items: center;
+      gap: var(--s5);
+      margin: var(--s12) 0 var(--s8);
+    }
+    .section-rule-line { flex: 1; height: 1px; background: var(--border); }
+    .section-rule-title {
+      font-family: var(--sans);
+      font-size: var(--t-xs);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      white-space: nowrap;
+    }
+    .data-package {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+      margin-bottom: var(--s6);
+    }
+    .data-package-header {
+      padding: var(--s6) var(--s8);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--s4);
+    }
+    .data-package-id {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--red);
+      background: rgba(196,30,58,0.06);
+      border: 1px solid rgba(196,30,58,0.15);
+      padding: 3px 10px;
+      border-radius: 2px;
+    }
+    .data-package-id.gold { color: var(--gold); background: rgba(184,134,11,0.06); border-color: rgba(184,134,11,0.15); }
+    .data-package-status {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-4);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); display: inline-block; }
+    .status-dot.amber { background: var(--gold); }
+    .data-package-body { padding: var(--s8); }
+    .data-package-body h3 {
+      font-family: var(--serif);
+      font-size: var(--t-xl);
+      color: var(--text-1);
+      margin: 0 0 var(--s3);
+    }
+    .data-package-body p {
+      font-family: var(--sans);
+      font-size: var(--t-sm);
+      color: var(--text-2);
+      line-height: 1.65;
+      margin: 0 0 var(--s6);
+      max-width: 100%;
+    }
+    .data-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--s4);
+      margin-bottom: var(--s6);
+    }
+    .data-item {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: var(--s4) var(--s5);
+      display: flex;
+      align-items: center;
+      gap: var(--s3);
+    }
+    .data-item-icon {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--text-4);
+      flex-shrink: 0;
+      width: 28px;
+      text-align: center;
+    }
+    .data-item-content {}
+    .data-item-name {
+      font-family: var(--sans);
+      font-size: var(--t-sm);
+      font-weight: 600;
+      color: var(--text-1);
+      display: block;
+    }
+    .data-item-desc {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--text-4);
+      letter-spacing: 0.06em;
+    }
+    .data-item.coming-soon { opacity: 0.45; }
+    .data-item.coming-soon .data-item-name { color: var(--text-3); }
+    .data-package-footer {
+      padding: var(--s5) var(--s8);
+      border-top: 1px solid var(--border);
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--s4);
+    }
+    .data-package-meta {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--text-4);
+      letter-spacing: 0.08em;
+    }
+    .data-policy {
+      background: var(--ink);
+      border-radius: var(--r);
+      padding: var(--s10);
+      margin-top: var(--s12);
+    }
+    .data-policy h3 {
+      font-family: var(--sans);
+      font-size: var(--t-xs);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin: 0 0 var(--s6);
+    }
+    .policy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--s6);
+    }
+    .policy-item {
+      border-left: 2px solid rgba(0,109,91,0.4);
+      padding-left: var(--s4);
+    }
+    .policy-item-label {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 6px;
+    }
+    .policy-item-val {
+      font-family: var(--sans);
+      font-size: var(--t-sm);
+      color: rgba(255,255,255,0.6);
+      line-height: 1.55;
+    }
+  </style>
+</head>
+<body>
+
+<div data-include="header" data-path="/includes/header.html"></div>
+
+<div class="data-hero">
+  <div class="wrap">
+    <span class="data-hero-label">Insight Gaps Bureau</span>
+    <h1>Data Repository</h1>
+    <p>Evidence packages, datasets, and source documentation for all published investigations. 
+      Open data is central to our credibility standard — findings must be traceable. 
+      Where full datasets cannot be published, methodology and source classifications are documented openly.</p>
+    <div class="data-policy-bar">
+      <div class="data-policy-item">Open access — no registration</div>
+      <div class="data-policy-item">All data anonymized</div>
+      <div class="data-policy-item">Sources documented</div>
+      <div class="data-policy-item">Methodology disclosed</div>
+    </div>
+  </div>
+</div>
+
+<main class="page-container" role="main">
+
+  <!-- Accountability & Justice -->
+  <div class="section-rule">
+    <div class="section-rule-line"></div>
+    <span class="section-rule-title">Accountability &amp; Justice Program</span>
+    <div class="section-rule-line"></div>
+  </div>
+
+  <!-- Impunity Machine -->
+  <div class="data-package">
+    <div class="data-package-header">
+      <span class="data-package-id">BD-INV-002 · Evidence Package</span>
+      <span class="data-package-status"><span class="status-dot"></span> Partial — Documentation Available</span>
+    </div>
+    <div class="data-package-body">
+      <h3>The Impunity Machine — Evidence Package</h3>
+      <p>Source documentation, data classification, and methodology notes for the Bangladesh rape justice investigation. 
+        Primary data drawn from One-Stop Crisis Centre (OCC) records, Bangladesh Mahila Parishad, BLAST litigation data, 
+        and international comparative datasets.</p>
+      <div class="data-items">
+        <div class="data-item">
+          <div class="data-item-icon">CSV</div>
+          <div class="data-item-content">
+            <span class="data-item-name">OCC Conviction Data</span>
+            <span class="data-item-desc">2001–Jul 2024 · 66,711 cases</span>
+          </div>
+        </div>
+        <div class="data-item">
+          <div class="data-item-icon">DOC</div>
+          <div class="data-item-content">
+            <span class="data-item-name">Source Classification</span>
+            <span class="data-item-desc">60+ sources · tiered by type</span>
+          </div>
+        </div>
+        <div class="data-item">
+          <div class="data-item-icon">MD</div>
+          <div class="data-item-content">
+            <span class="data-item-name">Methodology Notes</span>
+            <span class="data-item-desc">Calculation basis · assumptions</span>
+          </div>
+        </div>
+        <div class="data-item coming-soon">
+          <div class="data-item-icon">CSV</div>
+          <div class="data-item-content">
+            <span class="data-item-name">Comparative Justice Dataset</span>
+            <span class="data-item-desc">Coming · India / Pakistan / Nepal</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="data-package-footer">
+      <span class="data-package-meta">Evidence Tier: Confirmed · Published March 2026 · v1.6</span>
+      <a href="/investigations/national/impunity-machine.html" class="btn-report">View Investigation →</a>
+    </div>
+  </div>
+
+  <!-- Blood Routes -->
+  <div class="data-package">
+    <div class="data-package-header">
+      <span class="data-package-id">BD-INV-001 · Evidence Package</span>
+      <span class="data-package-status"><span class="status-dot"></span> Partial — Documentation Available</span>
+    </div>
+    <div class="data-package-body">
+      <h3>Blood Routes — Evidence Package</h3>
+      <p>Source documentation and methodology for the Dhaka bus fatalities investigation. 
+        Primary data from Nirapad Sarak Chai (NSC) fatality records, BRTA operator registration data, 
+        WHO road safety estimates, and field-verified operator lists.</p>
+      <div class="data-items">
+        <div class="data-item">
+          <div class="data-item-icon">CSV</div>
+          <div class="data-item-content">
+            <span class="data-item-name">Operator Database</span>
+            <span class="data-item-desc">6 operators · Phoenix tracking</span>
+          </div>
+        </div>
+        <div class="data-item">
+          <div class="data-item-icon">CSV</div>
+          <div class="data-item-content">
+            <span class="data-item-name">Fatality Records</span>
+            <span class="data-item-desc">NSC data · 2015–2024</span>
+          </div>
+        </div>
+        <div class="data-item">
+          <div class="data-item-icon">DOC</div>
+          <div class="data-item-content">
+            <span class="data-item-name">Source Classification</span>
+            <span class="data-item-desc">155+ sources · tiered</span>
+          </div>
+        </div>
+        <div class="data-item coming-soon">
+          <div class="data-item-icon">CSV</div>
+          <div class="data-item-content">
+            <span class="data-item-name">WHO Comparison Dataset</span>
+            <span class="data-item-desc">Coming · undercount methodology</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="data-package-footer">
+      <span class="data-package-meta">Evidence Tier: Confirmed · Published February 2026 · v1.0</span>
+      <a href="/investigations/national/blood-routes.html" class="btn-report">View Investigation →</a>
+    </div>
+  </div>
+
+  <!-- Conflict Economics -->
+  <div class="section-rule">
+    <div class="section-rule-line"></div>
+    <span class="section-rule-title">Conflict Economics Program</span>
+    <div class="section-rule-line"></div>
+  </div>
+
+  <div class="data-package">
+    <div class="data-package-header">
+      <span class="data-package-id gold">INT-INV-001 · Evidence Package</span>
+      <span class="data-package-status"><span class="status-dot amber"></span> Framework Documentation Available</span>
+    </div>
+    <div class="data-package-body">
+      <h3>Hidden Tax of War — Evidence Package</h3>
+      <p>Source documentation and methodology for the cross-conflict economic analysis. 
+        Data drawn from World Bank commodity price indices, FAO food price data, UNCTAD shipping rate records, 
+        and IMF balance-of-payments datasets across four conflict periods.</p>
+      <div class="data-items">
+        <div class="data-item">
+          <div class="data-item-icon">CSV</div>
+          <div class="data-item-content">
+            <span class="data-item-name">WEI Framework Data</span>
+            <span class="data-item-desc">4 conflicts · price transmission</span>
+          </div>
+        </div>
+        <div class="data-item">
+          <div class="data-item-icon">DOC</div>
+          <div class="data-item-content">
+            <span class="data-item-name">Methodology — WEI</span>
+            <span class="data-item-desc">War Externality Index · calculation</span>
+          </div>
+        </div>
+        <div class="data-item coming-soon">
+          <div class="data-item-icon">CSV</div>
+          <div class="data-item-content">
+            <span class="data-item-name">Commodity Price Dataset</span>
+            <span class="data-item-desc">Coming · World Bank series</span>
+          </div>
+        </div>
+        <div class="data-item coming-soon">
+          <div class="data-item-icon">CSV</div>
+          <div class="data-item-content">
+            <span class="data-item-name">Shipping Rate Records</span>
+            <span class="data-item-desc">Coming · UNCTAD data</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="data-package-footer">
+      <span class="data-package-meta">Cross-Conflict Analysis · Published 2025</span>
+      <a href="/investigations/international/war-tax.html" class="btn-report" style="border-color: var(--gold); color: var(--gold);" onmouseover="this.style.background='var(--gold)';this.style.color='#fff';" onmouseout="this.style.background='transparent';this.style.color='var(--gold)';">View Investigation →</a>
+    </div>
+  </div>
+
+  <!-- Data Policy -->
+  <div class="data-policy">
+    <h3>Data Publication Policy</h3>
+    <div class="policy-grid">
+      <div class="policy-item">
+        <div class="policy-item-label">Open Access</div>
+        <div class="policy-item-val">All public datasets are freely available. No registration, no paywall.</div>
+      </div>
+      <div class="policy-item">
+        <div class="policy-item-label">Anonymization</div>
+        <div class="policy-item-val">All identifying information is removed. No individuals or organizations are identifiable.</div>
+      </div>
+      <div class="policy-item">
+        <div class="policy-item-label">Disclosure</div>
+        <div class="policy-item-val">Where live data cannot be published, methodology and source classifications are documented openly.</div>
+      </div>
+      <div class="policy-item">
+        <div class="policy-item-label">Reproducibility</div>
+        <div class="policy-item-val">All findings must be traceable to documented, replicable data sources. Challenge the data.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Data request -->
+  <div style="margin-top: var(--s10); background: var(--cream); border: 1px solid var(--border); border-radius: var(--r); padding: var(--s8);">
+    <p style="font-family: var(--sans); font-size: var(--t-xs); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-3); margin-bottom: var(--s3);">Data Requests &amp; Corrections</p>
+    <p style="font-family: var(--sans); font-size: var(--t-sm); color: var(--text-2); line-height: 1.65; margin-bottom: var(--s5); max-width: 65ch;">
+      If you are a researcher, journalist, or policy analyst who needs a specific dataset, or if you have identified an error in our data, contact the bureau directly.
+    </p>
+    <a href="mailto:insightgaps@gmail.com" class="btn-report" style="border-color: var(--teal); color: var(--teal);" onmouseover="this.style.background='var(--teal)';this.style.color='#fff';" onmouseout="this.style.background='transparent';this.style.color='var(--teal)';">Contact the Bureau →</a>
+  </div>
+
+</main>
+
+<div data-include="footer" data-path="/includes/footer.html"></div>
+<script src="/js/components.js"></script>
+<script src="/js/ui.js"></script>
+
+</body>
+</html>

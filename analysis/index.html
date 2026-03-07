@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operational Analysis Domains | Insight Gaps</title>
+  <meta name="description" content="Applied operational analysis derived from public investigations. Commissioned diagnostics available for organizations — Insight Gaps Bureau.">
+  <link rel="canonical" href="https://www.insightgaps.com/analysis/">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Analysis | Insight Gaps">
+  <meta property="og:description" content="Forensic operational diagnostics derived from investigative work. Commissioned engagements available under strict confidentiality.">
+  <meta property="og:url" content="https://www.insightgaps.com/analysis/">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="/style.css">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4PYE0MEK12"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-4PYE0MEK12');
+  </script>
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <div data-include="header" data-path="/includes/header.html"></div>
+
+  <main class="page-container" role="main">
+
+    <!-- Page header -->
+    <header style="max-width: var(--container-narrow); margin-bottom: var(--sp-12);">
+      <p class="domain-tag">Applied Analysis</p>
+      <h1>Operational Analysis</h1>
+      <p class="lead">
+        Forensic diagnostics derived from investigative work into real operational workflows.
+        Private commissioned engagements are available under strict confidentiality.
+      </p>
+      <p class="last-updated">Last updated: January 2026</p>
+    </header>
+
+    <hr>
+
+    <section style="margin-top: var(--sp-12);">
+      <div class="inquiries-box">
+        <p><strong>Operational Intelligence Reports</strong> — The Bureau produces forensic diagnostics applied to real operational systems: cash flow analysis, vendor leakage mapping, work order risk, and documentation failure patterns.</p>
+        <p>These reports are available to qualified organisations and individuals on request. All commissioned work is delivered under strict confidentiality. No client names or data are disclosed without written consent.</p>
+        <p>To request access to existing reports or commission a diagnostic, contact the Bureau directly.</p>
+        <a href="mailto:insightgaps@gmail.com" class="btn-solid-red" style="margin-top: var(--sp-4); display:inline-block;">Request Access &rarr;</a>
+      </div>
+
+      <div class="domains-grid" style="margin-top: var(--sp-12);">
+        <div class="domain">
+          <p class="type">Domain 01</p>
+          <h2>Cash Flow Risk</h2>
+          <p>How revenue moves through invoicing and collection cycles — and where retention breaks down. Full diagnostic available on request.</p>
+        </div>
+        <div class="domain">
+          <p class="type">Domain 02</p>
+          <h2>Profit Leakage</h2>
+          <p>Recurring margin erosion from vendor overruns, rework loops, and structural inefficiencies — mapped and classified. Available on request.</p>
+        </div>
+        <div class="domain">
+          <p class="type">Domain 03</p>
+          <h2>Work Order Risk</h2>
+          <p>Which service types scale profitably and which quietly amplify operational risk. Risk matrix and breakdown available on request.</p>
+        </div>
+      </div>
+    </section>
+
+</main>
+
+  <!-- Image popup -->
+  <div id="imagePopup" class="popup-overlay" onclick="closePopup()" role="dialog" aria-modal="true" aria-label="Image preview">
+    <div class="popup-content" onclick="event.stopPropagation()">
+      <button class="popup-close" onclick="closePopup()" aria-label="Close preview">&times;</button>
+      <a id="popupLink" href="#">
+        <img id="popupImg" src="" alt="Preview" class="popup-image">
+      </a>
+      <div id="popupCaption" class="popup-caption"></div>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <div data-include="footer" data-path="/includes/footer.html"></div>
+
+  <script src="/js/components.js"></script>
+  <script src="/js/ui.js"></script>
+</body>
+</html>

@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Insight Gaps | Forensic Data Journalism Bureau</title>
+<meta name="description" content="Insight Gaps — independent forensic data journalism bureau. Live world data, investigative reports, applied analysis. Dhaka, Bangladesh.">
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="canonical" href="https://www.insightgaps.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Insight Gaps | Forensic Data Journalism Bureau">
+<meta property="og:description" content="Independent forensic data journalism bureau. Live world data, investigative reports, applied analysis. Dhaka, Bangladesh.">
+<meta property="og:image" content="https://www.insightgaps.com/investigations/national/hero-cover.jpg">
+<meta property="og:url" content="https://www.insightgaps.com/">
+<meta property="og:site_name" content="Insight Gaps">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Insight Gaps | Forensic Data Journalism Bureau">
+<meta name="twitter:description" content="Independent forensic data journalism from Dhaka. The Impunity Machine: 0.46% conviction rate. 310 convictions in 23 years.">
+<meta name="twitter:image" content="https://www.insightgaps.com/investigations/national/hero-cover.jpg">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4PYE0MEK12"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-4PYE0MEK12");</script>
+<style>
+:root{
+  --ink:#06060e;--ink2:#0d0d18;--ink3:#12121e;
+  --border:#1e1e32;--border2:#2a2840;
+  --text:#e8e3da;--text2:#c4bfb5;--muted:#7a7590;--muted2:#3e3c50;
+  --blood:#c41e3a;--bloodl:#e84060;--bloodd:#8b1428;
+  --gold:#c9a84c;--gold2:#9a7e36;
+  --teal:#40c0c0;--amber:#d4a060;
+  --mono:"JetBrains Mono","Courier New",monospace;
+  --display:"Playfair Display",Georgia,serif;
+  --body:"Lora",Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--text);font-family:var(--body);overflow-x:hidden}
+a{color:var(--gold);text-decoration:none}
+a:hover{color:var(--text)}
+
+/* ── TICKER ── */
+.ticker{background:rgba(6,6,14,.98);border-bottom:1px solid var(--border);padding:.3rem 0;display:flex;align-items:center;gap:.8rem;overflow:hidden;position:sticky;top:0;z-index:1000}
+.ticker-label{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--blood);flex-shrink:0;padding:.2rem .8rem;border-right:1px solid var(--border);white-space:nowrap}
+.ticker-wrap{overflow:hidden;flex:1}
+.ticker-track{display:flex;gap:2.5rem;white-space:nowrap;animation:tick 50s linear infinite}
+.ticker-track:hover{animation-play-state:paused}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ti{font-family:var(--mono);font-size:.72rem;color:rgba(200,190,175,.5);letter-spacing:.04em;flex-shrink:0}
+.ti-tag{color:rgba(200,190,175,.35);margin-right:.35rem;text-transform:uppercase;font-size:.72rem;letter-spacing:.1em}
+
+/* ── NAV ── */
+nav{background:rgba(6,6,14,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 1.5rem;height:52px;display:flex;align-items:center;justify-content:space-between;gap:1rem;position:sticky;top:25px;z-index:900}
+.nav-brand{font-family:var(--mono);font-size:.75rem;color:var(--gold);letter-spacing:.2em;text-transform:uppercase;white-space:nowrap}
+.nav-links{display:flex;gap:.35rem;flex-wrap:wrap}
+.nlink{font-family:var(--mono);font-size:.72rem;color:var(--muted);border:1px solid transparent;padding:.22rem .65rem;transition:all .2s;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.nlink:hover{color:var(--text2);border-color:var(--border2)}
+.nlink.active{color:var(--text2);border-color:var(--border)}
+.nlink.hot{color:var(--text2);border:1px solid rgba(196,30,58,.35)}
+.nlink.hot:hover{color:var(--bloodl);border-color:var(--bloodl)}
+/* Hamburger */
+.nav-ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;flex-shrink:0;padding:6px}
+.nav-ham span{display:block;width:20px;height:2px;background:var(--muted);border-radius:1px;transition:all .25s}
+.nav-ham.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.nav-ham.open span:nth-child(2){opacity:0}
+.nav-ham.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-drawer{display:none;position:fixed;top:77px;left:0;right:0;background:rgba(6,6,14,.99);border-bottom:1px solid var(--border);padding:1.2rem 1.5rem;z-index:890}
+.nav-drawer.open{display:block}
+.nav-drawer a{display:block;font-family:var(--mono);font-size:.8rem;color:var(--muted2);letter-spacing:.08em;text-transform:uppercase;padding:.65rem 0;border-bottom:1px solid var(--border);transition:color .2s;text-decoration:none}
+.nav-drawer a:hover{color:var(--gold)}
+.nav-drawer a:last-child{border-bottom:none}
+@media(max-width:700px){.nav-links{display:none}.nav-ham{display:flex}}
+
+/* ── HERO ── */
+#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 2rem 5rem;position:relative;overflow:hidden}
+#hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 65% 40% at 50% 38%,rgba(196,30,58,.07),transparent 65%),radial-gradient(ellipse 50% 30% at 50% 70%,rgba(201,168,76,.03),transparent 60%)}
+#hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 60px,rgba(30,30,48,.04) 60px,rgba(30,30,48,.04) 61px),repeating-linear-gradient(90deg,transparent,transparent 60px,rgba(30,30,48,.03) 60px,rgba(30,30,48,.03) 61px);pointer-events:none}
+.hero-eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(196,30,58,.65);margin-bottom:2.5rem;animation:fadein .8s ease .2s both;position:relative;z-index:1}
+.hero-title{font-family:var(--display);font-size:clamp(4.5rem,13vw,10rem);font-weight:900;line-height:.88;letter-spacing:-.03em;position:relative;z-index:1;opacity:0;animation:fadein 1s ease .5s both}
+.hero-title em{font-style:italic;color:var(--blood)}
+.hero-sub{font-family:var(--mono);font-size:.78rem;color:var(--muted);letter-spacing:.2em;text-transform:uppercase;margin-top:1.2rem;opacity:0;animation:fadein .8s ease 1.2s both;position:relative;z-index:1;line-height:1.8}
+.hero-divider{width:50px;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.4),transparent);margin:2.8rem auto;opacity:0;animation:fadein .6s ease 1.6s both;position:relative;z-index:1}
+.hero-stats{display:flex;gap:clamp(1.5rem,5vw,5rem);justify-content:center;flex-wrap:wrap;opacity:0;animation:fadein .8s ease 1.8s both;position:relative;z-index:1}
+.hstat{text-align:center}
+.hstat-val{font-family:var(--mono);font-size:clamp(1.6rem,3.5vw,2.8rem);font-weight:700;color:var(--bloodl);line-height:1;letter-spacing:-.02em}
+.hstat-val.gold{color:var(--gold)}
+.hstat-val.teal{color:var(--teal)}
+.hstat-lbl{font-family:var(--mono);font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;margin-top:.35rem;line-height:1.6}
+.hero-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:.35;animation:bob 2.5s ease-in-out infinite 3s;z-index:1}
+.hero-scroll span{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted2)}
+@keyframes fadein{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+/* ── LIVE STRIP ── */
+.live-strip{background:var(--ink2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.live-strip-inner{display:flex;overflow-x:auto;scrollbar-width:none;max-width:1280px;margin:0 auto}
+.live-strip-inner::-webkit-scrollbar{display:none}
+.li{padding:.65rem 1.2rem;border-right:1px solid var(--border);flex-shrink:0}
+.li-lbl{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted2);margin-bottom:.2rem;display:flex;align-items:center;gap:.35rem}
+.li-val{font-family:var(--mono);font-size:.76rem;font-weight:700;color:var(--text2)}
+.li-val.loading{color:var(--muted2);animation:pulse 1.5s ease-in-out infinite}
+.li-val.pos{color:#52b788}
+.li-val.neg{color:var(--bloodl)}
+@keyframes pulse{0%,100%{opacity:.35}50%{opacity:.9}}
+.live-dot{width:5px;height:5px;border-radius:50%;background:var(--blood);display:inline-block;animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+
+/* ── LAYOUT ── */
+.wrap{max-width:1280px;margin:0 auto;padding:0 2rem}
+.sec{padding:5rem 0}
+.sec-hr{border:none;border-top:1px solid var(--border)}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:2.2rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
+.sec-eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold2);margin-bottom:.5rem}
+.sec-title{font-family:var(--display);font-size:clamp(1.4rem,2.5vw,2rem);font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.sec-dek{font-size:.92rem;color:var(--muted);max-width:58ch;line-height:1.8;margin-bottom:2.5rem}
+.view-all{font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);padding:.25rem .7rem;transition:all .2s;white-space:nowrap}
+.view-all:hover{color:var(--gold);border-color:var(--gold2)}
+
+/* ── FEATURED ── */
+.feat{background:var(--ink2);border:1px solid var(--border);border-top:3px solid var(--blood);display:grid;grid-template-columns:1fr 1fr;gap:0}
+@media(max-width:780px){.feat{grid-template-columns:1fr}}
+.feat-left{padding:2.2rem;border-right:1px solid var(--border)}
+@media(max-width:780px){.feat-left{border-right:none;border-bottom:1px solid var(--border)}}
+.feat-right{padding:2.2rem;display:flex;flex-direction:column;gap:.9rem;justify-content:center}
+.feat-label{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--blood);margin-bottom:.7rem}
+.feat-title{font-family:var(--display);font-size:clamp(1.6rem,2.8vw,2.5rem);font-weight:900;line-height:1.05;letter-spacing:-.02em;margin-bottom:.7rem}
+.feat-title em{font-style:italic;color:var(--blood)}
+.feat-dek{font-size:.92rem;color:var(--text2);line-height:1.82;margin-bottom:1.3rem}
+.feat-meta{font-family:var(--mono);font-size:.72rem;color:var(--muted2);display:flex;gap:.7rem;flex-wrap:wrap;margin-bottom:1.8rem}
+.feat-meta span+span::before{content:"·";margin-right:.7rem;color:var(--border2)}
+.feat-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-bottom:1.8rem}
+.fstat{background:rgba(255,255,255,.022);border:1px solid var(--border);padding:.8rem;text-align:center}
+.fstat-v{font-family:var(--mono);font-size:clamp(.95rem,2vw,1.4rem);font-weight:700;color:var(--bloodl);line-height:1}
+.fstat-v.gold{color:var(--gold)}
+.fstat-l{font-family:var(--mono);font-size:.72rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.07em;margin-top:.28rem;line-height:1.5}
+.feat-btns{display:flex;gap:.55rem;flex-wrap:wrap}
+.btn-red{font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;padding:.65rem 1.2rem;background:var(--blood);color:var(--text);border:1px solid var(--bloodl);transition:all .2s}
+.btn-red:hover{background:var(--bloodl);color:var(--text)}
+.btn-outline{font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;padding:.65rem 1.2rem;background:transparent;color:var(--gold);border:1px solid var(--gold2);transition:all .2s}
+.btn-outline:hover{background:rgba(201,168,76,.08)}
+.finding{display:flex;gap:.85rem;align-items:flex-start;padding:.85rem;background:rgba(255,255,255,.016);border:1px solid var(--border);border-left:2px solid var(--blood)}
+.finding-n{font-family:var(--mono);font-size:.72rem;color:var(--blood);flex-shrink:0;padding-top:.1rem;font-weight:700}
+.finding-t{font-size:.85rem;color:var(--text2);line-height:1.65}
+.finding-t strong{color:var(--text)}
+
+/* ── INVESTIGATION CARDS ── */
+.inv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:.9rem}
+.ic{background:var(--ink2);border:1px solid var(--border);display:flex;flex-direction:column;transition:border-color .2s}
+.ic:hover{border-color:var(--muted2)}
+.ic-band{height:3px}
+.ic-band.red{background:var(--blood)}
+.ic-band.gold{background:var(--gold)}
+.ic-body{padding:1.3rem;flex:1;display:flex;flex-direction:column}
+.ic-scope{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;padding:.18rem .52rem;display:inline-block;margin-bottom:.65rem}
+.ic-scope.nat{color:var(--blood);border:1px solid rgba(196,30,58,.2);background:rgba(196,30,58,.04)}
+.ic-scope.intl{color:var(--gold);border:1px solid rgba(201,168,76,.2);background:rgba(201,168,76,.04)}
+.ic h3{font-family:var(--display);font-size:1rem;font-weight:700;color:var(--text);line-height:1.25;margin-bottom:.45rem}
+.ic p{font-size:.85rem;color:var(--muted);line-height:1.7;flex:1;margin-bottom:.9rem}
+.ic-foot{border-top:1px solid var(--border);padding-top:.8rem;display:flex;align-items:center;justify-content:space-between;gap:.5rem}
+.ic-meta{font-family:var(--mono);font-size:.72rem;color:var(--muted2);letter-spacing:.05em}
+.ic-link{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,.25);padding:.22rem .65rem;transition:all .2s}
+.ic-link:hover{background:rgba(201,168,76,.08)}
+
+/* ── LIVE DATA ── */
+.live-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+@media(max-width:860px){.live-grid{grid-template-columns:1fr}}
+.dpanel{background:var(--ink2);border:1px solid var(--border)}
+.dpanel-hd{padding:.9rem 1.3rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.dpanel-hd-t{font-family:var(--mono);font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text2)}
+.dpanel-hd-m{font-family:var(--mono);font-size:.72rem;color:var(--muted2)}
+.dpanel-bd{padding:.9rem 1.3rem}
+
+.curr-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:.7rem;margin-bottom:1.4rem}
+@media(max-width:860px){.curr-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:480px){.curr-grid{grid-template-columns:repeat(2,1fr)}}
+.cc{background:rgba(255,255,255,.025);border:1px solid var(--border);padding:.7rem;text-align:center}
+.cc-pair{font-family:var(--mono);font-size:.72rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.28rem}
+.cc-val{font-family:var(--mono);font-size:.95rem;font-weight:700;color:var(--text2)}
+
+.aqi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.55rem}
+@media(max-width:560px){.aqi-grid{grid-template-columns:repeat(2,1fr)}}
+.aqi-card{background:rgba(255,255,255,.025);border:1px solid var(--border);padding:.65rem;text-align:center}
+.aqi-city{font-family:var(--mono);font-size:.72rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.18rem}
+.aqi-value{font-family:var(--mono);font-size:1.15rem;font-weight:700;line-height:1}
+.aqi-status{font-family:var(--mono);font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:.2rem;display:block}
+.aqi-bar{height:2px;background:rgba(255,255,255,.06);margin-top:.35rem;overflow:hidden}
+.aqi-bar-fill{height:100%;transition:width 1s ease}
+.aqi-good .aqi-value{color:#52b788}.aqi-good .aqi-bar-fill{background:#52b788}
+.aqi-moderate .aqi-value{color:#f9c74f}.aqi-moderate .aqi-bar-fill{background:#f9c74f}
+.aqi-sensitive .aqi-value{color:#f87f3a}.aqi-sensitive .aqi-bar-fill{background:#f87f3a}
+.aqi-unhealthy .aqi-value,.aqi-very .aqi-value,.aqi-hazardous .aqi-value{color:var(--bloodl)}
+.aqi-unhealthy .aqi-bar-fill,.aqi-very .aqi-bar-fill,.aqi-hazardous .aqi-bar-fill{background:var(--bloodl)}
+
+.ni{padding:.75rem 0;border-bottom:1px solid var(--border);display:flex;gap:.75rem}
+.ni:last-child{border-bottom:none}
+.ni-n{font-family:var(--mono);font-size:.72rem;color:var(--muted2);flex-shrink:0;padding-top:.1rem;width:1.4rem}
+.ni-t{font-size:.85rem;color:var(--text2);line-height:1.5;font-family:var(--body)}
+.ni-t a{color:var(--text2)}.ni-t a:hover{color:var(--text)}
+.ni-m{font-family:var(--mono);font-size:.72rem;color:var(--muted2);margin-top:.2rem}
+.news-loading{font-family:var(--mono);font-size:.75rem;color:var(--muted2);padding:.8rem 0}
+
+/* ── PROGRAMS ── */
+.prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
+@media(max-width:720px){.prog-grid{grid-template-columns:1fr}}
+.pg{background:var(--ink2);border:1px solid var(--border);border-top:3px solid var(--blood);padding:1.4rem;transition:border-color .2s,transform .2s;display:block}
+.pg:hover{border-color:var(--blood);transform:translateY(-2px)}
+.pg.g{border-top-color:var(--gold)}.pg.g:hover{border-color:var(--gold)}
+.pg.t{border-top-color:var(--teal)}.pg.t:hover{border-color:var(--teal)}
+.pg-count{font-family:var(--mono);font-size:.72rem;color:var(--blood);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.45rem}
+.pg.g .pg-count{color:var(--gold)}.pg.t .pg-count{color:var(--teal)}
+.pg-name{font-family:var(--display);font-size:1rem;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:.4rem}
+.pg-desc{font-size:.85rem;color:var(--muted);line-height:1.65}
+
+/* ── FOOTER ── */
+footer{background:var(--ink2);border-top:1px solid var(--border);padding:3.5rem 2rem 2rem}
+.fg{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:2.5rem;max-width:1280px;margin:0 auto;padding-bottom:2.5rem;border-bottom:1px solid var(--border)}
+@media(max-width:860px){.fg{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.fg{grid-template-columns:1fr}}
+.fb{font-family:var(--display);font-size:1.35rem;font-weight:900;color:var(--text);letter-spacing:-.02em;margin-bottom:.5rem}
+.fb em{font-style:italic;color:var(--blood)}
+.fst{font-size:.82rem;color:var(--muted);line-height:1.7;max-width:26ch}
+.fc h5{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted2);margin-bottom:.7rem;border-bottom:1px solid var(--border);padding-bottom:.45rem}
+.fc ul{list-style:none}
+.fc li{margin-bottom:.38rem}
+.fc a{font-size:.85rem;color:var(--muted);line-height:1.6}
+.fc a:hover{color:var(--text)}
+.fb2{max-width:1280px;margin:1.5rem auto 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.fc2{font-family:var(--mono);font-size:.72rem;color:var(--muted2);letter-spacing:.04em;line-height:1.8}
+.fc2 a{color:var(--muted);border-bottom:1px solid var(--border)}
+.fc2 a:hover{color:var(--text)}
+
+/* ── TRACKER STRIP ── */
+.tracker-strip{background:var(--ink2);border-top:1px solid var(--border);border-bottom:1px solid rgba(196,30,58,.25)}
+.tracker-inner{display:flex;align-items:center;gap:1.5rem;padding:.9rem 2rem;flex-wrap:wrap}
+.tracker-lhs{display:flex;align-items:center;gap:.65rem;flex-shrink:0}
+.tracker-label{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--blood);font-weight:700}
+.tracker-sub{font-family:var(--mono);font-size:.7rem;color:var(--muted2);letter-spacing:.04em}
+@media(max-width:760px){.tracker-sub{display:none}}
+.tracker-nums{display:flex;align-items:center;gap:1rem;flex:1;justify-content:center;flex-wrap:wrap}
+.tracker-stat{text-align:center}
+.tracker-val{font-family:var(--mono);font-size:1.1rem;font-weight:700;color:var(--text2);line-height:1}
+.tracker-lbl{font-family:var(--mono);font-size:.68rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.08em;margin-top:.2rem}
+.tracker-divider{width:1px;height:2rem;background:var(--border);flex-shrink:0}
+.tracker-cta{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold2);padding:.4rem .9rem;transition:all .2s;flex-shrink:0;white-space:nowrap}
+.tracker-cta:hover{background:rgba(201,168,76,.08);color:var(--gold)}
+.popup-overlay{display:none;position:fixed;inset:0;background:rgba(6,6,14,.92);z-index:9999;align-items:center;justify-content:center;cursor:pointer}
+.popup-overlay.open{display:flex}
+.popup-content{max-width:90vw;max-height:90vh;position:relative;cursor:default}
+.popup-close{position:absolute;top:-2rem;right:0;background:none;border:none;color:var(--text);font-size:1.4rem;cursor:pointer;opacity:.6}
+.popup-close:hover{opacity:1}
+.popup-image{max-width:100%;max-height:80vh;display:block;object-fit:contain;border:1px solid var(--border)}
+.popup-caption{font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:.5rem}
+</style>
+</head>
+<body>
+
+<div class="ticker">
+  <div class="ticker-label">LIVE</div>
+  <div class="ticker-wrap">
+    <div class="ticker-track">
+      <span class="ti"><span class="ti-tag">BDT/USD</span><span id="tick-bdt">&#8212;</span></span>
+      <span class="ti"><span class="ti-tag">EUR/USD</span><span id="tick-eur">&#8212;</span></span>
+      <span class="ti"><span class="ti-tag">GBP/USD</span><span id="tick-gbp">&#8212;</span></span>
+      <span class="ti"><span class="ti-tag">JPY/USD</span><span id="tick-jpy">&#8212;</span></span>
+      <span class="ti"><span class="ti-tag">CNY/USD</span><span id="tick-cny">&#8212;</span></span>
+      <span class="ti"><span class="ti-tag">DHAKA AQI</span><span id="tick-dhaka-aqi">&#8212;</span></span>
+      <span class="ti"><span class="ti-tag">DELHI AQI</span><span id="tick-delhi-aqi">&#8212;</span></span>
+      <span class="ti"><span class="ti-tag">BEIJING AQI</span><span id="tick-bj-aqi">&#8212;</span></span>
+      <span class="ti"><span class="ti-tag">INSIGHT GAPS</span>Forensic Data Journalism &#xb7; Dhaka, Bangladesh</span>
+      <span class="ti"><span class="ti-tag">BD-INV-002</span>The Impunity Machine &#xb7; 0.46% conviction rate &#xb7; 310 convictions in 23 years</span>
+      <span class="ti"><span class="ti-tag">BDT/USD</span><span>&#8212;</span></span>
+      <span class="ti"><span class="ti-tag">EUR/USD</span><span>&#8212;</span></span>
+      <span class="ti"><span class="ti-tag">GBP/USD</span><span>&#8212;</span></span>
+      <span class="ti"><span class="ti-tag">JPY/USD</span><span>&#8212;</span></span>
+      <span class="ti"><span class="ti-tag">CNY/USD</span><span>&#8212;</span></span>
+      <span class="ti"><span class="ti-tag">DHAKA AQI</span><span>&#8212;</span></span>
+      <span class="ti"><span class="ti-tag">INSIGHT GAPS</span>Forensic Data Journalism &#xb7; Independent &#xb7; Public Interest</span>
+    </div>
+  </div>
+</div>
+
+<nav>
+  <div class="nav-brand">Insight&nbsp;Gaps</div>
+  <div class="nav-links">
+    <a class="nlink active" href="/">Home</a>
+    <a class="nlink" href="/investigations/">Investigations</a>
+    <a class="nlink" href="/about/">About</a>
+    <a class="nlink" href="/methods/">Methods</a>
+    <a class="nlink hot" href="/investigations/national/impunity-machine-visual.html">Visual&#160;Story&#160;&#8599;</a>
+  </div>
+  <button class="nav-ham" id="navHam" aria-label="Open navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-drawer" id="navDrawer">
+  <a href="/">Home</a>
+  <a href="/investigations/">Investigations</a>
+  <a href="/about/">About</a>
+  <a href="/methods/">Methods</a>
+  <a href="/investigations/national/impunity-machine-visual.html">Visual Story ↗</a>
+</div>
+
+<section id="hero">
+  <div class="hero-eyebrow">Est. 2025 &nbsp;&#xb7;&nbsp; Dhaka, Bangladesh &nbsp;&#xb7;&nbsp; Independent &nbsp;&#xb7;&nbsp; Public Interest</div>
+  <h1 class="hero-title">Insight<br><em>Gaps</em></h1>
+  <p class="hero-sub">Forensic Data Journalism — Dhaka, Bangladesh</p>
+  <div class="hero-divider"></div>
+  <div class="hero-scroll"><span>Scroll</span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+</section>
+
+<div class="live-strip">
+  <div class="live-strip-inner">
+    <div class="li"><div class="li-lbl">BDT / USD <span class="live-dot"></span></div><div class="li-val loading" id="strip-bdt">&#xb7;&#xb7;&#xb7;</div></div>
+    <div class="li"><div class="li-lbl">EUR / USD</div><div class="li-val loading" id="strip-eur">&#xb7;&#xb7;&#xb7;</div></div>
+    <div class="li"><div class="li-lbl">GBP / USD</div><div class="li-val loading" id="strip-gbp">&#xb7;&#xb7;&#xb7;</div></div>
+    <div class="li"><div class="li-lbl">JPY / USD</div><div class="li-val loading" id="strip-jpy">&#xb7;&#xb7;&#xb7;</div></div>
+    <div class="li"><div class="li-lbl">CNY / USD</div><div class="li-val loading" id="strip-cny">&#xb7;&#xb7;&#xb7;</div></div>
+    <div class="li"><div class="li-lbl">Dhaka AQI <span class="live-dot"></span></div><div class="li-val loading" id="strip-dhaka">&#xb7;&#xb7;&#xb7;</div></div>
+    <div class="li"><div class="li-lbl">Delhi AQI</div><div class="li-val loading" id="strip-delhi">&#xb7;&#xb7;&#xb7;</div></div>
+    <div class="li"><div class="li-lbl">Beijing AQI</div><div class="li-val loading" id="strip-beijing">&#xb7;&#xb7;&#xb7;</div></div>
+    <div class="li"><div class="li-lbl">London AQI</div><div class="li-val loading" id="strip-london">&#xb7;&#xb7;&#xb7;</div></div>
+    <div class="li"><div class="li-lbl">Updated</div><div class="li-val" id="strip-time" style="font-size:.75rem;color:var(--muted2)">&#8212;</div></div>
+  </div>
+</div>
+
+<hr class="sec-hr">
+<main>
+
+<section class="sec">
+<div class="wrap">
+  <div class="sec-head">
+    <div><div class="sec-eyebrow">Featured Investigation</div><div class="sec-title">The Impunity Machine</div></div>
+    <a class="view-all" href="/investigations/">All Investigations &rarr;</a>
+  </div>
+  <div class="feat">
+    <div class="feat-left">
+      <div class="feat-label">BD-INV-002 &nbsp;&#xb7;&nbsp; Bangladesh &nbsp;&#xb7;&nbsp; March 2026 &nbsp;&#xb7;&nbsp; Active Investigation</div>
+      <h2 class="feat-title">The <em>Impunity</em> Machine:<br>Bangladesh&#8217;s Rape Justice Crisis</h2>
+      <p class="feat-dek">310 convictions in 23 years for 66,711 women who came forward. Zero convictions in the first seven months of 2024. A forensic audit of why Bangladesh&#8217;s rape justice system produces impunity with the consistency of a machine.</p>
+      <div class="feat-meta">
+        <span>Published March 2026</span>
+        <span>91 Named Sources</span>
+        <span>Evidence Tier: Confirmed</span>
+        <span>CC BY-NC 4.0</span>
+      </div>
+      <div class="feat-stats">
+        <div class="fstat"><div class="fstat-v" style="font-size:clamp(.85rem,1.8vw,1.2rem);line-height:1.2">1 in 215</div><div class="fstat-l">women got a conviction</div></div>
+        <div class="fstat"><div class="fstat-v">~150k</div><div class="fstat-l">Cases pending March 2025</div></div>
+        <div class="fstat"><div class="fstat-v gold">2,349</div><div class="fstat-l">Avg days to verdict</div></div>
+      </div>
+      <div class="feat-btns">
+        <a class="btn-red" href="/investigations/national/impunity-machine-visual.html">Visual Story &rarr;</a>
+        <a class="btn-outline" href="/series/impunity-machine/methodology.html">Methodology</a>
+      </div>
+    </div>
+    <div class="feat-right">
+      <div class="finding"><span class="finding-n">01</span><p class="finding-t"><strong>0.46% conviction rate:</strong> Of 66,711 women who reached a crisis centre (2001&#8211;Jul 2024), only 310 resulted in conviction. The government has never published an official rate.</p></div>
+      <div class="finding"><span class="finding-n">02</span><p class="finding-t"><strong>Zero convictions Jan&#8211;Jul 2024:</strong> 643 women sought help. 227 cases filed. 12 verdicts. Not one conviction &#8212; while the same system convicted the woman who reported in 56 days.</p></div>
+      <div class="finding"><span class="finding-n">03</span><p class="finding-t"><strong>+52% surge in 2025:</strong> Bangladesh Police recorded 786 rape victims H1 2025 vs 516 the previous year. Child rape up 75%. The machine accelerating while conviction rates stay flat.</p></div>
+      <div class="finding"><span class="finding-n">04</span><p class="finding-t"><strong>21-year verdict:</strong> Jamalpur 2004&#8211;2025 &#8212; the longest documented case. At current disposal rate, clearing the backlog would take 26+ years with zero new filings.</p></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ── IMPUNITY TRACKER STRIP ── -->
+<div class="tracker-strip">
+  <div class="tracker-inner wrap">
+    <div class="tracker-lhs">
+      <span class="live-dot"></span>
+      <span class="tracker-label">IMPUNITY TRACKER</span>
+      <span class="tracker-sub">Bangladesh Rape Justice — No official registry exists. This is the only one.</span>
+    </div>
+    <div class="tracker-nums">
+      <div class="tracker-stat">
+        <div class="tracker-val">~150k</div>
+        <div class="tracker-lbl">Cases Pending</div>
+      </div>
+      <div class="tracker-divider"></div>
+      <div class="tracker-stat">
+        <div class="tracker-val" style="color:var(--bloodl)">0</div>
+        <div class="tracker-lbl">Convictions Jan–Jul 2024</div>
+      </div>
+      <div class="tracker-divider"></div>
+      <div class="tracker-stat">
+        <div class="tracker-val" style="color:var(--gold)">310</div>
+        <div class="tracker-lbl">Total — 23 Years</div>
+      </div>
+    </div>
+    <a class="tracker-cta" href="/investigations/national/impunity-machine-visual.html">View Full Report &rarr;</a>
+  </div>
+</div>
+
+<hr class="sec-hr">
+
+<section class="sec">
+<div class="wrap">
+  <div class="sec-head">
+    <div><div class="sec-eyebrow">Published</div><div class="sec-title">All Investigations</div></div>
+  </div>
+  <div class="inv-grid">
+    <div class="ic"><div class="ic-band red"></div><div class="ic-body"><span class="ic-scope nat">National &#xb7; Bangladesh</span><h3>The Impunity Machine: Bangladesh&#8217;s Rape Justice Crisis</h3><p>BD-INV-002 &#xb7; Forensic audit of the rape justice system. 310 convictions / 66,711 cases. 91 sources. Every claim evidence-tiered.</p><div class="ic-foot"><span class="ic-meta">Gender Justice &#xb7; March 2026 &#xb7; 91 Sources</span><a class="ic-link" href="/investigations/national/impunity-machine.html">Read &rarr;</a></div></div></div>
+    <div class="ic"><div class="ic-band red"></div><div class="ic-body"><span class="ic-scope nat">National &#xb7; Bangladesh</span><h3>Blood Routes: Dhaka Bus Fatalities</h3><p>BD-INV-001 &#xb7; Data gaps, Phoenix operators, and the Joma system behind Dhaka&#8217;s road fatality crisis. 155+ sources.</p><div class="ic-foot"><span class="ic-meta">Road Safety &#xb7; February 2026 &#xb7; 155+ Sources</span><a class="ic-link" href="/investigations/national/blood-routes.html">Read &rarr;</a></div></div></div>
+    <div class="ic"><div class="ic-band gold"></div><div class="ic-body"><span class="ic-scope intl">International &#xb7; Global Economy</span><h3>The Hidden Tax of War: How Conflicts Raise Global Prices</h3><p>How armed conflicts transmit economic harm to countries that never participated &#8212; Iraq, Arab Spring, Ukraine, Red Sea.</p><div class="ic-foot"><span class="ic-meta">Conflict Economics &#xb7; December 2025</span><a class="ic-link" href="/investigations/international/war-tax.html">Read &rarr;</a></div></div></div>
+  </div>
+</div>
+</section>
+
+<hr class="sec-hr">
+
+<section class="sec">
+<div class="wrap">
+  <div class="sec-head">
+    <div><div class="sec-eyebrow">Live Data</div><div class="sec-title">World Monitor</div></div>
+    <span style="font-family:var(--mono);font-size:.72rem;color:var(--muted2)" id="data-timestamp">&#8212;</span>
+  </div>
+  <div class="curr-grid">
+    <div class="cc"><div class="cc-pair">BDT</div><div class="cc-val" id="curr-bdt">&#xb7;&#xb7;&#xb7;</div></div>
+    <div class="cc"><div class="cc-pair">EUR</div><div class="cc-val" id="curr-eur">&#xb7;&#xb7;&#xb7;</div></div>
+    <div class="cc"><div class="cc-pair">GBP</div><div class="cc-val" id="curr-gbp">&#xb7;&#xb7;&#xb7;</div></div>
+    <div class="cc"><div class="cc-pair">JPY</div><div class="cc-val" id="curr-jpy">&#xb7;&#xb7;&#xb7;</div></div>
+    <div class="cc"><div class="cc-pair">CNY</div><div class="cc-val" id="curr-cny">&#xb7;&#xb7;&#xb7;</div></div>
+    <div class="cc"><div class="cc-pair">INR</div><div class="cc-val" id="curr-inr">&#xb7;&#xb7;&#xb7;</div></div>
+  </div>
+  <div class="live-grid">
+    <div class="dpanel">
+      <div class="dpanel-hd"><span class="dpanel-hd-t">Air Quality Index <span class="live-dot" style="margin-left:.4rem"></span></span><span class="dpanel-hd-m">8 cities &nbsp;&#xb7;&nbsp; WAQI</span></div>
+      <div class="dpanel-bd"><div class="aqi-grid" id="aqiGrid"><div class="news-loading">Fetching AQI&#8230;</div></div></div>
+    </div>
+    <div class="dpanel">
+      <div class="dpanel-hd"><span class="dpanel-hd-t">World News</span><span class="dpanel-hd-m" id="news-updated">BBC World &#xb7; Live</span></div>
+      <div class="dpanel-bd" id="newsGrid"><div class="news-loading">Fetching world news&#8230;</div></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<hr class="sec-hr">
+
+<section class="sec">
+<div class="wrap">
+  <div class="sec-head">
+    <div><div class="sec-eyebrow">Research Programs</div><div class="sec-title">Structured Domains</div></div>
+    <a class="view-all" href="/series/">View Dossiers &rarr;</a>
+  </div>
+  <p class="sec-dek">Structured domains clustering investigations, datasets, and analysis under a defined research mandate &#8212; building systematic knowledge, not isolated articles.</p>
+  <div class="prog-grid">
+    <a class="pg" href="/series/impunity-machine/methodology.html"><div class="pg-count">2 Investigations</div><div class="pg-name">Accountability &amp; Justice</div><div class="pg-desc">How institutional systems produce systematic impunity &#8212; police, courts, prosecutors, and the architecture of non-prosecution.</div></a>
+    <a class="pg g" href="/investigations/international/war-tax.html"><div class="pg-count">1 Investigation</div><div class="pg-name">Conflict Economics</div><div class="pg-desc">How armed conflicts transmit economic harm to countries that never participated &#8212; price inflation, supply chains, commodity shocks.</div></a>
+    <a class="pg t" href="/methods/"><div class="pg-count">Editorial Standards</div><div class="pg-name">Methods &amp; Standards</div><div class="pg-desc">Every methodology, evidence tier, source conflict, and data gap used across all investigations &#8212; documented openly.</div></a>
+  </div>
+</div>
+</section>
+
+</main>
+
+<footer>
+  <div class="fg">
+    <div><div class="fb">Insight <em>Gaps</em></div><p class="fst">An independent forensic data journalism bureau. No funders. No sponsors. No conflicts of interest.</p></div>
+    <div class="fc"><h5>Journalism</h5><ul><li><a href="/investigations/">All Investigations</a></li><li><a href="/investigations/national/impunity-machine.html">The Impunity Machine</a></li><li><a href="/investigations/national/blood-routes.html">Blood Routes</a></li><li><a href="/investigations/international/war-tax.html">Hidden Tax of War</a></li></ul></div>
+    <div class="fc"><h5>Research</h5><ul><li><a href="/series/">Investigation Dossiers</a></li><li><a href="/methods/">Methods &amp; Standards</a></li></ul></div>
+    <div class="fc"><h5>Bureau</h5><ul><li><a href="/about/">About the Bureau</a></li><li><a href="/methods/">Methods &amp; Standards</a></li><li><a href="mailto:insightgaps@gmail.com">Commissioned Research</a></li><li><a href="mailto:insightgaps@gmail.com">Contact</a></li></ul></div>
+  </div>
+  <div class="fb2">
+    <div class="fc2">&copy; 2026 Insight Gaps Forensic Data Journalism Bureau<br>Public investigations are open. Commissioned work is confidential.</div>
+    <div class="fc2">Independent &nbsp;&#xb7;&nbsp; Non-partisan &nbsp;&#xb7;&nbsp; Dhaka, Bangladesh &nbsp;&#xb7;&nbsp; <a href="/methods/">Editorial standards &rarr;</a></div>
+  </div>
+</footer>
+
+<div id="imagePopup" class="popup-overlay" onclick="closePopup()">
+  <div class="popup-content" onclick="event.stopPropagation()">
+    <button class="popup-close" onclick="closePopup()">&times;</button>
+    <a id="popupLink" href="#"><img id="popupImg" src="" alt="Preview" class="popup-image"></a>
+    <div id="popupCaption" class="popup-caption"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+'use strict';
+// ── HAMBURGER ──
+var ham=document.getElementById('navHam'),drawer=document.getElementById('navDrawer');
+if(ham&&drawer){
+  ham.addEventListener('click',function(){
+    var open=drawer.classList.toggle('open');
+    ham.classList.toggle('open',open);
+    ham.setAttribute('aria-expanded',String(open));
+  });
+  document.addEventListener('click',function(e){
+    if(!ham.contains(e.target)&&!drawer.contains(e.target)){
+      drawer.classList.remove('open');ham.classList.remove('open');
+      ham.setAttribute('aria-expanded','false');
+    }
+  });
+}
+
+// ── LIVE DATA ──
+function setText(id,v){var e=document.getElementById(id);if(e){e.textContent=v;e.classList.remove('loading');}}
+function fmt(n,d){if(!n)return'\u2014';return parseFloat(n).toFixed(d!==undefined?d:4);}
+function now(){return new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',timeZoneName:'short'});}
+
+function fetchCurr(){
+  fetch('https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.min.json')
+    .then(r=>r.json()).then(d=>{
+      var r=d.usd;if(!r)return;
+      setText('tick-bdt','\u09F3'+fmt(r.bdt,2));setText('tick-eur','\u20AC'+fmt(r.eur,4));
+      setText('tick-gbp','\xA3'+fmt(r.gbp,4));setText('tick-jpy','\xA5'+fmt(r.jpy,2));setText('tick-cny','\xA5'+fmt(r.cny,4));
+      setText('strip-bdt','\u09F3'+fmt(r.bdt,2));setText('strip-eur','\u20AC'+fmt(r.eur,4));
+      setText('strip-gbp','\xA3'+fmt(r.gbp,4));setText('strip-jpy','\xA5'+fmt(r.jpy,2));setText('strip-cny','\xA5'+fmt(r.cny,4));
+      setText('curr-bdt','\u09F3 '+fmt(r.bdt,2));setText('curr-eur','\u20AC '+fmt(r.eur,4));
+      setText('curr-gbp','\xA3 '+fmt(r.gbp,4));setText('curr-jpy','\xA5 '+fmt(r.jpy,2));
+      setText('curr-cny','\xA5 '+fmt(r.cny,4));setText('curr-inr','\u20B9 '+fmt(r.inr,2));
+      setText('strip-time',now());setText('data-timestamp','Updated '+now());
+    }).catch(function(){});
+}
+
+// ── AQI ──
+// NOTE: Replace 'demo' with your free token from https://aqicn.org/data-platform/token/
+var AQI_TOK='demo';
+var cities=[
+  {id:'dhaka',name:'Dhaka',slug:'dhaka',si:'strip-dhaka',ti:'tick-dhaka-aqi'},
+  {id:'delhi',name:'Delhi',slug:'delhi',si:'strip-delhi',ti:'tick-delhi-aqi'},
+  {id:'beijing',name:'Beijing',slug:'beijing',si:'strip-beijing',ti:'tick-bj-aqi'},
+  {id:'london',name:'London',slug:'london',si:'strip-london',ti:null},
+  {id:'newyork',name:'New York',slug:'new-york',si:null,ti:null},
+  {id:'tokyo',name:'Tokyo',slug:'tokyo',si:null,ti:null},
+  {id:'mumbai',name:'Mumbai',slug:'mumbai',si:null,ti:null},
+  {id:'shanghai',name:'Shanghai',slug:'shanghai',si:null,ti:null},
+];
+function aqiCls(v){if(!v)return'aqi-moderate';if(v<=50)return'aqi-good';if(v<=100)return'aqi-moderate';if(v<=150)return'aqi-sensitive';if(v<=200)return'aqi-unhealthy';if(v<=300)return'aqi-very';return'aqi-hazardous';}
+function aqiLbl(v){if(!v)return'No Data';if(v<=50)return'Good';if(v<=100)return'Moderate';if(v<=150)return'Sensitive';if(v<=200)return'Unhealthy';if(v<=300)return'Very Unhealthy';return'Hazardous';}
+function aqiCard(city,aqi){
+  var c=aqiCls(aqi),l=aqiLbl(aqi),p=aqi?Math.min(100,Math.round(aqi/300*100)):0;
+  return'<div class="aqi-card '+c+'"><div class="aqi-city">'+city.name+'</div><div class="aqi-value">'+(aqi!==null?aqi:'\u2014')+'</div><span class="aqi-status">'+l+'</span><div class="aqi-bar"><div class="aqi-bar-fill" style="width:'+p+'%"></div></div></div>';
+}
+function fetchAQI(){
+  var g=document.getElementById('aqiGrid'),done=0,res={};
+  cities.forEach(function(city){
+    fetch('https://api.waqi.info/feed/'+city.slug+'/?token='+AQI_TOK).then(function(r){return r.json();}).then(function(d){
+      done++;var aqi=null;
+      if(d&&d.status==='ok'&&d.data&&typeof d.data.aqi==='number')aqi=d.data.aqi;
+      res[city.id]={city:city,aqi:aqi};
+      if(city.si){var s=document.getElementById(city.si);if(s){s.textContent=aqi!==null?aqi:'\u2014';s.classList.remove('loading');if(aqi>150)s.classList.add('neg');else if(aqi<=50)s.classList.add('pos');}}
+      if(city.ti){var t=document.getElementById(city.ti);if(t)t.textContent=aqi!==null?aqi+' AQI':'\u2014';}
+      if(done===cities.length){var h='';cities.forEach(function(c){var rv=res[c.id]||{aqi:null};h+=aqiCard(c,rv.aqi);});g.innerHTML=h;}
+    }).catch(function(){done++;res[city.id]={city:city,aqi:null};if(done===cities.length){var h='';cities.forEach(function(c){var rv=res[c.id]||{aqi:null};h+=aqiCard(c,rv.aqi);});g.innerHTML=h;}});
+  });
+}
+
+// ── NEWS ──
+function ago(s){var d=new Date(s),n=new Date(),m=Math.floor((n-d)/60000);if(m<1)return'Just now';if(m<60)return m+'m ago';var h=Math.floor(m/60);if(h<24)return h+'h ago';return Math.floor(h/24)+'d ago';}
+function buildNews(items){
+  var g=document.getElementById('newsGrid');if(!g)return;
+  g.innerHTML=items.slice(0,6).map(function(it,i){return'<div class="ni"><span class="ni-n">0'+(i+1)+'</span><div><div class="ni-t"><a href="'+it.link+'" target="_blank" rel="noopener">'+it.title+'</a></div><div class="ni-m">'+ago(it.pubDate)+'</div></div></div>';}).join('');
+  var u=document.getElementById('news-updated');if(u)u.textContent='BBC World \xB7 '+now();
+}
+function fetchNews(){
+  fetch('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent('https://feeds.bbci.co.uk/news/world/rss.xml')+'&count=10')
+    .then(function(r){return r.json();}).then(function(d){if(!d.items||!d.items.length)throw 0;buildNews(d.items);})
+    .catch(function(){var g=document.getElementById('newsGrid');if(g)g.innerHTML='<div class="news-loading" style="color:var(--muted2)">Feed unavailable. <a href="https://bbc.com/news/world" target="_blank" style="color:var(--gold)">Visit BBC World \u2192</a></div>';});
+}
+
+window.openPopup=function(s,c,l){document.getElementById('popupImg').src=s;document.getElementById('popupCaption').textContent=c;document.getElementById('popupLink').href=l||'#';document.getElementById('imagePopup').classList.add('open');};
+window.closePopup=function(){document.getElementById('imagePopup').classList.remove('open');};
+
+document.addEventListener('DOMContentLoaded',function(){
+  fetchCurr();fetchAQI();fetchNews();
+  setInterval(fetchCurr,5*60*1000);setInterval(fetchNews,10*60*1000);setInterval(fetchAQI,15*60*1000);
+});
+})();
+</script>
+</body>
+</html>

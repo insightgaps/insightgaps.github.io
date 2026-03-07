@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Health Dashboard | Insight Gaps</title>
+  <meta name="description" content="Financial Health Dashboard: Cash flow analysis, receivables aging, and income efficiency for property preservation operations — Insight Gaps Bureau.">
+  <link rel="canonical" href="https://insightgaps.com/analysis/property-preservation/financial-health.html">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <style>
+    :root{--R:#0d0d0d;--C:#141414;--B:#222;--T:rgba(255,255,255,.88);--M:rgba(255,255,255,.35);--teal:#00bfa5;--red:#ef5350;--gold:#ffc107;--blue:#42a5f5;--purple:#ab47bc;--orange:#ff9800}
+    body{background:var(--R);color:var(--T)}
+    .rw{max-width:1200px;margin:0 auto;padding:0 28px 80px}
+    .rph{padding:48px 0 32px;border-bottom:1px solid var(--B);margin-bottom:32px}
+    .rbc{font-family:monospace;font-size:.7rem;color:var(--M);letter-spacing:.06em;margin-bottom:14px}
+    .rbc a{color:var(--M);text-decoration:none}
+    .rbc a:hover{color:var(--teal)}
+    .rt{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;color:#fff;letter-spacing:-.03em;line-height:1.08;margin:0 0 10px}
+    .rd{font-family:var(--sans,sans-serif);font-size:.95rem;font-weight:300;color:var(--M);max-width:58ch;margin:0;line-height:1.6}
+    .rmr{display:flex;gap:24px;margin-top:18px;flex-wrap:wrap}
+    .rmi{font-family:monospace;font-size:.66rem;color:var(--M);letter-spacing:.06em;text-transform:uppercase}
+    .rmi span{color:rgba(255,255,255,.6)}
+    .rsn{display:flex;gap:0;border-bottom:1px solid var(--B);margin-bottom:36px}
+    .snl{font-family:var(--sans,sans-serif);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--M);text-decoration:none;padding:13px 22px;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .15s,border-color .15s}
+    .snl:hover{color:rgba(255,255,255,.7);text-decoration:none}
+    .snl.active{color:var(--teal);border-bottom-color:var(--teal)}
+    .krow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:32px}
+    .kc{background:var(--C);border:1px solid var(--B);border-radius:3px;padding:22px 18px;position:relative;overflow:hidden}
+    .kc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+    .kc.t::before{background:var(--teal)}.kc.r::before{background:var(--red)}.kc.g::before{background:var(--gold)}.kc.b::before{background:var(--blue)}
+    .kl{font-family:monospace;font-size:.63rem;letter-spacing:.12em;text-transform:uppercase;color:var(--M);margin-bottom:8px}
+    .kv{font-family:'Playfair Display',Georgia,serif;font-size:2.1rem;font-weight:700;line-height:1;margin-bottom:6px}
+    .kv.t{color:var(--teal)}.kv.r{color:var(--red)}.kv.g{color:var(--gold)}.kv.b{color:var(--blue)}
+    .ks{font-family:var(--sans,sans-serif);font-size:.73rem;color:var(--M)}
+    .ks .u{color:#4ade80}.ks .d{color:var(--red)}
+    .cg2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+    .cg3{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:14px;margin-bottom:14px}
+    .cgf{margin-bottom:14px}
+    .cc{background:var(--C);border:1px solid var(--B);border-radius:3px;padding:22px}
+    .cct{font-family:var(--sans,sans-serif);font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--M);margin-bottom:4px}
+    .ccs{font-family:var(--sans,sans-serif);font-size:.68rem;color:rgba(255,255,255,.18);margin-bottom:18px}
+    .ccw{position:relative;width:100%}
+    .dtw{overflow-x:auto}
+    table.dt{width:100%;border-collapse:collapse;font-family:monospace;font-size:.78rem}
+    table.dt th{font-family:var(--sans,sans-serif);font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--M);padding:9px 12px;text-align:left;border-bottom:1px solid var(--B);white-space:nowrap}
+    table.dt td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.03);color:rgba(255,255,255,.72);white-space:nowrap}
+    table.dt tr:hover td{background:rgba(255,255,255,.02)}
+    table.dt .num{text-align:right}
+    table.dt .dr{color:var(--red);font-weight:700}
+    table.dt .dg{color:var(--gold)}
+    table.dt .ok{color:#4ade80}
+    .abar{display:flex;height:5px;border-radius:3px;overflow:hidden;width:100px;background:rgba(255,255,255,.06)}
+    .aseg{height:100%}
+    .ib{background:linear-gradient(135deg,rgba(0,191,165,.06),rgba(0,191,165,.02));border:1px solid rgba(0,191,165,.2);border-left:3px solid var(--teal);padding:18px 22px;border-radius:0 3px 3px 0;margin-bottom:14px}
+    .ib h4{font-family:var(--sans,sans-serif);font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin:0 0 7px}
+    .ib p{font-family:var(--sans,sans-serif);font-size:.86rem;color:rgba(255,255,255,.52);line-height:1.65;margin:0;max-width:100%}
+    .disc{font-family:monospace;font-size:.62rem;color:rgba(255,255,255,.18);border-top:1px solid var(--B);padding-top:22px;margin-top:56px;line-height:1.6}
+    @media(max-width:900px){.krow{grid-template-columns:1fr 1fr}.cg2,.cg3{grid-template-columns:1fr}}
+    @media(max-width:540px){.kv{font-size:1.7rem}}
+  </style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4PYE0MEK12"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4PYE0MEK12');</script>
+</head>
+<body>
+<div data-include="header" data-path="/includes/header.html"></div>
+<div class="rw">
+
+  <div class="rph">
+    <p class="rbc"><a href="/analysis/">Analysis</a> / <a href="/analysis/property-preservation/">Property Preservation</a> / Financial Health</p>
+    <h1 class="rt">Financial Health:<br>The Cash Chain</h1>
+    <p class="rd">Tracking how $130.7K in revenue moves through invoicing and collection to expose exactly where value fails to complete its journey. May – December 2025.</p>
+    <div class="rmr">
+      <div class="rmi">Period <span>May – Dec 2025</span></div>
+      <div class="rmi">Work Orders <span>268</span></div>
+      <div class="rmi">Clients <span>5 (MCS, Service Link, Five Brothers, MSI, Safeguard)</span></div>
+    </div>
+  </div>
+
+  <nav class="rsn" aria-label="Report navigation">
+    <a href="financial-health.html" class="snl active">Financial Health</a>
+    <a href="leakage-breakdown.html" class="snl">Leakage Breakdown</a>
+    <a href="work-order-breakdown.html" class="snl">Work Order Breakdown</a>
+  </nav>
+
+  <!-- KPIs -->
+  <div class="krow">
+    <div class="kc t"><div class="kl">Total Revenue</div><div class="kv t">$130.7K</div><div class="ks">268 work orders invoiced</div></div>
+    <div class="kc r"><div class="kl">Profit Leakage</div><div class="kv r">$24.0K</div><div class="ks"><span class="d">18.4%</span> of revenue lost</div></div>
+    <div class="kc g"><div class="kl">Outstanding Receivables</div><div class="kv g">$45.4K</div><div class="ks"><span class="d">34.7%</span> uncollected</div></div>
+    <div class="kc b"><div class="kl">Income Ratio</div><div class="kv b">1.35×</div><div class="ks">Received ÷ contractor cost</div></div>
+  </div>
+
+  <!-- Row 1: Trend + 2 Donuts -->
+  <div class="cg3">
+    <div class="cc">
+      <div class="cct">Cash Inflow vs Outflow Trend</div>
+      <div class="ccs">Monthly receivable, received & contractor payments — May to Dec 2025</div>
+      <div class="ccw" style="height:258px"><canvas id="cashTrendChart"></canvas></div>
+    </div>
+    <div class="cc">
+      <div class="cct">Revenue Distribution</div>
+      <div class="ccs">Where did the $130.7K go?</div>
+      <div class="ccw" style="height:258px"><canvas id="revDonut"></canvas></div>
+    </div>
+    <div class="cc">
+      <div class="cct">Leakage Root Causes</div>
+      <div class="ccs">$24.0K total leakage by type</div>
+      <div class="ccw" style="height:258px"><canvas id="leakDonut"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Row 2: Client cash efficiency -->
+  <div class="cgf">
+    <div class="cc">
+      <div class="cct">Client-Level Cash Efficiency</div>
+      <div class="ccs">Payment received vs paid to contractor vs leakage — all five clients</div>
+      <div class="ccw" style="height:250px"><canvas id="clientChart"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Row 3: Aging table + aging bar -->
+  <div class="cg2">
+    <div class="cc">
+      <div class="cct">Outstanding Receivables — Aging View</div>
+      <div class="ccs">All $45,391 outstanding, bucketed by days since invoice</div>
+      <div class="dtw">
+        <table class="dt">
+          <thead><tr><th>Client</th><th class="num">Total Due</th><th class="num">0–30d</th><th class="num">31–60d</th><th class="num">61–90d</th><th class="num">90+ Days</th><th>Profile</th></tr></thead>
+          <tbody>
+            <tr><td>Service Link</td><td class="num dr">$25,800</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num dr">$25,800</td><td><div class="abar"><div class="aseg" style="width:100%;background:var(--red)"></div></div></td></tr>
+            <tr><td>Safeguard</td><td class="num dg">$6,950</td><td class="num">—</td><td class="num">—</td><td class="num dg">$6,950</td><td class="num">—</td><td><div class="abar"><div class="aseg" style="width:100%;background:var(--gold)"></div></div></td></tr>
+            <tr><td>MCS</td><td class="num dg">$6,730</td><td class="num">—</td><td class="num">—</td><td class="num">$560</td><td class="num dr">$6,170</td><td><div class="abar"><div class="aseg" style="width:8%;background:var(--gold)"></div><div class="aseg" style="width:92%;background:var(--red)"></div></div></td></tr>
+            <tr><td>Five Brothers</td><td class="num">$3,650</td><td class="num">—</td><td class="num">—</td><td class="num dg">$2,200</td><td class="num dr">$1,450</td><td><div class="abar"><div class="aseg" style="width:60%;background:var(--gold)"></div><div class="aseg" style="width:40%;background:var(--red)"></div></div></td></tr>
+            <tr><td>MSI</td><td class="num">$2,261</td><td class="num">—</td><td class="num">—</td><td class="num dg">$2,000</td><td class="num">$261</td><td><div class="abar"><div class="aseg" style="width:88%;background:var(--gold)"></div><div class="aseg" style="width:12%;background:var(--red)"></div></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="cc">
+      <div class="cct">Aging Distribution</div>
+      <div class="ccs">$45,391 total outstanding by bucket</div>
+      <div class="ccw" style="height:240px"><canvas id="agingChart"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Row 4: Received + Paid -->
+  <div class="cg2">
+    <div class="cc">
+      <div class="cct">Received Amounts by Month</div>
+      <div class="ccs">Cash actually collected — strong Jul, collapse from Aug onward</div>
+      <div class="ccw" style="height:200px"><canvas id="recvChart"></canvas></div>
+    </div>
+    <div class="cc">
+      <div class="cct">Paid to Contractor by Month</div>
+      <div class="ccs">Contractor disbursements remained steady while collections collapsed</div>
+      <div class="ccw" style="height:200px"><canvas id="paidChart"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Insights -->
+  <div class="ib">
+    <h4>Retention Gap</h4>
+    <p>Of $130.7K invoiced, only $58.3K has been received (44.6%). Revenue looked healthy through July — $21K collected that month — then collections collapsed to under $1K/month from September onward. Meanwhile contractor payments held steady at $3–7K/month. The business is now funding contractor costs from prior cash reserves.</p>
+  </div>
+  <div class="ib">
+    <h4>Receivables Concentration Risk</h4>
+    <p>100% of outstanding receivables sit beyond 61 days. Service Link alone holds $25,800 — all 90+ days old, representing a single-client concentration risk of 56.8% of total outstanding. If this balance remains uncollected, it will directly wipe 19.7% of total revenue.</p>
+  </div>
+
+  <div class="disc">
+    Data source: Project.xlsx Main sheet — 268 work order records, May–December 2025. No proprietary client data is disclosed. Analysis prepared by Insight Gaps Forensic Data Journalism Bureau.
+  </div>
+</div>
+
+<div data-include="footer" data-path="/includes/footer.html"></div>
+<script src="/js/components.js"></script>
+<script src="/js/ui.js"></script>
+<script>
+(function(){
+  const F='Inter,system-ui,sans-serif', M='JetBrains Mono,monospace';
+  Chart.defaults.color='rgba(255,255,255,.38)';
+  Chart.defaults.font.family=F;
+  Chart.defaults.font.size=11;
+  Chart.defaults.plugins.legend.labels.boxWidth=10;
+  Chart.defaults.plugins.legend.labels.padding=14;
+
+  const grid=()=>({color:'rgba(255,255,255,.04)',drawBorder:false});
+  const tip=()=>({
+    backgroundColor:'#1a1a1a',borderColor:'#2a2a2a',borderWidth:1,
+    titleColor:'rgba(255,255,255,.65)',bodyColor:'rgba(255,255,255,.45)',
+    titleFont:{family:M,size:10},bodyFont:{family:M,size:10},padding:10
+  });
+  const yfmt=v=>'$'+(v/1000).toFixed(0)+'K';
+  const MO=['May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+  // Cash trend
+  new Chart(document.getElementById('cashTrendChart'),{
+    type:'line',
+    data:{
+      labels:MO,
+      datasets:[
+        {label:'Receivable',data:[16969,17306,26840,19049,18347,5281,19483,7420],borderColor:'rgba(255,255,255,.25)',borderDash:[4,3],tension:.4,fill:false,pointRadius:2},
+        {label:'Received',data:[11275,13369,21094,7793,1996,882,991,894],borderColor:'#00bfa5',backgroundColor:'rgba(0,191,165,.07)',tension:.4,fill:true,pointRadius:4,borderWidth:2},
+        {label:'Paid to Contractor',data:[5825,5472,7127,6339,6388,3065,6142,2935],borderColor:'#42a5f5',borderDash:[2,2],tension:.4,fill:false,pointRadius:2}
+      ]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:'top'},tooltip:{...tip(),callbacks:{label:c=>' '+c.dataset.label+': $'+c.parsed.y?.toLocaleString()}}},
+      scales:{x:{grid:grid(),ticks:{font:{family:M,size:9}}},y:{grid:grid(),ticks:{callback:yfmt,font:{family:M,size:9}}}}
+    }
+  });
+
+  // Revenue donut
+  new Chart(document.getElementById('revDonut'),{
+    type:'doughnut',
+    data:{
+      labels:['Collected','Outstanding','Leakage'],
+      datasets:[{data:[58294,45391,24048],backgroundColor:['#00bfa5','#ffc107','#ef5350'],borderColor:'#141414',borderWidth:3,hoverOffset:6}]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,cutout:'66%',
+      plugins:{legend:{position:'bottom'},tooltip:{...tip(),callbacks:{label:c=>' '+c.label+': $'+c.parsed.toLocaleString()+' ('+(c.parsed/130695*100).toFixed(1)+'%)'}}}
+    }
+  });
+
+  // Leakage donut
+  new Chart(document.getElementById('leakDonut'),{
+    type:'doughnut',
+    data:{
+      labels:['Vendor Overrun','Mixed Leakage','Photos Insuff.','Late Submission'],
+      datasets:[{data:[16717,2586,2017,378],backgroundColor:['#ef5350','#ab47bc','#ff9800','#42a5f5'],borderColor:'#141414',borderWidth:3,hoverOffset:6}]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,cutout:'66%',
+      plugins:{legend:{position:'bottom'},tooltip:{...tip(),callbacks:{label:c=>' '+c.label+': $'+c.parsed.toLocaleString()+' ('+(c.parsed/24048*100).toFixed(1)+'%)'}}}
+    }
+  });
+
+  // Client efficiency
+  new Chart(document.getElementById('clientChart'),{
+    type:'bar',
+    data:{
+      labels:['MCS','Service Link','Five Brothers','MSI','Safeguard'],
+      datasets:[
+        {label:'Payment Received',data:[31536,18777,5291,2098,592],backgroundColor:'#00bfa5',borderRadius:2},
+        {label:'Paid to Contractor',data:[13350,19099,7127,2517,1200],backgroundColor:'#1e3a5f',borderRadius:2},
+        {label:'Total Leakage',data:[10973,6147,5970,782,178],backgroundColor:'#ef5350',borderRadius:2}
+      ]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:'top'},tooltip:{...tip(),callbacks:{label:c=>' '+c.dataset.label+': $'+c.parsed.y?.toLocaleString()}}},
+      scales:{x:{grid:grid()},y:{grid:grid(),ticks:{callback:yfmt,font:{family:M,size:9}}}}
+    }
+  });
+
+  // Aging stacked
+  new Chart(document.getElementById('agingChart'),{
+    type:'bar',
+    data:{
+      labels:['Service Link','Safeguard','MCS','Five Brothers','MSI'],
+      datasets:[
+        {label:'61–90 Days',data:[0,6950,560,2200,2000],backgroundColor:'#ff9800',borderRadius:2},
+        {label:'90+ Days',data:[25800,0,6170,1450,261],backgroundColor:'#ef5350',borderRadius:2}
+      ]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:'top'},tooltip:{...tip(),callbacks:{label:c=>' '+c.dataset.label+': $'+c.parsed.y?.toLocaleString()}}},
+      scales:{x:{stacked:true,grid:grid()},y:{stacked:true,grid:grid(),ticks:{callback:yfmt,font:{family:M,size:9}}}}
+    }
+  });
+
+  // Received by month
+  new Chart(document.getElementById('recvChart'),{
+    type:'bar',
+    data:{
+      labels:MO,
+      datasets:[{
+        label:'Received',
+        data:[11275,13369,21094,7793,1996,882,991,894],
+        backgroundColor:['#00bfa5','#00bfa5','#00bfa5','#ffc107','#ef5350','#ef5350','#ef5350','#ef5350'],
+        borderRadius:3
+      }]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{...tip(),callbacks:{label:c=>' Received: $'+c.parsed.y?.toLocaleString()}}},
+      scales:{x:{grid:grid(),ticks:{font:{family:M,size:9}}},y:{grid:grid(),ticks:{callback:yfmt,font:{family:M,size:9}}}}
+    }
+  });
+
+  // Paid by month
+  new Chart(document.getElementById('paidChart'),{
+    type:'bar',
+    data:{
+      labels:MO,
+      datasets:[{label:'Paid to Contractor',data:[5825,5472,7127,6339,6388,3065,6142,2935],backgroundColor:'#42a5f5',borderRadius:3}]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{...tip(),callbacks:{label:c=>' Paid: $'+c.parsed.y?.toLocaleString()}}},
+      scales:{x:{grid:grid(),ticks:{font:{family:M,size:9}}},y:{grid:grid(),ticks:{callback:yfmt,font:{family:M,size:9}}}}
+    }
+  });
+})();
+</script>
+
+<div style="position:fixed;bottom:1.2rem;left:1.2rem;z-index:999;font-family:'JetBrains Mono',monospace;font-size:.75rem;">
+  <a href="https://www.insightgaps.com" style="color:rgba(0,191,165,.6);text-decoration:none;border:1px solid rgba(0,191,165,.2);padding:.3rem .7rem;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);display:inline-block;transition:all .2s;" onmouseover="this.style.color='rgba(0,191,165,1)'" onmouseout="this.style.color='rgba(0,191,165,.6)'">&#8592; Insight Gaps Bureau</a>
+</div>
+
+</body>
+</html>

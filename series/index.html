@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investigation Dossiers | Insight Gaps</title>
+  <meta name="description" content="Full investigation dossiers — main reports, methodology, data, and documents for every Insight Gaps forensic investigation.">
+  <link rel="canonical" href="https://www.insightgaps.com/series/">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Investigation Dossiers | Insight Gaps">
+  <meta property="og:description" content="Full investigation dossiers — main reports, methodology, data, and documents for every Insight Gaps forensic investigation.">
+  <meta property="og:image" content="https://www.insightgaps.com/investigations/national/hero-cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Investigation Dossiers | Insight Gaps">
+  <link rel="stylesheet" href="/style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4PYE0MEK12"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4PYE0MEK12');</script>
+  <style>
+    .series-hero { background: var(--ink); padding: var(--s16) 0 var(--s12); border-bottom: 1px solid var(--border-dark); }
+    .series-hero-label { font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); display: block; margin-bottom: var(--s3); }
+    .series-hero h1 { font-family: var(--serif); font-size: var(--t-4xl); color: var(--text-inv); margin: 0 0 var(--s5); }
+    .series-hero p { font-family: var(--sans); font-size: var(--t-sm); color: var(--text-inv-soft); max-width: 60ch; line-height: 1.7; margin: 0; }
+    .dossier-list { display: flex; flex-direction: column; gap: var(--s8); margin-top: var(--s12); }
+    .dossier-row { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; transition: box-shadow 0.2s; }
+    .dossier-row:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.07); }
+    .dossier-header { padding: var(--s6) var(--s8); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--s4); background: var(--cream); }
+    .dossier-id-block { display: flex; align-items: center; gap: var(--s4); }
+    .dossier-id { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 2px; }
+    .dossier-pub { font-family: var(--mono); font-size: 0.6rem; color: var(--text-4); letter-spacing: 0.08em; }
+    .dossier-body { padding: var(--s8); display: grid; grid-template-columns: 1fr auto; gap: var(--s8); align-items: start; }
+    .dossier-title { font-family: var(--serif); font-size: var(--t-xl); color: var(--text-1); margin: 0 0 var(--s3); line-height: 1.2; }
+    .dossier-summary { font-family: var(--sans); font-size: var(--t-sm); color: var(--text-2); line-height: 1.65; max-width: 65ch; margin: 0; }
+    .dossier-pages { display: flex; flex-direction: column; gap: var(--s3); min-width: 220px; }
+    .dossier-page-link { display: flex; align-items: center; gap: var(--s3); padding: var(--s3) var(--s4); border: 1px solid var(--border); border-radius: var(--r); text-decoration: none; background: var(--white); transition: border-color 0.15s, background 0.15s; }
+    .dossier-page-link:hover { border-color: var(--text-2); background: var(--cream); }
+    .dossier-page-icon { font-family: var(--mono); font-size: 0.58rem; color: var(--text-4); min-width: 32px; text-align: center; text-transform: uppercase; }
+    .dossier-page-label { font-family: var(--sans); font-size: var(--t-sm); color: var(--text-1); font-weight: 500; }
+    .dossier-page-desc { font-family: var(--mono); font-size: 0.58rem; color: var(--text-4); }
+    @media (max-width: 640px) { .dossier-body { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<div data-include="header" data-path="/includes/header.html"></div>
+
+<div class="series-hero">
+  <div class="wrap">
+    <span class="series-hero-label">Insight Gaps Bureau</span>
+    <h1>Investigation Dossiers</h1>
+    <p>Each investigation is published as a structured dossier — the main report, full methodology, evidence package, and source documentation. The complete record, not just the narrative.</p>
+  </div>
+</div>
+
+<main class="page-container" role="main">
+  <div class="dossier-list" id="dossierList">
+    <!-- Populated by registry -->
+  </div>
+</main>
+
+<div data-include="footer" data-path="/includes/footer.html"></div>
+<script src="/js/components.js"></script>
+<script src="/js/ui.js"></script>
+<script src="/js/registry.js"></script>
+<script>
+  document.getElementById('dossierList').innerHTML =
+    getPublished().map(renderDossierRow).join('');
+</script>
+</body>
+</html>
