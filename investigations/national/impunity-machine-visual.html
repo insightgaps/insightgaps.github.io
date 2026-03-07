@@ -36,7 +36,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(6,6,14,.97);
 @media(max-width:900px){.nav-scenes{display:none}}
 @media(max-width:600px){.nbtn:not(.hot){display:none}}
 
-#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden}
+#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 2rem 4rem;position:relative;overflow:hidden}
 #hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 30%,rgba(196,30,58,.08),transparent 65%)}
 #hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 40px,rgba(30,30,48,.05) 40px,rgba(30,30,48,.05) 41px),repeating-linear-gradient(90deg,transparent,transparent 40px,rgba(30,30,48,.04) 40px,rgba(30,30,48,.04) 41px);pointer-events:none}
 .hero-eyebrow{font-family:var(--mono);font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:var(--bloodl);margin-bottom:2rem;animation:fadein 1s ease .3s both;position:relative;z-index:1}
@@ -123,9 +123,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(6,6,14,.97);
 .fstat{background:var(--ink3);border:1px solid var(--border);padding:1rem;text-align:center}
 .fstat-val{font-family:var(--mono);font-size:clamp(1.4rem,3vw,2rem);font-weight:700;line-height:1}
 .fstat-lbl{font-family:var(--mono);font-size:.42rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-top:.3rem;line-height:1.5}
-.evbar-row{margin-bottom:1.1rem}
-.evbar-lbl{font-family:var(--mono);font-size:.46rem;color:var(--text2);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.4rem}
-.evbar-track{height:22px;background:rgba(255,255,255,.03);border:1px solid var(--border);position:relative;overflow:hidden}
+.evbar-row{margin-bottom:1.8rem}
+.evbar-lbl{font-family:var(--mono);font-size:.48rem;color:var(--text2);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.5rem;display:flex;justify-content:space-between;align-items:center}
+.evbar-track{height:32px;background:rgba(255,255,255,.03);border:1px solid var(--border);position:relative;overflow:visible}
 .evbar-fill{height:100%;position:absolute;left:0;top:0;width:0;transition:width 1.2s ease}
 .fsub-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem}
 .fsub{background:rgba(255,255,255,.02);border:1px solid var(--border);padding:.9rem 1rem}
@@ -163,11 +163,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(6,6,14,.97);
 .btn-teal:hover{background:rgba(64,192,192,.07)}
 .tier-note{font-family:var(--mono);font-size:.43rem;color:var(--muted2);margin-top:2.5rem;line-height:1.9;max-width:640px;border-top:1px solid var(--border);padding-top:1.5rem}
 @media(max-width:768px){
-  .scroll-scene{grid-template-columns:1fr}
-  .viz-sticky{position:relative;height:60vw;min-height:280px;max-height:420px;top:auto}
-  .steps-col{padding:4rem 1rem 8rem}
-  .step{min-height:auto;padding:3rem 0}
-  .fstat-row,.fsub-grid,.ivs{grid-template-columns:1fr}
+  .scroll-scene{display:block}
+  .viz-sticky{position:sticky;top:50px;height:42vw;min-height:200px;max-height:340px;z-index:5;background:var(--ink);border-bottom:1px solid var(--border)}
+  .steps-col{padding:2rem 1.2rem 8rem}
+  .step{min-height:60vh;padding:2rem 0}
+  .step:not(.active){opacity:.85}
+  .fstat-row{grid-template-columns:1fr 1fr}
+  .fstat-row .fstat:last-child{grid-column:1/-1}
+  .fsub-grid,.ivs{grid-template-columns:1fr}
+  .void-grid{grid-template-columns:repeat(2,1fr)}
+  .clock-pair{gap:1.5rem}
+  .scroll-scene canvas{max-height:38vw}
+}
+@media(max-width:480px){
+  .fstat-row{grid-template-columns:1fr}
+  .fstat-row .fstat:last-child{grid-column:auto}
+  .void-grid{grid-template-columns:1fr}
+  .viz-sticky{height:50vw;min-height:220px;max-height:280px}
+  .step{min-height:50vh}
 }
 </style>
 </head>
@@ -537,7 +550,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(6,6,14,.97);
   <div class="scroll-scene" style="margin-top:2rem">
     <div class="viz-sticky">
       <div style="width:100%;max-width:440px">
-        <svg id="mapSvg" viewBox="0 0 400 500" style="width:100%;max-height:80vh">
+        <svg id="mapSvg" viewBox="0 0 400 500" style="width:100%;max-height:75vmin;min-height:200px">
           <defs>
             <radialGradient id="gBlood" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="rgba(200,30,58,.85)"/><stop offset="100%" stop-color="rgba(139,20,40,.4)"/></radialGradient>
             <radialGradient id="gAmber" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="rgba(212,160,96,.75)"/><stop offset="100%" stop-color="rgba(160,110,60,.4)"/></radialGradient>
@@ -647,37 +660,49 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(6,6,14,.97);
       </div>
     </div>
     <div id="evidenceBars">
-      <div style="font-family:var(--mono);font-size:.52rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1.2rem">Evidence quality over time &#8212; relative degradation after assault</div>
+      <div style="background:rgba(232,64,96,.07);border:1px solid rgba(232,64,96,.25);border-left:3px solid var(--bloodl);padding:.9rem 1.1rem;font-family:var(--mono);font-size:.46rem;color:var(--text2);line-height:1.9;margin-bottom:1.8rem">
+        Each bar shows how evidence quality changes from the moment of assault onwards.<br>
+        <span style="color:var(--bloodl);font-weight:700">&#9474; Red line = 72-hour legal threshold.</span> &nbsp;
+        <span style="color:var(--gold);font-weight:700">&#9474; Gold line = where 78% of survivors actually arrive.</span><br>
+        <span style="color:var(--text)">What Bangladesh's courts receive is the evidence quality to the <em>right</em> of the gold line.</span>
+      </div>
+      <div style="font-family:var(--mono);font-size:.46rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1.6rem">Evidence quality over time &#8212; relative degradation after assault</div>
       <div class="evbar-row">
-        <div class="evbar-lbl" style="display:flex;justify-content:space-between"><span>Physical / Biological Evidence (DNA, fibres, injuries)</span><span style="color:var(--bloodl);font-size:.4rem">FASTEST DECAY</span></div>
-        <div class="evbar-track">
-          <div class="evbar-fill" id="ev-bio" style="background:linear-gradient(to right,#52b788 0%,#52b788 18%,#c9a84c 28%,#e84060 50%,rgba(30,30,48,.35) 65%,rgba(30,30,48,.1) 100%)"></div>
-          <div style="position:absolute;left:28%;top:0;bottom:0;width:2px;background:rgba(232,64,96,.7)"></div>
-          <div style="position:absolute;left:28%;top:-18px;font-family:var(--mono);font-size:.38rem;color:var(--bloodl);transform:translateX(-50%);white-space:nowrap">72 HRS</div>
-          <div style="position:absolute;left:55%;top:0;bottom:0;width:2px;background:rgba(201,168,76,.5)"></div>
-          <div style="position:absolute;left:55%;top:-18px;font-family:var(--mono);font-size:.38rem;color:var(--gold);transform:translateX(-50%);white-space:nowrap">AVG ARRIVAL</div>
+        <div class="evbar-lbl"><span>&#9312; DNA, Fibres &amp; Physical Injuries</span><span style="color:var(--bloodl);font-size:.4rem">FASTEST DECAY</span></div>
+        <div class="evbar-track" style="height:36px;overflow:visible;margin-top:.9rem">
+          <div class="evbar-fill" id="ev-bio" style="height:100%;background:linear-gradient(to right,#52b788 0%,#52b788 16%,#c9a84c 28%,#e84060 47%,rgba(70,10,20,.6) 60%,rgba(30,30,48,.08) 100%)"></div>
+          <div style="position:absolute;left:28%;top:0;bottom:0;width:2px;background:rgba(232,64,96,.9)"></div>
+          <div style="position:absolute;left:28%;top:-22px;font-family:var(--mono);font-size:.42rem;color:var(--bloodl);transform:translateX(-50%);white-space:nowrap;font-weight:700">72 HRS</div>
+          <div style="position:absolute;left:55%;top:0;bottom:0;width:2px;background:rgba(201,168,76,1)"></div>
+          <div style="position:absolute;left:55%;top:-22px;font-family:var(--mono);font-size:.42rem;color:var(--gold);transform:translateX(-50%);white-space:nowrap;font-weight:700">78% ARRIVE &#x2193;</div>
+          <div style="position:absolute;left:56%;bottom:-19px;font-family:var(--mono);font-size:.34rem;color:rgba(201,168,76,.6);white-space:nowrap">evidence already compromised</div>
         </div>
-        <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:.36rem;color:var(--muted2);margin-top:.3rem"><span>Hour 0 — OPTIMAL</span><span>72 hrs</span><span>1 week</span><span>1 month</span><span>1 year+ — LOST</span></div>
+        <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:.35rem;color:var(--muted2);margin-top:1.6rem;padding-top:.3rem;border-top:1px solid var(--border)">
+          <span style="color:var(--greenl)">&#9646; INTACT (hr 0)</span><span>72 hrs</span><span>1 week</span><span>1 month</span><span>3 months</span><span style="color:rgba(70,10,20,.8)">&#9646; GONE</span>
+        </div>
       </div>
-      <div class="evbar-row" style="margin-top:1.6rem">
-        <div class="evbar-lbl" style="display:flex;justify-content:space-between"><span>Witness memory reliability</span><span style="color:var(--gold);font-size:.4rem">GRADUAL DECAY</span></div>
-        <div class="evbar-track">
-          <div class="evbar-fill" id="ev-mem" style="background:linear-gradient(to right,#52b788 0%,#52b788 35%,#c9a84c 50%,#d4a060 65%,rgba(212,160,96,.3) 85%,rgba(212,160,96,.08) 100%)"></div>
-          <div style="position:absolute;left:28%;top:0;bottom:0;width:1px;background:rgba(232,64,96,.35)"></div>
-          <div style="position:absolute;left:55%;top:0;bottom:0;width:1px;background:rgba(201,168,76,.35)"></div>
+      <div class="evbar-row" style="margin-top:2rem">
+        <div class="evbar-lbl"><span>&#9313; Witness Memory Reliability</span><span style="color:var(--gold);font-size:.4rem">GRADUAL DECAY</span></div>
+        <div class="evbar-track" style="height:36px;margin-top:.5rem">
+          <div class="evbar-fill" id="ev-mem" style="height:100%;background:linear-gradient(to right,#52b788 0%,#52b788 32%,#c9a84c 52%,#d4a060 64%,rgba(212,160,96,.22) 84%,rgba(30,30,48,.06) 100%)"></div>
+          <div style="position:absolute;left:28%;top:0;bottom:0;width:1px;background:rgba(232,64,96,.55)"></div>
+          <div style="position:absolute;left:55%;top:0;bottom:0;width:2px;background:rgba(201,168,76,.8)"></div>
+          <div style="position:absolute;left:56%;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:.34rem;color:rgba(201,168,76,.65);white-space:nowrap">memory fades from here &#8594;</div>
         </div>
-        <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:.36rem;color:var(--muted2);margin-top:.3rem"><span>Hour 0 — RELIABLE</span><span style="color:var(--gold)">FADING</span><span style="color:rgba(212,160,96,.5)">1 year+ — DEGRADED</span></div>
+        <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:.35rem;color:var(--muted2);margin-top:.4rem">
+          <span style="color:var(--greenl)">&#9646; CLEAR</span><span>72hrs</span><span style="color:var(--gold)">avg arrival &#8594;</span><span></span><span style="color:rgba(212,160,96,.4)">&#9646; UNRELIABLE</span>
+        </div>
       </div>
-      <div class="evbar-row" style="margin-top:1.6rem">
-        <div class="evbar-lbl" style="display:flex;justify-content:space-between"><span>Medical documentation completeness</span><span style="color:var(--amberl);font-size:.4rem">STEEPEST INITIAL LOSS</span></div>
-        <div class="evbar-track">
-          <div class="evbar-fill" id="ev-med" style="background:linear-gradient(to right,#52b788 0%,#c9a84c 10%,#e84060 20%,rgba(139,20,40,.4) 35%,rgba(139,20,40,.15) 60%,rgba(30,30,48,.05) 100%)"></div>
-          <div style="position:absolute;left:28%;top:0;bottom:0;width:1px;background:rgba(232,64,96,.4)"></div>
-          <div style="position:absolute;left:55%;top:0;bottom:0;width:1px;background:rgba(201,168,76,.3)"></div>
-          <div style="position:absolute;left:10%;top:0;bottom:0;width:2px;background:rgba(232,64,96,.5)"></div>
-          <div style="position:absolute;left:10%;bottom:-18px;font-family:var(--mono);font-size:.35rem;color:var(--bloodl);transform:translateX(-50%);white-space:nowrap">&#8593; THRESHOLD: 72 HRS</div>
+      <div class="evbar-row" style="margin-top:2rem">
+        <div class="evbar-lbl"><span>&#9314; Medical Documentation Completeness</span><span style="color:var(--amberl);font-size:.4rem">STEEPEST INITIAL LOSS</span></div>
+        <div class="evbar-track" style="height:36px;margin-top:.5rem">
+          <div class="evbar-fill" id="ev-med" style="height:100%;background:linear-gradient(to right,#52b788 0%,#b8c84a 9%,#c9a84c 15%,#e84060 24%,rgba(139,20,40,.45) 36%,rgba(100,20,30,.18) 56%,rgba(30,30,48,.04) 100%)"></div>
+          <div style="position:absolute;left:28%;top:0;bottom:0;width:1px;background:rgba(232,64,96,.5)"></div>
+          <div style="position:absolute;left:55%;top:0;bottom:0;width:2px;background:rgba(201,168,76,.75)"></div>
         </div>
-        <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:.36rem;color:var(--muted2);margin-top:1.2rem"><span>Hour 0 — COMPLETE</span><span style="color:var(--bloodl)">&#8593; AVG ARRIVAL</span><span style="color:rgba(139,20,40,.5)">INCOMPLETE</span></div>
+        <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:.35rem;color:var(--muted2);margin-top:.4rem">
+          <span style="color:var(--greenl)">&#9646; COMPLETE</span><span></span><span style="color:var(--bloodl)">drops sharply within hours &#8594;</span><span></span><span style="color:rgba(139,20,40,.45)">&#9646; PARTIAL</span>
+        </div>
       </div>
     </div>
     <div class="fsub-grid">
@@ -849,30 +874,119 @@ drawBacklog();
 
 const SC=document.getElementById("scatterCanvas");
 const sdpr=Math.min(window.devicePixelRatio||1,2);
-const SW=620,SH=380;SC.width=SW*sdpr;SC.height=SH*sdpr;SC.style.width=SW+"px";SC.style.height=SH+"px";
+const SW=620,SH=420;SC.width=SW*sdpr;SC.height=SH*sdpr;SC.style.width=SW+"px";SC.style.height=SH+"px";
 const sctx=SC.getContext("2d");sctx.scale(sdpr,sdpr);
-const COUNTRIES=[{n:"South Africa",x:4,y:72.2,c:"var(--greenl)",note:"TCCs No DP"},{n:"UK",x:5,y:53.4,c:"var(--gold)",note:"CPS 2024"},{n:"India",x:6,y:27.4,c:"var(--amber)",note:"NCRB 2022"},{n:"Nepal",x:7,y:5,c:"rgba(122,200,160,.8)",note:"Limited data"},{n:"Indonesia",x:9,y:2,c:"rgba(180,120,80,.8)",note:"Post-DP surge"},{n:"Bangladesh",x:10,y:.46,c:"#e84060",note:"DP 2020",hi:true}];
+const COUNTRIES=[{n:"South Africa",x:3,y:72.2,c:"var(--greenl)",note:"TCCs · No DP"},{n:"UK",x:4.5,y:53.4,c:"var(--gold)",note:"CPS 2024"},{n:"India",x:6,y:27.4,c:"var(--amber)",note:"NCRB 2022"},{n:"Nepal",x:7,y:5,c:"rgba(122,200,160,.8)",note:"Limited data"},{n:"Indonesia",x:8.5,y:2,c:"rgba(180,120,80,.8)",note:"Post-DP surge"},{n:"Bangladesh",x:10,y:.46,c:"#e84060",note:"DP 2020",hi:true}];
 const SP={t:40,r:150,b:60,l:70};const SCW2=SW-SP.l-SP.r,SCH2=SH-SP.t-SP.b;
 let scStep=-1;
 function drawScatter(step){
   sctx.clearRect(0,0,SW,SH);
-  const xp=x=>SP.l+(x/10)*SCW2;const yp=y=>SP.t+SCH2-(y/80)*SCH2;
+  // Split y-axis: top 60% of chart = 10-80%, bottom 40% = 0-10%
+  // This gives low-conviction countries (BD, Nepal, Indonesia) readable space
+  const SPLIT=0.58; // fraction of chart height for top section (10-80%)
+  function yp(v){
+    if(v>=10){
+      // top section: 10 to 80
+      return SP.t + SCH2*SPLIT*(1-(v-10)/70);
+    } else {
+      // bottom section: 0 to 10 — gets 42% of height
+      const breakY=SP.t+SCH2*SPLIT;
+      return breakY + 28 + (SCH2*(1-SPLIT)-28)*(1-v/10);
+    }
+  }
+  const xp=x=>SP.l+(x/11)*SCW2;
+  // Grid lines
   sctx.strokeStyle="rgba(42,42,64,.9)";sctx.lineWidth=1;
-  [0,20,40,60,80].forEach(v=>{sctx.beginPath();sctx.moveTo(SP.l,yp(v));sctx.lineTo(SP.l+SCW2,yp(v));sctx.stroke();sctx.fillStyle="rgba(78,75,96,.7)";sctx.font="10px JetBrains Mono,monospace";sctx.textAlign="right";sctx.fillText(v+"%",SP.l-8,yp(v)+4);});
-  [0,2,4,6,8,10].forEach(x=>{sctx.beginPath();sctx.moveTo(xp(x),SP.t);sctx.lineTo(xp(x),SP.t+SCH2);sctx.stroke();});
+  // Top section gridlines
+  [80,60,40,20,10].forEach(v=>{
+    const y=yp(v);
+    sctx.beginPath();sctx.moveTo(SP.l,y);sctx.lineTo(SP.l+SCW2,y);sctx.stroke();
+    sctx.fillStyle="rgba(78,75,96,.75)";sctx.font="10px JetBrains Mono,monospace";sctx.textAlign="right";
+    sctx.fillText(v+"%",SP.l-8,y+4);
+  });
+  // Axis break indicator
+  const bY=SP.t+SCH2*SPLIT;
+  sctx.fillStyle="rgba(30,30,48,1)";
+  sctx.fillRect(SP.l-4,bY+2,SCW2+8,24);
+  sctx.strokeStyle="rgba(78,75,96,.4)";sctx.lineWidth=1;
+  sctx.setLineDash([4,3]);
+  sctx.beginPath();sctx.moveTo(SP.l,bY+2);sctx.lineTo(SP.l+SCW2,bY+2);sctx.stroke();
+  sctx.beginPath();sctx.moveTo(SP.l,bY+26);sctx.lineTo(SP.l+SCW2,bY+26);sctx.stroke();
+  sctx.setLineDash([]);
+  // Zigzag break markers on left axis
+  sctx.strokeStyle="rgba(122,117,144,.7)";sctx.lineWidth=1.5;
+  const bx=SP.l-6;
+  sctx.beginPath();sctx.moveTo(bx,bY+4);sctx.lineTo(bx+4,bY+10);sctx.lineTo(bx-2,bY+16);sctx.lineTo(bx+4,bY+22);sctx.stroke();
+  sctx.fillStyle="rgba(78,75,96,.5)";sctx.font="8px JetBrains Mono,monospace";sctx.textAlign="center";
+  sctx.fillText("SCALE",bx+1,bY+14);
+  // Bottom section gridlines: 0,5,10
+  [0,5].forEach(v=>{
+    const y=yp(v);
+    sctx.strokeStyle="rgba(42,42,64,.9)";sctx.lineWidth=1;
+    sctx.beginPath();sctx.moveTo(SP.l,y);sctx.lineTo(SP.l+SCW2,y);sctx.stroke();
+    sctx.fillStyle="rgba(78,75,96,.75)";sctx.font="10px JetBrains Mono,monospace";sctx.textAlign="right";
+    sctx.fillText(v+"%",SP.l-8,y+4);
+  });
+  // Vertical gridlines
+  sctx.strokeStyle="rgba(42,42,64,.5)";
+  [2,4,6,8,10].forEach(x=>{sctx.beginPath();sctx.moveTo(xp(x),SP.t);sctx.lineTo(xp(x),SP.t+SCH2);sctx.stroke();});
+  // Axis labels
   sctx.fillStyle="rgba(122,117,144,.9)";sctx.font="10px JetBrains Mono,monospace";sctx.textAlign="center";
-  sctx.fillText("<- LOWER SEVERITY",xp(1),SP.t+SCH2+40);sctx.fillText("HIGHER SEVERITY ->",xp(8),SP.t+SCH2+40);
-  sctx.save();sctx.translate(18,SP.t+SCH2/2);sctx.rotate(-Math.PI/2);sctx.textAlign="center";sctx.fillText("CONVICTION RATE ->",0,0);sctx.restore();
-  if(step>=1){sctx.beginPath();sctx.strokeStyle="rgba(82,183,136,.2)";sctx.lineWidth=1.5;sctx.setLineDash([6,4]);sctx.moveTo(xp(0),yp(75));sctx.lineTo(xp(10),yp(60));sctx.stroke();sctx.setLineDash([]);}
+  sctx.fillText("← LOWER SEVERITY",xp(2),SP.t+SCH2+38);
+  sctx.fillText("HIGHER SEVERITY →",xp(9),SP.t+SCH2+38);
+  sctx.save();sctx.translate(16,SP.t+SCH2/2);sctx.rotate(-Math.PI/2);
+  sctx.textAlign="center";sctx.fillText("CONVICTION RATE →",0,0);sctx.restore();
+  // Trend line (step>=1)
+  if(step>=1){
+    sctx.beginPath();sctx.strokeStyle="rgba(82,183,136,.15)";sctx.lineWidth=1.5;sctx.setLineDash([6,4]);
+    sctx.moveTo(xp(2),yp(72));sctx.lineTo(xp(11),yp(8));
+    sctx.stroke();sctx.setLineDash([]);
+  }
+  // Draw dots + labels — now all countries have clear space
   const vis=step===0?2:step===1?4:COUNTRIES.length;
-  COUNTRIES.slice(0,vis).forEach(c=>{const px=xp(c.x),py=yp(c.y);sctx.beginPath();sctx.arc(px,py,c.hi?10:7,0,Math.PI*2);sctx.fillStyle=c.c;sctx.fill();if(c.hi){sctx.strokeStyle="rgba(232,64,96,.6)";sctx.lineWidth=2;sctx.stroke();}
-    // Per-country label positioning to avoid overlap at bottom
-    let lx=px+14,ly=py+4,ta="left";
-    if(c.n==="Bangladesh"){lx=px-14;ly=py-22;ta="right";}  // above-left, avoids bottom edge
-    else if(c.n==="Indonesia"){lx=px-14;ly=py-22;ta="right";}  // above-left avoids Bangladesh
-    else if(c.n==="Nepal"){lx=px+14;ly=py-10;ta="left";}
-    sctx.fillStyle=c.c;sctx.font=(c.hi?"bold ":"")+"10px JetBrains Mono,monospace";sctx.textAlign=ta;sctx.fillText(c.n,lx,ly);sctx.fillStyle="rgba(122,117,144,.8)";sctx.font="9px JetBrains Mono,monospace";sctx.fillText(c.y+"% "+c.note,lx,ly+13);});
-  if(step>=2&&vis>=COUNTRIES.length){const bd=COUNTRIES[5];const px=xp(bd.x),py=yp(bd.y);sctx.strokeStyle="rgba(232,64,96,.4)";sctx.lineWidth=1;sctx.setLineDash([3,3]);sctx.beginPath();sctx.moveTo(px,py);sctx.lineTo(px,SP.t+SCH2);sctx.stroke();sctx.beginPath();sctx.moveTo(SP.l,py);sctx.lineTo(px,py);sctx.stroke();sctx.setLineDash([]);sctx.fillStyle="rgba(232,64,96,.8)";sctx.font="bold 10px JetBrains Mono,monospace";sctx.textAlign="center";sctx.fillText("WORST CORNER",xp(8.5),yp(2));sctx.fillStyle="rgba(122,117,144,.7)";sctx.font="9px JetBrains Mono,monospace";sctx.fillText("Max severity + Near-zero certainty",xp(8.5),yp(2)+14);}
+  COUNTRIES.slice(0,vis).forEach(c=>{
+    const px=xp(c.x),py=yp(c.y);
+    const r=c.hi?11:7;
+    sctx.beginPath();sctx.arc(px,py,r,0,Math.PI*2);
+    sctx.fillStyle=c.c;sctx.fill();
+    if(c.hi){sctx.strokeStyle="rgba(232,64,96,.6)";sctx.lineWidth=2;sctx.stroke();}
+    // Label background box for readability
+    const nameW=c.n.length*6.5+(c.hi?2:0);
+    let lx=px+r+6,ly=py-6,ta="left";
+    // Custom positioning per country
+    if(c.n==="Bangladesh"){lx=px-r-8;ly=py-14;ta="right";}
+    else if(c.n==="Indonesia"){lx=px-r-8;ly=py+6;ta="right";}
+    else if(c.n==="Nepal"){lx=px+r+6;ly=py-14;ta="left";}
+    // Draw label
+    sctx.fillStyle=c.c;
+    sctx.font=(c.hi?"bold 11px":"10px")+" JetBrains Mono,monospace";
+    sctx.textAlign=ta;
+    sctx.fillText(c.n,lx,ly);
+    sctx.fillStyle="rgba(180,175,190,.75)";
+    sctx.font="9px JetBrains Mono,monospace";
+    sctx.fillText(c.y+"% · "+c.note,lx,ly+13);
+  });
+  // Worst corner annotation (step 2)
+  if(step>=2&&vis>=COUNTRIES.length){
+    const bd=COUNTRIES[5];const px=xp(bd.x),py=yp(bd.y);
+    // Dashed lines to axes
+    sctx.strokeStyle="rgba(232,64,96,.35)";sctx.lineWidth=1;sctx.setLineDash([3,3]);
+    sctx.beginPath();sctx.moveTo(px,py+12);sctx.lineTo(px,SP.t+SCH2);sctx.stroke();
+    sctx.beginPath();sctx.moveTo(SP.l,py);sctx.lineTo(px-12,py);sctx.stroke();
+    sctx.setLineDash([]);
+    // Callout box
+    const cx=xp(7.5),cy=yp(3.5);
+    sctx.fillStyle="rgba(196,30,58,.12)";
+    sctx.fillRect(cx-55,cy-14,180,40);
+    sctx.strokeStyle="rgba(232,64,96,.4)";sctx.lineWidth=1;
+    sctx.strokeRect(cx-55,cy-14,180,40);
+    sctx.fillStyle="rgba(232,64,96,.9)";
+    sctx.font="bold 10px JetBrains Mono,monospace";sctx.textAlign="left";
+    sctx.fillText("← WORST CORNER",cx-50,cy+2);
+    sctx.fillStyle="rgba(180,175,190,.7)";
+    sctx.font="9px JetBrains Mono,monospace";
+    sctx.fillText("Max severity + Near-zero certainty",cx-50,cy+16);
+  }
 }
 drawScatter(0);
 
@@ -917,6 +1031,8 @@ function showMapInfo(name,ipv,occ,desc){const el=document.getElementById("map-in
 function showVoids(n){for(let i=0;i<10;i++){const el=document.getElementById("void-"+i);if(el)el.classList.toggle("vis",i<=n);}const c=document.getElementById("void-conclusion");if(c)c.style.opacity=n>=9?"1":"0";}
 
 setTimeout(()=>["hs1","hs2","hs3","hs4"].forEach((id,i)=>setTimeout(()=>{const el=document.getElementById(id);if(el)el.classList.add("vis");},i*500)),600);
+// On mobile: first step of each scene starts active, steps never fully fade
+if(window.innerWidth<768){document.querySelectorAll(".step").forEach(el=>el.style.opacity="1");}
 setTimeout(()=>{const t=document.getElementById("htitle");if(t)t.classList.add("vis");const s=document.getElementById("hsub");if(s)s.classList.add("vis");},2200);
 
 const navLinks=document.querySelectorAll(".nav-scenes a");
@@ -935,15 +1051,30 @@ const io=new IntersectionObserver(entries=>{
 },{rootMargin:"-35% 0px -35% 0px"});
 document.querySelectorAll("[data-step]").forEach(el=>io.observe(el));
 
-new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const v=parseInt(e.target.id.replace("void-",""));if(!isNaN(v)){setTimeout(()=>e.target.classList.add("vis"),v*140);if(v===9)setTimeout(()=>{const c=document.getElementById("void-conclusion");if(c)c.style.opacity="1";},1500);}}});},{rootMargin:"-10% 0px -10% 0px"}).observe.call(null,null)||document.querySelectorAll(".void-card").forEach(el=>new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const v=parseInt(e.target.id.replace("void-",""));if(!isNaN(v))setTimeout(()=>e.target.classList.add("vis"),v*140);}});},{rootMargin:"-10% 0px -10% 0px"}).observe(el));
+// void observer handled below
 
 new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting&&!clocksDone){clocksDone=true;runClocks();}});},{threshold:.1}).observe(document.getElementById("s2")||document.body);
 new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting&&!forensicDone){forensicDone=true;runForensic();}});},{threshold:.3}).observe(document.getElementById("sdna")||document.body);
 
 function dlCSV(e){e.preventDefault();const rows=[["Source","Figure","N_D","Tier"],["BRAC 2022","3.66% conviction rate","36/984","CONFIRMED"],["OCC 2001-2024","0.46% conviction rate","310/66711","CONFIRMED"],["PBI 2025","41% cases closed unproven","4248/10581","CONFIRMED"],["UNFPA 2024","76.0% national lifetime IPV","27476 women","CONFIRMED"],["UNFPA 2024","81.5% IPV Barishal","","CONFIRMED"],["UNFPA 2024","81.3% IPV Khulna","","CONFIRMED"],["UNFPA 2024","78.5% IPV Chattogram","","CONFIRMED"],["UNFPA 2024","72.7% IPV Sylhet","","CONFIRMED"],["UNFPA 2024","72.9% IPV Dhaka","","CONFIRMED"],["PHQ 2025","~150k cases pending","","CONFIRMED"],["NFDPL 2025","92% DNA samples unprocessed","1204/1304","CONFIRMED"],["Prothom Alo 2023","Runa Akhter S17 conviction 56 days","1 case","CONFIRMED"],["NPA SA 2023/24","72.2% conviction rate","trial-stage","CONFIRMED"],["BRAC 2022","2 DNA machines nationally","","CONFIRMED"]];const csv=rows.map(r=>r.map(c=>'"'+c+'"').join(",")).join("\n");const a=document.createElement("a");a.href="data:text/csv;charset=utf-8,"+encodeURIComponent(csv);a.download="BD-INV-002-evidence-export.csv";a.click();}
 
-// Fix void observer - complete implementation
-document.querySelectorAll(".void-card").forEach(el=>{new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const v=parseInt(e.target.id.replace("void-",""));if(!isNaN(v)){setTimeout(()=>e.target.classList.add("vis"),v*140);if(v===9)setTimeout(()=>{const c=document.getElementById("void-conclusion");if(c)c.style.opacity="1";},1500);}}});},{rootMargin:"-10% 0px -10% 0px"}).observe(el);});
+// Fix void observer — observe entire section, trigger all cards with stagger
+(function(){
+  const s7=document.getElementById("s7");
+  if(!s7)return;
+  let triggered=false;
+  new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting&&!triggered){
+        triggered=true;
+        document.querySelectorAll(".void-card").forEach((el,i)=>{
+          setTimeout(()=>el.classList.add("vis"),i*110);
+        });
+        setTimeout(()=>{const c=document.getElementById("void-conclusion");if(c)c.style.opacity="1";},10*110+400);
+      }
+    });
+  },{threshold:0.05}).observe(s7);
+})();
 </script>
 </body>
 </html>
