@@ -391,21 +391,6 @@ canvas{display:block;width:100%}
 </head>
 <body>
 
-<!-- SERIES NAVIGATION -->
-<div style="background:rgba(6,6,14,.98);border-bottom:1px solid rgba(30,30,50,.9);padding:.45rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:.8rem;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;position:relative;z-index:901">
-  <div style="display:flex;align-items:center;gap:.5rem;font-size:.46rem;color:rgba(120,117,144,.8);text-transform:uppercase;letter-spacing:.1em;white-space:nowrap">
-    <a href="/" style="color:rgba(120,117,144,.7);text-decoration:none">Insight Gaps</a>
-    <span style="color:rgba(60,58,80,.9)">›</span>
-    <span style="color:var(--gold);font-weight:700">BD-INV-002 · The Impunity Machine</span>
-  </div>
-  <div style="display:flex;gap:.4rem;flex-wrap:wrap">
-    <a href="/investigations/national/impunity-machine.html" style="font-size:.42rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text2);border:1px solid rgba(40,38,60,.9);padding:.2rem .65rem;background:rgba(30,28,48,.5);text-decoration:none">Data Investigation</a>
-    <a href="/investigations/national/impunity-machine-visual.html" style="font-size:.42rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(180,130,50,.3);padding:.2rem .65rem;text-decoration:none">▶ Visual Story</a>
-    <a href="/series/impunity-machine/methodology.html" style="font-size:.42rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(120,117,144,.8);border:1px solid rgba(40,38,60,.9);padding:.2rem .65rem;text-decoration:none">Methodology</a>
-    <a href="/series/impunity-machine/data.html" style="font-size:.42rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(120,117,144,.8);border:1px solid rgba(40,38,60,.9);padding:.2rem .65rem;text-decoration:none">Evidence Files</a>
-  </div>
-</div>
-
 <nav aria-label="Main navigation">
   <div class="nav-inner">
     <div class="nav-brand"><a href="https://insightgaps.github.io/">Insight <span>Gaps</span></a> <span style="color:var(--muted2);margin-left:.8rem;font-size:.5rem">BD-INV-002 · v4.0 · Mar 2026</span></div>
@@ -420,7 +405,8 @@ canvas{display:block;width:100%}
       <a href="#deterrence">§07 Deterrence</a>
       <a href="#witness">§08 Witness</a>
       <a href="#interventions">§09 Reform</a>
-      <a href="#monthly-table">§10 Ledger</a>
+      <a href="#surge">§10 Surge</a>
+      <a href="#monthly-table">Data Ledger</a>
       <a href="#conclusion">Conclusion</a>
       <a href="#sources">Sources</a>
     </div>
@@ -451,7 +437,7 @@ canvas{display:block;width:100%}
 
 <!-- ══ OPENING ══ -->
 <section id="opening" aria-label="Investigation opening">
-  <div class="open-badge">BD-INV-002 · Bangladesh · Active Investigation · March 2026</div>
+  <div class="open-badge">BD-INV-002 · Bangladesh · Active Investigation · v5.0 · March 2026</div>
   <div class="open-counter-hero" id="hero-counter" aria-hidden="true" style="font-size:clamp(3rem,10vw,7rem)">~12</div>
   <div class="open-counter-lbl">Rape cases filed in Bangladesh today<br><span style="font-size:.48rem;color:var(--muted2);letter-spacing:.1em">Based on 2024 annual average of 4,394 · PHQ via Daily Star Mar 2025 · <span class="tier tc" style="margin-left:0">CONFIRMED · S-57</span></span></div>
   <div class="open-div"></div>
@@ -500,8 +486,8 @@ canvas{display:block;width:100%}
     <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-bottom:1px solid var(--border);padding-bottom:1.4rem;margin-bottom:1.8rem">
       <div>
         <div style="display:flex;align-items:center;gap:.7rem;margin-bottom:.5rem">
-          <span style="font-family:var(--mono);font-size:.5rem;color:var(--bloodl);letter-spacing:.18em;text-transform:uppercase;animation:blink 1.5s ease-in-out infinite">● LIVE</span>
-          <span style="font-family:var(--mono);font-size:.5rem;color:var(--muted2);letter-spacing:.1em;text-transform:uppercase">Updated every 6 hours · GitHub Actions</span>
+          <span style="font-family:var(--mono);font-size:.5rem;color:var(--bloodl);letter-spacing:.18em;text-transform:uppercase;animation:blink 1.5s ease-in-out infinite">● ACTIVE INVESTIGATION</span>
+          <span style="font-family:var(--mono);font-size:.5rem;color:var(--muted2);letter-spacing:.1em;text-transform:uppercase">Dashboard updated every 6 hours · GitHub Actions · Confirmed figures updated when new PHQ/BMP data published</span>
         </div>
         <h2 style="font-family:var(--display);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;letter-spacing:-.02em;margin-bottom:.4rem">Bangladesh Sexual Violence — National Tracker</h2>
         <p style="font-family:var(--body);font-size:.85rem;color:var(--muted);max-width:540px">This dashboard tracks every reported case, verdict, and policy development in real time. Any journalist, NGO, or citizen can use this data — with tier labels mandatory when citing.</p>
@@ -516,7 +502,17 @@ canvas{display:block;width:100%}
     <!-- Big Number Strip — Plain Language -->
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:2rem">
       <div style="background:var(--ink3);padding:1.1rem 1.2rem">
-        <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--bloodl);line-height:1;letter-spacing:-.03em">442</div>
+        <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--bloodl);line-height:1;letter-spacing:-.03em">+52%</div>
+        <div style="font-family:var(--mono);font-size:.5rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-top:.35rem;line-height:1.6">Rape victims<br>2024 → 2025</div>
+        <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);margin-top:.3rem">BMP 786 vs 516 · <span class="tier tc" style="margin-left:0">CONFIRMED · S-85</span></div>
+      </div>
+      <div style="background:var(--ink3);padding:1.1rem 1.2rem">
+        <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--bloodl);line-height:1;letter-spacing:-.03em">+75%</div>
+        <div style="font-family:var(--mono);font-size:.5rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-top:.35rem;line-height:1.6">Child rape<br>H1 2024→2025</div>
+        <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);margin-top:.3rem">306 vs 175 H1 · <span class="tier tc" style="margin-left:0">CONFIRMED · S-83</span></div>
+      </div>
+      <div style="background:var(--ink3);padding:1.1rem 1.2rem">
+        <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--amberl);line-height:1;letter-spacing:-.03em">442</div>
         <div style="font-family:var(--mono);font-size:.5rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-top:.35rem;line-height:1.6">Violence cases<br>in March 2026</div>
         <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);margin-top:.3rem">BMP Mar 2026 · <span class="tier tp" style="margin-left:0">PROBABLE · S-73b</span></div>
       </div>
@@ -549,7 +545,7 @@ canvas{display:block;width:100%}
 
     <!-- Context Bar -->
     <div style="background:rgba(196,30,58,.07);border:1px solid rgba(196,30,58,.3);padding:1rem 1.2rem;margin-bottom:2rem;font-family:var(--mono);font-size:.58rem;color:var(--text2);line-height:1.8">
-      <strong style="color:var(--bloodl)">What these numbers mean in plain language:</strong> In March 2026 alone, 442 women and girls were reported as victims of violence — including 163 rapes and gang-rapes. Every day, ~12 new rape cases enter a system that already has 150,000 cases waiting. The average case takes over 6 years to reach a verdict. Of every 100 women who walked into a crisis centre over 23 years, fewer than 1 got a conviction. This tracker updates every 6 hours. <a href="#sources" style="color:var(--gold)">All sources cited.</a>
+      <strong style="color:var(--bloodl)">What these numbers mean in plain language:</strong> In 2025, Bangladesh recorded a 52% rise in documented rape victims (BMP), a 75% surge in child rape in the first half of the year alone, and 442 women and girls reported as victims of violence in March 2026. Every day, ~12 new rape cases enter a system that already has 150,000 cases waiting. The average case takes over 6 years to reach a verdict. Of every 100 women who walked into a crisis centre over 23 years, fewer than 1 got a conviction. <strong style="color:var(--amberl)">The dashboard below is an active investigation register — not a real-time incident counter.</strong> PHQ does not publish real-time data. All figures are source-dated. <a href="#sources" style="color:var(--gold)">All sources cited.</a>
     </div>
 
     <!-- Tabs -->
@@ -787,7 +783,7 @@ canvas{display:block;width:100%}
   <div class="wrap">
     <div class="sh"><div class="sh-eye">§01</div><h2 id="conv-h">The Conviction Gap</h2><p>The annual WCRPA conviction rate is not published by PHQ, the Ministry of Law, or the Ministry of Women and Children Affairs. Five independent measures exist. They all say the same thing.</p></div>
 
-    <div class="finding green reveal"><div class="f-title">The Convergence Finding</div><p>Five independent sources — different methodologies, time periods, geographic scopes — all place the WCRPA conviction rate below 4%. The sources had no access to each other's data. <strong>The convergence is the finding.</strong></p></div>
+    <div class="finding green reveal"><div class="f-title">The Convergence Finding</div><p>Eight independent sources — different methodologies, time periods, geographic scopes — all place the WCRPA conviction rate below 4%. The sources had no access to each other's data. <strong>The convergence is the finding.</strong> Even the government's own police headquarters data confirms it.</p></div>
 
     <!-- DERIVATION BOX — 310 / 66,711 -->
     <div style="background:var(--ink3);border:1px solid var(--border2);padding:1.2rem 1.4rem;margin:1.2rem 0" class="reveal">
@@ -800,18 +796,27 @@ canvas{display:block;width:100%}
           <strong style="color:var(--text)">310</strong> = convictions resulting from OCC-tracked cases in the same 23-year period. Derived directly from the Daily Star November 2024 report on OCC programme outcomes. 310 ÷ 66,711 = <strong style="color:var(--bloodl)">0.465%</strong>. Source: Daily Star, November 2, 2024 · <span class="tier tc">CONFIRMED · S-55</span>
         </div>
         <div style="font-family:var(--body);font-size:.8rem;color:var(--muted);line-height:1.6">
-          <strong style="color:var(--text)">Note on scope:</strong> This figure covers the OCC system only, not all WCRPA cases nationally. National annual filings 2019–2024 total ~33,674 cases (PHQ data). The OCC rate (0.465%) is consistent with all five independent conviction rate measures, which range 0.39%–3.66%.
+          <strong style="color:var(--text)">Note on scope:</strong> This figure covers the OCC system only, not all WCRPA cases nationally. National annual filings 2019–2024 total ~33,674 cases (PHQ data). The OCC rate (0.465%) is consistent with all eight independent conviction rate measures, which range 0.12%–3.66%.
         </div>
       </div>
     </div>
 
     <div class="dotplot reveal">
-      <div class="dp-title">Conviction Rate — Five Independent Measures (scale: 0% to 7.27%)</div>
+      <div class="dp-title">Conviction Rate — Eight Independent Measures (scale: 0% to 7.27%)</div>
+      <div class="dp-row"><div class="dp-label">PHQ National Police Data 2012–17 · Official</div><div class="dp-track"><div class="dp-dot" data-pct="1.6" style="background:var(--bloodl)"></div></div><div class="dp-val" style="color:var(--bloodl)">0.12%</div></div>
       <div class="dp-row"><div class="dp-label">Naripokkho 2018 · S-06</div><div class="dp-track"><div class="dp-dot" data-pct="5.4" style="background:var(--bloodl)"></div></div><div class="dp-val">0.39%</div></div>
-      <div class="dp-row"><div class="dp-label">HRW (2021) · S-04</div><div class="dp-track"><div class="dp-dot" data-pct="13.7" style="background:var(--blood)"></div></div><div class="dp-val">&lt;1%</div></div>
       <div class="dp-row"><div class="dp-label">OCC Programme (2024) · S-55</div><div class="dp-track"><div class="dp-dot" data-pct="6.3" style="background:var(--amberl)"></div></div><div class="dp-val">0.46%</div></div>
+      <div class="dp-row"><div class="dp-label">EU/GTAI Assessment 2025 · S-87</div><div class="dp-track"><div class="dp-dot" data-pct="10.3" style="background:var(--amber)"></div></div><div class="dp-val">0.75%</div></div>
+      <div class="dp-row"><div class="dp-label">BLAST/Islam & Shaon 2003–16 · Dhaka</div><div class="dp-track"><div class="dp-dot" data-pct="10.6" style="background:var(--amberl)"></div></div><div class="dp-val">0.77%</div></div>
+      <div class="dp-row"><div class="dp-label">BRAC/UNDP 2009–14 · S-ref</div><div class="dp-track"><div class="dp-dot" data-pct="11.8" style="background:var(--gold2)"></div></div><div class="dp-val">0.86%</div></div>
+      <div class="dp-row"><div class="dp-label">HRW (2021) · S-04</div><div class="dp-track"><div class="dp-dot" data-pct="13.7" style="background:var(--blood)"></div></div><div class="dp-val">&lt;1%</div></div>
+      <div class="dp-row"><div class="dp-label">UN Women 2013–19 · S-86</div><div class="dp-track"><div class="dp-dot" data-pct="27.5" style="background:var(--gold)"></div></div><div class="dp-val">2.0%</div></div>
       <div class="dp-row"><div class="dp-label">UK Home Office (2024) · S-16</div><div class="dp-track"><div class="dp-dot" data-pct="41.3" style="background:var(--gold2)"></div></div><div class="dp-val">&lt;3%</div></div>
-      <div class="dp-row"><div class="dp-label">BRAC / Agile (2022) · S-01</div><div class="dp-track"><div class="dp-dot" data-pct="50.3" style="background:var(--greenl)"></div></div><div class="dp-val">3.66%</div></div>
+      <div class="dp-row"><div class="dp-label">BRAC / Agile (2022) · S-01</div><div class="dp-track"><div class="dp-dot" data-pct="50.3" style="background:var(--greenl)"></div></div><div class="dp-val" style="color:var(--muted2)">3.66% ↑</div></div>
+    </div>
+
+    <div class="amb reveal" style="border-color:rgba(196,30,58,.6);background:rgba(196,30,58,.05)">
+      <strong style="color:var(--bloodl)">⚠ IMPORTANT: The Government's "53.52% Disposal Rate" Is NOT a Conviction Rate.</strong> The Government of Bangladesh's 2025 CEDAW periodic report (S-81) cites a 53.52% "case disposal rate." This figure includes acquittals, administrative dismissals, discharges before trial, and transfers — not convictions. Quoting disposal rate as conviction rate is a misrepresentation. The actual conviction rate, per all eight independent sources above, remains below 4%. <span class="tier tc">CONFIRMED · S-81</span>
     </div>
 
     <div class="warn reveal"><strong>Zero convictions in 2024.</strong> First 7 months 2024: 643 OCC visitors → 227 cases filed → 12 verdicts → 0 convictions. This is not aberration. It is the system functioning normally. Source: Daily Star, Nov 2, 2024 (S-55).</div>
@@ -859,12 +864,26 @@ canvas{display:block;width:100%}
       <div class="card"><div class="cn">101</div><div class="cl">Tribunals Operating <span class="tier tp">PROBABLE</span></div><div class="cd">~1,485 cases per judge. Advocates calling for 200 additional tribunals. Daily Star Mar 2025 · S-64.</div></div>
       <div class="card"><div class="cn">2,349</div><div class="cl">Avg Days to Verdict <span class="tier tc">CONFIRMED</span></div><div class="cd">6 years 5 months. BRAC 2022 court records, 16 districts (S-01). That is the wait for a case that moves normally through the system.</div></div>
       <div class="card"><div class="cn">35,262</div><div class="cl">Cases Pending &gt;5 Years <span class="tier tc">CONFIRMED</span></div><div class="cd">Daily Star 2023 court record analysis (S-07). 23.7% of total backlog. One quarter of cases have waited more than five years for a verdict.</div></div>
-      <div class="card"><div class="cn">5,648</div><div class="cl">Disposed 2024 <span class="tier tp">PROBABLE</span></div><div class="cd">vs 17,544 new cases filed the same year. Net backlog growth: ~11,896 per year. Anti-Rape Platform / BSS · S-65.</div></div>
+      <div class="card" style="border-color:rgba(196,30,58,.5)"><div class="cn" style="color:var(--bloodl)">+12,000/yr</div><div class="cl">Net Annual Backlog Growth <span class="tier tp">PROBABLE</span></div><div class="cd">In 2024: 17,544 new cases filed vs only 5,648 disposed. Net increase ~11,896 per year. Even at maximum current tribunal capacity, the queue grows. It always grows. Anti-Rape Platform / Daily Star · S-57, S-65</div></div>
       <div class="card"><div class="cn">92%</div><div class="cl">DNA Samples Stalled <span class="tier tp">PROBABLE</span></div><div class="cd">1,204 of 1,304 submitted samples unprocessed in early 2025. Prothom Alo Bangla · S-66. Two machines serve the entire country.</div></div>
     </div>
-    <div class="finding reveal"><div class="f-title">Why Delay Produces Acquittals — The Mechanism</div><p>Delay is not a neutral inconvenience. It is a mechanism of acquittal. Over 2,349 days: <strong>witnesses relocate or forget critical details.</strong> <strong>Forensic evidence degrades beyond usefulness.</strong> <strong>Economic pressure on the survivor's family becomes unbearable.</strong> <strong>Shalish threats intensify as trial approaches.</strong> The Islam &amp; Islam forensic study directly links delayed forensic attendance to negative forensic opinions in 248 cases (S-50).</p></div>
+    <div class="finding reveal"><div class="f-title">Why Delay Produces Acquittals — The Mechanism</div><p>Delay is not a neutral inconvenience. It is a mechanism of acquittal. Over 2,349 days: <strong>witnesses relocate or forget critical details.</strong> <strong>Forensic evidence degrades beyond usefulness.</strong> <strong>Economic pressure on the survivor's family becomes unbearable.</strong> <strong>Shalish threats intensify as trial approaches.</strong> The Islam &amp; Islam forensic study directly links delayed forensic attendance to negative forensic opinions in 248 cases (S-50). And where witnesses might have appeared: in some districts, more than 60% of cases collapse simply because key witnesses do not show up. <span class="tier tp">PROBABLE · Bangladesh_Rape_Prosecution_Statistics.docx</span></p></div>
     <div class="pq">"When a case drags on for eight or ten years, doctors retire, complainants lose the will to continue." <cite>— Public prosecutor on record · Daily Star 2025 (S-07)</cite></div>
     <div class="finding amber reveal"><div class="f-title">The Magura Exception — What Speed Requires <span class="tier tc">CONFIRMED · S-60, S-67</span></div><p>March 5–6, 2025: eight-year-old Achia raped and murdered in Magura. Nationwide protests. HC directive. Special Public Prosecutor at Attorney General rank. DNA processed in five days. <strong>Death sentence: May 17, 2025. 71 days from assault to verdict.</strong> Three co-accused acquitted for insufficient evidence. As of March 2026: appeal admitted July 1, 2025 (Justice Mostafizur Rahman + Justice Sagir Hossain). Fine of BDT 100,000 stayed. Appeal under active review. Normal WCRPA timeline: 2,349 days. <strong>The system is not incapable of speed. It reserves speed for cases where public outrage makes delay politically impossible.</strong></p></div>
+
+    <!-- NAMED EXTREME CASES TABLE -->
+    <div style="margin:1.5rem 0" class="reveal">
+      <div style="font-family:var(--mono);font-size:.54rem;text-transform:uppercase;letter-spacing:.14em;color:var(--gold2);margin-bottom:.8rem">Named Cases — The Range of the System</div>
+      <table class="dt">
+        <thead><tr><th>Case</th><th>Crime Year</th><th>Verdict Year</th><th>Wait</th><th>Outcome</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr style="background:rgba(82,183,136,.04)"><td><strong>Magura Child Rape-Murder — Achia</strong></td><td>2025</td><td>2025</td><td class="num" style="color:var(--greenl)"><strong>71 days</strong></td><td>Death sentence — appeal pending</td><td style="font-size:.72rem;font-style:italic;color:var(--muted)">Nationwide outrage + HC directive. System's fastest recorded response.</td></tr>
+          <tr><td><strong>Barishal Trish Godown Gang Rape</strong></td><td>2016</td><td>2026</td><td class="num" style="color:var(--amberl)">~3,380 days</td><td>4 death sentences. 1 absconding.</td><td style="font-size:.72rem;font-style:italic;color:var(--muted)">9 years 3 months. BSS · S-70. Normal trajectory for a case that is not Magura.</td></tr>
+          <tr style="background:rgba(196,30,58,.04)"><td><strong>Jamalpur Child Rape Case <span class="tier tc" style="font-size:.4rem">CONFIRMED</span></strong></td><td>2004</td><td>2025</td><td class="num" style="color:var(--bloodl)"><strong>21 years</strong></td><td>2 defendants: Life imprisonment. Victim age 13 at time of crime.</td><td style="font-size:.72rem;font-style:italic;color:var(--muted)">The longest documented individual trial in this dataset. 2004 to 2025. The survivor waited 21 years. BSS News via Bangladesh_Rape_Verdicts_Data_Compilation.</td></tr>
+          <tr><td><strong>Sylhet MC College Gang Rape <span class="tier tp" style="font-size:.4rem">PROBABLE</span></strong></td><td>2020</td><td>Pending</td><td class="num" style="color:var(--amberl)">5+ years</td><td>Still in proceedings. Transferred to Speedy Trial Tribunal March 2025 after Supreme Court order.</td><td style="font-size:.72rem;font-style:italic;color:var(--muted)">High-profile case. Still pending despite being one of Bangladesh's most-publicised assaults. Status: as of March 2025. Bangladesh_Rape_Case_Verdict_Analysis.docx</td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </section>
 
@@ -896,6 +915,9 @@ canvas{display:block;width:100%}
         <tr><td><strong>BS-2026-001 · Barishal</strong></td><td>Rape allegation (details in case register)</td><td>Arrest ordered for complainant + five others incl. 3 teachers. Jan 2026.</td><td class="num" style="color:var(--amberl)">Ongoing</td><td style="font-size:.74rem;font-style:italic;color:var(--muted)">TBS News Jan 2026 · S-13</td></tr>
       </tbody>
     </table>
+
+    <!-- POLITICAL IMPUNITY — Sherpur -->
+    <div class="finding amber reveal" style="margin-top:1.5rem"><div class="f-title">Political Impunity — The Technical Grounds Dismissal <span class="tier tc">CONFIRMED · U.S. State Dept</span></div><p>In Sherpur (2017), a rape case against <strong>Mohammed al-Helal</strong>, an Awami League official, was dismissed by the Women &amp; Children Repression Prevention Tribunal-2 on <em>"technical grounds."</em> He was freed. The case against him was dropped. No Section 17 proceedings were filed against the survivor who reported him. The system's speed is not reserved only for women who report — it is also reserved for men whose political connections make conviction inconvenient. This case is documented in the U.S. State Department human rights report. Source: U.S. State Dept Country Report on Human Rights Practices; acquittals dataset.</p><p style="margin-top:.8rem;font-size:.82rem;color:var(--muted2);font-family:var(--mono)">No institution tracks politically-motivated WCRPA dismissals. This is a <strong>CONFIRMED ABSENT</strong> data point.</p></div>
   </div>
 </section>
 
@@ -915,10 +937,16 @@ canvas{display:block;width:100%}
 <section id="geography" aria-labelledby="geo-h">
   <div class="wrap">
     <div class="sh"><div class="sh-eye">§04</div><h2 id="geo-h">Geographic Distribution</h2><p>Division, district, economic class, and access to OCC infrastructure determine whether an assault produces evidence, whether that evidence survives the system, and whether a trial ever happens.</p></div>
+
+    <div class="her" style="--bg:var(--ink)">
+      <p>The rate is highest in Barishal — 81.5 percent. That means in a room of ten women in Barishal, <strong>eight have experienced intimate partner violence</strong>. Not "women in difficult circumstances." Not a marginal population. Eight out of ten women in a room. And there is <strong>one full One-Stop Crisis Centre</strong> in the entire division.</p>
+      <p>These numbers have names. They have districts. They have specific hospitals where forensic examiners are unavailable at night, and specific courts where the case will wait three years for a charge to be framed, and specific villages where the shalish will meet before the police are ever called. <strong>Geography is not context. In Bangladesh's rape justice system, geography is verdict.</strong></p>
+    </div>
+
     <table class="dt reveal">
       <thead><tr><th>Division</th><th>Lifetime IPV Rate</th><th>Full OCCs</th><th>Structural Context</th></tr></thead>
       <tbody>
-        <tr><td><strong>Barishal</strong></td><td class="hi">81.5%</td><td class="num">1</td><td>Highest IPV rate. High food insecurity. One full OCC at Sher-e-Bangla Medical College.</td></tr>
+        <tr><td><strong>Barishal</strong></td><td class="hi">81.5%</td><td class="num">1</td><td>Highest IPV rate nationally. High food insecurity. One full OCC at Sher-e-Bangla Medical College.</td></tr>
         <tr><td><strong>Sylhet</strong></td><td class="hi">79.2%</td><td class="num">1</td><td>High remittance dependency. MAG Osmani OCC is sole centre.</td></tr>
         <tr><td><strong>Rajshahi</strong></td><td class="hi">78.9%</td><td class="num">1</td><td>Rajshahi MC Hospital OCC — oldest infrastructure. Pilot phase centre.</td></tr>
         <tr><td><strong>Khulna</strong></td><td class="num">76.4%</td><td class="num">2</td><td>Khulna MC + Magura (district level). Magura 2025 case originated here — in a district with no full OCC.</td></tr>
@@ -930,17 +958,79 @@ canvas{display:block;width:100%}
   </div>
 </section>
 
+<!-- ══ §10 POST-REVOLUTION SURGE ══ -->
+<section class="dark" id="surge" aria-labelledby="surge-h">
+  <div class="wrap">
+    <div class="sh"><div class="sh-eye">§10</div><h2 id="surge-h">The 2025 Surge — A New Crisis Inside the Crisis</h2><p>The political transition of August 2024 did not bring safety. The data from 2025 documents a measurable, dateable, sourced surge in violence against women and children — happening alongside the reform agenda, not after it.</p></div>
+
+    <div class="her" style="--bg:var(--ink2)">
+      <p>She filed in October 2024. The political transition had just happened. People were saying things would change. She believed them. She was from a Hindu family in a southern district, and what had happened to her had happened partly because of who her family was. She knew this. The men who did it knew this. The local police who filed her complaint seemed to know this too — the way they wrote it down, carefully not naming what it was.</p>
+      <p>She does not know yet what the statistics will say about women like her in the months after the revolution. She does not know that <strong>BMP documented a 52.3% rise in rape victims in 2025</strong> compared to 2024. She does not know about the 75% surge in child rape cases in the first half of the year. She knows only that it is March 2026, and no one has called about her case in four months.</p>
+    </div>
+
+    <div class="stat-strip">
+      <div class="ss-item"><div class="ss-num" style="color:var(--bloodl)">+52.3%</div><div class="ss-lbl">BMP rape victims<br>2024→2025</div></div>
+      <div class="ss-item"><div class="ss-num" style="color:var(--bloodl)">+75%</div><div class="ss-lbl">Child rape cases<br>H1 2024→H1 2025</div></div>
+      <div class="ss-item"><div class="ss-num" style="color:var(--bloodl)">+22%</div><div class="ss-lbl">PHQ total VAWC<br>H1 2024→H1 2025</div></div>
+      <div class="ss-item"><div class="ss-num" style="color:var(--amberl)">265%</div><div class="ss-lbl">Child rape spike<br>March 2024→2025</div></div>
+    </div>
+
+    <table class="dt reveal" style="margin-top:1.5rem">
+      <thead><tr><th>Metric</th><th>2024</th><th>2025</th><th>Change</th><th>Source</th><th>Tier</th></tr></thead>
+      <tbody>
+        <tr><td>BMP total rape victims</td><td class="num">516</td><td class="num">786</td><td class="num" style="color:var(--bloodl)">+52.3%</td><td>Dhaka Tribune Feb 2026 · S-85</td><td><span class="tier tc">CONFIRMED</span></td></tr>
+        <tr><td>BMP girl victims of rape (ages 1–17)</td><td class="num">—</td><td class="num">543</td><td style="font-size:.78rem;color:var(--amberl)">69% of all victims</td><td>Dhaka Tribune Feb 2026 · S-85</td><td><span class="tier tc">CONFIRMED</span></td></tr>
+        <tr><td>BMP gang rape victims</td><td class="num">—</td><td class="num">179</td><td style="font-size:.78rem">104 girls + 75 women</td><td>Dhaka Tribune Feb 2026 · S-85</td><td><span class="tier tc">CONFIRMED</span></td></tr>
+        <tr><td>ASK total rape cases monitored</td><td class="num">635</td><td class="num">749</td><td class="num" style="color:var(--bloodl)">+18%</td><td>Dhaka Tribune Feb 2026 · S-84</td><td><span class="tier tc">CONFIRMED</span></td></tr>
+        <tr><td>ASK gang rape cases</td><td class="num">—</td><td class="num">180</td><td style="font-size:.78rem">24% of total cases</td><td>Dhaka Tribune Feb 2026 · S-84</td><td><span class="tier tc">CONFIRMED</span></td></tr>
+        <tr><td>ASK murders after rape</td><td class="num">—</td><td class="num">36</td><td>—</td><td>Dhaka Tribune Feb 2026 · S-84</td><td><span class="tier tc">CONFIRMED</span></td></tr>
+        <tr><td>PHQ VAWC filings H1</td><td class="num">9,000</td><td class="num">11,000</td><td class="num" style="color:var(--bloodl)">+22%</td><td>Arab News Aug 2025 · S-84</td><td><span class="tier tc">CONFIRMED</span></td></tr>
+        <tr><td>Child rape cases H1 (ASK, girls under 18)</td><td class="num">175</td><td class="num">306</td><td class="num" style="color:var(--bloodl)">+75%</td><td>Daily Star Aug 2025 · S-83</td><td><span class="tier tc">CONFIRMED</span></td></tr>
+        <tr><td>Child rape — March alone</td><td class="num">29</td><td class="num">106</td><td class="num" style="color:var(--bloodl)">+265%</td><td>Daily Star Aug 2025 · S-83</td><td><span class="tier tc">CONFIRMED</span></td></tr>
+        <tr><td>UNICEF — child rape (first 10 weeks 2025)</td><td class="num">—</td><td class="num">50</td><td>—</td><td>UNICEF Bangladesh Mar 2025 · S-79</td><td><span class="tier tc">CONFIRMED</span></td></tr>
+        <tr><td>Toddlers raped (ages 0–6) H1 2025</td><td class="num">—</td><td class="num">49</td><td>—</td><td>Daily Star Aug 2025 · S-83</td><td><span class="tier tc">CONFIRMED</span></td></tr>
+      </tbody>
+    </table>
+
+    <div class="finding red reveal" style="margin-top:1.5rem"><div class="f-title">What Is Causing the Surge <span class="tier tp">PROBABLE · S-80</span></div>
+      <p>HRW (January 2026) and BMP both attribute the 2025 surge in gender-based violence to the activities of hardline religious groups that have protested against the interim government's efforts to improve gender equality. Dr. Fauzia Moslem, president of BMP, has specifically documented groups demanding an end to "anti-Islamic" activities — which has manifested in physical abuse of women in public spaces and intensified silencing of survivors. The BMP also highlighted the scrapping of the 60% quota for women in government primary school teacher recruitment as a structural regression. <span class="tier tp">PROBABLE · S-80, S-84</span></p>
+      <p style="margin-top:.8rem">A separate and distinct driver: the PHQ documented 645 incidents involving minority communities in 2025, of which 58 were rape classified as "non-communal." The classification itself — designed to minimise the communal framing — means many targeted minority women are counted in the general statistics and their intersectional vulnerability is invisible in the data. <span class="tier tc">CONFIRMED · S-71</span></p>
+    </div>
+
+    <div class="amb reveal"><strong>The data gap that makes this surge impossible to fully measure:</strong> PHQ does not publish monthly conviction rates, so we cannot know whether the surge in violence was accompanied by any change in the rate of accountability. The surge is documented. The justice response is not. This is a <strong>CONFIRMED ABSENT</strong> data point. See I-01 and Missing Data section.</div>
+  </div>
+</section>
+
 <!-- ══ §05 ACCESS ══ -->
 <section class="dark" id="access" aria-labelledby="acc-h">
   <div class="wrap">
-    <div class="sh"><div class="sh-eye">§05</div><h2 id="acc-h">What Survivors Face</h2><p>The path from assault to justice requires navigating multiple hostile institutions within a shrinking forensic window. At every step, the system creates conditions for evidence loss, abandonment, and retraumatization.</p></div>
-    <div class="card-grid reveal">
-      <div class="card"><div class="cn">22%</div><div class="cl">Reach Forensic Dept Within 72hr <span class="tier tp">PROBABLE</span></div><div class="cd">Only 22% of survivors reach a forensic examiner within the critical 72-hour evidence window. 78% arrive after the window closes. Evidence degrades irreversibly. The conviction rate is downstream of this failure. <span class="tier tp">PROBABLE · S-01</span></div></div>
-      <div class="card"><div class="cn">71%</div><div class="cl">OCC Visitors Who Don't File <span class="tier tp">PROBABLE</span></div><div class="cd">71% of rape survivors who sought treatment at OCCs opt not to file police cases (BRAC USA late 2025 context). Earlier OCC data (2001–2013): 78% did not pursue legal action. Fear of retaliation, cost, stigma. <span class="tier tp">PROBABLE · S-72, S-01</span></div></div>
-      <div class="card"><div class="cn">87%</div><div class="cl">Experience Secondary Victimization <span class="tier tp">PROBABLE</span></div><div class="cd">By the justice system: police attitudes, forensic procedures, court processes, defense cross-examination. The journey through the system is itself a form of harm. <span class="tier tp">PROBABLE · S-72 (HRCBM PIL Aug 2025, citing ASK + World Bank data)</span></div></div>
-      <div class="card"><div class="cn">Sec 375</div><div class="cl">Marital Rape Exemption <span class="tier tc">CONFIRMED</span></div><div class="cd">Penal Code 1860: marital rape is not a crime unless wife is under 13. 75.9% of women experience lifetime IPV — predominantly by a spouse. The majority of sexual violence is legally invisible. CEDAW para 19(a) requires criminalization. S-41.</div></div>
+    <div class="sh"><div class="sh-eye">§05</div><h2 id="acc-h">What Survivors Face</h2><p>The path from assault to justice requires navigating multiple hostile institutions within a shrinking forensic window. The first barrier is not the police station. It is the hospital door — which may be closed before she ever gets there.</p></div>
+
+    <div class="finding red reveal"><div class="f-title">The Section 32 Catch-22 — The Door That Doesn't Open <span class="tier tp">PROBABLE · S-72</span></div>
+      <p>Section 32 of the WCRPA 2000 requires hospitals to examine rape survivors. But in practice, many hospitals across Bangladesh refuse to conduct the examination unless the survivor first presents a police case number. This creates a structural impossibility: <strong>you cannot build a forensic case without a medical examination, and you cannot get a medical examination without a case number.</strong></p>
+      <p>The HRCBM Public Interest Litigation (August 2025) specifically documents this violation. The hospital refusal destroys forensic evidence before the funnel even begins — before a police complaint, before an FIR, before a lawyer. The survivor is turned away, the evidence window closes, and the system never registers that she came at all. <span class="tier tp">PROBABLE · S-72 (HRCBM PIL Aug 2025)</span></p>
     </div>
-    <div class="finding red reveal"><div class="f-title">The Shalish — Village Mediation as Impunity Mechanism</div><p>The most common response to sexual violence is not a police report. It is a shalish — an informal village tribunal, almost always of men, resolving disputes through compensation and community pressure. The shalish removes the assault from the formal legal system, produces no criminal record, and creates intense pressure on the survivor to agree. The death penalty for rape has made the shalish <strong>more</strong> attractive: when reporting means a possible execution of a family member, settlement becomes rational.</p></div>
+
+    <div class="card-grid reveal">
+      <div class="card" style="border-color:rgba(196,30,58,.5)"><div class="cn" style="color:var(--bloodl)">§32</div><div class="cl">Hospital Refusal — Legal Violation <span class="tier tp">PROBABLE</span></div><div class="cd">Hospitals refusing examination without a prior police case number. Violates WCRPA s.32. Creates the Section 32 Catch-22 — destroys forensic evidence before the justice funnel begins. Source: HRCBM PIL Aug 2025 · S-72. No institution tracks the national scale of this violation. <span class="ta tier">CONFIRMED ABSENT</span></div></div>
+      <div class="card"><div class="cn">22%</div><div class="cl">Reach Forensic Dept Within 72hr <span class="tier tp">PROBABLE</span></div><div class="cd">Only 22% of survivors reach a forensic examiner within the critical 72-hour evidence window. 78% arrive after the window closes. Evidence degrades irreversibly. The conviction rate is downstream of this failure — the Section 32 barrier, silence, and shalish delay all contribute. <span class="tier tp">PROBABLE · S-01</span></div></div>
+      <div class="card"><div class="cn">71%</div><div class="cl">OCC Visitors Who Don't File <span class="tier tp">PROBABLE</span></div><div class="cd">71% of rape survivors who sought treatment at OCCs opt not to file police cases (HRCBM PIL Aug 2025, updated from earlier 78% figure). Fear of retaliation, Section 32 barrier, cost, stigma, §17 risk. <span class="tier tp">PROBABLE · S-72</span></div></div>
+      <div class="card"><div class="cn">87%</div><div class="cl">Experience Secondary Victimization <span class="tier tp">PROBABLE</span></div><div class="cd">By the justice system: police attitudes, forensic procedures, court processes, defense cross-examination. The journey through the system is itself a form of harm. <span class="tier tp">PROBABLE · S-72 (HRCBM PIL Aug 2025, citing ASK + World Bank data)</span></div></div>
+      <div class="card"><div class="cn">Sec 375</div><div class="cl">Marital Rape Exemption <span class="tier tc">CONFIRMED</span></div><div class="cd">Penal Code 1860: marital rape is not a crime unless wife is under 13. 76% of women experience lifetime IPV — predominantly by a spouse. The majority of sexual violence is legally invisible. CEDAW 2016 para 19(a) required criminalization. 2025 Ordinance did not address it. S-41.</div></div>
+    </div>
+    <div class="finding red reveal"><div class="f-title">The Shalish — Village Mediation as Impunity Mechanism</div><p>The most common response to sexual violence is not a police report. It is a shalish — an informal village tribunal, almost always of men, resolving disputes through compensation and community pressure. The shalish removes the assault from the formal legal system, produces no criminal record, and creates intense pressure on the survivor to agree. The death penalty for rape has made the shalish <strong>more</strong> attractive: when reporting means a possible execution of a family member, settlement becomes rational. A 2020 High Court directive ordered police to stop recognising shalish settlements in rape cases. Shalish continues in practice.</p></div>
+
+    <!-- ACCESS TABLE -->
+    <table class="dt reveal">
+      <thead><tr><th>Access Point</th><th>National Coverage</th><th>Gap</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td>Full OCCs (DNA + legal + medical + shelter)</td><td class="num">14</td><td>50 of 64 districts have no full OCC. Survivors face 3–4 month DNA wait, no forensic physician, no shelter.</td><td><span class="tier tc">CONFIRMED · S-55</span></td></tr>
+        <tr><td>Crisis cells (limited services)</td><td class="num">67</td><td>District/upazila hospitals. No DNA. Limited to basic medical referral.</td><td><span class="tier tc">CONFIRMED · S-09</span></td></tr>
+        <tr><td>BLAST legal aid districts</td><td class="num">25 of 64</td><td>39 districts have no free legal representation for survivors.</td><td><span class="tier tc">CONFIRMED · S-18</span></td></tr>
+        <tr><td>Helpline 109 awareness</td><td class="num">12%</td><td>7.16M calls received — but 88% of women are unaware it exists.</td><td><span class="tier tc">CONFIRMED · S-09</span></td></tr>
+        <tr><td>OCC visitors who file police case</td><td class="num">29%</td><td>71% of women who reached the crisis centre decided the system was not safe to enter.</td><td><span class="tier tp">PROBABLE · S-72</span></td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
@@ -993,6 +1083,11 @@ canvas{display:block;width:100%}
   <div class="wrap">
     <div class="sh"><div class="sh-eye">§08</div><h2 id="wit-h">Witness Protection — The Legislative Vacuum</h2><p>Bangladesh has no Witness Protection Law. BRAC 2022 and HRW 2020 identify witness intimidation as a primary driver of case collapse. Every regional comparator has enacted one.</p></div>
     <div class="warn reveal"><strong>Bangladesh: No Witness Protection Law. CONFIRMED ABSENT.</strong> Law Commission draft exists — not enacted. Sources: BRAC 2022 (S-01) · HRW 2020 (S-45).</div>
+
+    <div class="finding red reveal"><div class="f-title">The Absence Rate — What No Witness Protection Looks Like in Data <span class="tier tp">PROBABLE</span></div>
+      <p>In some districts, <strong>more than 60% of WCRPA cases collapse because key witnesses do not appear</strong>. Witnesses relocate. Witnesses are pressured. Witnesses die. Witnesses are bribed. Without a legal framework to protect, relocate, or secure witnesses, the prosecution's case disintegrates not because evidence was absent — but because the people who saw what happened are afraid to say so in court.</p>
+      <p>This figure is documented in prosecution statistics research but is not tracked nationally. The absence of national witness non-appearance data is itself an accountability failure — it means the scale of witness-driven case collapse is <strong>CONFIRMED ABSENT</strong> from the official record. <span class="tier tp">PROBABLE · Bangladesh_Rape_Prosecution_Statistics.docx</span></p>
+    </div>
     <table class="dt reveal">
       <thead><tr><th>Country</th><th>Legislation</th><th>Year</th></tr></thead>
       <tbody>
@@ -1112,15 +1207,17 @@ canvas{display:block;width:100%}
         <span class="mc mc-fin">Acquittal</span>
       </div>
     </div>
-    <p>This is not a chain of accidents. Every link is documented. Every failure point has a name, a source, and a tier label. The silence is documented. The shalish is documented. The forensic window failure is documented. The delay is documented. The acquittal is documented. <strong>The only thing that is not documented is the government's plan to change any of it.</strong></p>
-    <p>In March 2025, the interim government enacted the WCRPA Amendment Ordinance — the most significant reform in the law's 25-year history. Genuine reforms. But the Magura exception proves the system can move fast when forced to. And the Runa Akhter inversion proves the system can convict when power demands it. <strong>It reserves both for moments when politics, not justice, is the engine.</strong></p>
-    <p>The question the 2025 Ordinance poses is whether the law can force that engine to run for all 150,000 pending cases — or only for the ones that go viral.</p>
+    <p>This is not a chain of accidents. Every link is documented. Every failure point has a name, a source, and a tier label. The silence is documented. The shalish is documented. The Section 32 catch-22 is documented. The forensic window failure is documented. The delay is documented. The acquittal is documented. <strong>The only thing that is not documented is the government's plan to change any of it at systemic scale.</strong></p>
+    <p>In March 2025, the interim government enacted the WCRPA Amendment Ordinance — the most significant reform in the law's 25-year history. Genuine reforms. But in the same year that the Ordinance was signed, BMP recorded a 52% rise in documented rape victims. Child rape surged 75% in the first half of the year alone. The reform and the surge are happening simultaneously, in the same country, at the same time. <strong>The machine does not stop running because the legislature is busy.</strong></p>
+    <p>The Magura exception proves the system can move fast when forced to. The Runa Akhter inversion proves the system can convict when power demands it. The Sherpur "technical grounds" dismissal proves the system can protect men with political connections. The Jamalpur 21-year case proves the system can make a woman wait a lifetime. <strong>It reserves all of these outcomes for the right circumstances. The question is who gets to be the right circumstance.</strong></p>
+    <p>The 2025 Ordinance poses one test: can the law force that engine to run for all 150,000 pending cases — or only for the ones that go viral? As of March 2026, we do not know. Because the government does not publish the data that would answer the question.</p>
     <div class="her-final">
       <p>She withdrew her case on a Tuesday.</p>
-      <p>She told no one. She came home, sat with her mother, and did not explain. There was nothing to explain. She had tried the system the system had built for her, and the system had done exactly what the data said it would do.</p>
+      <p>She told no one. She came home, sat with her mother, and did not explain. There was nothing to explain. She had tried the system the system had built for her — she had navigated the shalish, found the OCC, waited at the hospital door, survived the forensic examination, named her attacker in a document she signed, and sat through three years of hearings while her witness went silent and her evidence aged in a lab — and the system had done exactly what the data said it would do.</p>
       <p><strong>She is not a failure of courage. She is a documented output.</strong></p>
-      <p>And there are 300,000 more like her this year alone — most of whom will never even reach the door of a crisis centre, because they already know what waits on the other side.</p>
-      <p>The machine runs. The numbers accumulate. The silence continues. And somewhere in Bangladesh, right now, another woman is doing the calculation.</p>
+      <p>And there are 300,000 more like her this year alone — most of whom will never even reach the door of a crisis centre, because they already know, from watching women like her, what waits on the other side. In 2025, 749 women and children were tracked by ASK. 786 by BMP. 306 children in the first six months. 106 children in March alone.</p>
+      <p>The machine runs. The numbers accumulate. The silence continues. Somewhere in Bangladesh right now, another woman is doing the calculation. And the system — 150,000 cases deep, 12,000 more every year, 2,349 days average — is waiting patiently for her to decide it isn't worth it.</p>
+      <p style="margin-top:1.5rem;font-family:var(--mono);font-size:.54rem;color:var(--muted2);font-style:normal;letter-spacing:.08em">BD-INV-002 · THE IMPUNITY MACHINE · Insight Gaps · v5.0 · March 2026 · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5a333429333d322e3d3b2a291a3d373b333674393537">[email&#160;protected]</a></p>
     </div>
   </div>
 </section>
@@ -1136,7 +1233,42 @@ canvas{display:block;width:100%}
       <div class="meth-card"><h4>M-004 — Narrative Standards</h4><p>The opening narrative is a documented composite based exclusively on confirmed statistics. No individual's identity is assumed or implied. Composite approach is standard in data journalism (ProPublica, NYT, Reuters) and is disclosed in the editorial note at the opening.</p></div>
       <div class="meth-card"><h4>M-005 — AI Hallucination Disclosure</h4><p>During research, AI tools returned four papers purportedly about WCRPA tribunals — all were about the 1971 International Crimes Tribunal. All four excluded. This disclosure is evidence of the research integrity process, not a limitation of it.</p></div>
       <div class="meth-card"><h4>M-006 — Data Conflict Log</h4><p>2022 filing figures: ResearchGate (S-62) gives 4,762; Prothom Alo (S-61) gives 6,032. Discrepancy = 27%. Likely cause: Figure A (total WCRPA inc. attempts) vs Figure B (completed rape only). Cannot confirm without primary PHQ document. 4,762 used pending resolution.</p></div>
-      <div class="meth-card"><h4>M-007 — Version History</h4><p>v1.0–1.6: Foundational research, interactive tools, OCC data, global context. v2.0: Live record, monthly ledger, backlog CONFIRMED. v3.0–3.1 (Mar 2026): Full emotional rebuild, cinematic opening, Her thread, all charts, probability correction, monthly heatmap. <strong>v4.0 (Mar 2026):</strong> National Live Dashboard rebuilt and moved to top of report; hero image restored; four dashboard tabs (Tracked Cases, Month by Month, Latest Reports, By Division); S-35 source collision fixed; 14.2% forensic figure corrected to 22% with correct BRAC citation; 87% secondary victimization sourced to HRCBM S-72; IPV updated to 76% (Oct 2025 BBS/UNFPA); 11 new sources S-71–S-81 added covering Aug 2025–Mar 2026; collector.py fixed to prevent sports/irrelevant RSS items entering leads; leads.json cleaned.</p></div>
+      <div class="meth-card"><h4>M-007 — Version History</h4><p>v1.0–1.6: Foundational research, interactive tools, OCC data, global context. v2.0: Live record, monthly ledger, backlog CONFIRMED. v3.0–3.1 (Mar 2026): Full emotional rebuild, cinematic opening, Her thread, all charts, probability correction, monthly heatmap. v4.0 (Mar 2026): National Live Dashboard rebuilt; hero restored; 11 new sources S-71–S-81; forensic figure corrected 14.2%→22%; IPV updated 76%. <strong>v5.0 (Mar 2026):</strong> §01 convergence expanded to 8 sources + CEDAW 53.52% warning; §02 named extreme cases table (Jamalpur 21yr, Sylhet pending); §02 net backlog growth +12,000/yr; §03 Sherpur political acquittal; §04 humanised IPV narrative; §05 Section 32 catch-22 documented; §05 OCC non-filer updated 78%→71%; §08 60%+ witness absence rate; §10 Post-Revolution Surge new section; Master Evidence File (.xlsx) created and linked; Sources expanded to 91 (S-82–S-91, S-05, S-17 restored); conclusion upgraded with surge context; dashboard updated with honest ACTIVE INVESTIGATION label.</p></div>
+      <div class="meth-card"><h4>M-008 — Dashboard &amp; API Model</h4><p>The dashboard operates on three data layers: <strong>(1) Static confirmed figures</strong> — the big number tiles are hard-coded from confirmed sources and updated manually when new PHQ/BMP data is published. They are labelled with their source date, not "live." <strong>(2) Case Register</strong> — <code>/data/cases.json</code> tracks named cases with full timelines. Updated editorially when verified. <strong>(3) Leads Feed</strong> — <code>/data/leads.json</code> is populated by a GitHub Actions collector running every 6 hours. It searches Bangladeshi news RSS feeds for WCRPA-relevant terms and returns headlines for editorial review. It is explicitly labelled as a press monitoring feed — not a real-time incident counter. PHQ does not publish real-time data. No live counter is used. The "ACTIVE INVESTIGATION" label reflects the editorial status of the investigation, not a data feed.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DATA DOWNLOAD CTA ══ -->
+<section style="background:var(--ink3);border-top:2px solid var(--gold3);border-bottom:2px solid var(--gold3);padding:4rem 0" id="data-download">
+  <div class="wrap" style="max-width:860px">
+    <div style="display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;flex-wrap:wrap">
+      <div>
+        <div style="font-family:var(--mono);font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold2);margin-bottom:.8rem">BD-INV-002 · Master Evidence File · Open Data</div>
+        <h3 style="font-family:var(--display);font-size:clamp(1.3rem,2.5vw,1.9rem);font-weight:700;letter-spacing:-.02em;margin-bottom:.8rem;line-height:1.2">Every figure in this report is in the master evidence file.</h3>
+        <p style="font-family:var(--body);font-size:.88rem;color:var(--muted);line-height:1.75;max-width:580px">10 sheets. 132 sourced data points. 60 documented tribunal verdicts. 40 acquittals. All 91 sources with full citations and URLs. Evidence tier labels on every single claim. A dedicated sheet of <strong style="color:var(--amberl)">Confirmed Absent</strong> data — the official records that should exist and do not. Structured for court submissions, academic citation, and journalism.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.2rem;font-family:var(--mono);font-size:.54rem;color:var(--muted2)">
+          <span style="background:rgba(45,106,79,.15);color:var(--greenl);border:1px solid var(--green);padding:.2rem .55rem">AGGREGATE_STATISTICS</span>
+          <span style="background:rgba(45,106,79,.15);color:var(--greenl);border:1px solid var(--green);padding:.2rem .55rem">CONVICTION_RATES</span>
+          <span style="background:rgba(45,106,79,.15);color:var(--greenl);border:1px solid var(--green);padding:.2rem .55rem">TRIBUNAL_CASES</span>
+          <span style="background:rgba(45,106,79,.15);color:var(--greenl);border:1px solid var(--green);padding:.2rem .55rem">ACQUITTALS</span>
+          <span style="background:rgba(45,106,79,.15);color:var(--greenl);border:1px solid var(--green);padding:.2rem .55rem">SECTION_17_CASES</span>
+          <span style="background:rgba(45,106,79,.15);color:var(--greenl);border:1px solid var(--green);padding:.2rem .55rem">POLICY_TIMELINE</span>
+          <span style="background:rgba(45,106,79,.15);color:var(--greenl);border:1px solid var(--green);padding:.2rem .55rem">FORENSIC_CAPACITY</span>
+          <span style="background:rgba(45,106,79,.15);color:var(--greenl);border:1px solid var(--green);padding:.2rem .55rem">SOURCE_REGISTRY</span>
+          <span style="background:rgba(78,75,96,.3);color:var(--muted);border:1px solid var(--muted2);padding:.2rem .55rem">CONFIRMED_ABSENT</span>
+        </div>
+        <p style="font-family:var(--mono);font-size:.5rem;color:var(--muted2);margin-top:.9rem;line-height:1.7">CC BY-NC 4.0 · Attribution required · Evidence tier labels <strong>must</strong> be reproduced when citing · Corrections: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c1a8afb2a8a6a9b5a6a0b1b281a6aca0a8adefa2aeac">[email&#160;protected]</a></p>
+      </div>
+      <div style="text-align:center;flex-shrink:0">
+        <a href="/data/BD-INV-002_Master_Evidence_File.xlsx" download style="display:block;background:var(--gold3);border:1px solid var(--gold2);padding:1.2rem 1.8rem;font-family:var(--mono);font-size:.6rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:all .2s;margin-bottom:.6rem" onmouseover="this.style.background='rgba(201,168,76,.25)'" onmouseout="this.style.background='var(--gold3)'">
+          ↓ Download Master Evidence File<br><span style="color:var(--muted2);font-size:.5rem;letter-spacing:.08em;display:block;margin-top:.3rem">.xlsx · 10 sheets · Open data</span>
+        </a>
+        <div style="font-family:var(--mono);font-size:.48rem;color:var(--muted2);line-height:1.7">
+          Also available:<br>
+          <a href="/data/cases.json" style="color:var(--gold2)">cases.json</a> · <a href="/data/monthly.json" style="color:var(--gold2)">monthly.json</a> · <a href="/data/leads.json" style="color:var(--gold2)">leads.json</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1144,7 +1276,7 @@ canvas{display:block;width:100%}
 <!-- ══ SOURCES ══ -->
 <section class="darker" id="sources" aria-labelledby="src-h">
   <div class="wrap">
-    <div class="sh"><div class="sh-eye">Source Registry</div><h2 id="src-h">All Named Sources</h2><p>Every claim corresponds to at least one source below. Tier labels are mandatory when citing. <span style="font-family:var(--mono);font-size:.56rem">81 sources · BD-INV-002 · v4.0 · CC BY-NC 4.0</span></p></div>
+    <div class="sh"><div class="sh-eye">Source Registry</div><h2 id="src-h">All Named Sources</h2><p>Every claim corresponds to at least one source below. Tier labels are mandatory when citing. <span style="font-family:var(--mono);font-size:.56rem">91 sources · BD-INV-002 · v5.0 · CC BY-NC 4.0 · Full registry with URLs: Master Evidence File (Sheet 9)</span></p></div>
     <div id="sources-list">
       <div class="src-item"><span class="sid">S-01</span><div class="sb">BRAC/Agile — "Public Prosecution System in Bangladesh" Dec 2022. 3.66% conviction rate; 2,349 avg days; 2 DNA machines; 16 districts. <span class="tier tc">CONFIRMED</span><div class="surl">https://dgikh81ssvyrj.cloudfront.net/media/documents/Public-Prosecution-System-in-Bangladesh-The-Issues-of-Justice-for-Violence-aga_IKQWThX.pdf</div></div></div>
       <div class="src-item"><span class="sid">S-02</span><div class="sb">UNFPA/BBS Violence Against Women Survey 2024. 75.9% national lifetime IPV; 62–64% told no one; 27,476 women surveyed. <span class="tier tc">CONFIRMED</span><div class="surl">https://bangladesh.unfpa.org/en/2024-violence-against-women-survey</div></div></div>
@@ -1185,7 +1317,20 @@ canvas{display:block;width:100%}
       <div class="src-item"><span class="sid">S-78</span><div class="sb">BSS — Supreme Court Secretariat Ordinance 2025. Launched Dec 11, 2025. Decouples judicial administration from Law Ministry. <span class="tier tc">CONFIRMED</span></div></div>
       <div class="src-item"><span class="sid">S-79</span><div class="sb">UNICEF Bangladesh — Statement March 23, 2025. 50 child rape cases in first 10 weeks of 2025. Confirms escalating child vulnerability. <span class="tier tc">CONFIRMED</span><div class="surl">https://www.unicef.org/bangladesh/en/press-releases/statement-rana-flowers-unicef-representative-bangladesh-recent-cases-violence</div></div></div>
       <div class="src-item"><span class="sid">S-80</span><div class="sb">HRW — "Bangladeshi Women, Girls, Minorities Face Rising Violence" Jan 14 2026. BMP: GBV increase attributed to hardline religious group activities and anti-gender-equality rhetoric. <span class="tier tc">CONFIRMED</span><div class="surl">https://www.hrw.org/news/2026/01/14/bangladeshi-women-girls-minorities-face-rising-violence</div></div></div>
-      <div class="src-item"><span class="sid">S-81</span><div class="sb">CEDAW/C/BGD/9-10 — Government of Bangladesh 9th/10th Periodic Report 2025. Investigation period reduced from 30 to 15 days for rape cases under March 2025 WCRPA ordinance. <span class="tier tc">CONFIRMED</span><div class="surl">https://digitallibrary.un.org/record/4094631/files/CEDAW_C_BGD_9-10-EN.pdf</div></div></div>
+      <div class="src-item"><span class="sid">S-81</span><div class="sb">CEDAW/C/BGD/9-10 — Government of Bangladesh 9th/10th Periodic Report 2025. Investigation period reduced from 30 to 15 days for rape cases under March 2025 WCRPA ordinance. Disposal rate 53.52% (NOT conviction rate). <span class="tier tc">CONFIRMED</span><div class="surl">https://digitallibrary.un.org/record/4094631/files/CEDAW_C_BGD_9-10-EN.pdf</div></div></div>
+      <div class="src-item"><span class="sid">S-82</span><div class="sb">TBS News — PHQ H1 2025 VAWC data. 2,744 rape cases H1 2025. 22% rise vs H1 2024. <span class="tier tc">CONFIRMED</span><div class="surl">https://www.tbsnews.net/bangladesh/crime/violence-against-women-first-half-2025-shows-sharp-increase-over-previous-2-years</div></div></div>
+      <div class="src-item"><span class="sid">S-83</span><div class="sb">Daily Star — "Child rape cases rise nearly 75% in 7 months" Aug 2025. H1 2025: 306 vs 175 H1 2024. March 2025: 106 cases (vs 29 March 2024 — 265% spike). 49 toddlers aged 0–6. <span class="tier tc">CONFIRMED</span><div class="surl">https://www.thedailystar.net/news/bangladesh/crime-justice/news/child-rape-cases-rise-nearly-75-7-months-3969896</div></div></div>
+      <div class="src-item"><span class="sid">S-84</span><div class="sb">Dhaka Tribune — "Bangladesh sees sharp rise in rape cases" Feb 2026. ASK 2025: 749 total; 180 gang rape; 36 murders after rape; 7 suicides. PHQ VAWC H1: 11,000 vs 9,000. <span class="tier tc">CONFIRMED</span><div class="surl">https://www.dhakatribune.com/bangladesh/402371/bangladesh-sees-sharp-rise-in-rape-cases-with</div></div></div>
+      <div class="src-item"><span class="sid">S-85</span><div class="sb">Dhaka Tribune — BMP 2025 annual data. Rape victims: 786 (2025) vs 516 (2024) — 52.3% rise. 543 girl victims (69%). 179 gang rape. <span class="tier tc">CONFIRMED</span><div class="surl">https://www.dhakatribune.com/bangladesh/402371/bangladesh-sees-sharp-rise-in-rape-cases-with</div></div></div>
+      <div class="src-item"><span class="sid">S-86</span><div class="sb">UN Women Asia Pacific — WCRPA conviction rate ~2.0%; 2013–2019 national tribunal data. <span class="tier tc">CONFIRMED</span><div class="surl">https://asiapacific.unwomen.org</div></div></div>
+      <div class="src-item"><span class="sid">S-87</span><div class="sb">EU/GTAI Assessment 2025 — WCRPA conviction rate estimated 0.5–1% (cited as 0.75%). Contemporary external assessment. <span class="tier tp">PROBABLE</span></div></div>
+      <div class="src-item"><span class="sid">S-88</span><div class="sb">Daily Star — DMP Feb 2025 data. 295 MSF violence incidents Feb 2025. <span class="tier tc">CONFIRMED</span><div class="surl">https://www.thedailystar.net/law-our-rights/news/comprehensive-legal-approach-the-crime-rape-3847631</div></div></div>
+      <div class="src-item"><span class="sid">S-89</span><div class="sb">Daily Star — Dec 2024 ASK annual report. ASK: 2020=1,627; 2021=774; 2022=561; 2023=389 rape cases monitored. <span class="tier tc">CONFIRMED</span><div class="surl">https://www.thedailystar.net/news/bangladesh/crime-justice/news/least-one-woman-raped-nearly-every-9hrs-3760766</div></div></div>
+      <div class="src-item"><span class="sid">S-90</span><div class="sb">Daily Star — Q1 2024 ASK monitoring. 114 women raped in Q1 2024. ASK 2024: 635 total. <span class="tier tc">CONFIRMED</span><div class="surl">https://www.thedailystar.net/news/bangladesh/news/114-women-raped-first-three-months-year-3580096</div></div></div>
+      <div class="src-item"><span class="sid">S-91</span><div class="sb">BRAC USA — OCC reporting gap data. 71% of OCC survivors opt not to file police case. "Three reforms we need to ensure justice for GBV in Bangladesh." <span class="tier tp">PROBABLE</span><div class="surl">https://www.bracusa.org/news/three-reforms-we-need-to-ensure-justice-for-gender-based-violence-in-bangladesh/</div></div></div>
+      <div class="src-item" style="background:rgba(196,30,58,.05);border-left:2px solid var(--blood)"><span class="sid" style="color:var(--bloodl)">S-05</span><div class="sb">Amnesty International — "Death penalty is not solution for violence against women" Oct 2020. Policy critique — opposes mandatory death penalty for rape. Directly relevant to §07 deterrence analysis. <span class="tier tc">CONFIRMED</span><div class="surl">https://www.amnesty.org/en/latest/press-release/2020/10/bangladesh-death-penalty-is-not-the-solution-for-violence-against-women/</div></div></div>
+      <div class="src-item" style="background:rgba(196,30,58,.05);border-left:2px solid var(--blood)"><span class="sid" style="color:var(--bloodl)">S-17</span><div class="sb">OMCT — Urgent Intervention, Jessore gang rape 2009. Elite perpetrator protection; shalish pressure applied; case documented. World Organisation Against Torture. <span class="tier tc">CONFIRMED</span><div class="surl">https://www.omct.org</div></div></div>
+      <div style="font-family:var(--mono);font-size:.5rem;color:var(--muted2);padding:1rem 0;border-top:1px solid var(--border);margin-top:1rem;line-height:1.8">Complete source registry with full URLs, publication dates, key data points, and evidence tier labels is available in the <strong style="color:var(--gold2)">Master Evidence File — Sheet 9 (SOURCE_REGISTRY)</strong>. Download above. · BD-INV-002 · v5.0 · 91 named sources</div>
   </div>
 </section>
 
@@ -1207,16 +1352,17 @@ canvas{display:block;width:100%}
       <div>
         <div class="blabel">Data</div>
         <div class="dlinks">
-          <a href="/data/cases.json" download><span>JSON</span>cases.json — 4 tracked cases</a>
+          <a href="/data/BD-INV-002_Master_Evidence_File.xlsx" download><span>XLSX</span>Master Evidence File — 10 sheets · 130+ data points · 91 sources</a>
+          <a href="/data/cases.json" download><span>JSON</span>cases.json — tracked cases register</a>
           <a href="/data/monthly.json" download><span>JSON</span>monthly.json — 2019–2026 ledger</a>
-          <a href="/data/leads.json" download><span>JSON</span>leads.json — automated feed</a>
+          <a href="/data/leads.json" download><span>JSON</span>leads.json — automated press feed</a>
         </div>
-        <p style="font-family:var(--mono);font-size:.52rem;color:var(--muted2);line-height:1.6">BD-INV-002 · v4.0 · March 2026<br>CC BY-NC 4.0 · Tier labels mandatory when citing<br>Automated collector: GitHub Actions every 6h</p>
+        <p style="font-family:var(--mono);font-size:.52rem;color:var(--muted2);line-height:1.6">BD-INV-002 · v5.0 · March 2026<br>CC BY-NC 4.0 · Tier labels mandatory when citing<br>Automated collector: GitHub Actions every 6h</p>
       </div>
     </div>
   </div>
 </footer>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 // ═══ COUNTER ENGINE — removed; replaced with evidence-based static display ═══
 // Hero counter shows ~12/day based on 2024 PHQ annual average (4,394 ÷ 365)
@@ -1335,7 +1481,10 @@ async function loadCases() {
        notes:'~3,380 days from assault to verdict. One convict (Khokon Khan) absconding. System functioning normally.'},
       {id:'BS-2026-001',label:'Barishal Rape Complainant — §17 Counter-Charge',district:'Barishal',date:'January 2026',status:'COUNTER_CHARGED',tier:'CONFIRMED',
        timeline:[{date:'2026-01',event:'Tribunal ordered arrest of complainant + 5 others incl. 3 teachers under §17.',source:'TBS News · S-13'}],
-       notes:'Under 2025 Ordinance "dignity" expansion. Active monitoring — I-08.'}
+       notes:'Under 2025 Ordinance "dignity" expansion. Active monitoring — I-08.'},
+      {id:'SY-2020-001',label:'Sylhet MC College Gang Rape — Still Pending',district:'Sylhet',date:'2020',status:'PENDING',tier:'PROBABLE',
+       timeline:[{date:'2020',event:'Gang rape at MC College. One of Bangladesh\'s most publicised cases.',source:'National press'},{date:'2025-03',event:'Case transferred to Speedy Trial Tribunal after Supreme Court order. Still in proceedings.',source:'Bangladesh_Rape_Case_Verdict_Analysis.docx'}],
+       notes:'High-profile case still pending after 5+ years. Status as of March 2025. Transferred to Speedy Trial Tribunal — yet to conclude. The system\'s most-watched case has not moved to verdict.'}
     ];
     filterCases('ALL', document.querySelector('.fchip.active'));
   }
@@ -1695,13 +1844,4 @@ async function loadMonthlyTable() {
 }
 loadMonthlyTable();
 
-// ═══ LAST UPDATED ═══
-fetch('/data/leads.json').then(r=>r.json()).then(d => {
-  if (d.last_updated) {
-    document.getElementById('rec-last-updated').innerHTML = `Last updated: <strong style="color:var(--text)">${new Date(d.last_updated).toLocaleString('en-GB',{dateStyle:'medium',timeStyle:'short'})}</strong>`;
-  }
-}).catch(()=>{});
-
-</script>
-</body>
-</html>
+// ═══ LAST UP
