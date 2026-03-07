@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Methodology: The Impunity Machine | Insight Gaps</title>
+  <meta name="description" content="Full methodology for BD-INV-002 — evidence tiers, conviction rate models, source conflicts, data gaps.">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="stylesheet" href="/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4PYE0MEK12"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4PYE0MEK12');</script>
+  <style>
+    body{font-family:var(--sans,'Inter',system-ui,sans-serif)}
+    .series-nav{background:rgba(26,26,46,.97);border-bottom:1px solid rgba(0,0,0,.25);padding:.45rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:.8rem;flex-wrap:wrap;font-family:'JetBrains Mono',monospace}
+    .sn-left{display:flex;align-items:center;gap:.5rem;font-size:.46rem;color:rgba(200,190,175,.6);text-transform:uppercase;letter-spacing:.1em}
+    .sn-left a{color:rgba(200,190,175,.5);text-decoration:none}
+    .sn-right{display:flex;gap:.4rem;flex-wrap:wrap}
+    .sn-btn{font-size:.42rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(200,190,175,.7);border:1px solid rgba(60,58,80,.8);padding:.2rem .65rem;text-decoration:none}
+    .sn-btn.active{color:#c9a84c;border-color:rgba(180,130,50,.4)}
+    .meth-hero{background:var(--ink,#1a1a2e);border-bottom:3px solid var(--red,#C41E3A);padding:4rem 0 3rem}
+    .wrap{max-width:820px;margin:0 auto;padding:0 2rem}
+    .ms{margin-bottom:3.5rem}
+    .ms h2{font-family:var(--serif,'Playfair Display',serif);font-size:1.55rem;font-weight:700;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--red,#C41E3A)}
+    .ms h3{font-size:.95rem;font-weight:700;margin:1.5rem 0 .5rem}
+    .ms p,.ms li{font-size:.88rem;line-height:1.9;color:#2a2830;margin-bottom:.7rem}
+    .ms ul{margin:.5rem 0 .5rem 1.4rem}
+    .tt{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.8rem}
+    .tt th{background:#1a1a2e;color:#fff;padding:.5rem .8rem;text-align:left;font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase}
+    .tt td{padding:.55rem .8rem;border-bottom:1px solid rgba(0,0,0,.07);vertical-align:top;line-height:1.65}
+    .tt tr:nth-child(even) td{background:rgba(0,0,0,.02)}
+    .tc{color:#006D5B;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.7rem}
+    .tp{color:#7a5c10;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.7rem}
+    .ta{color:#C41E3A;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.7rem}
+    .model-box{background:#f8f6f2;border:1px solid #ddd;border-left:3px solid #C41E3A;padding:1.2rem 1.4rem;margin:1.2rem 0;font-family:'JetBrains Mono',monospace;font-size:.76rem;line-height:2}
+    .model-box .ml{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:#C41E3A;margin-bottom:.4rem}
+    .conf-box{background:rgba(196,30,58,.04);border:1px solid rgba(196,30,58,.2);border-left:3px solid #C41E3A;padding:1rem 1.2rem;margin:1rem 0;font-size:.82rem;line-height:1.85}
+    .conf-box strong{color:#C41E3A}
+    .gap-li{display:flex;gap:.8rem;padding:.6rem 0;border-bottom:1px solid rgba(0,0,0,.07);font-size:.86rem;line-height:1.75}
+    .gap-li .gid{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:#C41E3A;min-width:52px;padding-top:.15rem;flex-shrink:0}
+    .page-main{padding:3rem 0;max-width:820px;margin:0 auto}
+  </style>
+</head>
+<body>
+<div data-include="header" data-path="/includes/header.html"></div>
+
+<div class="series-nav">
+  <div class="sn-left">
+    <a href="/">Insight Gaps</a>
+    <span style="color:rgba(100,95,120,.5)">›</span>
+    <a href="/investigations/national/impunity-machine.html">BD-INV-002</a>
+    <span style="color:rgba(100,95,120,.5)">›</span>
+    <span style="color:#c9a84c">Methodology</span>
+  </div>
+  <div class="sn-right">
+    <a href="/investigations/national/impunity-machine.html" class="sn-btn">Data Investigation</a>
+    <a href="/investigations/national/impunity-machine-visual.html" class="sn-btn">▶ Visual Story</a>
+    <a href="/series/impunity-machine/methodology.html" class="sn-btn active">Methodology</a>
+    <a href="/series/impunity-machine/data.html" class="sn-btn">Evidence Files</a>
+  </div>
+</div>
+
+<div class="meth-hero">
+  <div class="wrap">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:#C41E3A;margin-bottom:.8rem">BD-INV-002 · Methodology Documentation · v2.1</div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:2.3rem;color:#fff;margin:0 0 .8rem;max-width:680px">The Impunity Machine<br><span style="font-size:1.3rem;font-weight:400;font-style:italic;color:rgba(255,255,255,.5)">Evidence Standards · Statistical Models · Source Conflicts · Data Gaps</span></h1>
+    <p style="color:rgba(255,255,255,.45);font-size:.84rem;max-width:620px;line-height:1.85">March 2026 · Version 2.1. This document explains every methodological decision in BD-INV-002: how claims were tier-classified, how the conviction rate model was built, which sources conflict, and which data are formally absent.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.2rem">
+      <a href="/investigations/national/impunity-machine.html" style="font-family:'JetBrains Mono',monospace;font-size:.58rem;color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.15);padding:.3rem .8rem;text-decoration:none">← Full Investigation</a>
+      <a href="/series/impunity-machine/data.html" style="font-family:'JetBrains Mono',monospace;font-size:.58rem;color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.15);padding:.3rem .8rem;text-decoration:none">Evidence Files →</a>
+    </div>
+  </div>
+</div>
+
+<div class="page-main wrap">
+
+  <div class="ms">
+    <h2>1. Evidence Tier System</h2>
+    <p>Every factual claim in BD-INV-002 carries one of three evidence tier labels. These are formal classifications, not editorial judgments.</p>
+    <table class="tt">
+      <thead><tr><th>Tier</th><th>Definition</th><th>Rule for Assignment</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="tc">CONFIRMED</span></td>
+          <td>Established with high confidence from primary or official sources.</td>
+          <td>(a) 2+ independent primary sources; OR (b) 1 official source + corroborating evidence; OR (c) court record, UN treaty body document, or directly cited official statistic with accessible URL.</td>
+        </tr>
+        <tr>
+          <td><span class="tp">PROBABLE</span></td>
+          <td>Likely accurate but does not meet the CONFIRMED threshold.</td>
+          <td>1 named primary source + corroborating pattern from CONFIRMED data. OR: calculation derived from 2+ CONFIRMED inputs where derivation logic is stated. Includes modelled estimates where inputs are CONFIRMED.</td>
+        </tr>
+        <tr>
+          <td><span class="ta">CONFIRMED ABSENT</span></td>
+          <td>A data point that should exist but demonstrably does not.</td>
+          <td>Active search across 3+ institutional channels returns no result. The absence is an accountability finding — it documents that the responsible institution does not publish data it is capable of holding.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p><strong>Not used:</strong> This investigation does not use an ALLEGED tier for any primary claim. No claim appears without a named source. Anonymous claims appear only in case notes, never as supporting evidence.</p>
+  </div>
+
+  <div class="ms">
+    <h2>2. Conviction Rate Methodology</h2>
+    <p>Bangladesh has never published an official WCRPA conviction rate. All rates cited are drawn from independent research, NGO monitoring, and programme evaluations. Twelve independent measurements exist, ranging from 0.12% to 3.66%. This range is real — it reflects genuine methodological differences.</p>
+    <h3>Denominator definitions</h3>
+    <ul>
+      <li><strong>Cases filed (PHQ):</strong> All WCRPA cases formally registered. Broadest denominator — produces lowest apparent rate.</li>
+      <li><strong>Cases disposed:</strong> Only cases that received any verdict (including acquittal). Narrower — produces higher apparent rate. The CEDAW 53.52% uses this denominator and is a <em>disposal rate, not a conviction rate.</em></li>
+      <li><strong>OCC visitors:</strong> Women who attended a One-Stop Crisis Centre. 66,711 visitors → 310 convictions = 0.46%.</li>
+    </ul>
+    <div class="conf-box"><strong>⚠ CEDAW 53.52% is not a conviction rate.</strong> The figure refers to case disposal rate — the proportion of WCRPA cases receiving any verdict, including acquittals. It has been repeatedly misrepresented in media as a conviction rate. This investigation formally documents this error. The CEDAW committee report does not use the word "conviction." Source: CEDAW/C/BGD/CO/8 · Master Evidence File, Sheet 3, CR-12.</div>
+    <table class="tt">
+      <thead><tr><th>Source</th><th>Period</th><th>Rate</th><th>Denominator</th><th>Tier</th></tr></thead>
+      <tbody>
+        <tr><td>PHQ (Government)</td><td>2012–2017</td><td>0.12%</td><td>Filed cases</td><td><span class="tc">CONFIRMED</span></td></tr>
+        <tr><td>Naripokkho (NGO)</td><td>2011–2018, 6 districts</td><td>0.39%</td><td>Filed cases</td><td><span class="tc">CONFIRMED</span></td></tr>
+        <tr><td>OCC Programme</td><td>2001–Jul 2024</td><td>0.46%</td><td>OCC visitors</td><td><span class="tc">CONFIRMED</span></td></tr>
+        <tr><td>BLAST/Islam &amp; Shaon</td><td>2003–2016</td><td>0.77%</td><td>Disposed cases</td><td><span class="tc">CONFIRMED</span></td></tr>
+        <tr><td>BRAC/UNDP</td><td>2009–2014</td><td>0.86%</td><td>Disposed cases</td><td><span class="tc">CONFIRMED</span></td></tr>
+        <tr><td>UN Women</td><td>2013–2019</td><td>2.0%</td><td>Filed cases</td><td><span class="tc">CONFIRMED</span></td></tr>
+        <tr><td>BRAC/Agile (ceiling)</td><td>2021–2022</td><td>3.66%</td><td>Disposed, accused-level</td><td><span class="tc">CONFIRMED</span></td></tr>
+        <tr><td style="color:rgba(196,30,58,.7)">CEDAW disposal rate</td><td style="color:rgba(196,30,58,.7)">—</td><td style="color:rgba(196,30,58,.7)">53.52%</td><td style="color:rgba(196,30,58,.7)">NOT a conviction rate</td><td><span class="ta">DO NOT CITE AS CR</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="ms">
+    <h2>3. Probability of Punishment Model</h2>
+    <p>The headline figure — 0.0215%, approximately 1 in 4,650 — is a compound probability model. It is marked <span class="tp">PROBABLE</span> because the inputs, while individually CONFIRMED, involve estimation at multiple funnel stages.</p>
+    <div class="model-box">
+      <div class="ml">Model: Compound Attrition (IG-MODEL · PROBABLE)</div>
+      P(punishment | assault) =<br>
+      &nbsp;&nbsp;P(disclosure) × P(police | disclosure) × P(charge sheet | police) × P(conviction | disposed)<br><br>
+      = 0.38 × 0.27 × 0.59 × 0.0039 = <strong>0.000215 = 0.0215%</strong><br><br>
+      Inputs:<br>
+      · P(disclosure) = 0.38 — UNFPA 2024 · CONFIRMED · S-02<br>
+      · P(police | disclosure) = 0.27 — UNFPA 2024 Highlights · CONFIRMED · S-26<br>
+      · P(charge sheet) = 0.59 — 1 minus PBI 41% unproven rate, 2016–2023 · CONFIRMED · S-34<br>
+      · P(conviction | disposed) = 0.0039 — Naripokkho floor rate (conservative) · CONFIRMED · S-06<br><br>
+      Sensitivity check:<br>
+      · Using BRAC ceiling (0.0366): P = 0.000202 (~1 in 4,950)<br>
+      · Using OCC rate (0.0046): P = 0.000026 (~1 in 38,000)<br>
+      · All variants: below 0.03%. Direction of finding is stable across all inputs.
+    </div>
+    <p>The Naripokkho floor rate is used as the primary input because it applies the broadest post-police-contact denominator. Using BRAC's ceiling would understate attrition, as it only covers cases that reached disposal. This is the methodologically conservative choice.</p>
+  </div>
+
+  <div class="ms">
+    <h2>4. Source Hierarchy</h2>
+    <table class="tt">
+      <thead><tr><th>Rank</th><th>Type</th><th>Examples in this investigation</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1</strong></td><td>Official government statistics (primary document)</td><td>PHQ crime statistics, Supreme Court annual reports, NFDPL lab reports</td></tr>
+        <tr><td><strong>2</strong></td><td>UN treaty body documents, UNSG submissions</td><td>CEDAW/C/BGD/CO/8, GoB UPR submissions, UNSG VIF reports</td></tr>
+        <tr><td><strong>3</strong></td><td>Peer-reviewed academic studies (primary data collection)</td><td>BRAC/Agile 2022, BLAST/Islam &amp; Shaon, University of Asia Pacific study</td></tr>
+        <tr><td><strong>4</strong></td><td>Major NGO programme evaluations (primary data)</td><td>Naripokkho 2011–2018, OCC programme data, UNFPA/BBS VAW Survey 2024</td></tr>
+        <tr><td><strong>5</strong></td><td>Named investigative journalism (citing official/primary data)</td><td>Daily Star, Prothom Alo, TBS News — where citing primary documents directly</td></tr>
+        <tr><td><strong>6</strong></td><td>Named journalism (secondary reporting, case corroboration)</td><td>BSS, bdnews24 — used for individual case timeline verification only</td></tr>
+        <tr><td><strong>7</strong></td><td>International assessments citing primary data</td><td>HRW, Amnesty International, US State Dept HRR, UK Home Office CPIN</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="ms">
+    <h2>5. Documented Source Conflicts</h2>
+    <p>Where two credible sources conflict on a specific figure, both are documented in the Master Evidence File (Sheet 2) with the conflict flagged and resolution stated.</p>
+    <div class="conf-box"><strong>Conflict 01 — 2021 rape filings:</strong> Prothom Alo Jul 2025 (S-61) cites 6,341 (PHQ). University of Asia Pacific study (S-62) cites 4,762 for the same year. Resolution: 6,341 used for 2021; 4,762 used for 2022. The S-62 figure appears to reference 2022 data. Both remain PROBABLE pending primary PHQ document retrieval.</div>
+    <div class="conf-box"><strong>Conflict 02 — March 2025 backlog:</strong> SHARE-Net (S-63) reports 148,314 pending WCRPA cases; Daily Star (S-64) reports 151,317 for the same reference period. Resolution: reported as "approximately 150,000" with both sources cited. Both are CONFIRMED; the difference likely reflects different administrative cutoff dates within the same reporting month.</div>
+    <div class="conf-box"><strong>Conflict 03 — CEDAW 53.52%:</strong> Widely cited as a conviction rate in Bangladeshi media and some NGO reports. This investigation formally reclassifies it as a disposal rate. The underlying CEDAW document uses the term "completion of proceedings," not "conviction." This is documented as the most consequential data misrepresentation in existing coverage of this topic.</div>
+  </div>
+
+  <div class="ms">
+    <h2>6. Confirmed Absent Data — The 12 Gaps</h2>
+    <p>These are not research limitations. They are documented accountability failures. Each represents a dataset that a specific institution holds and does not publish.</p>
+    <div>
+      <div class="gap-li"><span class="gid">GA-001</span><div><strong>Annual WCRPA conviction rates by year, tribunal, and district</strong> — PHQ holds 25 years of data. Never published. Would immediately confirm or refute the judicial reluctance hypothesis following the 2020 death penalty amendment.</div></div>
+      <div class="gap-li"><span class="gid">GA-002</span><div><strong>FIR registration rate for rape complaints</strong> — What percentage of women who approach police receive a formal FIR? This stage is completely unmeasured. It may be where the largest share of attrition occurs.</div></div>
+      <div class="gap-li"><span class="gid">GA-003</span><div><strong>90-day trial timeline compliance rate</strong> — The 2025 Ordinance mandates 90-day trials. No institution tracks compliance. The 180-day mandate that preceded it was violated in effectively every case for 25 years.</div></div>
+      <div class="gap-li"><span class="gid">GA-004</span><div><strong>National count of Section 17 prosecutions 2000–2026</strong> — Two cases are documented. The national total is unknown. Under the 2025 Amendment Ordinance's expansion of §17 to "loss of dignity," monitoring is now urgent.</div></div>
+      <div class="gap-li"><span class="gid">GA-005</span><div><strong>WCRPA case withdrawal and abandonment rate</strong> — The scale of shalish-driven attrition is completely unmeasured. This is likely the largest single funnel leak and it is invisible to any accountability mechanism.</div></div>
+      <div class="gap-li"><span class="gid">GA-006</span><div><strong>Pre/post 2020 death penalty conviction rate comparison</strong> — Five years of post-amendment data exists inside PHQ systems. One published table would resolve the judicial reluctance hypothesis with empirical evidence.</div></div>
+      <div class="gap-li"><span class="gid">GA-007</span><div><strong>DNA processing time by case type and district</strong> — 789 cases stalled in September 2025. 92% of samples unprocessed. NFDPL holds the data. Zero public disclosure.</div></div>
+      <div class="gap-li"><span class="gid">GA-008</span><div><strong>Witness Protection Law</strong> — Bill drafted. Pending since 2015. Conviction requires witness. Witness requires protection. Four governments. No enactment.</div></div>
+      <div class="gap-li"><span class="gid">GA-009</span><div><strong>Marital rape exemption</strong> — CEDAW required removal in 2016. Still in force in 2026. Creates an entire category of legally invisible violence affecting an estimated 76% of women who experience lifetime IPV from partners.</div></div>
+      <div class="gap-li"><span class="gid">GA-010</span><div><strong>District-level WCRPA conviction data</strong> — National averages mask geographic variation. PHQ data would reveal whether specific districts or tribunals perform dramatically above or below average.</div></div>
+      <div class="gap-li"><span class="gid">GA-011</span><div><strong>WCRPA disposal vs conviction breakdown</strong> — Supreme Court annual reports give total disposals. The split between acquittals and convictions within disposals is not published separately.</div></div>
+      <div class="gap-li"><span class="gid">GA-012</span><div><strong>Section 32 violation tracking</strong> — WCRPA §32 mandates hospitals examine rape survivors without requiring a prior police case. Hospital refusals are a documented pattern (HRCBM PIL 2025). No institution tracks compliance.</div></div>
+    </div>
+  </div>
+
+  <div class="ms">
+    <h2>7. Visual Investigation Methodology</h2>
+    <p>The visual investigation (<a href="/investigations/national/impunity-machine-visual.html">impunity-machine-visual.html</a>) uses scroll-triggered animated data visualisations. All figures displayed in the visual are sourced identically to the main investigation. Specific methodological notes:</p>
+    <ul>
+      <li><strong>Dot matrix (Scene 01):</strong> 10,000 dots represent an estimated annual non-partner violence cohort (PROBABLE · IG-MODEL). The attrition percentages at each step are derived from UNFPA 2024 (disclosure, police contact) and PBI data (charge sheet closure rate).</li>
+      <li><strong>Clock animation (Scene 02):</strong> 56 days = Runa Akhter §17 case (arrest to sentencing · CONFIRMED · S-14). 2,349 days = BRAC/Agile 2022 average verdict time, 16 districts, 385 cases (CONFIRMED · S-01). Arc proportions reflect the same justice scale — the gold arc is 41.9× larger than the red arc.</li>
+      <li><strong>Race bars (Scene 04):</strong> Square-root scale is used for visual readability. At linear scale, the Bangladesh bar would be less than 1 pixel wide. The scale choice is labeled explicitly in the visualisation. Exact percentages are labeled on each bar. The denominator alert is displayed before the bars appear.</li>
+      <li><strong>IPV map (Scene 06):</strong> Division-level IPV rates are from UNFPA/BBS VAW Survey 2024 (S-74, S-02). Corrected from v1.0 (which contained errors from an earlier dataset). All v2.0 values are CONFIRMED.</li>
+      <li><strong>Scatter plot (Scene 08):</strong> Country positioning on severity axis is ordinal, not interval — it represents relative severity of maximum penalty, not a precise scale. Country conviction rates use the denominator specified in the source for each country.</li>
+    </ul>
+  </div>
+
+  <div class="ms">
+    <h2>8. Live Record Methodology</h2>
+    <p>The live record (Section 10 of the visual investigation, and the dashboard in the main investigation) is updated via a GitHub Actions automated collector running every 6 hours. The collector scrapes named RSS feeds from Bangladeshi news sources, classifies items using Gemini Flash, deduplicates against existing leads, and appends new items to <code>/data/leads.json</code>.</p>
+    <p><strong>Tier assignment in automated collection:</strong> The collector assigns an initial tier of UNVERIFIED to all automated items. Items are upgraded to PROBABLE or CONFIRMED only after manual cross-reference check. No automated item reaches the investigation narrative without human verification.</p>
+    <p><strong>Case register:</strong> Cases in <code>/data/cases.json</code> are manually maintained with full timelines and source URLs. Each timeline event carries its own tier label. Case status is updated when new information is confirmed.</p>
+    <p><strong>Monthly ledger:</strong> <code>/data/monthly.json</code> distinguishes between CONFIRMED data (primary PHQ sources), PROBABLE data (secondary citing PHQ), and CONFIRMED ABSENT months (where PHQ does not publish monthly breakdowns). The CONFIRMED ABSENT entries are accountability findings — each red cell in the heatmap represents a month for which a government institution holds data and does not publish it.</p>
+  </div>
+
+  <div style="border-top:1px solid rgba(0,0,0,.1);padding-top:1.5rem;margin-top:3rem;font-family:'JetBrains Mono',monospace;font-size:.58rem;color:rgba(100,95,120,.8);line-height:2">
+    BD-INV-002 · The Impunity Machine · Methodology v2.1 · March 2026 · Insight Gaps<br>
+    91 named sources · All claims evidence-tiered · CC BY-NC 4.0<br>
+    Corrections and challenges: <a href="mailto:insightgaps@gmail.com" style="color:var(--red,#C41E3A)">insightgaps@gmail.com</a>
+  </div>
+
+</div>
+
+<div data-include="footer" data-path="/includes/footer.html"></div>
+<script src="/js/components.js"></script>
+<script src="/js/ui.js"></script>
+</body>
+</html>
