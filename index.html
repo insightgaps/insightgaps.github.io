@@ -1,760 +1,516 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Insight Gaps | Forensic Data Journalism Bureau</title>
-  <meta name="description" content="Insight Gaps is an independent forensic data journalism and operational intelligence bureau. Live world data, investigative reports, and applied analysis.">
-  <link rel="icon" href="/favicon.png" type="image/png">
-  <link rel="stylesheet" href="/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Insight Gaps | Forensic Data Journalism Bureau</title>
+<meta name="description" content="Insight Gaps — independent forensic data journalism and operational intelligence bureau. Live world data, investigative reports, applied analysis. Dhaka, Bangladesh.">
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="canonical" href="https://www.insightgaps.com/">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4PYE0MEK12"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-4PYE0MEK12");</script>
+<style>
+:root{
+  --ink:#06060e;--ink2:#0d0d18;--ink3:#12121e;
+  --border:#1e1e32;--border2:#2a2840;
+  --text:#e8e3da;--text2:#c4bfb5;--muted:#7a7590;--muted2:#3e3c50;
+  --blood:#c41e3a;--bloodl:#e84060;--bloodd:#8b1428;
+  --gold:#c9a84c;--gold2:#9a7e36;
+  --teal:#40c0c0;--amber:#d4a060;
+  --mono:"JetBrains Mono","Courier New",monospace;
+  --display:"Playfair Display",Georgia,serif;
+  --body:"Lora",Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--text);font-family:var(--body);overflow-x:hidden}
+a{color:var(--gold);text-decoration:none}
+a:hover{color:var(--text)}
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4PYE0MEK12"></script>
-  <script>
-    window.dataLayer=window.dataLayer||[];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js',new Date()); gtag('config','G-4PYE0MEK12');
-  </script>
+.ticker{background:rgba(6,6,14,.98);border-bottom:1px solid var(--border);padding:.3rem 0;display:flex;align-items:center;gap:.8rem;overflow:hidden;position:sticky;top:0;z-index:1000}
+.ticker-label{font-family:var(--mono);font-size:.42rem;letter-spacing:.18em;text-transform:uppercase;color:var(--blood);flex-shrink:0;padding:.2rem .8rem;border-right:1px solid var(--border);white-space:nowrap}
+.ticker-wrap{overflow:hidden;flex:1}
+.ticker-track{display:flex;gap:2.5rem;white-space:nowrap;animation:tick 50s linear infinite}
+.ticker-track:hover{animation-play-state:paused}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ti{font-family:var(--mono);font-size:.44rem;color:rgba(200,190,175,.5);letter-spacing:.04em;flex-shrink:0}
+.ti-tag{color:rgba(200,190,175,.25);margin-right:.35rem;text-transform:uppercase;font-size:.4rem;letter-spacing:.1em}
+
+nav{background:rgba(6,6,14,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 1.5rem;height:50px;display:flex;align-items:center;justify-content:space-between;gap:1rem;position:sticky;top:25px;z-index:900}
+.nav-brand{font-family:var(--mono);font-size:.54rem;color:var(--gold);letter-spacing:.2em;text-transform:uppercase;white-space:nowrap}
+.nav-links{display:flex;gap:.35rem;flex-wrap:wrap}
+.nlink{font-family:var(--mono);font-size:.42rem;color:var(--muted);border:1px solid transparent;padding:.22rem .65rem;transition:all .2s;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.nlink:hover{color:var(--text2);border-color:var(--border2)}
+.nlink.active{color:var(--text2);border-color:var(--border)}
+.nlink.hot{color:var(--text2);border:1px solid rgba(196,30,58,.35)}
+.nlink.hot:hover{color:var(--bloodl);border-color:var(--bloodl)}
+@media(max-width:700px){.nlink:not(.hot){display:none}}
+
+#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 2rem 5rem;position:relative;overflow:hidden}
+#hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 65% 40% at 50% 38%,rgba(196,30,58,.07),transparent 65%),radial-gradient(ellipse 50% 30% at 50% 70%,rgba(201,168,76,.03),transparent 60%)}
+#hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 60px,rgba(30,30,48,.04) 60px,rgba(30,30,48,.04) 61px),repeating-linear-gradient(90deg,transparent,transparent 60px,rgba(30,30,48,.03) 60px,rgba(30,30,48,.03) 61px);pointer-events:none}
+.hero-eyebrow{font-family:var(--mono);font-size:.54rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(196,30,58,.65);margin-bottom:2.5rem;animation:fadein .8s ease .2s both;position:relative;z-index:1}
+.hero-title{font-family:var(--display);font-size:clamp(4.5rem,13vw,10rem);font-weight:900;line-height:.88;letter-spacing:-.03em;position:relative;z-index:1;opacity:0;animation:fadein 1s ease .5s both}
+.hero-title em{font-style:italic;color:var(--blood)}
+.hero-sub{font-family:var(--mono);font-size:.56rem;color:var(--muted);letter-spacing:.2em;text-transform:uppercase;margin-top:1.2rem;opacity:0;animation:fadein .8s ease 1.2s both;position:relative;z-index:1;line-height:1.8}
+.hero-divider{width:50px;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.4),transparent);margin:2.8rem auto;opacity:0;animation:fadein .6s ease 1.6s both;position:relative;z-index:1}
+.hero-stats{display:flex;gap:clamp(1.5rem,5vw,5rem);justify-content:center;flex-wrap:wrap;opacity:0;animation:fadein .8s ease 1.8s both;position:relative;z-index:1}
+.hstat{text-align:center}
+.hstat-val{font-family:var(--mono);font-size:clamp(1.6rem,3.5vw,2.8rem);font-weight:700;color:var(--bloodl);line-height:1;letter-spacing:-.02em}
+.hstat-val.gold{color:var(--gold)}
+.hstat-val.teal{color:var(--teal)}
+.hstat-lbl{font-family:var(--mono);font-size:.42rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;margin-top:.35rem;line-height:1.6}
+.hero-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:.35;animation:bob 2.5s ease-in-out infinite 3s;z-index:1}
+.hero-scroll span{font-family:var(--mono);font-size:.42rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted2)}
+@keyframes fadein{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+.live-strip{background:var(--ink2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.live-strip-inner{display:flex;overflow-x:auto;scrollbar-width:none;max-width:1280px;margin:0 auto}
+.live-strip-inner::-webkit-scrollbar{display:none}
+.li{padding:.65rem 1.2rem;border-right:1px solid var(--border);flex-shrink:0}
+.li-lbl{font-family:var(--mono);font-size:.38rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted2);margin-bottom:.2rem;display:flex;align-items:center;gap:.35rem}
+.li-val{font-family:var(--mono);font-size:.76rem;font-weight:700;color:var(--text2)}
+.li-val.loading{color:var(--muted2);animation:pulse 1.5s ease-in-out infinite}
+.li-val.pos{color:#52b788}
+.li-val.neg{color:var(--bloodl)}
+@keyframes pulse{0%,100%{opacity:.35}50%{opacity:.9}}
+.live-dot{width:5px;height:5px;border-radius:50%;background:var(--blood);display:inline-block;animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+
+.wrap{max-width:1280px;margin:0 auto;padding:0 2rem}
+.sec{padding:5rem 0}
+.sec-hr{border:none;border-top:1px solid var(--border)}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:2.2rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
+.sec-eyebrow{font-family:var(--mono);font-size:.48rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold2);margin-bottom:.5rem}
+.sec-title{font-family:var(--display);font-size:clamp(1.4rem,2.5vw,2rem);font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.sec-dek{font-size:.88rem;color:var(--muted);max-width:58ch;line-height:1.8;margin-bottom:2.5rem}
+.view-all{font-family:var(--mono);font-size:.44rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);padding:.25rem .7rem;transition:all .2s;white-space:nowrap}
+.view-all:hover{color:var(--gold);border-color:var(--gold2)}
+
+/* FEATURED */
+.feat{background:var(--ink2);border:1px solid var(--border);border-top:3px solid var(--blood);display:grid;grid-template-columns:1fr 1fr;gap:0}
+@media(max-width:780px){.feat{grid-template-columns:1fr}}
+.feat-left{padding:2.2rem;border-right:1px solid var(--border)}
+@media(max-width:780px){.feat-left{border-right:none;border-bottom:1px solid var(--border)}}
+.feat-right{padding:2.2rem;display:flex;flex-direction:column;gap:.9rem;justify-content:center}
+.feat-label{font-family:var(--mono);font-size:.44rem;letter-spacing:.2em;text-transform:uppercase;color:var(--blood);margin-bottom:.7rem}
+.feat-title{font-family:var(--display);font-size:clamp(1.6rem,2.8vw,2.5rem);font-weight:900;line-height:1.05;letter-spacing:-.02em;margin-bottom:.7rem}
+.feat-title em{font-style:italic;color:var(--blood)}
+.feat-dek{font-size:.88rem;color:var(--text2);line-height:1.82;margin-bottom:1.3rem}
+.feat-meta{font-family:var(--mono);font-size:.42rem;color:var(--muted2);display:flex;gap:.7rem;flex-wrap:wrap;margin-bottom:1.8rem}
+.feat-meta span + span::before{content:"·";margin-right:.7rem;color:var(--border2)}
+.feat-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-bottom:1.8rem}
+.fstat{background:rgba(255,255,255,.022);border:1px solid var(--border);padding:.8rem;text-align:center}
+.fstat-v{font-family:var(--mono);font-size:clamp(.95rem,2vw,1.4rem);font-weight:700;color:var(--bloodl);line-height:1}
+.fstat-v.gold{color:var(--gold)}
+.fstat-l{font-family:var(--mono);font-size:.38rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.07em;margin-top:.28rem;line-height:1.5}
+.feat-btns{display:flex;gap:.55rem;flex-wrap:wrap}
+.btn-red{font-family:var(--mono);font-size:.48rem;letter-spacing:.1em;text-transform:uppercase;padding:.65rem 1.2rem;background:var(--blood);color:var(--text);border:1px solid var(--bloodl);transition:all .2s}
+.btn-red:hover{background:var(--bloodl);color:var(--text)}
+.btn-outline{font-family:var(--mono);font-size:.48rem;letter-spacing:.1em;text-transform:uppercase;padding:.65rem 1.2rem;background:transparent;color:var(--gold);border:1px solid var(--gold2);transition:all .2s}
+.btn-outline:hover{background:rgba(201,168,76,.08)}
+.finding{display:flex;gap:.85rem;align-items:flex-start;padding:.85rem;background:rgba(255,255,255,.016);border:1px solid var(--border);border-left:2px solid var(--blood)}
+.finding-n{font-family:var(--mono);font-size:.44rem;color:var(--blood);flex-shrink:0;padding-top:.1rem;font-weight:700}
+.finding-t{font-size:.82rem;color:var(--text2);line-height:1.65}
+.finding-t strong{color:var(--text)}
+
+/* INV CARDS */
+.inv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:.9rem}
+.ic{background:var(--ink2);border:1px solid var(--border);display:flex;flex-direction:column;transition:border-color .2s}
+.ic:hover{border-color:var(--muted2)}
+.ic-band{height:3px}
+.ic-band.red{background:var(--blood)}
+.ic-band.gold{background:var(--gold)}
+.ic-body{padding:1.3rem;flex:1;display:flex;flex-direction:column}
+.ic-scope{font-family:var(--mono);font-size:.4rem;letter-spacing:.14em;text-transform:uppercase;padding:.18rem .52rem;display:inline-block;margin-bottom:.65rem}
+.ic-scope.nat{color:var(--blood);border:1px solid rgba(196,30,58,.2);background:rgba(196,30,58,.04)}
+.ic-scope.intl{color:var(--gold);border:1px solid rgba(201,168,76,.2);background:rgba(201,168,76,.04)}
+.ic h3{font-family:var(--display);font-size:1rem;font-weight:700;color:var(--text);line-height:1.25;margin-bottom:.45rem}
+.ic p{font-size:.8rem;color:var(--muted);line-height:1.7;flex:1;margin-bottom:.9rem}
+.ic-foot{border-top:1px solid var(--border);padding-top:.8rem;display:flex;align-items:center;justify-content:space-between;gap:.5rem}
+.ic-meta{font-family:var(--mono);font-size:.38rem;color:var(--muted2);letter-spacing:.05em}
+.ic-link{font-family:var(--mono);font-size:.42rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,.25);padding:.22rem .65rem;transition:all .2s}
+.ic-link:hover{background:rgba(201,168,76,.08)}
+
+/* LIVE DATA */
+.live-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+@media(max-width:860px){.live-grid{grid-template-columns:1fr}}
+.dpanel{background:var(--ink2);border:1px solid var(--border)}
+.dpanel-hd{padding:.9rem 1.3rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.dpanel-hd-t{font-family:var(--mono);font-size:.46rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text2)}
+.dpanel-hd-m{font-family:var(--mono);font-size:.38rem;color:var(--muted2)}
+.dpanel-bd{padding:.9rem 1.3rem}
+
+.curr-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:.7rem;margin-bottom:1.4rem}
+@media(max-width:860px){.curr-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:480px){.curr-grid{grid-template-columns:repeat(2,1fr)}}
+.cc{background:rgba(255,255,255,.025);border:1px solid var(--border);padding:.7rem;text-align:center}
+.cc-pair{font-family:var(--mono);font-size:.38rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.28rem}
+.cc-val{font-family:var(--mono);font-size:.95rem;font-weight:700;color:var(--text2)}
+
+.aqi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.55rem}
+@media(max-width:560px){.aqi-grid{grid-template-columns:repeat(2,1fr)}}
+.aqi-card{background:rgba(255,255,255,.025);border:1px solid var(--border);padding:.65rem;text-align:center}
+.aqi-city{font-family:var(--mono);font-size:.36rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.18rem}
+.aqi-value{font-family:var(--mono);font-size:1.15rem;font-weight:700;line-height:1}
+.aqi-status{font-family:var(--mono);font-size:.36rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:.2rem;display:block}
+.aqi-bar{height:2px;background:rgba(255,255,255,.06);margin-top:.35rem;overflow:hidden}
+.aqi-bar-fill{height:100%;transition:width 1s ease}
+.aqi-good .aqi-value{color:#52b788}.aqi-good .aqi-bar-fill{background:#52b788}
+.aqi-moderate .aqi-value{color:#f9c74f}.aqi-moderate .aqi-bar-fill{background:#f9c74f}
+.aqi-sensitive .aqi-value{color:#f87f3a}.aqi-sensitive .aqi-bar-fill{background:#f87f3a}
+.aqi-unhealthy .aqi-value,.aqi-very .aqi-value,.aqi-hazardous .aqi-value{color:var(--bloodl)}
+.aqi-unhealthy .aqi-bar-fill,.aqi-very .aqi-bar-fill,.aqi-hazardous .aqi-bar-fill{background:var(--bloodl)}
+
+.ni{padding:.75rem 0;border-bottom:1px solid var(--border);display:flex;gap:.75rem}
+.ni:last-child{border-bottom:none}
+.ni-n{font-family:var(--mono);font-size:.4rem;color:var(--muted2);flex-shrink:0;padding-top:.1rem;width:1.4rem}
+.ni-t{font-size:.8rem;color:var(--text2);line-height:1.5;font-family:var(--body)}
+.ni-t a{color:var(--text2)}.ni-t a:hover{color:var(--text)}
+.ni-m{font-family:var(--mono);font-size:.36rem;color:var(--muted2);margin-top:.2rem}
+.news-loading{font-family:var(--mono);font-size:.48rem;color:var(--muted2);padding:.8rem 0}
+
+/* PROGRAMS */
+.prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
+@media(max-width:720px){.prog-grid{grid-template-columns:1fr}}
+.pg{background:var(--ink2);border:1px solid var(--border);border-top:3px solid var(--blood);padding:1.4rem;transition:border-color .2s,transform .2s;display:block}
+.pg:hover{border-color:var(--blood);transform:translateY(-2px)}
+.pg.g{border-top-color:var(--gold)}.pg.g:hover{border-color:var(--gold)}
+.pg.t{border-top-color:var(--teal)}.pg.t:hover{border-color:var(--teal)}
+.pg-count{font-family:var(--mono);font-size:.4rem;color:var(--blood);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.45rem}
+.pg.g .pg-count{color:var(--gold)}.pg.t .pg-count{color:var(--teal)}
+.pg-name{font-family:var(--display);font-size:1rem;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:.4rem}
+.pg-desc{font-size:.78rem;color:var(--muted);line-height:1.65}
+
+/* ANALYSIS */
+.an-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
+@media(max-width:720px){.an-grid{grid-template-columns:1fr}}
+.an{background:var(--ink2);border:1px solid var(--border);overflow:hidden;transition:border-color .2s}
+.an:hover{border-color:var(--muted2)}
+.an-img{width:100%;height:130px;object-fit:cover;display:block;opacity:.65;transition:opacity .2s;cursor:pointer}
+.an:hover .an-img{opacity:.85}
+.an-body{padding:1rem 1.1rem}
+.an-tag{font-family:var(--mono);font-size:.38rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);border:1px solid rgba(64,192,192,.18);background:rgba(64,192,192,.04);padding:.16rem .48rem;display:inline-block;margin-bottom:.45rem}
+.an-meta{font-family:var(--mono);font-size:.38rem;color:var(--muted2);margin-bottom:.4rem}
+.an-title{font-family:var(--display);font-size:.92rem;font-weight:700;color:var(--text);line-height:1.25;margin-bottom:.35rem}
+.an-desc{font-size:.76rem;color:var(--muted);line-height:1.6;margin-bottom:.75rem}
+.an-link{font-family:var(--mono);font-size:.4rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,.22);padding:.2rem .55rem;transition:all .2s;display:inline-block}
+.an-link:hover{background:rgba(201,168,76,.07)}
+
+footer{background:var(--ink2);border-top:1px solid var(--border);padding:3.5rem 2rem 2rem}
+.fg{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;gap:2.5rem;max-width:1280px;margin:0 auto;padding-bottom:2.5rem;border-bottom:1px solid var(--border)}
+@media(max-width:860px){.fg{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.fg{grid-template-columns:1fr}}
+.fb{font-family:var(--display);font-size:1.35rem;font-weight:900;color:var(--text);letter-spacing:-.02em;margin-bottom:.5rem}
+.fb em{font-style:italic;color:var(--blood)}
+.fst{font-size:.78rem;color:var(--muted);line-height:1.7;max-width:26ch}
+.fc h5{font-family:var(--mono);font-size:.42rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted2);margin-bottom:.7rem;border-bottom:1px solid var(--border);padding-bottom:.45rem}
+.fc ul{list-style:none}
+.fc li{margin-bottom:.38rem}
+.fc a{font-size:.78rem;color:var(--muted);line-height:1.6}
+.fc a:hover{color:var(--text)}
+.fb2{max-width:1280px;margin:1.5rem auto 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.fc2{font-family:var(--mono);font-size:.4rem;color:var(--muted2);letter-spacing:.04em;line-height:1.8}
+.fc2 a{color:var(--muted);border-bottom:1px solid var(--border)}
+.fc2 a:hover{color:var(--text)}
+
+.popup-overlay{display:none;position:fixed;inset:0;background:rgba(6,6,14,.92);z-index:9999;align-items:center;justify-content:center;cursor:pointer}
+.popup-overlay.open{display:flex}
+.popup-content{max-width:90vw;max-height:90vh;position:relative;cursor:default}
+.popup-close{position:absolute;top:-2rem;right:0;background:none;border:none;color:var(--text);font-size:1.4rem;cursor:pointer;opacity:.6}
+.popup-close:hover{opacity:1}
+.popup-image{max-width:100%;max-height:80vh;display:block;object-fit:contain;border:1px solid var(--border)}
+.popup-caption{font-family:var(--mono);font-size:.42rem;color:var(--muted);margin-top:.5rem}
+</style>
 </head>
 <body>
 
-<div class="ticker-bar" role="marquee" aria-label="Live data ticker">
+<div class="ticker">
   <div class="ticker-label">LIVE</div>
-  <div class="ticker-track-wrap">
-    <div class="ticker-track" id="tickerTrack">
-      <span class="ticker-item"><span class="ti-tag">BDT/USD</span> <span id="tick-bdt">—</span></span>
-      <span class="ticker-item"><span class="ti-tag">EUR/USD</span> <span id="tick-eur">—</span></span>
-      <span class="ticker-item"><span class="ti-tag">GBP/USD</span> <span id="tick-gbp">—</span></span>
-      <span class="ticker-item"><span class="ti-tag">JPY/USD</span> <span id="tick-jpy">—</span></span>
-      <span class="ticker-item"><span class="ti-tag">CNY/USD</span> <span id="tick-cny">—</span></span>
-      <span class="ticker-item"><span class="ti-tag">DHAKA AQI</span> <span id="tick-dhaka-aqi">—</span></span>
-      <span class="ticker-item"><span class="ti-tag">DELHI AQI</span>  <span id="tick-delhi-aqi">—</span></span>
-      <span class="ticker-item"><span class="ti-tag">BEIJING AQI</span><span id="tick-bj-aqi">—</span></span>
-      <span class="ticker-item"><span class="ti-tag">INSIGHT GAPS</span> Forensic Data Journalism Bureau — Independent · Public Interest</span>
-      <span class="ticker-item"><span class="ti-tag">BDT/USD</span> <span class="tick-bdt2">—</span></span>
-      <span class="ticker-item"><span class="ti-tag">EUR/USD</span> <span class="tick-eur2">—</span></span>
-      <span class="ticker-item"><span class="ti-tag">GBP/USD</span> <span class="tick-gbp2">—</span></span>
-      <span class="ticker-item"><span class="ti-tag">JPY/USD</span> <span class="tick-jpy2">—</span></span>
-      <span class="ticker-item"><span class="ti-tag">DHAKA AQI</span> <span class="tick-dhaka2">—</span></span>
-      <span class="ticker-item"><span class="ti-tag">INSIGHT GAPS</span> Forensic Data Journalism Bureau — Independent · Public Interest</span>
+  <div class="ticker-wrap">
+    <div class="ticker-track">
+      <span class="ti"><span class="ti-tag">BDT/USD</span><span id="tick-bdt">&#8212;</span></span>
+      <span class="ti"><span class="ti-tag">EUR/USD</span><span id="tick-eur">&#8212;</span></span>
+      <span class="ti"><span class="ti-tag">GBP/USD</span><span id="tick-gbp">&#8212;</span></span>
+      <span class="ti"><span class="ti-tag">JPY/USD</span><span id="tick-jpy">&#8212;</span></span>
+      <span class="ti"><span class="ti-tag">CNY/USD</span><span id="tick-cny">&#8212;</span></span>
+      <span class="ti"><span class="ti-tag">DHAKA AQI</span><span id="tick-dhaka-aqi">&#8212;</span></span>
+      <span class="ti"><span class="ti-tag">DELHI AQI</span><span id="tick-delhi-aqi">&#8212;</span></span>
+      <span class="ti"><span class="ti-tag">BEIJING AQI</span><span id="tick-bj-aqi">&#8212;</span></span>
+      <span class="ti"><span class="ti-tag">INSIGHT GAPS</span>Forensic Data Journalism &amp; Operational Intelligence Bureau &#xb7; Dhaka, Bangladesh</span>
+      <span class="ti"><span class="ti-tag">BD-INV-002</span>The Impunity Machine &#xb7; 0.46% conviction rate &#xb7; 310 convictions in 23 years</span>
+      <span class="ti"><span class="ti-tag">BDT/USD</span><span>&#8212;</span></span>
+      <span class="ti"><span class="ti-tag">EUR/USD</span><span>&#8212;</span></span>
+      <span class="ti"><span class="ti-tag">GBP/USD</span><span>&#8212;</span></span>
+      <span class="ti"><span class="ti-tag">JPY/USD</span><span>&#8212;</span></span>
+      <span class="ti"><span class="ti-tag">CNY/USD</span><span>&#8212;</span></span>
+      <span class="ti"><span class="ti-tag">DHAKA AQI</span><span>&#8212;</span></span>
+      <span class="ti"><span class="ti-tag">INSIGHT GAPS</span>Forensic Data Journalism &amp; Operational Intelligence Bureau &#xb7; Independent &#xb7; Public Interest</span>
     </div>
   </div>
 </div>
 
-<div data-include="header" data-path="/includes/header.html"></div>
-  
-<main role="main">
+<nav>
+  <div class="nav-brand">Insight&nbsp;Gaps</div>
+  <div class="nav-links">
+    <a class="nlink active" href="/">Home</a>
+    <a class="nlink" href="/investigations/">Investigations</a>
+    <a class="nlink" href="/topics/">Topics</a>
+    <a class="nlink" href="/analysis/">Analysis</a>
+    <a class="nlink" href="/about/">About</a>
+    <a class="nlink" href="/methods/">Methods</a>
+    <a class="nlink hot" href="/investigations/national/impunity-machine-visual.html">Visual&#160;Story&#160;&#8599;</a>
+  </div>
+</nav>
 
-  <div class="masthead">
-    <div class="masthead-inner wrap">
-      <p class="masthead-pub">Est. 2025 &nbsp;·&nbsp; Dhaka &nbsp;·&nbsp; Independent</p>
-      <h1 class="masthead-title">Insight <em>Gaps</em></h1>
-      <p class="masthead-sub">Forensic Data Journalism &amp; Operational Intelligence Bureau</p>
+<section id="hero">
+  <div class="hero-eyebrow">Est. 2025 &nbsp;&#xb7;&nbsp; Dhaka, Bangladesh &nbsp;&#xb7;&nbsp; Independent &nbsp;&#xb7;&nbsp; Public Interest</div>
+  <h1 class="hero-title">Insight<br><em>Gaps</em></h1>
+  <p class="hero-sub">Forensic Data Journalism<br>&amp; Operational Intelligence Bureau</p>
+  <div class="hero-divider"></div>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">3</div><div class="hstat-lbl">Published<br>Investigations</div></div>
+    <div class="hstat"><div class="hstat-val gold">0.46%</div><div class="hstat-lbl">Conviction rate<br>BD-INV-002</div></div>
+    <div class="hstat"><div class="hstat-val">91</div><div class="hstat-lbl">Named sources<br>evidence-tiered</div></div>
+    <div class="hstat"><div class="hstat-val teal">155+</div><div class="hstat-lbl">Sources<br>BD-INV-001</div></div>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+</section>
+
+<div class="live-strip">
+  <div class="live-strip-inner">
+    <div class="li"><div class="li-lbl">BDT / USD <span class="live-dot"></span></div><div class="li-val loading" id="strip-bdt">&#xb7;&#xb7;&#xb7;</div></div>
+    <div class="li"><div class="li-lbl">EUR / USD</div><div class="li-val loading" id="strip-eur">&#xb7;&#xb7;&#xb7;</div></div>
+    <div class="li"><div class="li-lbl">GBP / USD</div><div class="li-val loading" id="strip-gbp">&#xb7;&#xb7;&#xb7;</div></div>
+    <div class="li"><div class="li-lbl">JPY / USD</div><div class="li-val loading" id="strip-jpy">&#xb7;&#xb7;&#xb7;</div></div>
+    <div class="li"><div class="li-lbl">CNY / USD</div><div class="li-val loading" id="strip-cny">&#xb7;&#xb7;&#xb7;</div></div>
+    <div class="li"><div class="li-lbl">Dhaka AQI <span class="live-dot"></span></div><div class="li-val loading" id="strip-dhaka">&#xb7;&#xb7;&#xb7;</div></div>
+    <div class="li"><div class="li-lbl">Delhi AQI</div><div class="li-val loading" id="strip-delhi">&#xb7;&#xb7;&#xb7;</div></div>
+    <div class="li"><div class="li-lbl">Beijing AQI</div><div class="li-val loading" id="strip-beijing">&#xb7;&#xb7;&#xb7;</div></div>
+    <div class="li"><div class="li-lbl">London AQI</div><div class="li-val loading" id="strip-london">&#xb7;&#xb7;&#xb7;</div></div>
+    <div class="li"><div class="li-lbl">Updated</div><div class="li-val" id="strip-time" style="font-size:.58rem;color:var(--muted2)">&#8212;</div></div>
+  </div>
+</div>
+
+<hr class="sec-hr">
+<main>
+
+<section class="sec">
+<div class="wrap">
+  <div class="sec-head">
+    <div><div class="sec-eyebrow">Featured Investigation</div><div class="sec-title">The Impunity Machine</div></div>
+    <a class="view-all" href="/investigations/">All Investigations &rarr;</a>
+  </div>
+  <div class="feat">
+    <div class="feat-left">
+      <div class="feat-label">BD-INV-002 &nbsp;&#xb7;&nbsp; Bangladesh &nbsp;&#xb7;&nbsp; March 2026 &nbsp;&#xb7;&nbsp; Active Investigation</div>
+      <h2 class="feat-title">The <em>Impunity</em> Machine:<br>Bangladesh&#8217;s Rape Justice Crisis</h2>
+      <p class="feat-dek">310 convictions in 23 years for 66,711 women who came forward. Zero convictions in the first seven months of 2024. A forensic audit of why Bangladesh&#8217;s rape justice system produces impunity with the consistency of a machine.</p>
+      <div class="feat-meta">
+        <span>Published March 2026</span>
+        <span>91 Named Sources</span>
+        <span>Evidence Tier: Confirmed</span>
+        <span>CC BY-NC 4.0</span>
+      </div>
+      <div class="feat-stats">
+        <div class="fstat"><div class="fstat-v">0.46%</div><div class="fstat-l">23-year conviction rate</div></div>
+        <div class="fstat"><div class="fstat-v">~150k</div><div class="fstat-l">Cases pending March 2025</div></div>
+        <div class="fstat"><div class="fstat-v gold">2,349</div><div class="fstat-l">Avg days to verdict</div></div>
+      </div>
+      <div class="feat-btns">
+        <a class="btn-red" href="/investigations/national/impunity-machine.html">Full Report &rarr;</a>
+        <a class="btn-outline" href="/investigations/national/impunity-machine-visual.html">Visual Story &rarr;</a>
+        <a class="btn-outline" href="/series/impunity-machine/methodology.html">Methodology</a>
+      </div>
+    </div>
+    <div class="feat-right">
+      <div class="finding"><span class="finding-n">01</span><p class="finding-t"><strong>0.46% conviction rate:</strong> Of 66,711 women who reached a crisis centre (2001&#8211;Jul 2024), only 310 resulted in conviction. The government has never published an official rate.</p></div>
+      <div class="finding"><span class="finding-n">02</span><p class="finding-t"><strong>Zero convictions Jan&#8211;Jul 2024:</strong> 643 women sought help. 227 cases filed. 12 verdicts. Not one conviction &#8212; while the same system convicted the woman who reported in 56 days.</p></div>
+      <div class="finding"><span class="finding-n">03</span><p class="finding-t"><strong>+52% surge in 2025:</strong> Bangladesh Police recorded 786 rape victims H1 2025 vs 516 the previous year. Child rape up 75%. The machine accelerating while conviction rates stay flat.</p></div>
+      <div class="finding"><span class="finding-n">04</span><p class="finding-t"><strong>21-year verdict:</strong> Jamalpur 2004&#8211;2025 &#8212; the longest documented case. At current disposal rate, clearing the backlog would take 26+ years with zero new filings.</p></div>
     </div>
   </div>
+</div>
+</section>
 
-  <div class="live-strip" role="complementary" aria-label="Live market and environment data">
-    <div class="live-strip-inner">
-      <div class="live-item">
-        <div class="live-item-label">BDT / USD <span class="live-dot"></span></div>
-        <div class="live-item-value loading" id="strip-bdt">···</div>
-      </div>
-      <div class="live-item">
-        <div class="live-item-label">EUR / USD</div>
-        <div class="live-item-value loading" id="strip-eur">···</div>
-      </div>
-      <div class="live-item">
-        <div class="live-item-label">GBP / USD</div>
-        <div class="live-item-value loading" id="strip-gbp">···</div>
-      </div>
-      <div class="live-item">
-        <div class="live-item-label">JPY / USD</div>
-        <div class="live-item-value loading" id="strip-jpy">···</div>
-      </div>
-      <div class="live-item">
-        <div class="live-item-label">CNY / USD</div>
-        <div class="live-item-value loading" id="strip-cny">···</div>
-      </div>
-      <div class="live-item">
-        <div class="live-item-label">Dhaka AQI <span class="live-dot"></span></div>
-        <div class="live-item-value loading" id="strip-dhaka">···</div>
-      </div>
-      <div class="live-item">
-        <div class="live-item-label">Delhi AQI</div>
-        <div class="live-item-value loading" id="strip-delhi">···</div>
-      </div>
-      <div class="live-item">
-        <div class="live-item-label">Beijing AQI</div>
-        <div class="live-item-value loading" id="strip-beijing">···</div>
-      </div>
-      <div class="live-item">
-        <div class="live-item-label">London AQI</div>
-        <div class="live-item-value loading" id="strip-london">···</div>
-      </div>
-      <div class="live-item">
-        <div class="live-item-label">Updated</div>
-        <div class="live-item-value" id="strip-time" style="font-size:0.68rem; color:rgba(255,255,255,0.35);">—</div>
-      </div>
+<hr class="sec-hr">
+
+<section class="sec">
+<div class="wrap">
+  <div class="sec-head">
+    <div><div class="sec-eyebrow">Published</div><div class="sec-title">All Investigations</div></div>
+  </div>
+  <div class="inv-grid">
+    <div class="ic"><div class="ic-band red"></div><div class="ic-body"><span class="ic-scope nat">National &#xb7; Bangladesh</span><h3>The Impunity Machine: Bangladesh&#8217;s Rape Justice Crisis</h3><p>BD-INV-002 &#xb7; Forensic audit of the rape justice system. 310 convictions / 66,711 cases. 91 sources. Every claim evidence-tiered.</p><div class="ic-foot"><span class="ic-meta">Gender Justice &#xb7; March 2026 &#xb7; 91 Sources</span><a class="ic-link" href="/investigations/national/impunity-machine.html">Read &rarr;</a></div></div></div>
+    <div class="ic"><div class="ic-band red"></div><div class="ic-body"><span class="ic-scope nat">National &#xb7; Bangladesh</span><h3>Blood Routes: Dhaka Bus Fatalities</h3><p>BD-INV-001 &#xb7; Data gaps, Phoenix operators, and the Joma system behind Dhaka&#8217;s road fatality crisis. 155+ sources.</p><div class="ic-foot"><span class="ic-meta">Road Safety &#xb7; February 2026 &#xb7; 155+ Sources</span><a class="ic-link" href="/investigations/national/blood-routes.html">Read &rarr;</a></div></div></div>
+    <div class="ic"><div class="ic-band gold"></div><div class="ic-body"><span class="ic-scope intl">International &#xb7; Global Economy</span><h3>The Hidden Tax of War: How Conflicts Raise Global Prices</h3><p>How armed conflicts transmit economic harm to countries that never participated &#8212; Iraq, Arab Spring, Ukraine, Red Sea.</p><div class="ic-foot"><span class="ic-meta">Conflict Economics &#xb7; 2025</span><a class="ic-link" href="/investigations/international/war-tax.html">Read &rarr;</a></div></div></div>
+  </div>
+</div>
+</section>
+
+<hr class="sec-hr">
+
+<section class="sec">
+<div class="wrap">
+  <div class="sec-head">
+    <div><div class="sec-eyebrow">Live Data</div><div class="sec-title">World Monitor</div></div>
+    <span style="font-family:var(--mono);font-size:.4rem;color:var(--muted2)" id="data-timestamp">&#8212;</span>
+  </div>
+  <div class="curr-grid">
+    <div class="cc"><div class="cc-pair">BDT</div><div class="cc-val" id="curr-bdt">&#xb7;&#xb7;&#xb7;</div></div>
+    <div class="cc"><div class="cc-pair">EUR</div><div class="cc-val" id="curr-eur">&#xb7;&#xb7;&#xb7;</div></div>
+    <div class="cc"><div class="cc-pair">GBP</div><div class="cc-val" id="curr-gbp">&#xb7;&#xb7;&#xb7;</div></div>
+    <div class="cc"><div class="cc-pair">JPY</div><div class="cc-val" id="curr-jpy">&#xb7;&#xb7;&#xb7;</div></div>
+    <div class="cc"><div class="cc-pair">CNY</div><div class="cc-val" id="curr-cny">&#xb7;&#xb7;&#xb7;</div></div>
+    <div class="cc"><div class="cc-pair">INR</div><div class="cc-val" id="curr-inr">&#xb7;&#xb7;&#xb7;</div></div>
+  </div>
+  <div class="live-grid">
+    <div class="dpanel">
+      <div class="dpanel-hd"><span class="dpanel-hd-t">Air Quality Index <span class="live-dot" style="margin-left:.4rem"></span></span><span class="dpanel-hd-m">8 cities &nbsp;&#xb7;&nbsp; WAQI</span></div>
+      <div class="dpanel-bd"><div class="aqi-grid" id="aqiGrid"><div class="news-loading">Fetching AQI&#8230;</div></div></div>
+    </div>
+    <div class="dpanel">
+      <div class="dpanel-hd"><span class="dpanel-hd-t">World News</span><span class="dpanel-hd-m" id="news-updated">BBC World &#xb7; Live</span></div>
+      <div class="dpanel-bd" id="newsGrid"><div class="news-loading">Fetching world news&#8230;</div></div>
     </div>
   </div>
+</div>
+</section>
 
-  <div class="home-grid">
+<hr class="sec-hr">
 
-    <div class="hero-investigation">
-      <span class="hero-section-label">Featured Investigation</span>
-
-      <div class="hero-content-wrap">
-        <span class="hero-tag">New Release · March 2026</span>
-        <h2 class="hero-headline">The Impunity Machine:<br>Bangladesh's Rape Justice Crisis</h2>
-        <p class="hero-dek">
-          310 convictions in 23 years for 66,711 women who came forward. Zero convictions in the first seven months of 2024. 
-          A forensic audit of why Bangladesh's rape justice system produces impunity with the consistency of a machine.
-        </p>
-        <div class="hero-meta">
-          <span>Published March 2026</span>
-          <span class="sep">·</span>
-          <span>60+ Sources</span>
-          <span class="sep">·</span>
-          <span>Evidence Tier: Confirmed</span>
-        </div>
-
-        <div style="margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--border);">
-          <p style="font-family: var(--sans); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-4); margin-bottom: 16px;">Primary Findings</p>
-          <div style="display: flex; flex-direction: column; gap: 12px;">
-            <div style="display: flex; gap: 12px; align-items: flex-start;">
-              <span style="font-family: var(--mono); font-size: 0.65rem; color: var(--red); flex-shrink:0; padding-top:2px;">01</span>
-              <p style="font-family: var(--sans); font-size: 0.88rem; color: var(--text-2); margin:0; max-width:100%;">
-                <strong>0.46% conviction rate:</strong> Of 66,711 women who reached a crisis centre (2001–July 2024), only 310 resulted in conviction.
-              </p>
-            </div>
-            <div style="display: flex; gap: 12px; align-items: flex-start;">
-              <span style="font-family: var(--mono); font-size: 0.65rem; color: var(--red); flex-shrink:0; padding-top:2px;">02</span>
-              <p style="font-family: var(--sans); font-size: 0.88rem; color: var(--text-2); margin:0; max-width:100%;">
-                <strong>Zero convictions (Jan–Jul 2024):</strong> 643 women sought help. 227 cases filed. 12 verdicts. Not one conviction.
-              </p>
-            </div>
-            <div style="display: flex; gap: 12px; align-items: flex-start;">
-              <span style="font-family: var(--mono); font-size: 0.65rem; color: var(--red); flex-shrink:0; padding-top:2px;">03</span>
-              <p style="font-family: var(--sans); font-size: 0.88rem; color: var(--text-2); margin:0; max-width:100%;">
-                <strong>India recalculation:</strong> India's published 22.7% rate drops to ~2–3% on Bangladesh's denominator — the two systems are structurally identical.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div style="margin-top: 32px;">
-           <a href="/investigations/national/impunity-machine.html" class="btn-report" style="display: inline-block; padding: 12px 24px; background: var(--red); color: #fff; text-decoration: none; font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px;">View Full Investigation →</a>
-        </div>
-      </div>
-    </div>
-
-    <aside>
-      <div style="border-bottom: 2px solid var(--text-1); padding-bottom: 8px; margin-bottom: 0;">
-        <span style="font-family: var(--sans); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-3);">Investigations — Published</span>
-      </div>
-      <div class="hero-sub-stories">
-        <div class="sub-story">
-          <div class="ss-content">
-            <div class="ss-num" style="color: var(--red);">NATIONAL</div>
-            <div class="ss-title"><a href="/investigations/national/impunity-machine.html">The Impunity Machine: Bangladesh's Rape Justice Crisis</a></div>
-            <div class="ss-cat">Gender Justice · March 2026 · 60+ Sources</div>
-          </div>
-        </div>
-        <div class="sub-story">
-          <div class="ss-content">
-            <div class="ss-num" style="color: var(--red);">NATIONAL</div>
-            <div class="ss-title"><a href="/investigations/national/blood-routes.html">Blood Routes: Dhaka Bus Fatalities Investigation</a></div>
-            <div class="ss-cat">Road Safety · February 2026 · 155+ Sources</div>
-          </div>
-        </div>
-        <div class="sub-story" style="border-bottom:none;">
-          <div class="ss-content">
-            <div class="ss-num" style="color: var(--gold);">INTERNATIONAL</div>
-            <div class="ss-title"><a href="/investigations/international/war-tax.html">The Hidden Tax of War: How Conflicts Raise Global Prices</a></div>
-            <div class="ss-cat">Global Economy · 2025 · Iraq · Arab Spring · Ukraine · Red Sea</div>
-          </div>
-        </div>
-      </div>
-
-      <div style="border-bottom: 2px solid var(--text-1); padding-bottom: 8px; margin-bottom: 0; margin-top: 28px;">
-        <span style="font-family: var(--sans); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-3);">Analysis — Published</span>
-      </div>
-      <div class="hero-sub-stories">
-        <div class="sub-story">
-          <div class="ss-content">
-            <div class="ss-num">01 — CASH FLOW</div>
-            <div class="ss-title"><a href="/analysis/property-preservation/financial-health.html">Financial Health: The Cash Chain</a></div>
-            <div class="ss-cat">Property Preservation · Jan 2026</div>
-          </div>
-        </div>
-        <div class="sub-story">
-          <div class="ss-content">
-            <div class="ss-num">02 — LEAKAGE</div>
-            <div class="ss-title"><a href="/analysis/property-preservation/leakage-breakdown.html">Leakage Breakdown: Structural Autopsy</a></div>
-            <div class="ss-cat">Property Preservation · Jan 2026</div>
-          </div>
-        </div>
-        <div class="sub-story">
-          <div class="ss-content">
-            <div class="ss-num">03 — WORK ORDER</div>
-            <div class="ss-title"><a href="/analysis/property-preservation/work-order-breakdown.html">Work Order Risk Breakdown</a></div>
-            <div class="ss-cat">Property Preservation · Jan 2026</div>
-          </div>
-        </div>
-        <div class="sub-story">
-          <div class="ss-content">
-            <div class="ss-num">UPCOMING</div>
-            <div class="ss-title" style="opacity:0.4; cursor:default;">Revenue Cycle Management Analysis</div>
-            <div class="ss-cat" style="opacity:0.4;">In Development</div>
-          </div>
-        </div>
-        <div class="sub-story" style="border-bottom:none;">
-          <div class="ss-content">
-            <div class="ss-num">UPCOMING</div>
-            <div class="ss-title" style="opacity:0.4; cursor:default;">Compliance Gaps — Sector Report</div>
-            <div class="ss-cat" style="opacity:0.4;">In Development</div>
-          </div>
-        </div>
-      </div>
-
-      <div style="margin-top: 28px; background: var(--ink); padding: 24px; border-radius: 3px;">
-        <p style="font-family: var(--sans); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 10px; max-width:100%;">Commissioned Diagnostics</p>
-        <p style="font-family: var(--sans); font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.6; margin-bottom: 14px; max-width:100%;">Limited private engagements accepted. Same forensic standards as public work.</p>
-        <a href="mailto:insightgaps@gmail.com" style="font-family: var(--sans); font-size: 0.78rem; font-weight: 700; color: #fff; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 2px; text-decoration:none; transition: border-color .15s;" onmouseover="this.style.borderColor='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.3)'">insightgaps@gmail.com →</a>
-      </div>
-    </aside>
+<section class="sec">
+<div class="wrap">
+  <div class="sec-head">
+    <div><div class="sec-eyebrow">Research Programs</div><div class="sec-title">Structured Domains</div></div>
+    <a class="view-all" href="/topics/">View all &rarr;</a>
   </div>
-
-  <div class="world-data-section">
-    <div class="wds-inner">
-
-      <div class="wds-header">
-        <h2 class="wds-title">Global Data Snapshot</h2>
-        <div class="wds-timestamp">
-          <span class="live-dot"></span>
-          <span id="data-timestamp">Fetching live data…</span>
-        </div>
-      </div>
-
-      <div style="margin-bottom: 12px;">
-        <span style="font-family: var(--sans); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.35);">Air Quality Index — Major Cities</span>
-      </div>
-      <div class="aqi-grid" id="aqiGrid">
-        <div class="aqi-card aqi-loading-card" style="background: var(--panel-surface); border: 1px solid var(--panel-border); border-radius: 3px; padding: 20px;">
-          <div style="font-family: var(--mono); font-size: 0.62rem; color: rgba(255,255,255,0.3); animation: blink 1.4s infinite;">Loading AQI data…</div>
-        </div>
-      </div>
-
-      <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px;">
-        <span style="font-family: var(--sans); font-size: 0.62rem; color: rgba(255,255,255,0.25); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Scale:</span>
-        <span style="font-family: var(--mono); font-size: 0.62rem; color: #4ade80;">0–50 Good</span>
-        <span style="font-family: var(--mono); font-size: 0.62rem; color: #facc15;">51–100 Moderate</span>
-        <span style="font-family: var(--mono); font-size: 0.62rem; color: #fb923c;">101–150 Sensitive</span>
-        <span style="font-family: var(--mono); font-size: 0.62rem; color: #f87171;">151–200 Unhealthy</span>
-        <span style="font-family: var(--mono); font-size: 0.62rem; color: #c084fc;">201–300 Very Unhealthy</span>
-        <span style="font-family: var(--mono); font-size: 0.62rem; color: #f97316;">300+ Hazardous</span>
-      </div>
-
-      <div style="margin-bottom: 12px;">
-        <span style="font-family: var(--sans); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.35);">Currency Exchange Rates vs USD</span>
-      </div>
-      <div class="market-row" id="marketRow">
-        <div class="market-card">
-          <div class="mc-label">BDT / USD</div>
-          <div class="mc-value loading" id="curr-bdt">···</div>
-          <div class="mc-change neu" id="curr-bdt-note">Bangladeshi Taka</div>
-        </div>
-        <div class="market-card">
-          <div class="mc-label">EUR / USD</div>
-          <div class="mc-value loading" id="curr-eur">···</div>
-          <div class="mc-change neu" id="curr-eur-note">Euro</div>
-        </div>
-        <div class="market-card">
-          <div class="mc-label">GBP / USD</div>
-          <div class="mc-value loading" id="curr-gbp">···</div>
-          <div class="mc-change neu" id="curr-gbp-note">British Pound</div>
-        </div>
-        <div class="market-card">
-          <div class="mc-label">JPY / USD</div>
-          <div class="mc-value loading" id="curr-jpy">···</div>
-          <div class="mc-change neu" id="curr-jpy-note">Japanese Yen</div>
-        </div>
-        <div class="market-card">
-          <div class="mc-label">CNY / USD</div>
-          <div class="mc-value loading" id="curr-cny">···</div>
-          <div class="mc-change neu" id="curr-cny-note">Chinese Yuan</div>
-        </div>
-        <div class="market-card">
-          <div class="mc-label">INR / USD</div>
-          <div class="mc-value loading" id="curr-inr">···</div>
-          <div class="mc-change neu" id="curr-inr-note">Indian Rupee</div>
-        </div>
-      </div>
-
-      <p style="font-family: var(--mono); font-size: 0.6rem; color: rgba(255,255,255,0.18); margin-top: 20px; max-width:100%;">
-        Data sources: WAQI API (air quality) · Fawaz Ahmed Open Currency API (exchange rates). Updated on page load.
-      </p>
-    </div>
+  <p class="sec-dek">Structured domains clustering investigations, datasets, and analysis under a defined research mandate &#8212; building systematic knowledge, not isolated articles.</p>
+  <div class="prog-grid">
+    <a class="pg" href="/topics/accountability/"><div class="pg-count">2 Investigations</div><div class="pg-name">Accountability &amp; Justice</div><div class="pg-desc">How institutional systems produce systematic impunity &#8212; police, courts, prosecutors, and the architecture of non-prosecution.</div></a>
+    <a class="pg g" href="/topics/conflict-economics/"><div class="pg-count">1 Investigation</div><div class="pg-name">Conflict Economics</div><div class="pg-desc">How armed conflicts transmit economic harm to countries that never participated &#8212; price inflation, supply chains, commodity shocks.</div></a>
+    <a class="pg t" href="/topics/operational-intelligence/"><div class="pg-count">3 Reports</div><div class="pg-name">Operational Intelligence</div><div class="pg-desc">Forensic diagnostics for operational systems &#8212; cash flow, vendor risk, work order analysis, and systematic leakage mapping.</div></a>
   </div>
+</div>
+</section>
 
-  <section class="news-section" aria-labelledby="news-heading">
-    <div class="section-rule">
-      <div class="section-rule-line"></div>
-      <span class="section-rule-title">World News</span>
-      <div class="section-rule-line"></div>
-      <span class="section-rule-meta" id="news-updated">Live feed</span>
-    </div>
+<hr class="sec-hr">
 
-    <div class="news-grid" id="newsGrid">
-      <div class="news-loading">Fetching world news…</div>
-    </div>
-
-    <div class="news-strip" id="newsStrip" style="display:none;"></div>
-
-    <p style="font-family: var(--mono); font-size: 0.6rem; color: var(--text-4); margin-top: 14px; margin-bottom: 0; max-width:100%;">
-      Source: BBC World Service RSS · Reuters World. Content is sourced from public RSS feeds and does not reflect editorial positions of Insight Gaps.
-    </p>
-  </section>
-
-  <section class="analysis-home" aria-labelledby="inv-heading" style="border-top: 1px solid var(--border); padding-top: var(--s12);">
-    <div class="section-rule">
-      <div class="section-rule-line"></div>
-      <span class="section-rule-title">Investigations</span>
-      <div class="section-rule-line"></div>
-      <span class="section-rule-meta"><a href="/investigations/" style="color: var(--text-4); font-size: 0.68rem;">View all →</a></span>
-    </div>
-
-    <p style="font-family: var(--sans); font-size: 1rem; font-weight: 300; color: var(--text-3); max-width: 62ch; margin-bottom: 0;">
-      Published forensic investigations — national and international. Open-source. Evidence tier-rated.
-    </p>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--s6); margin-top: var(--s8);">
-
-      <div style="background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--red); padding: var(--s6); border-radius: var(--r);">
-        <div style="font-family: var(--sans); font-size: var(--t-xs); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); margin-bottom: var(--s3);">National · Bangladesh</div>
-        <h3 style="font-size: var(--t-lg); margin: 0 0 var(--s3);">The Impunity Machine</h3>
-        <p style="font-family: var(--sans); font-size: var(--t-sm); color: var(--text-3); margin: 0 0 var(--s5);">Bangladesh's rape justice crisis: 310 convictions in 23 years for 66,711 women. BD-INV-002 · Mar 2026</p>
-        <a href="/investigations/national/impunity-machine.html" class="btn-report">Read Investigation →</a>
-      </div>
-
-      <div style="background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--red); padding: var(--s6); border-radius: var(--r);">
-        <div style="font-family: var(--sans); font-size: var(--t-xs); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); margin-bottom: var(--s3);">National · Bangladesh</div>
-        <h3 style="font-size: var(--t-lg); margin: 0 0 var(--s3);">Blood Routes</h3>
-        <p style="font-family: var(--sans); font-size: var(--t-sm); color: var(--text-3); margin: 0 0 var(--s5);">Dhaka bus fatalities: data gaps, Phoenix operators, and the Joma system. BD-INV-001 · Feb 2026</p>
-        <a href="/investigations/national/blood-routes.html" class="btn-report">Read Investigation →</a>
-      </div>
-
-      <div style="background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--gold); padding: var(--s6); border-radius: var(--r);">
-        <div style="font-family: var(--sans); font-size: var(--t-xs); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: var(--s3);">International · Global Economy</div>
-        <h3 style="font-size: var(--t-lg); margin: 0 0 var(--s3);">The Hidden Tax of War</h3>
-        <p style="font-family: var(--sans); font-size: var(--t-sm); color: var(--text-3); margin: 0 0 var(--s5);">How armed conflicts raise prices for countries that never fought — Iraq, Ukraine, Red Sea. 2025</p>
-        <a href="/investigations/international/war-tax.html" class="btn-report" style="border-color: var(--gold); color: var(--gold);" onmouseover="this.style.background='var(--gold)';this.style.color='#fff';" onmouseout="this.style.background='transparent';this.style.color='var(--gold)';">Read Investigation →</a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ── RESEARCH PROGRAMS ── -->
-  <section aria-labelledby="programs-heading" style="border-top: 1px solid var(--border); padding-top: var(--s12);">
-    <div class="section-rule">
-      <div class="section-rule-line"></div>
-      <span class="section-rule-title">Research Programs</span>
-      <div class="section-rule-line"></div>
-      <span class="section-rule-meta"><a href="/topics/" style="color: var(--text-4); font-size: 0.68rem;">View all →</a></span>
-    </div>
-
-    <p style="font-family: var(--sans); font-size: 1rem; font-weight: 300; color: var(--text-3); max-width: 62ch; margin-bottom: 0;">
-      Structured domains that cluster investigations, datasets, and analysis under a defined research mandate — building systematic knowledge, not isolated articles.
-    </p>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--s6); margin-top: var(--s8);">
-
-      <a href="/topics/accountability/" style="display:block; text-decoration:none; background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--red); border-radius: var(--r); padding: var(--s6); transition: box-shadow 0.2s, transform 0.2s;" onmouseover="this.style.boxShadow='0 4px 24px rgba(0,0,0,0.08)';this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none';this.style.transform='none';">
-        <div style="font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); margin-bottom: var(--s3);">2 Investigations</div>
-        <div style="font-family: var(--serif); font-size: var(--t-lg); font-weight: 700; color: var(--text-1); margin-bottom: var(--s3); line-height: 1.2;">Accountability &amp; Justice</div>
-        <div style="font-family: var(--sans); font-size: var(--t-sm); color: var(--text-3); line-height: 1.6;">How institutional systems produce systematic impunity — police, courts, prosecutors.</div>
-      </a>
-
-      <a href="/topics/conflict-economics/" style="display:block; text-decoration:none; background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--gold); border-radius: var(--r); padding: var(--s6); transition: box-shadow 0.2s, transform 0.2s;" onmouseover="this.style.boxShadow='0 4px 24px rgba(0,0,0,0.08)';this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none';this.style.transform='none';">
-        <div style="font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: var(--s3);">1 Investigation</div>
-        <div style="font-family: var(--serif); font-size: var(--t-lg); font-weight: 700; color: var(--text-1); margin-bottom: var(--s3); line-height: 1.2;">Conflict Economics</div>
-        <div style="font-family: var(--sans); font-size: var(--t-sm); color: var(--text-3); line-height: 1.6;">How armed conflicts transmit economic harm to countries that never participated.</div>
-      </a>
-
-      <a href="/topics/operational-intelligence/" style="display:block; text-decoration:none; background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--teal); border-radius: var(--r); padding: var(--s6); transition: box-shadow 0.2s, transform 0.2s;" onmouseover="this.style.boxShadow='0 4px 24px rgba(0,0,0,0.08)';this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none';this.style.transform='none';">
-        <div style="font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin-bottom: var(--s3);">3 Reports</div>
-        <div style="font-family: var(--serif); font-size: var(--t-lg); font-weight: 700; color: var(--text-1); margin-bottom: var(--s3); line-height: 1.2;">Operational Intelligence</div>
-        <div style="font-family: var(--sans); font-size: var(--t-sm); color: var(--text-3); line-height: 1.6;">Forensic diagnostics for operational systems — cash flow, vendor risk, work orders.</div>
-      </a>
-
-    </div>
-  </section>
-
-  <section class="analysis-home" aria-labelledby="analysis-heading">
-    <div class="section-rule">
-      <div class="section-rule-line"></div>
-      <span class="section-rule-title">Applied Analysis</span>
-      <div class="section-rule-line"></div>
-      <span class="section-rule-meta"><a href="/analysis/" style="color: var(--text-4); font-size: 0.68rem;">View all →</a></span>
-    </div>
-
-    <p style="font-family: var(--sans); font-size: 1rem; font-weight: 300; color: var(--text-3); max-width: 62ch; margin-bottom: 0;">
-      Operational intelligence derived from forensic investigations. Published openly. Available as private commissioned diagnostics.
-    </p>
-
-    <div class="forensic-grid">
-
-      <article class="forensic-card">
-        <div class="card-preview-stage"
-             onclick="openPopup('/analysis/property-preservation/images/financial-dashboard.png','Financial Health Dashboard','/analysis/property-preservation/financial-health.html')"
-             role="button" aria-label="Preview Financial Health Dashboard">
-          <img src="/analysis/property-preservation/images/financial-dashboard.png" alt="Financial Health Dashboard" class="card-preview-img">
-        </div>
-        <div class="card-content">
-          <span class="card-tag financial">Cash Flow Risk</span>
-          <div class="card-meta"><span>January 2026</span></div>
-          <h3>Financial Health: The Cash Chain</h3>
-          <p>Tracks how revenue moves through invoicing and collection to expose where retention breaks down.</p>
-          <a href="/analysis/property-preservation/financial-health.html" class="btn-report">View Analysis →</a>
-        </div>
-      </article>
-
-      <article class="forensic-card">
-        <div class="card-preview-stage"
-             onclick="openPopup('/analysis/property-preservation/images/leakage-map.png','Leakage Breakdown','/analysis/property-preservation/leakage-breakdown.html')"
-             role="button" aria-label="Preview Leakage Breakdown">
-          <img src="/analysis/property-preservation/images/leakage-map.png" alt="Leakage map" class="card-preview-img">
-        </div>
-        <div class="card-content">
-          <span class="card-tag leakage">Profit Leakage</span>
-          <div class="card-meta"><span>January 2026</span></div>
-          <h3>Leakage Breakdown: Structural Autopsy</h3>
-          <p>Recurring margin erosion caused by vendor overruns and rework loops — mapped and classified.</p>
-          <a href="/analysis/property-preservation/leakage-breakdown.html" class="btn-report">View Analysis →</a>
-        </div>
-      </article>
-
-      <article class="forensic-card">
-        <div class="card-preview-stage"
-             onclick="openPopup('/analysis/property-preservation/images/risk-matrix.png','Work Order Risk Matrix','/analysis/property-preservation/work-order-breakdown.html')"
-             role="button" aria-label="Preview Work Order Risk Matrix">
-          <img src="/analysis/property-preservation/images/risk-matrix.png" alt="Risk matrix" class="card-preview-img">
-        </div>
-        <div class="card-content">
-          <span class="card-tag workorder">Work Order Risk</span>
-          <div class="card-meta"><span>January 2026</span></div>
-          <h3>Work Order Breakdown</h3>
-          <p>Identifies which service types scale profitably and which quietly magnify operational risk.</p>
-          <a href="/analysis/property-preservation/work-order-breakdown.html" class="btn-report">View Analysis →</a>
-        </div>
-      </article>
-    </div>
-  </section>
+<section class="sec">
+<div class="wrap">
+  <div class="sec-head">
+    <div><div class="sec-eyebrow">Applied Analysis</div><div class="sec-title">Operational Intelligence</div></div>
+    <a class="view-all" href="/analysis/">View all &rarr;</a>
+  </div>
+  <p class="sec-dek">Forensic diagnostics derived from investigative work. Published openly. Available as private commissioned engagements under strict confidentiality.</p>
+  <div class="an-grid">
+    <div class="an"><img class="an-img" src="/analysis/property-preservation/images/financial-dashboard.png" alt="Financial Health Dashboard" onclick="openPopup('/analysis/property-preservation/images/financial-dashboard.png','Financial Health Dashboard','/analysis/property-preservation/financial-health.html')" role="button"><div class="an-body"><span class="an-tag">Cash Flow Risk</span><div class="an-meta">January 2026</div><div class="an-title">Financial Health: The Cash Chain</div><div class="an-desc">Tracks how revenue moves through invoicing and collection to expose where retention breaks down.</div><a class="an-link" href="/analysis/property-preservation/financial-health.html">View Analysis &rarr;</a></div></div>
+    <div class="an"><img class="an-img" src="/analysis/property-preservation/images/leakage-map.png" alt="Leakage Breakdown" onclick="openPopup('/analysis/property-preservation/images/leakage-map.png','Leakage Breakdown','/analysis/property-preservation/leakage-breakdown.html')" role="button"><div class="an-body"><span class="an-tag">Profit Leakage</span><div class="an-meta">January 2026</div><div class="an-title">Leakage Breakdown: Structural Autopsy</div><div class="an-desc">Recurring margin erosion caused by vendor overruns and rework loops &#8212; mapped and classified.</div><a class="an-link" href="/analysis/property-preservation/leakage-breakdown.html">View Analysis &rarr;</a></div></div>
+    <div class="an"><img class="an-img" src="/analysis/property-preservation/images/risk-matrix.png" alt="Work Order Risk Matrix" onclick="openPopup('/analysis/property-preservation/images/risk-matrix.png','Work Order Risk Matrix','/analysis/property-preservation/work-order-breakdown.html')" role="button"><div class="an-body"><span class="an-tag">Work Order Risk</span><div class="an-meta">January 2026</div><div class="an-title">Work Order Risk Breakdown</div><div class="an-desc">Identifies which service types scale profitably and which quietly magnify operational risk.</div><a class="an-link" href="/analysis/property-preservation/work-order-breakdown.html">View Analysis &rarr;</a></div></div>
+  </div>
+</div>
+</section>
 
 </main>
 
-<div id="imagePopup" class="popup-overlay" onclick="closePopup()" role="dialog" aria-modal="true">
+<footer>
+  <div class="fg">
+    <div><div class="fb">Insight <em>Gaps</em></div><p class="fst">An independent forensic data journalism and operational intelligence bureau. No funders. No sponsors. No conflicts of interest.</p></div>
+    <div class="fc"><h5>Journalism</h5><ul><li><a href="/investigations/">All Investigations</a></li><li><a href="/investigations/national/impunity-machine.html">The Impunity Machine</a></li><li><a href="/investigations/national/blood-routes.html">Blood Routes</a></li><li><a href="/investigations/international/war-tax.html">Hidden Tax of War</a></li></ul></div>
+    <div class="fc"><h5>Research</h5><ul><li><a href="/topics/">All Topics</a></li><li><a href="/topics/accountability/">Accountability &amp; Justice</a></li><li><a href="/topics/conflict-economics/">Conflict Economics</a></li><li><a href="/topics/operational-intelligence/">Operational Intelligence</a></li></ul></div>
+    <div class="fc"><h5>Analysis</h5><ul><li><a href="/analysis/">All Domains</a></li><li><a href="/analysis/property-preservation/">Property Preservation</a></li><li><a href="/analysis/property-preservation/financial-health.html">Cash Flow Risk</a></li><li><a href="/analysis/property-preservation/leakage-breakdown.html">Profit Leakage</a></li></ul></div>
+    <div class="fc"><h5>Bureau</h5><ul><li><a href="/about/">About the Bureau</a></li><li><a href="/methods/">Methods &amp; Standards</a></li><li><a href="mailto:insightgaps@gmail.com">Commissioned Research</a></li><li><a href="mailto:insightgaps@gmail.com">Contact</a></li></ul></div>
+  </div>
+  <div class="fb2">
+    <div class="fc2">&copy; 2026 Insight Gaps Forensic Data Journalism Bureau<br>Public investigations are open. Commissioned work is confidential.</div>
+    <div class="fc2">Independent &nbsp;&#xb7;&nbsp; Non-partisan &nbsp;&#xb7;&nbsp; Dhaka, Bangladesh &nbsp;&#xb7;&nbsp; <a href="/methods/">Editorial standards &rarr;</a></div>
+  </div>
+</footer>
+
+<div id="imagePopup" class="popup-overlay" onclick="closePopup()">
   <div class="popup-content" onclick="event.stopPropagation()">
-    <button class="popup-close" onclick="closePopup()" aria-label="Close">&times;</button>
+    <button class="popup-close" onclick="closePopup()">&times;</button>
     <a id="popupLink" href="#"><img id="popupImg" src="" alt="Preview" class="popup-image"></a>
     <div id="popupCaption" class="popup-caption"></div>
   </div>
 </div>
 
-<div data-include="footer" data-path="/includes/footer.html"></div>
-
-<script src="/js/components.js"></script>
-<script src="/js/ui.js"></script>
-
 <script>
-(function() {
-  'use strict';
+(function(){
+'use strict';
+function setText(id,v){var e=document.getElementById(id);if(e){e.textContent=v;e.classList.remove('loading');}}
+function fmt(n,d){if(!n)return'&#8212;';return parseFloat(n).toFixed(d!==undefined?d:4);}
+function now(){return new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',timeZoneName:'short'});}
 
-  /* ─── Helpers ─── */
-  function setText(id, val) {
-    var el = document.getElementById(id);
-    if (el) { el.textContent = val; el.classList.remove('loading'); }
-  }
-  function setClass(id, cls) {
-    var el = document.getElementById(id);
-    if (el) el.className = el.className.replace(/\b(pos|neg|neu|loading)\b/g,'').trim() + ' ' + cls;
-  }
-  function formatRate(n, decimals) {
-    if (!n) return '—';
-    return parseFloat(n).toFixed(decimals !== undefined ? decimals : 4);
-  }
+function fetchCurr(){
+  fetch('https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.min.json')
+    .then(r=>r.json()).then(d=>{
+      var r=d.usd;if(!r)return;
+      setText('tick-bdt','৳'+fmt(r.bdt,2));setText('tick-eur','€'+fmt(r.eur,4));
+      setText('tick-gbp','£'+fmt(r.gbp,4));setText('tick-jpy','¥'+fmt(r.jpy,2));setText('tick-cny','¥'+fmt(r.cny,4));
+      setText('strip-bdt','৳'+fmt(r.bdt,2));setText('strip-eur','€'+fmt(r.eur,4));
+      setText('strip-gbp','£'+fmt(r.gbp,4));setText('strip-jpy','¥'+fmt(r.jpy,2));setText('strip-cny','¥'+fmt(r.cny,4));
+      setText('curr-bdt','৳ '+fmt(r.bdt,2));setText('curr-eur','€ '+fmt(r.eur,4));
+      setText('curr-gbp','£ '+fmt(r.gbp,4));setText('curr-jpy','¥ '+fmt(r.jpy,2));
+      setText('curr-cny','¥ '+fmt(r.cny,4));setText('curr-inr','₹ '+fmt(r.inr,2));
+      setText('strip-time',now());setText('data-timestamp','Updated '+now());
+    }).catch(()=>{});
+}
 
-  /* ─── Timestamp ─── */
-  function nowStr() {
-    var d = new Date();
-    return d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', timeZoneName: 'short' });
-  }
-
-  /* ══════════════════════════════════════
-     1. CURRENCY DATA
-     Source: cdn.jsdelivr.net/npm/@fawazahmed0/currency-api
-     100% free, CDN-backed, no auth required
-  ══════════════════════════════════════ */
-  function fetchCurrencies() {
-    var url = 'https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.min.json';
-    fetch(url)
-      .then(function(r){ return r.json(); })
-      .then(function(data) {
-        var r = data.usd;
-        if (!r) return;
-
-        /* Strip prices per 1 USD */
-        var bdt = r.bdt, eur = r.eur, gbp = r.gbp, jpy = r.jpy, cny = r.cny, inr = r.inr;
-
-        // Live strip
-        setText('tick-bdt',  '৳' + formatRate(bdt, 2));
-        setText('tick-eur',  '€' + formatRate(eur, 4));
-        setText('tick-gbp',  '£' + formatRate(gbp, 4));
-        setText('tick-jpy',  '¥' + formatRate(jpy, 2));
-        setText('tick-cny',  '¥' + formatRate(cny, 4));
-        document.querySelectorAll('.tick-bdt2').forEach(function(el){ el.textContent = '৳'+formatRate(bdt,2); });
-        document.querySelectorAll('.tick-eur2').forEach(function(el){ el.textContent = '€'+formatRate(eur,4); });
-        document.querySelectorAll('.tick-gbp2').forEach(function(el){ el.textContent = '£'+formatRate(gbp,4); });
-        document.querySelectorAll('.tick-jpy2').forEach(function(el){ el.textContent = '¥'+formatRate(jpy,2); });
-
-        // Strip bar
-        setText('strip-bdt', '৳' + formatRate(bdt,2));
-        setText('strip-eur', '€' + formatRate(eur,4));
-        setText('strip-gbp', '£' + formatRate(gbp,4));
-        setText('strip-jpy', '¥' + formatRate(jpy,2));
-        setText('strip-cny', '¥' + formatRate(cny,4));
-
-        // World data cards
-        setText('curr-bdt', '৳ ' + formatRate(bdt,2));
-        setText('curr-eur', '€ ' + formatRate(eur,4));
-        setText('curr-gbp', '£ ' + formatRate(gbp,4));
-        setText('curr-jpy', '¥ ' + formatRate(jpy,2));
-        setText('curr-cny', '¥ ' + formatRate(cny,4));
-        setText('curr-inr', '₹ ' + formatRate(inr,2));
-
-        setText('strip-time', nowStr());
-        setText('data-timestamp', 'Updated ' + nowStr());
-      })
-      .catch(function(){ /* silent — shows '···' placeholder */ });
-  }
-
-  /* ══════════════════════════════════════
-     2. AIR QUALITY INDEX (AQI)
-     Source: api.waqi.info — demo token
-  ══════════════════════════════════════ */
-  var AQI_TOKEN = 'demo'; // Public demo token — rate limited but functional
-
-  var cities = [
-    { id: 'dhaka',   name: 'Dhaka',     slug: 'dhaka',   stripId: 'strip-dhaka',  tickId: 'tick-dhaka-aqi'  },
-    { id: 'delhi',   name: 'Delhi',     slug: 'delhi',   stripId: 'strip-delhi',  tickId: 'tick-delhi-aqi'  },
-    { id: 'beijing', name: 'Beijing',   slug: 'beijing', stripId: 'strip-beijing',tickId: 'tick-bj-aqi'     },
-    { id: 'london',  name: 'London',    slug: 'london',  stripId: 'strip-london', tickId: null              },
-    { id: 'newyork', name: 'New York',  slug: 'new-york',stripId: null,           tickId: null              },
-    { id: 'tokyo',   name: 'Tokyo',     slug: 'tokyo',   stripId: null,           tickId: null              },
-    { id: 'mumbai',  name: 'Mumbai',    slug: 'mumbai',  stripId: null,           tickId: null              },
-    { id: 'shanghai',name: 'Shanghai',  slug: 'shanghai',stripId: null,           tickId: null              },
-  ];
-
-  function aqiClass(v) {
-    if (v === null) return 'aqi-moderate';
-    if (v <= 50)   return 'aqi-good';
-    if (v <= 100)  return 'aqi-moderate';
-    if (v <= 150)  return 'aqi-sensitive';
-    if (v <= 200)  return 'aqi-unhealthy';
-    if (v <= 300)  return 'aqi-very';
-    return 'aqi-hazardous';
-  }
-  function aqiLabel(v) {
-    if (v === null) return 'No Data';
-    if (v <= 50)   return 'Good';
-    if (v <= 100)  return 'Moderate';
-    if (v <= 150)  return 'Sensitive Groups';
-    if (v <= 200)  return 'Unhealthy';
-    if (v <= 300)  return 'Very Unhealthy';
-    return 'Hazardous';
-  }
-  function aqiBarPct(v) {
-    if (!v) return 0;
-    return Math.min(100, Math.round((v / 300) * 100));
-  }
-
-  function buildAQICard(city, aqi, dominant) {
-    var cls = aqiClass(aqi);
-    var lbl = aqiLabel(aqi);
-    var pct = aqiBarPct(aqi);
-    var aqiStr = aqi !== null ? aqi : '—';
-    var pollutant = dominant ? '<div style="font-family:var(--mono);font-size:0.6rem;color:rgba(255,255,255,0.3);margin-top:6px;">' + dominant.toUpperCase() + '</div>' : '';
-    return '<div class="aqi-card ' + cls + '">' +
-      '<div class="aqi-city">' + city.name + '</div>' +
-      '<div class="aqi-value">' + aqiStr + '</div>' +
-      '<span class="aqi-status">' + lbl + '</span>' +
-      pollutant +
-      '<div class="aqi-bar"><div class="aqi-bar-fill" style="width:' + pct + '%"></div></div>' +
-      '</div>';
-  }
-
-  function fetchAQI() {
-    var grid = document.getElementById('aqiGrid');
-    var html = '';
-    var fetched = 0;
-    var results = {};
-
-    cities.forEach(function(city) {
-      var url = 'https://api.waqi.info/feed/' + city.slug + '/?token=' + AQI_TOKEN;
-      fetch(url)
-        .then(function(r){ return r.json(); })
-        .then(function(data) {
-          fetched++;
-          var aqi = null, dominant = null;
-          if (data && data.status === 'ok' && data.data && typeof data.data.aqi === 'number') {
-            aqi = data.data.aqi;
-            dominant = data.data.dominentpol || null;
-          }
-          results[city.id] = { city: city, aqi: aqi, dominant: dominant };
-
-          // Update strip / ticker
-          if (city.stripId) {
-            var stripEl = document.getElementById(city.stripId);
-            if (stripEl) {
-              stripEl.textContent = aqi !== null ? aqi : '—';
-              stripEl.classList.remove('loading');
-              if (aqi > 150) stripEl.classList.add('neg');
-              else if (aqi > 100) { stripEl.style.color = '#fb923c'; }
-              else if (aqi <= 50) stripEl.classList.add('pos');
-            }
-          }
-          if (city.tickId) {
-            var tickEl = document.getElementById(city.tickId);
-            if (tickEl) tickEl.textContent = aqi !== null ? aqi + ' AQI' : '—';
-          }
-
-          // Rebuild grid when all fetched
-          if (fetched === cities.length) {
-            var gridHtml = '';
-            cities.forEach(function(c) {
-              var r = results[c.id] || { aqi: null, dominant: null };
-              gridHtml += buildAQICard(c, r.aqi, r.dominant);
-            });
-            grid.innerHTML = gridHtml;
-            setText('data-timestamp', 'Updated ' + nowStr());
-          }
-        })
-        .catch(function() {
-          fetched++;
-          results[city.id] = { city: city, aqi: null, dominant: null };
-          if (fetched === cities.length) {
-            var gridHtml = '';
-            cities.forEach(function(c) {
-              var r = results[c.id] || { aqi: null, dominant: null };
-              gridHtml += buildAQICard(c, r.aqi, r.dominant);
-            });
-            grid.innerHTML = gridHtml;
-          }
-        });
-    });
-  }
-
-  /* ══════════════════════════════════════
-     3. WORLD NEWS via RSS2JSON
-     Sources: BBC World + Reuters
-  ══════════════════════════════════════ */
-  function timeAgo(dateStr) {
-    var then = new Date(dateStr);
-    var now  = new Date();
-    var diff = Math.floor((now - then) / 60000); // minutes
-    if (diff < 1)  return 'Just now';
-    if (diff < 60) return diff + 'm ago';
-    var h = Math.floor(diff / 60);
-    if (h < 24) return h + 'h ago';
-    return Math.floor(h / 24) + 'd ago';
-  }
-
-  function stripHtml(html) {
-    var tmp = document.createElement('div');
-    tmp.innerHTML = html;
-    return (tmp.textContent || tmp.innerText || '').substring(0, 160).trim();
-  }
-
-  function fetchNews() {
-    var rssUrl = encodeURIComponent('https://feeds.bbci.co.uk/news/world/rss.xml');
-    var apiUrl = 'https://api.rss2json.com/v1/api.json?rss_url=' + rssUrl + '&count=10';
-
-    fetch(apiUrl)
-      .then(function(r){ return r.json(); })
-      .then(function(data) {
-        if (!data.items || !data.items.length) throw new Error('No items');
-        var items = data.items.slice(0, 10);
-        buildNewsGrid(items);
-        var upd = document.getElementById('news-updated');
-        if (upd) upd.textContent = 'BBC World · ' + nowStr();
-      })
-      .catch(function() {
-        // Fallback: Reuters via allorigins
-        var reuters = encodeURIComponent('https://feeds.reuters.com/reuters/worldNews');
-        fetch('https://api.rss2json.com/v1/api.json?rss_url=' + reuters + '&count=10')
-          .then(function(r){ return r.json(); })
-          .then(function(data) {
-            if (!data.items || !data.items.length) throw new Error('No items');
-            buildNewsGrid(data.items.slice(0, 10));
-            var upd = document.getElementById('news-updated');
-            if (upd) upd.textContent = 'Reuters · ' + nowStr();
-          })
-          .catch(function(){
-            var grid = document.getElementById('newsGrid');
-            if (grid) grid.innerHTML = '<div class="news-loading" style="color:var(--text-4);">News feed temporarily unavailable. <a href="https://www.bbc.com/news/world" target="_blank" rel="noopener">Visit BBC World →</a></div>';
-          });
-      });
-  }
-
-  function buildNewsGrid(items) {
-    var grid   = document.getElementById('newsGrid');
-    var strip  = document.getElementById('newsStrip');
-    if (!grid) return;
-
-    var top = items.slice(0, 3);
-    var rest = items.slice(3, 8);
-
-    var gridHtml = top.map(function(item, i) {
-      var excerpt = stripHtml(item.description || '');
-      var cls = i === 0 ? 'news-card primary' : 'news-card';
-      return '<div class="' + cls + '">' +
-        '<div class="nc-source">World News</div>' +
-        '<div class="nc-headline"><a href="' + item.link + '" target="_blank" rel="noopener noreferrer">' + item.title + '</a></div>' +
-        (i === 0 && excerpt ? '<div class="nc-excerpt">' + excerpt + '…</div>' : '') +
-        '<div class="nc-meta">' + timeAgo(item.pubDate) + '</div>' +
-        '</div>';
-    }).join('');
-    grid.innerHTML = gridHtml;
-
-    if (rest.length && strip) {
-      strip.style.display = 'flex';
-      strip.innerHTML = rest.map(function(item, i) {
-        return '<div class="news-strip-item">' +
-          '<span class="nsi-num">0' + (i+4) + '</span>' +
-          '<span class="nsi-title"><a href="' + item.link + '" target="_blank" rel="noopener noreferrer">' + item.title + '</a></span>' +
-          '</div>';
-      }).join('');
-    }
-  }
-
-  /* ══════════════════════════════════════
-     INIT
-  ══════════════════════════════════════ */
-  document.addEventListener('DOMContentLoaded', function() {
-    fetchCurrencies();
-    fetchAQI();
-    fetchNews();
-
-    // Auto-refresh currencies every 5 minutes
-    setInterval(fetchCurrencies, 5 * 60 * 1000);
-    // Refresh news every 10 minutes
-    setInterval(fetchNews, 10 * 60 * 1000);
-    // Refresh AQI every 15 minutes
-    setInterval(fetchAQI, 15 * 60 * 1000);
+var AQI_TOK='demo';
+var cities=[
+  {id:'dhaka',name:'Dhaka',slug:'dhaka',si:'strip-dhaka',ti:'tick-dhaka-aqi'},
+  {id:'delhi',name:'Delhi',slug:'delhi',si:'strip-delhi',ti:'tick-delhi-aqi'},
+  {id:'beijing',name:'Beijing',slug:'beijing',si:'strip-beijing',ti:'tick-bj-aqi'},
+  {id:'london',name:'London',slug:'london',si:'strip-london',ti:null},
+  {id:'newyork',name:'New York',slug:'new-york',si:null,ti:null},
+  {id:'tokyo',name:'Tokyo',slug:'tokyo',si:null,ti:null},
+  {id:'mumbai',name:'Mumbai',slug:'mumbai',si:null,ti:null},
+  {id:'shanghai',name:'Shanghai',slug:'shanghai',si:null,ti:null},
+];
+function aqiCls(v){if(!v||v===null)return'aqi-moderate';if(v<=50)return'aqi-good';if(v<=100)return'aqi-moderate';if(v<=150)return'aqi-sensitive';if(v<=200)return'aqi-unhealthy';if(v<=300)return'aqi-very';return'aqi-hazardous';}
+function aqiLbl(v){if(!v||v===null)return'No Data';if(v<=50)return'Good';if(v<=100)return'Moderate';if(v<=150)return'Sensitive';if(v<=200)return'Unhealthy';if(v<=300)return'Very Unhealthy';return'Hazardous';}
+function aqiCard(city,aqi){
+  var c=aqiCls(aqi),l=aqiLbl(aqi),p=aqi?Math.min(100,Math.round(aqi/300*100)):0;
+  return'<div class="aqi-card '+c+'"><div class="aqi-city">'+city.name+'</div><div class="aqi-value">'+(aqi!==null?aqi:'&#8212;')+'</div><span class="aqi-status">'+l+'</span><div class="aqi-bar"><div class="aqi-bar-fill" style="width:'+p+'%"></div></div></div>';
+}
+function fetchAQI(){
+  var g=document.getElementById('aqiGrid'),done=0,res={};
+  cities.forEach(city=>{
+    fetch('https://api.waqi.info/feed/'+city.slug+'/?token='+AQI_TOK).then(r=>r.json()).then(d=>{
+      done++;var aqi=null;
+      if(d&&d.status==='ok'&&d.data&&typeof d.data.aqi==='number')aqi=d.data.aqi;
+      res[city.id]={city,aqi};
+      if(city.si){var s=document.getElementById(city.si);if(s){s.textContent=aqi!==null?aqi:'&#8212;';s.classList.remove('loading');if(aqi>150)s.classList.add('neg');else if(aqi<=50)s.classList.add('pos');}}
+      if(city.ti){var t=document.getElementById(city.ti);if(t)t.textContent=aqi!==null?aqi+' AQI':'&#8212;';}
+      if(done===cities.length){var h='';cities.forEach(c=>{var rv=res[c.id]||{aqi:null};h+=aqiCard(c,rv.aqi);});g.innerHTML=h;}
+    }).catch(()=>{done++;res[city.id]={city,aqi:null};if(done===cities.length){var h='';cities.forEach(c=>{var rv=res[c.id]||{aqi:null};h+=aqiCard(c,rv.aqi);});g.innerHTML=h;}});
   });
+}
 
+function ago(s){var d=new Date(s),n=new Date(),m=Math.floor((n-d)/60000);if(m<1)return'Just now';if(m<60)return m+'m ago';var h=Math.floor(m/60);if(h<24)return h+'h ago';return Math.floor(h/24)+'d ago';}
+function strip(html){var t=document.createElement('div');t.innerHTML=html;return(t.textContent||'').substring(0,140).trim();}
+function buildNews(items){
+  var g=document.getElementById('newsGrid');if(!g)return;
+  g.innerHTML=items.slice(0,6).map((it,i)=>'<div class="ni"><span class="ni-n">0'+(i+1)+'</span><div><div class="ni-t"><a href="'+it.link+'" target="_blank" rel="noopener">'+it.title+'</a></div><div class="ni-m">'+ago(it.pubDate)+'</div></div></div>').join('');
+  var u=document.getElementById('news-updated');if(u)u.textContent='BBC World · '+now();
+}
+function fetchNews(){
+  fetch('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent('https://feeds.bbci.co.uk/news/world/rss.xml')+'&count=10')
+    .then(r=>r.json()).then(d=>{if(!d.items||!d.items.length)throw 0;buildNews(d.items);})
+    .catch(()=>{var g=document.getElementById('newsGrid');if(g)g.innerHTML='<div class="news-loading" style="color:var(--muted2)">Feed unavailable. <a href="https://bbc.com/news/world" target="_blank" style="color:var(--gold)">Visit BBC World →</a></div>';});
+}
+
+window.openPopup=function(s,c,l){document.getElementById('popupImg').src=s;document.getElementById('popupCaption').textContent=c;document.getElementById('popupLink').href=l||'#';document.getElementById('imagePopup').classList.add('open');};
+window.closePopup=function(){document.getElementById('imagePopup').classList.remove('open');};
+
+document.addEventListener('DOMContentLoaded',function(){
+  fetchCurr();fetchAQI();fetchNews();
+  setInterval(fetchCurr,5*60*1000);setInterval(fetchNews,10*60*1000);setInterval(fetchAQI,15*60*1000);
+});
 })();
 </script>
-
 </body>
 </html>
-
