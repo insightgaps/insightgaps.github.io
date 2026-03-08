@@ -348,30 +348,33 @@
         </div>
         <h2 class="featured-title">The Impunity<br>Machine</h2>
         <p class="featured-deck">
-          23 years of rape cases. 66,711 women. Only 310 convictions — 
-          a 0.46% rate. No official registry exists. We built one. 
-          This is what Bangladesh's justice system actually looks like.
+          310 convictions across 23 years. 66,711 women. A 0.46% rate.
+          In H1 2025 alone: 786 rape victims reported — up 52% from last year. Child rape up 75%.
+          No official registry exists. We built the only one.
         </p>
       </div>
       <div class="featured-actions">
         <a href="/investigations/national/impunity-machine-visual.html" class="btn btn-red">
           ▶ Visual Story
         </a>
+        <a href="/investigations/national/impunity-machine/tracker.html" class="btn btn-outline" style="border:1px solid var(--gold-dim);color:var(--gold-bright);padding:10px 20px;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;transition:all .2s;" onmouseover="this.style.background='rgba(232,170,16,0.1)'" onmouseout="this.style.background='transparent'">
+          ◉ Live Tracker
+        </a>
       </div>
     </div>
 
     <div class="featured-stats">
       <div class="stat-row">
-        <div class="big red">1 in 215</div>
-        <div class="stat-label">Women who sought help got a conviction</div>
+        <div class="big red">+52%</div>
+        <div class="stat-label">Rape cases H1 2025 vs prior year — system accelerating</div>
       </div>
       <div class="stat-row">
-        <div class="big white">66,711</div>
-        <div class="stat-label">Women reached crisis centres 2001–2024</div>
+        <div class="big white">~150k</div>
+        <div class="stat-label">Cases pending in court — March 2025</div>
       </div>
       <div class="stat-row">
-        <div class="big gold">310</div>
-        <div class="stat-label">Total convictions over 23 years</div>
+        <div class="big gold">0.46%</div>
+        <div class="stat-label">Conviction rate across 23 years · 310 of 66,711</div>
       </div>
     </div>
 
@@ -382,56 +385,116 @@
 <div class="tracker-strip">
   <div class="tracker-strip-inner">
     <div class="tracker-id">
-      <div class="live-dot blink"></div>
+      <div class="live-dot blink" style="width:8px;height:8px;border-radius:50%;background:var(--red);display:inline-block;flex-shrink:0"></div>
       <span class="name">IMPUNITY TRACKER</span>
       <div class="tracker-divider"></div>
-      <span class="desc">Bangladesh Rape Justice — No official registry exists. This is the only one.</span>
+      <span class="desc">The only public database of Bangladesh rape justice data — updated 2025</span>
     </div>
     <div class="tracker-stats">
       <div class="t-stat">
+        <div class="t-num red" style="font-size:1.6rem;font-weight:700">+52%</div>
+        <div class="t-label">Cases surge H1 2025</div>
+      </div>
+      <div class="t-stat">
         <div class="t-num white">~150k</div>
-        <div class="t-label">Cases Pending</div>
+        <div class="t-label">Pending in court</div>
       </div>
       <div class="t-stat">
-        <div class="t-num red">0</div>
-        <div class="t-label">Convictions Jan–Jul 2024</div>
-      </div>
-      <div class="t-stat">
-        <div class="t-num gold">310</div>
-        <div class="t-label">Total — 23 Years</div>
+        <div class="t-num gold">0.46%</div>
+        <div class="t-label">Conviction rate</div>
       </div>
     </div>
     <div class="tracker-cta">
-      <a href="/investigations/national/impunity-machine/tracker.html">VIEW LIVE DASHBOARD →</a>
+      <a href="/investigations/national/impunity-machine/tracker.html" style="animation:pulse-cta 2s ease-in-out infinite">◉ OPEN LIVE TRACKER →</a>
     </div>
   </div>
 </div>
+<style>
+@keyframes pulse-cta{0%,100%{opacity:1}50%{opacity:.7}}
+</style>
 
 <!-- ALL INVESTIGATIONS -->
 <section class="all-inv">
   <div class="all-inv-header">
     <h2>All Investigations</h2>
-    <span class="inv-count">2 published · more in progress</span>
+    <span class="inv-count">3 published</span>
   </div>
   <div class="inv-list">
     <a href="/investigations/national/impunity-machine.html" class="inv-item">
       <span class="inv-num">BD-INV-002</span>
       <span class="inv-title">
         The Impunity Machine
-        <small>Rape conviction rate, Bangladesh, 2001–2024</small>
+        <small>Rape conviction rate, Bangladesh, 2001–2025 · Gender Justice</small>
       </span>
       <span class="inv-arrow">→</span>
     </a>
-    <div class="inv-item coming">
-      <span class="inv-num">BD-INV-003</span>
+    <a href="/investigations/national/blood-routes.html" class="inv-item">
+      <span class="inv-num">BD-INV-001</span>
       <span class="inv-title">
-        [Upcoming]
-        <small>Next investigation in progress</small>
+        Blood Routes: Dhaka Bus Fatalities
+        <small>Phoenix operators, the Joma system, Dhaka road crisis · Road Safety</small>
       </span>
-      <span class="inv-arrow">—</span>
+      <span class="inv-arrow">→</span>
+    </a>
+    <a href="/investigations/international/war-tax.html" class="inv-item">
+      <span class="inv-num">INT-INV-001</span>
+      <span class="inv-title">
+        The Hidden Tax of War
+        <small>How conflicts raise global prices — Iraq, Arab Spring, Ukraine, Red Sea</small>
+      </span>
+      <span class="inv-arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- LIVE DATA -->
+<section class="all-inv" style="border-top:1px solid var(--border);margin-top:0;padding-top:40px">
+  <div class="all-inv-header">
+    <h2>Live World Data</h2>
+    <span class="inv-count" id="data-timestamp">—</span>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:2px;margin-bottom:2px">
+    <div class="live-cell" id="c-bdt"><span class="lc-pair">BDT/USD</span><span class="lc-val">···</span></div>
+    <div class="live-cell" id="c-eur"><span class="lc-pair">EUR/USD</span><span class="lc-val">···</span></div>
+    <div class="live-cell" id="c-gbp"><span class="lc-pair">GBP/USD</span><span class="lc-val">···</span></div>
+    <div class="live-cell" id="c-jpy"><span class="lc-pair">JPY/USD</span><span class="lc-val">···</span></div>
+    <div class="live-cell" id="c-cny"><span class="lc-pair">CNY/USD</span><span class="lc-val">···</span></div>
+    <div class="live-cell" id="c-inr"><span class="lc-pair">INR/USD</span><span class="lc-val">···</span></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px">
+    <div style="border:1px solid var(--border);background:var(--bg-card)">
+      <div style="padding:10px 16px;border-bottom:1px solid var(--border);font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);display:flex;justify-content:space-between"><span>Air Quality Index <span class="blink" style="color:var(--red)">●</span></span><span>8 cities · WAQI</span></div>
+      <div style="padding:12px 16px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px" id="aqiGrid"><span style="font-size:0.65rem;color:var(--text-muted)">Loading…</span></div>
+    </div>
+    <div style="border:1px solid var(--border);background:var(--bg-card)">
+      <div style="padding:10px 16px;border-bottom:1px solid var(--border);font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);display:flex;justify-content:space-between"><span>World News</span><span id="news-ts">BBC World · Live</span></div>
+      <div style="padding:4px 0" id="newsGrid"><span style="font-size:0.65rem;color:var(--text-muted);padding:12px 16px;display:block">Loading…</span></div>
     </div>
   </div>
 </section>
+
+<style>
+.live-cell{border:1px solid var(--border);background:var(--bg-card);padding:10px 14px;display:flex;flex-direction:column;gap:4px}
+.lc-pair{font-size:0.55rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted)}
+.lc-val{font-size:0.9rem;font-weight:700;color:var(--text-bright)}
+.ni-row{padding:8px 16px;border-bottom:1px solid var(--border);display:flex;gap:10px;align-items:flex-start}
+.ni-row:last-child{border-bottom:none}
+.ni-n{font-size:0.6rem;color:var(--text-muted);flex-shrink:0;width:1.4rem;padding-top:2px}
+.ni-t{font-size:0.72rem;color:var(--text-secondary);line-height:1.5}
+.ni-t a{color:var(--text-secondary)}.ni-t a:hover{color:var(--text-bright)}
+.ni-m{font-size:0.6rem;color:var(--text-muted);margin-top:2px}
+.aqi-c{text-align:center}
+.aqi-city-n{font-size:0.5rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:2px}
+.aqi-val{font-size:1rem;font-weight:700;line-height:1}
+.aqi-lbl{font-size:0.5rem;text-transform:uppercase;color:var(--text-muted);margin-top:2px}
+.aqi-good .aqi-val{color:#2aaa6a}.aqi-moderate .aqi-val{color:var(--gold-bright)}
+.aqi-sensitive .aqi-val{color:#e07020}.aqi-unhealthy .aqi-val,.aqi-very .aqi-val,.aqi-hazardous .aqi-val{color:var(--red)}
+@media(max-width:600px){
+  [style*="grid-template-columns:repeat(6"]{grid-template-columns:repeat(3,1fr)!important}
+  [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}
+  [style*="grid-template-columns:repeat(4"]{grid-template-columns:repeat(2,1fr)!important}
+}
+</style>
 
 <!-- FOOTER -->
 <footer class="site-footer">
@@ -459,10 +522,57 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 InsightGaps · AH Anik, University of Chittagong</span>
+    <span>© 2025 InsightGaps · Heisenberg, Editor</span>
     <span>insightgaps.com</span>
   </div>
 </footer>
 
+<script>
+// ── LIVE DATA ──
+function fmt(n,d){return n?parseFloat(n).toFixed(d||4):'—';}
+function now(){return new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',timeZoneName:'short'});}
+function setVal(id,v){var e=document.getElementById(id);if(!e)return;var s=e.querySelector('.lc-val');if(s)s.textContent=v;}
+
+fetch('https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.min.json')
+  .then(r=>r.json()).then(d=>{
+    var r=d.usd;if(!r)return;
+    setVal('c-bdt','৳'+fmt(r.bdt,2));setVal('c-eur','€'+fmt(r.eur,4));
+    setVal('c-gbp','£'+fmt(r.gbp,4));setVal('c-jpy','¥'+fmt(r.jpy,2));
+    setVal('c-cny','¥'+fmt(r.cny,4));setVal('c-inr','₹'+fmt(r.inr,2));
+    var ts=document.getElementById('data-timestamp');if(ts)ts.textContent='Updated '+now();
+  }).catch(function(){});
+
+var AQI_TOK='demo';
+var cities=[
+  {id:'dhaka',name:'Dhaka',slug:'dhaka'},{id:'delhi',name:'Delhi',slug:'delhi'},
+  {id:'beijing',name:'Beijing',slug:'beijing'},{id:'london',name:'London',slug:'london'},
+  {id:'newyork',name:'N.York',slug:'new-york'},{id:'tokyo',name:'Tokyo',slug:'tokyo'},
+  {id:'mumbai',name:'Mumbai',slug:'mumbai'},{id:'shanghai',name:'Shanghai',slug:'shanghai'}
+];
+function aqiCls(v){if(!v)return'aqi-moderate';if(v<=50)return'aqi-good';if(v<=100)return'aqi-moderate';if(v<=150)return'aqi-sensitive';if(v<=200)return'aqi-unhealthy';if(v<=300)return'aqi-very';return'aqi-hazardous';}
+function aqiLbl(v){if(!v)return'?';if(v<=50)return'Good';if(v<=100)return'Moderate';if(v<=150)return'Sensitive';if(v<=200)return'Unhealthy';return'Very Unhealthy';}
+var done=0,res={};
+cities.forEach(function(city){
+  fetch('https://api.waqi.info/feed/'+city.slug+'/?token='+AQI_TOK)
+    .then(r=>r.json()).then(function(d){
+      var aqi=d&&d.status==='ok'&&typeof d.data.aqi==='number'?d.data.aqi:null;
+      res[city.id]={city:city,aqi:aqi};
+      if(++done===cities.length){
+        var g=document.getElementById('aqiGrid');if(!g)return;
+        g.innerHTML=cities.map(function(c){var v=res[c.id]||{aqi:null};return'<div class="aqi-c '+aqiCls(v.aqi)+'"><div class="aqi-city-n">'+c.name+'</div><div class="aqi-val">'+(v.aqi||'—')+'</div><div class="aqi-lbl">'+aqiLbl(v.aqi)+'</div></div>';}).join('');
+      }
+    }).catch(function(){if(++done===cities.length){var g=document.getElementById('aqiGrid');if(g)g.innerHTML='<span style="font-size:0.65rem;color:var(--text-muted)">AQI unavailable</span>';}});
+});
+
+function ago(s){var m=Math.floor((new Date()-new Date(s))/60000);if(m<1)return'Just now';if(m<60)return m+'m ago';return Math.floor(m/60)+'h ago';}
+fetch('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent('https://feeds.bbci.co.uk/news/world/rss.xml')+'&count=8')
+  .then(r=>r.json()).then(function(d){
+    var g=document.getElementById('newsGrid');if(!g)return;
+    g.innerHTML=(d.items||[]).slice(0,5).map(function(it,i){
+      return'<div class="ni-row"><span class="ni-n">0'+(i+1)+'</span><div><div class="ni-t"><a href="'+it.link+'" target="_blank" rel="noopener">'+it.title+'</a></div><div class="ni-m">'+ago(it.pubDate)+'</div></div></div>';
+    }).join('');
+    var ts=document.getElementById('news-ts');if(ts)ts.textContent='BBC World · '+now();
+  }).catch(function(){var g=document.getElementById('newsGrid');if(g)g.innerHTML='<span style="font-size:0.65rem;color:var(--text-muted);padding:12px 16px;display:block">Feed unavailable</span>';});
+</script>
 </body>
 </html>

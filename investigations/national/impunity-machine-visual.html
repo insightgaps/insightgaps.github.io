@@ -23,7 +23,7 @@
 html{scroll-behavior:smooth}
 body{background:var(--ink);color:var(--text);font-family:var(--body);overflow-x:hidden}
 a{color:var(--gold);text-decoration:none}
-nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(6,6,14,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 1.5rem;height:50px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+nav{position:fixed;top:38px;left:0;right:0;z-index:900;background:rgba(6,6,14,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 1.5rem;height:50px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
 .nav-brand{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
 .nav-scenes{display:flex;gap:.7rem}
 .nav-scenes a{font-family:var(--mono);font-size:.42rem;color:var(--muted2);letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
@@ -185,20 +185,23 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(6,6,14,.97);
 </style>
 </head>
 <body>
-<div style="background:rgba(6,6,14,.98);border-bottom:1px solid rgba(30,30,48,.8);padding:.35rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:.8rem;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;position:relative;z-index:950">
-  <div style="display:flex;align-items:center;gap:.5rem;font-size:.44rem;color:rgba(200,190,175,.5);text-transform:uppercase;letter-spacing:.1em">
-    <a href="/" style="color:rgba(200,190,175,.4);text-decoration:none">Insight Gaps</a>
-    <span style="color:rgba(100,95,120,.4)">›</span>
-    <span style="color:rgba(201,168,76,.6)">BD-INV-002 · The Impunity Machine</span>
-  </div>
-  <div style="display:flex;gap:.35rem;flex-wrap:wrap">
-    <a href="/investigations/national/impunity-machine.html" style="font-size:.4rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(200,190,175,.6);border:1px solid rgba(60,58,80,.7);padding:.18rem .55rem;text-decoration:none">Data Investigation</a>
-    <a href="/investigations/national/impunity-machine-visual.html" style="font-size:.4rem;letter-spacing:.06em;text-transform:uppercase;color:#c9a84c;border:1px solid rgba(180,130,50,.35);padding:.18rem .55rem;text-decoration:none">▶ Visual Story</a>
-    <a href="/series/impunity-machine/methodology.html" style="font-size:.4rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(200,190,175,.6);border:1px solid rgba(60,58,80,.7);padding:.18rem .55rem;text-decoration:none">Methodology</a>
-    <a href="/series/impunity-machine/data.html" style="font-size:.4rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(200,190,175,.6);border:1px solid rgba(60,58,80,.7);padding:.18rem .55rem;text-decoration:none">Evidence Files</a>
+
+<!-- ═══ BD-INV-002 SERIES NAVIGATION ═══ -->
+<div style="background:#060608;border-bottom:1px solid #1c1c28;position:sticky;top:0;z-index:950;font-family:'JetBrains Mono',monospace;">
+  <div style="max-width:1300px;margin:0 auto;padding:0 24px;height:38px;display:flex;align-items:center;">
+    <span style="font-size:0.52rem;letter-spacing:0.16em;text-transform:uppercase;color:#38384a;padding-right:16px;border-right:1px solid #1c1c28;white-space:nowrap;flex-shrink:0;">BD-INV-002 · The Impunity Machine</span>
+    <div style="display:flex;align-items:center;flex:1;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;">
+      <a href="/investigations/national/impunity-machine-visual.html" style="font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:#e8aa10;padding:0 14px;height:38px;display:flex;align-items:center;border-right:1px solid #1c1c28;border-bottom:2px solid #e8aa10;white-space:nowrap;text-decoration:none;">▶ Visual Story</a>
+      <a href="/investigations/national/impunity-machine.html" style="font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:#5a5a72;padding:0 14px;height:38px;display:flex;align-items:center;border-right:1px solid #1c1c28;white-space:nowrap;text-decoration:none;">Data Investigation</a>
+      <a href="/investigations/national/impunity-machine/tracker.html" style="font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:#5a5a72;padding:0 14px;height:38px;display:flex;align-items:center;border-right:1px solid #1c1c28;white-space:nowrap;text-decoration:none;">◉ Live Tracker</a>
+      <a href="/series/impunity-machine/methodology.html" style="font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:#5a5a72;padding:0 14px;height:38px;display:flex;align-items:center;border-right:1px solid #1c1c28;white-space:nowrap;text-decoration:none;">Methodology</a>
+      <a href="/series/impunity-machine/data.html" style="font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:#5a5a72;padding:0 14px;height:38px;display:flex;align-items:center;border-right:1px solid #1c1c28;white-space:nowrap;text-decoration:none;">Evidence Files</a>
+    </div>
+    <a href="/" style="font-size:0.52rem;letter-spacing:0.12em;text-transform:uppercase;color:#38384a;padding-left:16px;border-left:1px solid #1c1c28;white-space:nowrap;flex-shrink:0;text-decoration:none;">↩ insightgaps.com</a>
   </div>
 </div>
-<nav>
+
+<nav style="top:38px;">
   <div class="nav-brand">Insight Gaps · BD-INV-002 · v2.0</div>
   <div class="nav-scenes">
     <a href="#s1">Funnel</a><a href="#s2">Clocks</a><a href="#sinv">Inversion</a>
@@ -206,9 +209,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(6,6,14,.97);
     <a href="#sdna">Forensic</a><a href="#s6">Deterrence</a><a href="#s7">Voids</a>
   </div>
   <div class="nav-links">
-    <a class="nbtn" href="/data/tribunal-cases.html">Case Registry</a>
+    <a class="nbtn" href="/investigations/national/impunity-machine/tracker.html">◉ Case Registry</a>
     <a class="nbtn" href="/series/impunity-machine/methodology.html">Methodology</a>
-    <a class="nbtn hot" href="/investigations/national/impunity-machine.html">Full Report &#8594;</a>
+    <a class="nbtn hot" href="/investigations/national/impunity-machine/tracker.html">Live Tracker &#8594;</a>
   </div>
 </nav>
 
@@ -806,8 +809,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(6,6,14,.97);
     <div class="iv"><div class="iv-n">Intervention 06</div><div class="iv-t">Marital Rape Criminalisation</div><div class="iv-d">CEDAW required this in 2016. 47 countries have enacted it since. The exemption creates a legal category of invisible violence. Required: one amendment to WCRPA Section 2.</div><div class="iv-m">CEDAW/C/BGD/CO/8 &middot; 2016 &middot; Para 19(a)</div></div>
   </div>
   <div class="btn-row">
-    <a class="btn btn-red" href="/investigations/national/impunity-machine.html">Read Full Investigation &#8594;</a>
-    <a class="btn btn-teal" href="/data/tribunal-cases.html">Case Registry (60 verdicts) &#8594;</a>
+    <a class="btn btn-red" href="/investigations/national/impunity-machine/tracker.html">◉ Open Live Tracker &#8594;</a>
+    <a class="btn btn-teal" href="/investigations/national/impunity-machine/tracker.html">Case Registry (60 verdicts) &#8594;</a>
     <a class="btn btn-gold" href="/series/impunity-machine/methodology.html">Methodology &#8594;</a>
     <a class="btn btn-gold" href="#" onclick="dlCSV(event)">&#8595; Download Evidence Data</a>
   </div>

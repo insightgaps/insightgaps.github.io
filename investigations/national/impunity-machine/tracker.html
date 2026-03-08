@@ -571,22 +571,116 @@
       .top-stats { grid-template-columns: 1fr 1fr; }
       .year-chart { height: 120px; }
     }
+
+    /* ═══ SERIES NAVIGATION BAR ═══ */
+    .series-bar {
+      background: #060608;
+      border-bottom: 1px solid #1c1c28;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      font-family: 'IBM Plex Mono', monospace;
+    }
+    .series-bar-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+    .series-id {
+      font-size: 0.52rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #38384a;
+      padding-right: 16px;
+      border-right: 1px solid #1c1c28;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .series-links {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      overflow-x: auto;
+    }
+    .series-links::-webkit-scrollbar { display: none; }
+    .series-links .sl {
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #5a5a72;
+      padding: 0 14px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      border-right: 1px solid #1c1c28;
+      white-space: nowrap;
+      transition: color 0.15s, background 0.15s;
+      text-decoration: none;
+    }
+    .series-links .sl:hover { color: #eeeef4; background: #0c0c10; }
+    .series-links .sl.active { color: #e02200; border-bottom: 2px solid #e02200; }
+    .weekly-item { border-bottom: 1px solid var(--border); padding: 16px 20px; }
+    .weekly-item:last-child { border-bottom: none; }
+    .weekly-date { font-size:0.55rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:6px; }
+    .weekly-title { font-size:0.82rem; font-weight:500; color:var(--text-bright); margin-bottom:6px; line-height:1.4; }
+    .weekly-detail { font-size:0.72rem; color:var(--text-secondary); line-height:1.65; }
+    .weekly-source { font-size:0.55rem; color:var(--text-muted); margin-top:6px; font-style:italic; }
+    .tier-badge { display:inline-block; font-size:0.48rem; letter-spacing:0.1em; text-transform:uppercase; padding:2px 6px; border:1px solid; margin-left:4px; vertical-align:middle; }
+    .tier-badge.tc { border-color:#2a4a2a; color:#4aaa4a; }
+    .tier-badge.tp { border-color:#4a4a00; color:#aaaa00; }
+    .policy-row { display:flex; gap:0; border-bottom:1px solid var(--border); }
+    .policy-row:last-child { border-bottom:none; }
+    .policy-year { font-size:0.62rem; font-weight:700; color:var(--red); padding:12px 16px; border-right:1px solid var(--border); min-width:72px; flex-shrink:0; display:flex; align-items:flex-start; padding-top:14px; }
+    .policy-body { padding:12px 16px; flex:1; }
+    .policy-type { font-size:0.5rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:4px; }
+    .policy-title { font-size:0.78rem; font-weight:500; color:var(--text-bright); margin-bottom:4px; line-height:1.35; }
+    .policy-provision { font-size:0.68rem; color:var(--text-secondary); line-height:1.55; }
+    .policy-status { font-size:0.52rem; letter-spacing:0.08em; color:var(--text-muted); margin-top:4px; }
+    .gap-row { border-bottom:1px solid var(--border); padding:16px 20px; display:flex; gap:0; }
+    .gap-row:last-child { border-bottom:none; }
+    .gap-num { font-size:0.55rem; color:var(--red); min-width:48px; flex-shrink:0; padding-top:2px; font-weight:700; letter-spacing:0.1em; }
+    .gap-body { flex:1; }
+    .gap-point { font-size:0.78rem; font-weight:500; color:var(--text-bright); margin-bottom:4px; line-height:1.35; }
+    .gap-who { font-size:0.62rem; color:var(--text-muted); margin-bottom:4px; }
+    .gap-cost { font-size:0.68rem; color:var(--text-secondary); line-height:1.55; }
+    .s17-compare { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); border:1px solid var(--border); margin-bottom:20px; }
+    .s17-col { background:var(--bg-card); padding:20px; }
+    .s17-num { font-size:2.2rem; font-weight:700; line-height:1; margin-bottom:6px; }
+    .s17-lbl { font-size:0.55rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; }
+    .s17-box { border:1px solid rgba(204,34,0,0.3); background:rgba(204,34,0,0.03); padding:24px; margin-bottom:20px; }
+    .filter-tabs { display:flex; gap:1px; margin-bottom:2px; background:var(--border); border:1px solid var(--border); flex-wrap:wrap; }
+    .filter-tab { font-size:0.58rem; letter-spacing:0.1em; text-transform:uppercase; padding:8px 14px; background:var(--bg-card); color:var(--text-muted); border:none; cursor:pointer; transition:all 0.15s; font-family:inherit; }
+    .filter-tab:hover { color:var(--text-bright); background:var(--bg-elevated); }
+    .filter-tab.active { color:var(--gold-bright); background:var(--bg-elevated); }
+    .search-row { display:flex; gap:8px; margin-bottom:2px; }
+    .search-input { flex:1; background:var(--bg-card); border:1px solid var(--border); color:var(--text-primary); font-family:inherit; font-size:0.65rem; padding:8px 12px; letter-spacing:0.04em; }
+    .search-input:focus { outline:none; border-color:var(--border-bright); }
+    .search-input::placeholder { color:var(--text-muted); }
+    @media(max-width:700px){.series-id{display:none;}.s17-compare{grid-template-columns:1fr;}}
+
   </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="site-nav">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">Insight<span>Gaps</span></a>
-    <div class="nav-links">
-      <a href="/">Home</a>
-      <a href="/investigations/" class="active">Investigations</a>
-      <a href="/about/">About</a>
-      <a href="/methods/">Methods</a>
+<!-- ═══ BD-INV-002 SERIES NAVIGATION ═══ -->
+<div class="series-bar">
+  <div class="series-bar-inner">
+    <span class="series-id">BD-INV-002 · The Impunity Machine</span>
+    <div class="series-links">
+      <a href="/investigations/national/impunity-machine-visual.html" class="sl">▶ Visual Story</a>
+      <a href="/investigations/national/impunity-machine.html" class="sl">Data Investigation</a>
+      <a href="/investigations/national/impunity-machine/tracker.html" class="sl active">◉ Live Tracker</a>
+      <a href="/series/impunity-machine/methodology.html" class="sl">Methodology</a>
+      <a href="/series/impunity-machine/data.html" class="sl">Evidence Files</a>
     </div>
+    <a href="/" class="series-home">↩ insightgaps.com</a>
   </div>
-</nav>
+</div>
+
 
 <!-- DASHBOARD HEADER -->
 <div class="dash-header">
@@ -599,13 +693,12 @@
       <span>BD-INV-002 · The Impunity Machine</span>
     </div>
     <h1 class="dash-title">Impunity <span class="accent">Tracker</span></h1>
-    <p class="dash-subtitle">Bangladesh Rape Justice Registry — No official registry exists. This is the only one.</p>
+    <p class="dash-subtitle">Bangladesh Rape Justice Registry · No official registry exists · This is the only one · Women's Day 2026</p>
     <div class="dash-meta">
-      <div class="dash-meta-item"><span class="dot">◆</span> Data: 2001 – March 2025</div>
+      <div class="dash-meta-item"><span class="dot">◆</span> Data: 2001 – March 2026</div>
       <div class="dash-meta-item"><span class="dot">◆</span> 91 Named Sources</div>
       <div class="dash-meta-item"><span class="dot">◆</span> Evidence Tier: Confirmed</div>
-      <div class="dash-meta-item"><span class="dot">◆</span> Updated: March 2025</div>
-      <a href="/investigations/national/impunity-machine.html" class="dash-back">← Back to Investigation</a>
+      <div class="dash-meta-item"><span class="dot">◆</span> Updated: March 2026</div>
     </div>
   </div>
 </div>
@@ -820,8 +913,148 @@
     </div>
     <div class="source-note" style="margin-top:16px">
       <div class="sn-title">// Citation</div>
-      <p>AH Anik (2025). "The Impunity Machine: Bangladesh Rape Conviction Registry." InsightGaps. CC BY-NC 4.0. Available at: insightgaps.com/investigations/national/impunity-machine/tracker.html</p>
+      <p>Heisenberg [pseud.] (2025). "The Impunity Machine: Bangladesh Rape Conviction Registry." InsightGaps. CC BY-NC 4.0. Available at: insightgaps.com/investigations/national/impunity-machine/tracker.html</p>
     </div>
+  </div>
+
+
+
+  <!-- ═══ WEEKLY FINDINGS ═══ -->
+  <div class="dash-section">
+    <div class="dash-section-head">
+      <h2>Recent Findings <span class="acc">— Updated Weekly</span></h2>
+      <div class="note">Verified findings added as new data is sourced. Tier labels mandatory. All sources cited.</div>
+    </div>
+    <div style="border: 1px solid var(--border);">
+      <div class="weekly-item" style="padding: 16px 20px;">
+        <div class="weekly-date">March 2026 · BMP Press Conference</div>
+        <div class="weekly-title">442 violence cases in March 2026 — 125 girls + 38 women raped; 36 gang-rape victims</div>
+        <div class="weekly-detail">Bangladesh Mahila Parishad (BMP) documented 442 violence cases in March 2026. Of these: 125 girls raped, 38 women raped, 36 victims of gang rape. The pattern continues the +52% surge from H1 2025.</div>
+        <div class="weekly-source">Source: News on Air via BMP · <span class="tier-badge tp">PROBABLE · S-73b</span></div>
+      </div>
+      <div class="weekly-item" style="padding: 16px 20px;">
+        <div class="weekly-date">February 2026 · Barishal Verdict</div>
+        <div class="weekly-title">Barishal Trish Godown case: 4 death sentences — case from November 2016 (3,380 days)</div>
+        <div class="weekly-detail">Four accused received death sentences for a November 2016 assault. From crime to verdict: approximately 3,380 days — 9.3 years. This is the documented pattern: the cases that do receive verdicts take nearly a decade.</div>
+        <div class="weekly-source">Source: BSS February 2026 · <span class="tier-badge tc">CONFIRMED · S-70</span></div>
+      </div>
+      <div class="weekly-item" style="padding: 16px 20px;">
+        <div class="weekly-date">January 2026 · SC Secretariat Data</div>
+        <div class="weekly-title">4,516,603 cases pending nationally as of January 10, 2026</div>
+        <div class="weekly-detail">The Supreme Court Secretariat (established December 2025) published the first independent judicial backlog figure: 4.5 million cases nationwide. Lower courts hold 86% of the total. The rape/WCRPA backlog of ~150,000 sits inside a system already near collapse.</div>
+        <div class="weekly-source">Source: Lawyers Club BD via SC Secretariat · <span class="tier-badge tc">CONFIRMED · S-76</span></div>
+      </div>
+      <div class="weekly-item" style="padding: 16px 20px;">
+        <div class="weekly-date">October 2025 · UNFPA/BBS Survey</div>
+        <div class="weekly-title">76% of women experience lifetime intimate partner violence — highest Barishal at 81.5%</div>
+        <div class="weekly-detail">The BBS/UNFPA Violence Against Women Survey (October 2025, 27,476 women) found 76% lifetime IPV nationally. 49% experienced violence in the past 12 months. 62% told no one. Barishal: 81.5%. Khulna: 81.3%. Most of this violence is legally invisible — marital rape is not criminalised under WCRPA.</div>
+        <div class="weekly-source">Source: BBS/UNFPA VAW Survey October 2025 · <span class="tier-badge tc">CONFIRMED · S-74</span></div>
+      </div>
+      <div class="weekly-item" style="padding: 16px 20px;">
+        <div class="weekly-date">September 2025 · DNA Lab Crisis</div>
+        <div class="weekly-title">92% of DNA samples unprocessed — 1,204 of 1,304 samples pending</div>
+        <div class="weekly-detail">The National Forensic DNA Profiling Laboratory has 1,204 unprocessed samples from 1,304 total received. Processing rate: 8%. Only 2 functioning DNA analysis machines serve the entire country of 170 million people. Without forensic evidence, conviction rates cannot improve regardless of legal reform.</div>
+        <div class="weekly-source">Source: Prothom Alo Bangla · <span class="tier-badge tc">CONFIRMED · S-66</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 17 INVERSION ═══ -->
+  <div class="dash-section">
+    <div class="dash-section-head">
+      <h2>The <span class="acc">Inversion</span> — Section 17</h2>
+      <div class="note">The system convicts the woman who reports faster than it convicts the man she reported. Two confirmed cases. National scale: unknown — no institution tracks this.</div>
+    </div>
+
+    <div class="s17-compare">
+      <div class="s17-col">
+        <div class="s17-lbl">Average WCRPA trial duration</div>
+        <div class="s17-num" style="color:var(--red)">2,349</div>
+        <div class="s17-desc" style="color:var(--text-muted)">days · 6.4 years · for genuine survivors<br>BRAC/Agile 2022 · <span class="tier-badge tc">CONFIRMED · S-01</span></div>
+      </div>
+      <div class="s17-col">
+        <div class="s17-lbl">Section 17 counter-prosecution (Runa Akhter)</div>
+        <div class="s17-num" style="color:var(--gold-bright)">56</div>
+        <div class="s17-desc" style="color:var(--text-muted)">days · to convict the survivor who reported<br>Prothom Alo 2023 · <span class="tier-badge tc">CONFIRMED · S-14</span></div>
+      </div>
+    </div>
+
+    <div class="s17-box">
+      <div style="font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px">What Section 17 is</div>
+      <p style="font-size:0.78rem;color:var(--text-secondary);line-height:1.7;margin-bottom:10px">Section 17 of the Women and Children Repression Prevention Act 2000 allows counter-prosecution of anyone who files a rape complaint that is later deemed false or motivated. Under the 2025 Amendment Ordinance, the grounds were expanded to include <em style="color:var(--text-bright)">"loss of dignity or reputation"</em> — creating a documented risk of expansion.</p>
+      <p style="font-size:0.78rem;color:var(--text-secondary);line-height:1.7">Two confirmed cases are documented below. No institution tracks §17 prosecutions nationally — meaning the chilling effect on reporting cannot be quantified. <strong style="color:var(--red)">This is a confirmed absence, not a research gap.</strong></p>
+    </div>
+
+    <div id="s17CasesContainer" style="border: 1px solid var(--border);"></div>
+  </div>
+
+  <!-- ═══ 60 DOCUMENTED TRIBUNAL CASES ═══ -->
+  <div class="dash-section">
+    <div class="dash-section-head">
+      <h2>60 Documented <span class="acc">Tribunal Cases</span></h2>
+      <div class="note">All confirmed verdicts sourced to named publications. Search by location, filter by division, sentence, or outcome. Full citations in Source Registry (Excel download).</div>
+    </div>
+
+    <div class="search-row">
+      <input type="text" class="search-input" id="caseSearch" placeholder="Search location, division, sentence type…" oninput="filterTribunalCases()">
+    </div>
+    <div class="filter-tabs" id="divisionTabs">
+      <button class="filter-tab active" onclick="setDivisionFilter('all', this)">All Divisions</button>
+      <button class="filter-tab" onclick="setDivisionFilter('Dhaka', this)">Dhaka</button>
+      <button class="filter-tab" onclick="setDivisionFilter('Chattogram', this)">Chattogram</button>
+      <button class="filter-tab" onclick="setDivisionFilter('Rajshahi', this)">Rajshahi</button>
+      <button class="filter-tab" onclick="setDivisionFilter('Khulna', this)">Khulna</button>
+      <button class="filter-tab" onclick="setDivisionFilter('Mymensingh', this)">Mymensingh</button>
+      <button class="filter-tab" onclick="setDivisionFilter('Sylhet', this)">Sylhet</button>
+      <button class="filter-tab" onclick="setDivisionFilter('Barishal', this)">Barishal</button>
+      <button class="filter-tab" onclick="setDivisionFilter('Rangpur', this)">Rangpur</button>
+    </div>
+
+    <div class="case-table-wrap">
+      <table class="case-table" id="tribunalTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Location</th>
+            <th>Division</th>
+            <th>Crime Year</th>
+            <th>Verdict Year</th>
+            <th>Duration</th>
+            <th>Accused</th>
+            <th>Convicted</th>
+            <th>Sentence</th>
+            <th>Victim Age</th>
+            <th>Source</th>
+          </tr>
+        </thead>
+        <tbody id="tribunalBody"></tbody>
+      </table>
+    </div>
+    <div id="caseCount" style="font-size:0.6rem;color:var(--text-muted);padding:10px 0;text-align:right"></div>
+  </div>
+
+  <!-- ═══ POLICY TIMELINE ═══ -->
+  <div class="dash-section">
+    <div class="dash-section-head">
+      <h2>Policy <span class="acc">Timeline</span> — 1983 to 2026</h2>
+      <div class="note">Every law, amendment, court directive, and institutional change in Bangladesh's rape justice system. What changed — and what didn't.</div>
+    </div>
+    <div style="border: 1px solid var(--border);" id="policyTimeline"></div>
+  </div>
+
+  <!-- ═══ 12 CONFIRMED DATA GAPS ═══ -->
+  <div class="dash-section">
+    <div class="dash-section-head">
+      <h2>12 <span class="acc">Confirmed Absent</span> — What the System Refuses to Measure</h2>
+      <div class="note">These are not research limitations. The data exists somewhere. No institution publishes it. Each absence protects the system from accountability.</div>
+    </div>
+    <div style="border: 1px solid var(--border); padding: 24px; margin-bottom: 16px; background: rgba(204,34,0,0.03);">
+      <p style="font-size:0.75rem;color:var(--text-secondary);line-height:1.7;font-style:italic;">
+        "The absence of this data is not neutral. Every data point that does not exist is a case that cannot be counted, a pattern that cannot be challenged, a failure that cannot be proven. The system protects itself by not measuring itself."
+        <br><strong style="color:var(--text-muted)">— BD-INV-002, Insight Gaps</strong>
+      </p>
+    </div>
+    <div style="border: 1px solid var(--border);" id="dataGapsContainer"></div>
   </div>
 
 </div><!-- /dash-body -->
@@ -831,29 +1064,42 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <div class="name">Insight<span>Gaps</span></div>
-      <p>Forensic data journalism from Bangladesh.<br>
-         CC BY-NC 4.0 — cite freely, don't commercialise.</p>
+      <p>BD-INV-002 · The Impunity Machine<br>
+         Forensic data journalism · Bangladesh<br>
+         CC BY-NC 4.0 — cite freely, tier labels mandatory</p>
     </div>
     <div class="footer-col">
-      <h4>Investigation</h4>
+      <h4>This Investigation</h4>
       <ul>
-        <li><a href="/investigations/national/impunity-machine.html">Full Report</a></li>
-        <li><a href="/investigations/national/impunity-machine-visual.html">Visual Story</a></li>
+        <li><a href="/investigations/national/impunity-machine-visual.html">▶ Visual Story</a></li>
+        <li><a href="/investigations/national/impunity-machine.html">Data Investigation</a></li>
+        <li><a href="/investigations/national/impunity-machine/tracker.html">◉ Live Tracker</a></li>
         <li><a href="/series/impunity-machine/methodology.html">Methodology</a></li>
+        <li><a href="/series/impunity-machine/data.html">Evidence Files</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Site</h4>
+      <h4>Download Data</h4>
       <ul>
-        <li><a href="/">Home</a></li>
+        <li><a href="/data/monthly.json" download>monthly.json</a></li>
+        <li><a href="/data/cases.json" download>cases.json</a></li>
+        <li><a href="/data/leads.json" download>leads.json</a></li>
+        <li><a href="/data/BD-INV-002_Master_Evidence_File.xlsx" download>Master Evidence File (XLSX)</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Bureau</h4>
+      <ul>
+        <li><a href="/">InsightGaps Home</a></li>
+        <li><a href="/investigations/">All Investigations</a></li>
         <li><a href="/about/">About</a></li>
         <li><a href="/methods/">Methods</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 InsightGaps · AH Anik, University of Chittagong</span>
-    <span>insightgaps.com</span>
+    <span>© 2026 Insight Gaps Forensic Data Journalism Bureau · BD-INV-002 · Women's Day Edition</span>
+    <span>International Women's Day · 8 March 2026</span>
   </div>
 </footer>
 
@@ -862,76 +1108,1235 @@
    IMPUNITY TRACKER — DATA & RENDERING
    ═══════════════════════════════════════════ */
 
-/* Annual data: [year, cases_filed, convictions] */
+/* Annual data from monthly.json confirmed records */
 const annualData = [
-  [2001, 320, 2], [2002, 410, 4], [2003, 450, 3], [2004, 520, 5],
-  [2005, 580, 7], [2006, 610, 8], [2007, 640, 6], [2008, 720, 9],
-  [2009, 780, 10],[2010, 820, 11],[2011, 890, 14],[2012, 940, 12],
-  [2013, 980, 15],[2014,1050, 16],[2015,1120, 18],[2016,1180, 20],
-  [2017,1240, 22],[2018,1310, 24],[2019,1380, 26],[2020,1100, 19],
-  [2021,1200, 21],[2022,1320, 24],[2023,1410, 25],[2024,1520,  0]
+  [2019, 6766, null], [2020, 6220, null], [2021, 6341, null],
+  [2022, 4762, null], [2023, 5191, null], [2024, 4394, 0]
 ];
 
-/* Monthly ledger data */
-const ledgerData = [
-  {p:'Jan 2024', sought:82, filed:28, verdicts:2, conv:0, acqt:2, pending:28, note:'2 acquittals only'},
-  {p:'Feb 2024', sought:74, filed:24, verdicts:1, conv:0, acqt:1, pending:24, note:'1 acquittal'},
-  {p:'Mar 2024', sought:91, filed:31, verdicts:2, conv:0, acqt:2, pending:31, note:''},
-  {p:'Apr 2024', sought:78, filed:26, verdicts:1, conv:0, acqt:0, pending:26, note:'Verdict: case dismissed'},
-  {p:'May 2024', sought:87, filed:30, verdicts:2, conv:0, acqt:2, pending:30, note:''},
-  {p:'Jun 2024', sought:95, filed:34, verdicts:2, conv:0, acqt:1, pending:34, note:''},
-  {p:'Jul 2024', sought:136, filed:54, verdicts:2, conv:0, acqt:1, pending:54, note:'Surge begins'},
-  {p:'Aug 2024', sought:148, filed:58, verdicts:3, conv:0, acqt:2, pending:58, note:'Post-protest period'},
-  {p:'Sep 2024', sought:142, filed:55, verdicts:2, conv:1, acqt:1, pending:54, note:'1 conviction noted'},
-  {p:'Oct 2024', sought:155, filed:62, verdicts:4, conv:1, acqt:2, pending:61, note:''},
-  {p:'Nov 2024', sought:149, filed:59, verdicts:3, conv:0, acqt:2, pending:59, note:''},
-  {p:'Dec 2024', sought:131, filed:50, verdicts:2, conv:0, acqt:1, pending:50, note:''},
-  {p:'Jan 2025', sought:160, filed:65, verdicts:3, conv:0, acqt:2, pending:65, note:'+52% vs Jan 2024'},
-  {p:'Feb 2025', sought:152, filed:60, verdicts:2, conv:0, acqt:1, pending:60, note:''},
-  {p:'Mar 2025', sought:168, filed:68, verdicts:3, conv:1, acqt:1, pending:67, note:'Pending ~150k total'},
+
+/* ═══ EMBEDDED EXCEL DATA ═══ */
+const TRIBUNAL_CASES = [
+  {
+    "id": "TC-001",
+    "location": "Magura",
+    "division": "Dhaka",
+    "crime_year": 2025,
+    "verdict_year": 2025,
+    "duration": 0.3,
+    "court": "W&C Repression Prevention Tribunal, Magura",
+    "accused": 4,
+    "convicted": 1,
+    "sentence": "Death (1); Acquittal (3)",
+    "victim_age": "8.0",
+    "source": "Prothom Alo / BSS"
+  },
+  {
+    "id": "TC-002",
+    "location": "Jamalpur",
+    "division": "Mymensingh",
+    "crime_year": 2004,
+    "verdict_year": 2025,
+    "duration": 21.0,
+    "court": "W&C Repression Prevention Tribunal-1, Jamalpur",
+    "accused": 2,
+    "convicted": 2,
+    "sentence": "Life Imprisonment",
+    "victim_age": "13.0",
+    "source": "BSS News \u2014 LONGEST DOCUMENTED CASE: 21 years"
+  },
+  {
+    "id": "TC-003",
+    "location": "Netrakona",
+    "division": "Mymensingh",
+    "crime_year": 2017,
+    "verdict_year": 2025,
+    "duration": 8.0,
+    "court": "W&C Repression Prevention Tribunal, Netrakona",
+    "accused": 3,
+    "convicted": 3,
+    "sentence": "Death (3)",
+    "victim_age": "14.0",
+    "source": "BSS News"
+  },
+  {
+    "id": "TC-004",
+    "location": "Narayanganj",
+    "division": "Dhaka",
+    "crime_year": 2016,
+    "verdict_year": 2025,
+    "duration": 9.0,
+    "court": "W&C Repression Prevention Tribunal-3, Dhaka",
+    "accused": 3,
+    "convicted": 3,
+    "sentence": "Life Imprisonment",
+    "victim_age": "Adult",
+    "source": "BSS News"
+  },
+  {
+    "id": "TC-005",
+    "location": "Kamrangirchar (Dhaka)",
+    "division": "Dhaka",
+    "crime_year": 2020,
+    "verdict_year": 2025,
+    "duration": 5.0,
+    "court": "W&C Repression Prevention Tribunal-4, Dhaka",
+    "accused": 5,
+    "convicted": 3,
+    "sentence": "Life (3); 10 yrs (2)",
+    "victim_age": "13.0",
+    "source": "BSS News"
+  },
+  {
+    "id": "TC-006",
+    "location": "Jamalpur",
+    "division": "Mymensingh",
+    "crime_year": 2019,
+    "verdict_year": 2025,
+    "duration": 6.0,
+    "court": "District & Sessions Judge Court, Jamalpur",
+    "accused": 1,
+    "convicted": 1,
+    "sentence": "Life Imprisonment",
+    "victim_age": "Adult",
+    "source": "BSS News"
+  },
+  {
+    "id": "TC-007",
+    "location": "Habiganj",
+    "division": "Sylhet",
+    "crime_year": 2020,
+    "verdict_year": 2023,
+    "duration": 3.0,
+    "court": "W&C Repression Prevention Tribunal-2, Habiganj",
+    "accused": 3,
+    "convicted": 2,
+    "sentence": "Life (2); pending (1)",
+    "victim_age": "Adult/Child",
+    "source": "BSS News"
+  },
+  {
+    "id": "TC-008",
+    "location": "Natore",
+    "division": "Rajshahi",
+    "crime_year": 2012,
+    "verdict_year": 2023,
+    "duration": 11.0,
+    "court": "W&C Repression Prevention Tribunal, Natore",
+    "accused": 11,
+    "convicted": 10,
+    "sentence": "Death (6); Life (4)",
+    "victim_age": "Adult",
+    "source": "BSS News"
+  },
+  {
+    "id": "TC-009",
+    "location": "Shariatpur",
+    "division": "Dhaka",
+    "crime_year": 2020,
+    "verdict_year": 2023,
+    "duration": 3.0,
+    "court": "W&C Repression Prevention Tribunal, Shariatpur",
+    "accused": 4,
+    "convicted": 4,
+    "sentence": "Death (1); Life (3)",
+    "victim_age": "Child",
+    "source": "BSS News"
+  },
+  {
+    "id": "TC-010",
+    "location": "Brahmanbaria",
+    "division": "Chattogram",
+    "crime_year": 2019,
+    "verdict_year": 2023,
+    "duration": 4.0,
+    "court": "W&C Repression Prevention Tribunal-2, Brahmanbaria",
+    "accused": 1,
+    "convicted": 1,
+    "sentence": "Death",
+    "victim_age": "2.0",
+    "source": "BSS News"
+  },
+  {
+    "id": "TC-011",
+    "location": "Narayanganj",
+    "division": "Dhaka",
+    "crime_year": 2006,
+    "verdict_year": 2023,
+    "duration": 17.0,
+    "court": "W&C Repression Prevention Tribunal, Narayanganj",
+    "accused": 3,
+    "convicted": 1,
+    "sentence": "Death (1); Acquittal (2)",
+    "victim_age": "10.0",
+    "source": "BSS News"
+  },
+  {
+    "id": "TC-012",
+    "location": "Khulna",
+    "division": "Khulna",
+    "crime_year": 2011,
+    "verdict_year": 2022,
+    "duration": 11.0,
+    "court": "W&C Repression Prevention Tribunal, Khulna",
+    "accused": 5,
+    "convicted": 5,
+    "sentence": "Death (5)",
+    "victim_age": "14.0",
+    "source": "BSS News"
+  },
+  {
+    "id": "TC-013",
+    "location": "Khulna",
+    "division": "Khulna",
+    "crime_year": 2019,
+    "verdict_year": 2022,
+    "duration": 3.0,
+    "court": "W&C Repression Prevention Tribunal-3, Khulna",
+    "accused": 10,
+    "convicted": 6,
+    "sentence": "Death (6); 8 yrs (4)",
+    "victim_age": "14.0",
+    "source": "BSS News"
+  },
+  {
+    "id": "TC-014",
+    "location": "Rajshahi",
+    "division": "Rajshahi",
+    "crime_year": 2013,
+    "verdict_year": 2022,
+    "duration": 9.0,
+    "court": "W&C Repression Prevention Tribunal, Rajshahi",
+    "accused": 4,
+    "convicted": 1,
+    "sentence": "Life (1); 14 yrs (1); Acquittal (2)",
+    "victim_age": "School girl",
+    "source": "BSS News"
+  },
+  {
+    "id": "TC-015",
+    "location": "Bhola",
+    "division": "Barishal",
+    "crime_year": 2004,
+    "verdict_year": 2022,
+    "duration": 18.0,
+    "court": "W&C Repression Prevention Tribunal, Bhola",
+    "accused": 6,
+    "convicted": 2,
+    "sentence": "Life (2); Acquittal (4)",
+    "victim_age": "Adult",
+    "source": "BSS News"
+  },
+  {
+    "id": "TC-016",
+    "location": "Chattogram",
+    "division": "Chattogram",
+    "crime_year": 2018,
+    "verdict_year": 2022,
+    "duration": 4.0,
+    "court": "W&C Repression Prevention Tribunal, Chattogram",
+    "accused": 1,
+    "convicted": 1,
+    "sentence": "Death",
+    "victim_age": "School girl",
+    "source": "BSS News"
+  },
+  {
+    "id": "TC-017",
+    "location": "Jashore",
+    "division": "Khulna",
+    "crime_year": 2020,
+    "verdict_year": 2022,
+    "duration": 2.0,
+    "court": "W&C Repression Prevention Tribunal, Jashore",
+    "accused": 1,
+    "convicted": 1,
+    "sentence": "Death",
+    "victim_age": "Child",
+    "source": "BSS News"
+  },
+  {
+    "id": "TC-018",
+    "location": "Dhaka (DU)",
+    "division": "Dhaka",
+    "crime_year": 2020,
+    "verdict_year": 2020,
+    "duration": 0.5,
+    "court": "W&C Repression Prevention Tribunal-7, Dhaka",
+    "accused": 1,
+    "convicted": 1,
+    "sentence": "Life Imprisonment",
+    "victim_age": "DU student",
+    "source": "BSS News"
+  },
+  {
+    "id": "TC-019",
+    "location": "Noakhali",
+    "division": "Chattogram",
+    "crime_year": 2020,
+    "verdict_year": 2021,
+    "duration": 1.0,
+    "court": "W&C Repression Prevention Tribunal-1, Noakhali",
+    "accused": 2,
+    "convicted": 2,
+    "sentence": "Life Imprisonment",
+    "victim_age": "Adult",
+    "source": "Daily Star"
+  },
+  {
+    "id": "TC-020",
+    "location": "Banani (Dhaka)",
+    "division": "Dhaka",
+    "crime_year": 2017,
+    "verdict_year": 2021,
+    "duration": 4.0,
+    "court": "W&C Repression Prevention Tribunal-7, Dhaka",
+    "accused": 5,
+    "convicted": null,
+    "sentence": "Acquittal \u2014 ALL ACQUITTED",
+    "victim_age": "Adult",
+    "source": "BSS News \u2014 HIGH PROFILE ACQUITTAL"
+  },
+  {
+    "id": "TC-021",
+    "location": "Sherpur",
+    "division": "Mymensingh",
+    "crime_year": 2016,
+    "verdict_year": 2018,
+    "duration": 2.0,
+    "court": "Additional District Judge Court, Sherpur",
+    "accused": 6,
+    "convicted": 4,
+    "sentence": "Death (4)",
+    "victim_age": "Teenage",
+    "source": "BSS News"
+  },
+  {
+    "id": "TC-022",
+    "location": "Rajshahi",
+    "division": "Rajshahi",
+    "crime_year": 2011,
+    "verdict_year": 2012,
+    "duration": 1.0,
+    "court": "W&C Repression Prevention Tribunal, Rajshahi",
+    "accused": 1,
+    "convicted": 1,
+    "sentence": "Life Imprisonment",
+    "victim_age": "14.0",
+    "source": "BSS News"
+  },
+  {
+    "id": "TC-023",
+    "location": "Natore",
+    "division": "Rajshahi",
+    "crime_year": 2024,
+    "verdict_year": 2025,
+    "duration": 1.0,
+    "court": "W&C Repression Prevention Tribunal, Natore",
+    "accused": 1,
+    "convicted": 1,
+    "sentence": "Life Imprisonment",
+    "victim_age": "Adult",
+    "source": "Jamuna TV"
+  },
+  {
+    "id": "TC-024",
+    "location": "Bogra",
+    "division": "Rajshahi",
+    "crime_year": 2004,
+    "verdict_year": 2006,
+    "duration": 2.0,
+    "court": "W&C Repression Prevention Tribunal, Bogra",
+    "accused": 1,
+    "convicted": 1,
+    "sentence": "Death (executed 2023)",
+    "victim_age": "Child",
+    "source": "BSS News"
+  },
+  {
+    "id": "TC-025",
+    "location": "Jhenaidah",
+    "division": "Khulna",
+    "crime_year": 1999,
+    "verdict_year": 2001,
+    "duration": 2.0,
+    "court": "W&C Repression Prevention Tribunal, Jhenaidah",
+    "accused": 1,
+    "convicted": 1,
+    "sentence": "Death",
+    "victim_age": "8.0",
+    "source": "Court Records"
+  },
+  {
+    "id": "TC-026",
+    "location": "Jessore",
+    "division": "Khulna",
+    "crime_year": 1999,
+    "verdict_year": 2006,
+    "duration": 7.0,
+    "court": "W&C Repression Prevention Tribunal, Jessore",
+    "accused": 3,
+    "convicted": 3,
+    "sentence": "Life/Other",
+    "victim_age": "18.0",
+    "source": "Court Records"
+  },
+  {
+    "id": "TC-027",
+    "location": "Sylhet",
+    "division": "Sylhet",
+    "crime_year": 2020,
+    "verdict_year": 2021,
+    "duration": 1.0,
+    "court": "W&C Repression Prevention Tribunal, Sylhet",
+    "accused": 8,
+    "convicted": 8,
+    "sentence": "Life Imprisonment",
+    "victim_age": "Adult",
+    "source": "Dhaka Tribune"
+  },
+  {
+    "id": "TC-028",
+    "location": "Noakhali",
+    "division": "Chattogram",
+    "crime_year": 2020,
+    "verdict_year": 2021,
+    "duration": 1.0,
+    "court": "W&C Repression Prevention Tribunal, Noakhali",
+    "accused": 13,
+    "convicted": 13,
+    "sentence": "Life (multi)",
+    "victim_age": "Adult",
+    "source": "Prothom Alo"
+  },
+  {
+    "id": "TC-029",
+    "location": "Feni",
+    "division": "Chattogram",
+    "crime_year": 2019,
+    "verdict_year": 2019,
+    "duration": 0.5,
+    "court": "W&C Repression Prevention Tribunal, Feni",
+    "accused": 16,
+    "convicted": 16,
+    "sentence": "Death (all 16)",
+    "victim_age": "19.0",
+    "source": "Al Jazeera"
+  },
+  {
+    "id": "TC-030",
+    "location": "Dinajpur",
+    "division": "Rangpur",
+    "crime_year": 2020,
+    "verdict_year": 2022,
+    "duration": 2.0,
+    "court": "W&C Repression Prevention Tribunal, Dinajpur",
+    "accused": 2,
+    "convicted": 2,
+    "sentence": "Death",
+    "victim_age": "10.0",
+    "source": "Daily Star"
+  },
+  {
+    "id": "TC-031",
+    "location": "Munshiganj",
+    "division": "Dhaka",
+    "crime_year": 2018,
+    "verdict_year": 2021,
+    "duration": 3.0,
+    "court": "W&C Repression Prevention Tribunal, Munshiganj",
+    "accused": 1,
+    "convicted": 1,
+    "sentence": "Death",
+    "victim_age": "Child",
+    "source": "HRPB Report"
+  },
+  {
+    "id": "TC-032",
+    "location": "Gazipur",
+    "division": "Dhaka",
+    "crime_year": 2017,
+    "verdict_year": 2020,
+    "duration": 3.0,
+    "court": "W&C Repression Prevention Tribunal, Gazipur",
+    "accused": 3,
+    "convicted": 3,
+    "sentence": "Life",
+    "victim_age": "Adult",
+    "source": "News Report"
+  },
+  {
+    "id": "TC-033",
+    "location": "Comilla",
+    "division": "Chattogram",
+    "crime_year": 2019,
+    "verdict_year": 2021,
+    "duration": 2.0,
+    "court": "W&C Repression Prevention Tribunal, Comilla",
+    "accused": 1,
+    "convicted": 1,
+    "sentence": "Life",
+    "victim_age": "12.0",
+    "source": "BSS News"
+  },
+  {
+    "id": "TC-034",
+    "location": "Barishal",
+    "division": "Barishal",
+    "crime_year": 2015,
+    "verdict_year": 2020,
+    "duration": 5.0,
+    "court": "W&C Repression Prevention Tribunal, Barishal",
+    "accused": 4,
+    "convicted": 4,
+    "sentence": "Life",
+    "victim_age": "Adult",
+    "source": "News Report"
+  },
+  {
+    "id": "TC-035",
+    "location": "Satkhira",
+    "division": "Khulna",
+    "crime_year": 2017,
+    "verdict_year": 2022,
+    "duration": 5.0,
+    "court": "W&C Repression Prevention Tribunal, Satkhira",
+    "accused": 1,
+    "convicted": 1,
+    "sentence": "Death",
+    "victim_age": "Adult",
+    "source": "BSS News"
+  },
+  {
+    "id": "TC-036",
+    "location": "Tangail",
+    "division": "Dhaka",
+    "crime_year": 2020,
+    "verdict_year": 2023,
+    "duration": 3.0,
+    "court": "W&C Repression Prevention Tribunal, Tangail",
+    "accused": 2,
+    "convicted": 2,
+    "sentence": "Life",
+    "victim_age": "Child",
+    "source": "News Report"
+  },
+  {
+    "id": "TC-037",
+    "location": "Mymensingh",
+    "division": "Mymensingh",
+    "crime_year": 2018,
+    "verdict_year": 2021,
+    "duration": 3.0,
+    "court": "W&C Repression Prevention Tribunal, Mymensingh",
+    "accused": 1,
+    "convicted": 1,
+    "sentence": "Life",
+    "victim_age": "Adult",
+    "source": "Al Jazeera"
+  },
+  {
+    "id": "TC-038",
+    "location": "Kurigram",
+    "division": "Rangpur",
+    "crime_year": 2019,
+    "verdict_year": 2022,
+    "duration": 3.0,
+    "court": "W&C Repression Prevention Tribunal, Kurigram",
+    "accused": 3,
+    "convicted": 3,
+    "sentence": "Life",
+    "victim_age": "Adult",
+    "source": "BSS News"
+  },
+  {
+    "id": "TC-039",
+    "location": "Nilphamari",
+    "division": "Rangpur",
+    "crime_year": 2016,
+    "verdict_year": 2021,
+    "duration": 5.0,
+    "court": "W&C Repression Prevention Tribunal, Nilphamari",
+    "accused": 1,
+    "convicted": 1,
+    "sentence": "Death",
+    "victim_age": "Child",
+    "source": "News Report"
+  },
+  {
+    "id": "TC-040",
+    "location": "Sunamganj",
+    "division": "Sylhet",
+    "crime_year": 2017,
+    "verdict_year": 2022,
+    "duration": 5.0,
+    "court": "W&C Repression Prevention Tribunal, Sunamganj",
+    "accused": 5,
+    "convicted": 5,
+    "sentence": "Life",
+    "victim_age": "Adult",
+    "source": "News Report"
+  },
+  {
+    "id": "TC-041",
+    "location": "Pirojpur",
+    "division": "Barishal",
+    "crime_year": 2018,
+    "verdict_year": 2023,
+    "duration": 5.0,
+    "court": "W&C Repression Prevention Tribunal, Pirojpur",
+    "accused": 1,
+    "convicted": 1,
+    "sentence": "Life",
+    "victim_age": "Child",
+    "source": "News Report"
+  },
+  {
+    "id": "TC-042",
+    "location": "Bagerhat",
+    "division": "Khulna",
+    "crime_year": 2015,
+    "verdict_year": 2020,
+    "duration": 5.0,
+    "court": "W&C Repression Prevention Tribunal, Bagerhat",
+    "accused": 4,
+    "convicted": 4,
+    "sentence": "Life",
+    "victim_age": "Adult",
+    "source": "News Report"
+  },
+  {
+    "id": "TC-043",
+    "location": "Kushtia",
+    "division": "Khulna",
+    "crime_year": 2019,
+    "verdict_year": 2022,
+    "duration": 3.0,
+    "court": "W&C Repression Prevention Tribunal, Kushtia",
+    "accused": 2,
+    "convicted": 2,
+    "sentence": "Death",
+    "victim_age": "14.0",
+    "source": "News Report"
+  },
+  {
+    "id": "TC-044",
+    "location": "Lakshmipur",
+    "division": "Chattogram",
+    "crime_year": 2017,
+    "verdict_year": 2021,
+    "duration": 4.0,
+    "court": "W&C Repression Prevention Tribunal, Lakshmipur",
+    "accused": 1,
+    "convicted": 1,
+    "sentence": "Life",
+    "victim_age": "Adult",
+    "source": "BSS News"
+  },
+  {
+    "id": "TC-045",
+    "location": "Gaibandha",
+    "division": "Rangpur",
+    "crime_year": 2019,
+    "verdict_year": 2022,
+    "duration": 3.0,
+    "court": "W&C Repression Prevention Tribunal, Gaibandha",
+    "accused": 3,
+    "convicted": 3,
+    "sentence": "Life",
+    "victim_age": "Adult",
+    "source": "News Report"
+  },
+  {
+    "id": "TC-046",
+    "location": "Joypurhat",
+    "division": "Rajshahi",
+    "crime_year": 2016,
+    "verdict_year": 2021,
+    "duration": 5.0,
+    "court": "W&C Repression Prevention Tribunal, Joypurhat",
+    "accused": 1,
+    "convicted": 1,
+    "sentence": "Death",
+    "victim_age": "Child",
+    "source": "News Report"
+  },
+  {
+    "id": "TC-047",
+    "location": "Naogaon",
+    "division": "Rajshahi",
+    "crime_year": 2018,
+    "verdict_year": 2023,
+    "duration": 5.0,
+    "court": "W&C Repression Prevention Tribunal, Naogaon",
+    "accused": 2,
+    "convicted": 2,
+    "sentence": "Life",
+    "victim_age": "Adult",
+    "source": "News Report"
+  },
+  {
+    "id": "TC-048",
+    "location": "Narail",
+    "division": "Khulna",
+    "crime_year": 2015,
+    "verdict_year": 2020,
+    "duration": 5.0,
+    "court": "W&C Repression Prevention Tribunal, Narail",
+    "accused": 1,
+    "convicted": 1,
+    "sentence": "Life",
+    "victim_age": "Child",
+    "source": "BRAC Report"
+  },
+  {
+    "id": "TC-049",
+    "location": "Patuakhali",
+    "division": "Barishal",
+    "crime_year": 2017,
+    "verdict_year": 2022,
+    "duration": 5.0,
+    "court": "W&C Repression Prevention Tribunal, Patuakhali",
+    "accused": 4,
+    "convicted": 4,
+    "sentence": "Life",
+    "victim_age": "Adult",
+    "source": "News Report"
+  },
+  {
+    "id": "TC-050",
+    "location": "Thakurgaon",
+    "division": "Rangpur",
+    "crime_year": 2019,
+    "verdict_year": 2023,
+    "duration": 4.0,
+    "court": "W&C Repression Prevention Tribunal, Thakurgaon",
+    "accused": 1,
+    "convicted": 1,
+    "sentence": "Death",
+    "victim_age": "Child",
+    "source": "News Report"
+  },
+  {
+    "id": "TC-051",
+    "location": "Jhalokati",
+    "division": "Barishal",
+    "crime_year": 2016,
+    "verdict_year": 2021,
+    "duration": 5.0,
+    "court": "W&C Repression Prevention Tribunal, Jhalokati",
+    "accused": 2,
+    "convicted": 2,
+    "sentence": "Life",
+    "victim_age": "Adult",
+    "source": "BSS News"
+  },
+  {
+    "id": "TC-052",
+    "location": "Meherpur",
+    "division": "Khulna",
+    "crime_year": 2018,
+    "verdict_year": 2022,
+    "duration": 4.0,
+    "court": "W&C Repression Prevention Tribunal, Meherpur",
+    "accused": 1,
+    "convicted": 1,
+    "sentence": "Life",
+    "victim_age": "Adult",
+    "source": "News Report"
+  },
+  {
+    "id": "TC-053",
+    "location": "Panchagarh",
+    "division": "Rangpur",
+    "crime_year": 2017,
+    "verdict_year": 2021,
+    "duration": 4.0,
+    "court": "W&C Repression Prevention Tribunal, Panchagarh",
+    "accused": 3,
+    "convicted": 3,
+    "sentence": "Life",
+    "victim_age": "Child",
+    "source": "News Report"
+  },
+  {
+    "id": "TC-054",
+    "location": "Madaripur",
+    "division": "Dhaka",
+    "crime_year": 2019,
+    "verdict_year": 2023,
+    "duration": 4.0,
+    "court": "W&C Repression Prevention Tribunal, Madaripur",
+    "accused": 1,
+    "convicted": 1,
+    "sentence": "Death",
+    "victim_age": "Child",
+    "source": "News Report"
+  },
+  {
+    "id": "TC-055",
+    "location": "Manikganj",
+    "division": "Dhaka",
+    "crime_year": 2016,
+    "verdict_year": 2021,
+    "duration": 5.0,
+    "court": "W&C Repression Prevention Tribunal, Manikganj",
+    "accused": 2,
+    "convicted": 2,
+    "sentence": "Life",
+    "victim_age": "Adult",
+    "source": "BSS News"
+  },
+  {
+    "id": "TC-056",
+    "location": "Chuadanga",
+    "division": "Khulna",
+    "crime_year": 2018,
+    "verdict_year": 2022,
+    "duration": 4.0,
+    "court": "W&C Repression Prevention Tribunal, Chuadanga",
+    "accused": 1,
+    "convicted": 1,
+    "sentence": "Life",
+    "victim_age": "Adult",
+    "source": "News Report"
+  },
+  {
+    "id": "TC-057",
+    "location": "Lalmonirhat",
+    "division": "Rangpur",
+    "crime_year": 2017,
+    "verdict_year": 2021,
+    "duration": 4.0,
+    "court": "W&C Repression Prevention Tribunal, Lalmonirhat",
+    "accused": 2,
+    "convicted": 2,
+    "sentence": "Death",
+    "victim_age": "Child",
+    "source": "BSS News"
+  },
+  {
+    "id": "TC-058",
+    "location": "Gopalganj",
+    "division": "Dhaka",
+    "crime_year": 2019,
+    "verdict_year": 2023,
+    "duration": 4.0,
+    "court": "W&C Repression Prevention Tribunal, Gopalganj",
+    "accused": 1,
+    "convicted": 1,
+    "sentence": "Life",
+    "victim_age": "Adult",
+    "source": "News Report"
+  },
+  {
+    "id": "TC-059",
+    "location": "Rangpur",
+    "division": "Rangpur",
+    "crime_year": 2016,
+    "verdict_year": 2021,
+    "duration": 5.0,
+    "court": "W&C Repression Prevention Tribunal, Rangpur",
+    "accused": 3,
+    "convicted": 3,
+    "sentence": "Life",
+    "victim_age": "Adult",
+    "source": "News Report"
+  },
+  {
+    "id": "TC-060",
+    "location": "Cox's Bazar",
+    "division": "Chattogram",
+    "crime_year": 2021,
+    "verdict_year": 2023,
+    "duration": 2.0,
+    "court": "W&C Repression Prevention Tribunal, Cox's Bazar",
+    "accused": 1,
+    "convicted": 1,
+    "sentence": "Life",
+    "victim_age": "Adult",
+    "source": "Daily Star"
+  }
+];
+const POLICY_EVENTS = [
+  {
+    "id": "PT-001",
+    "date": "1983",
+    "type": "Legislation",
+    "title": "Cruelty to Women (Deterrent Punishment) Ordinance 1983",
+    "provision": "Established criminal penalties for rape and violence against women. Precursor to WCRPA.",
+    "status": "Superseded",
+    "tier": "CONFIRMED"
+  },
+  {
+    "id": "PT-002",
+    "date": "1995",
+    "type": "Legislation",
+    "title": "Nari-O-Shishu Nirjatan (Bishesh Bidhan) Ain 1995",
+    "provision": "Strengthened provisions; introduced specialized court concepts.",
+    "status": "Superseded by 2000 Act",
+    "tier": "CONFIRMED"
+  },
+  {
+    "id": "PT-003",
+    "date": "2000",
+    "type": "Legislation",
+    "title": "Nari-O-Shishu Nirjatan Daman Ain 2000 (WCRPA)",
+    "provision": "Established specialized tribunals; 180-day trial mandate; Section 9 penalties; Section 17 false-case provision; Section 32 mandatory medical examination.",
+    "status": "Active \u2014 amended 2020, 2025",
+    "tier": "CONFIRMED"
+  },
+  {
+    "id": "PT-004",
+    "date": "2000",
+    "type": "Programme",
+    "title": "Multi-Sectoral Programme on Violence Against Women (MSPVAW)",
+    "provision": "Launched first One-Stop Crisis Centres. Government\u2013Denmark joint initiative.",
+    "status": "Active \u2014 expanded to 14 OCCs",
+    "tier": "CONFIRMED"
+  },
+  {
+    "id": "PT-005",
+    "date": "2006",
+    "type": "Institution",
+    "title": "National Forensic DNA Profiling Laboratory (NFDPL) established",
+    "provision": "First international-standard DNA lab in Bangladesh. Dhaka Medical College Hospital. MoWCA.",
+    "status": "Active \u2014 aging equipment noted 2026",
+    "tier": "CONFIRMED"
+  },
+  {
+    "id": "PT-006",
+    "date": "2009",
+    "type": "Court Directive",
+    "title": "High Court \u2014 mandatory workplace sexual harassment committees",
+    "provision": "Required all workplaces to form anti-harassment committees.",
+    "status": "Minimal compliance documented",
+    "tier": "CONFIRMED"
+  },
+  {
+    "id": "PT-007",
+    "date": "2010",
+    "type": "Legislation",
+    "title": "Prevention of Domestic Violence Act 2010",
+    "provision": "Civil remedies for domestic abuse.",
+    "status": "Active \u2014 implementation gaps",
+    "tier": "CONFIRMED"
+  },
+  {
+    "id": "PT-008",
+    "date": "2018",
+    "type": "Court Directive",
+    "title": "High Court \u2014 ban on two-finger test",
+    "provision": "Two-finger (virginity) test prohibited in rape examinations. Demeaning and medically invalid.",
+    "status": "Implementation unclear",
+    "tier": "CONFIRMED"
+  },
+  {
+    "id": "PT-009",
+    "date": "Oct 2020",
+    "type": "Amendment",
+    "title": "WCRPA Amendment \u2014 Death Penalty for Rape",
+    "provision": "Introduced death penalty as maximum punishment for rape under Section 9(1). Previously life imprisonment only.",
+    "status": "Active \u2014 no improvement in conviction rates documented",
+    "tier": "CONFIRMED"
+  },
+  {
+    "id": "PT-010",
+    "date": "2020",
+    "type": "Court Directive",
+    "title": "High Court (ASK v Bangladesh) \u2014 stop recognising shalish in rape cases",
+    "provision": "Ordered police to stop recognising village arbitration settlements in rape cases.",
+    "status": "Shalish continues in practice",
+    "tier": "PROBABLE"
+  },
+  {
+    "id": "PT-011",
+    "date": "2022",
+    "type": "Legislation",
+    "title": "Evidence Act Section 155(4) repealed",
+    "provision": "Prior sexual history of victim no longer admissible to discredit her testimony.",
+    "status": "Active",
+    "tier": "CONFIRMED"
+  },
+  {
+    "id": "PT-012",
+    "date": "Mar 20, 2025",
+    "type": "Amendment Ordinance",
+    "title": "WCRPA Amendment Ordinance 2025",
+    "provision": "Trial deadline: 180\u219290 days. Investigation: 30\u219215 days. DNA evidence: optional (tribunal can proceed on medical cert). Definition expanded: objects, oral/anal coercion, fraudulent consent. Section 17 expanded to 'dignity/reputation.' Police negligence fine: BDT 10k\u219250k. First enforcement mechanism for timelines.",
+    "status": "Active \u2014 implementation monitoring required",
+    "tier": "CONFIRMED"
+  },
+  {
+    "id": "PT-013",
+    "date": "Sep 2, 2025",
+    "type": "Court Judgment",
+    "title": "Article 116 struck down \u2014 SC restored full control over lower courts",
+    "provision": "High Court Division struck down amendments to Art. 116. Returned posting/promotion/discipline of lower court judges from Law Ministry to Supreme Court.",
+    "status": "Active",
+    "tier": "CONFIRMED"
+  },
+  {
+    "id": "PT-014",
+    "date": "Dec 11, 2025",
+    "type": "Institution",
+    "title": "Supreme Court Secretariat Ordinance 2025",
+    "provision": "Separate Supreme Court Secretariat launched. Decouples judicial administration from the executive.",
+    "status": "Active",
+    "tier": "CONFIRMED"
+  },
+  {
+    "id": "PT-015",
+    "date": "Pending",
+    "type": "Legislation",
+    "title": "Witness Protection Bill",
+    "provision": "Law Commission draft exists. Not enacted. Bangladesh is regional outlier.",
+    "status": "Not enacted",
+    "tier": "CONFIRMED ABSENT"
+  },
+  {
+    "id": "PT-016",
+    "date": "Pending",
+    "type": "Reform",
+    "title": "Marital rape exemption \u2014 unresolved",
+    "provision": "WCRPA s.9 still exempts husband-wife intercourse unless wife under 13. CEDAW 2016 para 19(a) explicitly required criminalization. 2025 Amendment did not address.",
+    "status": "Not addressed",
+    "tier": "CONFIRMED ABSENT"
+  },
+  {
+    "id": "PT-017",
+    "date": "Pending",
+    "type": "Reform",
+    "title": "Section 17 national tracking system",
+    "provision": "No institution tracks \u00a717 counter-prosecutions nationally. 2025 expansion of \u00a717 grounds increases risk without monitoring.",
+    "status": "Absent",
+    "tier": "CONFIRMED ABSENT"
+  },
+  {
+    "id": "PT-018",
+    "date": "Pending",
+    "type": "Reform",
+    "title": "PHQ annual conviction rate publication",
+    "provision": "PHQ holds WCRPA conviction rate data by tribunal and district. Not published. Single policy decision would make it public.",
+    "status": "Absent",
+    "tier": "CONFIRMED ABSENT"
+  }
+];
+const DATA_GAPS = [
+  {
+    "id": "GA-001",
+    "point": "Annual WCRPA conviction rates by year, by tribunal, by district",
+    "who": "Police Headquarters (PHQ)",
+    "why": "Would establish whether conviction rates improved or declined post-2020 death penalty amendment \u2014 the most important policy question in Bangladesh's rape justice history.",
+    "cost": "Without it: government can claim reforms are working with no data to dispute. Pattern of failure cannot be demonstrated annually."
+  },
+  {
+    "id": "GA-002",
+    "point": "FIR registration rate for rape complaints (Step 4 of justice funnel)",
+    "who": "Police Headquarters (PHQ)",
+    "why": "No source documents conversion rate from complaint to FIR. Cases disappear at police station before entering any system.",
+    "cost": "The largest single gap in the attrition funnel. Total impunity is incalculable without it."
+  },
+  {
+    "id": "GA-003",
+    "point": "180-day / 90-day trial timeline compliance rate",
+    "who": "Supreme Court / Tribunals",
+    "why": "The law requires it. If the 90-day mandate is not monitored, it cannot be enforced.",
+    "cost": "Compliance rate: effectively zero for 25 years. Enforcement impossible without measurement."
+  },
+  {
+    "id": "GA-004",
+    "point": "National count of Section 17 counter-prosecutions (2000\u20132026)",
+    "who": "Court records / PHQ",
+    "why": "Two confirmed cases documented in press. National scale unknown. 2025 Amendment expanded \u00a717 grounds.",
+    "cost": "Cannot quantify the chilling effect on reporting. System's use of \u00a717 as deterrent is undocumentable."
+  },
+  {
+    "id": "GA-005",
+    "point": "WCRPA case withdrawal rate \u2014 national and district",
+    "who": "PHQ / court records",
+    "why": "Would quantify shalish-driven case attrition \u2014 the disappearances before the funnel even begins.",
+    "cost": "Shalish scale cannot be proven without withdrawal data."
+  },
+  {
+    "id": "GA-006",
+    "point": "Post-2020 amendment pre/post conviction rate comparison",
+    "who": "Government of Bangladesh",
+    "why": "Five years after death penalty amendment. No systematic pre/post comparison published.",
+    "cost": "Cannot confirm or refute that death penalty worsened conviction rates by raising evidence threshold."
+  },
+  {
+    "id": "GA-007",
+    "point": "DNA evidence processing time by case type and district",
+    "who": "National Forensic DNA Profiling Laboratory (NFDPL)",
+    "why": "Would identify where forensic bottlenecks are worst.",
+    "cost": "789 cases stalled \u2014 cannot be addressed without knowing where they are."
+  },
+  {
+    "id": "GA-008",
+    "point": "Witness Protection Law",
+    "who": "Parliament / Law Commission",
+    "why": "Draft bill exists. Not enacted. All regional comparators have enacted one.",
+    "cost": "Without it: witness intimidation continues as primary driver of case collapse. No legal mechanism."
+  },
+  {
+    "id": "GA-009",
+    "point": "Marital rape criminalisation",
+    "who": "Parliament",
+    "why": "CEDAW 2016 para 19(a) explicitly required it. 2025 Amendment did not address it. 75.9% of women experience lifetime IPV \u2014 most by spouse.",
+    "cost": "Majority of sexual violence in Bangladesh is legally invisible under current definition."
+  },
+  {
+    "id": "GA-010",
+    "point": "District-level WCRPA conviction data (geographic breakdown)",
+    "who": "PHQ / Tribunals",
+    "why": "Would identify which districts have zero convictions. BRAC 2022 covered 16 of 64 districts.",
+    "cost": "Geographic justice inequality cannot be documented without it."
+  },
+  {
+    "id": "GA-011",
+    "point": "WCRPA disposal vs conviction breakdown",
+    "who": "Supreme Court",
+    "why": "CEDAW 2025 report gives 53.52% 'disposal rate' \u2014 but does not break down by outcome (conviction vs acquittal vs dismissal). Government can misrepresent disposal as justice.",
+    "cost": "Allows government to claim high disposal rates without accountability for outcome quality."
+  },
+  {
+    "id": "GA-012",
+    "point": "Section 32 WCRPA violation tracking (hospital refusal of examination)",
+    "who": "Ministry of Health / DGDA",
+    "why": "Section 32 requires hospitals to examine survivors. HRCBM 2025 documents systematic violation. No national tracking.",
+    "cost": "Structural pre-funnel barrier destroying forensic evidence. Unquantified."
+  }
+];
+const S17_CASES = [
+  {
+    "id": "S17-001",
+    "name": "Runa Akhter \u2014 CX-2023-001",
+    "location": "Cox's Bazar, Chattogram",
+    "original": "Gang rape \u2014 4 accused filed Mar 2022",
+    "original_date": "Mar 2022",
+    "s17_date": "~Jan 2023",
+    "arrest": "Feb 16, 2023",
+    "verdict": "Apr 13, 2023",
+    "days": "56 days",
+    "sentence": "5 years imprisonment + BDT 20,000 fine",
+    "source": "Prothom Alo Apr 13, 2023 (S-14); CoxsbazarJournal (S-69) \u2014 CONFIRMED"
+  },
+  {
+    "id": "S17-002",
+    "name": "Barishal Teachers Case \u2014 BS-2026-001",
+    "location": "Barishal, Barishal Division",
+    "original": "Rape allegation \u2014 details in case register",
+    "original_date": "2025 (approx)",
+    "s17_date": "Late 2025",
+    "arrest": "Jan 2026",
+    "verdict": "Ongoing",
+    "days": "Ongoing",
+    "sentence": "Arrest ordered for original plaintiff + 5 others including 3 teachers",
+    "source": "TBS News Jan 2026 (S-13) \u2014 CONFIRMED"
+  }
 ];
 
-/* Notable cases */
-const caseData = [
-  {id:'JAM-2004-0031', district:'Jamalpur',   filed:'2004', updated:'2025', duration:'21 yrs', status:'pending', note:'Longest tracked case'},
-  {id:'DHK-2008-0147', district:'Dhaka',      filed:'2008', updated:'2024', duration:'16 yrs', status:'pending', note:'Multiple adjournments'},
-  {id:'CTG-2010-0082', district:'Chittagong', filed:'2010', updated:'2023', duration:'13 yrs', status:'acqt',   note:'Acquitted — witness intimidation'},
-  {id:'SYL-2012-0063', district:'Sylhet',     filed:'2012', updated:'2024', duration:'12 yrs', status:'pending', note:''},
-  {id:'RJH-2013-0044', district:'Rajshahi',   filed:'2013', updated:'2022', duration:'9 yrs',  status:'conv',   note:'Conviction — 7 yr sentence'},
-  {id:'KHL-2015-0029', district:'Khulna',     filed:'2015', updated:'2023', duration:'8 yrs',  status:'pending', note:'Defendant absconding'},
-  {id:'BAR-2016-0071', district:'Barisal',    filed:'2016', updated:'2024', duration:'8 yrs',  status:'appeal',  note:'Under appeal'},
-  {id:'MYM-2018-0055', district:'Mymensingh', filed:'2018', updated:'2024', duration:'6 yrs',  status:'pending', note:''},
-  {id:'DHK-2019-0210', district:'Dhaka',      filed:'2019', updated:'2024', duration:'5 yrs',  status:'pending', note:'Child rape case'},
-  {id:'CTG-2020-0118', district:'Chittagong', filed:'2020', updated:'2024', duration:'4 yrs',  status:'acqt',   note:''},
-  {id:'SYL-2021-0089', district:'Sylhet',     filed:'2021', updated:'2024', duration:'3 yrs',  status:'pending', note:''},
-  {id:'DHK-2022-0303', district:'Dhaka',      filed:'2022', updated:'2024', duration:'2 yrs',  status:'conv',   note:'Conviction — 10 yr sentence'},
-  {id:'RJH-2023-0041', district:'Rajshahi',   filed:'2023', updated:'2025', duration:'2 yrs',  status:'pending', note:''},
-  {id:'CTG-2024-0055', district:'Chittagong', filed:'2024', updated:'2025', duration:'1 yr',   status:'pending', note:'Child rape — under WCRP Act'},
-];
 
-/* District data */
-const districtData = [
-  {name:'Dhaka',      cases:420, max:420},
-  {name:'Chittagong', cases:310, max:420},
-  {name:'Rajshahi',   cases:195, max:420},
-  {name:'Sylhet',     cases:180, max:420},
-  {name:'Khulna',     cases:165, max:420},
-  {name:'Barisal',    cases:140, max:420},
-  {name:'Mymensingh', cases:135, max:420},
-  {name:'Rangpur',    cases:128, max:420},
-  {name:'Comilla',    cases:122, max:420},
-  {name:'Gazipur',    cases:118, max:420},
-  {name:'Narayanganj',cases:105, max:420},
-  {name:'Jamalpur',   cases:98,  max:420},
-  {name:'Tangail',    cases:92,  max:420},
-  {name:'Faridpur',   cases:87,  max:420},
-  {name:'Noakhali',   cases:82,  max:420},
-  {name:'Bogra',      cases:78,  max:420},
-  {name:'Jessore',    cases:74,  max:420},
-  {name:'Dinajpur',   cases:68,  max:420},
-  {name:'Naogaon',    cases:62,  max:420},
-  {name:'Pabna',      cases:58,  max:420},
-];
+/* ═══ RENDER S17 CASES ═══ */
+function renderS17Cases() {
+  const el = document.getElementById('s17CasesContainer');
+  if (!el) return;
+  el.innerHTML = S17_CASES.map(c => `
+    <div class="weekly-item" style="padding:16px 20px;">
+      <div class="weekly-date">${c.id} · ${c.location}</div>
+      <div class="weekly-title">${c.name || '—'}</div>
+      <div class="weekly-detail">
+        Original allegation: ${c.original || '—'}<br>
+        Original filing: ${c.original_date || '—'} · §17 complaint: ${c.s17_date || '—'} · §17 arrest: ${c.arrest || '—'}<br>
+        Days to §17 verdict: <strong style="color:var(--gold-bright)">${c.days || '—'}</strong> · Sentence: ${c.sentence || '—'}
+      </div>
+      <div class="weekly-source">Source: ${c.source || '—'}</div>
+    </div>`).join('');
+}
+
+/* ═══ RENDER TRIBUNAL CASES ═══ */
+let activeDivFilter = 'all';
+let activeSearchQ = '';
+
+function setDivisionFilter(div, btn) {
+  activeDivFilter = div;
+  document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderTribunalCases();
+}
+function filterTribunalCases() {
+  activeSearchQ = document.getElementById('caseSearch').value.toLowerCase();
+  renderTribunalCases();
+}
+function renderTribunalCases() {
+  const tbody = document.getElementById('tribunalBody');
+  const countEl = document.getElementById('caseCount');
+  if (!tbody) return;
+  let rows = TRIBUNAL_CASES;
+  if (activeDivFilter !== 'all') rows = rows.filter(c => c.division === activeDivFilter);
+  if (activeSearchQ) rows = rows.filter(c =>
+    (c.location||'').toLowerCase().includes(activeSearchQ) ||
+    (c.division||'').toLowerCase().includes(activeSearchQ) ||
+    (c.sentence||'').toLowerCase().includes(activeSearchQ) ||
+    (c.victim_age||'').toLowerCase().includes(activeSearchQ)
+  );
+  tbody.innerHTML = rows.map(c => {
+    const dur = c.duration ? parseFloat(c.duration) : null;
+    const durClass = dur !== null && dur >= 10 ? 'style="color:var(--red)"' : dur !== null && dur <= 1 ? 'style="color:#4ade80"' : '';
+    const convClass = c.convicted === 0 ? 'style="color:var(--text-muted)"' : c.convicted >= 5 ? 'style="color:var(--red)"' : 'style="color:var(--gold-bright)"';
+    return `<tr>
+      <td class="case-id">${c.id||'—'}</td>
+      <td class="location">${c.location||'—'}</td>
+      <td style="color:var(--text-muted);font-size:0.62rem">${c.division||'—'}</td>
+      <td>${c.crime_year||'—'}</td>
+      <td>${c.verdict_year||'—'}</td>
+      <td class="duration" ${durClass}>${dur !== null ? dur+'yr' : '—'}</td>
+      <td style="text-align:center">${c.accused||'—'}</td>
+      <td style="text-align:center" ${convClass}>${c.convicted !== null ? c.convicted : '—'}</td>
+      <td style="font-size:0.65rem;color:var(--text-secondary);max-width:180px">${c.sentence||'—'}</td>
+      <td style="font-size:0.62rem;color:var(--text-muted)">${c.victim_age||'—'}</td>
+      <td style="font-size:0.55rem;color:var(--text-muted);max-width:120px">${c.source||'—'}</td>
+    </tr>`;
+  }).join('');
+  if (countEl) countEl.textContent = `Showing ${rows.length} of ${TRIBUNAL_CASES.length} documented verdicts`;
+}
+
+/* ═══ RENDER POLICY TIMELINE ═══ */
+function renderPolicyTimeline() {
+  const el = document.getElementById('policyTimeline');
+  if (!el) return;
+  el.innerHTML = POLICY_EVENTS.map(p => {
+    const isAbsent = p.status && (p.status.includes('Not enacted') || p.status.includes('Absent') || p.status.includes('Not addressed'));
+    const isActive = p.status && p.status.includes('Active');
+    const statusClass = isAbsent ? 'absent' : isActive ? 'active' : '';
+    return `<div class="policy-row">
+      <div class="policy-year">${p.date||'?'}</div>
+      <div class="policy-body">
+        <div class="policy-type">${p.type||''} · <span class="tier-badge ${p.tier==='CONFIRMED'?'tc':'tp'}">${p.tier||''}</span></div>
+        <div class="policy-title">${p.title||'—'}</div>
+        <div class="policy-provision">${p.provision||''}</div>
+        <div class="policy-status ${statusClass}">${p.status||''}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+/* ═══ RENDER DATA GAPS ═══ */
+function renderDataGaps() {
+  const el = document.getElementById('dataGapsContainer');
+  if (!el) return;
+  el.innerHTML = DATA_GAPS.map((g, i) => `
+    <div class="gap-row">
+      <div class="gap-num">${g.id}</div>
+      <div class="gap-body">
+        <div class="gap-point">${g.point||'—'}</div>
+        <div class="gap-who">Should be held by: ${g.who||'—'}</div>
+        <div class="gap-cost">${g.cost||''}</div>
+      </div>
+    </div>`).join('');
+}
+
 
 /* ── RENDER ANNUAL CHART ─── */
 function renderChart() {
@@ -940,16 +2345,13 @@ function renderChart() {
   const maxCases = Math.max(...annualData.map(d => d[1]));
   chart.innerHTML = annualData.map(([year, cases, conv]) => {
     const pct = (cases / maxCases * 100).toFixed(1);
-    const convPct = (conv / cases * 100).toFixed(1);
     const isZero = conv === 0;
+    const convPct = (conv !== null && cases > 0) ? (conv / cases * 100).toFixed(1) : 0;
     return `
-      <div class="year-col" title="${year}: ${cases} cases, ${conv} convictions">
+      <div class="year-col" title="${year}: ${cases.toLocaleString()} cases${conv !== null ? ', '+conv+' convictions' : ''}">
         <div class="bar-wrap">
           <div class="bar-cases" style="height:${pct}%;position:relative">
-            ${isZero
-              ? `<div class="bar-zero"></div>`
-              : `<div class="bar-conv" style="height:${convPct}%"></div>`
-            }
+            ${isZero ? '<div class="bar-zero"></div>' : conv !== null ? `<div class="bar-conv" style="height:${convPct}%"></div>` : ''}
           </div>
         </div>
         <div class="year-label">${year.toString().slice(2)}</div>
@@ -957,7 +2359,7 @@ function renderChart() {
   }).join('');
 }
 
-/* ── RENDER DONUT (pure canvas) ─── */
+/* ── RENDER DONUT ─── */
 function renderDonut() {
   const canvas = document.getElementById('donutChart');
   if (!canvas) return;
@@ -973,80 +2375,60 @@ function renderDonut() {
   let start = -Math.PI / 2;
   slices.forEach(s => {
     const end = start + s.pct * 2 * Math.PI;
-    ctx.beginPath();
-    ctx.moveTo(cx, cy);
+    ctx.beginPath(); ctx.moveTo(cx, cy);
     ctx.arc(cx, cy, r, start, end);
-    ctx.closePath();
-    ctx.fillStyle = s.color;
-    ctx.fill();
+    ctx.closePath(); ctx.fillStyle = s.color; ctx.fill();
     start = end;
   });
-  ctx.beginPath();
-  ctx.arc(cx, cy, inner, 0, 2 * Math.PI);
-  ctx.fillStyle = '#0f0f16';
-  ctx.fill();
+  ctx.beginPath(); ctx.arc(cx, cy, inner, 0, 2 * Math.PI);
+  ctx.fillStyle = '#0f0f16'; ctx.fill();
 }
 
-/* ── RENDER LEDGER ─── */
-function renderLedger() {
+/* ── RENDER MONTHLY LEDGER from monthly.json ─── */
+async function renderLedger() {
   const tbody = document.getElementById('ledgerBody');
   if (!tbody) return;
-  tbody.innerHTML = ledgerData.map(r => `
-    <tr class="${r.conv === 0 && r.verdicts > 0 ? 'highlight-row' : ''}">
-      <td class="period">${r.p}</td>
-      <td>${r.sought}</td>
-      <td>${r.filed}</td>
-      <td>${r.verdicts}</td>
-      <td class="${r.conv === 0 ? 'zero' : 'conv'}">${r.conv}</td>
-      <td>${r.acqt}</td>
-      <td>${r.pending}</td>
-      <td style="font-size:0.6rem;color:var(--text-muted);font-style:italic">${r.note}</td>
-    </tr>`).join('');
-}
-
-/* ── RENDER CASES ─── */
-let activeCaseFilter = 'all';
-function filterCases(f, btn) {
-  activeCaseFilter = f;
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  renderCases();
-}
-function renderCases() {
-  const tbody = document.getElementById('caseBody');
-  if (!tbody) return;
-  const filtered = activeCaseFilter === 'all'
-    ? caseData
-    : caseData.filter(c => c.status === activeCaseFilter);
-  tbody.innerHTML = filtered.map(c => {
-    const statusMap = {
-      pending: '<span class="status-badge pending">Pending</span>',
-      conv:    '<span class="status-badge conv">Conviction</span>',
-      acqt:    '<span class="status-badge acqt">Acquittal</span>',
-      appeal:  '<span class="status-badge appeal">Appeal</span>',
-    };
-    return `<tr>
-      <td class="case-id">${c.id}</td>
-      <td class="location">${c.district}</td>
-      <td>${c.filed}</td>
-      <td>${c.updated}</td>
-      <td class="duration">${c.duration}</td>
-      <td>${statusMap[c.status] || c.status}</td>
-      <td style="font-size:0.6rem;color:var(--text-muted);font-style:italic">${c.note}</td>
-    </tr>`;
-  }).join('');
+  try {
+    const res = await fetch('/data/monthly.json');
+    const data = await res.json();
+    const records = data.months || [];
+    tbody.innerHTML = records.map(r => {
+      const isAbsent = r.tier === 'CONFIRMED_ABSENT';
+      const hasConv = r.convictions !== null && r.convictions > 0;
+      return `<tr class="${hasConv ? '' : isAbsent ? '' : 'highlight-row'}">
+        <td class="period">${r.period}</td>
+        <td style="font-size:0.6rem;text-transform:uppercase;letter-spacing:0.08em;${isAbsent?'color:var(--text-muted)':''}">${r.type||'—'}</td>
+        <td>${r.cases_filed !== null ? r.cases_filed.toLocaleString() : '<span style="color:var(--text-muted);font-style:italic">not published</span>'}</td>
+        <td>${r.occ_visitors !== null ? r.occ_visitors : '—'}</td>
+        <td>${r.verdicts !== null ? r.verdicts : '—'}</td>
+        <td class="${r.convictions === 0 && r.verdicts > 0 ? 'zero' : r.convictions > 0 ? 'conv' : ''}">${r.convictions !== null ? r.convictions : '—'}</td>
+        <td style="font-size:0.58rem;${isAbsent?'color:var(--red)':'color:var(--text-muted)'}">
+          <span style="display:inline-block;padding:2px 6px;border:1px solid;${isAbsent?'border-color:rgba(204,34,0,0.3)':'border-color:rgba(74,170,74,0.3);color:#4aaa4a'}">${r.tier||'—'}</span>
+        </td>
+        <td style="font-size:0.6rem;color:var(--text-muted);font-style:italic;max-width:200px">${(r.notable_cases||[]).join(' · ').substring(0,80)||r.notes||''}</td>
+      </tr>`;
+    }).join('');
+  } catch(e) {
+    tbody.innerHTML = '<tr><td colspan="8" style="color:var(--text-muted);padding:16px">Unable to load monthly.json</td></tr>';
+  }
 }
 
 /* ── RENDER DISTRICTS ─── */
+const districtData = [
+  {name:'Dhaka',cases:420},{name:'Chittagong',cases:310},{name:'Rajshahi',cases:195},
+  {name:'Sylhet',cases:180},{name:'Khulna',cases:165},{name:'Barisal',cases:140},
+  {name:'Mymensingh',cases:135},{name:'Rangpur',cases:128},{name:'Comilla',cases:122},
+  {name:'Gazipur',cases:118},{name:'Narayanganj',cases:105},{name:'Jamalpur',cases:98},
+];
 function renderDistricts() {
   const grid = document.getElementById('districtGrid');
   if (!grid) return;
+  const max = 420;
   grid.innerHTML = districtData.map(d => {
-    const pct = Math.round(d.cases / d.max * 100);
-    const isHigh = d.cases > 200;
+    const pct = Math.round(d.cases / max * 100);
     return `<div class="district-cell">
       <div class="dc-name">${d.name}</div>
-      <div class="dc-num ${isHigh ? 'high' : ''}">${d.cases}</div>
+      <div class="dc-num ${d.cases > 200 ? 'high' : ''}">${d.cases}</div>
       <div class="dc-sub">Cases 2024</div>
       <div class="dc-bar"><div class="dc-bar-fill" style="width:${pct}%"></div></div>
     </div>`;
@@ -1058,9 +2440,13 @@ document.addEventListener('DOMContentLoaded', () => {
   renderChart();
   renderDonut();
   renderLedger();
-  renderCases();
   renderDistricts();
+  renderS17Cases();
+  renderTribunalCases();
+  renderPolicyTimeline();
+  renderDataGaps();
 });
 </script>
+
 </body>
 </html>

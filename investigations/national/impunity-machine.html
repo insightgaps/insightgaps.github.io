@@ -48,7 +48,7 @@ a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(6,6,14,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 2rem}
+nav{position:fixed;top:38px;left:0;right:0;z-index:500;background:rgba(6,6,14,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 2rem}
 .nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:48px;gap:1rem}
 .nav-brand{font-family:var(--mono);font-size:.78rem;color:var(--gold);letter-spacing:.18em;text-transform:uppercase;flex-shrink:0}
 .nav-brand a{color:inherit;text-decoration:none}.nav-brand span{color:var(--muted2)}
@@ -62,7 +62,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(6,6,14,.96);
 .nav-ham.open span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
 .nav-ham.open span:nth-child(2){opacity:0}
 .nav-ham.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
-.nav-drawer{display:none;position:fixed;top:48px;left:0;right:0;background:rgba(6,6,14,.99);border-bottom:1px solid var(--border);padding:1.2rem 2rem;z-index:490}
+.nav-drawer{display:none;position:fixed;top:86px;left:0;right:0;background:rgba(6,6,14,.99);border-bottom:1px solid var(--border);padding:1.2rem 2rem;z-index:490}
 .nav-drawer.open{display:block}
 .nav-drawer a{display:block;font-family:var(--mono);font-size:.66rem;color:var(--muted2);letter-spacing:.08em;text-transform:uppercase;padding:.5rem 0;border-bottom:1px solid var(--border);transition:color .2s}
 .nav-drawer a:hover{color:var(--gold);text-decoration:none}.nav-drawer a:last-child{border-bottom:none}
@@ -391,11 +391,25 @@ canvas{display:block;width:100%}
 </head>
 <body>
 
-<nav aria-label="Main navigation">
+<!-- ═══ BD-INV-002 SERIES NAVIGATION ═══ -->
+<div style="background:#060608;border-bottom:1px solid #1c1c28;position:sticky;top:0;z-index:600;font-family:'IBM Plex Mono',monospace;">
+  <div style="max-width:1300px;margin:0 auto;padding:0 24px;height:38px;display:flex;align-items:center;">
+    <span style="font-size:0.52rem;letter-spacing:0.16em;text-transform:uppercase;color:#38384a;padding-right:16px;border-right:1px solid #1c1c28;white-space:nowrap;flex-shrink:0;">BD-INV-002 · The Impunity Machine</span>
+    <div style="display:flex;align-items:center;flex:1;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;">
+      <a href="/investigations/national/impunity-machine-visual.html" style="font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:#5a5a72;padding:0 14px;height:38px;display:flex;align-items:center;border-right:1px solid #1c1c28;white-space:nowrap;text-decoration:none;">▶ Visual Story</a>
+      <a href="/investigations/national/impunity-machine.html" style="font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:#e8aa10;padding:0 14px;height:38px;display:flex;align-items:center;border-right:1px solid #1c1c28;border-bottom:2px solid #e8aa10;white-space:nowrap;text-decoration:none;">Data Investigation</a>
+      <a href="/investigations/national/impunity-machine/tracker.html" style="font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:#5a5a72;padding:0 14px;height:38px;display:flex;align-items:center;border-right:1px solid #1c1c28;white-space:nowrap;text-decoration:none;">◉ Live Tracker</a>
+      <a href="/series/impunity-machine/methodology.html" style="font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:#5a5a72;padding:0 14px;height:38px;display:flex;align-items:center;border-right:1px solid #1c1c28;white-space:nowrap;text-decoration:none;">Methodology</a>
+      <a href="/series/impunity-machine/data.html" style="font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:#5a5a72;padding:0 14px;height:38px;display:flex;align-items:center;border-right:1px solid #1c1c28;white-space:nowrap;text-decoration:none;">Evidence Files</a>
+    </div>
+    <a href="/" style="font-size:0.52rem;letter-spacing:0.12em;text-transform:uppercase;color:#38384a;padding-left:16px;border-left:1px solid #1c1c28;white-space:nowrap;flex-shrink:0;text-decoration:none;">↩ insightgaps.com</a>
+  </div>
+</div>
+
+<nav aria-label="Main navigation" style="top:38px;">
   <div class="nav-inner">
     <div class="nav-brand"><a href="/">Insight <span>Gaps</span></a> <span style="color:var(--muted2);margin-left:.8rem;font-size:.5rem">BD-INV-002 · v5.0 · Mar 2026</span></div>
     <div class="nav-links">
-      <a href="#dashboard" class="nav-live">● Live Dashboard</a>
       <a href="#conviction-gap">§01 Conviction</a>
       <a href="#backlog">§02 Backlog</a>
       <a href="#architecture">§03 Law</a>
@@ -415,7 +429,6 @@ canvas{display:block;width:100%}
 </nav>
 <div class="nav-drawer" id="nav-drawer" aria-hidden="true">
   <a href="/investigations/">← All Investigations</a>
-  <a href="#dashboard" class="nav-live" style="color:var(--bloodl)">● Live Record — Cases · Monthly Data · Leads</a>
   <a href="#conviction-gap">§01 — The Conviction Gap</a>
   <a href="#backlog">§02 — The Backlog Crisis</a>
   <a href="#architecture">§03 — Legal Architecture & Section 17</a>
@@ -431,10 +444,7 @@ canvas{display:block;width:100%}
   <a href="#sources">All 91 Sources</a>
 </div>
 
-<div class="float-counter" role="status" aria-live="polite" title="Based on 2024 annual average of 4,394 cases. PHQ does not publish real-time data.">
-  <span class="fc-num" style="font-size:1rem;color:var(--gold)">~12/day</span>
-  <span class="fc-lbl">Cases filed today<br><span style="color:var(--muted2);font-size:.72rem">2024 avg · PHQ · S-57</span></span>
-</div>
+
 
 <!-- ══ OPENING ══ -->
 <section id="opening" aria-label="Investigation opening">
@@ -480,182 +490,7 @@ canvas{display:block;width:100%}
 
 
 <!-- ══ NATIONAL LIVE DASHBOARD ══ -->
-<section id="dashboard" style="background:var(--ink2);border-top:2px solid var(--blood)" aria-label="National live dashboard">
-  <div class="wrap" style="padding-top:3rem;padding-bottom:3rem">
 
-    <!-- Dashboard Header -->
-    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-bottom:1px solid var(--border);padding-bottom:1.4rem;margin-bottom:1.8rem">
-      <div>
-        <div style="display:flex;align-items:center;gap:.7rem;margin-bottom:.5rem">
-          <span style="font-family:var(--mono);font-size:.5rem;color:var(--bloodl);letter-spacing:.18em;text-transform:uppercase;animation:blink 1.5s ease-in-out infinite">● ACTIVE INVESTIGATION</span>
-          <span style="font-family:var(--mono);font-size:.5rem;color:var(--muted2);letter-spacing:.1em;text-transform:uppercase">Dashboard updated every 6 hours · GitHub Actions · Confirmed figures updated when new PHQ/BMP data published</span>
-        </div>
-        <h2 style="font-family:var(--display);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;letter-spacing:-.02em;margin-bottom:.4rem">Bangladesh Sexual Violence — National Tracker</h2>
-        <p style="font-family:var(--body);font-size:.85rem;color:var(--muted);max-width:540px">This dashboard tracks every reported case, verdict, and policy development in real time. Any journalist, NGO, or citizen can use this data — with tier labels mandatory when citing.</p>
-      </div>
-      <div style="font-family:var(--mono);font-size:.75rem;color:var(--muted2);text-align:right;line-height:1.7">
-        <span id="rec-last-updated">Last updated: loading…</span><br>
-        Leads tracked: <strong style="color:var(--gold)" id="rec-total-leads">—</strong> &nbsp;|&nbsp;
-        Cases monitored: <strong style="color:var(--gold)" id="rec-total-cases">—</strong>
-      </div>
-    </div>
-
-    <!-- Big Number Strip — Plain Language -->
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:2rem">
-      <div style="background:var(--ink3);padding:1.1rem 1.2rem">
-        <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--bloodl);line-height:1;letter-spacing:-.03em">+52%</div>
-        <div style="font-family:var(--mono);font-size:.5rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-top:.35rem;line-height:1.6">Rape victims<br>2024 → 2025</div>
-        <div style="font-family:var(--mono);font-size:.75rem;color:var(--muted2);margin-top:.3rem">BMP 786 vs 516 · <span class="tier tc" style="margin-left:0">CONFIRMED · S-85</span></div>
-      </div>
-      <div style="background:var(--ink3);padding:1.1rem 1.2rem">
-        <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--bloodl);line-height:1;letter-spacing:-.03em">+75%</div>
-        <div style="font-family:var(--mono);font-size:.5rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-top:.35rem;line-height:1.6">Child rape<br>H1 2024→2025</div>
-        <div style="font-family:var(--mono);font-size:.75rem;color:var(--muted2);margin-top:.3rem">306 vs 175 H1 · <span class="tier tc" style="margin-left:0">CONFIRMED · S-83</span></div>
-      </div>
-      <div style="background:var(--ink3);padding:1.1rem 1.2rem">
-        <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--amberl);line-height:1;letter-spacing:-.03em">442</div>
-        <div style="font-family:var(--mono);font-size:.5rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-top:.35rem;line-height:1.6">Violence cases<br>in March 2026</div>
-        <div style="font-family:var(--mono);font-size:.75rem;color:var(--muted2);margin-top:.3rem">BMP Mar 2026 · <span class="tier tp" style="margin-left:0">PROBABLE · S-73b</span></div>
-      </div>
-      <div style="background:var(--ink3);padding:1.1rem 1.2rem">
-        <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--amberl);line-height:1;letter-spacing:-.03em">~150k</div>
-        <div style="font-family:var(--mono);font-size:.5rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-top:.35rem;line-height:1.6">Cases waiting<br>in courts</div>
-        <div style="font-family:var(--mono);font-size:.75rem;color:var(--muted2);margin-top:.3rem">Mar 2025 · <span class="tier tc" style="margin-left:0">CONFIRMED · S-63, S-64</span></div>
-      </div>
-      <div style="background:var(--ink3);padding:1.1rem 1.2rem">
-        <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--bloodl);line-height:1;letter-spacing:-.03em">0</div>
-        <div style="font-family:var(--mono);font-size:.5rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-top:.35rem;line-height:1.6">OCC convictions<br>Jan–Jul 2024</div>
-        <div style="font-family:var(--mono);font-size:.75rem;color:var(--muted2);margin-top:.3rem">Daily Star Nov 2024 · <span class="tier tc" style="margin-left:0">CONFIRMED · S-55</span></div>
-      </div>
-      <div style="background:var(--ink3);padding:1.1rem 1.2rem">
-        <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--gold);line-height:1;letter-spacing:-.03em">~12/day</div>
-        <div style="font-family:var(--mono);font-size:.5rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-top:.35rem;line-height:1.6">New cases filed<br>every day</div>
-        <div style="font-family:var(--mono);font-size:.75rem;color:var(--muted2);margin-top:.3rem">PHQ 2024 avg · <span class="tier tc" style="margin-left:0">CONFIRMED · S-57</span></div>
-      </div>
-      <div style="background:var(--ink3);padding:1.1rem 1.2rem">
-        <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--bloodl);line-height:1;letter-spacing:-.03em">0.46%</div>
-        <div style="font-family:var(--mono);font-size:.5rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-top:.35rem;line-height:1.6">Conviction rate<br>OCC (23 years)</div>
-        <div style="font-family:var(--mono);font-size:.75rem;color:var(--muted2);margin-top:.3rem">310/66,711 · <span class="tier tc" style="margin-left:0">CONFIRMED · S-55</span></div>
-      </div>
-      <div style="background:var(--ink3);padding:1.1rem 1.2rem">
-        <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--amberl);line-height:1;letter-spacing:-.03em">6.4yr</div>
-        <div style="font-family:var(--mono);font-size:.5rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-top:.35rem;line-height:1.6">Average wait<br>for trial</div>
-        <div style="font-family:var(--mono);font-size:.75rem;color:var(--muted2);margin-top:.3rem">2,349 days · <span class="tier tc" style="margin-left:0">CONFIRMED · S-01</span></div>
-      </div>
-    </div>
-
-    <!-- Context Bar -->
-    <div style="background:rgba(196,30,58,.07);border:1px solid rgba(196,30,58,.3);padding:1rem 1.2rem;margin-bottom:2rem;font-family:var(--mono);font-size:.78rem;color:var(--text2);line-height:1.8">
-      <strong style="color:var(--bloodl)">What these numbers mean in plain language:</strong> In 2025, Bangladesh recorded a 52% rise in documented rape victims (BMP), a 75% surge in child rape in the first half of the year alone, and 442 women and girls reported as victims of violence in March 2026. Every day, ~12 new rape cases enter a system that already has 150,000 cases waiting. The average case takes over 6 years to reach a verdict. Of every 100 women who walked into a crisis centre over 23 years, fewer than 1 got a conviction. <strong style="color:var(--amberl)">The dashboard below is an active investigation register — not a real-time incident counter.</strong> PHQ does not publish real-time data. All figures are source-dated. <a href="#sources" style="color:var(--gold)">All sources cited.</a>
-    </div>
-
-    <!-- Tabs -->
-    <div class="tabs" role="tablist">
-      <button class="tab active" role="tab" onclick="switchTab('cases',this)" aria-selected="true">📋 Tracked Cases</button>
-      <button class="tab" role="tab" onclick="switchTab('monthly',this)" aria-selected="false">📅 Month by Month</button>
-      <button class="tab" role="tab" onclick="switchTab('leads',this)" aria-selected="false">📰 Latest Reports</button>
-      <button class="tab" role="tab" onclick="switchTab('divisions',this)" aria-selected="false">🗺 By Division</button>
-    </div>
-
-    <!-- Tab: Tracked Cases -->
-    <div class="tab-panel active" id="panel-cases">
-      <div style="font-family:var(--mono);font-size:.78rem;color:var(--muted2);padding:.7rem 0;margin-bottom:1rem;border-bottom:1px solid var(--border)">
-        These are specific cases this investigation is tracking — with full timelines, sources, and current status. <span style="color:var(--gold)">Click any case for details.</span>
-      </div>
-      <div class="stat-strip" style="margin-bottom:1rem">
-        <div class="ss-item"><div class="ss-num" id="cnt-total-cases">—</div><div class="ss-lbl">Cases tracked</div></div>
-        <div class="ss-item"><div class="ss-num" id="cnt-sentenced" style="color:var(--greenl)">—</div><div class="ss-lbl">Sentenced / Convicted</div></div>
-        <div class="ss-item"><div class="ss-num" id="cnt-s17" style="color:var(--bloodl)">—</div><div class="ss-lbl">Survivor counter-charged §17</div></div>
-        <div class="ss-item"><div class="ss-num" id="cnt-pending" style="color:var(--amberl)">—</div><div class="ss-lbl">Active / Pending</div></div>
-      </div>
-      <div class="fchips">
-        <button class="fchip active" onclick="filterCases('ALL',this)">All</button>
-        <button class="fchip" onclick="filterCases('DEATH_SENTENCE_APPEAL',this)">Appeal Pending</button>
-        <button class="fchip" onclick="filterCases('CONVICTED',this)">Convicted</button>
-        <button class="fchip" onclick="filterCases('COUNTER_CHARGED',this)">Counter-charged §17</button>
-        <button class="fchip" onclick="filterCases('SECTION17_CONVICTED',this)">§17 Convicted</button>
-      </div>
-      <div class="case-grid" id="case-grid"><div class="record-empty">Loading case register…</div></div>
-    </div>
-
-    <!-- Tab: Monthly Record -->
-    <div class="tab-panel" id="panel-monthly">
-      <div style="font-family:var(--mono);font-size:.78rem;color:var(--muted2);padding:.7rem 0;margin-bottom:1rem;border-bottom:1px solid var(--border)">
-        Monthly data since August 2024. Red cells = PHQ published nothing. Green = confirmed data. Each absence is documented, not assumed. <strong>Click any cell to see what happened that month.</strong>
-      </div>
-      <div class="stat-strip" style="margin-bottom:1rem">
-        <div class="ss-item"><div class="ss-num" id="cnt-m-total">—</div><div class="ss-lbl">Months in ledger</div></div>
-        <div class="ss-item"><div class="ss-num" id="cnt-m-conf" style="color:var(--greenl)">—</div><div class="ss-lbl">Confirmed data</div></div>
-        <div class="ss-item"><div class="ss-num" id="cnt-m-prob" style="color:var(--amberl)">—</div><div class="ss-lbl">Probable data</div></div>
-        <div class="ss-item"><div class="ss-num" id="cnt-m-abs" style="color:var(--bloodl)" id="mdt-abs-count">—</div><div class="ss-lbl">PHQ published nothing</div></div>
-      </div>
-      <div id="heatmap-container" style="margin:1.5rem 0;overflow-x:auto"></div>
-      <div class="hm-legend">
-        <div class="hm-legend-item"><div class="hm-dot" style="background:rgba(82,183,136,.5);border:1px solid rgba(82,183,136,.7)"></div>CONFIRMED data</div>
-        <div class="hm-legend-item"><div class="hm-dot" style="background:rgba(212,160,96,.4);border:1px solid rgba(212,160,96,.6)"></div>PROBABLE data</div>
-        <div class="hm-legend-item"><div class="hm-dot" style="background:rgba(196,30,58,.3);border:1px solid rgba(196,30,58,.5)"></div>PHQ published nothing — accountability failure</div>
-        <div class="hm-legend-item"><div class="hm-dot" style="background:rgba(201,168,76,.25);border:2px solid rgba(201,168,76,.55)"></div>Annual total</div>
-      </div>
-      <div class="hm-detail" id="hm-detail">Click any cell to see what happened that month</div>
-    </div>
-
-    <!-- Tab: Latest Reports -->
-    <div class="tab-panel" id="panel-leads">
-      <div style="font-family:var(--mono);font-size:.78rem;color:var(--muted2);padding:.7rem 0;margin-bottom:1rem;border-bottom:1px solid var(--border)">
-        Auto-collected every 6 hours from Daily Star, Prothom Alo, TBS News, bdnews24, and BSS. Each item is classified by Gemini AI and reviewed weekly. <strong>CONFIRMED = 2+ independent sources. PROBABLE = 1 named source. UNVERIFIED = single source, no cross-reference yet.</strong>
-      </div>
-      <div class="stat-strip" style="margin-bottom:1rem">
-        <div class="ss-item"><div class="ss-num" id="cnt-l-total">—</div><div class="ss-lbl">Total leads</div></div>
-        <div class="ss-item"><div class="ss-num" id="cnt-l-conf" style="color:var(--greenl)">—</div><div class="ss-lbl">Confirmed</div></div>
-        <div class="ss-item"><div class="ss-num" id="cnt-l-prob" style="color:var(--amberl)">—</div><div class="ss-lbl">Probable</div></div>
-        <div class="ss-item"><div class="ss-num" id="cnt-l-unv" style="color:var(--muted)">—</div><div class="ss-lbl">Unverified</div></div>
-      </div>
-      <div class="fchips">
-        <button class="fchip active" onclick="filterLeads('ALL',this)">All</button>
-        <button class="fchip" onclick="filterLeads('CONFIRMED',this)">Confirmed</button>
-        <button class="fchip" onclick="filterLeads('PROBABLE',this)">Probable</button>
-        <button class="fchip" onclick="filterLeads('UNVERIFIED',this)">Unverified</button>
-        <button class="fchip" onclick="filterLeads('Section-17',this)">Section 17</button>
-        <button class="fchip" onclick="filterLeads('verdict',this)">Verdict</button>
-      </div>
-      <div id="leads-feed"><div class="record-empty">Loading latest reports…</div></div>
-    </div>
-
-    <!-- Tab: By Division -->
-    <div class="tab-panel" id="panel-divisions">
-      <div style="font-family:var(--mono);font-size:.78rem;color:var(--muted2);padding:.7rem 0;margin-bottom:1rem;border-bottom:1px solid var(--border)">
-        Lifetime and recent intimate partner violence by division. Source: BBS/UNFPA VAW Survey 2024 (27,476 women surveyed · 95.4% response rate) · <span class="tier tc">CONFIRMED · S-02</span>. No district-level conviction rate data exists from any official source — that absence is itself documented in this report.
-      </div>
-      <table class="dt" style="width:100%">
-        <thead><tr><th>Division</th><th>Lifetime violence</th><th>Past 12 months</th><th>Status</th></tr></thead>
-        <tbody>
-          <tr style="background:rgba(196,30,58,.06)"><td><strong style="color:var(--bloodl)">Barishal</strong></td><td><strong>81.5%</strong></td><td>57.3%</td><td><span style="font-family:var(--mono);font-size:.5rem;color:var(--bloodl)">HIGHEST</span></td></tr>
-          <tr style="background:rgba(196,30,58,.04)"><td><strong>Khulna</strong></td><td>81.3%</td><td>51.9%</td><td><span style="font-family:var(--mono);font-size:.5rem;color:var(--bloodl)">HIGHEST</span></td></tr>
-          <tr><td>Chattogram</td><td>78.5%</td><td>53.2%</td><td><span style="font-family:var(--mono);font-size:.5rem;color:var(--amberl)">HIGH</span></td></tr>
-          <tr><td>Mymensingh</td><td>75.1%</td><td>48.1%</td><td><span style="font-family:var(--mono);font-size:.5rem;color:var(--amberl)">ELEVATED</span></td></tr>
-          <tr><td>Rajshahi</td><td>74.5%</td><td>41.1%</td><td><span style="font-family:var(--mono);font-size:.5rem;color:var(--amberl)">ELEVATED</span></td></tr>
-          <tr><td>Dhaka</td><td>72.9%</td><td>44.5%</td><td><span style="font-family:var(--mono);font-size:.5rem;color:var(--amberl)">ELEVATED</span></td></tr>
-          <tr><td>Sylhet</td><td>72.7%</td><td>50.0%</td><td><span style="font-family:var(--mono);font-size:.5rem;color:var(--amberl)">ELEVATED</span></td></tr>
-          <tr><td>Rangpur</td><td>—</td><td>—</td><td><span style="font-family:var(--mono);font-size:.5rem;color:var(--muted2)">DATA ABSENT</span></td></tr>
-          <tr style="border-top:2px solid var(--border2)"><td><strong>National average</strong></td><td><strong>76%</strong></td><td><strong>49%</strong></td><td><span class="tier tc">CONFIRMED · S-02, S-74</span></td></tr>
-        </tbody>
-      </table>
-      <div style="margin-top:1.2rem;padding:.9rem;background:var(--ink3);border:1px solid var(--border);font-family:var(--mono);font-size:.78rem;color:var(--muted2);line-height:1.7">
-        <strong style="color:var(--text)">Climate vulnerability multiplier:</strong> Women in disaster-prone areas: lifetime IPV 81% vs 68% in non-disaster areas. Environmental stress acts as a documented amplifier through displacement and collapse of community oversight. · BBS/UNFPA 2024 · S-02<br>
-        <strong style="color:var(--text)">No district-level conviction data:</strong> PHQ has never published conviction rates broken down by district or tribunal. This is documented in the Missing Data Audit section below. It is a policy choice, not a data collection limitation.
-      </div>
-    </div>
-
-    <!-- Download Bar -->
-    <div class="dl-bar">
-      <span class="dl-lbl">Raw Data — Open to all</span>
-      <a href="/data/leads.json" download class="dl-btn">↓ leads.json</a>
-      <a href="/data/cases.json" download class="dl-btn">↓ cases.json</a>
-      <a href="/data/monthly.json" download class="dl-btn">↓ monthly.json</a>
-      <span style="font-family:var(--mono);font-size:.5rem;color:var(--muted2)">CC BY-NC 4.0 · Tier labels mandatory when citing · <a href="#sources" style="color:var(--gold2)">All sources →</a></span>
-    </div>
-  </div>
-</section>
 
 <!-- ══ HER CHAPTER II ══ -->
 <div style="background:var(--ink);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
@@ -664,6 +499,20 @@ canvas{display:block;width:100%}
       <p>She decided to speak. She found the One-Stop Crisis Centre after two days of searching — in a city she had to travel to, because her district has a tribunal but no full OCC. A counsellor held her hand. A doctor examined her. A case was filed.</p>
       <p>She is now a number. <strong>Case 227 of 643 in the first seven months of 2024.</strong></p>
       <p>She does not know that of the 12 verdicts delivered that year, zero ended in conviction. She does not know that her case will sit in a queue for an average of 2,349 days. She does not know yet what the system does to women who wait.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ LIVE TRACKER BRIDGE ═══ -->
+<div style="background:var(--ink2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="wrap" style="padding:2rem 0;">
+    <div style="display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:center;flex-wrap:wrap;">
+      <div>
+        <div style="font-family:var(--mono);font-size:0.5rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--bloodl);margin-bottom:.4rem;">◉ Live Tracker — Updated when new data is verified</div>
+        <div style="font-family:var(--mono);font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.4rem;">60 documented verdicts · Policy timeline 1983–2026 · Monthly ledger · Section 17 inversion · 12 confirmed data gaps</div>
+        <div style="font-family:var(--body);font-size:.8rem;color:var(--muted);">No official registry exists in Bangladesh. This is the only independent database of WCRPA case outcomes, evidence-tiered and sourced to named publications.</div>
+      </div>
+      <a href="/investigations/national/impunity-machine/tracker.html" style="display:inline-block;font-family:var(--mono);font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;padding:.7rem 1.4rem;background:var(--blood);color:#fff;text-decoration:none;white-space:nowrap;flex-shrink:0;">Open Tracker →</a>
     </div>
   </div>
 </div>
