@@ -2,845 +2,1269 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Live Case Registry · BD-INV-002 | InsightGaps</title>
-<meta name="description" content="Live registry of Bangladesh rape cases documented from April 2026. Individual cases tracked from first report to final verdict. Updated automatically.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Impunity Tracker — Bangladesh Rape Justice Monitor | Insight Gaps</title>
+<meta name="description" content="Bangladesh's only independent rape justice monitoring station. Tracking what the state refuses to measure — conviction rates, §17 counter-prosecutions, reform status, DNA backlog. BD-INV-002.">
+<meta property="og:title" content="Impunity Tracker · Insight Gaps · BD-INV-002">
+<meta property="og:description" content="Is anything changing? A live monitoring station for Bangladesh's rape justice system.">
+<meta property="og:site_name" content="Insight Gaps">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <style>
+/* ══════════════════════════════════════════════════
+   INSIGHT GAPS — IMPUNITY TRACKER
+   Monitoring station. Not a report. Not an archive.
+   The question: is anything changing?
+══════════════════════════════════════════════════ */
 :root {
-  --bg:       #050510;
-  --bg2:      #08081A;
-  --bg3:      #0C0C22;
-  --card:     #0A0A1E;
-  --border:   #161630;
-  --border2:  #242448;
-  --border3:  #323260;
-  --text:     #EAE4D8;
-  --text2:    #A8A4C0;
-  --text3:    #5A5878;
-  --text4:    #38364A;
-  --red:      #C11D30;
-  --red2:     #E53050;
-  --rdim:     rgba(193,29,48,0.15);
-  --rglow:    rgba(193,29,48,0.06);
-  --amber:    #B87018;
-  --amber2:   #D98C20;
-  --adim:     rgba(184,112,24,0.15);
-  --green:    #158040;
-  --green2:   #20A858;
-  --gdim:     rgba(21,128,64,0.15);
-  --mono:     'IBM Plex Mono', monospace;
-  --display:  'DM Serif Display', Georgia, serif;
-  --sans:     'DM Sans', system-ui, sans-serif;
+  --ink:      #06060e;
+  --ink1:     #0a0a14;
+  --ink2:     #0f0f1c;
+  --ink3:     #141424;
+  --ink4:     #1a1a2e;
+  --border:   #1e1e32;
+  --border2:  #262640;
+
+  --paper:    #ddd8cc;
+  --paper2:   #8a8478;
+  --paper3:   #4a4660;
+
+  --white:    #f0ece0;
+  --blood:    #c41e3a;
+  --blood2:   rgba(196,30,58,0.12);
+  --blood3:   rgba(196,30,58,0.06);
+  --bloodl:   #e84060;
+  --gold:     #c9a84c;
+  --gold2:    rgba(201,168,76,0.15);
+  --green:    #2d8a5a;
+  --greenl:   #40c070;
+  --amber:    #d4800a;
+
+  --mono:     'JetBrains Mono', monospace;
+  --display:  'Syne', sans-serif;
+  --serif:    'Lora', serif;
 }
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+html { font-size:16px; scroll-behavior:smooth; }
 body {
-  background: var(--bg);
-  color: var(--text);
+  background: var(--ink);
+  color: var(--paper);
   font-family: var(--mono);
-  font-size: 14px;
   line-height: 1.6;
   overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
 }
-a { color: var(--amber2); text-decoration: none; }
-a:hover { text-decoration: underline; }
 
-/* ── SERIES BAR ──────────────────────────────────── */
-.series-bar {
-  background: rgba(5,5,16,0.98);
+/* grain */
+body::after {
+  content:''; position:fixed; inset:0; z-index:9999;
+  pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity:0.02;
+}
+
+::-webkit-scrollbar { width:3px; background:var(--ink1); }
+::-webkit-scrollbar-thumb { background:var(--blood); }
+a { color:var(--blood); text-decoration:none; }
+a:hover { color:var(--gold); }
+
+/* ── BREADCRUMB BAR ── */
+.breadcrumb {
+  background: var(--ink1);
   border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+  height: 36px;
+  display: flex; align-items: center;
+  justify-content: space-between;
+  gap: 12px; flex-wrap: wrap;
+  font-size: 9px; letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.bc-left { display:flex; align-items:center; gap:6px; color:var(--paper3); }
+.bc-left a { color:var(--paper3); }
+.bc-left a:hover { color:var(--paper); }
+.bc-sep { color:var(--border2); }
+.bc-active { color:var(--gold); }
+.bc-right { display:flex; gap:6px; flex-wrap:wrap; }
+.bc-link {
+  color:var(--paper3); padding:0 8px; height:36px;
+  display:inline-flex; align-items:center;
+  border-left: 1px solid var(--border);
+  transition: color .15s;
+  font-size: 8px; letter-spacing: 0.1em;
+}
+.bc-link:hover { color:var(--paper); }
+.bc-link.active { color:var(--gold); border-bottom: 2px solid var(--gold); }
+
+/* ── TOP BAR ── */
+.topbar {
+  background: var(--ink1);
+  border-bottom: 1px solid var(--border2);
+  box-shadow: 0 1px 0 rgba(196,30,58,0.25);
+  padding: 0 24px;
+  height: 50px;
+  display: flex; align-items: center;
+  justify-content: space-between;
   position: sticky; top: 0; z-index: 300;
-  font-family: var(--mono);
-  backdrop-filter: blur(12px);
+  gap: 16px;
 }
-.series-bar-inner {
-  max-width: 1360px; margin: 0 auto; padding: 0 24px;
-  height: 40px; display: flex; align-items: center;
+.tb-brand {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--mono); font-size: 9px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(240,236,224,0.35);
+  text-decoration: none; transition: color .15s;
 }
-.series-id {
-  font-size: 0.5rem; letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--text4); padding-right: 16px;
-  border-right: 1px solid var(--border); white-space: nowrap; flex-shrink: 0;
+.tb-brand:hover { color: var(--white); }
+.tb-dot { width:6px; height:6px; border-radius:50%; background:var(--blood); }
+.tb-id { color:var(--paper2); font-size:9px; letter-spacing:0.15em; }
+.live-badge {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--blood); border: 1px solid rgba(196,30,58,0.35);
+  padding: 4px 10px;
 }
-.series-links { display: flex; align-items: center; flex: 1; overflow-x: auto; }
-.series-links::-webkit-scrollbar { display: none; }
-.series-links a {
-  font-size: 0.54rem; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--text3); padding: 0 14px; height: 40px;
-  display: flex; align-items: center; border-right: 1px solid var(--border);
-  white-space: nowrap; transition: color 0.15s, background 0.15s; text-decoration: none;
+.live-pulse {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--blood);
+  animation: pulse-dot 2s ease-in-out infinite;
 }
-.series-links a:hover { color: var(--text); background: var(--bg2); }
-.series-links a.active { color: var(--red2); border-bottom: 2px solid var(--red); }
-.series-home {
-  margin-left: auto; font-size: 0.5rem; letter-spacing: 0.12em;
-  text-transform: uppercase; color: var(--text3); white-space: nowrap;
-  padding-left: 16px; border-left: 1px solid var(--border);
-  text-decoration: none; flex-shrink: 0;
+@keyframes pulse-dot {
+  0%,100% { opacity:1; transform:scale(1); }
+  50% { opacity:0.4; transform:scale(0.7); }
 }
-.series-home:hover { color: var(--amber2); }
+.tb-right { display:flex; align-items:center; gap:12px; }
+.tb-report-link {
+  font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--paper3); border: 1px solid var(--border2);
+  padding: 5px 12px; transition: all .15s;
+}
+.tb-report-link:hover { color:var(--white); border-color:var(--paper2); }
+.tb-report-link.hot { color:var(--paper2); border-color:rgba(196,30,58,0.3); }
+.tb-report-link.hot:hover { color:var(--bloodl); border-color:var(--blood); }
 
-/* ── PAGE HEAD ───────────────────────────────────── */
-.page-head {
+/* ── HERO ── */
+.hero {
+  padding: 56px 0 48px;
   border-bottom: 1px solid var(--border);
-  background: var(--bg2);
-  padding: 32px 24px 28px;
+  position: relative; overflow: hidden;
 }
-.page-head-inner {
-  max-width: 1360px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: end;
+.hero::before {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(196,30,58,0.06) 0%, transparent 65%),
+    repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255,255,255,0.008) 40px, rgba(255,255,255,0.008) 41px);
 }
-.ph-left {}
-.ph-eyebrow {
-  font-size: 0.5rem; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--text3); margin-bottom: 10px; display: flex; align-items: center; gap: 12px;
+.hero-inner { max-width:1300px; margin:0 auto; padding:0 32px; position:relative; }
+.hero-eyebrow {
+  font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--blood); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 14px;
 }
-.live-dot {
-  width: 6px; height: 6px; border-radius: 50%; background: var(--red2);
-  animation: blink 1.8s ease-in-out infinite; flex-shrink: 0;
+.hero-eyebrow::after { content:''; width:32px; height:1px; background:var(--blood); opacity:0.4; }
+.hero-title {
+  font-family: var(--display);
+  font-size: clamp(44px, 7vw, 88px);
+  font-weight: 800; letter-spacing: -0.05em;
+  line-height: 0.88; color: var(--white);
+  margin-bottom: 24px;
 }
-@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.15} }
-.ph-title {
-  font-family: var(--display); font-size: clamp(1.6rem, 3vw, 2.4rem);
-  font-weight: 400; line-height: 1.1; color: var(--text); margin-bottom: 10px;
+.hero-title em { color: var(--blood); font-style: normal; }
+.hero-question {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(16px, 2vw, 22px);
+  font-style: italic; color: var(--paper2);
+  margin-bottom: 32px; max-width: 540px; line-height: 1.6;
+  border-left: 3px solid rgba(201,168,76,0.4); padding-left: 20px;
 }
-.ph-title em { color: var(--red2); font-style: italic; }
-.ph-desc {
-  font-family: var(--sans); font-size: 0.8rem; color: var(--text2);
-  line-height: 1.7; max-width: 580px;
+.hero-meta {
+  display: flex; align-items: center; gap: 24px;
+  flex-wrap: wrap; font-size: 9px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--paper3);
 }
-.ph-desc a { color: var(--amber2); }
-.ph-right { text-align: right; }
-.ph-meta-row {
-  display: flex; flex-direction: column; gap: 5px; align-items: flex-end;
-}
-.ph-meta-item {
-  font-size: 0.5rem; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--text3);
-}
-.ph-meta-item span { color: var(--text2); }
-.ph-meta-item.warn span { color: var(--amber2); }
+.hero-meta span { color: var(--paper2); }
 
-/* ── BODY WRAP ───────────────────────────────────── */
-.wrap { max-width: 1360px; margin: 0 auto; padding: 32px 24px 80px; }
-
-/* ── LEDGER HEADER ───────────────────────────────── */
-.ledger-head {
-  display: flex; align-items: baseline; justify-content: space-between;
-  padding-bottom: 10px; margin-bottom: 0; border-bottom: 1px solid var(--border2);
+/* ── ACCOUNTABILITY COUNTER ── */
+.counter-strip {
+  background: var(--blood);
+  padding: 0;
+  overflow: hidden;
 }
-.lh-title {
-  font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text2);
+.counter-inner {
+  max-width: 1300px; margin: 0 auto;
+  padding: 0 32px;
+  display: grid; grid-template-columns: 1fr auto;
+  align-items: stretch; gap: 0;
 }
-.lh-title .acc { color: var(--red); }
-.lh-note { font-size: 0.48rem; letter-spacing: 0.08em; color: var(--text4); }
+.counter-left {
+  padding: 28px 0;
+  border-right: 1px solid rgba(255,255,255,0.15);
+}
+.counter-label {
+  font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,255,255,0.65); margin-bottom: 8px;
+}
+.counter-num {
+  font-family: var(--display);
+  font-size: clamp(52px, 8vw, 96px);
+  font-weight: 800; letter-spacing: -0.05em;
+  color: #fff; line-height: 1;
+}
+.counter-sub {
+  font-size: 10px; color: rgba(255,255,255,0.55);
+  margin-top: 8px; letter-spacing: 0.08em; line-height: 1.6;
+}
+.counter-right {
+  padding: 28px 0 28px 32px;
+  display: flex; flex-direction: column;
+  justify-content: center; gap: 14px; min-width: 280px;
+}
+.cr-item { display:flex; flex-direction:column; gap:3px; }
+.cr-label { font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+.cr-val { font-family: var(--display); font-size: 20px; font-weight: 800; color: #fff; letter-spacing: -0.03em; }
+.cr-note { font-size: 9px; color: rgba(255,255,255,0.5); }
 
-/* ── MONTH BLOCK ─────────────────────────────────── */
-.ledger { margin-top: 0; }
+/* ── LAYOUT ── */
+.container { max-width:1300px; margin:0 auto; padding:0 32px; }
+.section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+.section:last-child { border-bottom: none; }
 
-.month-block { border-bottom: 1px solid var(--border); }
-.month-block:last-child { border-bottom: none; }
+/* ── SECTION HEAD ── */
+.sec-head {
+  display: flex; align-items: baseline;
+  justify-content: space-between; gap: 16px;
+  margin-bottom: 28px; flex-wrap: wrap;
+}
+.sec-eyebrow {
+  font-size: 8px; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--blood); margin-bottom: 6px;
+}
+.sec-title {
+  font-family: var(--display);
+  font-size: clamp(18px, 2.5vw, 26px);
+  font-weight: 800; letter-spacing: -0.03em; color: var(--white);
+}
+.sec-note {
+  font-size: 9px; color: var(--paper3); letter-spacing: 0.06em;
+  line-height: 1.7; max-width: 400px; text-align: right;
+}
 
-.month-head {
+/* ── SURGE MONITOR ── */
+.surge-grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 1px; background: var(--border);
+  border: 1px solid var(--border);
+  margin-bottom: 28px;
+}
+.surge-card { background: var(--ink2); padding: 26px 22px; }
+.surge-card.alarm { background: rgba(196,30,58,0.06); }
+.surge-val {
+  font-family: var(--display);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 800; letter-spacing: -0.04em;
+  line-height: 1; margin-bottom: 10px;
+}
+.surge-val.red { color: var(--blood); }
+.surge-val.white { color: var(--white); }
+.surge-val.gold { color: var(--gold); }
+.surge-label {
+  font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--paper3); margin-bottom: 6px;
+}
+.surge-note { font-size: 10px; color: var(--paper2); line-height: 1.65; }
+.surge-src { font-size: 9px; color: var(--paper3); margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); letter-spacing: 0.06em; }
+
+.monthly-table-wrap { border: 1px solid var(--border); overflow-x: auto; }
+.monthly-table { width:100%; border-collapse:collapse; font-size:11px; }
+.monthly-table th {
+  text-align:left; padding: 11px 14px;
+  font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--paper3); border-bottom: 1px solid var(--border2);
+  background: var(--ink3); white-space: nowrap;
+}
+.monthly-table td {
+  padding: 12px 14px; border-bottom: 1px solid var(--border);
+  color: var(--paper2); vertical-align: top; line-height: 1.5;
+}
+.monthly-table tr:last-child td { border-bottom: none; }
+.monthly-table tr:hover td { background: rgba(255,255,255,0.012); }
+.monthly-table td.period { color: var(--white); font-weight: 600; }
+.monthly-table td.zero { color: var(--blood); font-weight: 700; }
+.monthly-table td.conv { color: var(--gold); font-weight: 700; }
+.monthly-table td.absent { color: var(--paper3); font-style: italic; }
+.trend-up { color: var(--blood); }
+.trend-dn { color: var(--greenl); }
+
+.data-note {
+  background: var(--ink2); border: 1px solid var(--border);
+  border-left: 3px solid var(--gold);
+  padding: 14px 18px; font-size: 10px;
+  color: var(--paper2); line-height: 1.75;
+  margin-top: 16px; letter-spacing: 0.02em;
+}
+
+/* ── §17 WATCH ── */
+.s17-header {
+  background: rgba(196,30,58,0.06);
+  border: 1px solid rgba(196,30,58,0.2);
+  padding: 22px 24px; margin-bottom: 2px;
+  display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
+}
+.s17-count {
+  font-family: var(--display);
+  font-size: 56px; font-weight: 800; letter-spacing: -0.05em;
+  color: var(--blood); line-height: 1;
+}
+.s17-count-label { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--paper3); margin-top: 4px; }
+.s17-statement {
+  flex: 1; min-width: 280px;
+  font-family: 'Playfair Display', serif;
+  font-style: italic; font-size: clamp(14px, 1.8vw, 18px);
+  color: var(--paper); line-height: 1.7;
+}
+.s17-statement strong { color: var(--blood); font-style: normal; }
+
+.s17-case {
+  background: var(--ink2); border: 1px solid var(--border);
+  border-left: 3px solid var(--blood);
+  padding: 22px 24px; margin-bottom: 2px;
+}
+.s17-case-id { font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blood); margin-bottom: 8px; }
+.s17-case-name { font-family: var(--display); font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+.s17-case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-bottom: 12px; }
+.s17-field-label { font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--paper3); margin-bottom: 4px; }
+.s17-field-val { font-size: 12px; color: var(--paper2); line-height: 1.5; }
+.s17-field-val.red { color: var(--blood); font-weight: 700; font-family: var(--display); font-size: 18px; }
+.s17-field-val.gold { color: var(--gold); }
+.s17-field-val.pending { color: var(--amber); }
+.s17-verdict { font-size: 10px; color: var(--paper2); line-height: 1.8; border-top: 1px solid var(--border); padding-top: 12px; }
+.s17-verdict strong { color: var(--white); }
+.s17-verdict .src { color: var(--paper3); font-size: 9px; display: block; margin-top: 6px; }
+
+.s17-unknown {
+  background: var(--ink2); border: 1px solid var(--border);
+  border-left: 3px solid var(--paper3);
+  padding: 18px 24px;
+  font-size: 11px; color: var(--paper3); line-height: 1.8;
+  font-style: italic;
+}
+
+/* ── REFORM SCOREBOARD ── */
+.reform-grid { display:flex; flex-direction:column; gap: 2px; }
+.reform-row {
   display: grid;
-  grid-template-columns: 130px 1fr auto;
-  gap: 0;
-  cursor: pointer;
-  transition: background 0.12s;
-  border-bottom: none;
+  grid-template-columns: 32px 1fr 160px 120px;
+  gap: 0; align-items: stretch;
+  background: var(--ink2); border: 1px solid var(--border);
 }
-.month-head:hover { background: var(--bg2); }
-.month-head.open { background: var(--bg2); }
-
-/* date col */
-.mh-date {
-  padding: 16px 18px;
-  border-right: 1px solid var(--border);
-  display: flex; flex-direction: column; justify-content: center;
+.reform-row:hover { background: var(--ink3); }
+.reform-num {
+  background: var(--ink3); border-right: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9px; color: var(--paper3); letter-spacing: 0.1em;
+  padding: 16px 0;
 }
-.mh-month {
-  font-family: var(--display); font-size: 1.1rem; line-height: 1;
-  color: var(--text); margin-bottom: 3px;
+.reform-body { padding: 18px 20px; }
+.reform-title { font-family: var(--display); font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 5px; }
+.reform-desc { font-size: 10px; color: var(--paper3); line-height: 1.7; }
+.reform-desc strong { color: var(--paper2); }
+.reform-promised {
+  border-left: 1px solid var(--border);
+  padding: 18px 16px; display: flex; flex-direction: column;
+  justify-content: center; gap: 4px;
 }
-.mh-year {
-  font-size: 0.48rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text4);
-}
-
-/* stats col */
-.mh-stats {
-  padding: 14px 18px;
-  display: flex; align-items: center; gap: 28px; flex-wrap: wrap;
-}
-.mh-stat { display: flex; flex-direction: column; gap: 2px; }
-.mh-stat-n {
-  font-size: 1.1rem; font-weight: 700; line-height: 1; letter-spacing: -0.02em;
-}
-.mh-stat-n.r { color: var(--red2); }
-.mh-stat-n.a { color: var(--amber2); }
-.mh-stat-n.w { color: var(--text2); }
-.mh-stat-n.dim { color: var(--text4); font-size: 0.8rem; padding-top: 3px; }
-.mh-stat-l {
-  font-size: 0.44rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text3);
-}
-.mh-gap {
-  font-size: 0.6rem; color: var(--text3); font-family: var(--sans);
-  border-left: 1px solid var(--border); padding-left: 20px; line-height: 1.5;
-  align-self: center;
-}
-.mh-gap strong { color: var(--text2); }
-.mh-notable {
-  font-size: 0.58rem; color: var(--text3); font-family: var(--sans);
-  border-left: 1px solid var(--border); padding-left: 16px;
-  align-self: center; max-width: 280px; line-height: 1.5;
-}
-
-/* pill + toggle col */
-.mh-right {
-  padding: 14px 16px;
-  display: flex; flex-direction: column; align-items: flex-end;
-  justify-content: space-between; gap: 8px; flex-shrink: 0; min-width: 120px;
+.reform-p-label { font-size: 8px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--paper3); }
+.reform-p-val { font-size: 11px; color: var(--paper2); line-height: 1.5; }
+.reform-status {
+  border-left: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  padding: 12px;
 }
 .status-pill {
-  font-size: 0.44rem; letter-spacing: 0.12em; text-transform: uppercase;
-  padding: 4px 10px; border: 1px solid; display: inline-block;
+  font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase;
+  font-weight: 700; padding: 5px 12px; text-align: center; line-height: 1.4;
 }
-.status-pill.monitoring  { border-color: var(--border2); color: var(--text3); }
-.status-pill.probable    { border-color: var(--adim); color: var(--amber2); }
-.status-pill.confirmed   { border-color: var(--gdim); color: var(--green2); }
-.status-pill.absent      { border-color: var(--rdim); color: var(--red2); }
-.gdim { --gdim: rgba(21,128,64,0.3); }
+.st-absent { background: rgba(196,30,58,0.1); color: var(--bloodl); border: 1px solid rgba(196,30,58,0.25); }
+.st-promised { background: rgba(201,168,76,0.1); color: var(--gold); border: 1px solid rgba(201,168,76,0.25); }
+.st-enacted { background: rgba(40,140,80,0.1); color: var(--greenl); border: 1px solid rgba(40,140,80,0.25); }
+.st-weakened { background: rgba(212,128,10,0.1); color: var(--amber); border: 1px solid rgba(212,128,10,0.25); }
+.st-reversed { background: rgba(196,30,58,0.2); color: #ff6080; border: 1px solid rgba(196,30,58,0.4); }
 
-.mh-toggle {
-  font-size: 0.48rem; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--text4); user-select: none;
+@media (max-width:760px) {
+  .reform-row { grid-template-columns: 32px 1fr; }
+  .reform-promised, .reform-status { display:none; }
 }
 
-/* ── MONTH BODY ──────────────────────────────────── */
-.month-body {
-  display: none;
-  border-top: 1px solid var(--border);
-  background: var(--bg);
+/* ── CASES UNDER WATCH ── */
+.watch-grid { display:flex; flex-direction:column; gap:2px; }
+.watch-card {
+  background: var(--ink2); border: 1px solid var(--border);
+  display: grid; grid-template-columns: 100px 1fr auto;
+  align-items: stretch; gap: 0;
 }
-.month-body.open { display: block; }
+.watch-card.urgent { border-left: 3px solid var(--blood); }
+.watch-card.ongoing { border-left: 3px solid var(--gold); }
+.watch-card.concluded { border-left: 3px solid var(--greenl); opacity: 0.75; }
+.watch-days {
+  background: var(--ink3); border-right: 1px solid var(--border);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 20px 12px; text-align: center;
+}
+.wd-num {
+  font-family: var(--display);
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 800; letter-spacing: -0.04em; line-height: 1;
+}
+.urgent .wd-num { color: var(--blood); }
+.ongoing .wd-num { color: var(--gold); }
+.concluded .wd-num { color: var(--greenl); }
+.wd-label { font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--paper3); margin-top: 4px; }
+.watch-body { padding: 18px 20px; }
+.wb-id { font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--paper3); margin-bottom: 6px; }
+.wb-title { font-family: var(--display); font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 6px; line-height: 1.3; }
+.wb-detail { font-size: 10px; color: var(--paper2); line-height: 1.75; }
+.wb-detail strong { color: var(--white); }
+.wb-src { font-size: 9px; color: var(--paper3); margin-top: 8px; letter-spacing: 0.06em; }
+.watch-status {
+  border-left: 1px solid var(--border);
+  padding: 18px 16px; min-width: 140px;
+  display: flex; flex-direction: column;
+  justify-content: center; gap: 10px;
+}
+.ws-label { font-size: 8px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--paper3); }
+.ws-val { font-size: 11px; color: var(--paper2); line-height: 1.5; }
+.ws-val.urgent { color: var(--blood); }
+.ws-val.gold { color: var(--gold); }
+.ws-val.green { color: var(--greenl); }
 
-/* monitoring placeholder */
-.monitoring-msg {
-  padding: 24px 20px;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start;
+@media (max-width: 700px) {
+  .watch-card { grid-template-columns: 80px 1fr; }
+  .watch-status { display:none; }
 }
-.mm-left {
-  font-family: var(--sans); font-size: 0.7rem; color: var(--text3); line-height: 1.7;
-}
-.mm-left strong { color: var(--text2); display: block; margin-bottom: 4px; }
-.mm-right {
-  background: var(--card); border: 1px dashed var(--border2);
-  padding: 14px 16px; font-size: 0.58rem; color: var(--text3); line-height: 1.7;
-}
-.mm-right strong { color: var(--text4); display: block; margin-bottom: 4px; font-size: 0.5rem; letter-spacing: 0.1em; text-transform: uppercase; }
 
-/* aggregate bar */
-.agg-bar {
-  background: var(--bg2); border-bottom: 1px solid var(--border);
-  padding: 12px 20px;
-  display: flex; gap: 32px; align-items: center; flex-wrap: wrap;
+/* ── DNA BACKLOG ── */
+.dna-main {
+  display: grid; grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1px; background: var(--border);
+  border: 1px solid var(--border); margin-bottom: 16px;
 }
-.agg-item { display: flex; align-items: baseline; gap: 8px; }
-.agg-n { font-size: 1rem; font-weight: 700; }
-.agg-n.r { color: var(--red2); }
-.agg-n.a { color: var(--amber2); }
-.agg-n.g { color: var(--green2); }
-.agg-n.w { color: var(--text2); }
-.agg-l { font-size: 0.46rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text3); }
-.agg-src { margin-left: auto; font-size: 0.48rem; color: var(--text4); }
+.dna-card { background: var(--ink2); padding: 28px 24px; }
+.dna-card.critical { background: rgba(196,30,58,0.05); }
+.dna-val {
+  font-family: var(--display);
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 800; letter-spacing: -0.05em; line-height: 1;
+  margin-bottom: 10px;
+}
+.dna-val.red { color: var(--blood); }
+.dna-val.white { color: var(--white); }
+.dna-val.gold { color: var(--gold); }
+.dna-label { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--paper3); margin-bottom: 8px; }
+.dna-note { font-size: 11px; color: var(--paper2); line-height: 1.8; }
+.dna-note strong { color: var(--white); }
+.dna-src { font-size: 9px; color: var(--paper3); margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border); letter-spacing: 0.06em; }
+.dna-logic {
+  background: var(--ink2); border: 1px solid var(--border);
+  border-left: 3px solid rgba(196,30,58,0.5);
+  padding: 16px 20px; font-size: 11px; color: var(--paper2);
+  line-height: 1.85;
+}
+.dna-logic strong { color: var(--white); }
+@media (max-width:640px) { .dna-main { grid-template-columns:1fr; } }
 
-/* ── CASE ROW ────────────────────────────────────── */
-.case-row {
+/* ── RECENT FINDINGS ── */
+.findings-list { display:flex; flex-direction:column; gap:2px; }
+.finding {
+  background: var(--ink2); border: 1px solid var(--border);
+  padding: 20px 22px;
+  display: grid; grid-template-columns: 120px 1fr;
+  gap: 20px; align-items: flex-start;
+}
+.finding.new { border-left: 3px solid var(--blood); }
+.finding.confirmed { border-left: 3px solid var(--greenl); }
+.finding.ongoing { border-left: 3px solid var(--gold); }
+.f-date { font-size: 10px; color: var(--paper3); line-height: 1.55; letter-spacing: 0.04em; }
+.f-date strong { display: block; color: var(--paper2); font-size: 11px; margin-bottom: 4px; }
+.f-body {}
+.f-title { font-family: var(--display); font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 7px; line-height: 1.3; }
+.f-detail { font-size: 11px; color: var(--paper2); line-height: 1.8; }
+.f-detail strong { color: var(--white); }
+.f-src { font-size: 9px; color: var(--paper3); margin-top: 10px; letter-spacing: 0.06em; }
+.tier { display:inline; font-size:8px; letter-spacing:0.14em; text-transform:uppercase; font-weight:700; padding:2px 7px; }
+.tc { background: rgba(40,140,80,0.1); color: var(--greenl); border:1px solid rgba(40,140,80,0.25); }
+.tp { background: rgba(201,168,76,0.1); color: var(--gold); border:1px solid rgba(201,168,76,0.25); }
+@media (max-width:600px) {
+  .finding { grid-template-columns: 1fr; gap: 8px; }
+}
+
+/* ── FOOTER ── */
+.site-footer {
+  background: var(--ink1); border-top: 1px solid var(--border);
+  padding: 48px 0;
+  font-size: 10px; color: var(--paper3);
+  letter-spacing: 0.08em; line-height: 1.9;
+}
+.footer-grid {
+  max-width: 1300px; margin: 0 auto; padding: 0 32px;
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px; padding-bottom: 28px;
   border-bottom: 1px solid var(--border);
-  transition: background 0.1s;
 }
-.case-row:last-child { border-bottom: none; }
-
-.case-main {
-  display: grid;
-  grid-template-columns: 150px 1fr auto;
-  gap: 0;
-  cursor: pointer;
-  padding: 0;
+.footer-wordmark {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--display); font-size: 16px;
+  font-weight: 800; color: var(--white);
+  letter-spacing: -0.03em; margin-bottom: 12px;
 }
-.case-main:hover { background: var(--bg2); }
-
-.cm-id {
-  padding: 14px 16px;
-  border-right: 1px solid var(--border);
-  display: flex; flex-direction: column; gap: 4px;
-  justify-content: flex-start;
-}
-.cm-id-badge {
-  font-size: 0.56rem; font-weight: 700; letter-spacing: 0.08em;
-  color: var(--amber2); line-height: 1.2;
-}
-.cm-id-date { font-size: 0.46rem; color: var(--text3); }
-.cm-id-div  { font-size: 0.46rem; color: var(--text3); }
-
-.cm-body { padding: 12px 16px; }
-.cm-title {
-  font-family: var(--sans); font-size: 0.78rem; font-weight: 500;
-  color: var(--text); margin-bottom: 7px; line-height: 1.35;
-}
-.cm-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 7px; }
-.cm-tag {
-  font-size: 0.44rem; letter-spacing: 0.08em; text-transform: uppercase;
-  padding: 2px 8px; border: 1px solid;
-}
-.cm-tag.loc   { border-color: var(--border3); color: var(--text2); }
-.cm-tag.vic   { border-color: var(--rdim); color: var(--text2); }
-.cm-tag.perp  { border-color: var(--adim); color: var(--text2); }
-.cm-tag.how   { border-color: var(--border2); color: var(--text3); }
-.cm-tag.false { border-color: var(--adim); color: var(--amber2); }
-.cm-tag.auth  { border-color: var(--gdim); color: var(--green2); }
-.cm-tag.s17   { border-color: var(--rdim); color: var(--red2); background: var(--rglow); }
-.cm-desc {
-  font-family: var(--sans); font-size: 0.65rem; color: var(--text2);
-  line-height: 1.65; max-width: 620px;
+.footer-wordmark-dot { width:7px; height:7px; border-radius:50%; background:var(--blood); }
+.footer-bottom {
+  max-width: 1300px; margin: 0 auto; padding: 20px 32px 0;
+  display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
 }
 
-.cm-status {
-  padding: 12px 16px; flex-shrink: 0; min-width: 130px;
-  display: flex; flex-direction: column; align-items: flex-end;
-  justify-content: flex-start; gap: 6px;
+/* ── UTILITIES ── */
+.gap-badge {
+  display:inline-block; font-size:8px; letter-spacing:0.18em;
+  text-transform:uppercase; padding:3px 8px; font-weight:700;
+  background:rgba(196,30,58,0.1); color:var(--bloodl);
+  border:1px solid rgba(196,30,58,0.25);
 }
-.case-status-badge {
-  font-size: 0.44rem; letter-spacing: 0.1em; text-transform: uppercase;
-  padding: 4px 10px; border: 1px solid; display: inline-block;
-}
-.case-status-badge.reported       { border-color: var(--border2); color: var(--text3); }
-.case-status-badge.fir            { border-color: var(--adim); color: var(--amber2); }
-.case-status-badge.arrest         { border-color: var(--adim); color: var(--amber2); }
-.case-status-badge.chargesheet    { border-color: rgba(64,96,200,0.4); color: #8090E0; }
-.case-status-badge.trial          { border-color: rgba(64,96,200,0.4); color: #8090E0; }
-.case-status-badge.convicted      { border-color: var(--gdim); color: var(--green2); }
-.case-status-badge.acquitted      { border-color: var(--border2); color: var(--text3); }
-.case-status-badge.appeal         { border-color: var(--adim); color: var(--amber2); }
-.case-status-badge.s17_active     { border-color: var(--rdim); color: var(--red2); background: var(--rglow); }
-.case-status-badge.s17_convicted  { border-color: var(--rdim); color: var(--red2); }
-.case-status-badge.false_report   { border-color: var(--adim); color: var(--amber2); }
-.case-status-badge.death_sentence_appeal { border-color: var(--rdim); color: var(--red2); }
-
-.cm-days { font-size: 0.44rem; color: var(--text4); text-align: right; line-height: 1.5; }
-.cm-expand {
-  font-size: 0.44rem; letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--text4); cursor: pointer; background: none; border: none;
-  font-family: var(--mono); padding: 0; text-align: right; margin-top: 2px;
-}
-.cm-expand:hover { color: var(--amber2); }
-
-/* ── TIMELINE ────────────────────────────────────── */
-.case-timeline {
-  display: none;
-  border-top: 1px solid var(--border);
-  background: var(--bg2);
-  padding: 16px 20px 16px 166px;
-}
-.case-timeline.open { display: block; }
-.tl-label {
-  font-size: 0.46rem; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--text4); margin-bottom: 12px;
-}
-.tl-entry {
-  display: grid; grid-template-columns: 110px 1fr;
-  gap: 0; border-bottom: 1px solid var(--border); padding: 9px 0;
-}
-.tl-entry:last-child { border-bottom: none; }
-.tl-date { font-size: 0.52rem; color: var(--text3); padding-right: 16px; padding-top: 1px; }
-.tl-body { }
-.tl-text { font-family: var(--sans); font-size: 0.68rem; color: var(--text2); line-height: 1.6; }
-.tl-src  { font-size: 0.46rem; color: var(--text4); margin-top: 3px; }
-.tl-src a { color: var(--amber2); font-size: 0.46rem; }
-.tier-badge {
-  display: inline-block; font-size: 0.4rem; letter-spacing: 0.1em;
-  text-transform: uppercase; padding: 2px 6px; border: 1px solid; margin-left: 5px;
-  vertical-align: middle;
-}
-.tier-badge.C { border-color: var(--gdim); color: var(--green2); }
-.tier-badge.P { border-color: var(--adim); color: var(--amber2); }
-.tier-badge.U { border-color: var(--border2); color: var(--text3); }
-
-/* ── FOOTER ──────────────────────────────────────── */
-.page-footer {
-  border-top: 1px solid var(--border);
-  background: var(--bg2);
-  padding: 28px 24px;
-  margin-top: 48px;
-}
-.pf-inner {
-  max-width: 1360px; margin: 0 auto;
-  display: flex; justify-content: space-between; align-items: flex-start;
-  flex-wrap: wrap; gap: 20px;
-}
-.pf-left { font-size: 0.58rem; color: var(--text3); line-height: 1.8; }
-.pf-left strong { color: var(--text2); }
-.pf-right { font-size: 0.52rem; color: var(--text4); text-align: right; line-height: 1.8; }
-.pf-right a { color: var(--amber2); }
-
-/* ── ERROR / LOADING ─────────────────────────────── */
-.load-msg {
-  text-align: center; padding: 60px 24px;
-  font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text4);
-}
-.err-msg {
-  background: var(--rglow); border: 1px solid var(--rdim);
-  padding: 20px 24px; margin: 24px 0;
-  font-family: var(--sans); font-size: 0.72rem; color: var(--text2); line-height: 1.7;
-}
-.err-msg strong { color: var(--red2); }
-
-/* ── RESPONSIVE ──────────────────────────────────── */
-@media(max-width: 900px) {
-  .page-head-inner { grid-template-columns: 1fr; }
-  .ph-right { display: none; }
-  .month-head { grid-template-columns: 90px 1fr auto; }
-  .case-main { grid-template-columns: 100px 1fr auto; }
-  .case-timeline { padding-left: 20px; }
-  .monitoring-msg { grid-template-columns: 1fr; }
-  .mh-gap, .mh-notable { display: none; }
-}
-@media(max-width: 600px) {
-  .month-head { grid-template-columns: 80px 1fr; }
-  .mh-right { display: none; }
-  .case-main { grid-template-columns: 1fr; }
-  .cm-id { border-right: none; border-bottom: 1px solid var(--border); }
-  .cm-status { align-items: flex-start; }
+.confirmed-badge {
+  display:inline-block; font-size:8px; letter-spacing:0.14em;
+  text-transform:uppercase; padding:3px 8px;
+  background:rgba(40,140,80,0.1); color:var(--greenl);
+  border:1px solid rgba(40,140,80,0.25);
 }
 </style>
 </head>
 <body>
 
-<!-- SERIES BAR -->
-<div class="series-bar">
-  <div class="series-bar-inner">
-    <span class="series-id">BD-INV-002 · The Impunity Machine</span>
-    <div class="series-links">
-      <a href="/investigations/national/impunity-machine-visual.html">▶ Visual Story</a>
-      <a href="/investigations/national/impunity-machine.html">Data Investigation</a>
-      <a href="/investigations/national/impunity-machine/tracker.html" class="active">◉ Live Registry</a>
-      <a href="/series/impunity-machine/methodology.html">Methodology</a>
-      <a href="/series/impunity-machine/data.html">Evidence Files</a>
-    </div>
-    <a href="/" class="series-home">↩ insightgaps.com</a>
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="bc-left">
+    <a href="/">Insight Gaps</a>
+    <span class="bc-sep">›</span>
+    <a href="/investigations/">Investigations</a>
+    <span class="bc-sep">›</span>
+    <a href="/investigations/national/impunity-machine.html">BD-INV-002</a>
+    <span class="bc-sep">›</span>
+    <span class="bc-active">Tracker</span>
+  </div>
+  <div class="bc-right">
+    <a href="/investigations/national/impunity-machine-visual.html" class="bc-link">▶ Visual</a>
+    <a href="/investigations/national/impunity-machine.html" class="bc-link">Report</a>
+    <a href="/investigations/national/impunity-machine/tracker.html" class="bc-link active">◉ Tracker</a>
+    <a href="/series/impunity-machine/methodology.html" class="bc-link">Methods</a>
   </div>
 </div>
 
-<!-- PAGE HEAD -->
-<div class="page-head">
-  <div class="page-head-inner">
-    <div class="ph-left">
-      <div class="ph-eyebrow">
-        <div class="live-dot"></div>
-        Live · Updated automatically · BD-INV-002
-      </div>
-      <h1 class="ph-title">Case <em>Registry</em></h1>
-      <p class="ph-desc">
-        Individual rape cases documented from <strong>April 2026</strong> — tracked from first news report to final verdict.
-        Aggregate counts added when BMP or PHQ publish.
-        For everything before April 2026, read the
-        <a href="/investigations/national/impunity-machine.html">Data Investigation →</a>
-      </p>
+<!-- TOP BAR -->
+<div class="topbar">
+  <div style="display:flex;align-items:center;gap:16px;">
+    <a href="/" class="tb-brand">
+      <span class="tb-dot"></span>
+      Insight Gaps
+    </a>
+    <div class="tb-id">BD-INV-002 · Impunity Tracker</div>
+  </div>
+  <div class="live-badge">
+    <div class="live-pulse"></div>
+    Monitoring
+  </div>
+  <div class="tb-right">
+    <a href="/investigations/national/impunity-machine.html" class="tb-report-link hot">Full Report →</a>
+    <a href="/investigations/national/impunity-machine-visual.html" class="tb-report-link">Visual Story</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Monitoring Station · BD-INV-002 · Updated March 2026</div>
+    <h1 class="hero-title">Impunity<br><em>Tracker</em></h1>
+    <p class="hero-question">The reports proved the system is broken.<br>This page tracks one question: <em>is anything changing?</em></p>
+    <div class="hero-meta">
+      <span>Coverage: <span>2024 – present</span></span>
+      <span>Sources: <span>BMP · PHQ · OSCC · BSS · Named press</span></span>
+      <span>Cases watched: <span>8</span></span>
+      <span>Last updated: <span>March 10, 2026</span></span>
     </div>
-    <div class="ph-right">
-      <div class="ph-meta-row">
-        <div class="ph-meta-item">Data file: <span>/cases.json</span></div>
-        <div class="ph-meta-item">Monthly data: <span>/data/monthly.json</span></div>
-        <div class="ph-meta-item warn">Registry active from: <span>April 2026</span></div>
-        <div class="ph-meta-item">Methodology: <span><a href="/series/impunity-machine/methodology.html">how this works →</a></span></div>
+  </div>
+</div>
+
+<!-- ACCOUNTABILITY COUNTER -->
+<div class="counter-strip">
+  <div class="counter-inner">
+    <div class="counter-left">
+      <div class="counter-label">Days since the government last published official conviction data</div>
+      <div class="counter-num" id="dayCounter">—</div>
+      <div class="counter-sub">
+        Last official publication: Never. No annual conviction rate has ever been published by PHQ, MoLJPA, or MoWCA.<br>
+        <span style="color:rgba(255,255,255,0.35);font-size:9px;">This counter started 1 January 2001 — the year the WCRPA tribunals became operational.</span>
+      </div>
+    </div>
+    <div class="counter-right">
+      <div class="cr-item">
+        <div class="cr-label">Conviction rate (23 yrs)</div>
+        <div class="cr-val">0.46%</div>
+        <div class="cr-note">310 of 66,711 OCC visitors · Confirmed</div>
+      </div>
+      <div class="cr-item">
+        <div class="cr-label">Cases pending (Mar 2025)</div>
+        <div class="cr-val">~150,000</div>
+        <div class="cr-note">PHQ backlog figure · Confirmed</div>
+      </div>
+      <div class="cr-item">
+        <div class="cr-label">National judicial backlog</div>
+        <div class="cr-val">4.51M</div>
+        <div class="cr-note">SC Secretariat · Jan 2026 · Confirmed</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- BODY -->
-<div class="wrap">
+<!-- RECENT FINDINGS -->
+<div class="section">
+  <div class="container">
+    <div class="sec-head">
+      <div>
+        <div class="sec-eyebrow">Updated Weekly</div>
+        <div class="sec-title">Recent Findings</div>
+      </div>
+      <div class="sec-note">Verified entries only. Tier label mandatory. All sources named.</div>
+    </div>
+    <div class="findings-list">
 
-  <div class="ledger-head">
-    <h2 class="lh-title"><span class="acc">//</span> Monthly Case Ledger</h2>
-    <span class="lh-note">Aggregate counts from PHQ/BMP when published · Individual cases tracked continuously · Gap = cases with no public record</span>
+      <div class="finding new">
+        <div class="f-date"><strong>March 2026</strong>BMP Press Conference</div>
+        <div class="f-body">
+          <div class="f-title">442 violence cases in March 2026 — 125 girls raped, 38 women raped, 36 gang-rape victims</div>
+          <div class="f-detail">Bangladesh Mahila Parishad documented 442 violence cases for March 2026. The child rape figures continue the +75% surge trajectory from H1 2025. No conviction data published for the same period.</div>
+          <div class="f-src">Source: News on Air via BMP · <span class="tier tp">PROBABLE · S-73b</span></div>
+        </div>
+      </div>
+
+      <div class="finding confirmed">
+        <div class="f-date"><strong>Feb 2026</strong>Barishal Verdict</div>
+        <div class="f-body">
+          <div class="f-title">Barishal Trish Godown case: 4 death sentences — crime November 2016, verdict February 2026</div>
+          <div class="f-detail">Crime to verdict: <strong>3,380 days — 9.3 years.</strong> All four accused convicted and sentenced to death. This is the documented pattern: the cases that do receive verdicts take nearly a decade. The 90-day statutory trial deadline has never been enforced.</div>
+          <div class="f-src">Source: BSS February 2026 · <span class="tier tc">CONFIRMED · S-70</span></div>
+        </div>
+      </div>
+
+      <div class="finding confirmed">
+        <div class="f-date"><strong>Jan 2026</strong>SC Secretariat</div>
+        <div class="f-body">
+          <div class="f-title">4,516,603 cases pending nationally as of January 10, 2026 — rape backlog sits inside a system near collapse</div>
+          <div class="f-detail">The Supreme Court Secretariat (established December 2025) published the first independent judicial backlog figure. Lower courts hold <strong>86% of all pending cases</strong>. The ~150,000 WCRPA backlog is a subset of a system-wide crisis. Even if rape tribunals were instantly reformed, the surrounding infrastructure cannot process the volume.</div>
+          <div class="f-src">Source: Lawyers Club BD via SC Secretariat · <span class="tier tc">CONFIRMED · S-76</span></div>
+        </div>
+      </div>
+
+      <div class="finding confirmed">
+        <div class="f-date"><strong>Oct 2025</strong>UNFPA/BBS Survey</div>
+        <div class="f-body">
+          <div class="f-title">76% of women: lifetime intimate partner violence. 49% past 12 months. 62% told no one.</div>
+          <div class="f-detail">BBS/UNFPA Violence Against Women Survey, 27,476 women, October 2025. Barishal: 81.5%. Khulna: 81.3%. Chattogram: 78.5%. Dhaka: 72.9% — the lowest nationally, also has the most OCCs. <strong>Marital rape is not criminalised under WCRPA.</strong> The majority of this violence is legally invisible regardless of tribunal capacity.</div>
+          <div class="f-src">Source: BBS/UNFPA VAW Survey 2025 · <span class="tier tc">CONFIRMED · S-74</span></div>
+        </div>
+      </div>
+
+      <div class="finding confirmed">
+        <div class="f-date"><strong>Sep 2025</strong>DNA Lab Crisis</div>
+        <div class="f-body">
+          <div class="f-title">92% of DNA samples unprocessed — 1,204 of 1,304 samples pending at NFDPL</div>
+          <div class="f-detail">The National Forensic DNA Profiling Laboratory received 1,304 samples in 2025 and processed 100. Two machines serve 170 million people. Without forensic reports, cases cannot proceed to conviction regardless of any other reform. <strong>789 cases nationally stalled due to this backlog as of September 2025.</strong></div>
+          <div class="f-src">Source: Prothom Alo Bangla · <span class="tier tc">CONFIRMED · S-66</span></div>
+        </div>
+      </div>
+
+    </div>
   </div>
+</div>
 
-  <div id="ledger" class="ledger">
-    <div class="load-msg">Loading registry…</div>
+<!-- SURGE MONITOR -->
+<div class="section">
+  <div class="container">
+    <div class="sec-head">
+      <div>
+        <div class="sec-eyebrow">2025 Forward · BMP + PHQ Data</div>
+        <div class="sec-title">Surge Monitor</div>
+      </div>
+      <div class="sec-note">Reports cover 2001–2024. This section owns what happens next. Updated when BMP or PHQ publish.</div>
+    </div>
+
+    <div class="surge-grid">
+      <div class="surge-card alarm">
+        <div class="surge-label">Victims documented H1 2025</div>
+        <div class="surge-val red">+52%</div>
+        <div class="surge-note">vs H1 2024. Jan–Jun 2025: 786 victims documented by BMP. Jan–Jun 2024: 516. The rate of reported violence is accelerating, not stabilising.</div>
+        <div class="surge-src">Source: BMP H1 2025 press conference · <span class="tier tc">CONFIRMED</span></div>
+      </div>
+      <div class="surge-card alarm">
+        <div class="surge-label">Child rape cases H1 2025</div>
+        <div class="surge-val red">+75%</div>
+        <div class="surge-note">vs H1 2024. Child rape is coded separately under WCRPA. The surge in child cases is proportionally larger than the adult case surge. No corresponding increase in conviction capacity documented.</div>
+        <div class="surge-src">Source: BMP H1 2025 · <span class="tier tc">CONFIRMED</span></div>
+      </div>
+      <div class="surge-card">
+        <div class="surge-label">March 2026 — BMP monthly</div>
+        <div class="surge-val white">442</div>
+        <div class="surge-note">Violence cases documented in March 2026 alone. 163 rape victims (125 girls + 38 women). 36 gang-rape victims. This is one month's press-monitored data — the actual incidence is structurally higher.</div>
+        <div class="surge-src">Source: BMP March 2026 press conference · <span class="tier tp">PROBABLE · S-73b</span></div>
+      </div>
+    </div>
+
+    <div class="monthly-table-wrap">
+      <table class="monthly-table">
+        <thead>
+          <tr>
+            <th>Period</th>
+            <th>Victims (BMP)</th>
+            <th>Girls raped</th>
+            <th>Women raped</th>
+            <th>Gang rape</th>
+            <th>Convictions known</th>
+            <th>Trend</th>
+            <th>Tier</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="period">March 2026</td>
+            <td>442 total violence</td>
+            <td>125</td>
+            <td>38</td>
+            <td>36</td>
+            <td class="absent">not published</td>
+            <td class="trend-up">↑ continuing</td>
+            <td><span class="tier tp">PROBABLE</span></td>
+          </tr>
+          <tr>
+            <td class="period">H1 2025</td>
+            <td style="color:var(--blood);font-weight:600;">786</td>
+            <td colspan="3" style="color:var(--paper3);font-style:italic;">breakdown not separated</td>
+            <td class="absent">not published</td>
+            <td class="trend-up">↑ +52% vs H1 2024</td>
+            <td><span class="tier tc">CONFIRMED</span></td>
+          </tr>
+          <tr>
+            <td class="period">Jan–Jul 2024</td>
+            <td>643 sought help</td>
+            <td colspan="3" style="color:var(--paper3);font-style:italic;">breakdown not separated</td>
+            <td class="zero">0</td>
+            <td style="color:var(--paper2);">baseline</td>
+            <td><span class="tier tc">CONFIRMED</span></td>
+          </tr>
+          <tr>
+            <td class="period" colspan="8" style="color:var(--paper3);font-style:italic;font-size:9px;padding:10px 14px;">Data before 2024: see the Data Investigation → Pre-2024 aggregate figures are in the full report, not this tracker.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="data-note">
+      <strong style="color:var(--white);">Why this table is sparse:</strong> BMP publishes monthly aggregate counts at press conferences. PHQ publishes quarterly. Neither publishes conviction data alongside victim counts — that gap is itself the finding. When new data is released, it gets one row added here.
+    </div>
   </div>
+</div>
 
+<!-- §17 WATCH -->
+<div class="section">
+  <div class="container">
+    <div class="sec-head">
+      <div>
+        <div class="sec-eyebrow">Section 17 WCRPA · Counter-Prosecution Watch</div>
+        <div class="sec-title">§17 Inversion</div>
+      </div>
+      <div class="sec-note">The only place tracking this. National count unknown — no institution monitors §17 prosecutions.</div>
+    </div>
+
+    <div class="s17-header">
+      <div>
+        <div class="s17-count">2</div>
+        <div class="s17-count-label">Confirmed cases on record</div>
+      </div>
+      <div class="s17-statement">
+        Section 17 allows counter-prosecution of anyone who files a rape complaint deemed false. In both documented cases, the system moved against the survivor <strong>faster than it has ever moved against any accused rapist</strong> in the 23-year programme record.
+      </div>
+      <div>
+        <div class="s17-count-label" style="margin-bottom:6px;">National tracking</div>
+        <span class="gap-badge">CONFIRMED ABSENT</span>
+        <div class="s17-count-label" style="margin-top:12px;">Under 2025 Amendment</div>
+        <span style="font-size:10px;color:var(--amber);">§17 grounds expanded to include<br>"loss of dignity or reputation"</span>
+      </div>
+    </div>
+
+    <div class="s17-case">
+      <div class="s17-case-id">S17-001 · Cox's Bazar · 2023</div>
+      <div class="s17-case-name">Runa Akhter — The Inversion Case</div>
+      <div class="s17-case-grid">
+        <div>
+          <div class="s17-field-label">Original rape case filed</div>
+          <div class="s17-field-val">March 2022</div>
+        </div>
+        <div>
+          <div class="s17-field-label">§17 complaint filed against her</div>
+          <div class="s17-field-val">~January 2023</div>
+        </div>
+        <div>
+          <div class="s17-field-label">Arrested</div>
+          <div class="s17-field-val">February 16, 2023</div>
+        </div>
+        <div>
+          <div class="s17-field-label">Days: arrest to §17 conviction</div>
+          <div class="s17-field-val red">56 days</div>
+        </div>
+        <div>
+          <div class="s17-field-label">Her original rape case (Mar 2026)</div>
+          <div class="s17-field-val pending">Still pending — 1,461+ days</div>
+        </div>
+        <div>
+          <div class="s17-field-label">§17 sentence</div>
+          <div class="s17-field-val">5 years · BDT 20,000 fine</div>
+        </div>
+      </div>
+      <div class="s17-verdict">
+        The average rape case takes 2,349 days to verdict (BRAC 2022). At Day 56 — when Runa Akhter was already convicted and imprisoned — her original rape case had completed <strong>2.38% of the average journey.</strong> The system convicted the woman who reported in the time it takes the average case to have its first hearing.
+        <span class="src">Prothom Alo Apr 13 2023 (S-14) · CoxsbazarJournal (S-69) · <span class="tier tc">CONFIRMED</span></span>
+      </div>
+    </div>
+
+    <div class="s17-case" style="border-left-color:var(--amber);">
+      <div class="s17-case-id">S17-002 · Barishal · 2026</div>
+      <div class="s17-case-name">Barishal Teachers Case — Under 2025 Amendment</div>
+      <div class="s17-case-grid">
+        <div>
+          <div class="s17-field-label">Original rape allegation</div>
+          <div class="s17-field-val">2025 (approx)</div>
+        </div>
+        <div>
+          <div class="s17-field-label">§17 counter-complaint</div>
+          <div class="s17-field-val">Late 2025</div>
+        </div>
+        <div>
+          <div class="s17-field-label">Arrest orders issued</div>
+          <div class="s17-field-val">January 2026</div>
+        </div>
+        <div>
+          <div class="s17-field-label">Arrested</div>
+          <div class="s17-field-val pending">Original plaintiff + 5 others including 3 teachers</div>
+        </div>
+        <div>
+          <div class="s17-field-label">Current status</div>
+          <div class="s17-field-val pending">Ongoing — no verdict</div>
+        </div>
+        <div>
+          <div class="s17-field-label">Amendment note</div>
+          <div class="s17-field-val gold">First case under 2025 Ordinance expansion</div>
+        </div>
+      </div>
+      <div class="s17-verdict">
+        This is the first documented §17 prosecution under the expanded 2025 Amendment Ordinance, which extended grounds to include "loss of dignity or reputation." The expansion creates a documented risk that any rape allegation — even a genuine one — that fails to convict the accused could be reframed as reputational harm.
+        <span class="src">TBS News Jan 2026 (S-13) · <span class="tier tc">CONFIRMED</span></span>
+      </div>
+    </div>
+
+    <div class="s17-unknown">
+      These are the only two §17 cases in the public record. The national total is unknown. No institution — PHQ, MoWCA, judiciary, or OSCC — tracks §17 counter-prosecutions. The chilling effect on reporting cannot be quantified for this reason. This absence is confirmed, not incidental.
+    </div>
+  </div>
+</div>
+
+<!-- CASES UNDER WATCH -->
+<div class="section">
+  <div class="container">
+    <div class="sec-head">
+      <div>
+        <div class="sec-eyebrow">Individual Cases · Updated When Status Changes</div>
+        <div class="sec-title">Cases Under Watch</div>
+      </div>
+      <div class="sec-note">Not a complete registry. 8 cases selected because each demonstrates something structurally important about the system's behavior.</div>
+    </div>
+    <div class="watch-grid">
+
+      <div class="watch-card urgent">
+        <div class="watch-days">
+          <div class="wd-num" id="runa-days">—</div>
+          <div class="wd-label">days pending</div>
+        </div>
+        <div class="watch-body">
+          <div class="wb-id">WATCH-001 · Cox's Bazar · §17 Inversion</div>
+          <div class="wb-title">Runa Akhter — Original Rape Case (filed March 2022)</div>
+          <div class="wb-detail">The woman convicted in 56 days under §17. Her original rape case — the one that preceded everything — remains unresolved. <strong>No hearing date published. No verdict.</strong> At the current average rate, it has ~900 days of process remaining. Updated when any court record becomes available.</div>
+          <div class="wb-src">Prothom Alo 2023 · <span class="tier tc">CONFIRMED PENDING</span></div>
+        </div>
+        <div class="watch-status">
+          <div><div class="ws-label">Status</div><div class="ws-val urgent">Pending — no hearing</div></div>
+          <div><div class="ws-label">Filed</div><div class="ws-val">March 2022</div></div>
+          <div><div class="ws-label">What it shows</div><div class="ws-val">§17 speed vs justice speed</div></div>
+        </div>
+      </div>
+
+      <div class="watch-card urgent">
+        <div class="watch-days">
+          <div class="wd-num">Ongoing</div>
+          <div class="wd-label">no verdict</div>
+        </div>
+        <div class="watch-body">
+          <div class="wb-id">WATCH-002 · Barishal · §17 · 2026</div>
+          <div class="wb-title">Barishal Teachers Case — First §17 under 2025 Amendment</div>
+          <div class="wb-detail">Arrest orders January 2026. Original plaintiff and 5 others charged under the expanded ordinance. <strong>This case will define how the 2025 Amendment is applied in practice.</strong> The first verdict will set precedent for whether "loss of dignity" becomes a routine counter-prosecution tool.</div>
+          <div class="wb-src">TBS News Jan 2026 · <span class="tier tc">CONFIRMED</span></div>
+        </div>
+        <div class="watch-status">
+          <div><div class="ws-label">Status</div><div class="ws-val urgent">Ongoing</div></div>
+          <div><div class="ws-label">First hearing</div><div class="ws-val">Not published</div></div>
+          <div><div class="ws-label">What it shows</div><div class="ws-val">2025 Amendment scope</div></div>
+        </div>
+      </div>
+
+      <div class="watch-card concluded">
+        <div class="watch-days">
+          <div class="wd-num">3,380</div>
+          <div class="wd-label">days / 9.3 yrs</div>
+        </div>
+        <div class="watch-body">
+          <div class="wb-id">WATCH-003 · Barishal · Concluded Feb 2026</div>
+          <div class="wb-title">Barishal Trish Godown Case — 4 Death Sentences</div>
+          <div class="wb-detail">Crime: November 2016. Verdict: February 2026. Four accused convicted, all sentenced to death. <strong>This is what a "successful" rape conviction looks like in Bangladesh — 9.3 years from crime to verdict.</strong> The statutory 90-day trial deadline was missed by approximately 3,290 days.</div>
+          <div class="wb-src">BSS February 2026 · <span class="tier tc">CONFIRMED · S-70</span></div>
+        </div>
+        <div class="watch-status">
+          <div><div class="ws-label">Status</div><div class="ws-val green">Convicted — 4 death</div></div>
+          <div><div class="ws-label">Duration</div><div class="ws-val">3,380 days</div></div>
+          <div><div class="ws-label">What it shows</div><div class="ws-val">90-day mandate is fiction</div></div>
+        </div>
+      </div>
+
+      <div class="watch-card concluded">
+        <div class="watch-days">
+          <div class="wd-num">~6,205</div>
+          <div class="wd-label">days / 17 yrs</div>
+        </div>
+        <div class="watch-body">
+          <div class="wb-id">WATCH-004 · Narayanganj · Concluded 2023</div>
+          <div class="wb-title">Narayanganj — 17-Year Case, 1 Conviction of 3 Accused</div>
+          <div class="wb-detail">Crime: 2006. Victim age at crime: 10 years old. Verdict: 2023. <strong>The victim was a child in 2006. The case concluded when she was approximately 27.</strong> Of 3 accused: 1 death sentence, 2 acquitted. Longest documented case in the tribunal registry. Shows how the system handles cases from the pre-2020-amendment era.</div>
+          <div class="wb-src">BSS News 2023 · <span class="tier tc">CONFIRMED · TC-011</span></div>
+        </div>
+        <div class="watch-status">
+          <div><div class="ws-label">Status</div><div class="ws-val green">Partially convicted</div></div>
+          <div><div class="ws-label">Duration</div><div class="ws-val">~17 years</div></div>
+          <div><div class="ws-label">What it shows</div><div class="ws-val">Longest documented case</div></div>
+        </div>
+      </div>
+
+      <div class="watch-card concluded">
+        <div class="watch-days">
+          <div class="wd-num">4 yrs</div>
+          <div class="wd-label">all acquitted</div>
+        </div>
+        <div class="watch-body">
+          <div class="wb-id">WATCH-005 · Banani, Dhaka · Concluded 2021 — High-Profile Acquittal</div>
+          <div class="wb-title">Banani Hotel Case — All 5 Accused Acquitted</div>
+          <div class="wb-detail">Crime: 2017. Verdict: 2021. 5 accused. <strong>All acquitted.</strong> This was among the highest-profile rape cases of the decade in Bangladesh. Extensive media coverage, named accused. The acquittal demonstrated that high profile does not correlate with conviction. No official explanation of acquittal grounds published.</div>
+          <div class="wb-src">BSS News 2021 · <span class="tier tc">CONFIRMED · TC-020</span></div>
+        </div>
+        <div class="watch-status">
+          <div><div class="ws-label">Status</div><div class="ws-val urgent">ALL ACQUITTED</div></div>
+          <div><div class="ws-label">Profile</div><div class="ws-val">Highest-profile of decade</div></div>
+          <div><div class="ws-label">What it shows</div><div class="ws-val">Profile ≠ conviction</div></div>
+        </div>
+      </div>
+
+      <div class="watch-card ongoing">
+        <div class="watch-days">
+          <div class="wd-num">789</div>
+          <div class="wd-label">cases stalled</div>
+        </div>
+        <div class="watch-body">
+          <div class="wb-id">WATCH-006 · National · DNA Backlog Cases</div>
+          <div class="wb-title">789 Cases Nationally Stalled — DNA Processing Backlog</div>
+          <div class="wb-detail">As of September 2025: 789 active cases cannot proceed because DNA evidence has not been processed. These are not cold cases — they are live prosecutions, with defendants and survivors waiting, that <strong>cannot go to trial without a forensic report that hasn't been issued.</strong> The NFDPL processes approximately 8 cases per month at current capacity.</div>
+          <div class="wb-src">Prothom Alo Bangla · <span class="tier tc">CONFIRMED · S-66</span></div>
+        </div>
+        <div class="watch-status">
+          <div><div class="ws-label">Status</div><div class="ws-val gold">Active — stalled</div></div>
+          <div><div class="ws-label">As of</div><div class="ws-val">September 2025</div></div>
+          <div><div class="ws-label">What it shows</div><div class="ws-val">Infrastructure collapse</div></div>
+        </div>
+      </div>
+
+      <div class="watch-card ongoing">
+        <div class="watch-days">
+          <div class="wd-num">10+</div>
+          <div class="wd-label">years pending</div>
+        </div>
+        <div class="watch-body">
+          <div class="wb-id">WATCH-007 · Bhola, Barishal · Filed 2004</div>
+          <div class="wb-title">Bhola Case — 18 Years, 2 Convicted of 6 Accused (Concluded 2022)</div>
+          <div class="wb-detail">Crime: 2004. Verdict: 2022. 18 years. 6 accused: 2 life sentences, 4 acquitted. Victim was an adult woman. <strong>The case spans three constitutional governments and two major WCRPA amendments.</strong> Shows how cases filed before the 2020 death penalty change were resolved — with mixed outcomes and near-two-decade delays.</div>
+          <div class="wb-src">BSS News 2022 · <span class="tier tc">CONFIRMED · TC-015</span></div>
+        </div>
+        <div class="watch-status">
+          <div><div class="ws-label">Status</div><div class="ws-val green">Concluded 2022</div></div>
+          <div><div class="ws-label">Duration</div><div class="ws-val">18 years</div></div>
+          <div><div class="ws-label">What it shows</div><div class="ws-val">Pre-2020 era pattern</div></div>
+        </div>
+      </div>
+
+      <div class="watch-card urgent">
+        <div class="watch-days">
+          <div class="wd-num">0</div>
+          <div class="wd-label">convictions Jan–Jul 2024</div>
+        </div>
+        <div class="watch-body">
+          <div class="wb-id">WATCH-008 · National · January–July 2024</div>
+          <div class="wb-title">Zero Convictions — Jan to Jul 2024. 643 women sought help. 12 verdicts. None convicted.</div>
+          <div class="wb-detail">January to July 2024: 643 women reached crisis centres. 227 cases formally filed. 12 verdicts issued. <strong>Zero convictions.</strong> This is not a bad six months — this is what the baseline looks like. The 23-year average (0.46%) means most periods produce zero or near-zero. The system is not in crisis. This is its normal operation.</div>
+          <div class="wb-src">OSCC Jan–Jul 2024 · <span class="tier tc">CONFIRMED</span></div>
+        </div>
+        <div class="watch-status">
+          <div><div class="ws-label">Convictions</div><div class="ws-val urgent">ZERO</div></div>
+          <div><div class="ws-label">Verdicts issued</div><div class="ws-val">12</div></div>
+          <div><div class="ws-label">What it shows</div><div class="ws-val">This is the baseline</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- REFORM SCOREBOARD -->
+<div class="section">
+  <div class="container">
+    <div class="sec-head">
+      <div>
+        <div class="sec-eyebrow">Six Interventions · Evidence-Based · All Achievable</div>
+        <div class="sec-title">Reform Scoreboard</div>
+      </div>
+      <div class="sec-note">Updated when any legislative, judicial, or executive action occurs. Status is current as of March 2026.</div>
+    </div>
+    <div class="reform-grid">
+
+      <div class="reform-row">
+        <div class="reform-num">01</div>
+        <div class="reform-body">
+          <div class="reform-title">Forensic Access — 72-Hour Guarantee</div>
+          <div class="reform-desc">Every district should have a trained forensic physician and OSCC access. 78% of survivors currently arrive after the 72-hour evidence window. <strong>50 of 64 districts have no full OCC.</strong></div>
+        </div>
+        <div class="reform-promised">
+          <div class="reform-p-label">Committed by</div>
+          <div class="reform-p-val">GoB UNSG submission May 2024 — 14 OCCs operational</div>
+        </div>
+        <div class="reform-status"><span class="status-pill st-promised">Partial only</span></div>
+      </div>
+
+      <div class="reform-row">
+        <div class="reform-num">02</div>
+        <div class="reform-body">
+          <div class="reform-title">Witness Protection Law</div>
+          <div class="reform-desc">Bill drafted 2015. Not enacted as of March 2026. Witnesses are unprotected. Conviction requires witness testimony. The logical chain is broken by <strong>deliberate legislative inaction across four governments.</strong></div>
+        </div>
+        <div class="reform-promised">
+          <div class="reform-p-label">Bill status</div>
+          <div class="reform-p-val">Draft exists since 2015 — 11 years unlegislated</div>
+        </div>
+        <div class="reform-status"><span class="status-pill st-absent">Not enacted</span></div>
+      </div>
+
+      <div class="reform-row">
+        <div class="reform-num">03</div>
+        <div class="reform-body">
+          <div class="reform-title">90-Day Trial Mandate — Enforcement</div>
+          <div class="reform-desc">The 90-day deadline exists in law. It has never been enforced. The Barishal Trish Godown case (February 2026) missed the deadline by 3,290 days. <strong>No tribunal has ever faced sanction for missing the 90-day requirement.</strong></div>
+        </div>
+        <div class="reform-promised">
+          <div class="reform-p-label">Law status</div>
+          <div class="reform-p-val">Exists in WCRPA. Enforcement mechanism: absent</div>
+        </div>
+        <div class="reform-status"><span class="status-pill st-absent">Unenforced</span></div>
+      </div>
+
+      <div class="reform-row">
+        <div class="reform-num">04</div>
+        <div class="reform-body">
+          <div class="reform-title">DNA Laboratory Capacity</div>
+          <div class="reform-desc">2 machines for 170 million people. 92% of 2025 samples unprocessed. 789 cases stalled. The government has acknowledged the backlog. <strong>No additional machine procurement has been confirmed or funded.</strong></div>
+        </div>
+        <div class="reform-promised">
+          <div class="reform-p-label">Government response</div>
+          <div class="reform-p-val">Acknowledged — no procurement confirmed as of Mar 2026</div>
+        </div>
+        <div class="reform-status"><span class="status-pill st-promised">Acknowledged only</span></div>
+      </div>
+
+      <div class="reform-row">
+        <div class="reform-num">05</div>
+        <div class="reform-body">
+          <div class="reform-title">Annual Official Conviction Rate Publication</div>
+          <div class="reform-desc">PHQ, MoLJPA, and MoWCA have never published an annual official conviction rate for rape cases. This tracker exists because no official version exists. <strong>The government cannot be held accountable for a rate it refuses to calculate.</strong></div>
+        </div>
+        <div class="reform-promised">
+          <div class="reform-p-label">Publication history</div>
+          <div class="reform-p-val">Never published · 25 years of data held, not released</div>
+        </div>
+        <div class="reform-status"><span class="status-pill st-absent">Never done</span></div>
+      </div>
+
+      <div class="reform-row">
+        <div class="reform-num">06</div>
+        <div class="reform-body">
+          <div class="reform-title">§17 Reform — Restrict Counter-Prosecution</div>
+          <div class="reform-desc">Section 17 was expanded in the 2025 Amendment Ordinance to include "loss of dignity or reputation." This is a documented regression. The reform needed is the reverse: <strong>restrict §17 to require independent judicial pre-authorization before any counter-prosecution can be filed.</strong></div>
+        </div>
+        <div class="reform-promised">
+          <div class="reform-p-label">2025 direction</div>
+          <div class="reform-p-val">Moved in the wrong direction — expanded, not restricted</div>
+        </div>
+        <div class="reform-status"><span class="status-pill st-reversed">Reversed</span></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- DNA BACKLOG -->
+<div class="section">
+  <div class="container">
+    <div class="sec-head">
+      <div>
+        <div class="sec-eyebrow">NFDPL · National Forensic DNA Profiling Lab</div>
+        <div class="sec-title">DNA Backlog Status</div>
+      </div>
+      <div class="sec-note">The single hardest mechanical bottleneck. Updated when new NFDPL data is published.</div>
+    </div>
+
+    <div class="dna-main">
+      <div class="dna-card critical">
+        <div class="dna-label">Samples unprocessed (2025)</div>
+        <div class="dna-val red">92%</div>
+        <div class="dna-note">1,204 of 1,304 samples received in 2025 remain unprocessed as of September 2025. Processing rate: approximately <strong>8 cases per month</strong>. At current rate, clearing the 2025 backlog alone would take over a year — without any new samples arriving.</div>
+        <div class="dna-src">Source: Prothom Alo Bangla · September 2025 · <span class="tier tc">CONFIRMED · S-66</span><br>Last updated: Sep 2025 — update when new NFDPL data published</div>
+      </div>
+      <div class="dna-card">
+        <div class="dna-label">DNA machines serving 170 million people</div>
+        <div class="dna-val white">2</div>
+        <div class="dna-note">One national DNA profiling lab (NFDPL, Dhaka) plus 5 regional screening labs that cannot produce final court reports. All final forensic reports must route through NFDPL. <strong>No second profiling lab exists outside Dhaka.</strong> Average processing time: 3–4 months per case.</div>
+        <div class="dna-src">Source: BRAC 2022 (S-01) · MoWCA data 2025 · <span class="tier tc">CONFIRMED</span></div>
+      </div>
+      <div class="dna-card">
+        <div class="dna-label">Cases stalled nationally (Sep 2025)</div>
+        <div class="dna-val gold">789</div>
+        <div class="dna-note">789 active prosecutions cannot proceed to trial because their DNA forensic reports have not been issued. These are not cold cases — they are live cases with waiting survivors and defendants where the system is the bottleneck. Updated when new figures published.</div>
+        <div class="dna-src">Source: Prothom Alo Bangla · September 2025 · <span class="tier tc">CONFIRMED</span></div>
+      </div>
+      <div class="dna-card">
+        <div class="dna-label">NFDPL court report issuance rate (since 2006)</div>
+        <div class="dna-val" style="color:var(--amber);">55%</div>
+        <div class="dna-note">Of 11,501 cases evaluated by NFDPL since 2006, only 6,333 resulted in a court report that could be used in prosecution. <strong>45% of all DNA evidence submitted never reaches the courtroom</strong> — before the backlog is even counted.</div>
+        <div class="dna-src">Source: MoWCA NFDPL data 2025 · <span class="tier tc">CONFIRMED</span></div>
+      </div>
+    </div>
+
+    <div class="dna-logic">
+      <strong>The mechanical chain:</strong> No forensic report → case cannot go to trial → case joins backlog → backlog grows → 789 cases already stalled → each new rape case adds to queue. The conviction rate cannot improve through any legal or judicial reform while this bottleneck exists. This is not a secondary issue. It is the floor on which everything else rests.
+    </div>
+  </div>
+</div>
+
+<!-- METHODOLOGY NOTE -->
+<div class="section">
+  <div class="container">
+    <div class="sec-head">
+      <div>
+        <div class="sec-eyebrow">How This Works</div>
+        <div class="sec-title">What This Tracker Is — and Isn't</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);border:1px solid var(--border);">
+      <div style="background:var(--ink2);padding:24px;">
+        <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--greenl);margin-bottom:12px;">What this is</div>
+        <div style="font-size:11px;color:var(--paper2);line-height:1.9;">
+          A monitoring station. It tracks one question: <em style="color:var(--paper);">is anything changing?</em><br><br>
+          The full historical argument — 23 years of data, global comparisons, deterrence theory, geographic breakdown — is in the <a href="/investigations/national/impunity-machine.html">Data Investigation</a>. That case is made. This page tracks what happens next.<br><br>
+          Sources: BMP monthly press conferences, PHQ quarterly data, OSCC aggregates, named press publications for individual case developments. Updated when something changes, not on a fixed schedule.
+        </div>
+      </div>
+      <div style="background:var(--ink2);padding:24px;border-left:1px solid var(--border);">
+        <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--blood);margin-bottom:12px;">What this isn't</div>
+        <div style="font-size:11px;color:var(--paper2);line-height:1.9;">
+          A complete case registry. Media covers an estimated 2–5% of actual rape incidents. BMP and PHQ data are themselves undercounts. Every figure here is the floor, not the ceiling.<br><br>
+          This tracker does not replace court records, police station data, or tribunal registers — none of which are publicly accessible. The gap between what appears here and the real numbers is itself the story.<br><br>
+          <strong style="color:var(--white);">The data exists somewhere. No institution publishes it. That confirmed absence is the finding.</strong>
+        </div>
+      </div>
+    </div>
+    <div class="data-note" style="margin-top:16px;">
+      Citation: Insight Gaps (2026). "Impunity Tracker — Bangladesh Rape Justice Monitor." BD-INV-002. CC BY-NC 4.0. insightgaps.com/investigations/national/impunity-machine/tracker · Corrections: insightgaps@proton.me
+    </div>
+  </div>
 </div>
 
 <!-- FOOTER -->
-<div class="page-footer">
-  <div class="pf-inner">
-    <div class="pf-left">
-      <strong>Data sources</strong><br>
-      Bangladesh Police Headquarters (PHQ) · Bangladesh Manobadhikar Parishad (BMP) monthly press conferences<br>
-      Ain o Salish Kendra (ASK) · BSS wire · Prothom Alo · The Daily Star · TBS News · bdnews24<br>
-      All cases sourced to named publications. Sources shown per timeline entry.
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-wordmark">
+        <span class="footer-wordmark-dot"></span>
+        Insight Gaps
+      </div>
+      <div style="color:var(--paper3);line-height:1.9;">
+        Forensic data journalism<br>
+        Bangladesh · BD-INV-002<br>
+        CC BY-NC 4.0 — cite freely, tier labels mandatory
+      </div>
     </div>
-    <div class="pf-right">
-      BD-INV-002 · Insight Gaps · CC BY-NC 4.0<br>
-      Cite with tier labels · <a href="/series/impunity-machine/methodology.html">How the registry works</a><br>
-      Corrections: <a href="mailto:insightgaps@proton.me">insightgaps@proton.me</a>
+    <div>
+      <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--paper3);margin-bottom:14px;">BD-INV-002 Series</div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <a href="/investigations/national/impunity-machine.html" style="font-size:10px;color:var(--paper2);">Data Investigation →</a>
+        <a href="/investigations/national/impunity-machine-visual.html" style="font-size:10px;color:var(--paper2);">Visual Story →</a>
+        <a href="/investigations/national/impunity-machine/tracker.html" style="font-size:10px;color:var(--gold);">◉ Tracker (current)</a>
+        <a href="/series/impunity-machine/methodology.html" style="font-size:10px;color:var(--paper2);">Methodology →</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--paper3);margin-bottom:14px;">Standards</div>
+      <div style="color:var(--paper3);line-height:1.9;font-size:10px;">
+        All claims carry tier labels<br>
+        CONFIRMED · PROBABLE · ALLEGED<br>
+        No outreach — open-source posture<br>
+        Corrections: insightgaps@proton.me
+      </div>
     </div>
   </div>
-</div>
+  <div class="footer-bottom">
+    <div>insightgaps.com · BD-INV-002 · Impunity Tracker · March 2026</div>
+    <div style="color:var(--paper3);">License: CC BY-NC 4.0 · <a href="https://github.com/insightgaps/insightgaps.github.io" style="color:var(--paper3);">GitHub</a></div>
+  </div>
+</footer>
 
 <script>
-/* ═══════════════════════════════════════════════════
-   LIVE CASE REGISTRY — DATA ENGINE
-   Reads /cases.json + /data/monthly.json
-   Zero hardcoded data. Everything from JSON.
-═══════════════════════════════════════════════════ */
+// ── ACCOUNTABILITY COUNTER ──
+// Counts days since Jan 1, 2001 — when WCRPA tribunals became operational.
+// The answer is "always" — no official data has ever been published.
+(function() {
+  const start = new Date('2001-01-01');
+  const now = new Date();
+  const days = Math.floor((now - start) / 86400000);
+  document.getElementById('dayCounter').textContent = days.toLocaleString();
+})();
 
-// Status labels for display
-const STATUS_LABELS = {
-  'REPORTED':               'Reported',
-  'FIR_FILED':              'FIR Filed',
-  'ARREST':                 'Arrested',
-  'CHARGE_SHEET':           'Charge Sheet',
-  'TRIAL':                  'Trial',
-  'CONVICTED':              'Convicted',
-  'ACQUITTED':              'Acquitted',
-  'APPEAL':                 'On Appeal',
-  'DEATH_SENTENCE_APPEAL':  'Death Sentence · Appeal',
-  'S17_ACTIVE':             'Section 17 Active',
-  'S17_CONVICTED':          'Section 17 Convicted',
-  'COUNTER_CHARGED':        'Counter-Charged §17',
-  'FALSE_REPORT':           'False Report',
-  'CLOSED':                 'Closed',
-};
-
-// CSS class for status badge
-const STATUS_CLASS = {
-  'REPORTED':               'reported',
-  'FIR_FILED':              'fir',
-  'ARREST':                 'arrest',
-  'CHARGE_SHEET':           'chargesheet',
-  'TRIAL':                  'trial',
-  'CONVICTED':              'convicted',
-  'ACQUITTED':              'acquitted',
-  'APPEAL':                 'appeal',
-  'DEATH_SENTENCE_APPEAL':  'death_sentence_appeal',
-  'S17_ACTIVE':             's17_active',
-  'S17_CONVICTED':          's17_convicted',
-  'COUNTER_CHARGED':        's17_active',
-  'FALSE_REPORT':           'false_report',
-  'CLOSED':                 'reported',
-};
-
-// Month names
-const MONTHS = ['','January','February','March','April','May','June',
-                'July','August','September','October','November','December'];
-
-function monthLabel(period) {
-  // period = "2026-04"
-  const [y, m] = period.split('-');
-  return { month: MONTHS[parseInt(m)], year: y };
-}
-
-// Generate months from April 2026 to current month
-function getMonthsFromApril2026() {
-  const months = [];
-  const start = new Date(2026, 3, 1); // April 2026
-  const now   = new Date();
-  const end   = new Date(now.getFullYear(), now.getMonth(), 1);
-
-  let cur = new Date(start);
-  while (cur <= end) {
-    const y = cur.getFullYear();
-    const m = String(cur.getMonth() + 1).padStart(2, '0');
-    months.push(`${y}-${m}`);
-    cur.setMonth(cur.getMonth() + 1);
-  }
-  // Add one month ahead as "upcoming monitoring"
-  const next = new Date(end);
-  next.setMonth(next.getMonth() + 1);
-  const ny = next.getFullYear();
-  const nm = String(next.getMonth() + 1).padStart(2, '0');
-  months.push(`${ny}-${nm}`);
-
-  return months.reverse(); // Most recent first
-}
-
-// Match cases to a month period
-function casesForMonth(cases, period) {
-  return cases.filter(c => {
-    if (!c.date_incident) return false;
-    const d = c.date_incident.substring(0, 7); // "2026-04"
-    return d === period;
-  });
-}
-
-// Render tier badge
-function tierBadge(tier) {
-  if (!tier) return '';
-  const cls = tier === 'CONFIRMED' ? 'C' : tier === 'PROBABLE' ? 'P' : 'U';
-  const short = tier === 'CONFIRMED' ? 'CONFIRMED' : tier === 'PROBABLE' ? 'PROBABLE' : 'UNVERIFIED';
-  return `<span class="tier-badge ${cls}">${short}</span>`;
-}
-
-// Render a single case row
-function renderCase(c) {
-  const statusLabel = STATUS_LABELS[c.status] || c.status || 'Unknown';
-  const statusCls   = STATUS_CLASS[c.status] || 'reported';
-  const isS17 = c.section17_filed === true ||
-                (c.status || '').includes('S17') ||
-                (c.status || '').includes('COUNTER');
-
-  // Build tags
-  const tags = [];
-  if (c.district)  tags.push(`<span class="cm-tag loc">📍 ${c.district}${c.division ? ', ' + c.division : ''}</span>`);
-  if (c.label)     {} // label is the title
-  if (isS17)       tags.push(`<span class="cm-tag s17">⚠ Section 17</span>`);
-
-  // Days elapsed since incident
-  let daysInfo = '';
-  if (c.date_incident && c.days_to_verdict) {
-    daysInfo = `${c.days_to_verdict} days to verdict`;
-  } else if (c.date_incident) {
-    const start = new Date(c.date_incident.replace(/^(\d{4}-\d{2})$/, '$1-01'));
-    const diff  = Math.floor((new Date() - start) / 86400000);
-    if (diff > 0) daysInfo = `${diff} days since incident`;
-  }
-
-  // Timeline entries
-  const timeline = (c.timeline || []).map(t => {
-    const srcLink = t.source_url
-      ? `<a href="${t.source_url}" target="_blank" rel="noopener">${t.source}</a>`
-      : (t.source || '');
-    return `<div class="tl-entry">
-      <div class="tl-date">${t.date || ''}</div>
-      <div class="tl-body">
-        <div class="tl-text">${t.event || ''}${tierBadge(t.tier)}</div>
-        <div class="tl-src">${srcLink}</div>
-      </div>
-    </div>`;
-  }).join('');
-
-  const tlCount = (c.timeline || []).length;
-
-  return `<div class="case-row">
-    <div class="case-main" onclick="toggleTimeline('tl-${c.id}', this)">
-      <div class="cm-id">
-        <div class="cm-id-badge">${c.id}</div>
-        <div class="cm-id-date">${c.date_incident || '—'}</div>
-        <div class="cm-id-div">${c.division || ''}</div>
-      </div>
-      <div class="cm-body">
-        <div class="cm-title">${c.label || c.id}</div>
-        <div class="cm-tags">${tags.join('')}</div>
-        <div class="cm-desc">${(c.notes || '').substring(0, 200)}${(c.notes || '').length > 200 ? '…' : ''}</div>
-      </div>
-      <div class="cm-status">
-        <span class="case-status-badge ${statusCls}">${statusLabel}</span>
-        ${daysInfo ? `<div class="cm-days">${daysInfo}</div>` : ''}
-        <button class="cm-expand" id="btn-${c.id}">▼ ${tlCount} update${tlCount !== 1 ? 's' : ''}</button>
-      </div>
-    </div>
-    <div class="case-timeline" id="tl-${c.id}">
-      <div class="tl-label">Update Timeline · ${c.id}</div>
-      ${timeline || '<div style="font-size:.6rem;color:var(--text4);padding:8px 0">No updates logged yet.</div>'}
-    </div>
-  </div>`;
-}
-
-function toggleTimeline(id, row) {
-  const tl  = document.getElementById(id);
-  const caseId = id.replace('tl-', '');
-  const btn = document.getElementById('btn-' + caseId);
-  if (!tl) return;
-  const isOpen = tl.classList.toggle('open');
-  if (btn) {
-    const count = tl.querySelectorAll('.tl-entry').length;
-    btn.textContent = (isOpen ? '▲ ' : '▼ ') + count + ' update' + (count !== 1 ? 's' : '');
-  }
-}
-
-function toggleMonth(id) {
-  const body = document.getElementById('body-' + id);
-  const head = document.getElementById('head-' + id);
-  const tog  = document.getElementById('tog-' + id);
-  if (!body) return;
-  const isOpen = body.classList.toggle('open');
-  if (head) head.classList.toggle('open', isOpen);
-  if (tog)  tog.textContent = isOpen ? '▲ collapse' : '▼ expand';
-}
-
-// Render one month block
-function renderMonth(period, monthData, cases) {
-  const { month, year } = monthLabel(period);
-  const isCurrentMonth  = period === new Date().toISOString().substring(0, 7);
-  const isFuture = period > new Date().toISOString().substring(0, 7);
-
-  // Status pill
-  let pill = 'monitoring', pillLabel = 'Monitoring';
-  if (monthData) {
-    const t = monthData.tier || '';
-    if (t === 'CONFIRMED')       { pill = 'confirmed'; pillLabel = 'Confirmed'; }
-    else if (t === 'PROBABLE')   { pill = 'probable';  pillLabel = 'Probable';  }
-    else if (t === 'CONFIRMED_ABSENT') { pill = 'absent'; pillLabel = 'No data published'; }
-    else                         { pill = 'monitoring'; pillLabel = 'Monitoring'; }
-  }
-
-  // Aggregate stats
-  const filed    = monthData?.cases_filed   ?? null;
-  const verdicts = monthData?.verdicts      ?? null;
-  const convict  = monthData?.convictions   ?? null;
-  const tracked  = cases.length;
-
-  // Gap
-  const gapHtml = filed !== null
-    ? `<div class="mh-gap">PHQ/BMP reported: <strong>${filed.toLocaleString()}</strong><br>Tracker documented: <strong>${tracked}</strong><br>Gap: <strong>${(filed - tracked).toLocaleString()}</strong> with no public record</div>`
-    : tracked > 0
-      ? `<div class="mh-gap">Aggregate count: <strong>awaiting</strong><br>Tracker documented: <strong>${tracked}</strong> case${tracked !== 1 ? 's' : ''}</div>`
-      : '';
-
-  // Notable events
-  const notable = monthData?.notable_cases?.[0] || '';
-  const notableHtml = notable && !gapHtml
-    ? `<div class="mh-notable">${notable}</div>`
-    : '';
-
-  // Stats row
-  let statsHtml = '';
-  if (filed !== null) {
-    statsHtml += `<div class="mh-stat"><div class="mh-stat-n r">${filed.toLocaleString()}</div><div class="mh-stat-l">Cases reported</div></div>`;
-  }
-  if (verdicts !== null) {
-    statsHtml += `<div class="mh-stat"><div class="mh-stat-n a">${verdicts}</div><div class="mh-stat-l">Verdicts</div></div>`;
-  }
-  if (convict !== null) {
-    statsHtml += `<div class="mh-stat"><div class="mh-stat-n ${convict === 0 ? 'r' : 'g'}">${convict}</div><div class="mh-stat-l">Convictions</div></div>`;
-  }
-  if (tracked > 0) {
-    statsHtml += `<div class="mh-stat"><div class="mh-stat-n a">${tracked}</div><div class="mh-stat-l">Cases tracked</div></div>`;
-  }
-  if (!statsHtml) {
-    statsHtml = `<div class="mh-stat"><div class="mh-stat-n dim">No data yet</div><div class="mh-stat-l">Awaiting publication</div></div>`;
-  }
-
-  // Body content
-  let bodyHtml = '';
-
-  if (cases.length === 0 && filed === null) {
-    // Pure monitoring — nothing documented
-    bodyHtml = `<div class="monitoring-msg">
-      <div class="mm-left">
-        <strong>No documented cases yet</strong>
-        ${isFuture
-          ? 'This month has not started yet. Cases will appear here as the automated collector finds news coverage.'
-          : isCurrentMonth
-            ? 'This is the current month. Cases will appear here as news coverage is collected and verified.'
-            : 'No rape cases from this month were found in monitored news sources during this period. This does not mean no cases occurred — it means none reached public record in covered outlets.'
-        }
-      </div>
-      <div class="mm-right">
-        <strong>How to add a case</strong>
-        If you have a source — news article, court document, official report — for a case from this month, send it to insightgaps@proton.me with subject line CASE-SUBMIT. All submissions reviewed and sourced before publishing.
-      </div>
-    </div>`;
-  } else {
-    // Aggregate bar if we have numbers
-    if (filed !== null || verdicts !== null) {
-      const sources = (monthData?.sources || []).join(' · ') || 'Source pending';
-      bodyHtml += `<div class="agg-bar">
-        ${filed !== null ? `<div class="agg-item"><div class="agg-n r">${filed.toLocaleString()}</div><div class="agg-l">Cases filed (PHQ/BMP)</div></div>` : ''}
-        ${verdicts !== null ? `<div class="agg-item"><div class="agg-n a">${verdicts}</div><div class="agg-l">Verdicts</div></div>` : ''}
-        ${convict !== null ? `<div class="agg-item"><div class="agg-n ${convict === 0 ? 'r' : 'g'}">${convict}</div><div class="agg-l">Convictions</div></div>` : ''}
-        <div class="agg-src">${tierBadge(monthData?.tier)} ${sources}</div>
-      </div>`;
-    }
-    // Individual cases
-    if (cases.length > 0) {
-      bodyHtml += cases.map(renderCase).join('');
-    } else if (filed !== null) {
-      // Have aggregate but no individual cases
-      bodyHtml += `<div style="padding:16px 20px;font-family:var(--sans);font-size:.68rem;color:var(--text3);border-top:1px solid var(--border)">
-        Aggregate count documented. No individual cases from this month found in monitored news sources.
-        The ${filed.toLocaleString()} cases above are the official count — individual cases are tracked only where news coverage exists.
-      </div>`;
-    }
-  }
-
-  // Open most recent non-future month by default
-  const defaultOpen = isCurrentMonth && !isFuture;
-
-  return `<div class="month-block">
-    <div class="month-head${defaultOpen ? ' open' : ''}" id="head-${period}" onclick="toggleMonth('${period}')">
-      <div class="mh-date">
-        <div class="mh-month">${month}</div>
-        <div class="mh-year">${year}</div>
-      </div>
-      <div class="mh-stats">
-        ${statsHtml}
-        ${gapHtml}
-        ${notableHtml}
-      </div>
-      <div class="mh-right">
-        <span class="status-pill ${pill}">${pillLabel}</span>
-        <span class="mh-toggle" id="tog-${period}">${defaultOpen ? '▲ collapse' : '▼ expand'}</span>
-      </div>
-    </div>
-    <div class="month-body${defaultOpen ? ' open' : ''}" id="body-${period}">
-      ${bodyHtml}
-    </div>
-  </div>`;
-}
-
-// Main init
-async function init() {
-  const ledger = document.getElementById('ledger');
-
-  // Fetch both files
-  let casesData   = { cases: [] };
-  let monthlyData = { months: [] };
-
-  try {
-    const [cr, mr] = await Promise.all([
-      fetch('/cases.json'),
-      fetch('/data/monthly.json')
-    ]);
-    if (cr.ok) casesData   = await cr.json();
-    if (mr.ok) monthlyData = await mr.json();
-  } catch(e) {
-    ledger.innerHTML = `<div class="err-msg">
-      <strong>Could not load data files.</strong><br>
-      If you are viewing this locally, the JSON files need to be served from a web server.
-      Error: ${e.message}
-    </div>`;
-    return;
-  }
-
-  const cases  = casesData.cases  || [];
-  const months = monthlyData.months || [];
-
-  // Build lookup: period → monthly data
-  const monthLookup = {};
-  months.forEach(m => { monthLookup[m.period] = m; });
-
-  // Get the months to display: April 2026 onwards
-  const periods = getMonthsFromApril2026();
-
-  if (periods.length === 0) {
-    ledger.innerHTML = `<div class="load-msg">No months to display yet.</div>`;
-    return;
-  }
-
-  // Render each month
-  ledger.innerHTML = periods.map(period => {
-    const monthData  = monthLookup[period] || null;
-    const monthCases = casesForMonth(cases, period);
-    return renderMonth(period, monthData, monthCases);
-  }).join('');
-}
-
-document.addEventListener('DOMContentLoaded', init);
+// ── RUNA AKHTER CASE DAYS COUNTER ──
+// Her original rape case was filed March 2022.
+(function() {
+  const filed = new Date('2022-03-01');
+  const now = new Date();
+  const days = Math.floor((now - filed) / 86400000);
+  const el = document.getElementById('runa-days');
+  if (el) el.textContent = days.toLocaleString();
+})();
 </script>
+
 </body>
 </html>
