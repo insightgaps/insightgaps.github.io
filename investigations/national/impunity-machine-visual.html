@@ -1,1510 +1,1083 @@
 <!DOCTYPE html>
-<html lang="en" data-lang="en">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Impunity Machine — Visual Investigation | Insight Gaps</title>
-<meta name="description" content="বাংলাদেশে ধর্ষণের বিচার হয় না। 23 years. 66,711 women. 310 convictions. A visual investigation by Insight Gaps.">
-<link rel="icon" href="/favicon.png" type="image/png">
-<meta property="og:title" content="The Impunity Machine — Visual Investigation">
-<meta property="og:description" content="23 years. 66,711 women. 310 convictions. A visual investigation into Bangladesh's rape justice crisis.">
-<meta property="og:image" content="https://www.insightgaps.com/investigations/national/images/impunity-machine/scene-01-silence.png">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
-
+<meta name="description" content="The Impunity Machine — A visual data investigation into Bangladesh's rape justice crisis. BD-INV-002.">
+<title>The Impunity Machine · Visual Investigation · Insight Gaps</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-/* ═══════════════════════════════════════
-   TOKENS
-═══════════════════════════════════════ */
-:root {
-  --ink:     #06060e;
-  --ink2:    #0b0b16;
-  --blood:   #c41e3a;
-  --bloodl:  #e84060;
-  --gold:    #c9a84c;
-  --gold2:   #9a7e36;
-  --text:    #ede8df;
-  --text2:   #c2bdb3;
-  --muted:   #7a7590;
-  --border:  #1e1e32;
-  --green:   #52b788;
-  --mono:    'JetBrains Mono', 'Courier New', monospace;
-  --display: 'Playfair Display', Georgia, serif;
-  --bengali: 'Hind Siliguri', sans-serif;
-  --body:    'Hind Siliguri', Georgia, sans-serif;
+:root{
+  --ink:#06060e;--ink2:#0d0d18;--ink3:#12121e;
+  --border:#1e1e32;--text:#e8e3da;--text2:#c4bfb5;--muted:#7a7590;--muted2:#3e3c50;
+  --blood:#c41e3a;--bloodl:#e84060;--bloodd:#8b1428;
+  --gold:#c9a84c;--gold2:#9a7e36;
+  --amber:#d4a060;--amberl:#e8c080;
+  --green:#2d6a4f;--greenl:#52b788;
+  --teall:#40c0c0;
+  --mono:"JetBrains Mono","Courier New",monospace;
+  --display:"Playfair Display",Georgia,serif;
+  --body:"Lora",Georgia,serif;
 }
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--text);font-family:var(--body);overflow-x:hidden}
+a{color:var(--gold);text-decoration:none}
+nav{position:fixed;top:38px;left:0;right:0;z-index:900;background:rgba(6,6,14,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 1.5rem;height:50px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.nav-brand{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+.nav-scenes{display:flex;gap:.7rem}
+.nav-scenes a{font-family:var(--mono);font-size:.42rem;color:var(--muted2);letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+.nav-scenes a:hover,.nav-scenes a.active{color:var(--gold)}
+.nav-links{display:flex;gap:.5rem}
+.nbtn{font-family:var(--mono);font-size:.42rem;color:var(--muted);border:1px solid var(--border);padding:.22rem .65rem;transition:all .2s;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.nbtn:hover{color:var(--gold);border-color:var(--gold2)}
+.nbtn.hot{color:var(--text2);border-color:rgba(200,30,58,.4)}
+.nbtn.hot:hover{color:var(--bloodl);border-color:var(--bloodl)}
+@media(max-width:900px){.nav-scenes{display:none}}
+@media(max-width:600px){.nbtn:not(.hot){display:none}}
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 16px; scroll-behavior: auto; }
-body {
-  background: var(--ink);
-  color: var(--text);
-  font-family: var(--body);
-  overflow-x: hidden;
-  cursor: default;
-  -webkit-font-smoothing: antialiased;
-}
+#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 2rem 4rem;position:relative;overflow:hidden}
+#hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 30%,rgba(196,30,58,.08),transparent 65%)}
+#hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 40px,rgba(30,30,48,.05) 40px,rgba(30,30,48,.05) 41px),repeating-linear-gradient(90deg,transparent,transparent 40px,rgba(30,30,48,.04) 40px,rgba(30,30,48,.04) 41px);pointer-events:none}
+.hero-eyebrow{font-family:var(--mono);font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:var(--bloodl);margin-bottom:2rem;animation:fadein 1s ease .3s both;position:relative;z-index:1}
+.hero-prob{font-family:var(--mono);font-size:clamp(4.5rem,14vw,10rem);font-weight:700;color:var(--bloodl);line-height:.9;letter-spacing:-.04em;text-shadow:0 0 120px rgba(200,30,58,.35);margin-bottom:.5rem;position:relative;z-index:1}
+.hero-prob-sub{font-family:var(--mono);font-size:.72rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:3rem;position:relative;z-index:1}
+.hero-statements{display:flex;flex-direction:column;gap:.3rem;margin:2rem 0;position:relative;z-index:1}
+.hs{font-family:var(--display);font-size:clamp(1.1rem,2.2vw,1.6rem);color:var(--text2);opacity:0;transform:translateY(10px);transition:opacity .8s,transform .8s}
+.hs.big{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;color:var(--text)}
+.hs strong{color:var(--bloodl)}
+.hs.vis{opacity:1;transform:none}
+.hero-title{font-family:var(--display);font-size:clamp(3.5rem,10vw,8rem);font-weight:900;line-height:.9;letter-spacing:-.04em;margin-top:3.5rem;opacity:0;transition:opacity 1s ease 2.2s;position:relative;z-index:1}
+.hero-title em{font-style:italic;color:var(--blood)}
+.hero-title.vis{opacity:1}
+.hero-sub-title{font-family:var(--mono);font-size:.54rem;color:var(--muted2);letter-spacing:.14em;text-transform:uppercase;margin-top:1rem;opacity:0;transition:opacity 1s ease 2.8s;position:relative;z-index:1}
+.hero-sub-title.vis{opacity:1}
+.scroll-dn{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;animation:bob 2.5s ease-in-out infinite;opacity:.5;z-index:1}
+.scroll-dn span{font-family:var(--mono);font-size:.44rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted2)}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+@keyframes fadein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
-/* ═══════════════════════════════════════
-   READING PROGRESS BAR
-═══════════════════════════════════════ */
-#progress {
-  position: fixed; top: 0; left: 0; height: 2px; width: 0%;
-  background: linear-gradient(90deg, var(--blood), var(--gold));
-  z-index: 9999; transition: width .1s linear;
-  box-shadow: 0 0 10px rgba(196,30,58,.6);
-}
+.scene{position:relative}
+.scene-title{text-align:center;padding:5rem 2rem 0;max-width:800px;margin:0 auto}
+.scene-title .eyebrow{font-family:var(--mono);font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);margin-bottom:.8rem}
+.scene-title h2{font-family:var(--display);font-size:clamp(1.8rem,3.5vw,3rem);font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.scene-title p{margin-top:.8rem;color:var(--muted);font-size:.9rem;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.7}
+.scroll-scene{display:grid;grid-template-columns:55% 45%;align-items:flex-start;max-width:1280px;margin:0 auto;padding:0 2rem}
+.viz-sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.steps-col{padding:15vh 2rem 30vh}
+.step{min-height:80vh;display:flex;flex-direction:column;justify-content:center;padding:2rem 0;transition:opacity .5s}
+.step:not(.active){opacity:.2}
+.step-num{font-family:var(--mono);font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold2);margin-bottom:.6rem}
+.step h3{font-family:var(--display);font-size:clamp(1.2rem,2vw,1.6rem);font-weight:700;line-height:1.25;margin-bottom:.7rem}
+.step p{font-size:.88rem;color:var(--muted);line-height:1.85}
+.step p strong{color:var(--text)}
+.step .stat{font-family:var(--mono);font-size:clamp(2rem,4vw,3.5rem);font-weight:700;color:var(--bloodl);line-height:1;margin:.5rem 0}
+.step .stat.gold{color:var(--gold)}
+.step .stat.green{color:var(--greenl)}
+.step .note{font-family:var(--mono);font-size:.46rem;color:var(--muted2);margin-top:.8rem;line-height:1.75;border-left:2px solid var(--border);padding-left:.8rem}
+.ok{color:var(--greenl)}
+.prob{color:var(--gold)}
+.full-scene{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6rem 2rem;position:relative}
+.full-scene.dark{background:var(--ink2)}
+.divider{border:none;border-top:1px solid var(--border);margin:0}
 
-/* ═══════════════════════════════════════
-   LANGUAGE TOGGLE
-═══════════════════════════════════════ */
-#lang-toggle {
-  position: fixed; top: 1.2rem; right: 1.5rem; z-index: 8000;
-  display: flex; gap: 0; border: 1px solid rgba(255,255,255,.15);
-  background: rgba(6,6,14,.9); backdrop-filter: blur(12px);
-}
-.lang-btn {
-  font-family: var(--mono); font-size: .65rem; letter-spacing: .1em;
-  text-transform: uppercase; padding: .4rem .9rem;
-  background: transparent; border: none; color: var(--muted);
-  cursor: pointer; transition: all .2s;
-}
-.lang-btn.active { color: var(--text); background: rgba(196,30,58,.25); }
-.lang-btn:hover:not(.active) { color: var(--text2); }
+.clock-pair{display:flex;gap:clamp(2rem,6vw,6rem);align-items:center;justify-content:center;flex-wrap:wrap;margin:3rem 0}
+.clock-card{text-align:center}
+.clock-label{font-family:var(--mono);font-size:.52rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:1rem;line-height:1.6}
+.clock-num{font-family:var(--mono);font-size:clamp(1.8rem,4vw,3rem);font-weight:700;margin-top:.8rem}
+.clock-unit{font-family:var(--mono);font-size:.56rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-top:.25rem}
+.clock-name{font-size:.8rem;color:var(--muted);margin-top:.4rem;font-style:italic;line-height:1.5}
 
-/* ═══════════════════════════════════════
-   LANGUAGE VISIBILITY
-═══════════════════════════════════════ */
-[data-lang="en"] .bn { display: none !important; }
-[data-lang="bn"] .en { display: none !important; }
+.inv-wrap{width:100%;max-width:640px}
+.inv-block{margin-bottom:2.5rem}
+.inv-label-row{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:.5rem}
+.inv-who{font-family:var(--mono);font-size:.54rem;text-transform:uppercase;letter-spacing:.1em}
+.inv-daycount{font-family:var(--mono);font-size:1.5rem;font-weight:700;line-height:1}
+.inv-track{height:42px;background:rgba(255,255,255,.03);border:1px solid var(--border);position:relative;overflow:hidden}
+.inv-fill{height:100%;width:0;transition:width 2s cubic-bezier(.35,0,.15,1)}
+.inv-fill-lbl{position:absolute;right:10px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:.5rem;font-weight:700;white-space:nowrap;opacity:0;transition:opacity .4s .4s;color:rgba(255,255,255,.9)}
+.inv-verdict{font-family:var(--mono);font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;margin-top:.45rem;opacity:0;transition:opacity .5s;line-height:1.5}
+.inv-foot{font-family:var(--mono);font-size:.44rem;color:var(--muted2);line-height:1.7;border-left:2px solid var(--border);padding-left:.8rem;margin-top:.6rem}
 
-/* ═══════════════════════════════════════
-   BACK NAV
-═══════════════════════════════════════ */
-#back-nav {
-  position: fixed; top: 1.2rem; left: 1.5rem; z-index: 8000;
-  font-family: var(--mono); font-size: .65rem; letter-spacing: .1em;
-  text-transform: uppercase; color: var(--muted);
-  text-decoration: none; display: flex; align-items: center; gap: .5rem;
-  background: rgba(6,6,14,.9); backdrop-filter: blur(12px);
-  padding: .4rem .9rem; border: 1px solid rgba(255,255,255,.1);
-  transition: all .2s;
-}
-#back-nav:hover { color: var(--gold); border-color: rgba(201,168,76,.3); }
+.race-container{width:100%;max-width:640px;padding:0 1rem}
+.race-row{margin-bottom:1.4rem}
+.race-label{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.4rem}
+.race-country{font-family:var(--mono);font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text2)}
+.race-val{font-family:var(--mono);font-size:.6rem;font-weight:700}
+.race-track{height:28px;background:rgba(255,255,255,.04);border:1px solid var(--border);position:relative;overflow:hidden}
+.race-bar{height:100%;width:0;transition:width 1.4s cubic-bezier(.4,0,.2,1);position:relative}
+.race-bar::after{content:attr(data-val);position:absolute;right:8px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:.5rem;font-weight:700;color:rgba(255,255,255,.9);white-space:nowrap}
+.race-note{font-family:var(--mono);font-size:.44rem;color:var(--muted2);margin-top:.3rem;line-height:1.5}
+.denom-warn{background:rgba(196,30,58,.07);border:1px solid rgba(196,30,58,.2);border-left:3px solid var(--bloodl);padding:.7rem 1rem;font-family:var(--mono);font-size:.46rem;color:rgba(232,64,96,.85);line-height:1.7;margin-bottom:1.5rem}
 
-/* ═══════════════════════════════════════
-   SCENE BASE
-═══════════════════════════════════════ */
-.scene {
-  position: relative;
-  min-height: 100vh;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  overflow: hidden;
-}
-.scene-bg {
-  position: absolute; inset: 0;
-  background-size: cover; background-position: center;
-  background-repeat: no-repeat;
-  transition: transform .1s linear;
-}
-.scene-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to bottom, rgba(6,6,14,.3) 0%, rgba(6,6,14,.15) 40%, rgba(6,6,14,.7) 100%);
-}
-.scene-content {
-  position: relative; z-index: 10;
-  text-align: center; padding: 2rem;
-  max-width: 860px; margin: 0 auto;
-}
+.chart-legend{display:flex;gap:1rem;margin-top:.8rem;flex-wrap:wrap}
+.leg-item{display:flex;align-items:center;gap:.4rem;font-family:var(--mono);font-size:.44rem;color:var(--muted2);letter-spacing:.04em}
+.leg-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0}
 
-/* ═══════════════════════════════════════
-   SCENE 00 — TITLE
-═══════════════════════════════════════ */
-#scene-title {
-  background: var(--ink);
-  min-height: 100vh;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  text-align: center; padding: 2rem;
-  position: relative; overflow: hidden;
-}
-#scene-title::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse 60% 40% at 50% 50%, rgba(196,30,58,.06), transparent 70%);
-}
-.title-bureau {
-  font-family: var(--mono); font-size: .7rem; letter-spacing: .3em;
-  text-transform: uppercase; color: var(--blood);
-  margin-bottom: 2rem; opacity: 0;
-  animation: fadein 1s ease .5s both;
-}
-.title-eyebrow {
-  font-family: var(--mono); font-size: .72rem; letter-spacing: .2em;
-  text-transform: uppercase; color: var(--muted);
-  margin-bottom: 1.5rem; opacity: 0;
-  animation: fadein .8s ease 1s both;
-}
-.title-main-bn {
-  font-family: var(--bengali); font-size: clamp(1.8rem, 4vw, 3rem);
-  font-weight: 600; line-height: 1.4;
-  color: var(--text); margin-bottom: .8rem;
-  opacity: 0; animation: fadein 1s ease 1.4s both;
-}
-.title-main-en {
-  font-family: var(--display); font-size: clamp(3rem, 8vw, 6.5rem);
-  font-weight: 900; line-height: .92; letter-spacing: -.03em;
-  color: var(--text); opacity: 0;
-  animation: fadein 1s ease 1.8s both;
-}
-.title-main-en em { font-style: italic; color: var(--blood); }
-.title-sub {
-  font-family: var(--mono); font-size: .75rem; letter-spacing: .18em;
-  text-transform: uppercase; color: var(--muted);
-  margin-top: 1.5rem; opacity: 0;
-  animation: fadein .8s ease 2.4s both;
-}
-.title-stats {
-  display: flex; gap: 3rem; justify-content: center; flex-wrap: wrap;
-  margin-top: 3rem; padding-top: 2rem;
-  border-top: 1px solid var(--border);
-  opacity: 0; animation: fadein .8s ease 2.8s both;
-}
-.tstat { text-align: center; }
-.tstat-val {
-  font-family: var(--mono); font-size: clamp(1.8rem, 4vw, 3rem);
-  font-weight: 700; color: var(--bloodl); line-height: 1;
-  letter-spacing: -.03em;
-}
-.tstat-val.g { color: var(--gold); }
-.tstat-lbl {
-  font-family: var(--mono); font-size: .65rem;
-  text-transform: uppercase; letter-spacing: .12em;
-  color: var(--muted); margin-top: .4rem; line-height: 1.6;
-}
-.scroll-cue {
-  position: absolute; bottom: 2.5rem; left: 50%;
-  transform: translateX(-50%);
-  display: flex; flex-direction: column; align-items: center; gap: .5rem;
-  opacity: 0; animation: fadein .6s ease 3.4s both;
-}
-.scroll-cue span {
-  font-family: var(--mono); font-size: .65rem; letter-spacing: .2em;
-  text-transform: uppercase; color: var(--muted2, #3e3c50);
-}
-.scroll-arrow {
-  width: 1px; height: 40px;
-  background: linear-gradient(to bottom, var(--blood), transparent);
-  animation: pulse-down 2s ease-in-out infinite 3.5s;
-}
-@keyframes pulse-down {
-  0%,100% { transform: scaleY(1); opacity: .5; }
-  50% { transform: scaleY(1.3); opacity: 1; }
-}
+.occ-dot{fill:var(--gold);filter:drop-shadow(0 0 4px rgba(201,168,76,.7));opacity:0;transition:opacity .6s}
+.occ-dot.vis{opacity:1}
+.div-label-svg{font-family:"JetBrains Mono","Courier New",monospace;font-size:9px;fill:rgba(255,255,255,.85);text-anchor:middle;pointer-events:none}
 
-/* ═══════════════════════════════════════
-   SCENE TEXT BLOCKS
-═══════════════════════════════════════ */
-.scene-label {
-  font-family: var(--mono); font-size: .65rem; letter-spacing: .25em;
-  text-transform: uppercase; color: var(--blood);
-  margin-bottom: 1rem; display: block;
-}
-.scene-number {
-  font-family: var(--mono); font-size: .6rem; letter-spacing: .15em;
-  text-transform: uppercase; color: var(--muted);
-  margin-bottom: .5rem; display: block;
-}
-.stat-giant {
-  font-family: var(--mono); font-size: clamp(5rem, 18vw, 14rem);
-  font-weight: 700; color: var(--bloodl); line-height: .85;
-  letter-spacing: -.04em; display: block;
-  text-shadow: 0 0 80px rgba(232,64,96,.25);
-}
-.stat-label {
-  font-family: var(--bengali); font-size: clamp(.95rem, 2vw, 1.3rem);
-  font-weight: 400; color: var(--text2); line-height: 1.6;
-  margin-top: 1rem; max-width: 52ch; margin-left: auto; margin-right: auto;
-}
-.stat-label.en {
-  font-family: var(--display); font-style: italic;
-  font-size: clamp(.9rem, 1.8vw, 1.2rem);
-}
-.reveal-text {
-  opacity: 0; transform: translateY(20px);
-  transition: opacity .9s ease, transform .9s ease;
-}
-.reveal-text.visible { opacity: 1; transform: none; }
+.fwrap{width:100%;max-width:680px}
+.fstat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem}
+.fstat{background:var(--ink3);border:1px solid var(--border);padding:1rem;text-align:center}
+.fstat-val{font-family:var(--mono);font-size:clamp(1.4rem,3vw,2rem);font-weight:700;line-height:1}
+.fstat-lbl{font-family:var(--mono);font-size:.42rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-top:.3rem;line-height:1.5}
+.evbar-row{margin-bottom:1.8rem}
+.evbar-lbl{font-family:var(--mono);font-size:.48rem;color:var(--text2);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.5rem;display:flex;justify-content:space-between;align-items:center}
+.evbar-track{height:32px;background:rgba(255,255,255,.03);border:1px solid var(--border);position:relative;overflow:visible}
+.evbar-fill{height:100%;position:absolute;left:0;top:0;width:0;transition:width 1.2s ease}
+.fsub-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem}
+.fsub{background:rgba(255,255,255,.02);border:1px solid var(--border);padding:.9rem 1rem}
 
-/* big quote style */
-.scene-quote {
-  font-family: var(--display); font-size: clamp(1.6rem, 4vw, 3rem);
-  font-weight: 700; line-height: 1.2; color: var(--text);
-  margin-bottom: 1.2rem;
-}
-.scene-quote em { color: var(--blood); font-style: italic; }
-.scene-body-bn {
-  font-family: var(--bengali); font-size: clamp(1rem, 2vw, 1.3rem);
-  font-weight: 400; line-height: 1.8; color: var(--text2);
-  max-width: 58ch; margin: 0 auto 1rem;
-}
-.scene-body-en {
-  font-family: var(--body); font-size: clamp(.9rem, 1.8vw, 1.15rem);
-  line-height: 1.75; color: var(--text2);
-  max-width: 58ch; margin: 0 auto 1rem;
-}
+.void-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:1.1rem;max-width:1100px;width:100%;margin:2rem 0}
+.void-card{background:var(--ink3);border:1px solid var(--border);padding:1.3rem;display:flex;flex-direction:column;align-items:center;text-align:center;opacity:0;transform:scale(.96);transition:opacity .55s,transform .55s}
+.void-card.vis{opacity:1;transform:scale(1)}
+.void-circle{position:relative;width:60px;height:60px;margin:0 auto .7rem}
+.void-core{width:100%;height:100%;border-radius:50%;border:1px solid rgba(196,30,58,.25);background:radial-gradient(circle,rgba(196,30,58,.04) 0%,rgba(6,6,14,.95) 70%);animation:vpulse 3s ease-in-out infinite}
+@keyframes vpulse{0%,100%{box-shadow:0 0 0 0 rgba(196,30,58,.25)}50%{box-shadow:0 0 0 7px rgba(196,30,58,.07)}}
+.void-inner{position:absolute;inset:22%;border-radius:50%;background:#06060e;border:1px solid rgba(30,30,48,.7)}
+.void-gapid{font-family:var(--mono);font-size:.38rem;color:rgba(196,30,58,.4);margin-bottom:.25rem;letter-spacing:.1em}
+.void-lbl{font-family:var(--mono);font-size:.46rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;line-height:1.5;margin-top:.35rem}
+.void-why{font-size:.74rem;color:var(--muted2);margin-top:.3rem;line-height:1.5;font-style:italic}
 
-/* ═══════════════════════════════════════
-   SCENE 01 — SILENCE
-═══════════════════════════════════════ */
-#scene-01 { min-height: 200vh; }
-#scene-01 .scene-bg {
-  background-image: url('images/impunity-machine/scene-01-silence.png');
-  position: sticky; top: 0; height: 100vh;
-  background-position: center top;
-}
-#s01-sticky {
-  position: sticky; top: 0; height: 100vh;
-  display: flex; align-items: center; justify-content: center;
-  overflow: hidden;
-}
-#s01-canvas {
-  position: absolute; inset: 0; z-index: 5; pointer-events: none;
-}
-#s01-content {
-  position: relative; z-index: 10; text-align: center;
-  padding: 2rem; max-width: 700px;
-}
-.s01-stat {
-  font-family: var(--mono); font-size: clamp(4rem, 14vw, 10rem);
-  font-weight: 700; color: var(--bloodl); line-height: 1;
-  letter-spacing: -.04em; display: block;
-  opacity: 0; transform: scale(.8);
-  transition: opacity 1.2s ease, transform 1.2s ease;
-  text-shadow: 0 0 60px rgba(232,64,96,.3);
-}
-.s01-stat.visible { opacity: 1; transform: scale(1); }
+.ivs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:.9rem;max-width:960px;width:100%;margin:2rem 0}
+.iv{border:1px solid var(--border);padding:1.1rem 1.3rem;background:rgba(255,255,255,.018)}
+.iv-n{font-family:var(--mono);font-size:.46rem;color:var(--gold2);letter-spacing:.12em;margin-bottom:.35rem}
+.iv-t{font-family:var(--display);font-size:.95rem;font-weight:700;margin-bottom:.35rem;line-height:1.25}
+.iv-d{font-size:.78rem;color:var(--muted);line-height:1.65}
+.iv-m{font-family:var(--mono);font-size:.42rem;color:var(--greenl);margin-top:.45rem;opacity:.75}
 
-/* ═══════════════════════════════════════
-   SCENE 02 — THE MACHINE (FUNNEL)
-═══════════════════════════════════════ */
-#scene-02 { min-height: 500vh; background: var(--ink2); }
-#s02-sticky {
-  position: sticky; top: 0; height: 100vh;
-  display: grid; grid-template-columns: 1fr 1fr;
-  overflow: hidden;
+#closing{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem;background:var(--ink)}
+.closing-v{font-family:var(--display);font-size:clamp(2rem,5vw,4rem);font-weight:700;line-height:1.1;letter-spacing:-.02em;margin-bottom:1rem}
+.closing-v em{font-style:italic;color:var(--blood)}
+.closing-sub{font-size:1rem;color:var(--muted);max-width:600px;line-height:1.85;margin-bottom:1.2rem}
+.closing-stmt{font-family:var(--display);font-style:italic;font-size:clamp(.9rem,1.7vw,1.15rem);color:var(--amberl);max-width:640px;line-height:1.9;margin-bottom:2.5rem;border-left:3px solid rgba(201,168,76,.3);padding-left:1.4rem;text-align:left}
+.btn-row{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center}
+.btn{font-family:var(--mono);font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;padding:.8rem 1.5rem;border-radius:2px;transition:all .2s}
+.btn-red{background:var(--blood);color:var(--text);border:1px solid var(--bloodl)}
+.btn-red:hover{background:var(--bloodl)}
+.btn-gold{background:transparent;color:var(--gold);border:1px solid var(--gold2)}
+.btn-gold:hover{background:rgba(201,168,76,.1)}
+.btn-teal{background:transparent;color:var(--teall);border:1px solid rgba(64,192,192,.3)}
+.btn-teal:hover{background:rgba(64,192,192,.07)}
+.tier-note{font-family:var(--mono);font-size:.43rem;color:var(--muted2);margin-top:2.5rem;line-height:1.9;max-width:640px;border-top:1px solid var(--border);padding-top:1.5rem}
+@media(max-width:768px){
+  .scroll-scene{display:block}
+  .viz-sticky{position:sticky;top:50px;height:42vw;min-height:200px;max-height:340px;z-index:5;background:var(--ink);border-bottom:1px solid var(--border)}
+  .steps-col{padding:2rem 1.2rem 8rem}
+  .step{min-height:60vh;padding:2rem 0}
+  .step:not(.active){opacity:.85}
+  .fstat-row{grid-template-columns:1fr 1fr}
+  .fstat-row .fstat:last-child{grid-column:1/-1}
+  .fsub-grid,.ivs{grid-template-columns:1fr}
+  .void-grid{grid-template-columns:repeat(2,1fr)}
+  .clock-pair{gap:1.5rem}
+  .scroll-scene canvas{max-height:38vw}
 }
-@media(max-width:700px){ #s02-sticky { grid-template-columns: 1fr; } }
-#s02-img-side {
-  position: relative; overflow: hidden;
-}
-#s02-img-side img {
-  width: 100%; height: 100%; object-fit: cover; object-position: center top;
-}
-#s02-canvas-overlay {
-  position: absolute; inset: 0; z-index: 5; pointer-events: none;
-}
-#s02-data-side {
-  background: rgba(6,6,14,.95);
-  border-left: 1px solid var(--border);
-  display: flex; flex-direction: column;
-  justify-content: center; padding: 3rem 2.5rem;
-  overflow: hidden;
-}
-.funnel-step {
-  display: flex; align-items: flex-start; gap: 1rem;
-  padding: 1rem 0; border-bottom: 1px solid var(--border);
-  opacity: 0; transform: translateX(20px);
-  transition: opacity .6s ease, transform .6s ease;
-}
-.funnel-step.visible { opacity: 1; transform: none; }
-.funnel-step:last-child { border-bottom: none; }
-.fs-num {
-  font-family: var(--mono); font-size: .6rem; color: var(--blood);
-  flex-shrink: 0; padding-top: .2rem; min-width: 1.5rem; font-weight: 700;
-}
-.fs-body {}
-.fs-title-bn {
-  font-family: var(--bengali); font-size: .95rem; font-weight: 600;
-  color: var(--text); line-height: 1.5; margin-bottom: .2rem;
-}
-.fs-title-en {
-  font-family: var(--mono); font-size: .75rem; font-weight: 700;
-  color: var(--text); letter-spacing: .04em; margin-bottom: .2rem;
-}
-.fs-stat {
-  font-family: var(--mono); font-size: .68rem; color: var(--bloodl);
-  font-weight: 700; letter-spacing: .06em;
-}
-.fs-note {
-  font-family: var(--mono); font-size: .6rem; color: var(--muted);
-  margin-top: .2rem;
-}
-#funnel-final {
-  margin-top: 1.5rem; padding: 1.2rem;
-  background: rgba(196,30,58,.08); border: 1px solid rgba(196,30,58,.3);
-  text-align: center; opacity: 0; transition: opacity 1s ease;
-}
-#funnel-final.visible { opacity: 1; }
-.ff-fraction {
-  font-family: var(--mono); font-size: 1.1rem; font-weight: 700;
-  color: var(--bloodl); letter-spacing: .04em;
-}
-.ff-label-bn {
-  font-family: var(--bengali); font-size: .9rem; color: var(--text2);
-  margin-top: .4rem; line-height: 1.6;
-}
-.ff-label-en {
-  font-family: var(--mono); font-size: .72rem; color: var(--muted);
-  margin-top: .2rem;
-}
-
-/* ═══════════════════════════════════════
-   SCENE 03 — THE WAIT
-═══════════════════════════════════════ */
-#scene-03 { min-height: 350vh; }
-#s03-sticky {
-  position: sticky; top: 0; height: 100vh;
-  display: grid; grid-template-columns: 1fr 1fr;
-  overflow: hidden;
-}
-@media(max-width:700px){ #s03-sticky { grid-template-columns: 1fr; } }
-#s03-left {
-  position: relative; overflow: hidden;
-}
-#s03-img-base {
-  width: 100%; height: 100%; object-fit: cover; object-position: left center;
-}
-#s03-right {
-  background: #000;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  padding: 3rem 2rem; position: relative;
-}
-#wait-counter {
-  font-family: var(--mono); font-size: clamp(5rem, 12vw, 9rem);
-  font-weight: 700; color: var(--blood); line-height: 1;
-  letter-spacing: -.04em;
-}
-.wait-label-bn {
-  font-family: var(--bengali); font-size: 1rem; color: var(--muted);
-  margin-top: .8rem; text-align: center;
-}
-.wait-label-en {
-  font-family: var(--mono); font-size: .72rem; color: var(--muted);
-  margin-top: .4rem; text-align: center; letter-spacing: .08em;
-  text-transform: uppercase;
-}
-#magura-contrast {
-  margin-top: 2.5rem; padding: 1rem 1.5rem;
-  border-top: 1px solid var(--border);
-  opacity: 0; transition: opacity 1.2s ease; text-align: center;
-}
-#magura-contrast.visible { opacity: 1; }
-.mc-row { display: flex; justify-content: space-between; gap: 1rem; margin-bottom: .6rem; align-items: baseline; }
-.mc-case { font-family: var(--bengali); font-size: .85rem; color: var(--muted); }
-.mc-case.en { font-family: var(--mono); font-size: .68rem; text-transform: uppercase; letter-spacing: .06em; }
-.mc-days { font-family: var(--mono); font-weight: 700; }
-.mc-days.red { color: var(--blood); font-size: 1.1rem; }
-.mc-days.grey { color: var(--muted); font-size: .85rem; }
-
-/* ═══════════════════════════════════════
-   SCENE 04 — THE CAPITAL
-═══════════════════════════════════════ */
-#scene-04 { min-height: 250vh; }
-#s04-sticky {
-  position: sticky; top: 0; height: 100vh;
-  overflow: hidden; display: flex;
-  align-items: center; justify-content: center;
-}
-#s04-bg {
-  position: absolute; inset: -5%;
-  background-image: url('images/impunity-machine/scene-04-capital.png');
-  background-size: cover; background-position: center;
-  transform-origin: center;
-}
-#s04-overlay {
-  position: absolute; inset: 0;
-  background: rgba(0,0,0,.35);
-}
-#s04-content {
-  position: relative; z-index: 10;
-  text-align: center; max-width: 700px; padding: 2rem;
-}
-.s04-verdict-bn {
-  font-family: var(--bengali); font-size: clamp(1.3rem, 3vw, 2rem);
-  font-weight: 600; line-height: 1.5; color: rgba(255,255,255,.9);
-  opacity: 0; transform: translateY(15px);
-  transition: opacity 1s ease, transform 1s ease;
-}
-.s04-verdict-en {
-  font-family: var(--display); font-style: italic;
-  font-size: clamp(1.1rem, 2.5vw, 1.7rem);
-  color: rgba(255,255,255,.7); margin-top: .6rem;
-  opacity: 0; transform: translateY(15px);
-  transition: opacity 1s ease .3s, transform 1s ease .3s;
-}
-.s04-verdict-bn.visible,
-.s04-verdict-en.visible { opacity: 1; transform: none; }
-
-/* ═══════════════════════════════════════
-   SCENE 05 — GEOGRAPHY
-═══════════════════════════════════════ */
-#scene-05 { min-height: 250vh; }
-#s05-sticky {
-  position: sticky; top: 0; height: 100vh;
-  display: flex; align-items: center; justify-content: center;
-  overflow: hidden;
-}
-#s05-bg {
-  position: absolute; inset: 0;
-  background-image: url('images/impunity-machine/scene-05-geography.png');
-  background-size: contain; background-position: center;
-  background-repeat: no-repeat;
-  filter: brightness(0);
-  transition: filter 2s ease;
-}
-#s05-bg.revealed { filter: brightness(1); }
-#s05-content {
-  position: relative; z-index: 10;
-  text-align: center; padding: 2rem;
-  pointer-events: none;
-}
-.geo-counter-block {
-  background: rgba(6,6,14,.85); backdrop-filter: blur(12px);
-  border: 1px solid var(--border); padding: 1.5rem 2rem;
-  display: inline-block; opacity: 0; transition: opacity 1.5s ease;
-}
-.geo-counter-block.visible { opacity: 1; }
-.geo-fraction {
-  display: flex; align-items: baseline; gap: .8rem;
-  justify-content: center; margin-bottom: .5rem;
-}
-.geo-num { font-family: var(--mono); font-size: 3rem; font-weight: 700; line-height: 1; }
-.geo-num.gold { color: var(--gold); }
-.geo-num.dark { color: var(--muted); }
-.geo-sep { font-family: var(--mono); font-size: 1.5rem; color: var(--border); }
-.geo-label-bn {
-  font-family: var(--bengali); font-size: 1rem; color: var(--text2);
-  line-height: 1.7; margin-top: .5rem;
-}
-.geo-label-en {
-  font-family: var(--mono); font-size: .72rem; color: var(--muted);
-  letter-spacing: .08em; text-transform: uppercase; margin-top: .3rem;
-}
-
-/* ═══════════════════════════════════════
-   SCENE 06 — THE SURGE
-═══════════════════════════════════════ */
-#scene-06 { min-height: 300vh; }
-#s06-sticky {
-  position: sticky; top: 0; height: 100vh;
-  overflow: hidden; display: flex;
-  align-items: center; justify-content: center;
-}
-#s06-canvas {
-  position: absolute; inset: 0; z-index: 1;
-}
-#s06-img {
-  position: absolute; inset: 0;
-  background-image: url('images/impunity-machine/scene-06-surge.png');
-  background-size: cover; background-position: center;
-  z-index: 0;
-}
-#s06-overlay {
-  position: absolute; inset: 0; z-index: 2;
-  background: rgba(6,6,14,.45);
-}
-#s06-content {
-  position: relative; z-index: 10;
-  text-align: center; max-width: 800px; padding: 2rem;
-}
-.surge-headline-bn {
-  font-family: var(--bengali); font-size: clamp(1.5rem, 4vw, 2.8rem);
-  font-weight: 700; color: #fff; line-height: 1.3;
-  opacity: 0; transition: opacity 1.2s ease;
-}
-.surge-headline-en {
-  font-family: var(--display); font-size: clamp(1.3rem, 3vw, 2.2rem);
-  font-weight: 900; font-style: italic; color: rgba(255,255,255,.85);
-  line-height: 1.2; margin-top: .6rem;
-  opacity: 0; transition: opacity 1.2s ease .3s;
-}
-.surge-headline-bn.visible,
-.surge-headline-en.visible { opacity: 1; }
-.surge-stats {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
-  margin-top: 2rem;
-}
-@media(max-width:600px) { .surge-stats { grid-template-columns: 1fr; } }
-.surge-stat {
-  background: rgba(0,0,0,.6); backdrop-filter: blur(8px);
-  border: 1px solid rgba(196,30,58,.3);
-  padding: 1.2rem .8rem; text-align: center;
-  opacity: 0; transform: translateY(12px);
-  transition: opacity .8s ease, transform .8s ease;
-}
-.surge-stat.visible { opacity: 1; transform: none; }
-.ss-val {
-  font-family: var(--mono); font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 700; color: var(--bloodl); line-height: 1;
-}
-.ss-label-bn {
-  font-family: var(--bengali); font-size: .85rem; color: var(--text2);
-  margin-top: .5rem; line-height: 1.5;
-}
-.ss-label-en {
-  font-family: var(--mono); font-size: .65rem; color: var(--muted);
-  text-transform: uppercase; letter-spacing: .08em; margin-top: .3rem;
-}
-
-/* ═══════════════════════════════════════
-   SCENE 07 — RECKONING
-═══════════════════════════════════════ */
-#scene-07 { min-height: 300vh; }
-#s07-sticky {
-  position: sticky; top: 0; height: 100vh;
-  overflow: hidden; display: flex;
-  align-items: center; justify-content: center;
-}
-#s07-bg {
-  position: absolute; inset: -8%;
-  background-image: url('images/impunity-machine/scene-07-reckoning.png');
-  background-size: cover; background-position: center 40%;
-}
-#s07-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(6,6,14,.85) 0%, rgba(6,6,14,.4) 50%, rgba(6,6,14,.2) 100%);
-}
-#s07-content {
-  position: relative; z-index: 10;
-  text-align: center; max-width: 700px; padding: 2rem;
-}
-.reckoning-line {
-  opacity: 0; transform: translateY(12px);
-  transition: opacity 1s ease, transform 1s ease;
-  margin-bottom: .8rem;
-}
-.reckoning-line.visible { opacity: 1; transform: none; }
-.rl-bn {
-  font-family: var(--bengali); font-size: clamp(1.2rem, 3vw, 2rem);
-  font-weight: 600; color: var(--text); line-height: 1.5;
-}
-.rl-en {
-  font-family: var(--display); font-style: italic;
-  font-size: clamp(1rem, 2.5vw, 1.7rem);
-  color: var(--text2); margin-top: .3rem; line-height: 1.3;
-}
-#tracker-link {
-  display: inline-flex; align-items: center; gap: .8rem;
-  margin-top: 2.5rem; padding: .9rem 1.8rem;
-  border: 1px solid rgba(196,30,58,.4);
-  background: rgba(196,30,58,.08);
-  font-family: var(--mono); font-size: .75rem; letter-spacing: .1em;
-  text-transform: uppercase; color: var(--text);
-  text-decoration: none; transition: all .3s;
-  opacity: 0; transition: opacity 1s ease 1.5s, background .3s, border-color .3s;
-}
-#tracker-link.visible { opacity: 1; }
-#tracker-link:hover { background: rgba(196,30,58,.18); border-color: var(--bloodl); }
-.live-dot {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: var(--blood); flex-shrink: 0;
-  animation: livepulse 2s ease-in-out infinite;
-}
-@keyframes livepulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.2;transform:scale(.6)} }
-#full-report-link {
-  display: block; margin-top: 1.2rem;
-  font-family: var(--mono); font-size: .7rem; letter-spacing: .1em;
-  text-transform: uppercase; color: var(--muted);
-  text-decoration: none; transition: color .2s;
-  opacity: 0; transition: opacity 1s ease 2s;
-}
-#full-report-link.visible { opacity: 1; }
-#full-report-link:hover { color: var(--gold); }
-.report-link-bn {
-  font-family: var(--bengali); font-size: .85rem; font-weight: 400;
-  color: var(--muted); display: block; margin-bottom: .2rem;
-}
-
-/* ═══════════════════════════════════════
-   KEYFRAMES
-═══════════════════════════════════════ */
-@keyframes fadein {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: none; }
-}
-
-/* ═══════════════════════════════════════
-   MOBILE
-═══════════════════════════════════════ */
-@media(max-width:500px) {
-  .title-stats { gap: 1.5rem; }
-  #s02-data-side { padding: 1.5rem 1rem; }
-  .funnel-step { gap: .6rem; }
-  .surge-stats { gap: .6rem; }
-  #lang-toggle { top: auto; bottom: 1rem; right: 1rem; }
+@media(max-width:480px){
+  .fstat-row{grid-template-columns:1fr}
+  .fstat-row .fstat:last-child{grid-column:auto}
+  .void-grid{grid-template-columns:1fr}
+  .viz-sticky{height:50vw;min-height:220px;max-height:280px}
+  .step{min-height:50vh}
 }
 </style>
 </head>
 <body>
 
-<!-- PROGRESS BAR -->
-<div id="progress"></div>
-
-<!-- BACK NAV -->
-<a href="/investigations/" id="back-nav">← Investigations</a>
-
-<!-- LANGUAGE TOGGLE -->
-<div id="lang-toggle">
-  <button class="lang-btn active" onclick="setLang('en')">EN</button>
-  <button class="lang-btn" onclick="setLang('bn')">বাং</button>
+<!-- ═══ BD-INV-002 SERIES NAVIGATION ═══ -->
+<div style="background:#060608;border-bottom:1px solid #1c1c28;position:sticky;top:0;z-index:950;font-family:'JetBrains Mono',monospace;">
+  <div style="max-width:1300px;margin:0 auto;padding:0 24px;height:38px;display:flex;align-items:center;">
+    <span style="font-size:0.52rem;letter-spacing:0.16em;text-transform:uppercase;color:#38384a;padding-right:16px;border-right:1px solid #1c1c28;white-space:nowrap;flex-shrink:0;">BD-INV-002 · The Impunity Machine</span>
+    <div style="display:flex;align-items:center;flex:1;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;">
+      <a href="/investigations/national/impunity-machine-visual.html" style="font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:#e8aa10;padding:0 14px;height:38px;display:flex;align-items:center;border-right:1px solid #1c1c28;border-bottom:2px solid #e8aa10;white-space:nowrap;text-decoration:none;">▶ Visual Story</a>
+      <a href="/investigations/national/impunity-machine.html" style="font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:#5a5a72;padding:0 14px;height:38px;display:flex;align-items:center;border-right:1px solid #1c1c28;white-space:nowrap;text-decoration:none;">Data Investigation</a>
+      <a href="/investigations/national/impunity-machine/tracker.html" style="font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:#5a5a72;padding:0 14px;height:38px;display:flex;align-items:center;border-right:1px solid #1c1c28;white-space:nowrap;text-decoration:none;">◉ Live Tracker</a>
+      <a href="/series/impunity-machine/methodology.html" style="font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:#5a5a72;padding:0 14px;height:38px;display:flex;align-items:center;border-right:1px solid #1c1c28;white-space:nowrap;text-decoration:none;">Methodology</a>
+      <a href="/series/impunity-machine/data.html" style="font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:#5a5a72;padding:0 14px;height:38px;display:flex;align-items:center;border-right:1px solid #1c1c28;white-space:nowrap;text-decoration:none;">Evidence Files</a>
+    </div>
+    <a href="/" style="font-size:0.52rem;letter-spacing:0.12em;text-transform:uppercase;color:#38384a;padding-left:16px;border-left:1px solid #1c1c28;white-space:nowrap;flex-shrink:0;text-decoration:none;">↩ insightgaps.com</a>
+  </div>
 </div>
 
-<!-- ═══════════════════════════════════════
-     SCENE 00 — TITLE
-═══════════════════════════════════════ -->
-<section id="scene-title">
-  <div style="position:relative;z-index:10;text-align:center;max-width:900px;margin:0 auto;padding:2rem">
-    <div class="title-bureau">BD-INV-002 · Insight Gaps Bureau · March 2026</div>
-
-    <div class="title-main-bn bn">বাংলাদেশে ধর্ষণের বিচার হয় না।</div>
-    <div class="title-main-en">The <em>Impunity</em><br>Machine</div>
-    <div class="title-eyebrow en">Bangladesh's Rape Justice Crisis — A Visual Investigation</div>
-    <div class="title-eyebrow bn" style="font-family:var(--bengali);font-size:.9rem;margin-top:.5rem">বাংলাদেশের ধর্ষণ বিচার ব্যবস্থার একটি দৃশ্যমান তদন্ত</div>
-
-    <div class="title-stats">
-      <div class="tstat">
-        <div class="tstat-val">66,711</div>
-        <div class="tstat-lbl bn">নারী সামনে এসেছেন<br>২০০১–২০২৪</div>
-        <div class="tstat-lbl en">Women who came forward<br>2001–2024</div>
-      </div>
-      <div class="tstat">
-        <div class="tstat-val">310</div>
-        <div class="tstat-lbl bn">মোট সাজা<br>২৩ বছরে</div>
-        <div class="tstat-lbl en">Total convictions<br>in 23 years</div>
-      </div>
-      <div class="tstat">
-        <div class="tstat-val g">0.46%</div>
-        <div class="tstat-lbl bn">সাজার হার</div>
-        <div class="tstat-lbl en">Conviction rate</div>
-      </div>
-    </div>
+<nav style="top:38px;">
+  <div class="nav-brand">Insight Gaps · BD-INV-002 · v2.0</div>
+  <div class="nav-scenes">
+    <a href="#s1">Funnel</a><a href="#s2">Clocks</a><a href="#sinv">Inversion</a>
+    <a href="#s3">Race</a><a href="#s4">Backlog</a><a href="#s5">Map</a>
+    <a href="#sdna">Forensic</a><a href="#s6">Deterrence</a><a href="#s7">Voids</a>
   </div>
-  <div class="scroll-cue">
-    <span class="en">Scroll to begin</span>
-    <span class="bn" style="font-family:var(--bengali);font-size:.8rem">নিচে স্ক্রল করুন</span>
-    <div class="scroll-arrow"></div>
+  <div class="nav-links">
+    <a class="nbtn" href="/investigations/national/impunity-machine/tracker.html">◉ Case Registry</a>
+    <a class="nbtn" href="/series/impunity-machine/methodology.html">Methodology</a>
+    <a class="nbtn hot" href="/investigations/national/impunity-machine/tracker.html">Live Tracker &#8594;</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-eyebrow">BD-INV-002 &middot; Bangladesh &middot; March 2026 &middot; Active Investigation</div>
+  <div class="hero-prob">1 in 4,650</div>
+  <div class="hero-prob-sub">Probability a rape in Bangladesh results in punishment</div>
+  <div class="hero-statements">
+    <div class="hs" id="hs1">Three numbers define this system.</div>
+    <div class="hs big" id="hs2"><strong>310 convictions.</strong></div>
+    <div class="hs" id="hs3">In twenty-three years of crisis centres.</div>
+    <div class="hs big" id="hs4">For <strong>66,711 women</strong> who came forward.</div>
+  </div>
+  <h1 class="hero-title" id="htitle">The<br><em>Impunity</em><br>Machine</h1>
+  <div class="hero-sub-title" id="hsub">A Visual Data Investigation &middot; Bangladesh Rape Justice Crisis</div>
+  <div class="scroll-dn"><span>Scroll to investigate</span>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     SCENE 01 — THE SILENCE
-═══════════════════════════════════════ -->
-<section id="scene-01">
-  <div id="s01-sticky">
-    <img src="images/impunity-machine/scene-01-silence.png" alt="The Silence"
-      style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top">
-    <div style="position:absolute;inset:0;background:rgba(6,6,14,.15)"></div>
-    <canvas id="s01-canvas"></canvas>
-    <div id="s01-content">
-      <span class="scene-number">Scene 01 / 07</span>
-      <div class="s01-stat" id="s01-stat">62%</div>
-      <div class="stat-label bn" id="s01-bn" style="opacity:0;transition:opacity 1.2s ease .4s">
-        প্রতি ১০০ জন নির্যাতিতার মধ্যে ৬২ জন কখনো কাউকে বলেননি।<br>
-        একটিও কথা নয়। একজন মানুষকেও নয়।<br>
-        এটা দুর্বলতা নয়। এটা হিসাব।
+<hr class="divider">
+
+<!-- S1: FUNNEL -->
+<section id="s1" class="scene">
+  <div class="scene-title">
+    <div class="eyebrow">Scene 01 &middot; The Attrition</div>
+    <h2>Watch 10,000 Women Disappear</h2>
+    <p>Each dot is one assault. Watch what the system does to them.</p>
+  </div>
+  <div class="scroll-scene" style="margin-top:2rem">
+    <div class="viz-sticky">
+      <div style="position:relative">
+        <canvas id="dotCanvas" style="display:block;max-width:100%;max-height:90vh"></canvas>
+        <div style="position:absolute;bottom:-2rem;left:0;right:0;text-align:center;font-family:var(--mono);font-size:.52rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase">
+          <span id="dot-count">10,000</span> <span id="dot-status">women &#8212; all assaults</span>
+        </div>
       </div>
-      <div class="stat-label en" id="s01-en" style="opacity:0;transition:opacity 1.2s ease .4s">
-        62 out of every 100 survivors told no one at all.<br>
-        Not one word. Not one person.<br>
-        This is not weakness. This is a calculation.
+    </div>
+    <div class="steps-col">
+      <div class="step" data-scene="funnel" data-step="0">
+        <div class="step-num">Step 01 of 06</div>
+        <h3>Start here. 10,000 dots. 10,000 lives.</h3>
+        <p>Each gold dot represents one assault. One year in Bangladesh &#8212; an estimated 10,000 non-partner sexual violence incidents, derived from UNFPA 2024 survey methodology applied to the adult female population.</p>
+        <div class="note">UNFPA/BBS VAW Survey 2024 &middot; <span class="prob">PROBABLE</span> &middot; IG-MODEL</div>
+      </div>
+      <div class="step" data-scene="funnel" data-step="1">
+        <div class="step-num">Step 02 of 06</div>
+        <div class="stat">62&#8211;64%</div>
+        <h3>told no one.</h3>
+        <p>Not a sister. Not a doctor. <strong>Not a single person knew what happened to them.</strong> This is not weakness. This is a precise calculation of what speaking costs &#8212; reputation, family honour, risk of shalish, risk of Section 17 counter-prosecution. The silence is rational. The system made it so.</p>
+        <div class="note">UNFPA/BBS VAW Survey 2024 &middot; 27,476 women interviewed &middot; <span class="ok">CONFIRMED</span> &middot; S-02</div>
+      </div>
+      <div class="step" data-scene="funnel" data-step="2">
+        <div class="step-num">Step 03 of 06</div>
+        <div class="stat">73%</div>
+        <h3>of those who spoke up didn&#8217;t contact police.</h3>
+        <p>The shalish arrived first. Local elders, financial settlements, forced marriage, silence in exchange for &#8220;social peace.&#8221; The state never knew these women existed. Only 3.8% of non-partner violence survivors pursued any legal remedy.</p>
+        <div class="note">UNFPA 2024 Highlights &middot; <span class="ok">CONFIRMED</span> &middot; S-26</div>
+      </div>
+      <div class="step" data-scene="funnel" data-step="3">
+        <div class="step-num">Step 04 of 06</div>
+        <div class="stat">41%</div>
+        <h3>of referred cases closed as unproven.</h3>
+        <p>Police Bureau of Investigation examined 10,581 court-referred rape cases. 4,248 closed by final report &#8212; unsubstantiated. No charge. No trial. No record. <strong>The investigation became the verdict.</strong></p>
+        <div class="note">Prothom Alo Sept 2025 &middot; PBI data 2016&#8211;2023 &middot; <span class="ok">CONFIRMED</span> &middot; S-23</div>
+      </div>
+      <div class="step" data-scene="funnel" data-step="4">
+        <div class="step-num">Step 05 of 06</div>
+        <div class="stat">2,349 days</div>
+        <h3>average wait for those who remain.</h3>
+        <p>Six years and five months. Witnesses relocate. Forensic evidence degrades. Families exhaust savings. The 2025 Ordinance cut the statutory limit to 90 days. The compliance rate in 2025: <strong>unknown &#8212; no one publishes it.</strong></p>
+        <div class="note">BRAC/Agile Consultants 2022 &middot; 16 districts, 385 resolved cases &middot; <span class="ok">CONFIRMED</span> &middot; S-01</div>
+      </div>
+      <div class="step" data-scene="funnel" data-step="5">
+        <div class="step-num">Step 06 of 06</div>
+        <div class="stat" style="font-size:clamp(3rem,7vw,5.5rem)">2</div>
+        <h3>convictions. From 10,000 assaults.</h3>
+        <p><strong>Two red dots.</strong> Nine thousand nine hundred and ninety-eight dark ones. This is not a statistic about rare events. This is the normal functioning of the machine. In 23 years, the OCC programme recorded 310 convictions from 66,711 women who came forward.</p>
+        <div class="note">Daily Star Nov 2024 &middot; OCC 23yr programme &middot; <span class="ok">CONFIRMED</span> &middot; S-55</div>
       </div>
     </div>
   </div>
-  <div style="height:100vh"></div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     SCENE 02 — THE MACHINE
-═══════════════════════════════════════ -->
-<section id="scene-02">
-  <div id="s02-sticky">
-    <div id="s02-img-side">
-      <img src="images/impunity-machine/scene-02-funnel.png" alt="The Funnel"
-        style="width:100%;height:100%;object-fit:cover;object-position:center top">
-      <canvas id="s02-canvas-overlay"></canvas>
+<hr class="divider">
+
+<!-- S2: TWO CLOCKS -->
+<section id="s2" class="full-scene dark">
+  <div class="scene-title">
+    <div class="eyebrow">Scene 02 &middot; The Two Verdicts</div>
+    <h2>The System Moved Fast Once</h2>
+    <p>The same legal system. Two very different speeds. Watch the arcs fill.</p>
+  </div>
+  <div class="clock-pair">
+    <div class="clock-card">
+      <div class="clock-label" style="color:var(--bloodl)">Time to Convict<br>The Woman Who Reported</div>
+      <svg width="180" height="180" viewBox="0 0 180 180">
+        <circle cx="90" cy="90" r="75" fill="none" stroke="rgba(30,30,48,.8)" stroke-width="8"/>
+        <circle cx="90" cy="90" r="75" fill="none" stroke="var(--bloodl)" stroke-width="8"
+          stroke-dasharray="471.2" stroke-dashoffset="471.2" stroke-linecap="round"
+          transform="rotate(-90 90 90)" id="arc-runa" style="transition:stroke-dashoffset 1s cubic-bezier(.4,0,.2,1)"/>
+        <text x="90" y="82" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="28" font-weight="700" fill="var(--bloodl)" id="num-runa">0</text>
+        <text x="90" y="100" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="var(--muted)" letter-spacing="2">DAYS</text>
+      </svg>
+      <div class="clock-num" style="color:var(--bloodl)" id="display-runa">0</div>
+      <div class="clock-unit">days to &#167;17 conviction</div>
+      <div class="clock-name">Runa Akhter &middot; Cox&#8217;s Bazar 2023<br>Filed rape case. Was convicted instead.</div>
     </div>
-    <div id="s02-data-side">
-      <span class="scene-number" style="color:var(--blood);font-family:var(--mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:1.2rem;display:block">
-        Scene 02 / 07 — <span class="en">The Machine</span><span class="bn" style="font-family:var(--bengali)">যন্ত্রটি</span>
-      </span>
+    <div style="text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1rem">
+      <div style="font-family:var(--mono);font-size:.52rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.5rem">vs</div>
+      <div style="font-family:var(--display);font-size:1.1rem;font-style:italic;color:var(--muted);max-width:160px;line-height:1.6">The same system.</div>
+    </div>
+    <div class="clock-card">
+      <div class="clock-label" style="color:var(--gold)">Time for the<br>Average Rape Case</div>
+      <svg width="180" height="180" viewBox="0 0 180 180">
+        <circle cx="90" cy="90" r="75" fill="none" stroke="rgba(30,30,48,.8)" stroke-width="8"/>
+        <circle cx="90" cy="90" r="75" fill="none" stroke="var(--gold)" stroke-width="8"
+          stroke-dasharray="471.2" stroke-dashoffset="471.2" stroke-linecap="round"
+          transform="rotate(-90 90 90)" id="arc-avg" style="transition:stroke-dashoffset 2.5s cubic-bezier(.4,0,.2,1)"/>
+        <text x="90" y="82" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="22" font-weight="700" fill="var(--gold)" id="num-avg">0</text>
+        <text x="90" y="100" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="var(--muted)" letter-spacing="2">DAYS</text>
+      </svg>
+      <div class="clock-num" style="color:var(--gold)" id="display-avg">0</div>
+      <div class="clock-unit">days to verdict (average)</div>
+      <div class="clock-name">BRAC 2022 &middot; 16 districts<br>385 resolved tribunal cases</div>
+    </div>
+  </div>
+  <div id="clock-caption" style="max-width:640px;text-align:center;opacity:0;transition:opacity .8s;margin-top:1rem">
+    <p style="font-family:var(--display);font-style:italic;font-size:clamp(1rem,2vw,1.3rem);color:var(--amberl);line-height:1.7">In the time it took the system to move through a normal rape case &#8212; <strong style="font-style:normal;color:var(--text)">Runa Akhter had already served 6 months of her sentence</strong> for filing one.</p>
+    <div style="font-family:var(--mono);font-size:.46rem;color:var(--muted2);margin-top:.8rem;line-height:1.8">56 days &middot; &#167;17 conviction &middot; Arrested Feb 16, sentenced Apr 13 2023 &middot; Prothom Alo (S-14) &middot; <span class="ok">CONFIRMED</span></div>
+  </div>
+</section>
 
-      <div class="funnel-step" id="fs1">
-        <span class="fs-num">01</span>
-        <div class="fs-body">
-          <div class="fs-title-bn bn">প্রতি বছর প্রায় ৩ লক্ষ ঘটনা</div>
-          <div class="fs-title-en en">~300,000 assaults annually</div>
-          <div class="fs-stat">300,000</div>
-          <div class="fs-note en">UNFPA/BBS 2024 · CONFIRMED</div>
+<hr class="divider">
+
+<!-- SINV: THE INVERSION -->
+<section id="sinv" class="scene">
+  <div class="scene-title">
+    <div class="eyebrow">Scene 03 &middot; The Inversion</div>
+    <h2>The State Moved For the Woman Who Reported. Against Her.</h2>
+    <p>Section 17 WCRPA allows counter-prosecution of survivors. Two documented cases. National scale: unknown.</p>
+  </div>
+  <div class="scroll-scene" style="margin-top:2rem">
+    <div class="viz-sticky">
+      <div class="inv-wrap">
+        <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1.4rem">Both cases. Same legal system. Both start at Day 0.</div>
+        <div class="inv-block">
+          <div class="inv-label-row">
+            <span class="inv-who" style="color:var(--bloodl)">&#167;17 prosecution &#8212; Runa Akhter</span>
+            <span class="inv-daycount" style="color:var(--bloodl)" id="inv-d17">0 days</span>
+          </div>
+          <div class="inv-track">
+            <div class="inv-fill" id="inv-f17" style="background:linear-gradient(to right,rgba(139,20,40,.8),var(--bloodl))"></div>
+            <div class="inv-fill-lbl" id="inv-fl17">CONVICTED &#8212; 100%</div>
+          </div>
+          <div class="inv-verdict" id="inv-v17" style="color:var(--bloodl)">&#9658; CONVICTED &#8212; Day 56 &middot; 5 years imprisonment &middot; BDT 20,000 fine</div>
+          <div class="inv-foot">Rape case filed Mar 2022 &#8594; &#167;17 complaint ~Jan 2023 &#8594; Arrested Feb 16 &#8594; <strong style="color:var(--bloodl)">Convicted Apr 13, 2023</strong><br>Prothom Alo (S-14) &middot; CoxsbazarJournal (S-69) &middot; <span class="ok">CONFIRMED</span></div>
+        </div>
+        <div class="inv-block" style="margin-top:2.5rem">
+          <div class="inv-label-row">
+            <span class="inv-who" style="color:var(--gold)">Her original rape case</span>
+            <span class="inv-daycount" style="color:var(--gold)" id="inv-drape">0 / 2,349 days</span>
+          </div>
+          <div class="inv-track">
+            <div class="inv-fill" id="inv-frape" style="background:linear-gradient(to right,rgba(90,72,32,.8),var(--gold))"></div>
+            <div class="inv-fill-lbl" id="inv-flrape" style="color:rgba(201,168,76,.9)">2.38% of journey</div>
+          </div>
+          <div class="inv-verdict" id="inv-vrape" style="color:var(--gold)">&#9632; STILL PENDING &#8212; 1,461+ days as of March 2026 &middot; No published verdict</div>
+          <div class="inv-foot">Filed Mar 2022 &#8594; Average case: 2,349 days &#8594; At Day 56 this case is at <strong style="color:var(--gold)">2.38%</strong> of average journey<br>BRAC 2022 (S-01) &middot; <span class="ok">CONFIRMED</span></div>
+        </div>
+        <div id="inv-quote" style="opacity:0;transition:opacity .8s;margin-top:2.5rem;border-left:3px solid rgba(196,30,58,.4);padding-left:1.2rem">
+          <p style="font-family:var(--display);font-style:italic;font-size:clamp(.9rem,1.6vw,1.1rem);color:var(--amberl);line-height:1.85">The system convicts the woman who reports <em style="font-style:normal;color:var(--bloodl);font-weight:700">faster</em> than it convicts the man she reported against.</p>
+          <div style="font-family:var(--mono);font-size:.42rem;color:var(--muted2);margin-top:.5rem">BD-INV-002 &middot; Master Evidence File &middot; &#167;17 analysis &middot; March 2026</div>
         </div>
       </div>
-
-      <div class="funnel-step" id="fs2">
-        <span class="fs-num">02</span>
-        <div class="fs-body">
-          <div class="fs-title-bn bn">৬২% কখনো মুখ খোলেন না</div>
-          <div class="fs-title-en en">62% stay completely silent</div>
-          <div class="fs-stat">→ ~114,000 reach someone</div>
-          <div class="fs-note en">UNFPA/BBS 2024 · CONFIRMED</div>
-        </div>
+    </div>
+    <div class="steps-col">
+      <div class="step" data-scene="inversion" data-step="0">
+        <div class="step-num">Step 01 of 04</div>
+        <h3>Section 17. Designed to deter false reports. Used to silence real ones.</h3>
+        <p>WCRPA Section 17 criminalises filing a &#8220;false&#8221; rape case. Punishment: up to 7 years imprisonment. Two confirmed cases are on record. The national count: <strong>unknown &#8212; no institution tracks it.</strong></p>
+        <div class="note">Master Evidence File &middot; S17-001, S17-002 &middot; National tracking: <span class="ok">CONFIRMED ABSENT</span> &middot; GA-004</div>
       </div>
-
-      <div class="funnel-step" id="fs3">
-        <span class="fs-num">03</span>
-        <div class="fs-body">
-          <div class="fs-title-bn bn">মাত্র ১০% থানায় পৌঁছান</div>
-          <div class="fs-title-en en">Only ~10% reach police</div>
-          <div class="fs-stat">→ ~11,400 file reports</div>
-          <div class="fs-note en">PHQ 2024 · CONFIRMED</div>
-        </div>
+      <div class="step" data-scene="inversion" data-step="1">
+        <div class="step-num">Step 02 of 04</div>
+        <div class="stat">56 days</div>
+        <h3>Runa Akhter. Convicted before her rape case had a single hearing.</h3>
+        <p>She filed a rape case in March 2022. Eleven months later, a Section 17 counter-complaint was filed against her. Arrested February 16, 2023. Tried. Convicted April 13. <strong>The entire &#167;17 process from complaint to conviction: 56 days.</strong> Her original case: still unresolved in March 2026.</p>
+        <div class="note">Cox&#8217;s Bazar &middot; Prothom Alo &middot; <span class="ok">CONFIRMED</span> &middot; S-14, S-69</div>
       </div>
-
-      <div class="funnel-step" id="fs4">
-        <span class="fs-num">04</span>
-        <div class="fs-body">
-          <div class="fs-title-bn bn">৪১% মামলা 'অপ্রমাণিত' হিসেবে বন্ধ</div>
-          <div class="fs-title-en en">41% of cases closed as unproven</div>
-          <div class="fs-stat">→ ~6,726 reach trial</div>
-          <div class="fs-note en">PBI 2016–2023 · CONFIRMED</div>
-        </div>
+      <div class="step" data-scene="inversion" data-step="2">
+        <div class="step-num">Step 03 of 04</div>
+        <div class="stat gold">2.38%</div>
+        <h3>Where an average rape case stands at Day 56.</h3>
+        <p>The gold bar shows exactly how far her rape case would have progressed at the moment she was already convicted and imprisoned. Average trial: 2,349 days. At Day 56: 2.38% complete. The two bars are drawn to the same justice scale, not the same time scale.</p>
+        <div class="note">BRAC 2022 avg trial duration (S-01) &middot; <span class="ok">CONFIRMED</span></div>
       </div>
-
-      <div class="funnel-step" id="fs5">
-        <span class="fs-num">05</span>
-        <div class="fs-body">
-          <div class="fs-title-bn bn">বিচারে গড়ে ২,৩৪৯ দিন লাগে</div>
-          <div class="fs-title-en en">Average trial: 2,349 days</div>
-          <div class="fs-stat">→ witnesses forget, cases collapse</div>
-          <div class="fs-note en">BRAC 2022 · CONFIRMED</div>
-        </div>
-      </div>
-
-      <div id="funnel-final">
-        <div class="ff-fraction">310 / 66,711</div>
-        <div class="ff-label-bn bn">২৩ বছরে মাত্র ৩১০টি সাজা।<br>এটাই যন্ত্রের আউটপুট।</div>
-        <div class="ff-label-en en">310 convictions in 23 years.<br>This is what the machine produces.</div>
+      <div class="step" data-scene="inversion" data-step="3">
+        <div class="step-num">Step 04 of 04</div>
+        <h3>Second case: Barishal 2026. Three teachers arrested under &#167;17.</h3>
+        <p>A woman who reported rape in 2025 faced &#167;17 counter-prosecution in January 2026. Arrest orders for her, three teachers, and two others. Under the 2025 Amendment Ordinance, &#167;17 was expanded to include &#8220;loss of dignity or reputation.&#8221; <strong>The chilling effect on future reports: unquantifiable. The trend: now documented.</strong></p>
+        <div class="note">TBS News Jan 2026 &middot; <span class="ok">CONFIRMED</span> &middot; S-13</div>
       </div>
     </div>
   </div>
-  <div style="height:400vh"></div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     SCENE 03 — THE WAIT
-═══════════════════════════════════════ -->
-<section id="scene-03">
-  <div id="s03-sticky">
-    <div id="s03-left">
-      <img id="s03-img-base" src="images/impunity-machine/scene-03-wait.png" alt="The Wait">
-    </div>
-    <div id="s03-right">
-      <div style="font-family:var(--mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--blood);margin-bottom:1.5rem">
-        Scene 03 / 07
-      </div>
-      <div id="wait-counter">0</div>
-      <div class="wait-label-bn bn">গড় দিন — রায় পেতে</div>
-      <div class="wait-label-en en">Average days to verdict</div>
+<hr class="divider">
 
-      <div id="magura-contrast">
-        <div class="mc-row">
-          <span class="mc-case bn">মাগুরা (জাতীয় ক্ষোভ)</span>
-          <span class="mc-case en">Magura (National outrage)</span>
-          <span class="mc-days red">71</span>
+<!-- S3: RACE -->
+<section id="s3" class="scene dark">
+  <div class="scene-title">
+    <div class="eyebrow">Scene 04 &middot; The Race</div>
+    <h2>Watch Countries Try to Convict Rapists</h2>
+    <p>All bars start at zero. Watch what justice systems produce when they invest.</p>
+  </div>
+  <div class="scroll-scene" style="margin-top:2rem">
+    <div class="viz-sticky">
+      <div class="race-container">
+        <div class="denom-warn">&#9888; DENOMINATOR ALERT: These countries measure from different starting points. SA: trial-stage cases. UK: prosecutions commenced. India: completed trials only (90%+ still pending). Bangladesh: 23-year programme visitors &#8212; the broadest base. Direct ratio comparison is methodologically invalid. The pattern of scale difference is valid.</div>
+        <div style="font-family:var(--mono);font-size:.48rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1.2rem">Conviction rate at each system&#8217;s measured stage</div>
+        <div class="race-row">
+          <div class="race-label"><span class="race-country">South Africa</span><span class="race-val" style="color:var(--greenl)">72.2%</span></div>
+          <div class="race-track"><div class="race-bar" id="rb-sa" style="background:var(--greenl)" data-val="72.2%"></div></div>
+          <div class="race-note">Thuthuzela Care Centres &middot; No death penalty for rape &middot; NPA 2023/24</div>
         </div>
-        <div class="mc-row">
-          <span class="mc-case bn">বরিশাল (স্বাভাবিক মামলা)</span>
-          <span class="mc-case en">Barishal (Normal case)</span>
-          <span class="mc-days grey">~3,380</span>
+        <div class="race-row" style="margin-top:1rem">
+          <div class="race-label"><span class="race-country">United Kingdom</span><span class="race-val" style="color:var(--gold)">53.4%</span></div>
+          <div class="race-track"><div class="race-bar" id="rb-uk" style="background:var(--gold)" data-val="53.4%"></div></div>
+          <div class="race-note">Denominator: prosecutions commenced only &middot; CPS 2024</div>
         </div>
-        <div style="margin-top:.8rem;font-family:var(--mono);font-size:.65rem;color:var(--muted)">
-          <span class="en">The system can move fast. It chooses not to.</span>
-          <span class="bn" style="font-family:var(--bengali);font-size:.8rem">ব্যবস্থাটি দ্রুত চলতে পারে। কিন্তু সে চায় না।</span>
+        <div class="race-row" style="margin-top:1rem">
+          <div class="race-label"><span class="race-country">India</span><span class="race-val" style="color:var(--amber)">27.4%</span></div>
+          <div class="race-track"><div class="race-bar" id="rb-in" style="background:var(--amber)" data-val="27.4%"></div></div>
+          <div class="race-note">Completed trials only &middot; 90%+ pending &middot; NCRB 2022</div>
         </div>
+        <div class="race-row" style="margin-top:1rem">
+          <div class="race-label"><span class="race-country">Bangladesh</span><span class="race-val" style="color:var(--bloodl)">0.46%</span></div>
+          <div class="race-track"><div class="race-bar" id="rb-bd" style="background:var(--bloodl)" data-val="0.46%"></div></div>
+          <div class="race-note">OCC 23yr programme &middot; 310 of 66,711 &middot; Broadest denominator listed</div>
+        </div>
+        <div id="race-note2" style="opacity:0;transition:opacity .6s;margin-top:1.5rem;background:rgba(196,30,58,.06);border:1px solid rgba(196,30,58,.2);padding:.8rem 1rem">
+          <div style="font-family:var(--mono);font-size:.46rem;color:var(--muted2);line-height:1.8">Even from only the 20,914 women who formally filed WCRPA cases &#8212; not all 66,711 OCC visitors &#8212; Bangladesh&#8217;s rate is <strong style="color:var(--bloodl)">1.48%</strong>. Still the furthest bar by an order of magnitude.</div>
+        </div>
+      </div>
+    </div>
+    <div class="steps-col">
+      <div class="step" data-scene="race" data-step="0">
+        <div class="step-num">Step 01 of 04</div>
+        <h3>All countries start at zero. All systems try.</h3>
+        <p>Every justice system loses most rape cases before trial. What matters is what infrastructure they built &#8212; and what they chose to invest in. The choice of investment is also a choice of outcome.</p>
+      </div>
+      <div class="step" data-scene="race" data-step="1">
+        <div class="step-num">Step 02 of 04</div>
+        <div class="stat green">72.2%</div>
+        <h3>South Africa built Thuthuzela Care Centres.</h3>
+        <p>One location: medical, forensic, and legal support integrated. Survivors don&#8217;t navigate a system &#8212; the system comes to them. No death penalty for rape. <strong>The investment was in certainty, not severity.</strong> 72.2% conviction rate at trial stage.</p>
+        <div class="note">NPA Annual Report 2023/24 (S-29) &middot; <span class="ok">CONFIRMED</span></div>
+      </div>
+      <div class="step" data-scene="race" data-step="2">
+        <div class="step-num">Step 03 of 04</div>
+        <div class="stat gold">53.4%</div>
+        <h3>UK: 53.4%. India: 27.4%. Both imperfect. Both visible. Both accountable.</h3>
+        <p>Both publish conviction data annually. Both can be challenged on it. Bangladesh has never published an official conviction rate. <strong>The absence of data is not a limitation of research &#8212; it is a feature of the system.</strong></p>
+        <div class="note">UK: CPS VAWG 2024 (S-28) &middot; India: NCRB 2022 (S-27) &middot; <span class="ok">CONFIRMED</span></div>
+      </div>
+      <div class="step" data-scene="race" data-step="3">
+        <div class="step-num">Step 04 of 04</div>
+        <div class="stat" style="color:var(--bloodl)">0.46%</div>
+        <h3>Bangladesh. Maximum severity. The bar barely moves.</h3>
+        <p>Death penalty since 2020. Conviction rate: 0.46% over 23 years. The reform pathway is not more punishment &#8212; it is <strong>more certainty.</strong> Forensic access. Witness protection. Time-limited trials with real enforcement. Six interventions. All documented. All achievable. None enacted.</p>
+        <div class="note">OCC programme 2001&#8211;2024 &middot; 310/66,711 (S-55) &middot; <span class="ok">CONFIRMED</span></div>
       </div>
     </div>
   </div>
-  <div style="height:250vh"></div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     SCENE 04 — THE CAPITAL
-═══════════════════════════════════════ -->
-<section id="scene-04">
-  <div id="s04-sticky">
-    <div id="s04-bg"></div>
-    <div id="s04-overlay"></div>
-    <div id="s04-content">
-      <div style="font-family:var(--mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;opacity:.7">
-        Scene 04 / 07
+<hr class="divider">
+
+<!-- S4: BACKLOG -->
+<section id="s4" class="scene">
+  <div class="scene-title">
+    <div class="eyebrow">Scene 05 &middot; The Mountain</div>
+    <h2>The Queue That Never Shrinks</h2>
+    <p>Cases enter. Cases do not leave. Watch the mountain grow.</p>
+  </div>
+  <div class="scroll-scene" style="margin-top:2rem">
+    <div class="viz-sticky">
+      <div style="width:100%;max-width:580px">
+        <canvas id="backlogCanvas" height="340" style="width:100%"></canvas>
+        <div class="chart-legend">
+          <div class="leg-item"><div class="leg-dot" style="background:var(--bloodl)"></div>Cases Filed</div>
+          <div class="leg-item"><div class="leg-dot" style="background:var(--gold)"></div>Cases Disposed</div>
+          <div class="leg-item"><div class="leg-dot" style="background:rgba(196,30,58,.25)"></div>Growing Backlog</div>
+        </div>
+        <div style="font-family:var(--mono);font-size:.42rem;color:var(--muted2);margin-top:.6rem;line-height:1.6;border-top:1px solid var(--border);padding-top:.6rem">PHQ via Kaler Kantho 2019&#8211;2020 &middot; PHQ via TBS 2023 &middot; PHQ via Daily Star 2024 &middot; Anti-Rape Platform 2024</div>
       </div>
-      <div class="s04-verdict-bn bn" id="s04-text1">
-        ঢাকায় সুপ্রিম কোর্ট আছে। হাই কোর্ট আছে।<br>
-        হাজার হাজার আইনজীবী আছেন। বিচারক আছেন।<br>
-        পাঁচ বছরে মাত্র ২৪ জনের সাজা হয়েছে।
+    </div>
+    <div class="steps-col">
+      <div class="step" data-scene="backlog" data-step="0">
+        <div class="step-num">Step 01 of 04</div>
+        <h3>2019. The system receives 6,766 rape cases.</h3>
+        <p>101 tribunals. A caseload already unmanageable. The 180-day statutory deadline was being violated in almost every case. This was the baseline before the crisis.</p>
+        <div class="note">PHQ via Kaler Kantho &middot; <span class="ok">CONFIRMED</span> &middot; S-16</div>
       </div>
-      <div class="s04-verdict-en en" id="s04-text2" style="transition-delay:.4s">
-        Dhaka has the Supreme Court. The High Court.<br>
-        Thousands of lawyers. Hundreds of judges.<br>
-        24 convictions in five years.
+      <div class="step" data-scene="backlog" data-step="1">
+        <div class="step-num">Step 02 of 04</div>
+        <h3>Every year: more enter than leave.</h3>
+        <p>The system disposes ~5,648 cases per year. In 2024: 17,544 new cases filed. <strong>Net annual backlog growth: ~12,000 cases.</strong> The queue has never shrunk in six years of documented data.</p>
+        <div class="note">2024: Anti-Rape Platform / BSS (S-65) &middot; <span class="prob">PROBABLE</span></div>
+      </div>
+      <div class="step" data-scene="backlog" data-step="2">
+        <div class="step-num">Step 03 of 04</div>
+        <div class="stat" style="color:var(--amberl)">~150,000</div>
+        <h3>cases pending. March 2025.</h3>
+        <p>35,262 waiting more than five years. The longest documented case: TC-002 in the Case Registry. A 13-year-old girl in Jamalpur. Crime: 2004. Verdict: 2025. <strong>Twenty-one years.</strong></p>
+        <div class="note">SHARE-Net (148,314) + Daily Star (151,317) &middot; <span class="ok">CONFIRMED</span> &middot; S-63, S-64</div>
+      </div>
+      <div class="step" data-scene="backlog" data-step="3">
+        <div class="step-num">Step 04 of 04</div>
+        <h3>The math of permanent crisis.</h3>
+        <p>At current disposal rate, clearing the existing backlog with zero new filings would take <strong>over 26 years.</strong> New cases arrive every day. The system cannot self-correct. This is not a temporary backlog. It is the permanent architecture of impunity.</p>
+        <div class="note">Derived from confirmed filing and disposal data &middot; <span class="prob">PROBABLE</span></div>
       </div>
     </div>
   </div>
-  <div style="height:150vh"></div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     SCENE 05 — GEOGRAPHY
-═══════════════════════════════════════ -->
-<section id="scene-05">
-  <div id="s05-sticky">
-    <div id="s05-bg"></div>
-    <div style="position:absolute;inset:0;background:rgba(6,6,14,.2);z-index:1"></div>
-    <div id="s05-content" style="z-index:10">
-      <div style="font-family:var(--mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem">
-        Scene 05 / 07
-      </div>
-      <div class="geo-counter-block" id="geo-block">
-        <div class="geo-fraction">
-          <span class="geo-num gold">14</span>
-          <span class="geo-sep">/</span>
-          <span class="geo-num dark">64</span>
+<hr class="divider">
+
+<!-- S5: MAP &#8212; DATA CORRECTED v2.0 -->
+<section id="s5" class="scene dark">
+  <div class="scene-title">
+    <div class="eyebrow">Scene 06 &middot; The Geography</div>
+    <h2>In a Room of Ten Women in Barishal, Eight Have Experienced Violence</h2>
+    <p>That is not a statistic about marginal populations. That is a room. Click any division.</p>
+  </div>
+  <div class="scroll-scene" style="margin-top:2rem">
+    <div class="viz-sticky">
+      <div style="width:100%;max-width:440px">
+        <svg id="mapSvg" viewBox="0 0 400 500" style="width:100%;max-height:75vmin;min-height:200px">
+          <defs>
+            <radialGradient id="gBlood" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="rgba(200,30,58,.85)"/><stop offset="100%" stop-color="rgba(139,20,40,.4)"/></radialGradient>
+            <radialGradient id="gAmber" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="rgba(212,160,96,.75)"/><stop offset="100%" stop-color="rgba(160,110,60,.4)"/></radialGradient>
+            <radialGradient id="gGreen" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="rgba(82,183,136,.5)"/><stop offset="100%" stop-color="rgba(45,106,79,.25)"/></radialGradient>
+          </defs>
+          <polygon id="div-rangpur" points="40,15 175,15 175,120 40,120" fill="url(#gAmber)" stroke="#1e1e32" stroke-width="1.5" opacity="0" style="transition:opacity .7s;cursor:pointer" onclick="showMapInfo(&#39;Rangpur&#39;,&#39;74.1%&#39;,&#39;1 crisis cell&#39;,&#39;Northern agricultural zone. High climate displacement. 1 crisis cell.&#39;)"/>
+          <text x="107" y="73" class="div-label-svg">Rangpur</text>
+          <polygon id="div-mym" points="175,15 285,15 285,108 175,120" fill="url(#gAmber)" stroke="#1e1e32" stroke-width="1.5" opacity="0" style="transition:opacity .7s .1s;cursor:pointer" onclick="showMapInfo(&#39;Mymensingh&#39;,&#39;75.1%&#39;,&#39;1 crisis cell&#39;,&#39;Separated division 2015. 75.1% lifetime IPV. 1 crisis cell.&#39;)"/>
+          <text x="230" y="66" class="div-label-svg">Mymensingh</text>
+          <!-- CORRECTED: Sylhet 72.7% not 79.2% -->
+          <polygon id="div-sylhet" points="285,15 390,15 390,152 285,152 285,108" fill="url(#gGreen)" stroke="#1e1e32" stroke-width="1.5" opacity="0" style="transition:opacity .7s .2s;cursor:pointer" onclick="showMapInfo(&#39;Sylhet&#39;,&#39;72.7%&#39;,&#39;1 full OCC&#39;,&#39;72.7% lifetime IPV. CORRECTED v2.0 (was 79.2%). MAG Osmani Medical College OCC. MC College gang rape 2020 still pending.&#39;)"/>
+          <text x="337" y="82" class="div-label-svg">Sylhet</text>
+          <!-- CORRECTED: Rajshahi 74.5% not 78.9% -->
+          <polygon id="div-raj" points="15,120 165,120 152,240 15,240" fill="url(#gAmber)" stroke="#1e1e32" stroke-width="1.5" opacity="0" style="transition:opacity .7s .3s;cursor:pointer" onclick="showMapInfo(&#39;Rajshahi&#39;,&#39;74.5%&#39;,&#39;1 full OCC&#39;,&#39;74.5% lifetime IPV. CORRECTED v2.0 (was 78.9%). Rajshahi Medical College OCC, oldest programme centre.&#39;)"/>
+          <text x="88" y="183" class="div-label-svg">Rajshahi</text>
+          <!-- CORRECTED: Dhaka 72.9% not 72.1% -->
+          <polygon id="div-dhaka" points="152,120 285,108 285,285 162,285 152,240" fill="url(#gGreen)" stroke="#1e1e32" stroke-width="1.5" opacity="0" style="transition:opacity .7s .4s;cursor:pointer" onclick="showMapInfo(&#39;Dhaka&#39;,&#39;72.9%&#39;,&#39;3 full OCCs&#39;,&#39;Lowest IPV nationally at 72.9%. CORRECTED v2.0 (was 72.1%). Highest court backlog. 3 OCCs: DMCH, Faridpur MC, Gazipur. Resources concentrated in capital.&#39;)"/>
+          <text x="218" y="200" class="div-label-svg">Dhaka</text>
+          <!-- CORRECTED: Chattogram 78.5% not 74.3% -->
+          <polygon id="div-ctg" points="285,108 390,152 390,388 285,365 285,285" fill="url(#gBlood)" stroke="#1e1e32" stroke-width="1.5" opacity="0" style="transition:opacity .7s .5s;cursor:pointer" onclick="showMapInfo(&#39;Chattogram&#39;,&#39;78.5%&#39;,&#39;3 full OCCs&#39;,&#39;78.5% lifetime IPV. CORRECTED v2.0 (was 74.3%). Third highest nationally. 1M+ Rohingya refugees with zero GBV data.&#39;)"/>
+          <text x="337" y="258" class="div-label-svg">Chattogram</text>
+          <!-- CORRECTED: Khulna 81.3% not 76.4% -->
+          <polygon id="div-khulna" points="15,240 152,240 162,285 152,390 15,390" fill="url(#gBlood)" stroke="#1e1e32" stroke-width="2" opacity="0" style="transition:opacity .7s .6s;cursor:pointer" onclick="showMapInfo(&#39;Khulna&#39;,&#39;81.3%&#39;,&#39;2 centres&#39;,&#39;81.3% lifetime IPV. SECOND HIGHEST nationally. CORRECTED v2.0 (was 76.4%). Khulna MC + Magura. Magura 2025: 8yr old survivor. No full OCC in Magura.&#39;)"/>
+          <text x="88" y="322" class="div-label-svg">Khulna</text>
+          <!-- Barishal 81.5% CORRECT -->
+          <polygon id="div-barishal" points="152,285 285,285 285,445 162,445 152,390" fill="url(#gBlood)" stroke="#1e1e32" stroke-width="2.5" opacity="0" style="transition:opacity .7s .7s;cursor:pointer" onclick="showMapInfo(&#39;Barishal&#39;,&#39;81.5%&#39;,&#39;1 full OCC&#39;,&#39;HIGHEST IN BANGLADESH. 81.5% lifetime IPV. 1 OCC for 9 million people. Highest food insecurity. Highest climate vulnerability.&#39;)"/>
+          <text x="218" y="372" class="div-label-svg">Barishal</text>
+          <text x="200" y="488" font-family="JetBrains Mono,monospace" font-size="7" fill="rgba(78,75,96,.6)" text-anchor="middle">Bay of Bengal</text>
+          <g id="occ-dots">
+            <circle class="occ-dot" id="occ1" cx="218" cy="160" r="6"/><circle class="occ-dot" id="occ2" cx="175" cy="200" r="6"/>
+            <circle class="occ-dot" id="occ3" cx="235" cy="175" r="6"/><circle class="occ-dot" id="occ4" cx="325" cy="258" r="6"/>
+            <circle class="occ-dot" id="occ5" cx="365" cy="300" r="6"/><circle class="occ-dot" id="occ6" cx="310" cy="240" r="6"/>
+            <circle class="occ-dot" id="occ7" cx="88" cy="183" r="6"/><circle class="occ-dot" id="occ8" cx="88" cy="335" r="6"/>
+            <circle class="occ-dot" id="occ9" cx="218" cy="365" r="6"/><circle class="occ-dot" id="occ10" cx="337" cy="82" r="6"/>
+            <circle class="occ-dot" id="occ11" cx="115" cy="335" r="6"/><circle class="occ-dot" id="occ12" cx="175" cy="210" r="6"/>
+            <circle class="occ-dot" id="occ13" cx="230" cy="165" r="6"/><circle class="occ-dot" id="occ14" cx="155" cy="185" r="6"/>
+          </g>
+          <circle id="barishal-pulse" cx="218" cy="372" r="28" fill="none" stroke="var(--bloodl)" stroke-width="1.5" opacity="0"/>
+        </svg>
+        <div id="map-info" style="background:var(--ink3);border:1px solid var(--border);padding:.8rem 1rem;font-family:var(--mono);font-size:.5rem;line-height:1.7;min-height:64px;margin-top:.5rem"><span style="color:var(--muted2)">&#8592; Click any division to explore data</span></div>
+        <div style="display:flex;gap:.8rem;margin-top:.6rem;flex-wrap:wrap">
+          <div style="display:flex;align-items:center;gap:.3rem;font-family:var(--mono);font-size:.4rem;color:var(--muted2)"><div style="width:9px;height:9px;background:rgba(200,30,58,.7)"></div>&gt;78% IPV</div>
+          <div style="display:flex;align-items:center;gap:.3rem;font-family:var(--mono);font-size:.4rem;color:var(--muted2)"><div style="width:9px;height:9px;background:rgba(212,160,96,.7)"></div>74&#8211;78%</div>
+          <div style="display:flex;align-items:center;gap:.3rem;font-family:var(--mono);font-size:.4rem;color:var(--muted2)"><div style="width:9px;height:9px;background:rgba(82,183,136,.5)"></div>&lt;74%</div>
+          <div style="display:flex;align-items:center;gap:.3rem;font-family:var(--mono);font-size:.4rem;color:var(--muted2)"><div style="width:9px;height:9px;border-radius:50%;background:var(--gold)"></div>Full OCC</div>
         </div>
-        <div class="geo-label-bn bn">পূর্ণ সংকট কেন্দ্র পেয়েছে মাত্র ১৪ টি জেলা।<br>বাকি ৫০ টি জেলায় ট্রাইব্যুনাল আছে, কিন্তু সহায়তা নেই।</div>
-        <div class="geo-label-en en">14 districts have a full crisis centre.<br>50 districts: tribunal exists. No support. No forensics.</div>
+        <div style="font-family:var(--mono);font-size:.38rem;color:rgba(196,30,58,.45);margin-top:.4rem">&#10003; Corrected v2.0 &#8212; source: UNFPA/BBS VAW Survey 2024 (AGG-002 to AGG-009)</div>
+      </div>
+    </div>
+    <div class="steps-col">
+      <div class="step" data-scene="mapscene" data-step="0">
+        <div class="step-num">Step 01 of 05</div>
+        <h3>Bangladesh has eight divisions. Violence is everywhere.</h3>
+        <p>The UNFPA/BBS VAW Survey 2024 interviewed 27,476 women across all divisions. National lifetime IPV rate: 76.0%. The lowest division &#8212; Sylhet &#8212; is 72.7%. There is no safe geography in this data.</p>
+        <div class="note">UNFPA/BBS Oct 2025 updated survey &middot; <span class="ok">CONFIRMED</span> &middot; S-74</div>
+      </div>
+      <div class="step" data-scene="mapscene" data-step="1">
+        <div class="step-num">Step 02 of 05</div>
+        <div class="stat" style="color:var(--bloodl)">81.5%</div>
+        <h3>Barishal highest. Khulna second: 81.3%. Chattogram third: 78.5%.</h3>
+        <p>In a room of ten women in Barishal or Khulna, eight have experienced intimate partner violence in their lifetime. The entire country sits in a 9-percentage-point band of violence. The floor is 72.7%. The ceiling is 81.5%.</p>
+        <div class="note">UNFPA/BBS VAW Survey 2024 (S-02) &middot; <span class="ok">CONFIRMED</span></div>
+      </div>
+      <div class="step" data-scene="mapscene" data-step="2">
+        <div class="step-num">Step 03 of 05</div>
+        <h3>The gold circles are One-Stop Crisis Centres.</h3>
+        <p>Count them carefully. Fourteen centres across the entire country. Integrated medical, forensic, and legal support. The infrastructure designed to turn assaults into evidence into convictions. Fourteen circles for 170 million people.</p>
+        <div class="note">GoB UNSG Submission May 2024 (S-09) &middot; <span class="ok">CONFIRMED</span></div>
+      </div>
+      <div class="step" data-scene="mapscene" data-step="3">
+        <div class="step-num">Step 04 of 05</div>
+        <h3>The pattern is the verdict.</h3>
+        <p>Barishal: 81.5% IPV, <strong>1 OCC.</strong> Khulna: 81.3%, <strong>2 centres.</strong> Chattogram: 78.5%, 3 OCCs but 1M+ Rohingya with zero GBV data. Dhaka: 72.9% &#8212; the lowest nationally &#8212; <strong>3 OCCs.</strong> The resources flow to the capital. Not to the crisis.</p>
+      </div>
+      <div class="step" data-scene="mapscene" data-step="4">
+        <div class="step-num">Step 05 of 05</div>
+        <h3>50 of 64 districts have no full OCC.</h3>
+        <p>In those districts: no forensic physician. No integrated support. A 3&#8211;4 month wait for DNA results from the single national lab in Dhaka. 78% of survivors arrive after the 72-hour forensic evidence window. The evidence that produces convictions is destroyed before the system begins.</p>
+        <div class="note">BRAC 2022 (S-01) &middot; GoB UNSG Submission (S-09) &middot; <span class="ok">CONFIRMED</span></div>
       </div>
     </div>
   </div>
-  <div style="height:150vh"></div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     SCENE 06 — THE SURGE
-═══════════════════════════════════════ -->
-<section id="scene-06">
-  <div id="s06-sticky">
-    <div id="s06-img"></div>
-    <canvas id="s06-canvas"></canvas>
-    <div id="s06-overlay"></div>
-    <div id="s06-content">
-      <div style="font-family:var(--mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem">
-        Scene 06 / 07
-      </div>
-      <div class="surge-headline-bn bn" id="s06-h1">
-        বিপ্লব এলো। নিরাপত্তা এলো না।
-      </div>
-      <div class="surge-headline-en en" id="s06-h2">
-        The revolution came. Safety didn't.
-      </div>
+<hr class="divider">
 
-      <div class="surge-stats">
-        <div class="surge-stat" id="ss1">
-          <div class="ss-val" id="ss1-val">+52%</div>
-          <div class="ss-label-bn bn">H1 2025 এ ধর্ষণের ঘটনা বৃদ্ধি</div>
-          <div class="ss-label-en en">Rape cases H1 2025 vs prev year</div>
+<!-- SDNA: FORENSIC DESTRUCTION -->
+<section id="sdna" class="full-scene">
+  <div class="scene-title">
+    <div class="eyebrow">Scene 07 &middot; The Evidence Window</div>
+    <h2>Evidence Doesn&#8217;t Wait for the System</h2>
+    <p>Biology has a deadline. The law acknowledged it: 72 hours. The system misses it in 78% of cases.</p>
+  </div>
+  <div class="fwrap" style="margin-top:3rem" id="forensicWrap">
+    <div class="fstat-row">
+      <div class="fstat">
+        <div class="fstat-val" style="color:var(--bloodl)">78%</div>
+        <div class="fstat-lbl">of survivors arrive after the 72-hour evidence window has closed</div>
+      </div>
+      <div class="fstat">
+        <div class="fstat-val" style="color:var(--gold)">2 machines</div>
+        <div class="fstat-lbl">DNA profiling machines serving all of Bangladesh&#8217;s 170 million people</div>
+      </div>
+      <div class="fstat">
+        <div class="fstat-val" style="color:var(--amberl)">92%</div>
+        <div class="fstat-lbl">of 2025 DNA samples unprocessed &#8212; 1,204 of 1,304 samples backlogged</div>
+      </div>
+    </div>
+    <div id="evidenceBars">
+      <div style="background:rgba(232,64,96,.07);border:1px solid rgba(232,64,96,.25);border-left:3px solid var(--bloodl);padding:.9rem 1.1rem;font-family:var(--mono);font-size:.46rem;color:var(--text2);line-height:1.9;margin-bottom:1.8rem">
+        Each bar shows how evidence quality changes from the moment of assault onwards.<br>
+        <span style="color:var(--bloodl);font-weight:700">&#9474; Red line = 72-hour legal threshold.</span> &nbsp;
+        <span style="color:var(--gold);font-weight:700">&#9474; Gold line = where 78% of survivors actually arrive.</span><br>
+        <span style="color:var(--text)">What Bangladesh's courts receive is the evidence quality to the <em>right</em> of the gold line.</span>
+      </div>
+      <div style="font-family:var(--mono);font-size:.46rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1.6rem">Evidence quality over time &#8212; relative degradation after assault</div>
+      <div class="evbar-row">
+        <div class="evbar-lbl"><span>&#9312; DNA, Fibres &amp; Physical Injuries</span><span style="color:var(--bloodl);font-size:.4rem">FASTEST DECAY</span></div>
+        <div class="evbar-track" style="height:36px;overflow:visible;margin-top:.9rem">
+          <div class="evbar-fill" id="ev-bio" style="height:100%;background:linear-gradient(to right,#52b788 0%,#52b788 16%,#c9a84c 28%,#e84060 47%,rgba(70,10,20,.6) 60%,rgba(30,30,48,.08) 100%)"></div>
+          <div style="position:absolute;left:28%;top:0;bottom:0;width:2px;background:rgba(232,64,96,.9)"></div>
+          <div style="position:absolute;left:28%;top:-22px;font-family:var(--mono);font-size:.42rem;color:var(--bloodl);transform:translateX(-50%);white-space:nowrap;font-weight:700">72 HRS</div>
+          <div style="position:absolute;left:55%;top:0;bottom:0;width:2px;background:rgba(201,168,76,1)"></div>
+          <div style="position:absolute;left:55%;top:-22px;font-family:var(--mono);font-size:.42rem;color:var(--gold);transform:translateX(-50%);white-space:nowrap;font-weight:700">78% ARRIVE &#x2193;</div>
+          <div style="position:absolute;left:56%;bottom:-19px;font-family:var(--mono);font-size:.34rem;color:rgba(201,168,76,.6);white-space:nowrap">evidence already compromised</div>
         </div>
-        <div class="surge-stat" id="ss2">
-          <div class="ss-val" id="ss2-val">+75%</div>
-          <div class="ss-label-bn bn">শিশু ধর্ষণ বৃদ্ধি</div>
-          <div class="ss-label-en en">Child rape increase</div>
+        <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:.35rem;color:var(--muted2);margin-top:1.6rem;padding-top:.3rem;border-top:1px solid var(--border)">
+          <span style="color:var(--greenl)">&#9646; INTACT (hr 0)</span><span>72 hrs</span><span>1 week</span><span>1 month</span><span>3 months</span><span style="color:rgba(70,10,20,.8)">&#9646; GONE</span>
         </div>
-        <div class="surge-stat" id="ss3">
-          <div class="ss-val" id="ss3-val">0</div>
-          <div class="ss-label-bn bn">প্রথম ৭ মাসে দোষী সাব্যস্ত — ২০২৪</div>
-          <div class="ss-label-en en">Convictions first 7 months 2024</div>
+      </div>
+      <div class="evbar-row" style="margin-top:2rem">
+        <div class="evbar-lbl"><span>&#9313; Witness Memory Reliability</span><span style="color:var(--gold);font-size:.4rem">GRADUAL DECAY</span></div>
+        <div class="evbar-track" style="height:36px;margin-top:.5rem">
+          <div class="evbar-fill" id="ev-mem" style="height:100%;background:linear-gradient(to right,#52b788 0%,#52b788 32%,#c9a84c 52%,#d4a060 64%,rgba(212,160,96,.22) 84%,rgba(30,30,48,.06) 100%)"></div>
+          <div style="position:absolute;left:28%;top:0;bottom:0;width:1px;background:rgba(232,64,96,.55)"></div>
+          <div style="position:absolute;left:55%;top:0;bottom:0;width:2px;background:rgba(201,168,76,.8)"></div>
+          <div style="position:absolute;left:56%;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:.34rem;color:rgba(201,168,76,.65);white-space:nowrap">memory fades from here &#8594;</div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:.35rem;color:var(--muted2);margin-top:.4rem">
+          <span style="color:var(--greenl)">&#9646; CLEAR</span><span>72hrs</span><span style="color:var(--gold)">avg arrival &#8594;</span><span></span><span style="color:rgba(212,160,96,.4)">&#9646; UNRELIABLE</span>
+        </div>
+      </div>
+      <div class="evbar-row" style="margin-top:2rem">
+        <div class="evbar-lbl"><span>&#9314; Medical Documentation Completeness</span><span style="color:var(--amberl);font-size:.4rem">STEEPEST INITIAL LOSS</span></div>
+        <div class="evbar-track" style="height:36px;margin-top:.5rem">
+          <div class="evbar-fill" id="ev-med" style="height:100%;background:linear-gradient(to right,#52b788 0%,#b8c84a 9%,#c9a84c 15%,#e84060 24%,rgba(139,20,40,.45) 36%,rgba(100,20,30,.18) 56%,rgba(30,30,48,.04) 100%)"></div>
+          <div style="position:absolute;left:28%;top:0;bottom:0;width:1px;background:rgba(232,64,96,.5)"></div>
+          <div style="position:absolute;left:55%;top:0;bottom:0;width:2px;background:rgba(201,168,76,.75)"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:.35rem;color:var(--muted2);margin-top:.4rem">
+          <span style="color:var(--greenl)">&#9646; COMPLETE</span><span></span><span style="color:var(--bloodl)">drops sharply within hours &#8594;</span><span></span><span style="color:rgba(139,20,40,.45)">&#9646; PARTIAL</span>
         </div>
       </div>
     </div>
+    <div class="fsub-grid">
+      <div class="fsub">
+        <div style="font-family:var(--mono);font-size:.48rem;color:var(--bloodl);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem">The Pipeline Failure</div>
+        <div style="font-family:var(--mono);font-size:1.6rem;font-weight:700;color:var(--text);margin:.3rem 0">789</div>
+        <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);line-height:1.6">cases completely stalled nationwide due to DNA processing backlog (September 2025)</div>
+      </div>
+      <div class="fsub">
+        <div style="font-family:var(--mono);font-size:.48rem;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem">Report Issuance Rate</div>
+        <div style="font-family:var(--mono);font-size:1.6rem;font-weight:700;color:var(--text);margin:.3rem 0">55%</div>
+        <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);line-height:1.6">of DNA cases evaluated by NFDPL result in a court report (6,333 of 11,501 cases since 2006)</div>
+      </div>
+    </div>
+    <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);margin-top:1.2rem;line-height:1.8;border-top:1px solid var(--border);padding-top:1rem">Sources: BRAC 2022 (S-01) &middot; MoWCA NFDPL data 2025 &middot; <span class="ok">CONFIRMED</span> &middot; Only 1 national DNA profiling lab (NFDPL, Dhaka) + 5 regional screening labs. Average processing: 3&#8211;4 months per case.</div>
   </div>
-  <div style="height:200vh"></div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     SCENE 07 — THE RECKONING
-═══════════════════════════════════════ -->
-<section id="scene-07">
-  <div id="s07-sticky">
-    <div id="s07-bg"></div>
-    <div id="s07-overlay"></div>
-    <div id="s07-content">
-      <div style="font-family:var(--mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem">
-        Scene 07 / 07
-      </div>
+<hr class="divider">
 
-      <div class="reckoning-line" id="rl1">
-        <div class="rl-bn bn">এই তদন্ত শেষ হয়নি।</div>
-        <div class="rl-en en">This investigation is not finished.</div>
+<!-- S6: DETERRENCE -->
+<section id="s6" class="scene dark">
+  <div class="scene-title">
+    <div class="eyebrow">Scene 08 &middot; The Paradox</div>
+    <h2>Maximum Severity. Near-Zero Certainty.</h2>
+    <p>Criminological consensus: certainty deters crime. Severity alone does not. Bangladesh chose severity. Watch where it places them.</p>
+  </div>
+  <div class="scroll-scene" style="margin-top:2rem">
+    <div class="viz-sticky">
+      <div style="width:100%;max-width:620px">
+        <canvas id="scatterCanvas" height="380" style="width:100%"></canvas>
+        <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);margin-top:.6rem;line-height:1.6">Nagin 2013 &middot; D&#246;lling 2009 &middot; Abramovaite 2022 &middot; NPA 2023/24 &middot; CPS 2024 &middot; NCRB 2022 &middot; OCC 2024</div>
       </div>
-      <div class="reckoning-line" id="rl2" style="transition-delay:.5s">
-        <div class="rl-bn bn">প্রতিটি নতুন রায় — প্রতিটি নতুন মামলা — নথিভুক্ত করা হচ্ছে।</div>
-        <div class="rl-en en">Every new verdict. Every new case. Being documented.</div>
+    </div>
+    <div class="steps-col">
+      <div class="step" data-scene="scatter" data-step="0">
+        <div class="step-num">Step 01 of 03</div>
+        <h3>Criminological consensus: certainty is the primary deterrent.</h3>
+        <p>Nagin (2013): certainty of apprehension &#8212; not severity of punishment &#8212; is the primary deterrent to crime. D&#246;lling et al. (2009) meta-analysis: deterrence hypothesis &#8220;rarely confirmed&#8221; for serious offences. This is not a minority view. It is the 50-year consensus across jurisdictions.</p>
+        <div class="note">Academic consensus &middot; Cross-jurisdictional &middot; No credible counter-evidence for rape specifically</div>
       </div>
-      <div class="reckoning-line" id="rl3" style="transition-delay:1s">
-        <div class="rl-bn bn">যতদিন বিচার না হয়।</div>
-        <div class="rl-en en">Until there is justice.</div>
+      <div class="step" data-scene="scatter" data-step="1">
+        <div class="step-num">Step 02 of 03</div>
+        <h3>Countries with higher certainty achieve higher conviction rates.</h3>
+        <p>South Africa: high certainty (forensic infrastructure, integrated support) &#8594; 72.2% conviction rate. No death penalty for rape. Indonesia: implemented death penalty for child rape &#8594; documented post-implementation <strong>surge in child rape rates.</strong> The mechanism is known. Certainty deters. Severity alone does not.</p>
+        <div class="note">Susila 2019 &middot; S-52 &middot; <span class="ok">CONFIRMED</span></div>
       </div>
-
-      <a href="/investigations/national/impunity-machine/tracker.html" id="tracker-link">
-        <span class="live-dot"></span>
-        <span class="en">Open Live Tracker →</span>
-        <span class="bn" style="font-family:var(--bengali)">লাইভ ট্র্যাকার খুলুন →</span>
-      </a>
-
-      <a href="/investigations/national/impunity-machine.html" id="full-report-link">
-        <span class="report-link-bn bn">সম্পূর্ণ ফরেনসিক রিপোর্ট — ৯১ টি সূত্র, ১০ টি অধ্যায় →</span>
-        <span class="en">Full forensic report — 91 sources, 10 sections →</span>
-      </a>
+      <div class="step" data-scene="scatter" data-step="2">
+        <div class="step-num">Step 03 of 03</div>
+        <h3>Bangladesh is in the worst possible corner.</h3>
+        <p>Maximum severity: mandatory death penalty since October 2020. Near-zero certainty: 0.46% conviction rate. <strong>The data places Bangladesh exactly where the literature predicts.</strong> The reform pathway requires no new theory. It requires political decision. Six evidence-based interventions. All documented below.</p>
+        <div class="note">Three documented mechanisms: judicial reluctance when penalty is death &middot; witness elimination incentive &middot; family suppression when accused is known</div>
+      </div>
     </div>
   </div>
-  <div style="height:200vh"></div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     SCRIPTS
-═══════════════════════════════════════ -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<hr class="divider">
 
-<script>
-'use strict';
+<!-- S7: VOIDS &#8212; EXPANDED TO 10 -->
+<section id="s7" class="full-scene">
+  <div class="scene-title">
+    <div class="eyebrow">Scene 09 &middot; The Voids</div>
+    <h2>What the Government Holds and Does Not Publish</h2>
+    <p>Ten datasets. Ten black holes. Each one a point where the system hides its own failure from scrutiny.</p>
+  </div>
+  <div class="void-grid" id="voidGrid">
+    <div class="void-card" id="void-0"><div class="void-gapid">GA-001</div><div class="void-circle"><div class="void-core"></div><div class="void-inner"></div></div><div class="void-lbl">Annual conviction rates<br>by tribunal &middot; by district</div><div class="void-why">Would confirm whether the 2020 death penalty worsened conviction rates. PHQ holds it. 25 years of data. Never published.</div></div>
+    <div class="void-card" id="void-1"><div class="void-gapid">GA-002</div><div class="void-circle"><div class="void-core"></div><div class="void-inner"></div></div><div class="void-lbl">FIR registration rate<br>for rape complaints</div><div class="void-why">The most critical funnel stage. Unknown what % of complaints become formal FIRs. This is where most cases may be lost &#8212; completely unmeasured.</div></div>
+    <div class="void-card" id="void-2"><div class="void-gapid">GA-003</div><div class="void-circle"><div class="void-core"></div><div class="void-inner"></div></div><div class="void-lbl">90-day trial timeline<br>compliance rate</div><div class="void-why">Statutory mandate exists. Compliance data does not. In 25 years, the government has never published whether tribunals meet their own deadline.</div></div>
+    <div class="void-card" id="void-3"><div class="void-gapid">GA-004</div><div class="void-circle"><div class="void-core"></div><div class="void-inner"></div></div><div class="void-lbl">National Section 17<br>prosecution count</div><div class="void-why">Two confirmed cases documented. National count: unknown. Under 2025 Ordinance, &#167;17 expanded to include &#8220;loss of dignity&#8221; &#8212; monitoring now critical.</div></div>
+    <div class="void-card" id="void-4"><div class="void-gapid">GA-005</div><div class="void-circle"><div class="void-core"></div><div class="void-inner"></div></div><div class="void-lbl">Case withdrawal and<br>abandonment rate</div><div class="void-why">Not tracked. Scale of shalish-driven attrition is unknown. The funnel&#8217;s largest leak is invisible to any accountability mechanism.</div></div>
+    <div class="void-card" id="void-5"><div class="void-gapid">GA-006</div><div class="void-circle"><div class="void-core"></div><div class="void-inner"></div></div><div class="void-lbl">Post-2020 amendment<br>conviction comparison</div><div class="void-why">Five years of data exists. One published table would confirm or refute the judicial reluctance hypothesis. It does not exist. The government cannot not know this.</div></div>
+    <div class="void-card" id="void-6"><div class="void-gapid">GA-007</div><div class="void-circle"><div class="void-core"></div><div class="void-inner"></div></div><div class="void-lbl">DNA processing time<br>by district &middot; by case type</div><div class="void-why">789 cases stalled. 92% of 2025 samples unprocessed. NFDPL holds the data. No public disclosure. The bottleneck is invisible to policymakers by design.</div></div>
+    <div class="void-card" id="void-7"><div class="void-gapid">GA-008</div><div class="void-circle"><div class="void-core"></div><div class="void-inner"></div></div><div class="void-lbl">Witness Protection Law<br>(pending since 2015)</div><div class="void-why">Bill drafted. Not enacted. Witnesses are unprotected. Conviction requires witness. The logical chain is broken by deliberate legislative inaction across four governments.</div></div>
+    <div class="void-card" id="void-8"><div class="void-gapid">GA-009</div><div class="void-circle"><div class="void-core"></div><div class="void-inner"></div></div><div class="void-lbl">Marital rape exemption<br>still in force 2026</div><div class="void-why">CEDAW Committee required removal in 2016. Still unresolved in 2026. An entire category of violence is legally invisible. 47 countries have criminalised marital rape since 2016.</div></div>
+    <div class="void-card" id="void-9"><div class="void-gapid">GA-012</div><div class="void-circle"><div class="void-core"></div><div class="void-inner"></div></div><div class="void-lbl">Section 32 violations<br>hospital refusal tracking</div><div class="void-why">WCRPA &#167;32 mandates hospitals examine rape survivors. No institution tracks compliance. Hospital refusals &#8212; a documented pattern &#8212; are completely invisible to any accountability system.</div></div>
+  </div>
+  <div id="void-conclusion" style="max-width:700px;text-align:center;margin-top:2.5rem;opacity:0;transition:opacity .8s">
+    <p style="font-family:var(--display);font-style:italic;font-size:clamp(1.1rem,2.2vw,1.5rem);color:var(--amberl);line-height:1.7">Ten datasets the government holds. Ten datasets the government does not publish.</p>
+    <p style="font-family:var(--mono);font-size:.6rem;color:var(--muted);margin-top:.8rem;letter-spacing:.08em">This is not a limitation of research. <strong style="color:var(--text)">This is a feature of impunity.</strong></p>
+  </div>
+</section>
 
-/* ── LANGUAGE TOGGLE ── */
-function setLang(lang) {
-  document.documentElement.setAttribute('data-lang', lang);
-  document.querySelectorAll('.lang-btn').forEach(b => {
-    b.classList.toggle('active', b.textContent.trim().toLowerCase() === lang || (lang === 'bn' && b.textContent.includes('বাং')));
+<!-- CLOSING -->
+<section id="closing">
+  <div class="closing-v">The machine is<br><em>documented.</em></div>
+  <p class="closing-sub">Every link in the chain of impunity is named, sourced, and evidence-tiered. 91 named sources. All claims carry CONFIRMED / PROBABLE / ALLEGED tier labels. The reform pathway exists.</p>
+  <div class="closing-stmt">
+    &#8220;None of these interventions require new theory. They require political decision.<br>
+    Forensic centres exist. 50 districts have none. This is not a resource problem &#8212; it is a decision.<br>
+    Witness Protection Bill drafted. Pending since 2015. Not enacted. This is a decision.<br>
+    Marital rape exemption: required removed by CEDAW in 2016. Still in force in 2026. This is a decision.&#8221;
+  </div>
+  <div class="ivs">
+    <div class="iv"><div class="iv-n">Intervention 01</div><div class="iv-t">OCC Geographic Redistribution</div><div class="iv-d">14 centres concentrated in divisional HQs. Expand to 50+ district-level centres, prioritising Barishal (81.5% IPV, 1 OCC), Khulna (81.3%, 2 centres), Chattogram (78.5%). Required: 36 new district OCCs.</div><div class="iv-m">Model: South Africa Thuthuzela Care Centres</div></div>
+    <div class="iv"><div class="iv-n">Intervention 02</div><div class="iv-t">DNA Infrastructure Expansion</div><div class="iv-d">2 DNA machines for 170M people. 92% of 2025 samples unprocessed. 789 cases stalled. Minimum viable: 8 fully operational regional labs with 72-hour processing target.</div><div class="iv-m">Model: NPA South Africa regional forensic centres</div></div>
+    <div class="iv"><div class="iv-n">Intervention 03</div><div class="iv-t">Witness Protection Enactment</div><div class="iv-d">Witness Protection Bill pending since 2015. Conviction requires witness. Witness requires protection. The Bill exists. Parliament needs to pass it. No new drafting required.</div><div class="iv-m">Status: Draft law exists &#8212; enactment only</div></div>
+    <div class="iv"><div class="iv-n">Intervention 04</div><div class="iv-t">Mandatory Data Publication</div><div class="iv-d">PHQ annual conviction rates. Supreme Court trial compliance rates. NFDPL processing times. A single ministerial order mandating quarterly disclosure of 6 key metrics ends the data void at near-zero cost.</div><div class="iv-m">Cost: administrative &#8212; no new institution required</div></div>
+    <div class="iv"><div class="iv-n">Intervention 05</div><div class="iv-t">Section 17 National Registry</div><div class="iv-d">No institution tracks &#167;17 prosecutions. Under the 2025 expansion, monitoring is urgent. A court-level reporting requirement creates the first national registry. Required: Supreme Court administrative order.</div><div class="iv-m">Required: one administrative directive</div></div>
+    <div class="iv"><div class="iv-n">Intervention 06</div><div class="iv-t">Marital Rape Criminalisation</div><div class="iv-d">CEDAW required this in 2016. 47 countries have enacted it since. The exemption creates a legal category of invisible violence. Required: one amendment to WCRPA Section 2.</div><div class="iv-m">CEDAW/C/BGD/CO/8 &middot; 2016 &middot; Para 19(a)</div></div>
+  </div>
+  <div class="btn-row">
+    <a class="btn btn-red" href="/investigations/national/impunity-machine/tracker.html">◉ Open Live Tracker &#8594;</a>
+    <a class="btn btn-teal" href="/investigations/national/impunity-machine/tracker.html">Case Registry (60 verdicts) &#8594;</a>
+    <a class="btn btn-gold" href="/series/impunity-machine/methodology.html">Methodology &#8594;</a>
+    <a class="btn btn-gold" href="#" onclick="dlCSV(event)">&#8595; Download Evidence Data</a>
+  </div>
+  <div class="tier-note">BD-INV-002 &middot; The Impunity Machine &middot; Version 2.0 &middot; March 2026 &middot; Insight Gaps<br>91 named sources &middot; All claims evidence-tiered &middot; Corrections: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5a333429333d322e3d3b2a291a3d373b333674393537">[email&#160;protected]</a> &middot; CC BY-NC 4.0<br>Anonymous publication &middot; Open-source posture &middot; <a href="/series/impunity-machine/methodology.html">Full methodology &#8594;</a></div>
+</section>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const DC=document.getElementById("dotCanvas");
+const dpr=Math.min(window.devicePixelRatio||1,2);
+const COLS=100,ROWS=100,TOT=10000,CELL=5;
+DC.width=COLS*CELL*dpr;DC.height=ROWS*CELL*dpr;
+DC.style.width=(COLS*CELL)+"px";DC.style.height=(ROWS*CELL)+"px";
+const ctx=DC.getContext("2d");ctx.scale(dpr,dpr);
+let seed=42;function rng(){seed=(seed*1664525+1013904223)>>>0;return seed/4294967296;}
+const order=Array.from({length:TOT},(_,i)=>i).sort(()=>rng()-.5);
+const rankOf=new Uint16Array(TOT);order.forEach((idx,rank)=>{rankOf[idx]=rank;});
+const dotOp=new Float32Array(TOT).fill(1);
+const dotTgt=new Float32Array(TOT).fill(1);
+const dotSt=new Uint8Array(TOT);
+function setDotStep(alive,surv=0){
+  for(let i=0;i<TOT;i++){const r=rankOf[i];if(r>=alive){dotTgt[i]=.04;dotSt[i]=2;}else if(r<surv){dotTgt[i]=1;dotSt[i]=1;}else{dotTgt[i]=.75;dotSt[i]=0;}}
+}
+setDotStep(TOT,0);
+const FSTEPS=[{alive:10000,surv:0,lbl:"10,000",st:"women — all assaults"},{alive:3800,surv:0,lbl:"3,800",st:"disclosed to someone"},{alive:1000,surv:0,lbl:"~1,000",st:"contacted police"},{alive:590,surv:0,lbl:"~590",st:"cases charge-sheeted"},{alive:46,surv:0,lbl:"~46",st:"reached trial"},{alive:2,surv:2,lbl:"2",st:"convictions — from 10,000"}];
+function drawDots(){
+  for(let i=0;i<TOT;i++){const d=dotTgt[i]-dotOp[i];if(Math.abs(d)>.001)dotOp[i]+=d*.07;else dotOp[i]=dotTgt[i];}
+  ctx.clearRect(0,0,COLS*CELL,ROWS*CELL);
+  for(let i=0;i<TOT;i++){const op=dotOp[i];if(op<.01)continue;ctx.globalAlpha=op;const c=i%COLS,r=Math.floor(i/COLS);if(dotSt[i]===1)ctx.fillStyle="#e84060";else if(dotSt[i]===2)ctx.fillStyle="#1e1e32";else ctx.fillStyle="#c9a84c";ctx.fillRect(c*CELL+1,r*CELL+1,3,3);}
+  ctx.globalAlpha=1;requestAnimationFrame(drawDots);
+}
+drawDots();
+
+const BC=document.getElementById("backlogCanvas");
+const bdpr=Math.min(window.devicePixelRatio||1,2);
+const BW=580,BH=340;BC.width=BW*bdpr;BC.height=BH*bdpr;BC.style.width=BW+"px";BC.style.height=BH+"px";
+const bctx=BC.getContext("2d");bctx.scale(bdpr,bdpr);
+const YEARS=[2019,2020,2021,2022,2023,2024];
+const FILED=[6766,6220,6341,4762,5191,17544];
+const DISP=[4800,4900,5100,5100,5400,5648];
+const BP={t:40,r:30,b:60,l:70};
+const BCW=BW-BP.l-BP.r,BCH=BH-BP.t-BP.b;
+let bprog=0,btgt=0;
+function drawBacklog(){
+  bctx.clearRect(0,0,BW,BH);
+  const maxV=Math.max(...FILED)*1.15;
+  const xp=i=>BP.l+(i/(YEARS.length-1))*BCW;
+  const yp=v=>BP.t+BCH-(v/maxV)*BCH;
+  const prog=Math.min(bprog,1);
+  bctx.strokeStyle="rgba(30,30,50,.8)";bctx.lineWidth=1;
+  [4000,6000,8000,10000,14000,18000].forEach(v=>{if(v>maxV)return;const y=yp(v);bctx.beginPath();bctx.moveTo(BP.l,y);bctx.lineTo(BP.l+BCW,y);bctx.stroke();bctx.fillStyle="rgba(78,75,96,.7)";bctx.font="10px JetBrains Mono,monospace";bctx.textAlign="right";bctx.fillText(v>=1000?(v/1000)+"k":v,BP.l-8,y+4);});
+  if(prog>.1){bctx.beginPath();bctx.moveTo(xp(0),yp(FILED[0]));FILED.slice(1).forEach((v,i)=>bctx.lineTo(xp(i+1),yp(v)));DISP.slice().reverse().forEach((v,i)=>bctx.lineTo(xp(YEARS.length-1-i),yp(v)));bctx.closePath();bctx.fillStyle="rgba(196,30,58,"+(0.15+prog*.1)+")";bctx.fill();}
+  bctx.beginPath();bctx.strokeStyle="#e84060";bctx.lineWidth=2.5;bctx.lineJoin="round";
+  for(let i=0;i<YEARS.length;i++){const t=prog*(YEARS.length-1);if(i===0)bctx.moveTo(xp(0),yp(FILED[0]));else if(i<=t){const p=Math.min(1,t-i+1);bctx.lineTo(xp(i-1+p),yp(FILED[i-1])+(yp(FILED[i])-yp(FILED[i-1]))*p);}}
+  bctx.stroke();
+  bctx.beginPath();bctx.strokeStyle="var(--gold)";bctx.lineWidth=2;bctx.setLineDash([5,3]);
+  for(let i=0;i<YEARS.length;i++){const t=prog*(YEARS.length-1);if(i===0)bctx.moveTo(xp(0),yp(DISP[0]));else if(i<=t)bctx.lineTo(xp(i),yp(DISP[i]));}
+  bctx.stroke();bctx.setLineDash([]);
+  YEARS.forEach((yr,i)=>{if(i/(YEARS.length-1)<prog*.99){bctx.beginPath();bctx.arc(xp(i),yp(FILED[i]),5,0,Math.PI*2);bctx.fillStyle="#e84060";bctx.fill();bctx.strokeStyle="#06060e";bctx.lineWidth=2;bctx.stroke();bctx.fillStyle="#e8e3da";bctx.font="10px JetBrains Mono,monospace";bctx.textAlign="center";bctx.fillText(FILED[i]>=1000?(FILED[i]/1000).toFixed(1)+"k":FILED[i],xp(i),yp(FILED[i])-10);bctx.fillStyle="rgba(78,75,96,.8)";bctx.fillText(yr,xp(i),BP.t+BCH+20);}});
+  bctx.fillStyle="rgba(200,30,58,.8)";bctx.font="bold 10px JetBrains Mono,monospace";bctx.textAlign="left";bctx.fillText("Cases Filed",BP.l,BP.t-10);bctx.fillStyle="rgba(201,168,76,.8)";bctx.fillText("Cases Disposed",BP.l+100,BP.t-10);
+  if(prog>.88){bctx.fillStyle="rgba(200,30,58,.85)";bctx.font="bold 10px JetBrains Mono,monospace";bctx.textAlign="right";bctx.fillText("+12,000/yr net backlog growth",BP.l+BCW,BP.t+BCH/2);}
+  bprog+=(btgt-bprog)*.04;if(Math.abs(btgt-bprog)>.001)requestAnimationFrame(drawBacklog);
+}
+drawBacklog();
+
+const SC=document.getElementById("scatterCanvas");
+const sdpr=Math.min(window.devicePixelRatio||1,2);
+const SW=620,SH=420;SC.width=SW*sdpr;SC.height=SH*sdpr;SC.style.width=SW+"px";SC.style.height=SH+"px";
+const sctx=SC.getContext("2d");sctx.scale(sdpr,sdpr);
+const COUNTRIES=[{n:"South Africa",x:3,y:72.2,c:"var(--greenl)",note:"TCCs · No DP"},{n:"UK",x:4.5,y:53.4,c:"var(--gold)",note:"CPS 2024"},{n:"India",x:6,y:27.4,c:"var(--amber)",note:"NCRB 2022"},{n:"Nepal",x:7,y:5,c:"rgba(122,200,160,.8)",note:"Limited data"},{n:"Indonesia",x:8.5,y:2,c:"rgba(180,120,80,.8)",note:"Post-DP surge"},{n:"Bangladesh",x:10,y:.46,c:"#e84060",note:"DP 2020",hi:true}];
+const SP={t:40,r:150,b:60,l:70};const SCW2=SW-SP.l-SP.r,SCH2=SH-SP.t-SP.b;
+let scStep=-1;
+function drawScatter(step){
+  sctx.clearRect(0,0,SW,SH);
+  // Split y-axis: top 60% of chart = 10-80%, bottom 40% = 0-10%
+  // This gives low-conviction countries (BD, Nepal, Indonesia) readable space
+  const SPLIT=0.58; // fraction of chart height for top section (10-80%)
+  function yp(v){
+    if(v>=10){
+      // top section: 10 to 80
+      return SP.t + SCH2*SPLIT*(1-(v-10)/70);
+    } else {
+      // bottom section: 0 to 10 — gets 42% of height
+      const breakY=SP.t+SCH2*SPLIT;
+      return breakY + 28 + (SCH2*(1-SPLIT)-28)*(1-v/10);
+    }
+  }
+  const xp=x=>SP.l+(x/11)*SCW2;
+  // Grid lines
+  sctx.strokeStyle="rgba(42,42,64,.9)";sctx.lineWidth=1;
+  // Top section gridlines
+  [80,60,40,20,10].forEach(v=>{
+    const y=yp(v);
+    sctx.beginPath();sctx.moveTo(SP.l,y);sctx.lineTo(SP.l+SCW2,y);sctx.stroke();
+    sctx.fillStyle="rgba(78,75,96,.75)";sctx.font="10px JetBrains Mono,monospace";sctx.textAlign="right";
+    sctx.fillText(v+"%",SP.l-8,y+4);
   });
+  // Axis break indicator
+  const bY=SP.t+SCH2*SPLIT;
+  sctx.fillStyle="rgba(30,30,48,1)";
+  sctx.fillRect(SP.l-4,bY+2,SCW2+8,24);
+  sctx.strokeStyle="rgba(78,75,96,.4)";sctx.lineWidth=1;
+  sctx.setLineDash([4,3]);
+  sctx.beginPath();sctx.moveTo(SP.l,bY+2);sctx.lineTo(SP.l+SCW2,bY+2);sctx.stroke();
+  sctx.beginPath();sctx.moveTo(SP.l,bY+26);sctx.lineTo(SP.l+SCW2,bY+26);sctx.stroke();
+  sctx.setLineDash([]);
+  // Zigzag break markers on left axis
+  sctx.strokeStyle="rgba(122,117,144,.7)";sctx.lineWidth=1.5;
+  const bx=SP.l-6;
+  sctx.beginPath();sctx.moveTo(bx,bY+4);sctx.lineTo(bx+4,bY+10);sctx.lineTo(bx-2,bY+16);sctx.lineTo(bx+4,bY+22);sctx.stroke();
+  sctx.fillStyle="rgba(78,75,96,.5)";sctx.font="8px JetBrains Mono,monospace";sctx.textAlign="center";
+  sctx.fillText("SCALE",bx+1,bY+14);
+  // Bottom section gridlines: 0,5,10
+  [0,5].forEach(v=>{
+    const y=yp(v);
+    sctx.strokeStyle="rgba(42,42,64,.9)";sctx.lineWidth=1;
+    sctx.beginPath();sctx.moveTo(SP.l,y);sctx.lineTo(SP.l+SCW2,y);sctx.stroke();
+    sctx.fillStyle="rgba(78,75,96,.75)";sctx.font="10px JetBrains Mono,monospace";sctx.textAlign="right";
+    sctx.fillText(v+"%",SP.l-8,y+4);
+  });
+  // Vertical gridlines
+  sctx.strokeStyle="rgba(42,42,64,.5)";
+  [2,4,6,8,10].forEach(x=>{sctx.beginPath();sctx.moveTo(xp(x),SP.t);sctx.lineTo(xp(x),SP.t+SCH2);sctx.stroke();});
+  // Axis labels
+  sctx.fillStyle="rgba(122,117,144,.9)";sctx.font="10px JetBrains Mono,monospace";sctx.textAlign="center";
+  sctx.fillText("← LOWER SEVERITY",xp(2),SP.t+SCH2+38);
+  sctx.fillText("HIGHER SEVERITY →",xp(9),SP.t+SCH2+38);
+  sctx.save();sctx.translate(16,SP.t+SCH2/2);sctx.rotate(-Math.PI/2);
+  sctx.textAlign="center";sctx.fillText("CONVICTION RATE →",0,0);sctx.restore();
+  // Trend line (step>=1)
+  if(step>=1){
+    sctx.beginPath();sctx.strokeStyle="rgba(82,183,136,.15)";sctx.lineWidth=1.5;sctx.setLineDash([6,4]);
+    sctx.moveTo(xp(2),yp(72));sctx.lineTo(xp(11),yp(8));
+    sctx.stroke();sctx.setLineDash([]);
+  }
+  // Draw dots + labels — now all countries have clear space
+  const vis=step===0?2:step===1?4:COUNTRIES.length;
+  COUNTRIES.slice(0,vis).forEach(c=>{
+    const px=xp(c.x),py=yp(c.y);
+    const r=c.hi?11:7;
+    sctx.beginPath();sctx.arc(px,py,r,0,Math.PI*2);
+    sctx.fillStyle=c.c;sctx.fill();
+    if(c.hi){sctx.strokeStyle="rgba(232,64,96,.6)";sctx.lineWidth=2;sctx.stroke();}
+    // Label background box for readability
+    const nameW=c.n.length*6.5+(c.hi?2:0);
+    let lx=px+r+6,ly=py-6,ta="left";
+    // Custom positioning per country
+    if(c.n==="Bangladesh"){lx=px-r-8;ly=py-14;ta="right";}
+    else if(c.n==="Indonesia"){lx=px-r-8;ly=py+6;ta="right";}
+    else if(c.n==="Nepal"){lx=px+r+6;ly=py-14;ta="left";}
+    // Draw label
+    sctx.fillStyle=c.c;
+    sctx.font=(c.hi?"bold 11px":"10px")+" JetBrains Mono,monospace";
+    sctx.textAlign=ta;
+    sctx.fillText(c.n,lx,ly);
+    sctx.fillStyle="rgba(180,175,190,.75)";
+    sctx.font="9px JetBrains Mono,monospace";
+    sctx.fillText(c.y+"% · "+c.note,lx,ly+13);
+  });
+  // Worst corner annotation (step 2)
+  if(step>=2&&vis>=COUNTRIES.length){
+    const bd=COUNTRIES[5];const px=xp(bd.x),py=yp(bd.y);
+    // Dashed lines to axes
+    sctx.strokeStyle="rgba(232,64,96,.35)";sctx.lineWidth=1;sctx.setLineDash([3,3]);
+    sctx.beginPath();sctx.moveTo(px,py+12);sctx.lineTo(px,SP.t+SCH2);sctx.stroke();
+    sctx.beginPath();sctx.moveTo(SP.l,py);sctx.lineTo(px-12,py);sctx.stroke();
+    sctx.setLineDash([]);
+    // Callout box
+    const cx=xp(7.5),cy=yp(3.5);
+    sctx.fillStyle="rgba(196,30,58,.12)";
+    sctx.fillRect(cx-55,cy-14,180,40);
+    sctx.strokeStyle="rgba(232,64,96,.4)";sctx.lineWidth=1;
+    sctx.strokeRect(cx-55,cy-14,180,40);
+    sctx.fillStyle="rgba(232,64,96,.9)";
+    sctx.font="bold 10px JetBrains Mono,monospace";sctx.textAlign="left";
+    sctx.fillText("← WORST CORNER",cx-50,cy+2);
+    sctx.fillStyle="rgba(180,175,190,.7)";
+    sctx.font="9px JetBrains Mono,monospace";
+    sctx.fillText("Max severity + Near-zero certainty",cx-50,cy+16);
+  }
+}
+drawScatter(0);
+
+let clocksDone=false;
+function runClocks(){
+  const aR=document.getElementById("arc-runa"),aA=document.getElementById("arc-avg");
+  const nR=document.getElementById("num-runa"),nA=document.getElementById("num-avg");
+  const dR=document.getElementById("display-runa"),dA=document.getElementById("display-avg");
+  const cap=document.getElementById("clock-caption");
+  aR.style.strokeDashoffset=471.2*(1-56/2349);aA.style.strokeDashoffset=0;
+  let t=0;function tick(){t+=1/60;const rt=Math.min(t/1.5,1),at=Math.min(t/3.5,1);const rv=Math.round(rt*56),av=Math.round(at*2349);nR.textContent=rv;nA.textContent=av;dR.textContent=rv;dA.textContent=av;if(t<3.6)requestAnimationFrame(tick);else{nR.textContent=56;nA.textContent=2349;dR.textContent=56;dA.textContent=2349;cap.style.opacity=1;}}
+  setTimeout(tick,300);
 }
 
-/* ── PROGRESS BAR ── */
-window.addEventListener('scroll', () => {
-  const h = document.documentElement;
-  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
-  document.getElementById('progress').style.width = pct + '%';
-});
-
-/* ── INTERSECTION OBSERVER HELPER ── */
-function onVisible(el, cb, threshold = 0.3) {
-  if (!el) return;
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { cb(e.target); obs.unobserve(e.target); } });
-  }, { threshold });
-  obs.observe(el);
+let invDone=false;
+function runInversion(){
+  const f17=document.getElementById("inv-f17"),frape=document.getElementById("inv-frape");
+  const d17=document.getElementById("inv-d17"),drape=document.getElementById("inv-drape");
+  const fl17=document.getElementById("inv-fl17"),flrape=document.getElementById("inv-flrape");
+  const v17=document.getElementById("inv-v17"),vrape=document.getElementById("inv-vrape");
+  const q=document.getElementById("inv-quote");
+  let t=0;function tick(){t+=1/60;const p=Math.min(t/1.8,1);const days=Math.round(p*56);
+    f17.style.width=(p*100)+"%";frape.style.width=(p*56/2349*100)+"%";
+    d17.textContent=days+" days";drape.textContent=days+" / 2,349 days";
+    if(p>=1&&!f17.style.opacity){fl17.style.opacity=1;fl17.style.transition="opacity .3s";fl17.style.opacity=1;v17.style.opacity=1;}
+    if(t<2.5)requestAnimationFrame(tick);else{flrape.style.opacity=1;vrape.style.opacity=1;setTimeout(()=>q.style.opacity=1,600);}
+  }
+  setTimeout(tick,400);
 }
 
-/* ── COUNTER ANIMATION ── */
-function animateCounter(el, target, duration = 3000, easeOut = true) {
-  const start = performance.now();
-  function tick(now) {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    const eased = easeOut ? 1 - Math.pow(1 - progress, 3) : progress;
-    el.textContent = Math.round(eased * target).toLocaleString();
-    if (progress < 1) requestAnimationFrame(tick);
-    else el.textContent = target.toLocaleString();
-  }
-  requestAnimationFrame(tick);
-}
+let forensicDone=false;
+function runForensic(){document.getElementById("ev-bio").style.width="100%";document.getElementById("ev-mem").style.width="100%";document.getElementById("ev-med").style.width="100%";}
 
-/* ══════════════════════════════════════
-   SCENE 01 — CANVAS FROST SEAL
-══════════════════════════════════════ */
-(function() {
-  const canvas = document.getElementById('s01-canvas');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  let w, h, progress = 0;
+let rStep=-1;
+function runRace(s){if(s===rStep)return;rStep=s;const targets={sa:72.2,uk:53.4,in:27.4,bd:.46};const n=s===0?0:s===1?1:s===2?3:4;["sa","uk","in","bd"].slice(0,n).forEach(id=>{const b=document.getElementById("rb-"+id);if(b)b.style.width=targets[id]+"%";});const rn=document.getElementById("race-note2");if(rn)rn.style.opacity=s>=3?"1":"0";}
 
-  function resize() {
-    w = canvas.width = canvas.offsetWidth;
-    h = canvas.height = canvas.offsetHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
+let mapSt=-1;
+const mapDivs=["rangpur","mym","sylhet","raj","dhaka","ctg","khulna","barishal"];
+function updateMap(s){if(s===mapSt)return;mapSt=s;mapDivs.forEach(d=>{const el=document.getElementById("div-"+d);if(el)el.style.opacity=s>=0?"1":"0";});for(let i=1;i<=14;i++){const el=document.getElementById("occ"+i);if(el)el.classList.toggle("vis",s>=2);}const p=document.getElementById("barishal-pulse");if(p){if(s>=4){p.style.opacity="1";p.style.animation="vpulse 2s ease-in-out infinite";}else{p.style.opacity="0";p.style.animation="none";}}}
+function showMapInfo(name,ipv,occ,desc){const el=document.getElementById("map-info");if(!el)return;el.innerHTML="<strong style=color:var(--gold)>"+name+"</strong> &middot; <strong style=color:var(--bloodl)>"+ipv+"</strong> lifetime IPV &middot; <span style=color:var(--amberl)>"+occ+"</span><br><span style=color:var(--muted)>"+desc+"</span>";}
 
-  function draw(p) {
-    ctx.clearRect(0, 0, w, h);
-    if (p <= 0) return;
+function showVoids(n){for(let i=0;i<10;i++){const el=document.getElementById("void-"+i);if(el)el.classList.toggle("vis",i<=n);}const c=document.getElementById("void-conclusion");if(c)c.style.opacity=n>=9?"1":"0";}
 
-    // Frost expands from bottom-center (mouth area ~65% down)
-    const cx = w * 0.5, cy = h * 0.65;
-    const maxR = Math.max(w, h) * 1.2;
-    const r = maxR * p;
+setTimeout(()=>["hs1","hs2","hs3","hs4"].forEach((id,i)=>setTimeout(()=>{const el=document.getElementById(id);if(el)el.classList.add("vis");},i*500)),600);
+// On mobile: first step of each scene starts active, steps never fully fade
+if(window.innerWidth<768){document.querySelectorAll(".step").forEach(el=>el.style.opacity="1");}
+setTimeout(()=>{const t=document.getElementById("htitle");if(t)t.classList.add("vis");const s=document.getElementById("hsub");if(s)s.classList.add("vis");},2200);
 
-    // Radial gradient frost overlay - grows from mouth outward
-    const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
-    grad.addColorStop(0, `rgba(6,6,14,0)`);
-    grad.addColorStop(0.4, `rgba(6,6,14,${p * 0.15})`);
-    grad.addColorStop(0.85, `rgba(6,6,14,${p * 0.55})`);
-    grad.addColorStop(1, `rgba(6,6,14,${p * 0.85})`);
+const navLinks=document.querySelectorAll(".nav-scenes a");
+window.addEventListener("scroll",()=>{let cur="";document.querySelectorAll("section[id]").forEach(s=>{if(window.scrollY>=s.offsetTop-100)cur=s.id;});navLinks.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+cur));},{passive:true});
 
-    ctx.fillStyle = grad;
-    ctx.fillRect(0, 0, w, h);
+let scSt=-1;
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("active");const sc=e.target.dataset.scene,st=parseInt(e.target.dataset.step);
+    if(sc==="funnel"){const fs=FSTEPS[st]||FSTEPS[0];setDotStep(fs.alive,fs.surv);const c=document.getElementById("dot-count"),s2=document.getElementById("dot-status");if(c)c.textContent=fs.lbl;if(s2)s2.textContent=fs.st;}
+    if(sc==="inversion"&&!invDone&&st>=1){invDone=true;runInversion();}
+    if(sc==="race")runRace(st);
+    if(sc==="backlog"){const targets=[.1,.4,.75,1];btgt=targets[st]||.1;requestAnimationFrame(drawBacklog);}
+    if(sc==="mapscene")updateMap(st);
+    if(sc==="scatter"&&st!==scSt){scSt=st;drawScatter(st);}
+  }else e.target.classList.remove("active");});
+},{rootMargin:"-35% 0px -35% 0px"});
+document.querySelectorAll("[data-step]").forEach(el=>io.observe(el));
 
-    // Subtle frost crystals at the seal edge
-    if (p > 0.2) {
-      ctx.save();
-      ctx.globalAlpha = (p - 0.2) * 0.4;
-      ctx.strokeStyle = 'rgba(200,190,255,0.3)';
-      ctx.lineWidth = .5;
-      for (let i = 0; i < 24; i++) {
-        const angle = (i / 24) * Math.PI * 2;
-        const er = r * 0.82;
-        const x = cx + Math.cos(angle) * er;
-        const y = cy + Math.sin(angle) * er;
-        ctx.beginPath();
-        ctx.moveTo(x, y);
-        ctx.lineTo(x + Math.cos(angle) * 8, y + Math.sin(angle) * 8);
-        ctx.stroke();
-      }
-      ctx.restore();
-    }
-  }
+// void observer handled below
 
-  // ScrollTrigger for Scene 01
-  gsap.registerPlugin(ScrollTrigger);
-  ScrollTrigger.create({
-    trigger: '#scene-01',
-    start: 'top top',
-    end: 'bottom bottom',
-    onUpdate: self => {
-      progress = self.progress;
-      draw(Math.min(progress * 2.5, 1));
+new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting&&!clocksDone){clocksDone=true;runClocks();}});},{threshold:.1}).observe(document.getElementById("s2")||document.body);
+new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting&&!forensicDone){forensicDone=true;runForensic();}});},{threshold:.3}).observe(document.getElementById("sdna")||document.body);
 
-      // Show stat when 30% scrolled
-      if (progress > 0.3) {
-        document.getElementById('s01-stat').classList.add('visible');
-        document.getElementById('s01-bn').style.opacity = '1';
-        document.getElementById('s01-en').style.opacity = '1';
-      }
-    }
-  });
-})();
+function dlCSV(e){e.preventDefault();const rows=[["Source","Figure","N_D","Tier"],["BRAC 2022","3.66% conviction rate","36/984","CONFIRMED"],["OCC 2001-2024","0.46% conviction rate","310/66711","CONFIRMED"],["PBI 2025","41% cases closed unproven","4248/10581","CONFIRMED"],["UNFPA 2024","76.0% national lifetime IPV","27476 women","CONFIRMED"],["UNFPA 2024","81.5% IPV Barishal","","CONFIRMED"],["UNFPA 2024","81.3% IPV Khulna","","CONFIRMED"],["UNFPA 2024","78.5% IPV Chattogram","","CONFIRMED"],["UNFPA 2024","72.7% IPV Sylhet","","CONFIRMED"],["UNFPA 2024","72.9% IPV Dhaka","","CONFIRMED"],["PHQ 2025","~150k cases pending","","CONFIRMED"],["NFDPL 2025","92% DNA samples unprocessed","1204/1304","CONFIRMED"],["Prothom Alo 2023","Runa Akhter S17 conviction 56 days","1 case","CONFIRMED"],["NPA SA 2023/24","72.2% conviction rate","trial-stage","CONFIRMED"],["BRAC 2022","2 DNA machines nationally","","CONFIRMED"]];const csv=rows.map(r=>r.map(c=>'"'+c+'"').join(",")).join("\n");const a=document.createElement("a");a.href="data:text/csv;charset=utf-8,"+encodeURIComponent(csv);a.download="BD-INV-002-evidence-export.csv";a.click();}
 
-/* ══════════════════════════════════════
-   SCENE 02 — PARTICLE FUNNEL
-══════════════════════════════════════ */
-(function() {
-  const canvas = document.getElementById('s02-canvas-overlay');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  let w, h;
-
-  function resize() {
-    w = canvas.width = canvas.offsetWidth;
-    h = canvas.height = canvas.offsetHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  // 300 particles representing cases
-  const TOTAL = 300;
-  const particles = [];
-
-  // Gates: [y-position as fraction, survival-rate]
-  const gates = [
-    { y: 0.25, survive: 0.38 },  // 62% silent
-    { y: 0.40, survive: 0.10 },  // only 10% reach police
-    { y: 0.55, survive: 0.59 },  // 41% closed
-    { y: 0.70, survive: 0.40 },  // trial attrition
-    { y: 0.85, survive: 0.046 }, // conviction rate
-  ];
-
-  // Initialize particles at top
-  for (let i = 0; i < TOTAL; i++) {
-    particles.push({
-      x: (Math.random() * 0.7 + 0.15),
-      y: Math.random() * 0.06,
-      alive: true,
-      alpha: 1,
-      r: 2.5,
-      vy: 0.0008 + Math.random() * 0.0006,
-      color: `hsl(${30 + Math.random() * 20},70%,${55 + Math.random() * 15}%)`,
-      eliminated: false,
-      elimY: 0,
-      elimAlpha: 0,
-    });
-  }
-
-  function draw(scrollProgress) {
-    ctx.clearRect(0, 0, w, h);
-
-    // How far through the funnel are we (0→1)
-    const funnelDepth = Math.min(scrollProgress * 5, 1);
-
-    particles.forEach((p, idx) => {
-      // Move particle down
-      const targetY = Math.min(p.y + funnelDepth * 0.9, 0.98);
-
-      // Apply funnel narrowing: x converges to center at lower y
-      const narrowing = targetY * 0.35;
-      const funnelX = p.x * (1 - narrowing) + 0.5 * narrowing;
-
-      // Check gates
-      let alive = true;
-      for (let g = 0; g < gates.length; g++) {
-        if (targetY > gates[g].y && !p.eliminated) {
-          // Deterministically eliminate based on particle index
-          const threshold = gates[g].survive;
-          const groupSize = TOTAL;
-          // Use particle index to decide: keep the top (survive*100)% of particles
-          // Sort by index within each gate group
-          const sortedAliveIdx = particles
-            .filter(pp => !pp.eliminated)
-            .map((pp, ii) => ii);
-          // Simple: eliminate if random val > survive rate
-          if ((idx % 100) / 100 >= threshold * (g + 1) * 0.8) {
-            p.eliminated = true;
-            p.elimY = targetY;
-          }
-        }
-        if (p.eliminated && !alive) break;
-      }
-
-      if (p.eliminated) {
-        // Fade out eliminated particles
-        p.elimAlpha = Math.max(0, 1 - (funnelDepth - p.elimY) * 8);
-        if (p.elimAlpha <= 0) return;
-
-        ctx.save();
-        ctx.globalAlpha = p.elimAlpha * 0.6;
-        ctx.fillStyle = '#e84060';
-        ctx.beginPath();
-        ctx.arc(funnelX * w, p.elimY * h, p.r * .8, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.restore();
-        return;
-      }
-
-      // Draw alive particle
-      ctx.save();
-      ctx.globalAlpha = 0.7;
-      ctx.fillStyle = p.color;
-      ctx.shadowBlur = 4;
-      ctx.shadowColor = p.color;
-      ctx.beginPath();
-      ctx.arc(funnelX * w, targetY * h, p.r, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.restore();
-    });
-
-    // Draw funnel guide lines
-    ctx.save();
-    ctx.strokeStyle = 'rgba(201,168,76,0.12)';
-    ctx.lineWidth = 1;
-    const fTop = 0.02, fBotLeft = 0.5 - 0.02, fBotRight = 0.5 + 0.02;
-    ctx.beginPath();
-    ctx.moveTo(0.15 * w, fTop * h);
-    ctx.lineTo(fBotLeft * w, 0.9 * h);
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.moveTo(0.85 * w, fTop * h);
-    ctx.lineTo(fBotRight * w, 0.9 * h);
-    ctx.stroke();
-    ctx.restore();
-  }
-
-  ScrollTrigger.create({
-    trigger: '#scene-02',
-    start: 'top top',
-    end: 'bottom bottom',
-    onUpdate: self => {
-      draw(self.progress);
-
-      // Reveal funnel steps sequentially
-      const p = self.progress;
-      const steps = ['fs1','fs2','fs3','fs4','fs5'];
-      steps.forEach((id, i) => {
-        const el = document.getElementById(id);
-        if (el && p > (i + 1) * 0.12) el.classList.add('visible');
-      });
-      const ff = document.getElementById('funnel-final');
-      if (ff && p > 0.75) ff.classList.add('visible');
-    }
-  });
-})();
-
-/* ══════════════════════════════════════
-   SCENE 03 — WAIT COUNTER
-══════════════════════════════════════ */
-(function() {
-  let counted = false;
-  let maguraShown = false;
-
-  ScrollTrigger.create({
-    trigger: '#scene-03',
-    start: 'top top',
-    end: 'bottom bottom',
-    onUpdate: self => {
-      const p = self.progress;
-
-      if (p > 0.2 && !counted) {
-        counted = true;
-        animateCounter(document.getElementById('wait-counter'), 2349, 4000);
-      }
-
-      if (p > 0.65 && !maguraShown) {
-        maguraShown = true;
-        const el = document.getElementById('magura-contrast');
-        if (el) el.classList.add('visible');
-      }
-    }
-  });
-})();
-
-/* ══════════════════════════════════════
-   SCENE 04 — CAPITAL PARALLAX
-══════════════════════════════════════ */
-(function() {
-  let textShown = false;
-  ScrollTrigger.create({
-    trigger: '#scene-04',
-    start: 'top top',
-    end: 'bottom bottom',
-    onUpdate: self => {
-      // Subtle parallax zoom
-      const scale = 1 + self.progress * 0.08;
-      const bg = document.getElementById('s04-bg');
-      if (bg) bg.style.transform = `scale(${scale})`;
-
-      if (self.progress > 0.25 && !textShown) {
-        textShown = true;
-        document.getElementById('s04-text1').classList.add('visible');
-        document.getElementById('s04-text2').classList.add('visible');
-      }
-    }
-  });
-})();
-
-/* ══════════════════════════════════════
-   SCENE 05 — GEOGRAPHY REVEAL
-══════════════════════════════════════ */
-(function() {
-  let revealed = false;
-  ScrollTrigger.create({
-    trigger: '#scene-05',
-    start: 'top 70%',
-    onEnter: () => {
-      if (revealed) return;
-      revealed = true;
-      setTimeout(() => {
-        const bg = document.getElementById('s05-bg');
-        if (bg) bg.classList.add('revealed');
-        setTimeout(() => {
-          const block = document.getElementById('geo-block');
-          if (block) block.classList.add('visible');
-        }, 1500);
-      }, 300);
-    }
-  });
-})();
-
-/* ══════════════════════════════════════
-   SCENE 06 — SURGE + WEBGL DISTORTION
-══════════════════════════════════════ */
-(function() {
-  const canvas = document.getElementById('s06-canvas');
-  if (!canvas) return;
-
-  // WebGL displacement shader
-  const gl = canvas.getContext('webgl');
-  if (!gl) {
-    // Fallback: no WebGL, just show image
-    return;
-  }
-
-  let w, h;
-  function resize() {
-    w = canvas.width = canvas.offsetWidth;
-    h = canvas.height = canvas.offsetHeight;
-    gl.viewport(0, 0, w, h);
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  // Vertex shader
-  const vsSource = `
-    attribute vec2 a_pos;
-    varying vec2 v_uv;
-    void main(){
-      v_uv = a_pos * 0.5 + 0.5;
-      gl_Position = vec4(a_pos, 0.0, 1.0);
-    }
-  `;
-
-  // Fragment shader — heat distortion
-  const fsSource = `
-    precision mediump float;
-    varying vec2 v_uv;
-    uniform float u_time;
-    uniform float u_intensity;
-    uniform sampler2D u_tex;
-
-    float noise(vec2 p) {
-      return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
-    }
-    float smoothNoise(vec2 p) {
-      vec2 i = floor(p);
-      vec2 f = fract(p);
-      f = f * f * (3.0 - 2.0 * f);
-      float a = noise(i);
-      float b = noise(i + vec2(1.0, 0.0));
-      float c = noise(i + vec2(0.0, 1.0));
-      float d = noise(i + vec2(1.0, 1.0));
-      return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);
-    }
-
-    void main(){
-      float n = smoothNoise(v_uv * 4.0 + u_time * 0.3);
-      float n2 = smoothNoise(v_uv * 8.0 - u_time * 0.2);
-      vec2 distort = vec2(n - 0.5, n2 - 0.5) * u_intensity * 0.04;
-      vec2 uv = v_uv + distort;
-      uv = clamp(uv, 0.0, 1.0);
-      gl_FragColor = texture2D(u_tex, uv);
-    }
-  `;
-
-  function compileShader(src, type) {
-    const s = gl.createShader(type);
-    gl.shaderSource(s, src);
-    gl.compileShader(s);
-    return s;
-  }
-
-  const prog = gl.createProgram();
-  gl.attachShader(prog, compileShader(vsSource, gl.VERTEX_SHADER));
-  gl.attachShader(prog, compileShader(fsSource, gl.FRAGMENT_SHADER));
-  gl.linkProgram(prog);
-  gl.useProgram(prog);
-
-  const buf = gl.createBuffer();
-  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
-  const aPos = gl.getAttribLocation(prog, 'a_pos');
-  gl.enableVertexAttribArray(aPos);
-  gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
-
-  const uTime = gl.getUniformLocation(prog, 'u_time');
-  const uIntensity = gl.getUniformLocation(prog, 'u_intensity');
-  const uTex = gl.getUniformLocation(prog, 'u_tex');
-
-  // Load texture
-  const texture = gl.createTexture();
-  const img = new Image();
-  img.crossOrigin = 'anonymous';
-  img.onload = () => {
-    gl.bindTexture(gl.TEXTURE_2D, texture);
-    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-    startRender();
-  };
-  img.onerror = () => {
-    // If texture fails, just hide canvas, image shows through
-    canvas.style.display = 'none';
-  };
-  img.src = 'images/impunity-machine/scene-06-surge.png';
-
-  let intensity = 0;
-  let rafId;
-  function startRender() {
-    function loop(t) {
-      gl.uniform1f(uTime, t * 0.001);
-      gl.uniform1f(uIntensity, intensity);
-      gl.uniform1i(uTex, 0);
-      gl.clearColor(0,0,0,0);
-      gl.clear(gl.COLOR_BUFFER_BIT);
-      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-      rafId = requestAnimationFrame(loop);
-    }
-    requestAnimationFrame(loop);
-  }
-
-  let h1Shown = false, statsShown = false;
-  ScrollTrigger.create({
-    trigger: '#scene-06',
-    start: 'top top',
-    end: 'bottom bottom',
-    onUpdate: self => {
-      intensity = self.progress * 2.5;
-
-      if (self.progress > 0.2 && !h1Shown) {
-        h1Shown = true;
-        document.getElementById('s06-h1').classList.add('visible');
-        document.getElementById('s06-h2').classList.add('visible');
-      }
-      if (self.progress > 0.45 && !statsShown) {
-        statsShown = true;
-        ['ss1','ss2','ss3'].forEach((id, i) => {
-          setTimeout(() => {
-            const el = document.getElementById(id);
-            if (el) el.classList.add('visible');
-          }, i * 200);
+// Fix void observer — observe entire section, trigger all cards with stagger
+(function(){
+  const s7=document.getElementById("s7");
+  if(!s7)return;
+  let triggered=false;
+  new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting&&!triggered){
+        triggered=true;
+        document.querySelectorAll(".void-card").forEach((el,i)=>{
+          setTimeout(()=>el.classList.add("vis"),i*110);
         });
+        setTimeout(()=>{const c=document.getElementById("void-conclusion");if(c)c.style.opacity="1";},10*110+400);
       }
-    }
-  });
+    });
+  },{threshold:0.05}).observe(s7);
 })();
-
-/* ══════════════════════════════════════
-   SCENE 07 — RECKONING PARALLAX
-══════════════════════════════════════ */
-(function() {
-  let linesShown = [false, false, false];
-  let trackerShown = false;
-
-  ScrollTrigger.create({
-    trigger: '#scene-07',
-    start: 'top top',
-    end: 'bottom bottom',
-    onUpdate: self => {
-      const p = self.progress;
-
-      // Parallax on background
-      const bg = document.getElementById('s07-bg');
-      if (bg) bg.style.transform = `translateY(${p * -60}px)`;
-
-      // Reveal text lines sequentially
-      const thresholds = [0.15, 0.35, 0.55];
-      thresholds.forEach((t, i) => {
-        if (p > t && !linesShown[i]) {
-          linesShown[i] = true;
-          const el = document.getElementById(`rl${i+1}`);
-          if (el) el.classList.add('visible');
-        }
-      });
-
-      if (p > 0.7 && !trackerShown) {
-        trackerShown = true;
-        document.getElementById('tracker-link').classList.add('visible');
-        document.getElementById('full-report-link').classList.add('visible');
-      }
-    }
-  });
-})();
-
-/* ══════════════════════════════════════
-   RESIZE ALL CANVASES
-══════════════════════════════════════ */
-window.addEventListener('resize', () => {
-  ScrollTrigger.refresh();
-});
-
 </script>
 </body>
 </html>
