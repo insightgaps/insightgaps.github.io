@@ -7,1348 +7,1319 @@
 <meta name="description" content="310 convictions. 23 years. 66,711 women. A visual investigation into Bangladesh's rape justice crisis.">
 <link rel="icon" href="/favicon.png" type="image/png">
 <meta property="og:title" content="The Impunity Machine — Visual Investigation">
-<meta property="og:description" content="23 years. 66,711 women. 310 convictions. Bangladesh's rape justice crisis — visual investigation by Insight Gaps.">
+<meta property="og:description" content="23 years. 66,711 women. 310 convictions. Bangladesh's rape justice crisis.">
 <meta property="og:image" content="https://www.insightgaps.com/investigations/national/images/impunity-machine/scene-01-silence.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-/* ═══════════════════════════════════════
+
+/* ═══════════════════════════
    TOKENS
-═══════════════════════════════════════ */
+═══════════════════════════ */
 :root {
   --ink:    #06060e;
-  --ink2:   #0a0a14;
+  --ink2:   #0b0b16;
   --blood:  #c41e3a;
   --bloodl: #e84060;
   --gold:   #c9a84c;
-  --gold2:  #9a7e36;
   --text:   #ede8df;
   --text2:  #c2bdb3;
   --muted:  #7a7590;
-  --dim:    #3a384e;
+  --dim:    #2e2c40;
   --border: #1e1e32;
-  --mono:   'JetBrains Mono','Courier New',monospace;
-  --serif:  'Playfair Display',Georgia,serif;
-  --bn:     'Hind Siliguri',sans-serif;
+  --mono:   'JetBrains Mono', 'Courier New', monospace;
+  --serif:  'Playfair Display', Georgia, serif;
+  --bn:     'Hind Siliguri', sans-serif;
 }
 
-*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
-html { font-size:16px; scroll-behavior:smooth; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
 body {
-  background:var(--ink);
-  color:var(--text);
-  font-family:var(--bn);
-  overflow-x:hidden;
-  -webkit-font-smoothing:antialiased;
+  background: var(--ink);
+  color: var(--text);
+  font-family: var(--bn);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
-a { color:var(--gold); text-decoration:none; }
+a { color: var(--gold); text-decoration: none; transition: color .2s; }
+a:hover { color: var(--text); }
 
-/* ═══════════════════════════════════════
-   LANGUAGE
-═══════════════════════════════════════ */
-[data-lang="en"] .bn { display:none !important; }
-[data-lang="bn"] .en { display:none !important; }
+/* ═══════════════════════════
+   LANGUAGE SYSTEM
+═══════════════════════════ */
+[data-lang="en"] .bn { display: none !important; }
+[data-lang="bn"] .en { display: none !important; }
 
-/* ═══════════════════════════════════════
-   FIXED UI
-═══════════════════════════════════════ */
+/* ═══════════════════════════
+   FIXED CHROME
+═══════════════════════════ */
 #progress {
-  position:fixed; top:0; left:0; height:2px; width:0%;
-  background:linear-gradient(90deg,var(--blood),var(--gold));
-  z-index:9999; transition:width .08s linear;
-  box-shadow:0 0 8px rgba(196,30,58,.5);
+  position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+  background: linear-gradient(90deg, var(--blood), var(--gold));
+  z-index: 9999; transition: width .08s linear;
+  box-shadow: 0 0 8px rgba(196,30,58,.4);
 }
-#top-bar {
-  position:fixed; top:0; left:0; right:0; z-index:900;
-  display:flex; align-items:center; justify-content:space-between;
-  padding:.7rem 1.5rem; background:rgba(6,6,14,.0);
-  transition:background .4s;
-  pointer-events:none;
+#chrome {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 800;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .8rem 1.5rem;
+  background: rgba(6,6,14,0);
+  transition: background .4s, backdrop-filter .4s;
 }
-#top-bar.scrolled { background:rgba(6,6,14,.92); backdrop-filter:blur(16px); }
+#chrome.solid {
+  background: rgba(6,6,14,.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
 #back-link {
-  font-family:var(--mono); font-size:.65rem; letter-spacing:.12em;
-  text-transform:uppercase; color:var(--muted);
-  display:flex; align-items:center; gap:.4rem;
-  pointer-events:all; transition:color .2s;
-  border:1px solid transparent; padding:.3rem .7rem;
+  font-family: var(--mono); font-size: .65rem; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--muted);
+  padding: .3rem .7rem; border: 1px solid transparent;
+  transition: all .2s;
 }
-#back-link:hover { color:var(--gold); border-color:rgba(201,168,76,.2); }
-#lang-toggle {
-  display:flex; border:1px solid var(--border);
-  pointer-events:all;
-}
+#back-link:hover { color: var(--gold); border-color: rgba(201,168,76,.25); }
+#lang-wrap { display: flex; border: 1px solid var(--border); }
 .lbtn {
-  font-family:var(--mono); font-size:.62rem; letter-spacing:.1em;
-  text-transform:uppercase; padding:.32rem .85rem;
-  background:transparent; border:none; color:var(--muted);
-  cursor:pointer; transition:all .2s;
+  font-family: var(--mono); font-size: .62rem; letter-spacing: .1em;
+  text-transform: uppercase; padding: .32rem .85rem;
+  background: transparent; border: none; color: var(--muted);
+  cursor: pointer; transition: all .2s;
 }
-.lbtn.on { color:var(--text); background:rgba(196,30,58,.22); }
+.lbtn.on { color: var(--text); background: rgba(196,30,58,.25); }
 
-/* ═══════════════════════════════════════
-   SCENE SHELL — shared
-═══════════════════════════════════════ */
+/* ═══════════════════════════
+   SCENE LAYOUT
+═══════════════════════════ */
 .scene {
-  position:relative;
-  min-height:100vh;
-  display:flex; align-items:center; justify-content:center;
-  overflow:hidden;
+  position: relative;
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
 }
+/* bg image: NOT loaded inline — JS adds it lazily */
 .scene-bg {
-  position:absolute; inset:0;
-  background-size:cover; background-position:center;
-  background-repeat:no-repeat;
-  opacity:0; /* loaded lazily, revealed on entry */
-  filter:blur(4px);
-  transform:scale(1.04);
-  transition:opacity 2s ease, transform 2s ease;
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  filter: blur(3px);
+  transition: opacity 1.8s ease;
+  pointer-events: none;
 }
-.scene-bg.loaded { opacity:.13; transform:scale(1); }
-.scene-bg.bright { opacity:.22; }
-.scene-overlay {
-  position:absolute; inset:0;
-  background:radial-gradient(ellipse 80% 60% at 50% 100%,
-    rgba(6,6,14,.7) 0%, rgba(6,6,14,.1) 100%);
-}
+.scene-bg.show { opacity: .14; }
+.scene-bg.bright { opacity: .25; }
+
 .scene-inner {
-  position:relative; z-index:10;
-  width:100%; max-width:960px;
-  margin:0 auto; padding:5rem 2rem;
-  text-align:center;
+  position: relative; z-index: 10;
+  width: 100%; max-width: 880px;
+  margin: 0 auto; padding: 6rem 2rem 5rem;
+  text-align: center;
 }
-.scene-num {
-  font-family:var(--mono); font-size:.6rem; letter-spacing:.25em;
-  text-transform:uppercase; color:var(--dim);
-  display:block; margin-bottom:1.5rem;
+.scene-tag {
+  font-family: var(--mono); font-size: .58rem; letter-spacing: .25em;
+  text-transform: uppercase; color: var(--dim);
+  display: block; margin-bottom: 2rem;
 }
 
-/* ═══════════════════════════════════════
-   REVEAL STATES — all animations
-═══════════════════════════════════════ */
-.r {
-  opacity:0;
-  transform:translateY(18px);
-  transition:opacity .9s ease, transform .9s ease;
+/* ═══════════════════════════
+   ANIMATION SYSTEM
+   Elements are VISIBLE by default.
+   Class 'anim' marks them for animation.
+   JS adds 'was-hidden' BEFORE first paint,
+   then adds 'visible' when in viewport.
+   If JS fails → everything visible always.
+═══════════════════════════ */
+.anim {
+  /* default: fully visible — JS overrides */
 }
-.r.in { opacity:1; transform:none; }
-.r.d1 { transition-delay:.15s; }
-.r.d2 { transition-delay:.35s; }
-.r.d3 { transition-delay:.55s; }
-.r.d4 { transition-delay:.75s; }
-.r.d5 { transition-delay:.95s; }
-.r.d6 { transition-delay:1.15s; }
-.r.d7 { transition-delay:1.35s; }
-
-/* scale-in variant */
-.r-scale {
-  opacity:0; transform:scale(.88);
-  transition:opacity 1.1s ease, transform 1.1s cubic-bezier(.2,.8,.3,1);
+.anim.will-hide {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .85s ease, transform .85s ease;
 }
-.r-scale.in { opacity:1; transform:scale(1); }
+.anim.will-hide.visible {
+  opacity: 1;
+  transform: none;
+}
+/* stagger delays */
+.anim.dl1 { transition-delay: .1s; }
+.anim.dl2 { transition-delay: .25s; }
+.anim.dl3 { transition-delay: .42s; }
+.anim.dl4 { transition-delay: .60s; }
+.anim.dl5 { transition-delay: .80s; }
+.anim.dl6 { transition-delay: 1.0s; }
 
-/* ═══════════════════════════════════════
+/* scale variant */
+.anim-scale.will-hide {
+  opacity: 0; transform: scale(.9);
+  transition: opacity 1s ease, transform 1s cubic-bezier(.2,.8,.3,1);
+}
+.anim-scale.will-hide.visible {
+  opacity: 1; transform: scale(1);
+}
+
+/* ═══════════════════════════
    SCENE 00 — TITLE
-═══════════════════════════════════════ */
+═══════════════════════════ */
 #s00 {
-  min-height:100vh;
-  background:var(--ink);
-  flex-direction:column;
+  min-height: 100vh;
+  background: var(--ink);
+  flex-direction: column;
+  padding-top: 4rem;
 }
 #s00::before {
-  content:'';
-  position:absolute; inset:0;
-  background:
-    radial-gradient(ellipse 50% 35% at 50% 45%,rgba(196,30,58,.055),transparent 65%),
-    radial-gradient(ellipse 70% 20% at 50% 90%,rgba(6,6,14,1),transparent);
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 55% 40% at 50% 45%,
+    rgba(196,30,58,.05), transparent 70%);
+  pointer-events: none;
 }
-.s00-bureau {
-  font-family:var(--mono); font-size:.65rem; letter-spacing:.3em;
-  text-transform:uppercase; color:var(--blood);
-  margin-bottom:2.5rem;
+.t-bureau {
+  font-family: var(--mono); font-size: .62rem; letter-spacing: .28em;
+  text-transform: uppercase; color: var(--blood); margin-bottom: 3rem;
 }
-.s00-opening-bn {
-  font-family:var(--bn); font-size:clamp(1rem,2.5vw,1.4rem);
-  font-weight:400; color:var(--muted);
-  line-height:1.8; margin-bottom:1.2rem;
-  letter-spacing:.02em;
+.t-line {
+  margin-bottom: .6rem;
 }
-.s00-num {
-  font-family:var(--mono); font-size:clamp(4.5rem,14vw,11rem);
-  font-weight:700; color:var(--bloodl); line-height:.9;
-  letter-spacing:-.04em; display:block;
-  text-shadow:0 0 80px rgba(232,64,96,.2);
+.t-small {
+  font-family: var(--mono); font-size: clamp(.8rem, 1.8vw, 1rem);
+  letter-spacing: .06em; color: var(--muted);
 }
-.s00-num-label {
-  font-family:var(--serif); font-style:italic;
-  font-size:clamp(1.4rem,4vw,2.8rem);
-  font-weight:700; color:var(--text);
-  line-height:1.1; margin-top:.4rem;
+.t-small.bn { font-family: var(--bn); letter-spacing: 0; font-size: clamp(.9rem, 2vw, 1.1rem); }
+.t-big {
+  font-family: var(--mono); font-size: clamp(5rem, 16vw, 12rem);
+  font-weight: 700; color: var(--bloodl); line-height: .88;
+  letter-spacing: -.04em; display: block;
+  text-shadow: 0 0 100px rgba(232,64,96,.18);
 }
-.s00-num-label-bn {
-  font-family:var(--bn); font-size:clamp(1.1rem,3vw,2rem);
-  font-weight:500; color:var(--text);
-  line-height:1.4; margin-top:.4rem;
+.t-mid {
+  font-family: var(--serif); font-style: italic;
+  font-size: clamp(1.5rem, 4.5vw, 3.2rem);
+  font-weight: 700; color: var(--text); line-height: 1.1;
 }
-.s00-divider {
-  width:48px; height:1px; margin:2.5rem auto;
-  background:linear-gradient(90deg,transparent,rgba(201,168,76,.4),transparent);
+.t-mid.bn { font-family: var(--bn); font-style: normal; font-weight: 600; }
+.t-rule {
+  width: 44px; height: 1px; margin: 2.5rem auto;
+  background: linear-gradient(90deg,
+    transparent, rgba(201,168,76,.4), transparent);
 }
-.s00-subtitle {
-  font-family:var(--mono); font-size:.72rem; letter-spacing:.18em;
-  text-transform:uppercase; color:var(--muted); line-height:1.9;
+.t-body {
+  font-family: var(--bn); font-size: clamp(.95rem, 2.2vw, 1.25rem);
+  color: var(--text2); line-height: 1.85; margin-bottom: .3rem;
 }
-.s00-subtitle-bn {
-  font-family:var(--bn); font-size:.88rem; letter-spacing:.02em;
-  color:var(--muted); line-height:1.9;
+.t-body.en {
+  font-family: var(--mono); font-size: clamp(.75rem, 1.6vw, .9rem);
+  letter-spacing: .04em; line-height: 2;
 }
-.scroll-hint {
-  position:absolute; bottom:2.5rem; left:50%;
-  transform:translateX(-50%);
-  display:flex; flex-direction:column; align-items:center; gap:.6rem;
-  opacity:0; animation:fadein .8s ease 3s both;
+.t-foot {
+  font-family: var(--mono); font-size: .6rem; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--dim); margin-top: 2.5rem;
+  line-height: 2;
 }
-.scroll-hint span {
-  font-family:var(--mono); font-size:.6rem; letter-spacing:.2em;
-  text-transform:uppercase; color:var(--dim);
+.t-foot.bn { font-family: var(--bn); font-size: .8rem; letter-spacing: 0; text-transform: none; }
+.scroll-cue {
+  margin-top: 3.5rem;
+  display: flex; flex-direction: column; align-items: center; gap: .6rem;
 }
-.scroll-hint span.bn { font-family:var(--bn); font-size:.75rem; letter-spacing:0; }
-.scroll-line {
-  width:1px; height:38px;
-  background:linear-gradient(to bottom,var(--blood),transparent);
-  animation:scroll-pulse 2.2s ease-in-out infinite 3.2s;
+.scroll-cue span {
+  font-family: var(--mono); font-size: .58rem; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--dim);
 }
-@keyframes scroll-pulse {
-  0%,100%{transform:scaleY(1);opacity:.5}
-  50%{transform:scaleY(1.4);opacity:1}
+.scroll-cue span.bn { font-family: var(--bn); font-size: .75rem; letter-spacing: 0; text-transform: none; }
+.scroll-bar {
+  width: 1px; height: 36px;
+  background: linear-gradient(to bottom, var(--blood), transparent);
+  animation: sbar 2s ease-in-out infinite;
 }
-@keyframes fadein {
-  from{opacity:0;transform:translateY(10px) translateX(-50%)}
-  to{opacity:1;transform:translateY(0) translateX(-50%)}
+@keyframes sbar {
+  0%,100% { transform: scaleY(1); opacity: .4; }
+  50%      { transform: scaleY(1.5); opacity: 1; }
 }
 
-/* ═══════════════════════════════════════
-   SCENE 01 — THE SILENCE
-═══════════════════════════════════════ */
-#s01 { background:var(--ink2); }
-.ink-spread-wrap {
-  position:relative; display:inline-block;
-  overflow:hidden;
+/* ═══════════════════════════
+   SCENE 01 — SILENCE
+═══════════════════════════ */
+#s01 { background: var(--ink2); }
+.s1-num {
+  font-family: var(--mono);
+  font-size: clamp(6rem, 22vw, 16rem);
+  font-weight: 700; color: var(--bloodl);
+  line-height: .82; letter-spacing: -.05em;
+  display: block;
+  text-shadow: 0 0 120px rgba(232,64,96,.22);
 }
-/* Words revealed left-to-right via clip-path */
-.word-reveal {
-  display:inline-block;
-  clip-path:inset(0 100% 0 0);
-  transition:clip-path .6s cubic-bezier(.4,0,.2,1);
+.s1-pct {
+  font-size: clamp(3rem, 9vw, 7rem);
+  color: var(--blood);
 }
-.word-reveal.in { clip-path:inset(0 0% 0 0); }
-.s01-big {
-  font-family:var(--mono); font-size:clamp(5rem,20vw,16rem);
-  font-weight:700; line-height:.85; color:var(--bloodl);
-  letter-spacing:-.04em; display:block;
-  text-shadow:0 0 100px rgba(232,64,96,.25);
+.s1-heading {
+  font-family: var(--bn); font-size: clamp(1.1rem, 2.8vw, 1.7rem);
+  font-weight: 600; line-height: 1.65; color: var(--text2);
+  max-width: 52ch; margin: 0 auto;
 }
-.s01-percent-symbol {
-  font-size:clamp(2.5rem,8vw,6rem);
-  color:var(--blood);
+.s1-heading.en {
+  font-family: var(--serif); font-style: italic;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
 }
-.s01-statement-bn {
-  font-family:var(--bn); font-size:clamp(1.1rem,2.5vw,1.6rem);
-  font-weight:500; line-height:1.75; color:var(--text2);
-  max-width:52ch; margin:0 auto;
+.s1-sub {
+  font-family: var(--bn); font-size: clamp(.9rem, 2vw, 1.15rem);
+  color: var(--muted); line-height: 1.75;
+  max-width: 52ch; margin: 0 auto;
 }
-.s01-statement-en {
-  font-family:var(--serif); font-style:italic;
-  font-size:clamp(1rem,2.2vw,1.45rem);
-  line-height:1.7; color:var(--text2);
-  max-width:52ch; margin:0 auto;
+.s1-sub.en {
+  font-family: var(--mono); font-size: clamp(.7rem, 1.6vw, .88rem);
+  letter-spacing: .04em; line-height: 1.8;
 }
-.s01-sub {
-  font-family:var(--mono); font-size:.72rem; letter-spacing:.1em;
-  color:var(--muted); margin-top:.6rem;
+.s1-src {
+  font-family: var(--mono); font-size: .6rem; letter-spacing: .08em;
+  color: var(--dim); margin-top: .5rem;
 }
-.s01-sub.bn { font-family:var(--bn); font-size:.88rem; letter-spacing:0; }
+.s1-src.bn { font-family: var(--bn); font-size: .75rem; letter-spacing: 0; }
 
-/* darkness veil that spreads */
-.silence-veil {
-  position:absolute; inset:0; z-index:5;
-  background:radial-gradient(circle at 50% 55%,
+/* Expanding dark veil — pure CSS animation triggered by class */
+.veil {
+  position: absolute; inset: 0; z-index: 5;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 58%,
     transparent 0%,
-    transparent 25%,
-    rgba(6,6,14,.7) 65%,
-    rgba(6,6,14,.95) 100%);
-  opacity:0;
-  transition:opacity 2s ease 1.2s;
-  pointer-events:none;
+    transparent 20%,
+    rgba(6,6,14,.55) 55%,
+    rgba(6,6,14,.9) 90%
+  );
+  opacity: 0;
+  transition: opacity 2.2s ease 1s;
 }
-.silence-veil.in { opacity:1; }
+.veil.show { opacity: 1; }
 
-/* ═══════════════════════════════════════
-   SCENE 02 — THE MACHINE (CSS BARS)
-═══════════════════════════════════════ */
-#s02 { background:var(--ink); }
-.s02-heading-en {
-  font-family:var(--serif); font-size:clamp(2rem,5vw,3.5rem);
-  font-weight:900; line-height:1; letter-spacing:-.03em;
-  color:var(--text); margin-bottom:.5rem;
+/* ═══════════════════════════
+   SCENE 02 — THE MACHINE
+═══════════════════════════ */
+#s02 { background: var(--ink); }
+.s2-heading {
+  font-family: var(--bn); font-size: clamp(1.4rem, 3.5vw, 2.4rem);
+  font-weight: 700; color: var(--text); line-height: 1.3;
+  margin-bottom: .3rem;
 }
-.s02-heading-en em { font-style:italic; color:var(--blood); }
-.s02-heading-bn {
-  font-family:var(--bn); font-size:clamp(1.5rem,4vw,2.5rem);
-  font-weight:700; color:var(--text); margin-bottom:.5rem; line-height:1.3;
+.s2-heading.en {
+  font-family: var(--serif); font-weight: 900;
+  font-size: clamp(1.3rem, 3.2vw, 2.2rem);
 }
-.s02-intro {
-  font-family:var(--mono); font-size:.72rem; color:var(--muted);
-  letter-spacing:.08em; text-transform:uppercase; margin-bottom:3rem;
+.s2-heading.en em { color: var(--blood); }
+.s2-intro {
+  font-family: var(--bn); font-size: clamp(.9rem, 2vw, 1.1rem);
+  color: var(--muted); line-height: 1.75; margin-bottom: 3rem;
 }
-.s02-intro.bn { font-family:var(--bn); font-size:.88rem; text-transform:none; letter-spacing:0; }
-.funnel-bars { width:100%; max-width:780px; margin:0 auto; }
-.fbar-row {
-  display:grid;
-  grid-template-columns:1fr auto;
-  gap:.8rem; align-items:center;
-  margin-bottom:1.1rem;
+.s2-intro.en {
+  font-family: var(--mono); font-size: clamp(.7rem, 1.6vw, .82rem);
+  letter-spacing: .05em; line-height: 1.9;
 }
-.fbar-label-bn {
-  font-family:var(--bn); font-size:clamp(.88rem,2vw,1.05rem);
-  font-weight:500; color:var(--text2); line-height:1.5;
-  text-align:left;
+/* Funnel bars */
+.fbar { margin-bottom: 1.2rem; text-align: left; }
+.fbar-top {
+  display: flex; align-items: baseline;
+  justify-content: space-between; gap: 1rem;
+  margin-bottom: .35rem; flex-wrap: wrap;
 }
-.fbar-label-en {
-  font-family:var(--mono); font-size:.7rem; letter-spacing:.05em;
-  color:var(--text2); text-align:left; line-height:1.5;
+.fbar-label {
+  font-family: var(--bn); font-size: clamp(.88rem, 2vw, 1.05rem);
+  font-weight: 500; color: var(--text2); flex: 1; line-height: 1.5;
 }
-.fbar-num {
-  font-family:var(--mono); font-weight:700;
-  font-size:clamp(.9rem,2vw,1.1rem);
-  white-space:nowrap; text-align:right; min-width:80px;
+.fbar-label.en {
+  font-family: var(--mono); font-size: clamp(.68rem, 1.5vw, .8rem);
+  letter-spacing: .04em; color: var(--text2);
 }
+.fbar-count {
+  font-family: var(--mono); font-size: clamp(.82rem, 1.8vw, 1rem);
+  font-weight: 700; white-space: nowrap; color: var(--gold);
+}
+.fbar-count.red { color: var(--bloodl); }
 .fbar-track {
-  grid-column:1/-1;
-  height:8px; background:rgba(196,30,58,.12);
-  border-radius:1px; overflow:hidden; margin-top:.2rem;
+  height: 7px; background: rgba(255,255,255,.06);
+  border-radius: 2px; overflow: hidden;
 }
 .fbar-fill {
-  height:100%; border-radius:1px;
-  width:0%; /* animated in */
-  transition:width 1.4s cubic-bezier(.4,0,.2,1);
+  height: 100%; border-radius: 2px; width: 0%;
+  transition: width 1.4s cubic-bezier(.4,0,.2,1);
 }
-.fbar-fill.alive { background:var(--gold); }
-.fbar-fill.dead  { background:rgba(196,30,58,.45); }
-/* source note */
+.fbar-fill.g { background: var(--gold); }
+.fbar-fill.r { background: rgba(196,30,58,.5); }
 .fbar-src {
-  grid-column:1/-1;
-  font-family:var(--mono); font-size:.58rem; letter-spacing:.06em;
-  color:var(--dim); text-align:left; margin-top:.1rem;
+  font-family: var(--mono); font-size: .55rem; letter-spacing: .06em;
+  color: var(--dim); margin-top: .2rem; display: block;
 }
-.funnel-result {
-  margin-top:2.5rem; padding:1.5rem;
-  border:1px solid rgba(196,30,58,.3);
-  background:rgba(196,30,58,.06);
-  text-align:center;
+/* Result box */
+.result-box {
+  margin-top: 2.5rem; padding: 1.5rem;
+  border: 1px solid rgba(196,30,58,.3);
+  background: rgba(196,30,58,.05); text-align: center;
 }
-.funnel-result-num {
-  font-family:var(--mono); font-size:clamp(1.8rem,5vw,3.5rem);
-  font-weight:700; color:var(--bloodl); letter-spacing:-.02em;
-  line-height:1;
+.result-num {
+  font-family: var(--mono); font-weight: 700;
+  font-size: clamp(1.8rem, 6vw, 3.5rem);
+  color: var(--bloodl); letter-spacing: -.02em; line-height: 1;
 }
-.funnel-result-label-bn {
-  font-family:var(--bn); font-size:clamp(1rem,2.5vw,1.3rem);
-  color:var(--text2); line-height:1.7; margin-top:.6rem;
+.result-label {
+  font-family: var(--bn); font-size: clamp(.9rem, 2.2vw, 1.2rem);
+  color: var(--text2); line-height: 1.7; margin-top: .6rem;
 }
-.funnel-result-label-en {
-  font-family:var(--serif); font-style:italic;
-  font-size:clamp(.9rem,2vw,1.2rem);
-  color:var(--text2); line-height:1.7; margin-top:.6rem;
+.result-label.en {
+  font-family: var(--serif); font-style: italic;
+  font-size: clamp(.85rem, 2vw, 1.1rem);
 }
+.result-label.en span { color: var(--bloodl); }
 
-/* ═══════════════════════════════════════
+/* ═══════════════════════════
    SCENE 03 — THE WAIT
-═══════════════════════════════════════ */
-#s03 { background:var(--ink2); }
-.s03-label {
-  font-family:var(--mono); font-size:.65rem; letter-spacing:.25em;
-  text-transform:uppercase; color:var(--blood); margin-bottom:1rem;
+═══════════════════════════ */
+#s03 { background: var(--ink2); }
+.s3-label {
+  font-family: var(--mono); font-size: .65rem; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--blood); margin-bottom: .8rem;
 }
-.s03-label.bn { font-family:var(--bn); font-size:.8rem; text-transform:none; letter-spacing:0; }
-.wait-number {
-  font-family:var(--mono); font-size:clamp(7rem,25vw,18rem);
-  font-weight:700; line-height:.82; color:var(--blood);
-  letter-spacing:-.05em; display:block;
+.s3-label.bn { font-family: var(--bn); font-size: .82rem; text-transform: none; letter-spacing: 0; }
+.wait-num {
+  font-family: var(--mono); font-weight: 700;
+  font-size: clamp(6rem, 24vw, 17rem);
+  color: var(--blood); line-height: .82; letter-spacing: -.05em;
+  display: block;
 }
-.wait-unit {
-  font-family:var(--mono); font-size:clamp(.8rem,2vw,1.1rem);
-  color:var(--muted); letter-spacing:.18em; text-transform:uppercase;
-  display:block; margin-top:.8rem;
+.wait-sub {
+  font-family: var(--mono); font-size: clamp(.7rem, 1.8vw, .9rem);
+  letter-spacing: .2em; text-transform: uppercase; color: var(--muted);
+  margin-top: .8rem;
 }
-.wait-unit.bn { font-family:var(--bn); font-size:1rem; text-transform:none; letter-spacing:0; }
-/* The two-line comparison — CSS only */
-.compare-block {
-  margin-top:3rem; width:100%; max-width:600px; margin-left:auto; margin-right:auto;
+.wait-sub.bn { font-family: var(--bn); font-size: .95rem; text-transform: none; letter-spacing: 0; }
+/* Comparison lines */
+.compare { margin-top: 3rem; max-width: 580px; margin-left: auto; margin-right: auto; }
+.cmp-row { margin-bottom: 1.4rem; }
+.cmp-meta {
+  display: flex; justify-content: space-between;
+  align-items: baseline; margin-bottom: .4rem; gap: 1rem;
 }
-.compare-row {
-  display:grid; grid-template-columns:180px 1fr auto;
-  align-items:center; gap:1rem; margin-bottom:1.2rem;
+.cmp-name {
+  font-family: var(--bn); font-size: clamp(.85rem, 1.8vw, 1rem);
+  color: var(--muted); line-height: 1.4;
 }
-@media(max-width:480px){
-  .compare-row { grid-template-columns:120px 1fr auto; gap:.5rem; }
+.cmp-name.en {
+  font-family: var(--mono); font-size: clamp(.65rem, 1.4vw, .78rem);
+  letter-spacing: .05em;
 }
-.cr-label {
-  font-family:var(--mono); font-size:.7rem; letter-spacing:.06em;
-  color:var(--muted); text-align:right; line-height:1.4;
+.cmp-days {
+  font-family: var(--mono); font-weight: 700;
+  font-size: clamp(.88rem, 2vw, 1.1rem); white-space: nowrap;
 }
-.cr-label.bn { font-family:var(--bn); font-size:.82rem; letter-spacing:0; }
-.cr-line {
-  height:3px; border-radius:1px; width:0%;
-  transition:width 1.6s cubic-bezier(.4,0,.2,1);
+.cmp-days.g { color: var(--gold); }
+.cmp-days.r { color: var(--bloodl); }
+.cmp-bar { height: 4px; background: rgba(255,255,255,.06); border-radius: 2px; }
+.cmp-fill {
+  height: 100%; border-radius: 2px; width: 0%;
+  transition: width 1.5s cubic-bezier(.4,0,.2,1);
 }
-.cr-line.magura { background:var(--gold); }
-.cr-line.normal { background:var(--blood); }
-.cr-days {
-  font-family:var(--mono); font-weight:700;
-  font-size:clamp(.85rem,2vw,1.05rem); white-space:nowrap;
+.cmp-fill.g { background: var(--gold); }
+.cmp-fill.r { background: var(--blood); }
+.cmp-note {
+  font-family: var(--mono); font-size: .65rem; letter-spacing: .08em;
+  color: var(--dim); text-align: center; margin-top: 1rem;
 }
-.cr-days.gold { color:var(--gold); }
-.cr-days.red  { color:var(--bloodl); }
-.compare-note {
-  font-family:var(--mono); font-size:.68rem; color:var(--dim);
-  text-align:center; letter-spacing:.06em; margin-top:.8rem;
-}
-.compare-note.bn { font-family:var(--bn); font-size:.8rem; letter-spacing:0; color:var(--muted); }
+.cmp-note.bn { font-family: var(--bn); font-size: .8rem; letter-spacing: 0; color: var(--muted); }
 
-/* ═══════════════════════════════════════
-   SCENE 04 — THE CAPITAL
-═══════════════════════════════════════ */
-#s04 { background:#000; }
-.s04-city-label {
-  font-family:var(--mono); font-size:.65rem; letter-spacing:.28em;
-  text-transform:uppercase; color:rgba(201,168,76,.5);
-  margin-bottom:1.2rem;
+/* ═══════════════════════════
+   SCENE 04 — CAPITAL
+═══════════════════════════ */
+#s04 { background: #000; }
+.s4-city {
+  font-family: var(--mono); font-size: .62rem; letter-spacing: .25em;
+  text-transform: uppercase; color: rgba(201,168,76,.45);
+  margin-bottom: 1.5rem;
 }
-.kinetic-24 {
-  font-family:var(--mono); font-weight:700; color:var(--bloodl);
-  line-height:.82; letter-spacing:-.05em; display:block;
-  /* scale transition */
-  font-size:clamp(3rem,8vw,6rem);
-  transition:font-size 2s cubic-bezier(.2,.8,.3,1);
+.s4-city.bn { font-family: var(--bn); font-size: .78rem; text-transform: none; letter-spacing: 0; color: rgba(201,168,76,.55); }
+/* Kinetic number - grows via CSS transition */
+.k24-wrap { display: block; }
+.k24 {
+  font-family: var(--mono); font-weight: 700;
+  color: var(--bloodl); line-height: .85; letter-spacing: -.05em;
+  display: block;
+  font-size: clamp(4rem, 10vw, 8rem);
+  transition: font-size 1.8s cubic-bezier(.2,.8,.3,1);
 }
-.kinetic-24.big { font-size:clamp(10rem,28vw,22rem); }
-.kinetic-unit {
-  font-family:var(--mono); font-size:.68rem; letter-spacing:.2em;
-  text-transform:uppercase; color:var(--muted);
-  display:block; margin-top:1rem;
+.k24.big { font-size: clamp(11rem, 30vw, 22rem); }
+.k24-unit {
+  font-family: var(--mono); font-size: clamp(.65rem, 1.6vw, .85rem);
+  letter-spacing: .18em; text-transform: uppercase; color: var(--muted);
+  display: block; margin-top: .8rem;
 }
-.kinetic-unit.bn { font-family:var(--bn); font-size:.85rem; text-transform:none; letter-spacing:0; }
-.s04-verdict {
-  margin-top:2.5rem; padding-top:2rem;
-  border-top:1px solid var(--border);
+.k24-unit.bn { font-family: var(--bn); font-size: .9rem; text-transform: none; letter-spacing: 0; }
+.s4-statement {
+  margin-top: 2.5rem; padding-top: 2rem;
+  border-top: 1px solid var(--border);
 }
-.s04-v-bn {
-  font-family:var(--bn); font-size:clamp(1.1rem,3vw,1.8rem);
-  font-weight:500; line-height:1.7; color:var(--text2);
-  max-width:52ch; margin:0 auto;
+.s4-txt {
+  font-family: var(--bn); font-size: clamp(1.05rem, 2.5vw, 1.6rem);
+  font-weight: 500; line-height: 1.7; color: var(--text2);
+  max-width: 50ch; margin: 0 auto;
 }
-.s04-v-en {
-  font-family:var(--serif); font-style:italic;
-  font-size:clamp(1rem,2.5vw,1.6rem);
-  line-height:1.65; color:var(--text2);
-  max-width:52ch; margin:0 auto;
+.s4-txt.en {
+  font-family: var(--serif); font-style: italic;
+  font-size: clamp(.95rem, 2.2vw, 1.45rem);
 }
-.s04-kicker {
-  font-family:var(--mono); font-size:.8rem; letter-spacing:.06em;
-  color:var(--muted); margin-top:1.2rem;
+.s4-kicker {
+  font-family: var(--mono); font-size: .68rem; letter-spacing: .06em;
+  color: var(--muted); margin-top: 1rem;
 }
-.s04-kicker.bn { font-family:var(--bn); font-size:.9rem; letter-spacing:0; }
+.s4-kicker.bn { font-family: var(--bn); font-size: .85rem; letter-spacing: 0; }
 
-/* ═══════════════════════════════════════
-   SCENE 05 — GEOGRAPHY (CSS GRID)
-═══════════════════════════════════════ */
-#s05 { background:var(--ink); }
-.s05-heading-bn {
-  font-family:var(--bn); font-size:clamp(1.3rem,3.5vw,2.2rem);
-  font-weight:600; color:var(--text); margin-bottom:.4rem; line-height:1.4;
+/* ═══════════════════════════
+   SCENE 05 — GEOGRAPHY
+═══════════════════════════ */
+#s05 { background: var(--ink); }
+.s5-heading {
+  font-family: var(--bn); font-size: clamp(1.3rem, 3.5vw, 2.2rem);
+  font-weight: 700; color: var(--text); margin-bottom: .3rem; line-height: 1.35;
 }
-.s05-heading-en {
-  font-family:var(--serif); font-size:clamp(1.2rem,3vw,2rem);
-  font-weight:700; color:var(--text); margin-bottom:.4rem;
+.s5-heading.en {
+  font-family: var(--serif); font-weight: 700;
+  font-size: clamp(1.2rem, 3vw, 2rem);
 }
-.s05-sub {
-  font-family:var(--mono); font-size:.7rem; color:var(--muted);
-  letter-spacing:.1em; text-transform:uppercase; margin-bottom:2.5rem;
+.s5-sub {
+  font-family: var(--mono); font-size: .68rem; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 2.5rem;
 }
-.s05-sub.bn { font-family:var(--bn); font-size:.85rem; text-transform:none; letter-spacing:0; }
-.district-grid {
-  display:grid;
-  grid-template-columns:repeat(8,1fr);
-  gap:5px; width:100%; max-width:560px;
-  margin:0 auto 2rem;
+.s5-sub.bn { font-family: var(--bn); font-size: .85rem; text-transform: none; letter-spacing: 0; }
+/* 64-cell district grid */
+.d-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 5px; max-width: 520px;
+  margin: 0 auto 2.5rem;
 }
-@media(max-width:480px) { .district-grid { grid-template-columns:repeat(6,1fr); gap:4px; } }
-.district-cell {
-  aspect-ratio:1;
-  background:rgba(196,30,58,.12);
-  border-radius:2px;
-  opacity:0;
-  transition:opacity .3s ease, background .4s ease, box-shadow .4s ease;
+@media(max-width:480px) {
+  .d-grid { grid-template-columns: repeat(6,1fr); gap: 4px; }
 }
-.district-cell.occ {
-  background:var(--gold);
-  box-shadow:0 0 8px rgba(201,168,76,.4);
+.d-cell {
+  aspect-ratio: 1;
+  background: rgba(196,30,58,.15);
+  border-radius: 2px;
+  transition: background .3s ease, box-shadow .3s ease;
 }
-.district-cell.dark-only {
-  background:rgba(196,30,58,.2);
+.d-cell.occ {
+  background: var(--gold);
+  box-shadow: 0 0 7px rgba(201,168,76,.35);
 }
-.geo-stats {
-  display:flex; gap:3rem; justify-content:center; flex-wrap:wrap;
-  padding-top:2rem; border-top:1px solid var(--border);
+/* geo stats */
+.geo-nums {
+  display: flex; gap: 3.5rem; justify-content: center;
+  flex-wrap: wrap; padding-top: 2rem;
+  border-top: 1px solid var(--border);
 }
-.gs { text-align:center; }
-.gs-val {
-  font-family:var(--mono); font-size:clamp(2.5rem,7vw,4.5rem);
-  font-weight:700; line-height:.9; letter-spacing:-.03em;
+.gn { text-align: center; }
+.gn-val {
+  font-family: var(--mono); font-weight: 700;
+  font-size: clamp(2.8rem, 8vw, 5rem);
+  line-height: .9; letter-spacing: -.03em;
 }
-.gs-val.gold { color:var(--gold); }
-.gs-val.dim  { color:var(--dim); }
-.gs-label-bn {
-  font-family:var(--bn); font-size:.88rem; color:var(--muted);
-  margin-top:.4rem; line-height:1.5;
+.gn-val.gold { color: var(--gold); }
+.gn-val.dim  { color: var(--dim); }
+.gn-label {
+  font-family: var(--bn); font-size: .9rem; color: var(--muted);
+  margin-top: .4rem; line-height: 1.5;
 }
-.gs-label-en {
-  font-family:var(--mono); font-size:.65rem; letter-spacing:.1em;
-  text-transform:uppercase; color:var(--muted); margin-top:.4rem;
+.gn-label.en {
+  font-family: var(--mono); font-size: .62rem; letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.s5-note {
+  font-family: var(--bn); font-size: clamp(.85rem,2vw,1rem);
+  color: var(--muted); line-height: 1.75;
+  max-width: 54ch; margin: 1.5rem auto 0;
+}
+.s5-note.en {
+  font-family: var(--mono); font-size: .68rem; letter-spacing: .05em; line-height: 1.8;
 }
 
-/* ═══════════════════════════════════════
-   SCENE 06 — THE SURGE
-═══════════════════════════════════════ */
-#s06 { background:var(--ink2); }
-.s06-banner-bn {
-  font-family:var(--bn); font-size:clamp(1.5rem,4.5vw,3rem);
-  font-weight:700; color:var(--text); line-height:1.3;
-  margin-bottom:.4rem;
+/* ═══════════════════════════
+   SCENE 06 — SURGE
+═══════════════════════════ */
+#s06 { background: var(--ink2); }
+.s6-banner {
+  font-family: var(--bn); font-size: clamp(1.5rem, 4.5vw, 3rem);
+  font-weight: 700; color: var(--text); line-height: 1.3;
+  margin-bottom: .4rem;
 }
-.s06-banner-en {
-  font-family:var(--serif); font-size:clamp(1.3rem,3.5vw,2.4rem);
-  font-weight:900; font-style:italic; color:var(--text); line-height:1.1;
+.s6-banner.en {
+  font-family: var(--serif); font-weight: 900; font-style: italic;
+  font-size: clamp(1.3rem, 4vw, 2.6rem); line-height: 1.1;
 }
-.surge-grid {
-  display:grid; grid-template-columns:repeat(3,1fr);
-  gap:1rem; margin-top:3rem; max-width:720px; margin-left:auto; margin-right:auto;
+.s6-context {
+  font-family: var(--bn); font-size: clamp(.88rem, 2vw, 1.05rem);
+  color: var(--muted); line-height: 1.8; margin-bottom: 3rem;
+  max-width: 52ch; margin-left: auto; margin-right: auto;
 }
-@media(max-width:540px) { .surge-grid { grid-template-columns:1fr; max-width:280px; } }
-.surge-card {
-  border:1px solid var(--border);
-  padding:1.5rem 1rem; text-align:center;
-  background:rgba(255,255,255,.02);
+.s6-context.en {
+  font-family: var(--mono); font-size: clamp(.68rem, 1.5vw, .8rem);
+  letter-spacing: .05em; line-height: 1.9;
 }
-.surge-card.zero { border-color:rgba(196,30,58,.2); background:rgba(196,30,58,.04); }
-.surge-val {
-  font-family:var(--mono); font-weight:700;
-  font-size:clamp(2.5rem,8vw,4.5rem);
-  line-height:.9; letter-spacing:-.03em; display:block;
+/* 3-column surge stats */
+.surge-row {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem; max-width: 680px;
+  margin-left: auto; margin-right: auto;
 }
-.surge-val.red   { color:var(--bloodl); }
-.surge-val.still { color:var(--text); }
-
-/* spring overshoot entrance */
-@keyframes surge-in {
-  0%   { opacity:0; transform:scale(.7) translateY(16px); }
-  60%  { transform:scale(1.06) translateY(-4px); }
-  80%  { transform:scale(.97); }
+@media(max-width:520px) { .surge-row { grid-template-columns: 1fr; max-width: 260px; } }
+.s-card {
+  border: 1px solid var(--border); padding: 1.5rem .9rem;
+  background: rgba(255,255,255,.025); text-align: center;
+}
+.s-card.zero { border-color: rgba(196,30,58,.25); background: rgba(196,30,58,.05); }
+.s-val {
+  font-family: var(--mono); font-weight: 700;
+  font-size: clamp(2.2rem, 7vw, 4rem);
+  line-height: .9; letter-spacing: -.03em; display: block;
+  color: var(--bloodl);
+}
+.s-val.still { color: var(--text); }
+/* spring entrance animation */
+@keyframes spring-in {
+  0%   { opacity:0; transform:scale(.65) translateY(14px); }
+  55%  { transform:scale(1.07) translateY(-3px); }
+  78%  { transform:scale(.97); }
   100% { opacity:1; transform:scale(1) translateY(0); }
 }
-.surge-val.animate { animation:surge-in .55s cubic-bezier(.34,1.56,.64,1) both; }
-.surge-val.animate.d1 { animation-delay:.1s; }
-.surge-val.animate.d2 { animation-delay:.3s; }
-.surge-val.animate.d3 { animation-delay:.5s; }
-/* still: no spring */
-@keyframes still-in {
-  from { opacity:0; transform:translateY(10px); }
+@keyframes fade-in-up {
+  from { opacity:0; transform:translateY(12px); }
   to   { opacity:1; transform:none; }
 }
-.surge-val.still.animate { animation:still-in .8s ease .5s both; }
+.s-val.animate       { animation: spring-in .55s cubic-bezier(.34,1.56,.64,1) both; }
+.s-val.animate.dl1   { animation-delay: .05s; }
+.s-val.animate.dl2   { animation-delay: .25s; }
+.s-val.still.animate { animation: fade-in-up .7s ease .48s both; }
+.s-label {
+  font-family: var(--bn); font-size: .9rem; color: var(--text2);
+  line-height: 1.5; margin-top: .7rem;
+}
+.s-label.en {
+  font-family: var(--mono); font-size: .62rem; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--muted); margin-top: .5rem;
+}
+.s-src {
+  font-family: var(--mono); font-size: .54rem; color: var(--dim);
+  margin-top: .4rem; letter-spacing: .04em;
+}
 
-.surge-label-bn {
-  font-family:var(--bn); font-size:.9rem; color:var(--text2);
-  line-height:1.5; margin-top:.7rem;
+/* ═══════════════════════════
+   SCENE 07 — RECKONING
+═══════════════════════════ */
+#s07 { background: var(--ink); }
+/* Typewriter lines — clip-path reveal */
+.tw-wrap { text-align: center; max-width: 680px; margin: 0 auto; }
+.tw-block { margin-bottom: 1.4rem; }
+.tw-bn {
+  font-family: var(--bn); font-size: clamp(1.2rem, 3.5vw, 2.2rem);
+  font-weight: 600; color: var(--text); line-height: 1.5;
+  display: block;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path .9s cubic-bezier(.4,0,.2,1);
 }
-.surge-label-en {
-  font-family:var(--mono); font-size:.65rem; letter-spacing:.06em;
-  text-transform:uppercase; color:var(--muted); margin-top:.5rem;
+.tw-en {
+  font-family: var(--serif); font-style: italic;
+  font-size: clamp(1rem, 3vw, 1.9rem);
+  color: var(--text2); display: block;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path .9s cubic-bezier(.4,0,.2,1) .15s;
 }
-.surge-src {
-  font-family:var(--mono); font-size:.55rem; color:var(--dim);
-  margin-top:.4rem; letter-spacing:.04em;
-}
-
-/* ═══════════════════════════════════════
-   SCENE 07 — THE RECKONING
-═══════════════════════════════════════ */
-#s07 { background:var(--ink); min-height:100vh; }
-.typewriter-block { text-align:center; max-width:700px; margin:0 auto; }
-.tw-line {
-  display:block; overflow:hidden;
-  margin-bottom:1.5rem;
-}
-.tw-text {
-  font-family:var(--bn); font-size:clamp(1.2rem,3.5vw,2.2rem);
-  font-weight:600; color:var(--text); line-height:1.5;
-  display:inline-block;
-  clip-path:inset(0 100% 0 0);
-  transition:clip-path .9s cubic-bezier(.4,0,.2,1);
-}
-.tw-text.en {
-  font-family:var(--serif); font-style:italic;
-  font-size:clamp(1rem,3vw,1.9rem);
-}
-.tw-text.in { clip-path:inset(0 0% 0 0); }
+.tw-bn.open, .tw-en.open { clip-path: inset(0 0% 0 0); }
 .cursor {
-  display:inline-block; width:2px; height:1.1em;
-  background:var(--blood); margin-left:3px; vertical-align:middle;
-  animation:cur-blink 1s step-end infinite;
+  display: inline-block; width: 2px; height: .9em;
+  background: var(--blood); margin-left: 3px;
+  vertical-align: middle;
+  animation: cur 1s step-end infinite;
 }
-@keyframes cur-blink { 0%,100%{opacity:1} 50%{opacity:0} }
-.cursor.done { animation:none; opacity:0; }
+.cursor.off { animation: none; opacity: 0; }
+@keyframes cur { 0%,100%{opacity:1} 50%{opacity:0} }
+.s7-rule {
+  width: 38px; height: 1px; margin: 2.5rem auto;
+  background: linear-gradient(90deg,
+    transparent, rgba(201,168,76,.3), transparent);
+}
+.tracker-btn {
+  display: inline-flex; align-items: center; gap: .7rem;
+  padding: .88rem 1.8rem; margin-bottom: .8rem;
+  border: 1px solid rgba(196,30,58,.35);
+  background: rgba(196,30,58,.07);
+  font-family: var(--mono); font-size: .7rem; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--text);
+  text-decoration: none; transition: all .25s;
+}
+.tracker-btn:hover { background: rgba(196,30,58,.18); border-color: var(--bloodl); color: var(--text); }
+.tracker-btn .bn { font-family: var(--bn); font-size: .85rem; text-transform: none; letter-spacing: 0; }
+.ldot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--blood); flex-shrink: 0;
+  animation: lp 2s ease-in-out infinite;
+}
+@keyframes lp { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.2;transform:scale(.5)} }
+.report-btn {
+  display: block; margin-top: .6rem;
+  font-family: var(--mono); font-size: .65rem; letter-spacing: .08em;
+  color: var(--muted); transition: color .2s;
+}
+.report-btn:hover { color: var(--gold); }
+.report-btn .bn { font-family: var(--bn); font-size: .82rem; letter-spacing: 0; }
+.s7-credit {
+  margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border);
+  font-family: var(--mono); font-size: .58rem; letter-spacing: .07em;
+  color: var(--dim); line-height: 2;
+}
+.s7-credit.bn { font-family: var(--bn); font-size: .75rem; letter-spacing: 0; }
 
-.s07-divider {
-  width:40px; height:1px; margin:2.5rem auto;
-  background:linear-gradient(90deg,transparent,rgba(201,168,76,.3),transparent);
-}
-.tracker-cta {
-  display:inline-flex; align-items:center; gap:.8rem;
-  padding:.9rem 2rem; margin-bottom:1rem;
-  border:1px solid rgba(196,30,58,.35);
-  background:rgba(196,30,58,.07);
-  font-family:var(--mono); font-size:.72rem; letter-spacing:.1em;
-  text-transform:uppercase; color:var(--text);
-  text-decoration:none; transition:all .25s;
-}
-.tracker-cta:hover { background:rgba(196,30,58,.18); border-color:var(--bloodl); color:var(--text); }
-.tracker-cta .bn { font-family:var(--bn); font-size:.85rem; text-transform:none; letter-spacing:0; }
-.live-dot {
-  width:7px; height:7px; border-radius:50%;
-  background:var(--blood); flex-shrink:0;
-  animation:ldot 2s ease-in-out infinite;
-}
-@keyframes ldot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.2;transform:scale(.55)} }
-.report-link {
-  display:block; margin-top:.8rem;
-  font-family:var(--mono); font-size:.68rem; letter-spacing:.08em;
-  color:var(--muted); transition:color .2s;
-}
-.report-link .bn { font-family:var(--bn); font-size:.82rem; letter-spacing:0; }
-.report-link:hover { color:var(--gold); }
-.s07-credit {
-  margin-top:4rem; padding-top:2rem; border-top:1px solid var(--border);
-  font-family:var(--mono); font-size:.62rem; letter-spacing:.08em;
-  color:var(--dim); line-height:2;
-}
 </style>
 </head>
 <body>
 
+<!-- CHROME -->
 <div id="progress"></div>
-
-<div id="top-bar">
+<div id="chrome">
   <a href="/investigations/" id="back-link">← Investigations</a>
-  <div id="lang-toggle">
+  <div id="lang-wrap">
     <button class="lbtn on" id="btn-en" onclick="setLang('en')">EN</button>
     <button class="lbtn"    id="btn-bn" onclick="setLang('bn')">বাং</button>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════
-     SCENE 00 — TITLE
-══════════════════════════════════════ -->
-<section class="scene" id="s00">
-  <div class="scene-overlay"></div>
-  <div class="scene-inner" style="padding-top:6rem;padding-bottom:6rem">
-
-    <div class="s00-bureau r">BD-INV-002 · Insight Gaps · March 2026</div>
-
-    <!-- Opening lines — staggered sentence reveal -->
-    <div class="r d1">
-      <span class="s00-opening-bn bn">তিনটি সংখ্যা।</span>
-      <div class="s00-subtitle en" style="color:var(--muted);font-size:.85rem;letter-spacing:.06em">Three numbers.</div>
-    </div>
-
-    <div class="r d2" style="margin-top:1.5rem">
-      <span class="s00-num">310</span>
-      <div class="s00-num-label en">convictions.</div>
-      <div class="s00-num-label-bn bn">টি সাজা।</div>
-    </div>
-
-    <div class="r d3" style="margin-top:.8rem">
-      <span class="s00-opening-bn bn" style="font-size:clamp(.9rem,2.5vw,1.3rem)">তেইশ বছরে।</span>
-      <div class="s00-subtitle en">In twenty-three years.</div>
-    </div>
-
-    <div class="r d4">
-      <div class="s00-divider"></div>
-    </div>
-
-    <div class="r d5">
-      <span class="s00-opening-bn bn" style="color:var(--text2);font-size:clamp(1rem,2.5vw,1.4rem)">
-        ৬৬,৭১১ জন নারী সামনে এসেছেন।<br>
-        বাকিটা এই তদন্ত।
-      </span>
-      <div class="s00-subtitle en" style="color:var(--text2);font-size:.85rem;line-height:2">
-        For 66,711 women who came forward.<br>The rest of this investigation explains how.
-      </div>
-    </div>
-
-    <div class="r d6" style="margin-top:2.5rem">
-      <div class="s00-subtitle en">BD-INV-002 · Bangladesh · Rape Justice Crisis · Visual Investigation</div>
-      <div class="s00-subtitle-bn bn">বাংলাদেশ · ধর্ষণ বিচার ব্যবস্থা · দৃশ্যমান তদন্ত</div>
-    </div>
-
-  </div>
-  <div class="scroll-hint">
-    <span class="en">scroll</span>
-    <span class="bn">নিচে যান</span>
-    <div class="scroll-line"></div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════
-     SCENE 01 — THE SILENCE
-══════════════════════════════════════ -->
-<section class="scene" id="s01">
-  <div class="scene-bg" id="s01-bg"
-    style="background-image:url('images/impunity-machine/scene-01-silence.png');background-position:center top"
-    data-src="images/impunity-machine/scene-01-silence.png"></div>
-  <div class="silence-veil" id="s01-veil"></div>
-  <div class="scene-inner" style="z-index:10">
-
-    <span class="scene-num r">Scene 01 · The Silence · নীরবতা</span>
-
-    <div class="r d1" style="margin-bottom:2rem">
-      <span class="s01-big">62<span class="s01-percent-symbol">%</span></span>
-    </div>
-
-    <div class="r d2" style="margin-bottom:1.2rem">
-      <p class="s01-statement-bn bn">
-        প্রতি ১০০ জন নির্যাতিতার মধ্যে ৬২ জন কখনো কাউকে বলেননি।<br>
-        একটিও কথা নয়। একজন মানুষকেও নয়।
-      </p>
-      <p class="s01-statement-en en">
-        62 out of every 100 survivors told no one at all.<br>
-        Not one word. Not one person.
-      </p>
-    </div>
-
-    <div class="r d3">
-      <p class="s01-statement-bn bn" style="font-size:clamp(1rem,2.2vw,1.35rem);color:var(--muted)">
-        এটা দুর্বলতা নয়। এটা একটা হিসাব —<br>
-        বলা কি না বলার চেয়ে বেশি কষ্টের হবে।
-      </p>
-      <p class="s01-statement-en en" style="font-size:clamp(.9rem,2vw,1.2rem);color:var(--muted)">
-        This is not weakness. This is a calculation —<br>
-        whether speaking will cost more than silence.
-      </p>
-    </div>
-
-    <div class="r d4" style="margin-top:1.5rem">
-      <div class="s01-sub bn">UNFPA/BBS জাতীয় নারী নির্যাতন সমীক্ষা ২০২৪ · নিশ্চিত</div>
-      <div class="s01-sub en">UNFPA/BBS National VAW Survey 2024 · CONFIRMED · S-02</div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════
-     SCENE 02 — THE MACHINE
-══════════════════════════════════════ -->
-<section class="scene" id="s02" style="padding:5rem 0">
-  <div class="scene-bg" id="s02-bg"
-    style="background-image:url('images/impunity-machine/scene-02-funnel.png')"
-    data-src="images/impunity-machine/scene-02-funnel.png"></div>
+<!-- ═══════════════════ SCENE 00 — TITLE ═══════════════════ -->
+<section id="s00" class="scene">
   <div class="scene-inner">
 
-    <span class="scene-num r">Scene 02 · The Machine · যন্ত্রটি</span>
+    <div class="t-bureau anim dl1">BD-INV-002 · Insight Gaps Bureau · March 2026</div>
 
-    <div class="r d1" style="margin-bottom:.3rem">
-      <h2 class="s02-heading-bn bn">কীভাবে ৩ লক্ষ ঘটনা<br>মাত্র ৩১০টি সাজায় পরিণত হয়</h2>
-      <h2 class="s02-heading-en en">How 300,000 assaults become<br><em>310 convictions</em></h2>
-    </div>
-    <div class="r d2" style="margin-bottom:3rem">
-      <p class="s02-intro bn">প্রতিটি ধাপে মামলা হারিয়ে যায় — নীরবতায়, থানায়, আদালতে, সময়ে।</p>
-      <p class="s02-intro en">At every step, cases disappear — into silence, into police stations, into courts, into time.</p>
+    <div class="t-line anim dl2">
+      <span class="t-small en">Three numbers.</span>
+      <span class="t-small bn">তিনটি সংখ্যা।</span>
     </div>
 
-    <div class="funnel-bars" id="funnelBars">
+    <div class="t-line anim dl3" style="margin-top:.6rem">
+      <span class="t-big">310</span>
+      <span class="t-mid en">convictions.</span>
+      <span class="t-mid bn">টি সাজা।</span>
+    </div>
 
-      <div class="fbar-row r d2">
-        <div>
-          <div class="fbar-label-bn bn">বছরে আনুমানিক ৩ লক্ষ যৌন নির্যাতন</div>
-          <div class="fbar-label-en en">~300,000 sexual assaults annually</div>
+    <div class="t-line anim dl4" style="margin-top:.4rem">
+      <span class="t-small en">In twenty-three years.</span>
+      <span class="t-small bn">তেইশ বছরে।</span>
+    </div>
+
+    <div class="t-rule anim dl4"></div>
+
+    <div class="anim dl5">
+      <p class="t-body bn">৬৬,৭১১ জন নারী সামনে এসেছেন।<br>বাকিটা এই তদন্ত।</p>
+      <p class="t-body en">For 66,711 women who came forward.<br>The rest of this investigation explains how.</p>
+    </div>
+
+    <div class="anim dl6">
+      <p class="t-foot en">BD-INV-002 · Bangladesh · Rape Justice Crisis · Visual Investigation</p>
+      <p class="t-foot bn">বাংলাদেশ · ধর্ষণ বিচার ব্যবস্থা · দৃশ্যমান তদন্ত</p>
+    </div>
+
+    <div class="scroll-cue anim dl6">
+      <span class="en">scroll to begin</span>
+      <span class="bn">নিচে স্ক্রল করুন</span>
+      <div class="scroll-bar"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════ SCENE 01 — SILENCE ═══════════════════ -->
+<section id="s01" class="scene">
+  <div class="scene-bg" data-img="images/impunity-machine/scene-01-silence.png"></div>
+  <div class="veil" id="veil01"></div>
+  <div class="scene-inner" style="z-index:10">
+
+    <span class="scene-tag anim">Scene 01 / 07 · The Silence · নীরবতা</span>
+
+    <div class="anim dl1" style="margin-bottom:1.5rem">
+      <span class="s1-num">62<span class="s1-pct">%</span></span>
+    </div>
+
+    <div class="anim dl2" style="margin-bottom:1rem">
+      <p class="s1-heading bn">প্রতি ১০০ জন নির্যাতিতার মধ্যে ৬২ জন<br>কখনো কাউকে বলেননি।</p>
+      <p class="s1-heading en">62 out of every 100 survivors<br>told no one at all.</p>
+    </div>
+
+    <div class="anim dl3" style="margin-bottom:1rem">
+      <p class="s1-sub bn">এটা দুর্বলতা নয়। এটা একটা হিসাব —<br>বলা কি না বলার চেয়ে বেশি কষ্টের হবে।</p>
+      <p class="s1-sub en">This is not weakness. This is a calculation —<br>whether speaking will cost more than silence.</p>
+    </div>
+
+    <div class="anim dl4">
+      <span class="s1-src bn">UNFPA/BBS জাতীয় নারী নির্যাতন সমীক্ষা ২০২৪ · নিশ্চিত</span>
+      <span class="s1-src en">UNFPA/BBS National VAW Survey 2024 · CONFIRMED · S-02</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════ SCENE 02 — THE MACHINE ═══════════════════ -->
+<section id="s02" class="scene">
+  <div class="scene-bg" data-img="images/impunity-machine/scene-02-funnel.png"></div>
+  <div class="scene-inner">
+
+    <span class="scene-tag anim">Scene 02 / 07 · The Machine · যন্ত্রটি</span>
+
+    <div class="anim dl1" style="margin-bottom:.3rem">
+      <h2 class="s2-heading bn">কীভাবে ৩ লক্ষ ঘটনা মাত্র ৩১০টি সাজায় পরিণত হয়</h2>
+      <h2 class="s2-heading en">How 300,000 assaults become <em>310 convictions</em></h2>
+    </div>
+    <div class="anim dl2" style="margin-bottom:3rem">
+      <p class="s2-intro bn">প্রতিটি ধাপে মামলা হারিয়ে যায় — নীরবতায়, থানায়, আদালতে, সময়ে।</p>
+      <p class="s2-intro en">At every step, cases disappear — into silence, police stations, courts, time.</p>
+    </div>
+
+    <div id="funnelWrap" style="text-align:left;max-width:720px;margin:0 auto">
+
+      <div class="fbar anim dl2">
+        <div class="fbar-top">
+          <span class="fbar-label bn">বছরে আনুমানিক ৩ লক্ষ যৌন নির্যাতন</span>
+          <span class="fbar-label en">~300,000 sexual assaults annually</span>
+          <span class="fbar-count">300,000</span>
         </div>
-        <span class="fbar-num" style="color:var(--text2)">300,000</span>
-        <div class="fbar-track"><div class="fbar-fill alive" data-w="100"></div></div>
+        <div class="fbar-track"><div class="fbar-fill g" data-w="100"></div></div>
         <span class="fbar-src">UNFPA/BBS 2024 · CONFIRMED · S-02</span>
       </div>
 
-      <div class="fbar-row r d3">
-        <div>
-          <div class="fbar-label-bn bn">৬২% নীরব থাকেন — কাউকে জানান না</div>
-          <div class="fbar-label-en en">62% stay silent — tell no one</div>
+      <div class="fbar anim dl3">
+        <div class="fbar-top">
+          <span class="fbar-label bn">৬২% কখনো কাউকে বলেন না</span>
+          <span class="fbar-label en">62% stay completely silent</span>
+          <span class="fbar-count">~114,000 reach someone</span>
         </div>
-        <span class="fbar-num" style="color:var(--gold)">~114,000</span>
-        <div class="fbar-track"><div class="fbar-fill alive" data-w="38"></div></div>
+        <div class="fbar-track"><div class="fbar-fill g" data-w="38"></div></div>
         <span class="fbar-src">UNFPA/BBS 2024 · CONFIRMED · S-02</span>
       </div>
 
-      <div class="fbar-row r d3" style="transition-delay:.45s">
-        <div>
-          <div class="fbar-label-bn bn">মাত্র ১০% থানায় পৌঁছান</div>
-          <div class="fbar-label-en en">Only ~10% reach police</div>
+      <div class="fbar anim dl3" style="transition-delay:.5s">
+        <div class="fbar-top">
+          <span class="fbar-label bn">মাত্র ১০% থানায় পৌঁছান</span>
+          <span class="fbar-label en">Only ~10% reach police</span>
+          <span class="fbar-count">~11,400 file reports</span>
         </div>
-        <span class="fbar-num" style="color:var(--gold)">~11,400</span>
-        <div class="fbar-track"><div class="fbar-fill alive" data-w="10"></div></div>
-        <span class="fbar-src">PHQ data 2024 ÷ UNFPA estimate · CONFIRMED · S-37</span>
+        <div class="fbar-track"><div class="fbar-fill g" data-w="10"></div></div>
+        <span class="fbar-src">PHQ 2024 ÷ UNFPA estimate · CONFIRMED · S-37</span>
       </div>
 
-      <div class="fbar-row r d4">
-        <div>
-          <div class="fbar-label-bn bn">৪১% মামলা 'অপ্রমাণিত' হিসেবে বন্ধ হয়</div>
-          <div class="fbar-label-en en">41% of cases closed as unproven</div>
+      <div class="fbar anim dl4">
+        <div class="fbar-top">
+          <span class="fbar-label bn">৪১% মামলা 'অপ্রমাণিত' বন্ধ</span>
+          <span class="fbar-label en">41% of cases closed as unproven</span>
+          <span class="fbar-count">~6,726 reach trial</span>
         </div>
-        <span class="fbar-num" style="color:var(--gold)">~6,726</span>
-        <div class="fbar-track"><div class="fbar-fill alive" data-w="6"></div></div>
+        <div class="fbar-track"><div class="fbar-fill g" data-w="6"></div></div>
         <span class="fbar-src">PBI 2016–2023, 10,581 cases · CONFIRMED · S-34</span>
       </div>
 
-      <div class="fbar-row r d4" style="transition-delay:.8s">
-        <div>
-          <div class="fbar-label-bn bn">বিচারে গড়ে ২,৩৪৯ দিন — সাক্ষী ভুলে যান, মামলা ভেঙে পড়ে</div>
-          <div class="fbar-label-en en">Average 2,349 days — witnesses forget, cases collapse</div>
+      <div class="fbar anim dl5">
+        <div class="fbar-top">
+          <span class="fbar-label bn">গড়ে ২,৩৪৯ দিন — সাক্ষী ভুলে যান, মামলা ভেঙে পড়ে</span>
+          <span class="fbar-label en">2,349 days average — witnesses forget, cases collapse</span>
+          <span class="fbar-count red">severe attrition</span>
         </div>
-        <span class="fbar-num" style="color:var(--bloodl)">→ attrition</span>
-        <div class="fbar-track"><div class="fbar-fill dead" data-w="100"></div></div>
+        <div class="fbar-track"><div class="fbar-fill r" data-w="100"></div></div>
         <span class="fbar-src">BRAC 2022 court records, 16 districts · CONFIRMED · S-01</span>
       </div>
 
-      <div class="fbar-row r d5">
-        <div>
-          <div class="fbar-label-bn bn">সাজা — ২৩ বছরে</div>
-          <div class="fbar-label-en en">Convictions — across 23 years</div>
+      <div class="fbar anim dl6">
+        <div class="fbar-top">
+          <span class="fbar-label bn">সাজা — ২৩ বছরে</span>
+          <span class="fbar-label en">Convictions — across 23 years</span>
+          <span class="fbar-count red">310</span>
         </div>
-        <span class="fbar-num" style="color:var(--bloodl)">310</span>
-        <div class="fbar-track"><div class="fbar-fill dead" data-w="0.47"></div></div>
-        <span class="fbar-src">OCC Programme data · Daily Star Nov 2024 · CONFIRMED · S-55</span>
+        <div class="fbar-track"><div class="fbar-fill r" data-w="0.5"></div></div>
+        <span class="fbar-src">OCC Programme · Daily Star Nov 2024 · CONFIRMED · S-55</span>
       </div>
 
     </div>
 
-    <div class="funnel-result r d6">
-      <div class="funnel-result-num">310 / 66,711</div>
-      <div class="funnel-result-label-bn bn">
-        ২৩ বছরে OCC-তে আসা ৬৬,৭১১ জনের মধ্যে<br>মাত্র ৩১০ জনের মামলায় দোষী সাব্যস্ত হয়েছে।<br>
-        <span style="color:var(--blood)">এটাই যন্ত্রের আউটপুট।</span>
+    <div class="result-box anim dl6" style="transition-delay:1.1s">
+      <div class="result-num">310 / 66,711</div>
+      <div class="result-label bn">২৩ বছরে ৬৬,৭১১ জনের মধ্যে মাত্র ৩১০ জনের মামলায় সাজা। <span style="color:var(--blood)">এটাই যন্ত্রের আউটপুট।</span></div>
+      <div class="result-label en">310 convictions from 66,711 women who came forward in 23 years. 0.46%. <span>This is what the machine produces.</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════ SCENE 03 — THE WAIT ═══════════════════ -->
+<section id="s03" class="scene">
+  <div class="scene-bg" data-img="images/impunity-machine/scene-03-wait.png"></div>
+  <div class="scene-inner">
+
+    <span class="scene-tag anim">Scene 03 / 07 · The Wait · অপেক্ষা</span>
+
+    <div class="anim dl1">
+      <span class="s3-label en">Average days to verdict</span>
+      <span class="s3-label bn">রায় পেতে গড় সময়</span>
+    </div>
+
+    <div class="anim-scale" id="waitWrap" style="margin:1.5rem 0">
+      <span class="wait-num" id="waitNum">0</span>
+    </div>
+
+    <div class="anim dl2">
+      <span class="wait-sub en">days · six years · five months</span>
+      <span class="wait-sub bn">দিন · ছয় বছর · পাঁচ মাস</span>
+    </div>
+
+    <div class="compare anim dl3" id="compareBlock">
+      <div class="cmp-row">
+        <div class="cmp-meta">
+          <div>
+            <span class="cmp-name en">Magura — national outrage + special prosecutor</span>
+            <span class="cmp-name bn">মাগুরা — জাতীয় ক্ষোভ + বিশেষ সরকারি উকিল</span>
+          </div>
+          <span class="cmp-days g">71 days</span>
+        </div>
+        <div class="cmp-bar"><div class="cmp-fill g" id="fill-magura" data-w="3"></div></div>
       </div>
-      <div class="funnel-result-label-en en">
-        Of 66,711 women who reached an OCC in 23 years,<br>310 resulted in conviction. 0.46%.<br>
-        <em style="color:var(--bloodl)">This is what the machine produces.</em>
+      <div class="cmp-row" style="margin-top:1.2rem">
+        <div class="cmp-meta">
+          <div>
+            <span class="cmp-name en">Normal case — BRAC average, 16 districts</span>
+            <span class="cmp-name bn">সাধারণ মামলা — BRAC গড়, ১৬ জেলা</span>
+          </div>
+          <span class="cmp-days r">2,349 days</span>
+        </div>
+        <div class="cmp-bar"><div class="cmp-fill r" id="fill-normal" data-w="100"></div></div>
+      </div>
+      <div style="margin-top:1rem">
+        <p class="cmp-note en">The system can move fast. It chooses when to.</p>
+        <p class="cmp-note bn">ব্যবস্থাটি দ্রুত চলতে পারে। সে বেছে নেয় কখন চলবে।</p>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     SCENE 03 — THE WAIT
-══════════════════════════════════════ -->
-<section class="scene" id="s03">
-  <div class="scene-bg" id="s03-bg"
-    style="background-image:url('images/impunity-machine/scene-03-wait.png')"
-    data-src="images/impunity-machine/scene-03-wait.png"></div>
+<!-- ═══════════════════ SCENE 04 — CAPITAL ═══════════════════ -->
+<section id="s04" class="scene">
+  <div class="scene-bg bright" data-img="images/impunity-machine/scene-04-capital.png"></div>
   <div class="scene-inner">
 
-    <span class="scene-num r">Scene 03 · The Wait · অপেক্ষা</span>
+    <span class="scene-tag anim">Scene 04 / 07 · The Capital · রাজধানী</span>
 
-    <div class="r d1">
-      <span class="s03-label bn">রায় পেতে গড় দিন</span>
-      <span class="s03-label en">Average days to verdict</span>
+    <div class="anim dl1">
+      <span class="s4-city en">Dhaka Metropolitan · 2020–2024</span>
+      <span class="s4-city bn">ঢাকা মেট্রোপলিটন · ২০২০–২০২৪</span>
     </div>
 
-    <div class="r-scale" id="waitNum">
-      <span class="wait-number" id="waitCounter">0</span>
+    <div class="k24-wrap anim-scale" id="k24wrap">
+      <span class="k24" id="k24">24</span>
     </div>
 
-    <div class="r d2" style="transition-delay:.2s">
-      <span class="wait-unit en">days &nbsp;·&nbsp; six years &nbsp;·&nbsp; five months</span>
-      <span class="wait-unit bn">দিন &nbsp;·&nbsp; ছয় বছর &nbsp;·&nbsp; পাঁচ মাস</span>
+    <div class="anim dl2">
+      <span class="k24-unit en">convictions · five years</span>
+      <span class="k24-unit bn">টি সাজা · পাঁচ বছরে</span>
     </div>
 
-    <div class="compare-block r d3">
-      <div class="compare-row">
-        <span class="cr-label en">Magura<br>National outrage</span>
-        <span class="cr-label bn">মাগুরা<br>জাতীয় ক্ষোভ</span>
-        <div class="cr-line magura" id="crMagura" data-w="3"></div>
-        <span class="cr-days gold">71 days</span>
-      </div>
-      <div class="compare-row" style="transition-delay:.3s">
-        <span class="cr-label en">Normal case<br>BRAC average</span>
-        <span class="cr-label bn">সাধারণ মামলা<br>BRAC গড়</span>
-        <div class="cr-line normal" id="crNormal" data-w="100"></div>
-        <span class="cr-days red">2,349 days</span>
-      </div>
-      <div class="compare-note en">The system can move fast. It chooses when to.</div>
-      <div class="compare-note bn">ব্যবস্থাটি দ্রুত চলতে পারে। সে বেছে নেয় কখন চলবে।</div>
+    <div class="s4-statement anim dl3">
+      <p class="s4-txt bn">ঢাকায় সুপ্রিম কোর্ট আছে। হাই কোর্ট আছে।<br>হাজার হাজার আইনজীবী আছেন।<br>পাঁচ বছরে মাত্র ২৪ জনের সাজা হয়েছে।</p>
+      <p class="s4-txt en">Dhaka has the Supreme Court. The High Court.<br>Thousands of lawyers. Hundreds of judges.<br>24 convictions in five years.</p>
+    </div>
+
+    <div class="anim dl4">
+      <p class="s4-kicker en">The centre of Bangladesh's legal infrastructure produced this number.</p>
+      <p class="s4-kicker bn">বাংলাদেশের আইনি পরিকাঠামোর কেন্দ্রস্থল এই সংখ্যাটি তৈরি করেছে।</p>
     </div>
 
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     SCENE 04 — THE CAPITAL
-══════════════════════════════════════ -->
-<section class="scene" id="s04">
-  <div class="scene-bg" id="s04-bg"
-    style="background-image:url('images/impunity-machine/scene-04-capital.png')"
-    data-src="images/impunity-machine/scene-04-capital.png"></div>
+<!-- ═══════════════════ SCENE 05 — GEOGRAPHY ═══════════════════ -->
+<section id="s05" class="scene">
+  <div class="scene-bg" data-img="images/impunity-machine/scene-05-geography.png"></div>
   <div class="scene-inner">
 
-    <span class="scene-num r">Scene 04 · The Capital · রাজধানী</span>
+    <span class="scene-tag anim">Scene 05 / 07 · The Map · মানচিত্র</span>
 
-    <div class="r d1" style="margin-bottom:1rem">
-      <span class="s04-city-label en">Dhaka Metropolitan · 2020–2024</span>
-      <span class="s04-city-label bn" style="font-family:var(--bn);letter-spacing:0">ঢাকা মেট্রোপলিটন · ২০২০–২০২৪</span>
+    <div class="anim dl1" style="margin-bottom:.3rem">
+      <h2 class="s5-heading bn">কোথায় জন্মেছ, সেটাই তোমার বিচার।</h2>
+      <h2 class="s5-heading en">Where you were born is your justice.</h2>
+    </div>
+    <div class="anim dl2" style="margin-bottom:2.5rem">
+      <p class="s5-sub en">64 districts. Each square is one. Gold = full crisis centre. Dark = tribunal only.</p>
+      <p class="s5-sub bn">৬৪টি জেলা। সোনালি = পূর্ণ সংকট কেন্দ্র। অন্ধকার = শুধু ট্রাইব্যুনাল।</p>
     </div>
 
-    <!-- Kinetic number — grows on entry -->
-    <div class="r-scale" id="s04numWrap">
-      <span class="kinetic-24" id="kinetic24">24</span>
+    <div class="d-grid anim dl2" id="dgrid"></div>
+
+    <div class="geo-nums anim dl3">
+      <div class="gn">
+        <div class="gn-val gold" id="gv-occ">0</div>
+        <div class="gn-label bn">পূর্ণ সংকট কেন্দ্র</div>
+        <div class="gn-label en">Full crisis centres</div>
+      </div>
+      <div class="gn">
+        <div class="gn-val dim" id="gv-dark">0</div>
+        <div class="gn-label bn">শুধু ট্রাইব্যুনাল</div>
+        <div class="gn-label en">Tribunal only</div>
+      </div>
     </div>
 
-    <div class="r d2" style="transition-delay:.2s">
-      <span class="kinetic-unit en">convictions &nbsp;·&nbsp; five years</span>
-      <span class="kinetic-unit bn">টি সাজা &nbsp;·&nbsp; পাঁচ বছরে</span>
-    </div>
-
-    <div class="s04-verdict r d3">
-      <p class="s04-v-bn bn">
-        ঢাকায় সুপ্রিম কোর্ট আছে।<br>
-        হাই কোর্ট আছে। হাজার হাজার আইনজীবী।<br>
-        পাঁচ বছরে মাত্র ২৪ জনের সাজা হয়েছে।
-      </p>
-      <p class="s04-v-en en">
-        Dhaka has the Supreme Court.<br>
-        The High Court. Thousands of lawyers.<br>
-        24 convictions in five years.
-      </p>
-    </div>
-
-    <div class="r d4">
-      <p class="s04-kicker en">The centre of Bangladesh's legal infrastructure produced this number.</p>
-      <p class="s04-kicker bn" style="font-family:var(--bn);font-size:.9rem;letter-spacing:0">বাংলাদেশের আইনি পরিকাঠামোর কেন্দ্রস্থল এই সংখ্যাটি তৈরি করেছে।</p>
+    <div class="anim dl4">
+      <p class="s5-note bn">যে ৫০টি জেলায় সংকট কেন্দ্র নেই, সেখানে একীভূত চিকিৎসা, আইনি ও ফরেনসিক সহায়তা নেই।</p>
+      <p class="s5-note en">In those 50 districts, survivors have no integrated medical, legal and forensic support. The tribunal exists. The support does not.</p>
     </div>
 
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     SCENE 05 — GEOGRAPHY
-══════════════════════════════════════ -->
-<section class="scene" id="s05">
-  <div class="scene-bg" id="s05-bg"
-    style="background-image:url('images/impunity-machine/scene-05-geography.png')"
-    data-src="images/impunity-machine/scene-05-geography.png"></div>
+<!-- ═══════════════════ SCENE 06 — SURGE ═══════════════════ -->
+<section id="s06" class="scene">
+  <div class="scene-bg bright" data-img="images/impunity-machine/scene-06-surge.png"></div>
   <div class="scene-inner">
 
-    <span class="scene-num r">Scene 05 · The Map · মানচিত্র</span>
+    <span class="scene-tag anim">Scene 06 / 07 · The Surge · ঢেউ</span>
 
-    <div class="r d1" style="margin-bottom:.3rem">
-      <h2 class="s05-heading-bn bn">কোথায় জন্মেছ, সেটাই তোমার বিচার।</h2>
-      <h2 class="s05-heading-en en">Where you were born is your justice.</h2>
+    <div class="anim dl1" style="margin-bottom:.4rem">
+      <h2 class="s6-banner bn">বিপ্লব এলো। নিরাপত্তা এলো না।</h2>
+      <h2 class="s6-banner en">The revolution came. Safety didn't.</h2>
     </div>
-    <div class="r d2" style="margin-bottom:2.5rem">
-      <p class="s05-sub en">64 districts. Each square below is one.</p>
-      <p class="s05-sub bn">৬৪ টি জেলা। নিচের প্রতিটি বর্গ একটি জেলা।</p>
-    </div>
-
-    <!-- 64-cell grid, activated in sequence -->
-    <div class="district-grid r d2" id="districtGrid">
-      <!-- 64 cells injected by JS -->
+    <div class="anim dl2" style="margin-bottom:2.5rem">
+      <p class="s6-context bn">আগস্ট ২০২৪ — রাজনৈতিক পরিবর্তন। তারপর নারী ও শিশুর জন্য যা এলো তা নথিভুক্ত। পরিমাপ করা। প্রমাণিত।</p>
+      <p class="s6-context en">August 2024: political transition. What came next for women and children is documented. Measured. Sourced.</p>
     </div>
 
-    <div class="geo-stats r d3">
-      <div class="gs">
-        <div class="gs-val gold" id="gv1">0</div>
-        <div class="gs-label-bn bn">পূর্ণ সংকট কেন্দ্র আছে</div>
-        <div class="gs-label-en en">Full crisis centres</div>
+    <div class="surge-row" id="surgeRow">
+      <div class="s-card anim dl3">
+        <span class="s-val" id="sv1">+52%</span>
+        <div class="s-label bn">H1 2025-এ ধর্ষণ বৃদ্ধি</div>
+        <div class="s-label en">Rape cases H1 2025 vs prev year</div>
+        <div class="s-src">BMP 2025 · TBS News · CONFIRMED · S-82,85</div>
       </div>
-      <div class="gs">
-        <div class="gs-val dim" id="gv2">0</div>
-        <div class="gs-label-bn bn">শুধু ট্রাইব্যুনাল, সংকট কেন্দ্র নেই</div>
-        <div class="gs-label-en en">Tribunal only — no crisis centre</div>
+      <div class="s-card anim dl4">
+        <span class="s-val" id="sv2">+75%</span>
+        <div class="s-label bn">শিশু ধর্ষণ বৃদ্ধি</div>
+        <div class="s-label en">Child rape increase</div>
+        <div class="s-src">ASK 2025 · Dhaka Tribune · CONFIRMED · S-84</div>
       </div>
-    </div>
-
-    <div class="r d4" style="margin-top:1.5rem">
-      <p style="font-family:var(--bn);font-size:.9rem;color:var(--muted);max-width:52ch;margin:0 auto" class="bn">
-        যে ৫০টি জেলায় সংকট কেন্দ্র নেই, সেখানে ধর্ষণের শিকার নারীর জন্য কোনো একীভূত চিকিৎসা, আইনি ও ফরেনসিক সহায়তা নেই।
-      </p>
-      <p style="font-family:var(--mono);font-size:.7rem;color:var(--muted);max-width:56ch;margin:0 auto;letter-spacing:.05em;line-height:1.7" class="en">
-        In those 50 districts without a crisis centre, survivors have no integrated medical, legal and forensic support. The tribunal exists. The support does not.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════
-     SCENE 06 — THE SURGE
-══════════════════════════════════════ -->
-<section class="scene" id="s06">
-  <div class="scene-bg" id="s06-bg"
-    style="background-image:url('images/impunity-machine/scene-06-surge.png')"
-    data-src="images/impunity-machine/scene-06-surge.png"></div>
-  <div class="scene-inner">
-
-    <span class="scene-num r">Scene 06 · The Surge · ঢেউ</span>
-
-    <div class="r d1" style="margin-bottom:.4rem">
-      <h2 class="s06-banner-bn bn">বিপ্লব এলো। নিরাপত্তা এলো না।</h2>
-      <h2 class="s06-banner-en en">The revolution came.<br>Safety didn't.</h2>
-    </div>
-
-    <div class="r d2" style="margin-bottom:3rem">
-      <p style="font-family:var(--bn);font-size:.95rem;color:var(--muted);max-width:52ch;margin:0 auto" class="bn">
-        আগস্ট ২০২৪ — রাজনৈতিক পরিবর্তন। তারপরে নারী ও শিশুর জন্য যা এলো তা নথিভুক্ত। পরিমাপ করা। প্রমাণিত।
-      </p>
-      <p style="font-family:var(--mono);font-size:.7rem;color:var(--muted);max-width:52ch;margin:0 auto;letter-spacing:.05em;line-height:1.8" class="en">
-        August 2024: political transition. What came next for women and children is documented. Measured. Sourced.
-      </p>
-    </div>
-
-    <div class="surge-grid" id="surgeGrid">
-      <div class="surge-card r d3" id="sc1">
-        <span class="surge-val red" id="sv1">+52%</span>
-        <div class="surge-label-bn bn">H1 2025-এ ধর্ষণ বেড়েছে</div>
-        <div class="surge-label-en en">Rape cases H1 2025 vs prior year</div>
-        <div class="surge-src">BMP 2025 · TBS News · CONFIRMED · S-82,85</div>
-      </div>
-      <div class="surge-card r d4" id="sc2">
-        <span class="surge-val red" id="sv2">+75%</span>
-        <div class="surge-label-bn bn">শিশু ধর্ষণ বেড়েছে</div>
-        <div class="surge-label-en en">Child rape increase</div>
-        <div class="surge-src">ASK 2025 · Dhaka Tribune · CONFIRMED · S-84</div>
-      </div>
-      <div class="surge-card zero r d5" id="sc3">
-        <span class="surge-val still" id="sv3">0</span>
-        <div class="surge-label-bn bn">২০২৪ সালের প্রথম ৭ মাসে সাজা</div>
-        <div class="surge-label-en en">Convictions, first 7 months 2024</div>
-        <div class="surge-src">OCC data · Daily Star Nov 2024 · CONFIRMED · S-55</div>
+      <div class="s-card zero anim dl5">
+        <span class="s-val still" id="sv3">0</span>
+        <div class="s-label bn">২০২৪ সালের প্রথম ৭ মাসে সাজা</div>
+        <div class="s-label en">Convictions, first 7 months 2024</div>
+        <div class="s-src">OCC data · Daily Star Nov 2024 · CONFIRMED · S-55</div>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     SCENE 07 — THE RECKONING
-══════════════════════════════════════ -->
-<section class="scene" id="s07">
-  <div class="scene-bg" id="s07-bg"
-    style="background-image:url('images/impunity-machine/scene-07-reckoning.png');background-position:center 30%"
-    data-src="images/impunity-machine/scene-07-reckoning.png"></div>
-  <div class="scene-overlay" style="background:linear-gradient(to top,rgba(6,6,14,.9) 0%,rgba(6,6,14,.4) 60%,rgba(6,6,14,.15) 100%)"></div>
-  <div class="scene-inner">
+<!-- ═══════════════════ SCENE 07 — RECKONING ═══════════════════ -->
+<section id="s07" class="scene">
+  <div class="scene-bg bright" data-img="images/impunity-machine/scene-07-reckoning.png" style="background-position:center 35%"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(6,6,14,.85) 0%,rgba(6,6,14,.35) 60%,rgba(6,6,14,.1) 100%);pointer-events:none;z-index:1"></div>
+  <div class="scene-inner" style="z-index:10">
 
-    <span class="scene-num r">Scene 07 · The Reckoning · পরিণতি</span>
+    <span class="scene-tag anim">Scene 07 / 07 · The Reckoning · পরিণতি</span>
 
-    <div class="typewriter-block">
-      <!-- Lines reveal via clip-path — typewriter feel -->
-      <div class="tw-line">
-        <span class="tw-text bn" id="tw1">এই তদন্ত শেষ হয়নি।</span>
-        <span class="tw-text en" id="tw1e">This investigation is not finished.</span>
+    <div class="tw-wrap" id="twWrap">
+      <div class="tw-block">
+        <span class="tw-bn" id="tw1">এই তদন্ত শেষ হয়নি।</span>
+        <span class="tw-en" id="tw1e">This investigation is not finished.</span>
         <span class="cursor" id="cur1"></span>
       </div>
-      <div class="tw-line" style="margin-top:.5rem">
-        <span class="tw-text bn" id="tw2">প্রতিটি নতুন রায় নথিভুক্ত হচ্ছে।</span>
-        <span class="tw-text en" id="tw2e">Every new verdict is being documented.</span>
+      <div class="tw-block">
+        <span class="tw-bn" id="tw2">প্রতিটি নতুন রায় নথিভুক্ত হচ্ছে।</span>
+        <span class="tw-en" id="tw2e">Every new verdict is being documented.</span>
         <span class="cursor" id="cur2"></span>
       </div>
-      <div class="tw-line" style="margin-top:.5rem">
-        <span class="tw-text bn" id="tw3">যতদিন বিচার না হয়।</span>
-        <span class="tw-text en" id="tw3e">Until there is justice.</span>
+      <div class="tw-block">
+        <span class="tw-bn" id="tw3">যতদিন বিচার না হয়।</span>
+        <span class="tw-en" id="tw3e">Until there is justice.</span>
         <span class="cursor" id="cur3"></span>
       </div>
     </div>
 
-    <div class="s07-divider r" id="s07div"></div>
+    <div class="s7-rule" id="s7rule" style="opacity:0;transition:opacity 1s ease"></div>
 
-    <div class="r" id="s07cta" style="margin-top:1rem">
-      <a href="/investigations/national/impunity-machine/tracker.html" class="tracker-cta">
-        <span class="live-dot"></span>
+    <div id="s7cta" style="opacity:0;transition:opacity 1s ease .3s">
+      <a href="/investigations/national/impunity-machine/tracker.html" class="tracker-btn">
+        <span class="ldot"></span>
         <span class="en">Open Live Tracker →</span>
-        <span class="bn">লাইভ ট্র্যাকার →</span>
+        <span class="bn">লাইভ ট্র্যাকার খুলুন →</span>
       </a>
-    </div>
-
-    <div class="r" id="s07report" style="transition-delay:.3s">
-      <a href="/investigations/national/impunity-machine.html" class="report-link">
+      <a href="/investigations/national/impunity-machine.html" class="report-btn">
         <span class="en">Full forensic report — 91 sources, 10 sections →</span>
-        <span class="bn">সম্পূর্ণ ফরেনসিক রিপোর্ট — ৯১টি সূত্র, ১০টি অধ্যায় →</span>
+        <span class="bn">সম্পূর্ণ রিপোর্ট — ৯১টি সূত্র, ১০টি অধ্যায় →</span>
       </a>
     </div>
 
-    <div class="s07-credit r" style="transition-delay:.5s">
-      <span class="en">Insight Gaps · BD-INV-002 · Independent · Dhaka · CC BY-NC 4.0<br>
-      Report any error: insightgaps@gmail.com</span>
-      <span class="bn" style="font-family:var(--bn)">
-        Insight Gaps · BD-INV-002 · স্বাধীন · ঢাকা · CC BY-NC 4.0<br>
-        ভুল থাকলে জানান: insightgaps@gmail.com
-      </span>
+    <div class="s7-credit anim dl4" style="transition-delay:2s">
+      <span class="en">Insight Gaps · BD-INV-002 · Independent · Dhaka · CC BY-NC 4.0 · insightgaps@gmail.com</span>
+      <span class="bn">Insight Gaps · BD-INV-002 · স্বাধীন · ঢাকা · CC BY-NC 4.0 · insightgaps@gmail.com</span>
     </div>
 
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     JAVASCRIPT — zero libraries
-══════════════════════════════════════ */
 <script>
 'use strict';
 
 /* ── LANGUAGE ── */
 function setLang(l) {
   document.documentElement.setAttribute('data-lang', l);
-  document.getElementById('btn-en').classList.toggle('on', l==='en');
-  document.getElementById('btn-bn').classList.toggle('on', l==='bn');
+  document.getElementById('btn-en').classList.toggle('on', l === 'en');
+  document.getElementById('btn-bn').classList.toggle('on', l === 'bn');
 }
 
-/* ── PROGRESS BAR ── */
-window.addEventListener('scroll', () => {
-  const h = document.documentElement;
+/* ── PROGRESS + CHROME ── */
+var chrome = document.getElementById('chrome');
+window.addEventListener('scroll', function() {
+  var h = document.documentElement;
   document.getElementById('progress').style.width =
     (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
-  document.getElementById('top-bar').classList.toggle('scrolled', h.scrollTop > 60);
-}, {passive:true});
+  chrome.classList.toggle('solid', h.scrollTop > 50);
+}, { passive: true });
+
+/* ══════════════════════════════════════
+   ANIMATION SYSTEM
+   Mark elements with 'will-hide' BEFORE
+   first paint, then reveal on intersection.
+   If JS fails partway through, elements
+   remain visible (no opacity:0 trap).
+══════════════════════════════════════ */
+// Mark ALL .anim elements as hidden IMMEDIATELY
+// This runs synchronously so no flash of unstyled content
+document.querySelectorAll('.anim, .anim-scale').forEach(function(el) {
+  el.classList.add('will-hide');
+});
+
+// Reveal observer
+var revObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revObs.unobserve(e.target);
+    }
+  });
+}, {
+  threshold: 0.08,
+  rootMargin: '0px 0px -30px 0px'
+});
+
+document.querySelectorAll('.anim, .anim-scale').forEach(function(el) {
+  revObs.observe(el);
+});
 
 /* ── LAZY IMAGE LOADER ── */
-const imgObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
+var imgObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
     if (!e.isIntersecting) return;
-    const el = e.target;
-    const src = el.dataset.src;
+    var el = e.target;
+    var src = el.getAttribute('data-img');
     if (!src) return;
-    const img = new Image();
-    img.onload = () => { el.classList.add('loaded'); };
+    var img = new Image();
+    img.onload = function() {
+      el.style.backgroundImage = 'url("' + src + '")';
+      el.classList.add('show');
+    };
     img.src = src;
     imgObs.unobserve(el);
   });
-}, { rootMargin: '400px' });
+}, { rootMargin: '500px' });
 
-document.querySelectorAll('.scene-bg[data-src]').forEach(el => imgObs.observe(el));
+document.querySelectorAll('.scene-bg[data-img]').forEach(function(el) {
+  imgObs.observe(el);
+});
 
-/* ── INTERSECTION REVEAL ── */
-function revealObs(selector, threshold=0.18) {
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+/* ── SILENCE VEIL ── */
+var veilObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      setTimeout(function() {
+        var v = document.getElementById('veil01');
+        if (v) v.classList.add('show');
+      }, 900);
+      veilObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+var s01 = document.getElementById('s01');
+if (s01) veilObs.observe(s01);
+
+/* ── FUNNEL BARS ── */
+var fbarDone = false;
+var fbarObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (!e.isIntersecting || fbarDone) return;
+    fbarDone = true;
+    document.querySelectorAll('.fbar-fill').forEach(function(fill) {
+      var w = fill.getAttribute('data-w') || '0';
+      setTimeout(function() {
+        fill.style.width = w + '%';
+      }, 150);
     });
-  }, { threshold });
-  document.querySelectorAll(selector).forEach(el => obs.observe(el));
-}
-
-revealObs('.r', 0.15);
-revealObs('.r-scale', 0.2);
+    fbarObs.unobserve(e.target);
+  });
+}, { threshold: 0.15 });
+var fw = document.getElementById('funnelWrap');
+if (fw) fbarObs.observe(fw);
 
 /* ── COUNTER ── */
-function counter(el, target, ms=3200) {
-  const start = performance.now();
-  const ease = t => 1 - Math.pow(1-t, 4);
+function counter(el, target, ms) {
+  if (!el) return;
+  var start = performance.now();
+  function ease(t) { return 1 - Math.pow(1 - t, 4); }
   function tick(now) {
-    const p = Math.min((now-start)/ms, 1);
-    el.textContent = Math.round(ease(p)*target).toLocaleString();
+    var p = Math.min((now - start) / ms, 1);
+    el.textContent = Math.round(ease(p) * target).toLocaleString();
     if (p < 1) requestAnimationFrame(tick);
     else el.textContent = target.toLocaleString();
   }
   requestAnimationFrame(tick);
 }
 
-/* ── FUNNEL BARS ── */
-const fbarObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    document.querySelectorAll('.fbar-fill').forEach(fill => {
-      const w = fill.dataset.w;
-      setTimeout(() => { fill.style.width = w + '%'; }, 200);
-    });
-    fbarObs.unobserve(e.target);
-  });
-}, { threshold: 0.2 });
-const fb = document.getElementById('funnelBars');
-if (fb) fbarObs.observe(fb);
-
 /* ── WAIT COUNTER ── */
-const waitObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    const el = document.getElementById('waitCounter');
-    if (el) counter(el, 2349, 4000);
-    // Lines after counter finishes
-    setTimeout(() => {
-      document.getElementById('crMagura').style.width = '3%';
-      document.getElementById('crNormal').style.width = '100%';
+var waitDone = false;
+var waitObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (!e.isIntersecting || waitDone) return;
+    waitDone = true;
+    counter(document.getElementById('waitNum'), 2349, 4200);
+    setTimeout(function() {
+      var fm = document.getElementById('fill-magura');
+      var fn = document.getElementById('fill-normal');
+      if (fm) fm.style.width = '3%';
+      if (fn) fn.style.width = '100%';
     }, 2000);
     waitObs.unobserve(e.target);
   });
 }, { threshold: 0.3 });
-const wn = document.getElementById('waitNum');
-if (wn) waitObs.observe(wn);
+var ww = document.getElementById('waitWrap');
+if (ww) waitObs.observe(ww);
 
 /* ── KINETIC 24 ── */
-const s04Obs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    setTimeout(() => {
-      const el = document.getElementById('kinetic24');
+var k24done = false;
+var k24obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (!e.isIntersecting || k24done) return;
+    k24done = true;
+    setTimeout(function() {
+      var el = document.getElementById('k24');
       if (el) el.classList.add('big');
-    }, 300);
-    s04Obs.unobserve(e.target);
+    }, 350);
+    k24obs.unobserve(e.target);
   });
 }, { threshold: 0.4 });
-const s04w = document.getElementById('s04numWrap');
-if (s04w) s04Obs.observe(s04w);
+var k24w = document.getElementById('k24wrap');
+if (k24w) k24obs.observe(k24w);
 
 /* ── DISTRICT GRID ── */
 (function() {
-  const grid = document.getElementById('districtGrid');
+  var grid = document.getElementById('dgrid');
   if (!grid) return;
-  // 14 OCC districts, 50 dark only
-  const occ = new Set([3,7,12,16,19,22,25,30,33,38,42,47,52,57]);
-  for (let i=0; i<64; i++) {
-    const d = document.createElement('div');
-    d.className = 'district-cell ' + (occ.has(i) ? 'occ' : 'dark-only');
+  // 14 OCC districts (by position index)
+  var occ = [3,7,9,12,16,19,22,25,30,33,38,44,49,56];
+  var occSet = {};
+  occ.forEach(function(i) { occSet[i] = true; });
+  for (var i = 0; i < 64; i++) {
+    var d = document.createElement('div');
+    d.className = 'district-cell' + (occSet[i] ? ' occ' : '') + ' anim';
     grid.appendChild(d);
   }
-  // Activate cells sequentially when grid enters view
-  const gObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
+  // Observe the grid to animate cells
+  var gObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
       if (!e.isIntersecting) return;
-      const cells = grid.querySelectorAll('.district-cell');
-      cells.forEach((c, i) => {
-        setTimeout(() => {
+      var cells = grid.querySelectorAll('.district-cell');
+      cells.forEach(function(c, i) {
+        setTimeout(function() {
           c.style.opacity = '1';
-          // count up stats
-          const occ_count = i < 14 ? 0 : null;
-        }, i * 40);
+        }, i * 35);
       });
-      // Count up geo stats
-      setTimeout(() => counter(document.getElementById('gv1'), 14, 1200), 500);
-      setTimeout(() => counter(document.getElementById('gv2'), 50, 1800), 800);
+      // Start all cells invisible
+      cells.forEach(function(c) { c.style.opacity = '0'; c.style.transition = 'opacity .3s ease'; });
+      // Count stats
+      setTimeout(function() {
+        counter(document.getElementById('gv-occ'), 14, 1000);
+      }, 400);
+      setTimeout(function() {
+        counter(document.getElementById('gv-dark'), 50, 1500);
+      }, 700);
       gObs.unobserve(e.target);
     });
-  }, { threshold: 0.25 });
+  }, { threshold: 0.2 });
   gObs.observe(grid);
 })();
 
-/* ── SURGE SPRING VALS ── */
-const surgeObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    ['sv1','sv2','sv3'].forEach((id, i) => {
-      const el = document.getElementById(id);
-      if (!el) return;
-      el.classList.add('animate', `d${i+1}`);
+/* ── SURGE SPRING ── */
+var surgeDone = false;
+var surgeObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (!e.isIntersecting || surgeDone) return;
+    surgeDone = true;
+    ['sv1','sv2','sv3'].forEach(function(id, i) {
+      var el = document.getElementById(id);
+      if (el) {
+        setTimeout(function() {
+          el.classList.add('animate');
+          if (i < 2) el.classList.add('dl' + (i + 1));
+        }, 50);
+      }
     });
     surgeObs.unobserve(e.target);
   });
 }, { threshold: 0.3 });
-const sg = document.getElementById('surgeGrid');
-if (sg) surgeObs.observe(sg);
+var sr = document.getElementById('surgeRow');
+if (sr) surgeObs.observe(sr);
 
-/* ── TYPEWRITER SCENE 07 ── */
+/* ── TYPEWRITER ── */
 (function() {
-  const lines = [
-    { id:'tw1', eid:'tw1e', cur:'cur1', delay:0,    wait:2000 },
-    { id:'tw2', eid:'tw2e', cur:'cur2', delay:2200, wait:1800 },
-    { id:'tw3', eid:'tw3e', cur:'cur3', delay:4200, wait:9999 },
+  var started = false;
+  var lines = [
+    { bn: 'tw1',  en: 'tw1e', cur: 'cur1', t: 0,    wait: 2000 },
+    { bn: 'tw2',  en: 'tw2e', cur: 'cur2', t: 2200, wait: 1800 },
+    { bn: 'tw3',  en: 'tw3e', cur: 'cur3', t: 4200, wait: 99999 },
   ];
 
-  let started = false;
-  function startTypewriter() {
+  // Hide cursors initially
+  document.querySelectorAll('.cursor').forEach(function(c) {
+    c.style.display = 'none';
+  });
+
+  function runTW() {
     if (started) return;
     started = true;
-
-    lines.forEach(ln => {
-      setTimeout(() => {
-        // Reveal text
-        ['tw'+ln.id.slice(-1), ln.eid].forEach(id => {
-          const el = document.getElementById(id);
-          if (el) el.classList.add('in');
-        });
-        // Show cursor
-        const cur = document.getElementById(ln.cur);
-        if (cur) cur.style.opacity = '1';
-        // Kill cursor after wait
-        if (ln.wait < 9999) {
-          setTimeout(() => {
-            if (cur) cur.classList.add('done');
+    lines.forEach(function(ln) {
+      setTimeout(function() {
+        var bn = document.getElementById(ln.bn);
+        var en = document.getElementById(ln.en);
+        var cur = document.getElementById(ln.cur);
+        if (bn) bn.classList.add('open');
+        if (en) en.classList.add('open');
+        if (cur) { cur.style.display = 'inline-block'; }
+        if (ln.wait < 99999) {
+          setTimeout(function() {
+            if (cur) cur.classList.add('off');
           }, ln.wait);
         }
-      }, ln.delay);
+      }, ln.t);
     });
-
-    // Show CTA after typewriter done
-    setTimeout(() => {
-      ['s07div','s07cta','s07report'].forEach((id,i) => {
-        setTimeout(() => {
-          const el = document.getElementById(id);
-          if (el) el.classList.add('in');
-        }, i * 400);
-      });
-      // Show credit
-      document.querySelectorAll('.s07-credit').forEach(el => {
-        setTimeout(() => el.classList.add('in'), 1200);
-      });
-    }, 5500);
+    // Show CTA after typewriter
+    setTimeout(function() {
+      var rule = document.getElementById('s7rule');
+      var cta = document.getElementById('s7cta');
+      if (rule) rule.style.opacity = '1';
+      if (cta) cta.style.opacity = '1';
+    }, 5800);
   }
 
-  // Fix cursor initial state - hide until active
-  document.querySelectorAll('.cursor').forEach(c => c.style.opacity='0');
-
-  const s07Obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        startTypewriter();
-        s07Obs.unobserve(e.target);
-      }
+  var twObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { runTW(); twObs.unobserve(e.target); }
     });
   }, { threshold: 0.35 });
-  const s07 = document.getElementById('s07');
-  if (s07) s07Obs.observe(s07);
+  var tw = document.getElementById('twWrap');
+  if (tw) twObs.observe(tw);
 })();
-
-/* ── SILENCE VEIL ── */
-const veilObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      setTimeout(() => {
-        const v = document.getElementById('s01-veil');
-        if (v) v.classList.add('in');
-      }, 800);
-      veilObs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.5 });
-const s01 = document.getElementById('s01');
-if (s01) veilObs.observe(s01);
-
-/* ── S07 bg brighten ── */
-const s07bgObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    const bg = document.getElementById('s07-bg');
-    if (e.isIntersecting && bg) bg.classList.add('bright');
-  });
-}, { threshold: 0.3 });
-const s07el = document.getElementById('s07');
-if (s07el) s07bgObs.observe(s07el);
 
 </script>
 </body>
