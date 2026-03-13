@@ -2,14 +2,253 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-<meta name="robots" content="noindex, nofollow">
-
+  <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Property Preservation Operational Analysis | Insight Gaps</title>
   <meta name="description" content="Forensic operational analysis of property preservation workflows — financial health, profit leakage, and work order risk. Insight Gaps Bureau.">
   <link rel="canonical" href="https://insightgaps.com/analysis/property-preservation/">
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="stylesheet" href="/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── PP Section overrides & self-contained styles ── */
+    :root {
+      --pp-bg:   #0d0d0d;
+      --pp-card: #141414;
+      --pp-bdr:  #222;
+      --pp-txt:  rgba(255,255,255,.88);
+      --pp-mute: rgba(255,255,255,.35);
+      --pp-teal: #00bfa5;
+      --pp-red:  #ef5350;
+      --pp-gold: #ffc107;
+      --pp-blue: #42a5f5;
+      --pp-purp: #ab47bc;
+      --pp-orng: #ff9800;
+      --pp-sans: 'Inter', system-ui, sans-serif;
+      --pp-mono: 'JetBrains Mono', 'Courier New', monospace;
+      --pp-serf: 'Playfair Display', Georgia, serif;
+    }
+
+    body {
+      background: var(--pp-bg);
+      color: var(--pp-txt);
+      font-family: var(--pp-sans);
+      margin: 0;
+    }
+
+    /* Back link */
+    .back-link {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-family: var(--pp-mono); font-size: .68rem;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--pp-mute); text-decoration: none;
+      padding: .3rem .7rem; border: 1px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
+    .back-link:hover { color: var(--pp-teal); border-color: rgba(0,191,165,.2); }
+
+    /* Page container */
+    .page-container {
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 28px 80px;
+    }
+
+    /* Longform article header */
+    .longform-article header {
+      padding: 56px 0 36px;
+      border-bottom: 1px solid var(--pp-bdr);
+      margin-bottom: 36px;
+    }
+    .domain-tag {
+      font-family: var(--pp-mono); font-size: .62rem;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--pp-teal); margin: 0 0 12px;
+    }
+    .longform-article h1 {
+      font-family: var(--pp-serf); font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.06;
+      letter-spacing: -.03em; color: #fff; margin: 0 0 14px;
+    }
+    .dek {
+      font-family: var(--pp-sans); font-size: .95rem;
+      font-weight: 300; color: var(--pp-mute);
+      max-width: 56ch; margin: 0 0 10px; line-height: 1.65;
+    }
+    .last-updated {
+      font-family: var(--pp-mono); font-size: .62rem;
+      letter-spacing: .08em; color: rgba(255,255,255,.22);
+      margin: 0;
+    }
+
+    /* Intro block */
+    .forensic-intro {
+      background: linear-gradient(135deg, rgba(0,191,165,.05), rgba(0,191,165,.02));
+      border: 1px solid rgba(0,191,165,.15);
+      border-left: 3px solid var(--pp-teal);
+      padding: 22px 26px; margin-bottom: 0;
+      border-radius: 0 3px 3px 0;
+    }
+    .forensic-intro p {
+      font-family: var(--pp-sans); font-size: .92rem;
+      color: rgba(255,255,255,.52); line-height: 1.7;
+      margin: 0 0 .7rem;
+    }
+    .forensic-intro p:last-child { margin: 0; }
+
+    /* Section header */
+    .section-header {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+    .section-header h2 {
+      font-family: var(--pp-mono); font-size: .7rem;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: var(--pp-mute); margin: 0; font-weight: 700;
+    }
+    .section-meta {
+      font-family: var(--pp-mono); font-size: .62rem;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: rgba(255,255,255,.2);
+    }
+
+    /* Cards grid */
+    .forensic-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    @media(max-width: 900px) { .forensic-grid { grid-template-columns: 1fr 1fr; } }
+    @media(max-width: 560px) { .forensic-grid { grid-template-columns: 1fr; } }
+
+    .forensic-card {
+      background: var(--pp-card);
+      border: 1px solid var(--pp-bdr);
+      border-radius: 3px;
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: border-color .2s, transform .2s;
+    }
+    .forensic-card:hover {
+      border-color: rgba(255,255,255,.12);
+      transform: translateY(-2px);
+    }
+
+    /* Top accent line per card type */
+    .card-financial  { border-top: 2px solid var(--pp-teal); }
+    .card-leakage    { border-top: 2px solid var(--pp-purp); }
+    .card-workorder  { border-top: 2px solid var(--pp-orng); }
+
+    /* Preview image area */
+    .card-preview-stage {
+      position: relative; overflow: hidden;
+      background: #0a0a0a; cursor: pointer;
+      aspect-ratio: 16/9;
+    }
+    .card-preview-stage::after {
+      content: '⤢  Preview';
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--pp-mono); font-size: .65rem;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: rgba(255,255,255,.5);
+      background: rgba(0,0,0,.5);
+      opacity: 0; transition: opacity .2s;
+    }
+    .card-preview-stage:hover::after { opacity: 1; }
+    .card-preview-img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform .35s ease;
+    }
+    .card-preview-stage:hover .card-preview-img { transform: scale(1.03); }
+
+    /* Card content */
+    .card-content {
+      padding: 18px 18px 20px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .card-domain {
+      display: inline-block;
+      font-family: var(--pp-mono); font-size: .58rem;
+      font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; padding: 2px 8px;
+      border-radius: 2px; margin-bottom: 10px;
+    }
+    .domain-financial { background: rgba(0,191,165,.15); color: var(--pp-teal); }
+    .domain-leakage   { background: rgba(171,71,188,.15); color: var(--pp-purp); }
+    .domain-workorder { background: rgba(255,152,0,.15);  color: var(--pp-orng); }
+
+    .card-meta {
+      display: flex; align-items: center; gap: 8px;
+      margin-bottom: 8px;
+    }
+    .card-meta .date {
+      font-family: var(--pp-mono); font-size: .6rem;
+      letter-spacing: .06em; color: rgba(255,255,255,.22);
+    }
+    .card-content h3 {
+      font-family: var(--pp-serf); font-weight: 700;
+      font-size: 1.12rem; color: #fff; margin: 0 0 8px;
+      line-height: 1.25;
+    }
+    .card-content p {
+      font-family: var(--pp-sans); font-size: .84rem;
+      color: var(--pp-mute); line-height: 1.6;
+      margin: 0 0 16px; flex: 1;
+    }
+    .btn-report {
+      display: inline-block;
+      font-family: var(--pp-mono); font-size: .65rem;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--pp-txt); text-decoration: none;
+      padding: .5rem 1rem;
+      border: 1px solid var(--pp-bdr);
+      background: rgba(255,255,255,.04);
+      transition: all .2s; align-self: flex-start;
+    }
+    .btn-report:hover {
+      background: rgba(255,255,255,.09);
+      border-color: rgba(255,255,255,.2);
+      color: #fff;
+    }
+    .card-financial  .btn-report:hover { border-color: rgba(0,191,165,.4); color: var(--pp-teal); }
+    .card-leakage    .btn-report:hover { border-color: rgba(171,71,188,.4); color: var(--pp-purp); }
+    .card-workorder  .btn-report:hover { border-color: rgba(255,152,0,.4);  color: var(--pp-orng); }
+
+    /* ── POPUP ── */
+    .popup-overlay {
+      display: none; position: fixed; inset: 0; z-index: 9000;
+      background: rgba(0,0,0,.88); backdrop-filter: blur(6px);
+      align-items: center; justify-content: center;
+    }
+    .popup-overlay.open { display: flex; }
+    .popup-content {
+      position: relative; max-width: 90vw; max-height: 88vh;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .popup-close {
+      position: absolute; top: -36px; right: 0;
+      background: transparent; border: 1px solid rgba(255,255,255,.2);
+      color: rgba(255,255,255,.6); font-size: 1.2rem; width: 28px; height: 28px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: all .2s;
+    }
+    .popup-close:hover { background: rgba(255,255,255,.1); color: #fff; }
+    .popup-image {
+      max-width: 100%; max-height: 75vh;
+      object-fit: contain; display: block;
+      border: 1px solid var(--pp-bdr);
+    }
+    .popup-caption {
+      font-family: var(--pp-mono); font-size: .65rem;
+      letter-spacing: .1em; color: var(--pp-mute);
+      margin-top: 10px; text-align: center;
+    }
+  </style>
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4PYE0MEK12"></script>
@@ -23,19 +262,16 @@
 
 <body>
 
-  <!-- ── HEADER ── -->
   <div data-include="header" data-path="/includes/header.html"></div>
 
   <main class="page-container" role="main">
 
-    <!-- Breadcrumb -->
-    <nav aria-label="Breadcrumb" style="margin-bottom: var(--sp-8);">
+    <nav aria-label="Breadcrumb" style="margin-bottom:2rem;padding-top:1.5rem">
       <a href="/analysis/" class="back-link">← Analysis Domains</a>
     </nav>
 
     <article class="longform-article">
-
-      <header style="margin-bottom: var(--sp-10);">
+      <header>
         <p class="domain-tag">Analysis Domain</p>
         <h1>Property Preservation<br>Operational Analysis</h1>
         <p class="dek">
@@ -50,21 +286,17 @@
           Property preservation businesses rarely struggle because work disappears.
           They struggle because complexity grows faster than visibility.
         </p>
-        <p style="margin-bottom:0;">
+        <p>
           These reports follow the money, the documentation, and the work orders — to find where
           value quietly fails to complete its journey.
         </p>
       </div>
-
     </article>
 
-    <!-- Forensic Reports -->
-    <section aria-labelledby="reports-heading" style="margin-top: var(--sp-12);">
+    <section aria-labelledby="reports-heading" style="margin-top:3rem">
 
       <div class="section-header">
-        <h2 id="reports-heading" style="font-size: var(--text-sm); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; margin: 0;">
-          Forensic Reports
-        </h2>
+        <h2 id="reports-heading">Forensic Reports</h2>
         <span class="section-meta">3 published</span>
       </div>
 
@@ -72,61 +304,64 @@
 
         <article class="forensic-card card-financial">
           <div class="card-preview-stage"
-               onclick="openPopup('/analysis/property-preservation/images/financial-dashboard.png', 'Financial Health Dashboard', '/analysis/property-preservation/financial-health.html')"
+               onclick="openPopup('images/financial-dashboard.png','Financial Health Dashboard','financial-health.html')"
                role="button"
-               aria-label="Preview Financial Health Dashboard">
-            <img src="/analysis/property-preservation/images/financial-dashboard.png"
+               tabindex="0"
+               aria-label="Preview Financial Health Dashboard"
+               onkeydown="if(event.key==='Enter')openPopup('images/financial-dashboard.png','Financial Health Dashboard','financial-health.html')">
+            <img src="images/financial-dashboard.png"
                  alt="Financial Health Dashboard preview"
-                 class="card-preview-img">
+                 class="card-preview-img"
+                 loading="lazy">
           </div>
           <div class="card-content">
             <span class="card-domain domain-financial">Cash Flow Risk</span>
-            <div class="card-meta">
-              <span class="date">January 2026</span>
-            </div>
+            <div class="card-meta"><span class="date">January 2026</span></div>
             <h3>Financial Health: The Cash Chain</h3>
             <p>Tracks how revenue moves through invoicing and collection to expose where retention breaks down.</p>
-            <a href="/analysis/property-preservation/financial-health.html" class="btn-report">View Analysis →</a>
+            <a href="financial-health.html" class="btn-report">View Analysis →</a>
           </div>
         </article>
 
         <article class="forensic-card card-leakage">
           <div class="card-preview-stage"
-               onclick="openPopup('/analysis/property-preservation/images/leakage-map.png', 'Leakage Autopsy', '/analysis/property-preservation/leakage-breakdown.html')"
+               onclick="openPopup('images/leakage-map.png','Leakage Autopsy','leakage-breakdown.html')"
                role="button"
-               aria-label="Preview Leakage Breakdown">
-            <img src="/analysis/property-preservation/images/leakage-map.png"
+               tabindex="0"
+               aria-label="Preview Leakage Breakdown"
+               onkeydown="if(event.key==='Enter')openPopup('images/leakage-map.png','Leakage Autopsy','leakage-breakdown.html')">
+            <img src="images/leakage-map.png"
                  alt="Leakage map preview"
-                 class="card-preview-img">
+                 class="card-preview-img"
+                 loading="lazy">
           </div>
           <div class="card-content">
             <span class="card-domain domain-leakage">Profit Leakage</span>
-            <div class="card-meta">
-              <span class="date">January 2026</span>
-            </div>
+            <div class="card-meta"><span class="date">January 2026</span></div>
             <h3>Leakage Breakdown: Structural Autopsy</h3>
             <p>Examines recurring margin erosion caused by vendor overruns and rework loops.</p>
-            <a href="/analysis/property-preservation/leakage-breakdown.html" class="btn-report">View Analysis →</a>
+            <a href="leakage-breakdown.html" class="btn-report">View Analysis →</a>
           </div>
         </article>
 
         <article class="forensic-card card-workorder">
           <div class="card-preview-stage"
-               onclick="openPopup('/analysis/property-preservation/images/risk-matrix.png', 'Risk Matrix', '/analysis/property-preservation/work-order-breakdown.html')"
+               onclick="openPopup('images/risk-matrix.png','Risk Matrix','work-order-breakdown.html')"
                role="button"
-               aria-label="Preview Work Order Risk Matrix">
-            <img src="/analysis/property-preservation/images/risk-matrix.png"
+               tabindex="0"
+               aria-label="Preview Work Order Risk Matrix"
+               onkeydown="if(event.key==='Enter')openPopup('images/risk-matrix.png','Risk Matrix','work-order-breakdown.html')">
+            <img src="images/risk-matrix.png"
                  alt="Risk matrix preview"
-                 class="card-preview-img">
+                 class="card-preview-img"
+                 loading="lazy">
           </div>
           <div class="card-content">
             <span class="card-domain domain-workorder">Work Order Risk</span>
-            <div class="card-meta">
-              <span class="date">January 2026</span>
-            </div>
+            <div class="card-meta"><span class="date">January 2026</span></div>
             <h3>Work Order Breakdown</h3>
             <p>Identifies which service types scale profitably and which quietly magnify risk.</p>
-            <a href="/analysis/property-preservation/work-order-breakdown.html" class="btn-report">View Analysis →</a>
+            <a href="work-order-breakdown.html" class="btn-report">View Analysis →</a>
           </div>
         </article>
 
@@ -136,9 +371,9 @@
   </main>
 
   <!-- Image popup -->
-  <div id="imagePopup" class="popup-overlay" onclick="closePopup()" role="dialog" aria-modal="true" aria-label="Image preview">
-    <div class="popup-content" onclick="event.stopPropagation()">
-      <button class="popup-close" onclick="closePopup()" aria-label="Close">&times;</button>
+  <div id="imagePopup" class="popup-overlay" role="dialog" aria-modal="true" aria-label="Image preview">
+    <div class="popup-content">
+      <button class="popup-close" onclick="closePopup()" aria-label="Close">×</button>
       <a id="popupLink" href="#">
         <img id="popupImg" src="" alt="Preview" class="popup-image">
       </a>
@@ -146,10 +381,34 @@
     </div>
   </div>
 
-  <!-- ── FOOTER ── -->
   <div data-include="footer" data-path="/includes/footer.html"></div>
 
   <script src="/js/components.js"></script>
-  <script src="/js/ui.js"></script>
+
+  <script>
+    /* Popup — self-contained, no ui.js dependency */
+    function openPopup(imgSrc, caption, linkHref) {
+      var overlay = document.getElementById('imagePopup');
+      document.getElementById('popupImg').src = imgSrc;
+      document.getElementById('popupImg').alt = caption;
+      document.getElementById('popupCaption').textContent = caption;
+      document.getElementById('popupLink').href = linkHref;
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closePopup() {
+      document.getElementById('imagePopup').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    /* Close on overlay click */
+    document.getElementById('imagePopup').addEventListener('click', function(e) {
+      if (e.target === this) closePopup();
+    });
+    /* Close on Escape */
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closePopup();
+    });
+  </script>
+
 </body>
 </html>
