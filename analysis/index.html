@@ -1,93 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Operational Analysis Domains | Insight Gaps</title>
-  <meta name="description" content="Applied operational analysis derived from public investigations. Commissioned diagnostics available for organizations — Insight Gaps Bureau.">
-  <link rel="canonical" href="https://www.insightgaps.com/analysis/">
-  <link rel="icon" href="/favicon.png" type="image/png">
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Analysis | Insight Gaps">
-  <meta property="og:description" content="Forensic operational diagnostics derived from investigative work. Commissioned engagements available under strict confidentiality.">
-  <meta property="og:url" content="https://www.insightgaps.com/analysis/">
-  <meta name="twitter:card" content="summary">
-  <link rel="stylesheet" href="/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Operational Analysis | Insight Gaps</title>
+<meta name="description" content="Applied operational analysis derived from public investigations. Commissioned diagnostics available for organizations — Insight Gaps Bureau.">
+<link rel="canonical" href="https://www.insightgaps.com/analysis/">
+<link rel="icon" href="/favicon.png" type="image/png">
+<meta property="og:title" content="Analysis | Insight Gaps">
+<meta property="og:description" content="Forensic operational diagnostics derived from investigative work.">
+<meta property="og:url" content="https://www.insightgaps.com/analysis/">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4PYE0MEK12"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-4PYE0MEK12');</script>
+<style>
+:root{
+  --ink:#06060e;--ink2:#0c0c18;--ink3:#131320;
+  --blood:#c41e3a;--gold:#c9a84c;
+  --ash:#7a7590;--ash2:#3e3c50;
+  --white:#e8e3da;--white2:#c4bfb5;
+  --border:#1e1e32;--border2:rgba(255,255,255,.08);
+  --mono:'JetBrains Mono',monospace;
+  --serif:'Playfair Display',serif;
+  --max:960px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{background:var(--ink);color:var(--white);font-family:var(--mono);-webkit-font-smoothing:antialiased}
+a{color:var(--gold);text-decoration:none;transition:color .2s}
+a:hover{color:var(--white)}
 
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4PYE0MEK12"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-4PYE0MEK12');
-  </script>
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:900;
+  background:rgba(6,6,14,.97);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  padding:0 1.5rem;height:52px;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem
+}
+.nav-brand{font-family:var(--mono);font-size:.58rem;color:var(--gold);letter-spacing:.18em;text-transform:uppercase}
+.nav-links{display:flex;gap:.4rem;align-items:center}
+.nl{font-family:var(--mono);font-size:.48rem;color:var(--ash);border:1px solid transparent;
+  padding:.22rem .65rem;letter-spacing:.08em;text-transform:uppercase;transition:all .2s}
+.nl:hover{color:var(--gold);border-color:var(--gold)}
+.nl.hot{color:var(--white2);border:1px solid rgba(196,30,58,.4)}
+.nl.hot:hover{color:#e84060;border-color:#e84060}
+@media(max-width:600px){.nav-links .nl:not(.hot){display:none}}
+
+/* BREADCRUMB */
+.crumb{
+  max-width:var(--max);margin:0 auto;
+  padding:1rem 1.5rem;
+  font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ash2);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:.5rem
+}
+.crumb a{color:var(--ash);transition:color .2s}
+.crumb a:hover{color:var(--gold)}
+.crumb-sep{color:var(--ash2)}
+
+/* PAGE HEADER */
+.page-hdr{
+  max-width:var(--max);margin:0 auto;
+  padding:4rem 1.5rem 3rem;
+  border-bottom:1px solid var(--border)
+}
+.page-tag{
+  font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--blood);
+  margin-bottom:1rem;display:flex;align-items:center;gap:.6rem
+}
+.page-tag::before{content:'';width:24px;height:1px;background:var(--blood)}
+.page-h1{
+  font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:900;
+  line-height:1.05;letter-spacing:-.02em;margin-bottom:1.2rem;color:var(--white)
+}
+.page-lead{
+  font-size:.82rem;line-height:1.9;color:var(--white2);max-width:600px
+}
+.page-date{font-size:.52rem;color:var(--ash2);letter-spacing:.1em;text-transform:uppercase;margin-top:1.2rem}
+
+/* INQUIRY BOX */
+.inq-box{
+  max-width:var(--max);margin:3rem auto;padding:0 1.5rem
+}
+.inq-inner{
+  background:var(--ink2);border:1px solid var(--border);
+  border-left:3px solid var(--blood);
+  padding:2.5rem;
+}
+.inq-inner p{font-size:.78rem;line-height:1.9;color:var(--white2);margin-bottom:1rem}
+.inq-inner p:last-of-type{margin-bottom:1.5rem}
+.inq-inner strong{color:var(--white)}
+.btn-red{
+  display:inline-block;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;
+  padding:.65rem 1.4rem;background:var(--blood);color:var(--white);
+  border:1px solid var(--blood);transition:all .2s
+}
+.btn-red:hover{background:transparent;color:var(--blood)}
+
+/* DOMAINS GRID */
+.domains-wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem 5rem}
+.domains-hdr{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-bottom:1rem;border-bottom:1px solid var(--border);margin-bottom:1.5px
+}
+.domains-hdr h2{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ash)}
+.domains-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px}
+@media(max-width:700px){.domains-grid{grid-template-columns:1fr}}
+.domain-card{
+  background:var(--ink2);border:1px solid var(--border);
+  padding:2.2rem 1.8rem;
+  position:relative;overflow:hidden;transition:border-color .25s
+}
+.domain-card:hover{border-color:rgba(201,168,76,.3)}
+.domain-card::before{
+  content:'';position:absolute;top:0;left:0;width:2px;height:0;
+  background:var(--gold);transition:height .5s
+}
+.domain-card:hover::before{height:100%}
+.domain-num{
+  font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ash2);margin-bottom:1rem
+}
+.domain-h2{
+  font-family:var(--serif);font-size:1.3rem;font-weight:700;
+  color:var(--white);margin-bottom:.8rem;line-height:1.2
+}
+.domain-p{font-size:.72rem;line-height:1.8;color:var(--ash)}
+.domain-cta{
+  margin-top:1.5rem;font-size:.52rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--gold);
+  display:flex;align-items:center;gap:.4rem
+}
+.domain-cta::after{content:'→'}
+
+/* STATUS CARDS */
+.status-row{
+  max-width:var(--max);margin:0 auto;
+  padding:0 1.5rem;margin-bottom:3rem;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px
+}
+@media(max-width:700px){.status-row{grid-template-columns:1fr}}
+.status-card{
+  background:var(--ink3);border:1px solid var(--border);
+  padding:1.5rem;display:flex;align-items:center;gap:1rem
+}
+.status-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.status-dot.available{background:#2aaa6a}
+.status-dot.confidential{background:var(--gold)}
+.status-dot.closed{background:var(--ash2)}
+.status-text{font-size:.62rem;color:var(--white2);line-height:1.5}
+.status-text strong{color:var(--white);display:block;margin-bottom:.2rem}
+
+/* FOOTER */
+footer{
+  background:var(--ink2);border-top:1px solid var(--border);
+  padding:3rem 1.5rem 2rem
+}
+.footer-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;margin-bottom:2rem}
+@media(max-width:700px){.footer-inner{grid-template-columns:1fr;gap:2rem}}
+.ft-brand-name{font-family:var(--mono);font-size:.75rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem}
+.ft-brand-p{font-size:.65rem;color:var(--ash);line-height:1.85}
+.ft-col h4{font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ash2);margin-bottom:.8rem}
+.ft-col ul{list-style:none}
+.ft-col li{margin-bottom:.4rem}
+.ft-col a{font-size:.65rem;color:var(--ash);transition:color .2s}
+.ft-col a:hover{color:var(--gold)}
+.footer-bottom{
+  max-width:var(--max);margin:0 auto;padding-top:1.5rem;
+  border-top:1px solid var(--border);
+  display:flex;justify-content:space-between;
+  font-size:.5rem;letter-spacing:.1em;color:var(--ash2);text-transform:uppercase;flex-wrap:wrap;gap:.5rem
+}
+</style>
 </head>
 <body>
 
-  <!-- ── HEADER ── -->
-  <div data-include="header" data-path="/includes/header.html"></div>
+<nav>
+  <a href="/" class="nav-brand">Insight Gaps</a>
+  <div class="nav-links">
+    <a href="/investigations/" class="nl">Investigations</a>
+    <a href="/analysis/" class="nl" style="color:var(--gold);border-color:rgba(201,168,76,.3)">Analysis</a>
+    <a href="/methods/" class="nl">Methods</a>
+    <a href="/about/" class="nl">About</a>
+    <a href="/investigations/national/lead-belt/visual.html" class="nl hot">New: Lead Belt →</a>
+  </div>
+</nav>
 
-  <main class="page-container" role="main">
+<div class="crumb">
+  <a href="/">Home</a>
+  <span class="crumb-sep">/</span>
+  <span>Analysis</span>
+</div>
 
-    <!-- Page header -->
-    <header style="max-width: var(--container-narrow); margin-bottom: var(--sp-12);">
-      <p class="domain-tag">Applied Analysis</p>
-      <h1>Operational Analysis</h1>
-      <p class="lead">
-        Forensic diagnostics derived from investigative work into real operational workflows.
-        Private commissioned engagements are available under strict confidentiality.
-      </p>
-      <p class="last-updated">Last updated: January 2026</p>
-    </header>
+<div class="page-hdr">
+  <p class="page-tag">Applied Analysis</p>
+  <h1 class="page-h1">Operational Analysis</h1>
+  <p class="page-lead">
+    Forensic diagnostics derived from investigative work into real operational workflows. Private commissioned engagements are available under strict confidentiality — no client names or data disclosed without written consent.
+  </p>
+  <p class="page-date">Last updated: January 2026</p>
+</div>
 
-    <hr>
+<div class="inq-box">
+  <div class="inq-inner">
+    <p><strong>Operational Intelligence Reports</strong> — The Bureau produces forensic diagnostics applied to real operational systems: cash flow analysis, vendor leakage mapping, work order risk, and documentation failure patterns.</p>
+    <p>These reports are available to qualified organisations and individuals on request. All commissioned work is delivered under strict confidentiality.</p>
+    <p>To request access to existing reports or commission a diagnostic, contact the Bureau directly.</p>
+    <a href="mailto:insightgaps@gmail.com" class="btn-red">Request Access →</a>
+  </div>
+</div>
 
-    <section style="margin-top: var(--sp-12);">
-      <div class="inquiries-box">
-        <p><strong>Operational Intelligence Reports</strong> — The Bureau produces forensic diagnostics applied to real operational systems: cash flow analysis, vendor leakage mapping, work order risk, and documentation failure patterns.</p>
-        <p>These reports are available to qualified organisations and individuals on request. All commissioned work is delivered under strict confidentiality. No client names or data are disclosed without written consent.</p>
-        <p>To request access to existing reports or commission a diagnostic, contact the Bureau directly.</p>
-        <a href="mailto:insightgaps@gmail.com" class="btn-solid-red" style="margin-top: var(--sp-4); display:inline-block;">Request Access &rarr;</a>
-      </div>
+<div class="status-row">
+  <div class="status-card">
+    <div class="status-dot available"></div>
+    <div class="status-text"><strong>New Commissions</strong>Currently accepting diagnostic requests</div>
+  </div>
+  <div class="status-card">
+    <div class="status-dot confidential"></div>
+    <div class="status-text"><strong>All Engagements</strong>Delivered under strict confidentiality</div>
+  </div>
+  <div class="status-card">
+    <div class="status-dot closed"></div>
+    <div class="status-text"><strong>Active Cases</strong>No client data disclosed without consent</div>
+  </div>
+</div>
 
-      <div class="domains-grid" style="margin-top: var(--sp-12);">
-        <div class="domain">
-          <p class="type">Domain 01</p>
-          <h2>Cash Flow Risk</h2>
-          <p>How revenue moves through invoicing and collection cycles — and where retention breaks down. Full diagnostic available on request.</p>
-        </div>
-        <div class="domain">
-          <p class="type">Domain 02</p>
-          <h2>Profit Leakage</h2>
-          <p>Recurring margin erosion from vendor overruns, rework loops, and structural inefficiencies — mapped and classified. Available on request.</p>
-        </div>
-        <div class="domain">
-          <p class="type">Domain 03</p>
-          <h2>Work Order Risk</h2>
-          <p>Which service types scale profitably and which quietly amplify operational risk. Risk matrix and breakdown available on request.</p>
-        </div>
-      </div>
-    </section>
-
-</main>
-
-  <!-- Image popup -->
-  <div id="imagePopup" class="popup-overlay" onclick="closePopup()" role="dialog" aria-modal="true" aria-label="Image preview">
-    <div class="popup-content" onclick="event.stopPropagation()">
-      <button class="popup-close" onclick="closePopup()" aria-label="Close preview">&times;</button>
-      <a id="popupLink" href="#">
-        <img id="popupImg" src="" alt="Preview" class="popup-image">
-      </a>
-      <div id="popupCaption" class="popup-caption"></div>
-    </div>
+<div class="domains-wrap">
+  <div class="domains-hdr">
+    <h2>Analysis Domains</h2>
+    <span style="font-size:.5rem;color:var(--ash2);letter-spacing:.1em;text-transform:uppercase">3 active domains</span>
   </div>
 
-  <!-- ── FOOTER ── -->
-  <div data-include="footer" data-path="/includes/footer.html"></div>
+  <div class="domains-grid">
+    <div class="domain-card">
+      <p class="domain-num">Domain 01</p>
+      <h2 class="domain-h2">Cash Flow Risk</h2>
+      <p class="domain-p">How revenue moves through invoicing and collection cycles — and where retention breaks down. Full diagnostic available on request.</p>
+      <a href="mailto:insightgaps@gmail.com" class="domain-cta">Request diagnostic</a>
+    </div>
+    <div class="domain-card">
+      <p class="domain-num">Domain 02</p>
+      <h2 class="domain-h2">Profit Leakage</h2>
+      <p class="domain-p">Recurring margin erosion from vendor overruns, rework loops, and structural inefficiencies — mapped and classified. Available on request.</p>
+      <a href="mailto:insightgaps@gmail.com" class="domain-cta">Request diagnostic</a>
+    </div>
+    <div class="domain-card">
+      <p class="domain-num">Domain 03</p>
+      <h2 class="domain-h2">Work Order Risk</h2>
+      <p class="domain-p">Which service types scale profitably and which quietly amplify operational risk. Risk matrix and breakdown available on request.</p>
+      <a href="mailto:insightgaps@gmail.com" class="domain-cta">Request diagnostic</a>
+    </div>
+  </div>
+</div>
 
-  <script src="/js/components.js"></script>
-  <script src="/js/ui.js"></script>
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="ft-brand-name">Insight Gaps</div>
+      <p class="ft-brand-p">Forensic data journalism from Bangladesh. We investigate accountability failures using data, documents, and verified public sources.</p>
+    </div>
+    <div class="ft-col">
+      <h4>Investigations</h4>
+      <ul>
+        <li><a href="/investigations/national/lead-belt/">The Lead Belt</a></li>
+        <li><a href="/investigations/national/impunity-machine.html">The Impunity Machine</a></li>
+        <li><a href="/investigations/national/blood-routes.html">Blood Routes</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Bureau</h4>
+      <ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/methods/">Methods</a></li>
+        <li><a href="/analysis/">Analysis</a></li>
+        <li><a href="/data/">Data</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Insight Gaps · CC BY-NC 4.0</span>
+    <span>insightgaps.com · Dhaka, Bangladesh</span>
+  </div>
+</footer>
+
 </body>
 </html>
