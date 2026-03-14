@@ -5,386 +5,446 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Insight Gaps — Forensic Data Journalism, Bangladesh</title>
 <meta name="description" content="Forensic data journalism from Bangladesh. Investigating what official narratives omit.">
+<link rel="icon" href="/favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#06060e;--ink2:#0c0c18;--ink3:#131320;
-  --blood:#c41e3a;--bloodl:rgba(196,30,58,.15);
-  --gold:#c9a84c;--goldl:rgba(201,168,76,.12);
-  --ash:#7a7a96;--ash2:#4a4a62;
-  --white:#ede8df;--white2:#c2bdb3;
-  --border:rgba(255,255,255,.06);--border2:rgba(255,255,255,.1);
+  --blood:#c41e3a;--bloodl:rgba(196,30,58,.14);
+  --gold:#c9a84c;--goldl:rgba(201,168,76,.1);
+  --ash:#7a7590;--ash2:#3e3c50;
+  --white:#e8e3da;--white2:#c4bfb5;
+  --border:#1e1e32;--border2:rgba(255,255,255,.08);
   --mono:'JetBrains Mono',monospace;
   --serif:'Playfair Display',serif;
+  --max:1240px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{font-size:16px;scroll-behavior:smooth}
-body{background:var(--ink);color:var(--white);font-family:var(--mono);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{background:var(--ink);color:var(--white);font-family:var(--mono);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 
-/* ── GRAIN ── */
-body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:.5;
+/* GRAIN */
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.45;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E")}
 
-/* ── NAV ── */
+/* ══════════════════════════════════════
+   WEATHER STRIP — TOP OF PAGE
+══════════════════════════════════════ */
+#weather-strip{
+  background:var(--ink2);
+  border-bottom:1px solid var(--border);
+  padding:.45rem 1.5rem;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:1rem;flex-wrap:wrap;
+  font-size:.52rem;letter-spacing:.08em
+}
+.ws-left{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap}
+.ws-dhaka{display:flex;align-items:center;gap:.55rem}
+.ws-city{color:var(--gold);letter-spacing:.12em;text-transform:uppercase;font-size:.48rem}
+.ws-temp{font-size:1rem;font-weight:700;color:var(--white);line-height:1}
+.ws-icon{font-size:.9rem}
+.ws-desc{color:var(--ash);font-size:.48rem;text-transform:uppercase;letter-spacing:.1em}
+.ws-sep{width:1px;height:16px;background:var(--border2)}
+.ws-detail{display:flex;gap:.8rem;align-items:center}
+.ws-d{color:var(--ash);font-size:.46rem;letter-spacing:.08em}
+.ws-d strong{color:var(--white2)}
+.ws-right{display:flex;align-items:center;gap:.6rem;color:var(--ash2);font-size:.46rem;letter-spacing:.08em}
+.ws-update{color:var(--ash2)}
+.ws-right a{color:var(--ash2);transition:color .2s}
+.ws-right a:hover{color:var(--gold)}
+
+/* ══════════════════════════════════════
+   NAV
+══════════════════════════════════════ */
 #nav{
-  position:fixed;top:0;left:0;right:0;z-index:500;
-  background:rgba(6,6,14,.9);backdrop-filter:blur(16px);
+  position:sticky;top:0;z-index:800;
+  background:rgba(6,6,14,.97);backdrop-filter:blur(16px);
   border-bottom:1px solid var(--border);
 }
 .nav-inner{
-  max-width:1200px;margin:0 auto;
+  max-width:var(--max);margin:0 auto;
   display:flex;align-items:center;justify-content:space-between;
-  padding:.9rem 1.8rem;gap:2rem;
+  padding:0 1.5rem;height:50px;gap:1rem
 }
-.nav-brand{display:flex;align-items:center;gap:1.2rem}
-.nav-logo{
-  font-family:var(--mono);font-size:.75rem;font-weight:700;
+.nav-brand{
+  font-family:var(--mono);font-size:.68rem;font-weight:700;
   letter-spacing:.18em;text-transform:uppercase;color:var(--gold)
 }
-.nav-sep{width:1px;height:18px;background:var(--border2)}
-.nav-tag{font-size:.52rem;letter-spacing:.14em;color:var(--ash);text-transform:uppercase}
-.nav-links{display:flex;align-items:center;gap:1.5rem}
-.nav-link{font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ash);transition:color .2s}
-.nav-link:hover{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:.35rem;height:100%}
+.nav-link{
+  font-size:.48rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ash);border:1px solid transparent;
+  padding:.25rem .65rem;height:100%;display:flex;align-items:center;
+  transition:all .2s
+}
+.nav-link:hover{color:var(--gold);border-color:var(--border2)}
 .nav-new{
-  font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;
-  padding:.28rem .7rem;background:var(--blood);color:var(--white);
-  animation:navpulse 2.5s ease-in-out infinite
+  font-size:.48rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--white2);border:1px solid rgba(196,30,58,.4);
+  padding:.25rem .75rem;height:auto;
+  animation:np 2.5s ease-in-out infinite
 }
-@keyframes navpulse{0%,100%{opacity:1}50%{opacity:.75}}
-@media(max-width:600px){.nav-links{display:none}}
+@keyframes np{0%,100%{opacity:1}50%{opacity:.7}}
+@media(max-width:760px){.nav-links .nav-link:not(.nav-new){display:none}}
 
-/* ── BREAKING BANNER ── */
-#banner{
-  background:var(--blood);padding:.55rem 1.8rem;
-  border-bottom:1px solid rgba(255,255,255,.12);
-  display:flex;align-items:center;gap:1rem;
-  margin-top:52px;
-  overflow:hidden;position:relative
+/* ══════════════════════════════════════
+   TICKER / BREAKING
+══════════════════════════════════════ */
+#ticker{
+  background:rgba(196,30,58,.9);
+  border-bottom:1px solid rgba(196,30,58,.3);
+  display:flex;align-items:center;overflow:hidden;height:32px
 }
-.bn-tag{font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;
-  background:rgba(0,0,0,.25);padding:.2rem .5rem;white-space:nowrap;flex-shrink:0;color:var(--white)}
-.bn-ticker{font-size:.6rem;letter-spacing:.06em;color:rgba(255,255,255,.9);
-  animation:ticker 18s linear infinite;white-space:nowrap}
-@keyframes ticker{0%{transform:translateX(100vw)}100%{transform:translateX(-100%)}}
+.tick-tag{
+  font-size:.48rem;letter-spacing:.16em;text-transform:uppercase;
+  background:rgba(0,0,0,.3);color:var(--white);
+  padding:0 .8rem;height:100%;display:flex;align-items:center;
+  white-space:nowrap;flex-shrink:0;border-right:1px solid rgba(255,255,255,.15)
+}
+.tick-content{display:flex;overflow:hidden;flex:1}
+.tick-text{
+  font-size:.52rem;letter-spacing:.05em;color:rgba(255,255,255,.9);
+  animation:tick 22s linear infinite;white-space:nowrap;padding-left:100%
+}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
 
-/* ── HERO ── */
-#hero{
-  max-width:1200px;margin:0 auto;
-  padding:3rem 1.8rem 2rem;
-  display:grid;grid-template-columns:1fr 380px;
+/* ══════════════════════════════════════
+   HERO — EDITORIAL NEWSPAPER GRID
+══════════════════════════════════════ */
+#hero{max-width:var(--max);margin:0 auto;padding:2.5rem 1.5rem 0}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr 320px;
+  grid-template-rows:auto auto;
   gap:1.5px;
-  border-bottom:1px solid var(--border)
+  border:1px solid var(--border)
 }
-@media(max-width:900px){#hero{grid-template-columns:1fr;padding:2rem 1.2rem 1.5rem}}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
 
-/* Featured investigation */
-.hero-main{
+/* Main featured */
+.hero-feature{
   background:var(--ink2);
-  border:1px solid var(--border);
-  position:relative;overflow:hidden;
+  border-right:1px solid var(--border);
+  cursor:pointer;position:relative;overflow:hidden;
   transition:border-color .25s
 }
-.hero-main:hover{border-color:rgba(196,30,58,.4)}
-.hero-img{
-  width:100%;height:220px;
-  background:linear-gradient(135deg,#0a0a16 0%,rgba(196,30,58,.18) 50%,#06060e 100%);
-  position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center
-}
-.hero-img-bg{
-  position:absolute;inset:0;
-  background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(196,30,58,.12),transparent 70%),
-    radial-gradient(ellipse 30% 30% at 80% 20%,rgba(201,168,76,.06),transparent 60%);
-}
-.hero-img-num{
-  font-family:var(--serif);font-size:10rem;font-weight:900;
-  color:var(--blood);opacity:.08;line-height:1;
-  position:absolute;right:-1rem;bottom:-1rem;letter-spacing:-.04em
-}
-.hero-img-stat{
-  position:relative;z-index:1;text-align:center
-}
-.hero-img-stat .big{
-  font-family:var(--serif);font-size:clamp(3rem,8vw,5.5rem);font-weight:900;
-  color:var(--blood);line-height:1;letter-spacing:-.04em;
-  text-shadow:0 0 60px rgba(196,30,58,.3)
-}
-.hero-img-stat .lbl{font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ash);margin-top:.4rem}
+.hero-feature:hover{border-color:rgba(196,30,58,.4)}
 
-.hero-body{padding:1.8rem}
-.hero-meta{display:flex;align-items:center;gap:.8rem;margin-bottom:1rem;flex-wrap:wrap}
-.badge{font-size:.48rem;letter-spacing:.15em;text-transform:uppercase;padding:.22rem .55rem;border:1px solid}
-.badge-new{border-color:var(--gold);color:var(--gold)}
-.badge-inv{border-color:rgba(196,30,58,.5);color:var(--blood)}
-.badge-vis{border-color:rgba(100,180,255,.4);color:rgba(150,200,255,.9)}
-.inv-id{font-size:.52rem;letter-spacing:.12em;color:var(--ash2);font-family:var(--mono)}
-.hero-title{
-  font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900;
-  line-height:1.1;color:var(--white);letter-spacing:-.02em;margin-bottom:.8rem
+.hf-visual{
+  width:100%;height:240px;
+  background:
+    radial-gradient(ellipse 70% 55% at 30% 50%,rgba(196,30,58,.15),transparent 65%),
+    radial-gradient(ellipse 40% 40% at 80% 30%,rgba(201,168,76,.07),transparent 60%),
+    var(--ink2);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;border-bottom:1px solid var(--border)
 }
-.hero-title em{color:var(--blood);font-style:italic}
-.hero-deck{font-size:.7rem;line-height:1.85;color:var(--ash);margin-bottom:1.5rem;max-width:520px}
-.hero-deck strong{color:var(--white)}
-.hero-actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center}
-.btn-primary{
-  font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;
-  padding:.6rem 1.3rem;background:var(--blood);color:var(--white);
+.hf-bg-num{
+  position:absolute;right:-2rem;bottom:-2rem;
+  font-family:var(--serif);font-size:14rem;font-weight:900;
+  color:var(--blood);opacity:.06;line-height:1;letter-spacing:-.04em;
+  pointer-events:none
+}
+.hf-center{position:relative;z-index:1;text-align:center}
+.hf-big{
+  font-family:var(--serif);font-size:clamp(3.5rem,8vw,6rem);font-weight:900;
+  color:var(--blood);line-height:1;letter-spacing:-.04em;
+  text-shadow:0 0 80px rgba(196,30,58,.4)
+}
+.hf-lbl{font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ash);margin-top:.5rem}
+
+.hf-body{padding:2rem 2.2rem 2.2rem}
+.hf-meta{display:flex;align-items:center;gap:.7rem;margin-bottom:1rem;flex-wrap:wrap}
+.badge{font-size:.44rem;letter-spacing:.14em;text-transform:uppercase;padding:.2rem .5rem;border:1px solid}
+.b-new{border-color:var(--gold);color:var(--gold)}
+.b-inv{border-color:rgba(196,30,58,.5);color:var(--blood)}
+.b-vis{border-color:rgba(100,180,255,.4);color:rgba(150,200,255,.9)}
+.hf-id{font-size:.48rem;letter-spacing:.12em;color:var(--ash2)}
+.hf-title{
+  font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;
+  line-height:1.05;color:var(--white);letter-spacing:-.02em;margin-bottom:.9rem
+}
+.hf-title em{color:var(--blood);font-style:italic}
+.hf-deck{font-size:.72rem;line-height:1.9;color:var(--white2);margin-bottom:1.8rem;max-width:520px}
+.hf-deck strong{color:var(--white)}
+.hf-actions{display:flex;gap:.6rem;flex-wrap:wrap}
+.btn-p{
+  font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;
+  padding:.55rem 1.2rem;background:var(--blood);color:var(--white);
   border:1px solid var(--blood);transition:all .2s;display:inline-block
 }
-.btn-primary:hover{background:transparent;color:var(--blood)}
-.btn-secondary{
-  font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;
-  padding:.6rem 1.3rem;background:transparent;color:var(--ash);
+.btn-p:hover{background:transparent;color:var(--blood)}
+.btn-s{
+  font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;
+  padding:.55rem 1.2rem;background:transparent;color:var(--ash);
   border:1px solid var(--border2);transition:all .2s;display:inline-block
 }
-.btn-secondary:hover{border-color:var(--gold);color:var(--gold)}
-.btn-visual{
-  font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;
-  padding:.6rem 1.3rem;background:rgba(100,180,255,.06);color:rgba(150,200,255,.8);
+.btn-s:hover{border-color:var(--gold);color:var(--gold)}
+.btn-v{
+  font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;
+  padding:.55rem 1.2rem;background:rgba(100,180,255,.06);color:rgba(150,200,255,.85);
   border:1px solid rgba(100,180,255,.25);transition:all .2s;display:inline-block
 }
-.btn-visual:hover{background:rgba(100,180,255,.12);border-color:rgba(150,200,255,.5)}
+.btn-v:hover{background:rgba(100,180,255,.12)}
 
 /* Hero sidebar */
 .hero-side{display:flex;flex-direction:column;gap:1.5px}
-.side-stat{
+.hs-stat{
+  background:var(--ink2);padding:1.6rem;flex:1;
+  position:relative;overflow:hidden;transition:border-color .2s;
+  border:1px solid var(--border)
+}
+.hs-stat:hover{border-color:var(--border2)}
+.hs-stat::after{content:'';position:absolute;top:0;left:0;width:2px;height:100%;background:var(--blood)}
+.hs-stat.g::after{background:var(--gold)}
+.hs-num{
+  font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;
+  color:var(--blood);line-height:1;margin-bottom:.4rem
+}
+.hs-num.g{color:var(--gold)}
+.hs-lbl{font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ash);line-height:1.6}
+.hs-src{font-size:.44rem;color:var(--ash2);margin-top:.5rem;letter-spacing:.06em}
+.hs-link{
   background:var(--ink2);border:1px solid var(--border);
-  padding:1.5rem;flex:1;
-  display:flex;flex-direction:column;justify-content:space-between;
-  position:relative;overflow:hidden;transition:border-color .2s
+  padding:1.2rem 1.5rem;transition:border-color .2s;display:block;cursor:pointer
 }
-.side-stat:hover{border-color:var(--border2)}
-.side-stat::before{content:'';position:absolute;top:0;left:0;width:2px;height:100%;background:var(--blood)}
-.side-stat.gold::before{background:var(--gold)}
-.side-num{
-  font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:900;
-  color:var(--blood);line-height:1;letter-spacing:-.02em;margin-bottom:.4rem
-}
-.side-num.g{color:var(--gold)}
-.side-lbl{font-size:.52rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ash);line-height:1.6}
-.side-src{font-size:.46rem;color:var(--ash2);margin-top:.6rem;letter-spacing:.06em}
-.side-inv-link{
-  display:block;background:var(--ink2);border:1px solid var(--border);
-  padding:1.2rem 1.5rem;transition:border-color .2s
-}
-.side-inv-link:hover{border-color:rgba(201,168,76,.3)}
-.sil-tag{font-size:.48rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ash2);margin-bottom:.5rem}
-.sil-title{font-size:.8rem;color:var(--white);font-weight:500;line-height:1.4;margin-bottom:.4rem}
-.sil-arrow{font-size:.6rem;color:var(--gold)}
+.hs-link:hover{border-color:rgba(201,168,76,.3)}
+.hs-link-tag{font-size:.44rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ash2);margin-bottom:.45rem}
+.hs-link-title{font-size:.78rem;color:var(--white);font-weight:500;line-height:1.4;margin-bottom:.4rem}
+.hs-link-arr{font-size:.58rem;color:var(--gold)}
 
-/* ── TRACKER STRIP ── */
+/* ══════════════════════════════════════
+   TRACKER STRIP
+══════════════════════════════════════ */
 #tracker{
-  background:var(--ink2);
-  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
-  padding:1rem 1.8rem;
+  max-width:var(--max);margin:1.5px auto 0;
+  background:var(--ink2);border:1px solid var(--border);
+  padding:1rem 1.5rem;
+  display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap
 }
-.tracker-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
-.tr-id{display:flex;align-items:center;gap:.6rem;flex-shrink:0}
-.tr-dot{width:6px;height:6px;border-radius:50%;background:var(--blood);animation:pulse2 2s infinite}
-@keyframes pulse2{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.6)}}
-.tr-name{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blood);font-weight:700}
-.tr-sep{width:1px;height:28px;background:var(--border2);flex-shrink:0}
-.tr-stats{display:flex;gap:2rem;flex:1;flex-wrap:wrap}
-.tr-s .tn{font-size:1.2rem;font-weight:700;line-height:1;margin-bottom:.2rem}
-.tr-s .tn.r{color:var(--blood)}.tr-s .tn.g{color:var(--gold)}.tr-s .tn.w{color:var(--white)}
-.tr-s .tl{font-size:.46rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ash)}
+.tr-id{display:flex;align-items:center;gap:.55rem;flex-shrink:0}
+.tr-dot{width:6px;height:6px;border-radius:50%;background:var(--blood);animation:tdot 2s ease-in-out infinite}
+@keyframes tdot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.25;transform:scale(.5)}}
+.tr-name{font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blood);font-weight:700}
+.tr-vsep{width:1px;height:24px;background:var(--border2);flex-shrink:0}
+.tr-stats{display:flex;gap:1.8rem;flex:1;flex-wrap:wrap}
+.trs .tn{font-size:1.1rem;font-weight:700;line-height:1;margin-bottom:.18rem}
+.trs .tn.r{color:var(--blood)}.trs .tn.g{color:var(--gold)}.trs .tn.w{color:var(--white)}
+.trs .tl{font-size:.44rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ash)}
 .tr-cta{flex-shrink:0}
 .tr-btn{
-  font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;
-  padding:.55rem 1rem;border:1px solid rgba(201,168,76,.3);color:var(--gold);
+  font-size:.52rem;letter-spacing:.12em;text-transform:uppercase;
+  padding:.5rem 1rem;border:1px solid rgba(201,168,76,.28);color:var(--gold);
   transition:all .2s;display:inline-block
 }
 .tr-btn:hover{background:var(--goldl);border-color:var(--gold)}
 
-/* ── INV TABLE ── */
-#inv-section{max-width:1200px;margin:0 auto;padding:2.5rem 1.8rem}
-.section-hdr{
+/* ══════════════════════════════════════
+   INVESTIGATIONS TABLE
+══════════════════════════════════════ */
+#inv{max-width:var(--max);margin:2rem auto;padding:0 1.5rem}
+.sec-hdr{
   display:flex;align-items:center;justify-content:space-between;
-  padding-bottom:1rem;border-bottom:1px solid var(--border);margin-bottom:1.5px
+  padding-bottom:.9rem;border-bottom:1px solid var(--border);margin-bottom:1.5px
 }
-.section-hdr h2{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ash)}
-.section-count{font-size:.55rem;color:var(--ash2);letter-spacing:.1em}
+.sec-hdr h2{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ash)}
+.sec-count{font-size:.5rem;color:var(--ash2);letter-spacing:.1em}
 .inv-row{
-  display:grid;grid-template-columns:90px 1fr auto;
-  align-items:center;gap:1.5rem;padding:1rem 1.2rem;
+  display:grid;grid-template-columns:88px 1fr 140px auto;
+  align-items:center;gap:1.2rem;padding:.9rem 1.2rem;
   background:var(--ink2);border:1px solid var(--border);
   margin-bottom:1.5px;transition:border-color .2s;cursor:pointer
 }
 .inv-row:hover{border-color:rgba(196,30,58,.3)}
-.inv-row.new-item{border-left:2px solid var(--blood)}
-.ir-num{font-size:.55rem;color:var(--ash2);letter-spacing:.1em}
-.ir-body{}
-.ir-title{font-size:.82rem;font-weight:500;color:var(--white);margin-bottom:.25rem}
+.inv-row.new{border-left:2px solid var(--blood)}
+@media(max-width:700px){.inv-row{grid-template-columns:70px 1fr auto}}
+.ir-id{font-size:.5rem;color:var(--ash2);letter-spacing:.1em}
+.ir-title{font-size:.8rem;font-weight:500;color:var(--white);margin-bottom:.22rem}
 .ir-sub{font-size:.58rem;color:var(--ash);line-height:1.5}
-.ir-badges{display:flex;gap:.4rem;margin-top:.4rem;flex-wrap:wrap}
-.ir-arr{color:var(--ash2);font-size:.7rem;transition:color .2s}
+.ir-badges{display:flex;gap:.35rem;margin-top:.35rem;flex-wrap:wrap}
+.ir-status{font-size:.46rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ash2);text-align:right}
+@media(max-width:700px){.ir-status{display:none}}
+.ir-arr{color:var(--ash2);transition:color .2s}
 .inv-row:hover .ir-arr{color:var(--blood)}
 
-/* ── LIVE DATA ── */
-#live{max-width:1200px;margin:0 auto;padding:0 1.8rem 3rem;border-top:1px solid var(--border)}
+/* ══════════════════════════════════════
+   LIVE DATA
+══════════════════════════════════════ */
+#live{max-width:var(--max);margin:0 auto;padding:0 1.5rem 3rem}
 .live-hdr{
   display:flex;align-items:center;justify-content:space-between;
-  padding:1.5rem 0 1rem;border-bottom:1px solid var(--border);margin-bottom:1.5px
+  padding:.9rem 0;border-bottom:1px solid var(--border);margin-bottom:1.5px
 }
-.live-hdr h2{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ash)}
-.live-ts{font-size:.52rem;color:var(--ash2);letter-spacing:.08em}
+.live-hdr h2{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ash)}
+.live-ts{font-size:.48rem;color:var(--ash2);letter-spacing:.08em}
 .fx-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1.5px;margin-bottom:1.5px}
-.fx-cell{background:var(--ink2);border:1px solid var(--border);padding:.75rem 1rem}
-.fx-pair{font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ash);margin-bottom:.3rem}
-.fx-val{font-size:.85rem;font-weight:700;color:var(--white)}
-.data-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5px}
-.data-panel{background:var(--ink2);border:1px solid var(--border)}
+@media(max-width:700px){.fx-grid{grid-template-columns:repeat(3,1fr)}}
+.fx-cell{background:var(--ink2);border:1px solid var(--border);padding:.7rem .9rem}
+.fx-pair{font-size:.46rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ash);margin-bottom:.25rem}
+.fx-val{font-size:.82rem;font-weight:700;color:var(--white)}
+.data-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5px}
+@media(max-width:700px){.data-row{grid-template-columns:1fr}}
+.dp{background:var(--ink2);border:1px solid var(--border)}
 .dp-hdr{
-  padding:.65rem 1rem;border-bottom:1px solid var(--border);
-  font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ash);
+  padding:.6rem 1rem;border-bottom:1px solid var(--border);
+  font-size:.48rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ash);
   display:flex;justify-content:space-between;align-items:center
 }
-.dp-hdr .live-dot{color:var(--blood);margin-left:.3rem}
-.aqi-row{padding:.8rem 1rem;display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem}
+.dp-hdr .ld{color:var(--blood);animation:tdot 1.8s infinite}
+.aqi-inner{padding:.7rem 1rem;display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem}
 .aqi-c{text-align:center}
-.aqi-city{font-size:.46rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ash);margin-bottom:.2rem}
-.aqi-v{font-size:.95rem;font-weight:700;line-height:1}
-.aqi-l{font-size:.44rem;text-transform:uppercase;color:var(--ash);margin-top:.15rem}
+.aqi-city{font-size:.42rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ash);margin-bottom:.18rem}
+.aqi-v{font-size:.88rem;font-weight:700;line-height:1}
+.aqi-l{font-size:.4rem;text-transform:uppercase;color:var(--ash);margin-top:.12rem}
 .aqi-good .aqi-v{color:#2aaa6a}.aqi-moderate .aqi-v{color:var(--gold)}.aqi-sensitive .aqi-v{color:#e07020}.aqi-unhealthy .aqi-v,.aqi-very .aqi-v{color:var(--blood)}
-.ni{padding:.6rem 1rem;border-bottom:1px solid var(--border)}
+.ni{padding:.55rem 1rem;border-bottom:1px solid var(--border)}
 .ni:last-child{border-bottom:none}
-.ni-n{font-size:.52rem;color:var(--ash2);margin-right:.6rem}
-.ni-t{font-size:.68rem;color:var(--white2);line-height:1.45}
-.ni-t a{color:var(--white2);transition:color .15s}.ni-t a:hover{color:var(--white)}
-.ni-m{font-size:.52rem;color:var(--ash2);margin-top:.15rem}
+.ni-n{font-size:.48rem;color:var(--ash2);margin-right:.5rem}
+.ni-t{font-size:.66rem;color:var(--white2);line-height:1.45}
+.ni-t a{color:var(--white2);transition:color .15s}
+.ni-t a:hover{color:var(--white)}
+.ni-m{font-size:.48rem;color:var(--ash2);margin-top:.12rem}
 
-/* ── FOOTER ── */
+/* ══════════════════════════════════════
+   FOOTER
+══════════════════════════════════════ */
 footer{
   background:var(--ink2);border-top:1px solid var(--border);
-  padding:3rem 1.8rem 2rem
+  padding:3rem 1.5rem 2rem
 }
-.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem}
-.ft-brand .ft-logo{font-family:var(--mono);font-size:.8rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem}
-.ft-brand p{font-size:.65rem;color:var(--ash);line-height:1.9}
-.ft-col h4{font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ash2);margin-bottom:.8rem}
-.ft-col ul{list-style:none}
-.ft-col li{margin-bottom:.4rem}
-.ft-col a{font-size:.65rem;color:var(--ash);transition:color .2s}
-.ft-col a:hover{color:var(--gold)}
-.footer-bottom{max-width:1200px;margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;font-size:.52rem;letter-spacing:.1em;color:var(--ash2);text-transform:uppercase}
-
-@media(max-width:900px){
-  .fx-grid{grid-template-columns:repeat(3,1fr)}
-  .data-grid{grid-template-columns:1fr}
-  .footer-inner{grid-template-columns:1fr;gap:2rem}
-  .footer-bottom{flex-direction:column;gap:.3rem;text-align:center}
-  .tr-stats{gap:1rem}
-}
-@media(max-width:600px){
-  .nav-inner{padding:.8rem 1.2rem}
-  #hero{padding:1.5rem 1.2rem}
-  #inv-section,#live{padding-left:1.2rem;padding-right:1.2rem}
-  .hero-body{padding:1.2rem}
-  .inv-row{grid-template-columns:60px 1fr auto;gap:.8rem;padding:.8rem}
-  .fx-grid{grid-template-columns:repeat(2,1fr)}
-  footer{padding:2rem 1.2rem}
+.fi{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;margin-bottom:2rem}
+@media(max-width:700px){.fi{grid-template-columns:1fr;gap:1.8rem}}
+.ft-logo{font-family:var(--mono);font-size:.75rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem}
+.ft-p{font-size:.62rem;color:var(--ash);line-height:1.9}
+.fc h4{font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ash2);margin-bottom:.75rem}
+.fc ul{list-style:none}
+.fc li{margin-bottom:.38rem}
+.fc a{font-size:.62rem;color:var(--ash);transition:color .2s}
+.fc a:hover{color:var(--gold)}
+.fb{
+  max-width:var(--max);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);
+  display:flex;justify-content:space-between;
+  font-size:.48rem;letter-spacing:.1em;color:var(--ash2);text-transform:uppercase;flex-wrap:wrap;gap:.4rem
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav id="nav">
-  <div class="nav-inner">
-    <div class="nav-brand">
-      <span class="nav-logo">Insight Gaps</span>
-      <span class="nav-sep"></span>
-      <span class="nav-tag">Forensic Data Journalism · Dhaka</span>
+<!-- ════════ WEATHER STRIP — TOP ════════ -->
+<div id="weather-strip">
+  <div class="ws-left">
+    <div class="ws-dhaka">
+      <span class="ws-city">Dhaka</span>
+      <span class="ws-icon" id="ws-icon">⛅</span>
+      <span class="ws-temp" id="ws-temp">—°C</span>
+      <span class="ws-desc" id="ws-desc">Loading</span>
     </div>
+    <div class="ws-sep"></div>
+    <div class="ws-detail">
+      <span class="ws-d">Humidity <strong id="ws-hum">—</strong></span>
+      <span class="ws-d">Wind <strong id="ws-wind">—</strong></span>
+      <span class="ws-d">Feels <strong id="ws-feel">—</strong></span>
+      <span class="ws-d">AQI <strong id="ws-aqi" style="color:var(--gold)">—</strong></span>
+    </div>
+  </div>
+  <div class="ws-right">
+    <span class="ws-update" id="ws-time">—</span>
+    <span>·</span>
+    <a href="https://openweathermap.org" target="_blank" rel="noopener">OpenWeather</a>
+    <span>·</span>
+    <span id="ws-date">—</span>
+  </div>
+</div>
+
+<!-- ════════ NAV ════════ -->
+<div id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">Insight Gaps</a>
     <div class="nav-links">
       <a href="/investigations/" class="nav-link">Investigations</a>
       <a href="/analysis/" class="nav-link">Analysis</a>
       <a href="/methods/" class="nav-link">Methods</a>
       <a href="/about/" class="nav-link">About</a>
-      <a href="/investigations/national/lead-belt/visual.html" class="nav-new">NEW: The Lead Belt →</a>
+      <a href="/investigations/national/lead-belt/visual.html" class="nav-link nav-new">◉ New: Lead Belt →</a>
     </div>
   </div>
-</nav>
-
-<!-- BREAKING BANNER -->
-<div id="banner">
-  <span class="bn-tag">New Investigation</span>
-  <span class="bn-ticker">BD-INV-003 · THE LEAD BELT · 44 contaminated sites · 145 schools · 58,000 students at risk · Soil lead up to 1,702× the international safety standard · Not one facility permanently closed · Insight Gaps original spatial analysis · Read the full investigation →</span>
 </div>
 
-<!-- HERO -->
+<!-- ════════ TICKER ════════ -->
+<div id="ticker">
+  <span class="tick-tag">New Investigation</span>
+  <div class="tick-content">
+    <span class="tick-text">BD-INV-003 · THE LEAD BELT · 44 contaminated sites near schools · 145 school buildings · 58,000 students at risk · Soil lead up to 1,702× the safe standard · Satellite-confirmed active operations · Not one facility permanently closed on public record · Original spatial analysis by Insight Gaps · Read the full investigation at insightgaps.com/investigations/national/lead-belt/</span>
+  </div>
+</div>
+
+<!-- ════════ HERO ════════ -->
 <div id="hero">
+  <div class="hero-grid">
 
-  <!-- Featured: Lead Belt -->
-  <a href="/investigations/national/lead-belt/" class="hero-main">
-    <div class="hero-img">
-      <div class="hero-img-bg"></div>
-      <div class="hero-img-num">44</div>
-      <div class="hero-img-stat">
-        <div class="big">58,000</div>
-        <div class="lbl">Students within 500m of contaminated sites</div>
+    <!-- Featured -->
+    <a href="/investigations/national/lead-belt/" class="hero-feature">
+      <div class="hf-visual">
+        <div class="hf-bg-num">44</div>
+        <div class="hf-center">
+          <div class="hf-big">58,000</div>
+          <div class="hf-lbl">Students within 500m of contaminated sites</div>
+        </div>
       </div>
-    </div>
-    <div class="hero-body">
-      <div class="hero-meta">
-        <span class="badge badge-new">New</span>
-        <span class="badge badge-inv">BD-INV-003</span>
-        <span class="badge badge-vis">Visual Investigation</span>
-        <span class="inv-id">Environmental Accountability · 2026</span>
+      <div class="hf-body">
+        <div class="hf-meta">
+          <span class="badge b-new">New · 2026</span>
+          <span class="badge b-inv">BD-INV-003</span>
+          <span class="badge b-vis">Visual Investigation</span>
+          <span class="hf-id">Environmental Accountability · Bangladesh</span>
+        </div>
+        <h1 class="hf-title">The <em>Lead Belt</em></h1>
+        <p class="hf-deck"><strong>44 formally assessed lead-contaminated sites</strong> across Bangladesh have at least one school within 500 metres. Soil lead at the highest recorded site reaches <strong>1,702 times</strong> the international safety standard. Not one facility has a public record of permanent closure. Insight Gaps' first original spatial investigation.</p>
+        <div class="hf-actions">
+          <span class="btn-p">Read Investigation →</span>
+          <span class="btn-v">◉ Visual Story</span>
+          <span class="btn-s">Dataset →</span>
+        </div>
       </div>
-      <h1 class="hero-title">The <em>Lead Belt</em></h1>
-      <p class="hero-deck">
-        <strong>44 formally assessed lead-contaminated sites</strong> across Bangladesh have at least one school within 500 metres. Soil lead at the highest site reaches <strong>1,702 times</strong> the international safe standard. Not one facility has a public record of permanent closure. This is Insight Gaps' first original spatial investigation — a finding that exists nowhere else.
-      </p>
-      <div class="hero-actions">
-        <span class="btn-primary">Read Investigation →</span>
-        <span class="btn-visual">◉ Visual Investigation</span>
-        <span class="btn-secondary">View Dataset</span>
-      </div>
-    </div>
-  </a>
-
-  <!-- Sidebar -->
-  <div class="hero-side">
-    <div class="side-stat">
-      <div>
-        <div class="side-num">38%</div>
-        <div class="side-lbl">Children in Bangladesh with dangerous blood lead levels</div>
-        <div class="side-src">UNICEF / BBS MICS 2025</div>
-      </div>
-    </div>
-    <div class="side-stat gold">
-      <div>
-        <div class="side-num g">1,702×</div>
-        <div class="side-lbl">Highest soil lead recorded — above safe limit</div>
-        <div class="side-src">Pure Earth / UNEP · Kathgora, Savar</div>
-      </div>
-    </div>
-    <a href="/investigations/national/impunity-machine.html" class="side-inv-link">
-      <div class="sil-tag">BD-INV-002 · Published</div>
-      <div class="sil-title">The Impunity Machine — 0.46% conviction rate for rape across 23 years</div>
-      <div class="sil-arrow">Read investigation →</div>
     </a>
+
+    <!-- Sidebar -->
+    <div class="hero-side">
+      <div class="hs-stat">
+        <div class="hs-num">38%</div>
+        <div class="hs-lbl">Children in Bangladesh with dangerous blood lead levels — national average</div>
+        <div class="hs-src">UNICEF / BBS MICS 2025</div>
+      </div>
+      <div class="hs-stat g">
+        <div class="hs-num g">1,702×</div>
+        <div class="hs-lbl">Highest soil lead above safe limit — Kathgora, Savar, Dhaka</div>
+        <div class="hs-src">Pure Earth / UNEP Assessment</div>
+      </div>
+      <a href="/investigations/national/impunity-machine.html" class="hs-link">
+        <div class="hs-link-tag">BD-INV-002 · Published · Visual Investigation</div>
+        <div class="hs-link-title">The Impunity Machine — 0.46% rape conviction rate across 23 years</div>
+        <div class="hs-link-arr">Read investigation →</div>
+      </a>
+    </div>
+
   </div>
 
-</div>
-
-<!-- TRACKER STRIP -->
-<div id="tracker">
-  <div class="tracker-inner">
+  <!-- Tracker strip -->
+  <div id="tracker">
     <div class="tr-id">
       <div class="tr-dot"></div>
-      <span class="tr-name">Lead Belt Tracker</span>
+      <span class="tr-name">Lead Belt</span>
     </div>
-    <div class="tr-sep"></div>
+    <div class="tr-vsep"></div>
     <div class="tr-stats">
-      <div class="tr-s"><div class="tn r">44</div><div class="tl">Sites assessed</div></div>
-      <div class="tr-s"><div class="tn g">58,000</div><div class="tl">Students at risk</div></div>
-      <div class="tr-s"><div class="tn r">1,702×</div><div class="tl">Max soil lead</div></div>
-      <div class="tr-s"><div class="tn w">0</div><div class="tl">Permanent closures</div></div>
-      <div class="tr-s"><div class="tn g">3</div><div class="tl">Satellite verified</div></div>
+      <div class="trs"><div class="tn r">44</div><div class="tl">Sites assessed</div></div>
+      <div class="trs"><div class="tn g">58,000</div><div class="tl">Students at risk</div></div>
+      <div class="trs"><div class="tn r">1,702×</div><div class="tl">Max soil lead</div></div>
+      <div class="trs"><div class="tn w">0</div><div class="tl">Permanent closures</div></div>
+      <div class="trs"><div class="tn g">3</div><div class="tl">Satellite verified</div></div>
     </div>
     <div class="tr-cta">
       <a href="/investigations/national/lead-belt/visual.html" class="tr-btn">◉ Visual Investigation →</a>
@@ -392,67 +452,71 @@ footer{
   </div>
 </div>
 
-<!-- ALL INVESTIGATIONS -->
-<section id="inv-section">
-  <div class="section-hdr">
+<!-- ════════ INVESTIGATIONS ════════ -->
+<section id="inv">
+  <div class="sec-hdr">
     <h2>All Investigations</h2>
-    <span class="section-count">4 published</span>
+    <span class="sec-count">4 published · 2 visual</span>
   </div>
 
-  <a href="/investigations/national/lead-belt/" class="inv-row new-item">
-    <span class="ir-num">BD-INV-003</span>
-    <div class="ir-body">
+  <a href="/investigations/national/lead-belt/" class="inv-row new">
+    <span class="ir-id">BD-INV-003</span>
+    <div>
       <div class="ir-title">The Lead Belt</div>
-      <div class="ir-sub">44 contaminated sites · 145 schools · 58,000 students at risk · Spatial proximity analysis · Bangladesh lead poisoning crisis</div>
+      <div class="ir-sub">44 contaminated sites · 145 schools · 58,000 students · Spatial analysis · Environmental accountability</div>
       <div class="ir-badges">
-        <span class="badge badge-new">New · 2026</span>
-        <span class="badge badge-vis">Visual Investigation</span>
-        <span class="badge badge-inv">Environmental</span>
+        <span class="badge b-new">New · 2026</span>
+        <span class="badge b-vis">Visual</span>
+        <span class="badge b-inv">Environment</span>
       </div>
     </div>
+    <span class="ir-status">Published<br>March 2026</span>
     <span class="ir-arr">→</span>
   </a>
 
   <a href="/investigations/national/impunity-machine.html" class="inv-row">
-    <span class="ir-num">BD-INV-002</span>
-    <div class="ir-body">
+    <span class="ir-id">BD-INV-002</span>
+    <div>
       <div class="ir-title">The Impunity Machine</div>
-      <div class="ir-sub">0.46% rape conviction rate · 310 convictions from 66,711 cases · 23 years · Bangladesh rape justice crisis</div>
+      <div class="ir-sub">0.46% conviction rate · 310 convictions from 66,711 cases · 23 years · Rape justice crisis</div>
       <div class="ir-badges">
-        <span class="badge badge-vis">Visual Investigation</span>
-        <span class="badge badge-inv">Gender Justice</span>
+        <span class="badge b-vis">Visual</span>
+        <span class="badge b-inv">Gender Justice</span>
       </div>
     </div>
+    <span class="ir-status">Published<br>March 2026</span>
     <span class="ir-arr">→</span>
   </a>
 
   <a href="/investigations/national/blood-routes.html" class="inv-row">
-    <span class="ir-num">BD-INV-001</span>
-    <div class="ir-body">
+    <span class="ir-id">BD-INV-001</span>
+    <div>
       <div class="ir-title">Blood Routes: Dhaka Bus Fatalities</div>
       <div class="ir-sub">Phoenix operators · Joma system · Dhaka road crisis · Road safety accountability</div>
       <div class="ir-badges">
-        <span class="badge badge-inv">Road Safety</span>
+        <span class="badge b-inv">Road Safety</span>
       </div>
     </div>
+    <span class="ir-status">Published<br>2025</span>
     <span class="ir-arr">→</span>
   </a>
 
   <a href="/investigations/international/war-tax.html" class="inv-row">
-    <span class="ir-num">INT-INV-001</span>
-    <div class="ir-body">
+    <span class="ir-id">INT-INV-001</span>
+    <div>
       <div class="ir-title">The Hidden Tax of War</div>
-      <div class="ir-sub">How conflicts raise global prices · Iraq · Arab Spring · Ukraine · Red Sea · Conflict economics</div>
+      <div class="ir-sub">How conflicts raise global prices · Iraq · Arab Spring · Ukraine · Red Sea</div>
       <div class="ir-badges">
-        <span class="badge badge-inv">International</span>
+        <span class="badge b-inv">International</span>
       </div>
     </div>
+    <span class="ir-status">Published<br>2025</span>
     <span class="ir-arr">→</span>
   </a>
 
 </section>
 
-<!-- LIVE DATA -->
+<!-- ════════ LIVE DATA ════════ -->
 <section id="live">
   <div class="live-hdr">
     <h2>Live World Data</h2>
@@ -468,32 +532,26 @@ footer{
     <div class="fx-cell" id="c-inr"><div class="fx-pair">INR / USD</div><div class="fx-val">···</div></div>
   </div>
 
-  <div class="data-grid">
-    <div class="data-panel">
-      <div class="dp-hdr">
-        <span>Air Quality Index <span class="live-dot">●</span></span>
-        <span>8 cities · WAQI</span>
-      </div>
-      <div class="aqi-row" id="aqiGrid"><span style="font-size:.6rem;color:var(--ash);padding:.5rem">Loading…</span></div>
+  <div class="data-row">
+    <div class="dp">
+      <div class="dp-hdr"><span>Air Quality Index <span class="ld">●</span></span><span>8 cities · WAQI</span></div>
+      <div class="aqi-inner" id="aqiGrid"><span style="font-size:.55rem;color:var(--ash);padding:.5rem">Loading…</span></div>
     </div>
-    <div class="data-panel">
-      <div class="dp-hdr">
-        <span>World News</span>
-        <span id="news-ts">BBC World · Live</span>
-      </div>
-      <div id="newsGrid"><span style="font-size:.6rem;color:var(--ash);padding:1rem;display:block">Loading…</span></div>
+    <div class="dp">
+      <div class="dp-hdr"><span>World News</span><span id="news-ts">BBC World · Live</span></div>
+      <div id="newsGrid"><span style="font-size:.55rem;color:var(--ash);padding:1rem;display:block">Loading…</span></div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ════════ FOOTER ════════ -->
 <footer>
-  <div class="footer-inner">
-    <div class="ft-brand">
+  <div class="fi">
+    <div>
       <div class="ft-logo">Insight Gaps</div>
-      <p>Forensic data journalism from Bangladesh. We investigate accountability failures using data, documents, and verified public sources. All datasets released under Creative Commons.</p>
+      <p class="ft-p">Forensic data journalism from Bangladesh. We investigate accountability failures using data, documents, and verified public sources. All datasets released under Creative Commons.</p>
     </div>
-    <div class="ft-col">
+    <div class="fc">
       <h4>Investigations</h4>
       <ul>
         <li><a href="/investigations/national/lead-belt/">The Lead Belt (BD-INV-003)</a></li>
@@ -504,7 +562,7 @@ footer{
         <li><a href="/investigations/national/blood-routes.html">Blood Routes</a></li>
       </ul>
     </div>
-    <div class="ft-col">
+    <div class="fc">
       <h4>Bureau</h4>
       <ul>
         <li><a href="/about/">About Insight Gaps</a></li>
@@ -514,19 +572,77 @@ footer{
       </ul>
     </div>
   </div>
-  <div class="footer-bottom">
+  <div class="fb">
     <span>© 2026 Insight Gaps · CC BY-NC 4.0</span>
     <span>insightgaps.com · Dhaka, Bangladesh</span>
   </div>
 </footer>
 
 <script>
-/* ── LIVE DATA ── */
+/* ════ WEATHER — OpenWeatherMap free tier ════ */
+/* Uses Open-Meteo (no API key, completely free) */
+(function(){
+  var LAT=23.8103,LON=90.4125; /* Dhaka */
+
+  function iconEmoji(code){
+    if(code===0)return'☀️';
+    if(code<=2)return'⛅';
+    if(code<=45)return'🌫️';
+    if(code<=55)return'🌦️';
+    if(code<=67)return'🌧️';
+    if(code<=77)return'❄️';
+    if(code<=82)return'🌦️';
+    return'⛈️';
+  }
+  function descText(code){
+    if(code===0)return'Clear';
+    if(code<=2)return'Partly cloudy';
+    if(code<=45)return'Foggy';
+    if(code<=55)return'Drizzle';
+    if(code<=67)return'Rain';
+    if(code<=77)return'Snow';
+    if(code<=82)return'Showers';
+    return'Thunderstorm';
+  }
+
+  fetch('https://api.open-meteo.com/v1/forecast?latitude='+LAT+'&longitude='+LON+'&current=temperature_2m,relative_humidity_2m,apparent_temperature,wind_speed_10m,weather_code&wind_speed_unit=kmh&timezone=Asia%2FDhaka')
+    .then(function(r){return r.json()})
+    .then(function(d){
+      var c=d.current;
+      document.getElementById('ws-temp').textContent=Math.round(c.temperature_2m)+'°C';
+      document.getElementById('ws-icon').textContent=iconEmoji(c.weather_code);
+      document.getElementById('ws-desc').textContent=descText(c.weather_code);
+      document.getElementById('ws-hum').textContent=c.relative_humidity_2m+'%';
+      document.getElementById('ws-wind').textContent=Math.round(c.wind_speed_10m)+' km/h';
+      document.getElementById('ws-feel').textContent=Math.round(c.apparent_temperature)+'°C';
+      document.getElementById('ws-time').textContent='Updated '+new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
+      document.getElementById('ws-date').textContent=new Date().toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});
+    }).catch(function(){
+      document.getElementById('ws-temp').textContent='Dhaka';
+      document.getElementById('ws-desc').textContent='Weather unavailable';
+    });
+
+  /* AQI for Dhaka from WAQI */
+  fetch('https://api.waqi.info/feed/dhaka/?token=demo')
+    .then(function(r){return r.json()})
+    .then(function(d){
+      if(d&&d.status==='ok'&&d.data&&typeof d.data.aqi==='number'){
+        var a=d.data.aqi;
+        var el=document.getElementById('ws-aqi');
+        el.textContent=a;
+        if(a>150)el.style.color='var(--blood)';
+        else if(a>100)el.style.color='#e07020';
+        else if(a>50)el.style.color='var(--gold)';
+        else el.style.color='#2aaa6a';
+      }
+    }).catch(function(){});
+})();
+
+/* ════ CURRENCY ════ */
 function now(){return new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',timeZoneName:'short'})}
 function setFx(id,v){var e=document.getElementById(id);if(!e)return;e.querySelector('.fx-val').textContent=v}
-
 fetch('https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.min.json')
-  .then(r=>r.json()).then(d=>{
+  .then(function(r){return r.json()}).then(function(d){
     var r=d.usd;if(!r)return;
     setFx('c-bdt','৳'+parseFloat(r.bdt).toFixed(2));
     setFx('c-eur','€'+parseFloat(r.eur).toFixed(4));
@@ -535,20 +651,21 @@ fetch('https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currenci
     setFx('c-cny','¥'+parseFloat(r.cny).toFixed(4));
     setFx('c-inr','₹'+parseFloat(r.inr).toFixed(2));
     var ts=document.getElementById('live-ts');if(ts)ts.textContent='Updated '+now();
-  }).catch(()=>{});
+  }).catch(function(){});
 
+/* ════ AQI GRID ════ */
 var cities=[
   {id:'dhaka',name:'Dhaka',slug:'dhaka'},{id:'delhi',name:'Delhi',slug:'delhi'},
   {id:'beijing',name:'Beijing',slug:'beijing'},{id:'london',name:'London',slug:'london'},
   {id:'newyork',name:'N.York',slug:'new-york'},{id:'tokyo',name:'Tokyo',slug:'tokyo'},
   {id:'mumbai',name:'Mumbai',slug:'mumbai'},{id:'shanghai',name:'Shanghai',slug:'shanghai'}
 ];
-function aqiCls(v){if(!v)return'aqi-moderate';if(v<=50)return'aqi-good';if(v<=100)return'aqi-moderate';if(v<=150)return'aqi-sensitive';if(v<=200)return'aqi-unhealthy';return'aqi-very'}
-function aqiLbl(v){if(!v)return'—';if(v<=50)return'Good';if(v<=100)return'Moderate';if(v<=150)return'Sensitive';if(v<=200)return'Unhealthy';return'Very Unhealthy'}
+function aqiCls(v){if(!v||isNaN(v))return'aqi-moderate';if(v<=50)return'aqi-good';if(v<=100)return'aqi-moderate';if(v<=150)return'aqi-sensitive';if(v<=200)return'aqi-unhealthy';return'aqi-very'}
+function aqiLbl(v){if(!v||isNaN(v))return'—';if(v<=50)return'Good';if(v<=100)return'Moderate';if(v<=150)return'Sensitive';if(v<=200)return'Unhealthy';return'V.Unhealthy'}
 var done=0,res={};
 cities.forEach(function(c){
   fetch('https://api.waqi.info/feed/'+c.slug+'/?token=demo')
-    .then(r=>r.json()).then(function(d){
+    .then(function(r){return r.json()}).then(function(d){
       var aqi=d&&d.status==='ok'&&typeof d.data.aqi==='number'?d.data.aqi:null;
       res[c.id]={c,aqi};
       if(++done===cities.length){
@@ -558,12 +675,13 @@ cities.forEach(function(c){
     }).catch(function(){done++;});
 });
 
+/* ════ NEWS ════ */
 function ago(s){var m=Math.floor((new Date()-new Date(s))/60000);if(m<1)return'Just now';if(m<60)return m+'m ago';return Math.floor(m/60)+'h ago'}
 fetch('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent('https://feeds.bbci.co.uk/news/world/rss.xml')+'&count=8')
-  .then(r=>r.json()).then(function(d){
+  .then(function(r){return r.json()}).then(function(d){
     var g=document.getElementById('newsGrid');if(!g)return;
     g.innerHTML=(d.items||[]).slice(0,5).map(function(it,i){
-      return'<div class="ni"><span class="ni-n">0'+(i+1)+'</span><span class="ni-t"><a href="'+it.link+'" target="_blank" rel="noopener">'+it.title+'</a><div class="ni-m">'+ago(it.pubDate)+'</div></span></div>'
+      return'<div class="ni"><span class="ni-n">0'+(i+1)+'</span><div class="ni-t"><a href="'+it.link+'" target="_blank" rel="noopener">'+it.title+'</a><div class="ni-m">'+ago(it.pubDate)+'</div></div></div>'
     }).join('');
     var ts=document.getElementById('news-ts');if(ts)ts.textContent='BBC World · '+now();
   }).catch(function(){});
