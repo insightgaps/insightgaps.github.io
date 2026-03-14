@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Lead Belt — Insight Gaps Investigation</title>
+<meta name="description" content="44 lead-contaminated sites. 145 schools. 58,000 students. The state looked away.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<style>
+:root{
+  --ink:#06060e;--ink2:#0d0d1a;--ink3:#13131f;
+  --blood:#c41e3a;--blood2:rgba(196,30,58,.18);--blood3:rgba(196,30,58,.07);
+  --gold:#c9a84c;--gold2:rgba(201,168,76,.15);
+  --ash:#7a7a96;--ash2:#5a5a72;
+  --white:#f0ede8;--white2:#c8c4bc;
+  --mono:'JetBrains Mono',monospace;
+  --serif:'Playfair Display',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--white);font-family:var(--mono);overflow-x:hidden}
+
+/* GRAIN */
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+  opacity:.55}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:center;
+  padding:1rem 2rem;background:rgba(6,6,14,.88);backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(201,168,76,.1)}
+.nav-logo{font-size:.65rem;font-weight:700;letter-spacing:.2em;color:var(--gold);text-decoration:none;text-transform:uppercase}
+.nav-inv{font-size:.55rem;letter-spacing:.12em;color:var(--blood);border:1px solid var(--blood);padding:.22rem .55rem}
+.nav-tag{font-size:.55rem;letter-spacing:.14em;color:var(--ash);text-transform:uppercase}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}
+#hc{position:absolute;inset:0;width:100%;height:100%}
+.hi{position:relative;z-index:2;padding:0 2.5rem 6vh;max-width:960px}
+.h-kick{font-size:.6rem;letter-spacing:.22em;color:var(--blood);text-transform:uppercase;margin-bottom:1.8rem;
+  opacity:0;animation:fu .8s .3s forwards}
+.h-kick::before{content:'▶ '}
+.h-t{font-family:var(--serif);font-size:clamp(4rem,10vw,9rem);font-weight:900;line-height:.9;
+  letter-spacing:-.02em;margin-bottom:.3rem;opacity:0;animation:fu .9s .5s forwards}
+.h-t em{color:var(--blood);font-style:italic}
+.h-sub{font-family:var(--serif);font-size:clamp(.9rem,2vw,1.4rem);font-style:italic;color:var(--gold);
+  margin-bottom:2.5rem;opacity:0;animation:fu .9s .7s forwards;line-height:1.5}
+.h-deck{font-size:.78rem;line-height:2;color:var(--ash);max-width:580px;margin-bottom:3rem;
+  opacity:0;animation:fu .9s .9s forwards}
+.h-deck strong{color:var(--white)}
+.h-meta{display:flex;gap:2rem;flex-wrap:wrap;opacity:0;animation:fu .9s 1.1s forwards}
+.hm{font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ash2)}
+.hm span{display:block;color:var(--gold);font-size:.65rem;margin-top:.2rem}
+.h-big{position:absolute;right:0;top:50%;transform:translateY(-50%);
+  font-family:var(--serif);font-size:clamp(8rem,22vw,18rem);font-weight:900;
+  color:var(--blood);opacity:.08;line-height:1;letter-spacing:-.04em;pointer-events:none;
+  opacity:0;animation:fi 1.2s 1.3s forwards}
+.scroll-cue{position:absolute;bottom:2rem;right:2.5rem;font-size:.55rem;letter-spacing:.18em;
+  color:var(--ash2);text-transform:uppercase;display:flex;align-items:center;gap:.6rem;
+  opacity:0;animation:fi 1s 2s forwards}
+.sc-line{width:40px;height:1px;background:var(--ash2);animation:sp 2s 2s infinite}
+
+/* FULL BLEED NUMBER */
+.fbn{padding:6rem 2rem;text-align:center;background:var(--blood);max-width:none}
+.fbn-n{font-family:var(--serif);font-size:clamp(5rem,20vw,14rem);font-weight:900;color:var(--white);
+  line-height:1;letter-spacing:-.04em}
+.fbn-l{font-size:clamp(.65rem,1.5vw,.9rem);letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(255,255,255,.7);margin-top:.8rem}
+.fbn-s{font-family:var(--serif);font-size:clamp(.9rem,2vw,1.6rem);font-style:italic;
+  color:rgba(255,255,255,.85);margin-top:.6rem}
+
+/* SECTIONS */
+.sec{padding:7rem 2.5rem;max-width:1080px;margin:0 auto;position:relative}
+.sec-rule{width:100%;height:1px;background:linear-gradient(90deg,var(--blood),transparent);margin-bottom:3.5rem}
+.sec-kick{font-size:.58rem;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:1rem}
+.sec-hed{font-family:var(--serif);font-size:clamp(1.8rem,4.5vw,3.2rem);font-weight:700;
+  line-height:1.1;margin-bottom:2rem;color:var(--white)}
+.sec-hed em{color:var(--blood);font-style:italic}
+.body{font-size:.82rem;line-height:2.05;color:var(--ash);max-width:660px}
+.body strong{color:var(--white)}.body em{color:var(--gold);font-style:normal}
+
+/* STAT GRID */
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5px;
+  margin:3.5rem 0;background:rgba(196,30,58,.08);border:1px solid rgba(196,30,58,.12)}
+.sb{padding:2.2rem 1.8rem;background:var(--ink);position:relative;overflow:hidden;
+  opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
+.sb.vis{opacity:1;transform:translateY(0)}
+.sb::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--blood);transition:height .8s .2s}
+.sb.vis::before{height:100%}
+.sn{font-family:var(--serif);font-size:clamp(2.2rem,5vw,4rem);font-weight:900;color:var(--blood);
+  line-height:1;letter-spacing:-.02em;margin-bottom:.4rem}
+.su{color:var(--gold);font-size:.7em}
+.sl{font-size:.62rem;letter-spacing:.1em;color:var(--ash);text-transform:uppercase;line-height:1.6;margin-top:.6rem}
+.ss{font-size:.5rem;color:rgba(136,136,160,.45);margin-top:.8rem;letter-spacing:.06em}
+
+/* BAR COMPARE */
+.cw{margin:3.5rem 0;background:var(--ink2);border:1px solid rgba(201,168,76,.1);padding:2.5rem 2rem}
+.cl{font-size:.58rem;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;margin-bottom:2rem}
+.cr{margin-bottom:1.8rem}
+.crl{display:flex;justify-content:space-between;font-size:.68rem;color:var(--ash);margin-bottom:.6rem;letter-spacing:.05em}
+.crl strong{color:var(--white)}
+.ct{height:5px;background:rgba(255,255,255,.04);position:relative}
+.cf{height:100%;background:var(--blood);width:0;transition:width 1.6s cubic-bezier(.16,1,.3,1)}
+.cf.gd{background:var(--gold)}
+
+/* PULL QUOTE */
+.pq{margin:3.5rem 0;padding:2.8rem 2.2rem;border-left:3px solid var(--blood);background:var(--blood2);position:relative}
+.pq::before{content:'"';font-family:var(--serif);font-size:7rem;color:var(--blood);opacity:.12;
+  position:absolute;top:-1rem;left:1.2rem;line-height:1;pointer-events:none}
+.pq-t{font-family:var(--serif);font-size:clamp(1rem,2.2vw,1.5rem);font-style:italic;line-height:1.65;
+  color:var(--white);position:relative;z-index:1}
+.pq-s{font-size:.58rem;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-top:1rem}
+
+/* TIMELINE */
+.tl{margin:3.5rem 0;padding-left:1.8rem;border-left:1px solid rgba(196,30,58,.3)}
+.ti{margin-bottom:2.2rem;position:relative;opacity:0;transform:translateX(-8px);transition:opacity .5s,transform .5s}
+.ti.vis{opacity:1;transform:translateX(0)}
+.ti::before{content:'';position:absolute;left:-1.8rem;top:.4rem;width:6px;height:6px;
+  background:var(--blood);border-radius:50%;transform:translateX(-2px)}
+.ty{font-size:.58rem;color:var(--gold);letter-spacing:.14em;margin-bottom:.25rem}
+.te{font-size:.76rem;color:var(--white);line-height:1.7}
+.ts2{font-size:.66rem;color:var(--ash);margin-top:.2rem;line-height:1.6}
+
+/* VERDICT */
+.vb{margin:4.5rem 0;padding:3rem;background:var(--ink2);border:1px solid var(--blood);position:relative;overflow:hidden}
+.vb::before{content:'FINDING';position:absolute;top:1rem;right:1.2rem;font-size:.5rem;letter-spacing:.22em;color:var(--blood)}
+.vb::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--blood),transparent)}
+.vt{font-family:var(--serif);font-size:clamp(1.1rem,2.5vw,1.8rem);font-weight:700;line-height:1.45;color:var(--white)}
+.vt em{color:var(--blood);font-style:italic}
+
+/* DIVIDER */
+.div{width:100%;height:1px;background:rgba(255,255,255,.04)}
+
+/* ══════════════════════════════════════════════════
+   MAP SECTION — ADVANCED
+══════════════════════════════════════════════════ */
+#map-section{background:var(--ink2);border-top:1px solid rgba(196,30,58,.15);border-bottom:1px solid rgba(196,30,58,.15)}
+#map-hdr{padding:3rem 2.5rem 1.5rem;max-width:1080px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem}
+.mh-l .kick{font-size:.58rem;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:.5rem}
+.mh-l h2{font-family:var(--serif);font-size:clamp(1.4rem,3vw,2.2rem);font-weight:700;color:var(--white);line-height:1.2}
+.mh-l h2 em{color:var(--blood);font-style:italic}
+
+/* filter bar */
+#fb{display:flex;gap:.4rem;flex-wrap:wrap}
+.fb{font-family:var(--mono);font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;
+  padding:.35rem .75rem;border:1px solid rgba(120,120,150,.25);background:transparent;
+  color:var(--ash);cursor:pointer;transition:all .2s}
+.fb:hover{border-color:var(--gold);color:var(--gold)}
+.fb.on{border-color:var(--blood);color:var(--white);background:rgba(196,30,58,.15)}
+.fb.on.gd{border-color:var(--gold);background:rgba(201,168,76,.1)}
+
+/* search */
+#srch-row{padding:0 2.5rem 1.2rem;max-width:1080px;margin:0 auto;display:flex;gap:.8rem;align-items:center;flex-wrap:wrap}
+#srch{font-family:var(--mono);font-size:.62rem;background:rgba(255,255,255,.04);border:1px solid rgba(120,120,150,.2);
+  color:var(--white);padding:.45rem .75rem;outline:none;width:260px;letter-spacing:.05em}
+#srch:focus{border-color:var(--blood)}
+#srch::placeholder{color:var(--ash2)}
+#rc{font-size:.55rem;letter-spacing:.1em;color:var(--ash2);text-transform:uppercase}
+
+/* story controls */
+#story-bar{padding:0 2.5rem .8rem;max-width:1080px;margin:0 auto;display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}
+.sb-label{font-size:.55rem;letter-spacing:.14em;color:var(--ash2);text-transform:uppercase}
+.sb-btn{font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;padding:.3rem .6rem;
+  background:var(--blood2);border:1px solid rgba(196,30,58,.3);color:var(--white);cursor:pointer;transition:all .2s}
+.sb-btn:hover{background:var(--blood);border-color:var(--blood)}
+.sb-btn.active{background:var(--blood);border-color:var(--blood)}
+
+/* map wrap */
+#mw{position:relative;height:600px;width:100%}
+#map{width:100%;height:100%}
+
+/* site detail panel */
+#dp{position:absolute;top:12px;right:12px;width:300px;background:rgba(5,5,12,.97);
+  border:1px solid rgba(196,30,58,.35);z-index:1000;display:none;backdrop-filter:blur(16px);
+  animation:slideIn .2s ease}
+@keyframes slideIn{from{opacity:0;transform:translateX(10px)}to{opacity:1;transform:translateX(0)}}
+#dp.open{display:block}
+#dp-close{position:absolute;top:.5rem;right:.7rem;background:none;border:none;color:var(--ash);
+  font-family:var(--mono);font-size:.65rem;cursor:pointer;padding:0;z-index:1}
+#dp-close:hover{color:var(--white)}
+#dp-status{font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;padding:.45rem .9rem;
+  background:var(--blood);color:var(--white)}
+#dp-status.a{background:rgba(201,168,76,.18);color:var(--gold);border-bottom:1px solid rgba(201,168,76,.15)}
+#dp-name{font-family:var(--serif);font-size:.95rem;font-weight:700;line-height:1.3;
+  padding:.75rem .9rem .3rem;color:var(--white)}
+#dp-div{font-size:.55rem;letter-spacing:.1em;color:var(--ash2);padding:0 .9rem .7rem;text-transform:uppercase}
+
+/* contamination bar inside panel */
+#dp-bar-wrap{padding:.5rem .9rem .8rem;border-top:1px solid rgba(255,255,255,.04)}
+.dpb-label{font-size:.5rem;letter-spacing:.12em;color:var(--ash2);text-transform:uppercase;margin-bottom:.35rem}
+.dpb-track{height:4px;background:rgba(255,255,255,.05);position:relative;border-radius:0}
+.dpb-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--blood));border-radius:0;transition:width 1s .2s}
+.dpb-val{font-size:.55rem;color:var(--blood);margin-top:.3rem;letter-spacing:.06em}
+
+.dp-row{display:flex;justify-content:space-between;align-items:flex-start;padding:.4rem .9rem;
+  border-top:1px solid rgba(255,255,255,.04);gap:.4rem}
+.dp-rl{font-size:.52rem;letter-spacing:.1em;color:var(--ash2);text-transform:uppercase;flex-shrink:0;line-height:1.5;margin-top:.1rem}
+.dp-rv{font-size:.65rem;color:var(--white);text-align:right;line-height:1.5}
+.dp-rv.r{color:var(--blood);font-weight:700}
+.dp-rv.g{color:var(--gold)}
+
+#dp-sch{padding:.6rem .9rem .9rem;border-top:1px solid rgba(255,255,255,.04)}
+#dp-sch strong{display:block;font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ash2);margin-bottom:.3rem}
+#dp-sch-list{font-size:.58rem;color:var(--ash);line-height:1.9}
+#dp-sch-list span{color:var(--white)}
+#dp-verify{margin:.4rem .9rem .9rem;padding:.4rem .7rem;background:rgba(196,30,58,.1);
+  border:1px solid rgba(196,30,58,.25);font-size:.5rem;letter-spacing:.08em;color:var(--white2);line-height:1.6}
+
+/* legend */
+#leg{position:absolute;bottom:16px;left:12px;background:rgba(5,5,12,.94);
+  border:1px solid rgba(255,255,255,.07);padding:.75rem 1rem;z-index:1000;backdrop-filter:blur(8px)}
+.leg-t{font-size:.5rem;letter-spacing:.18em;color:var(--ash2);text-transform:uppercase;margin-bottom:.55rem}
+.li{display:flex;align-items:center;gap:.45rem;margin-bottom:.3rem;font-size:.55rem;color:var(--ash)}
+.ld{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.leg-sz{display:flex;align-items:center;gap:.55rem;margin-top:.5rem;padding-top:.45rem;
+  border-top:1px solid rgba(255,255,255,.05)}
+.leg-circles{display:flex;align-items:center;gap:.3rem}
+.leg-sz-l{font-size:.5rem;letter-spacing:.1em;color:var(--ash2);text-transform:uppercase}
+
+/* ring pulse for confirmed */
+.pulse-circle{animation:pr 2.2s ease-out infinite}
+@keyframes pr{0%{stroke-opacity:.6;r:attr(r)}100%{stroke-opacity:0}}
+
+/* stats strip */
+#ms{display:flex;background:rgba(4,4,10,.95);border-top:1px solid rgba(196,30,58,.12);flex-wrap:wrap}
+.ms-i{padding:1.2rem 0;text-align:center;flex:1;min-width:120px;
+  border-right:1px solid rgba(255,255,255,.04);position:relative;overflow:hidden}
+.ms-i:last-child{border-right:none}
+.ms-i::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--blood);transform:scaleX(0);transition:transform .4s}
+.ms-i:hover::before{transform:scaleX(1)}
+.ms-n{font-family:var(--serif);font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:900;color:var(--blood);
+  line-height:1;display:block}
+.ms-n.g{color:var(--gold)}
+.ms-l{font-size:.5rem;letter-spacing:.1em;color:var(--ash2);text-transform:uppercase;margin-top:.35rem;display:block;line-height:1.5}
+
+/* tooltips */
+.st{background:rgba(5,5,12,.96)!important;border:1px solid rgba(196,30,58,.35)!important;
+  border-radius:0!important;color:var(--white)!important;font-family:var(--mono)!important;
+  font-size:.6rem!important;padding:.35rem .55rem!important;line-height:1.55!important;box-shadow:none!important}
+.st::before{display:none!important}
+
+/* METHOD TABLE */
+.mt{width:100%;border-collapse:collapse;margin:2rem 0;font-size:.68rem}
+.mt th{font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);
+  text-align:left;padding:.7rem .9rem;border-bottom:1px solid rgba(201,168,76,.18);font-weight:500}
+.mt td{padding:.8rem .9rem;color:var(--ash);border-bottom:1px solid rgba(255,255,255,.04);line-height:1.6;vertical-align:top}
+.mt td:first-child{color:var(--white);font-weight:500}
+.mt tr:hover td{background:rgba(196,30,58,.04)}
+
+/* FOOTER */
+footer{background:var(--ink2);border-top:1px solid rgba(201,168,76,.08);padding:4rem 2.5rem}
+.fi{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+.fb2{font-size:.58rem;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:.8rem}
+.fd{font-size:.65rem;color:var(--ash);line-height:1.9}
+.fm{font-size:.58rem;color:var(--ash);line-height:2}
+.fm strong{color:var(--gold)}.fm a{color:var(--blood);text-decoration:none}
+.fbot{max-width:1080px;margin:2.5rem auto 0;padding-top:1.5rem;
+  border-top:1px solid rgba(255,255,255,.04);display:flex;justify-content:space-between;
+  align-items:center;font-size:.52rem;letter-spacing:.1em;color:rgba(120,120,150,.45);text-transform:uppercase}
+
+/* LEAFLET OVERRIDES */
+.leaflet-container{background:#040410;font-family:var(--mono)}
+.leaflet-control-zoom{border:1px solid rgba(120,120,150,.18)!important;border-radius:0!important}
+.leaflet-control-zoom a{background:rgba(5,5,12,.92)!important;color:var(--ash)!important;
+  border:none!important;border-bottom:1px solid rgba(120,120,150,.1)!important;font-family:var(--mono)!important;line-height:26px!important}
+.leaflet-control-zoom a:hover{background:var(--ink2)!important;color:var(--white)!important}
+.leaflet-control-attribution{background:rgba(4,4,10,.8)!important;color:rgba(120,120,150,.4)!important;
+  font-size:8px!important;font-family:var(--mono)!important}
+.leaflet-control-attribution a{color:rgba(120,120,150,.4)!important}
+
+/* KEYFRAMES */
+@keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fi{from{opacity:0}to{opacity:1}}
+@keyframes sp{0%,100%{opacity:.3;transform:scaleX(1)}50%{opacity:1;transform:scaleX(1.3)}}
+
+/* RESPONSIVE */
+@media(max-width:700px){
+  .sec{padding:4.5rem 1.2rem}
+  #mw{height:440px}
+  #dp{width:calc(100% - 24px)}
+  #map-hdr{padding:2rem 1.2rem 1rem}
+  #srch-row,#story-bar{padding-left:1.2rem;padding-right:1.2rem}
+  .fi{grid-template-columns:1fr;gap:2rem}
+  .fbot{flex-direction:column;gap:.4rem;text-align:center}
+  #leg{display:none}
+  .h-big{display:none}
+  .sg{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="https://insightgaps.com">Insight Gaps</a>
+  <span class="nav-tag">Forensic Data Journalism · Dhaka</span>
+  <span class="nav-inv">BD-INV-003</span>
+</nav>
+
+<!-- VISUAL INVESTIGATION BANNER -->
+<div style="background:rgba(100,180,255,.06);border-bottom:1px solid rgba(100,180,255,.15);padding:.8rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:58px;flex-wrap:wrap">
+  <div style="display:flex;align-items:center;gap:.8rem">
+    <span style="font-family:var(--mono);font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;background:rgba(100,180,255,.15);border:1px solid rgba(100,180,255,.3);color:rgba(150,200,255,.9);padding:.22rem .55rem">Visual</span>
+    <span style="font-family:var(--mono);font-size:.62rem;color:rgba(200,220,240,.8);letter-spacing:.04em">This investigation has an immersive visual version — 8 full-screen scenes, bilingual EN/বাং</span>
+  </div>
+  <a href="/investigations/national/lead-belt/visual.html" style="font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;padding:.5rem 1.1rem;background:rgba(100,180,255,.1);border:1px solid rgba(100,180,255,.3);color:rgba(150,200,255,.9);text-decoration:none;white-space:nowrap;transition:all .2s">◉ Open Visual Investigation →</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="hc"></canvas>
+  <div class="hi">
+    <p class="h-kick">Investigation · Environmental Accountability · Bangladesh</p>
+    <h1 class="h-t">The<br><em>Lead</em><br>Belt</h1>
+    <p class="h-sub">44 contaminated sites. 145 schools. 58,000 students. The state looked away.</p>
+    <p class="h-deck">
+      <strong>59 metres.</strong> That is the distance between Rahmat Ali Ideal Govt. Primary School and a lead-acid battery recycling site in Kamrangir Char, Dhaka — where soil lead has been measured at <strong>825 times</strong> the international safety standard. This is not one site. Across Bangladesh, <strong>44 formally assessed lead-contaminated sites</strong> have at least one school within 500 metres. None have a public record of permanent closure.
+    </p>
+    <div class="h-meta">
+      <div class="hm">Published<span id="pub-date">2026</span></div>
+      <div class="hm">Bureau<span>Insight Gaps</span></div>
+      <div class="hm">Investigation<span>BD-INV-003</span></div>
+      <div class="hm">Data sources<span>Pure Earth · MICS 2025 · OSM</span></div>
+    </div>
+  </div>
+  <div class="h-big" style="padding-right:2rem;user-select:none">38%</div>
+  <div class="scroll-cue"><div class="sc-line"></div>Scroll to investigate</div>
+</section>
+
+<!-- FULL BLEED 65% -->
+<div class="fbn">
+  <div class="fbn-n">65%</div>
+  <div class="fbn-l">of children in Dhaka have dangerous blood lead levels</div>
+  <div class="fbn-s">The highest recorded rate in any division — UNICEF / BBS MICS 2025</div>
+</div>
+
+<!-- SECTION 1: SCALE -->
+<section class="sec" id="scale">
+  <div class="sec-rule"></div>
+  <p class="sec-kick">01 — The Scale</p>
+  <h2 class="sec-hed">A generation being<br>poisoned in <em>plain sight</em></h2>
+  <p class="body">
+    The 2025 UNICEF-Bangladesh Bureau of Statistics Multiple Indicator Cluster Survey is the most comprehensive national measurement of childhood lead exposure ever conducted in Bangladesh. Its finding is unambiguous: <strong>38% of children aged 12–59 months</strong> carry blood lead levels above the internationally recognised safe threshold. In Dhaka, that figure reaches <strong>65%.</strong>
+    <br><br>
+    Lead causes irreversible neurological damage. There is no cure. The damage — measured in lost IQ points, impaired physical development, and lifelong cardiovascular risk — cannot be undone after exposure. Every day that the sources continue to operate is another day of permanent harm to children who cannot protect themselves.
+    <br><br>
+    Bangladesh now ranks <em>4th globally</em> by total number of children affected by lead pollution. The annual economic cost, measured only in lost productivity from IQ reduction, is <strong>USD 15.9 billion.</strong>
+  </p>
+
+  <div class="sg">
+    <div class="sb">
+      <div class="sn"><span class="cnt" data-t="38">0</span><span class="su">%</span></div>
+      <div class="sl">Children aged 12–59 months with blood lead above safe limits — national average</div>
+      <div class="ss">UNICEF / BBS MICS 2025</div>
+    </div>
+    <div class="sb">
+      <div class="sn"><span class="cnt" data-t="65">0</span><span class="su">%</span></div>
+      <div class="sl">Children in Dhaka above safe threshold — highest in the country</div>
+      <div class="ss">UNICEF / BBS MICS 2025</div>
+    </div>
+    <div class="sb">
+      <div class="sn"><span class="su">$</span><span class="cnt" data-t="15">0</span><span class="su">.9B</span></div>
+      <div class="sl">Annual GDP loss from IQ reduction alone — minimum measurable cost of inaction</div>
+      <div class="ss">Pure Earth / GALEP</div>
+    </div>
+    <div class="sb">
+      <div class="sn"><span class="su">#</span><span class="cnt" data-t="4">0</span></div>
+      <div class="sl">Bangladesh's global ranking by children affected by lead pollution</div>
+      <div class="ss">Pure Earth Global Pollution Reports</div>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- SECTION 2: SOURCE -->
+<section class="sec" id="source">
+  <div class="sec-rule"></div>
+  <p class="sec-kick">02 — The Source</p>
+  <h2 class="sec-hed">6,000 illegal recyclers.<br><em>6</em> are registered.</h2>
+  <p class="body">
+    The primary driver of lead contamination in Bangladesh is the informal used lead-acid battery recycling sector. When a vehicle battery dies, it enters a supply chain that ends — for the vast majority — at an unregistered backyard smelter where the battery is broken open, the lead melted in open air, and the toxic residue left to leach into soil, water, and the lungs of nearby residents.
+  </p>
+
+  <div class="cw" id="cmp">
+    <p class="cl">Registration gap — formal vs informal ULAB recycling operations</p>
+    <div class="cr">
+      <div class="crl"><strong>Informal / unregistered operations (ESDO estimate)</strong><span style="color:var(--blood)">6,000+</span></div>
+      <div class="ct"><div class="cf" data-w="100"></div></div>
+    </div>
+    <div class="cr" style="margin-top:1.8rem">
+      <div class="crl"><strong>Formally registered operators (national)</strong><span style="color:var(--gold)">6</span></div>
+      <div class="ct"><div class="cf gd" data-w="0.1"></div></div>
+    </div>
+  </div>
+
+  <p class="body">
+    <strong>Six formally registered battery recyclers exist in all of Bangladesh.</strong> The rest — estimated at over <em>6,000 operations</em> by the Environment and Social Development Organisation in collaboration with UNEP — operate without registration, without environmental clearance, without health oversight, and without any requirement to safely dispose of toxic byproducts.
+    <br><br>
+    Pure Earth, working with the University of Dhaka's Geology Department, has assessed <strong>270 specific contaminated sites</strong> across the country. Their data documents lead concentrations far exceeding international safety standards — at levels that cause measurable developmental harm in children living nearby.
+  </p>
+
+  <div class="pq">
+    <div class="pq-t">Children living within 200 metres of one assessed site in Savar — the Kathgora location — had median blood lead levels of 21.3 micrograms per decilitre. That is more than four times the WHO reference level. At a site that had already stopped operating.</div>
+    <div class="pq-s">Source: icddr,b / Stanford University study, Environmental Research, 2021 — BD-KATH, Ashulia, Savar</div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- SECTION 3: MAP — ADVANCED -->
+<section id="map-section">
+  <div id="map-hdr">
+    <div class="mh-l">
+      <p class="kick">03 — Spatial Analysis · Insight Gaps Original Finding</p>
+      <h2>Lead-contaminated sites near <em>schools</em> — Bangladesh</h2>
+    </div>
+    <div id="fb">
+      <button class="fb on" onclick="flt('all',this)">All Sites</button>
+      <button class="fb" onclick="flt('confirmed',this)">Satellite Verified</button>
+      <button class="fb gd" onclick="flt('dhaka',this)">Dhaka Only</button>
+      <button class="fb" onclick="flt('high',this)">≥5 Schools</button>
+    </div>
+  </div>
+
+  <div id="srch-row">
+    <input type="text" id="srch" placeholder="Search site name or division..." oninput="doSearch(this.value)">
+    <span id="rc">Showing all 15 sites</span>
+  </div>
+
+  <div id="story-bar">
+    <span class="sb-label">Story mode →</span>
+    <button class="sb-btn" onclick="flyTo(0)">① Kamrangir Char</button>
+    <button class="sb-btn" onclick="flyTo(1)">② Nawabgonj</button>
+    <button class="sb-btn" onclick="flyTo(2)">③ Doyagonj</button>
+    <button class="sb-btn" onclick="flyTo(14)">④ Kathgora</button>
+    <button class="sb-btn" onclick="resetView()">↺ Full Bangladesh</button>
+  </div>
+
+  <div id="mw">
+    <div id="map"></div>
+
+    <!-- Detail panel -->
+    <div id="dp">
+      <div id="dp-status">CONFIRMED ACTIVE — SATELLITE VERIFIED</div>
+      <button id="dp-close" onclick="closePanel()">✕</button>
+      <div id="dp-name">—</div>
+      <div id="dp-div">—</div>
+
+      <!-- Contamination bar -->
+      <div id="dp-bar-wrap">
+        <div class="dpb-label">Soil lead contamination level</div>
+        <div class="dpb-track"><div class="dpb-fill" id="dpb" style="width:0%"></div></div>
+        <div class="dpb-val" id="dpb-val">—</div>
+      </div>
+
+      <div class="dp-row">
+        <span class="dp-rl">Schools ≤500m</span>
+        <span class="dp-rv r" id="dp-sch-c">—</span>
+      </div>
+      <div class="dp-row">
+        <span class="dp-rl">Closest school</span>
+        <span class="dp-rv" id="dp-cm">—</span>
+      </div>
+      <div class="dp-row">
+        <span class="dp-rl">School name</span>
+        <span class="dp-rv g" id="dp-cn" style="font-size:.58rem">—</span>
+      </div>
+      <div class="dp-row">
+        <span class="dp-rl">Estimated students at risk</span>
+        <span class="dp-rv" id="dp-st">—</span>
+      </div>
+      <div class="dp-row">
+        <span class="dp-rl">Risk score</span>
+        <span class="dp-rv r" id="dp-rs">—</span>
+      </div>
+      <div class="dp-row">
+        <span class="dp-rl">Assessed</span>
+        <span class="dp-rv" id="dp-as">—</span>
+      </div>
+
+      <div id="dp-sch">
+        <strong>Schools within 500 metres</strong>
+        <div id="dp-sch-list">—</div>
+      </div>
+
+      <div id="dp-verify" id="dp-v" style="display:none"></div>
+    </div>
+
+    <!-- Legend -->
+    <div id="leg">
+      <div class="leg-t">Legend</div>
+      <div class="li"><div class="ld" style="background:#c41e3a;box-shadow:0 0 0 2px rgba(196,30,58,.4)"></div>Satellite confirmed active</div>
+      <div class="li"><div class="ld" style="background:#c9a84c;box-shadow:0 0 0 2px rgba(201,168,76,.3)"></div>Assessed — unverified</div>
+      <div class="li"><div class="ld" style="background:rgba(196,30,58,.15);border:1px dashed rgba(196,30,58,.4);border-radius:50%"></div>500m school buffer</div>
+      <div class="leg-sz">
+        <div class="leg-circles">
+          <div style="width:5px;height:5px;border-radius:50%;background:rgba(196,30,58,.5)"></div>
+          <div style="width:11px;height:11px;border-radius:50%;background:rgba(196,30,58,.5)"></div>
+          <div style="width:20px;height:20px;border-radius:50%;background:rgba(196,30,58,.5)"></div>
+        </div>
+        <span class="leg-sz-l">↑ Schools within 500m</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats strip -->
+  <div id="ms">
+    <div class="ms-i"><span class="ms-n">44</span><span class="ms-l">Assessed<br>sites</span></div>
+    <div class="ms-i"><span class="ms-n">145</span><span class="ms-l">Schools within<br>500 metres</span></div>
+    <div class="ms-i"><span class="ms-n g">58,000</span><span class="ms-l">Estimated students<br>at risk</span></div>
+    <div class="ms-i"><span class="ms-n">1,702×</span><span class="ms-l">Highest soil lead<br>above safe limit</span></div>
+    <div class="ms-i"><span class="ms-n g">59m</span><span class="ms-l">Closest school<br>to a site</span></div>
+    <div class="ms-i"><span class="ms-n">0</span><span class="ms-l">Sites permanently<br>closed on record</span></div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- SECTION 4: FAILURE -->
+<section class="sec" id="failure">
+  <div class="sec-rule"></div>
+  <p class="sec-kick">04 — The Regulatory Failure</p>
+  <h2 class="sec-hed">They knew.<br>They <em>did not act.</em></h2>
+  <p class="body">
+    The regulatory architecture exists. Bangladesh's Environment Conservation Act requires Environmental Clearance Certificates for industrial operations including battery recycling. The Department of Environment has authority to inspect, fine, and close non-compliant operations. The Department of Inspection for Factories and Establishments has jurisdiction over worker safety. The legal tools are present. The institutions are present. The crisis is present. <strong>What is absent is enforcement.</strong>
+  </p>
+
+  <div class="tl" id="timeline">
+    <div class="ti">
+      <div class="ty">2003</div>
+      <div class="te">Bangladesh Bureau of Statistics baseline: 12,207 battery recycling operations nationally — 34% in or near Dhaka</div>
+      <div class="ts2">Data established. Regulatory action documented: none.</div>
+    </div>
+    <div class="ti">
+      <div class="ty">2009–2012</div>
+      <div class="te">First major academic documentation of ULAB lead contamination in Dhaka</div>
+      <div class="ts2">Dholaikhal, Doyagonj, Sadarghat identified as primary contamination zones. Soil lead far above international limits. Operations continue.</div>
+    </div>
+    <div class="ti">
+      <div class="ty">2016</div>
+      <div class="te">Geli Industrial Company Ltd, Sreepur, Gazipur — begins operations without Environmental Clearance Certificate</div>
+      <div class="ts2">DoE made aware of non-compliance. A school established since 1968 operates nearby. The factory continues to run.</div>
+    </div>
+    <div class="ti">
+      <div class="ty">2019–2020</div>
+      <div class="te">Pure Earth and University of Dhaka complete assessment of 270+ contaminated sites nationally</div>
+      <div class="ts2">Data submitted to international databases. High contamination confirmed across assessed sites. No reported permanent closures follow.</div>
+    </div>
+    <div class="ti">
+      <div class="ty">2021</div>
+      <div class="te">icddr,b and Stanford measure children's blood lead near Kathgora, Savar — median 21.3 μg/dL, 4.3× reference level</div>
+      <div class="ts2">The site had already stopped operating. Children still poisoned from residual soil contamination. Blood lead remained elevated seven months after soil remediation.</div>
+    </div>
+    <div class="ti">
+      <div class="ty">November 2024</div>
+      <div class="te">UNICEF and Ministry of Environment jointly host lead pollution workshop in Dhaka</div>
+      <div class="ts2">Government acknowledges the crisis. UNICEF calls for partners to help identify sources — despite sources having been mapped and published since 2019.</div>
+    </div>
+    <div class="ti">
+      <div class="ty">November 2025</div>
+      <div class="te">MICS 2025 confirms: 38% of Bangladesh's children, 65% of Dhaka's children — above safe blood lead levels</div>
+      <div class="ts2">The most comprehensive measurement to date. The crisis has not improved. The informal recycling sector continues to operate at scale.</div>
+    </div>
+    <div class="ti">
+      <div class="ty">March 2026 — This Investigation</div>
+      <div class="te">Insight Gaps spatial analysis: 44 sites, 145 schools, 58,000 students within 500 metres</div>
+      <div class="ts2">Original finding. Never before published. Three sites satellite-confirmed active by Gemini Vision AI. No site on record as permanently closed.</div>
+    </div>
+  </div>
+
+  <div class="vb">
+    <div class="vt">
+      <em>Over two decades</em> of documented contamination. Six thousand illegal operators. Two hundred and seventy assessed sites. A national blood lead crisis affecting every third child. The regulatory agencies have the authority. They have the evidence. What Bangladesh's children have received in return is <em>another report, another workshop, another year of exposure.</em>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- SECTION 5: COST -->
+<section class="sec" id="cost">
+  <div class="sec-rule"></div>
+  <p class="sec-kick">05 — The Economic Argument</p>
+  <h2 class="sec-hed">A <em>$15.9 billion</em><br>annual governance failure</h2>
+  <p class="body">
+    Lead poisoning is not only a public health tragedy. It is a governance failure with a measurable price tag. The annual productivity loss from IQ reduction caused by childhood lead exposure in Bangladesh is estimated at <strong>USD 15.9 billion</strong>. This covers only the most easily quantifiable pathway of harm. It excludes healthcare costs, premature deaths linked to cardiovascular effects of lifetime lead exposure, and the <strong>USD 91 million in annual tax revenue</strong> foregone from the unregulated, untaxed informal recycling sector.
+    <br><br>
+    The cost of enforcement — inspection staffing, closure orders, site remediation — would be a fraction of this figure. The political will has not materialised across any government in the past two decades.
+  </p>
+
+  <div class="sg" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+    <div class="sb">
+      <div class="sn"><span class="su">$</span>15.9<span class="su">B</span></div>
+      <div class="sl">Annual GDP loss from IQ reduction — the minimum measurable cost of inaction</div>
+      <div class="ss">Pure Earth / GALEP</div>
+    </div>
+    <div class="sb">
+      <div class="sn"><span class="su">$</span>91<span class="su">M</span></div>
+      <div class="sl">Annual tax revenue lost from informal recycling sector operating outside the formal economy</div>
+      <div class="ss">UNCTAD / Pure Earth SMEP Programme 2024</div>
+    </div>
+    <div class="sb">
+      <div class="sn"><span class="cnt" data-t="270">0</span><span class="su">+</span></div>
+      <div class="sl">Sites formally assessed and recorded — with zero confirmed permanent closures on public record</div>
+      <div class="ss">Pure Earth / contaminatedsites.org</div>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- SECTION 6: METHODOLOGY -->
+<section class="sec" id="method">
+  <div class="sec-rule"></div>
+  <p class="sec-kick">06 — Methodology & Transparency</p>
+  <h2 class="sec-hed">How this<br>investigation<br><em>was built</em></h2>
+  <p class="body">
+    This investigation is based entirely on publicly available data and original spatial analysis conducted by Insight Gaps. No RTI requests are pending. Every figure cited can be independently verified from the original sources listed below. The proximity analysis methodology — Pure Earth site coordinates + OpenStreetMap school locations + Haversine distance calculation — can be replicated by any data journalist using freely available tools.
+    <br><br>
+    <strong>The primary original finding</strong> — 44 assessed lead-contaminated sites with schools within 500 metres, placing an estimated 58,000 students in proximity — has not been previously published. It is the product of Insight Gaps' own analysis.
+    <br><br>
+    Satellite imagery for the three highest-priority sites (BD-4591, BD-4653, BD-4802) was retrieved and submitted to Google Gemini Vision AI for structured analysis in March 2026. All three were assessed as showing active industrial operations with residential and educational buildings in proximity.
+  </p>
+
+  <table class="mt">
+    <thead>
+      <tr>
+        <th>Source</th>
+        <th>What it provides</th>
+        <th>How accessed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>UNICEF / BBS MICS 2025</td><td>National and Dhaka blood lead prevalence; district data forthcoming in full report</td><td>Public — unicef.org/bangladesh</td></tr>
+      <tr><td>Pure Earth / Dhaka University Geology Dept</td><td>270+ assessed ULAB site coordinates, soil contamination measurements, risk scores</td><td>contaminatedsites.org — open access</td></tr>
+      <tr><td>OpenStreetMap / Overpass Turbo</td><td>School building locations across Bangladesh (latitude, longitude, name)</td><td>Overpass API — open access</td></tr>
+      <tr><td>ESDO / UNEP Assessment</td><td>6,000+ informal recycler estimate; national ULAB sector overview</td><td>UNEP document repository — public</td></tr>
+      <tr><td>icddr,b / Stanford University</td><td>Kathgora child blood lead measurements; pre/post-remediation data</td><td>Environmental Research journal — open access</td></tr>
+      <tr><td>Pure Earth Global Pollution Reports</td><td>Bangladesh global ranking; GDP loss calculation</td><td>pureearth.org — public</td></tr>
+      <tr><td>UNCTAD SMEP Programme 2024</td><td>Tax revenue loss from informal sector; formalization data</td><td>UNCTAD meeting records — public</td></tr>
+      <tr><td>BANBEIS</td><td>National average school enrollment figure (400 students/school) used for exposure estimate</td><td>Bangladesh Bureau of Educational Information — public</td></tr>
+    </tbody>
+  </table>
+
+  <p class="body" style="margin-top:1.5rem">
+    <strong>On the 58,000 students estimate:</strong> This figure was calculated by multiplying the count of school buildings within 500 metres of each assessed site (145 schools) by the BANBEIS national average primary school enrollment of 400 students. This is a conservative estimate — some schools in the dataset are secondary or higher institutions with larger enrollments. The figure should be read as a floor, not a ceiling.
+    <br><br>
+    <strong>On the enforcement gap claim:</strong> The statement that no ULAB facility has been permanently closed by regulatory action is based on absence of any such record in the Pure Earth database (which tracks site status), archived news coverage 2010–2025, ESDO published reporting, and UNEP assessment documentation. Insight Gaps welcomes correction from DoE or DIFE with documented evidence of permanent closures.
+  </p>
+</section>
+
+<div class="div"></div>
+
+<!-- SECTION 7: RIGHT OF REPLY -->
+<section class="sec" id="reply">
+  <div class="sec-rule"></div>
+  <p class="sec-kick">07 — What We Asked</p>
+  <h2 class="sec-hed">Right of <em>reply</em></h2>
+  <p class="body">
+    Insight Gaps contacted the Department of Environment (DoE) and the Department of Inspection for Factories and Establishments (DIFE) by email on the date of publication, requesting comment on enforcement actions taken at lead-acid battery recycling sites identified in the Pure Earth contaminated sites database, and specifically at the sites identified in this investigation as having schools within 500 metres.
+    <br><br>
+    <strong>DoE:</strong> Did not respond to request for comment at time of publication.
+    <br><br>
+    <strong>DIFE:</strong> Did not respond to request for comment at time of publication.
+    <br><br>
+    This investigation will be updated if responses are received. Responses can be sent to the bureau contact address at insightgaps.com.
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fi">
+    <div>
+      <div class="fb2">Insight Gaps</div>
+      <div class="fd">
+        Insight Gaps is an independent forensic data journalism bureau based in Dhaka, Bangladesh. We investigate accountability failures using data, documents, and verified public sources. All datasets produced by Insight Gaps investigations are released publicly under Creative Commons licence on GitHub.
+        <br><br>insightgaps.com
+      </div>
+    </div>
+    <div>
+      <div class="fm">
+        <strong>Investigation</strong><br>BD-INV-003 — "The Lead Belt"<br><br>
+        <strong>Bureau</strong><br>Insight Gaps<br><br>
+        <strong>Primary Sources</strong><br>
+        UNICEF / BBS MICS 2025<br>
+        Pure Earth / contaminatedsites.org<br>
+        icddr,b / Stanford University (2021)<br>
+        ESDO / UNEP Assessment<br>
+        OpenStreetMap contributors<br><br>
+        <strong>Contact & Corrections</strong><br>
+        <a href="https://insightgaps.com">insightgaps.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="fbot">
+    <span>© Insight Gaps 2026 — CC BY 4.0</span>
+    <span>Data journalism in the public interest</span>
+    <span>BD-INV-003</span>
+  </div>
+</footer>
+
+<!-- ════════════════════════════════ SCRIPTS ════════════════════════════════ -->
+<script>
+// ── PUB DATE ──────────────────────────────────────────────────────────────────
+document.getElementById('pub-date').textContent =
+  new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+
+// ── HERO CANVAS ───────────────────────────────────────────────────────────────
+const hcv=document.getElementById('hc'),hctx=hcv.getContext('2d');
+let pts=[];
+function rsz(){hcv.width=hcv.offsetWidth;hcv.height=hcv.offsetHeight}
+function initPts(){pts=[];const n=Math.floor(hcv.width*hcv.height/7000);
+  for(let i=0;i<n;i++)pts.push({x:Math.random()*hcv.width,y:Math.random()*hcv.height,
+    r:Math.random()*1.1+.2,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,
+    a:Math.random()*.35+.05,c:Math.random()>.85?'#c41e3a':Math.random()>.7?'#c9a84c':'#7a7a96'})}
+function drawHero(){
+  hctx.clearRect(0,0,hcv.width,hcv.height);
+  const g=hctx.createRadialGradient(hcv.width*.3,hcv.height*.5,0,hcv.width*.5,hcv.height*.5,hcv.width*.75);
+  g.addColorStop(0,'rgba(196,30,58,.07)');g.addColorStop(1,'rgba(6,6,14,0)');
+  hctx.fillStyle=g;hctx.fillRect(0,0,hcv.width,hcv.height);
+  pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;
+    if(p.x<0)p.x=hcv.width;if(p.x>hcv.width)p.x=0;
+    if(p.y<0)p.y=hcv.height;if(p.y>hcv.height)p.y=0;
+    hctx.beginPath();hctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    hctx.fillStyle=p.c;hctx.globalAlpha=p.a;hctx.fill()});
+  hctx.globalAlpha=1;requestAnimationFrame(drawHero)}
+rsz();initPts();drawHero();
+window.addEventListener('resize',()=>{rsz();initPts()});
+
+// ── INTERSECTION OBSERVER ─────────────────────────────────────────────────────
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.12});
+document.querySelectorAll('.sb,.ti').forEach(el=>io.observe(el));
+
+// Count-up
+const co=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){
+  const el=e.target,t=+el.dataset.t;let s=0;const d=1200;
+  const step=ts=>{if(!el._s)el._s=ts;const p=Math.min((ts-el._s)/d,1),ease=1-Math.pow(1-p,3);
+    el.textContent=Math.round(ease*t);if(p<1)requestAnimationFrame(step);else el.textContent=t};
+  requestAnimationFrame(step);co.unobserve(el)}})},{threshold:.3});
+document.querySelectorAll('.cnt').forEach(el=>co.observe(el));
+
+// Bar animate
+const bo=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){
+  e.target.querySelectorAll('.cf').forEach(b=>{setTimeout(()=>{b.style.width=b.dataset.w+'%'},100)});
+  bo.unobserve(e.target)}})},{threshold:.3});
+const cmp=document.getElementById('cmp');if(cmp)bo.observe(cmp);
+
+// Timeline stagger
+document.querySelectorAll('.ti').forEach((el,i)=>{el.style.transitionDelay=i*.08+'s'});
+
+// ══════════════════════════════════════════════════════════════════════════════
+// SITE DATA
+// ══════════════════════════════════════════════════════════════════════════════
+const SITES=[
+  {id:"BD-4591",name:"ULAB Recycling Factory, Kamrangir Char, Dhaka",div:"Dhaka",lat:23.7227,lon:90.3698,
+   sch:18,cm:59,cn:"Rahmat Ali Ideal Govt. Primary School",soil:330001,x:825,st:7200,rs:8,ass:"2016",
+   status:"confirmed",verify:"Satellite imagery (March 2026): Large corrugated metal structures, loading areas, dense residential within 50m. School playground visible NE. Active — Gemini Vision AI.",
+   top5:"Rahmat Ali Ideal Govt. Primary School | BRAC School | Easy Method Int. School & College | Hazrat Osman Goni Madrasah | Matrichaya Academy"},
+  {id:"BD-4653",name:"ULAB Recycle Site, Nawabgonj, Lalbag, Dhaka",div:"Dhaka",lat:23.7217,lon:90.3760,
+   sch:14,cm:267,cn:"Aloron School & College",soil:245307,x:613,st:5600,rs:6,ass:"2016",
+   status:"confirmed",verify:"Satellite imagery (March 2026): Industrial operations confirmed. School buildings visible in proximity. Active — Gemini Vision AI.",
+   top5:"Aloron School & College | Motherland School & College | SS International School | Nabab Bagicha Govt. Primary School | Ideal Academy"},
+  {id:"BD-4802",name:"Doyagonj ULAB Market, Jatrabari, Dhaka",div:"Dhaka",lat:23.70965,lon:90.42577,
+   sch:12,cm:180,cn:"Doyagonj Govt. Primary School",soil:297785,x:744,st:4800,rs:10,ass:"2016",
+   status:"confirmed",verify:"Satellite imagery (March 2026): Dense industrial market confirmed active. Soil lead 297,785 ppm = 744× safe limit — one of highest recorded globally. Gemini Vision AI.",
+   top5:"Doyagonj Govt. Primary School | Jatrabari Ideal School | Dhaka Shishu Academy | Al-Amin School | Bismillah Kindergarten"},
+  {id:"BD-4654",name:"Battery Ghat Road, Kamrangir Char",div:"Dhaka",lat:23.71702,lon:90.37673,
+   sch:8,cm:141,cn:"Oriental National School",soil:267,x:0.7,st:3200,rs:4,ass:"2016",status:"assessed",verify:null,
+   top5:"Oriental National School | Robiullah Sarkar Madrasah | SS International School | Ideal Academy | Azizia Islamia Madrasah"},
+  {id:"BD-5035",name:"Lead Battery Works, Kapashgola, Chittagong",div:"Chittagong",lat:22.36000,lon:91.84201,
+   sch:8,cm:53,cn:"Kapash Gola Primary School",soil:28304,x:70.8,st:3200,rs:5,ass:"2016",status:"assessed",verify:null,
+   top5:"Kapash Gola Primary School | Chittagong Model School | Mastermind International School | Al Marjaan Project | unnamed"},
+  {id:"BD-7382",name:"ULAB Battery Works, Kolaroa, Satkhira",div:"Khulna",lat:22.85724,lon:89.04189,
+   sch:6,cm:53,cn:"Kalaroa G K M K Pilot High School",soil:54410,x:136,st:2400,rs:6,ass:"2019",status:"assessed",verify:null,
+   top5:"Kalaroa G K M K Pilot High School | Kalaroa Govt. Primary School | Kalaroa Girls Pilot High School | Kalaroa Shishu Lab School | Kolaroa High School"},
+  {id:"BD-7314",name:"Jibon Battery Works, Kolaroa, Satkhira",div:"Khulna",lat:22.85977,lon:89.04469,
+   sch:6,cm:232,cn:"Kalaroa Girls Pilot High School",soil:null,x:null,st:2400,rs:null,ass:"2018",status:"assessed",verify:null,
+   top5:"Kalaroa Girls Pilot High School | Kolaroa Govt Primary School | Kalaroa Shishu Lab School | Kolaroa High School | Kalaroa G K M K Pilot High School"},
+  {id:"BD-4820",name:"ULAB Shops, Ponchoboti, Fatullah, Narayanganj",div:"Dhaka",lat:23.63110,lon:90.47626,
+   sch:6,cm:120,cn:"Fatullah Govt. Primary School",soil:88030,x:220,st:2400,rs:10,ass:"2016",status:"assessed",verify:null,
+   top5:"Fatullah Govt. Primary School | Fatullah Model School | Al-Amin Madrasa | Narayanganj Ideal School | unnamed"},
+  {id:"BD-5062",name:"ULAB Breaking Works, Majompur, Kushtia",div:"Khulna",lat:23.90686,lon:89.12118,
+   sch:5,cm:196,cn:"Kustia Zilla School",soil:2237,x:5.6,st:2000,rs:4,ass:"2017",status:"assessed",verify:null,
+   top5:"Kustia Zilla School | Kushtia Zilla School | Merit Model School | Sahittik Mir Mosharraf High School | Kalakakali Secondary School"},
+  {id:"BD-2888",name:"Industrial Pollution, Hemayetpur, Savar",div:"Dhaka",lat:23.83365,lon:90.25909,
+   sch:5,cm:167,cn:"Ebac Public School",soil:9,x:0,st:2000,rs:null,ass:null,status:"assessed",verify:null,
+   top5:"Ebac Public School | Rabeya Moni International School | Learning View Kindergarten | Savar Laboratory School | Rajabari Govt. Primary School"},
+  {id:"BD-7356",name:"Sunlite Battery Mfg, Gorai, Mirzapur, Tangail",div:"Dhaka",lat:24.09769,lon:90.15612,
+   sch:5,cm:370,cn:"Sohagpur Primary School",soil:null,x:null,st:2000,rs:null,ass:"2018",status:"assessed",verify:null,
+   top5:"Sohagpur Primary School | Tangail Cotton Mills High School | Gorai High School | Gorai Govt. Primary School | unnamed"},
+  {id:"BD-4822",name:"Mollah Metal Works, Sadhapur, Savar",div:"Dhaka",lat:23.82584,lon:90.27508,
+   sch:4,cm:220,cn:"Rabeya Moni International School",soil:272529,x:681,st:1600,rs:9,ass:"2016",status:"assessed",verify:null,
+   top5:"Rabeya Moni International School | Ebac Public School | Learning View Kindergarten | Savar Lab School | unnamed"},
+  {id:"BD-4831",name:"Fatema Lead Smelting Factory, Savar",div:"Dhaka",lat:23.98172,lon:90.21246,
+   sch:4,cm:310,cn:"Sohagpur Primary School",soil:117323,x:293,st:1600,rs:9,ass:"2016",status:"assessed",verify:null,
+   top5:"Sohagpur Primary School | Gorai High School | Gorai Govt. Primary School | Tangail Cotton Mills High School | unnamed"},
+  {id:"BD-4781",name:"Lead-Acid Battery Recycling, Santahar, Bogra",div:"Rajshahi",lat:24.80793,lon:88.98219,
+   sch:3,cm:280,cn:"Santahar Pilot High School",soil:149682,x:374,st:1200,rs:10,ass:"2016",status:"assessed",verify:null,
+   top5:"Santahar Pilot High School | Santahar Govt. Primary School | unnamed"},
+  {id:"BD-KATH",name:"Kathgora Abandoned ULAB Site, Ashulia, Savar",div:"Dhaka",lat:23.87500,lon:90.27000,
+   sch:3,cm:340,cn:"Ashulia Primary School",soil:680872,x:1702,st:1200,rs:10,ass:"2019",status:"assessed",
+   verify:"HIGHEST CONTAMINATION SITE IN DATASET. Children within 200m had median blood lead 21.3 μg/dL — 4.3× reference level — even AFTER operations stopped. icddr,b / Stanford 2021.",
+   top5:"Ashulia Primary School | Kathgora Govt. Primary School | unnamed"},
+];
+
+// ══════════════════════════════════════════════════════════════════════════════
+// MAP INIT
+// ══════════════════════════════════════════════════════════════════════════════
+const MAP=L.map('map',{center:[23.5,90.2],zoom:7,zoomControl:true});
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
+  attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com">CARTO</a>',
+  subdomains:'abcd',maxZoom:19
+}).addTo(MAP);
+
+// ── MARKER HELPERS ────────────────────────────────────────────────────────────
+function getR(s){return s>=15?22:s>=10?17:s>=6?12:s>=3?8:5}
+function getC(s){return s.status==='confirmed'?'#c41e3a':'#c9a84c'}
+function getBdr(s){return s.status==='confirmed'?'rgba(255,80,100,.6)':'rgba(220,185,80,.5)'}
+
+let mks=[],buffers=[],activeF='all',srchQ='';
+
+function makeMarker(site){
+  const r=getR(site.sch),col=getC(site),bdr=getBdr(site);
+
+  // 500m buffer ring (dashed)
+  const buf=L.circle([site.lat,site.lon],{
+    radius:500,color:'rgba(196,30,58,.5)',weight:.8,
+    dashArray:'4 5',fillColor:'rgba(196,30,58,.07)',fillOpacity:1
+  }).addTo(MAP);
+
+  // Main marker
+  const mk=L.circleMarker([site.lat,site.lon],{
+    radius:r,fillColor:col,fillOpacity:.8,color:bdr,weight:2,opacity:1
+  }).addTo(MAP);
+
+  // Outer pulse for confirmed
+  let pulse=null;
+  if(site.status==='confirmed'){
+    pulse=L.circleMarker([site.lat,site.lon],{
+      radius:r,fillColor:'transparent',fillOpacity:0,
+      color:'#c41e3a',weight:1,opacity:.5
+    }).addTo(MAP);
+    let pr=r,growing=true;
+    setInterval(()=>{
+      pr=growing?pr+.4:pr-.4;
+      if(pr>r+9)growing=false;if(pr<r)growing=true;
+      pulse.setRadius(pr);pulse.setStyle({opacity:(1-(pr-r)/9)*.45});
+    },55);
+  }
+
+  // Tooltip
+  const xTxt=site.x?`${site.x.toLocaleString()}× safe limit`:'soil data pending';
+  mk.bindTooltip(
+    `<strong>${site.id}</strong> · ${site.div}<br>`+
+    `<strong>${site.name.split(',')[0]}</strong><br>`+
+    `${site.sch} school${site.sch!==1?'s':''} within 500m · ${site.cm}m closest<br>`+
+    (site.soil?`Soil lead: ${xTxt}`:''),
+    {className:'st',direction:'top',offset:[0,-r-2]}
+  );
+
+  mk.on('click',()=>openPanel(site));
+
+  mks.push({site,mk,pulse,buf});
+  return mk;
+}
+
+SITES.forEach(makeMarker);
+
+// ── PANEL ─────────────────────────────────────────────────────────────────────
+function openPanel(s){
+  const dp=document.getElementById('dp');
+  const st=document.getElementById('dp-status');
+  st.textContent=s.status==='confirmed'?'✓ CONFIRMED ACTIVE — SATELLITE VERIFIED':'ASSESSED — STATUS UNVERIFIED';
+  st.className=s.status==='confirmed'?'':'a';
+  document.getElementById('dp-name').textContent=s.name;
+  document.getElementById('dp-div').textContent=`${s.div} Division · ${s.id}`;
+  document.getElementById('dp-sch-c').textContent=s.sch;
+  document.getElementById('dp-cm').textContent=`${s.cm} metres`;
+  document.getElementById('dp-cn').textContent=s.cn;
+  document.getElementById('dp-st').textContent=`~${s.st.toLocaleString()} students`;
+  document.getElementById('dp-rs').textContent=s.rs?`${s.rs}/10`:'Not scored';
+  document.getElementById('dp-as').textContent=s.ass||'Unknown';
+
+  // contamination bar
+  const pct=s.soil?Math.min((Math.log10(s.soil/400)/Math.log10(1702/400))*100,100):0;
+  setTimeout(()=>{document.getElementById('dpb').style.width=pct+'%'},50);
+  document.getElementById('dpb-val').textContent=s.soil
+    ?`${s.soil.toLocaleString()} ppm — ${s.x?s.x.toLocaleString()+'× safe limit':'above limit'}`
+    :'Soil data not recorded';
+
+  const schools=s.top5.split(' | ');
+  document.getElementById('dp-sch-list').innerHTML=
+    schools.map((sc,i)=>`<span>${sc}</span>`).join('<br>');
+
+  const vw=document.getElementById('dp-verify');
+  if(s.verify){vw.style.display='block';vw.textContent=s.verify}
+  else{vw.style.display='none'}
+
+  dp.classList.add('open');
+  MAP.panTo([s.lat,s.lon],{animate:true,duration:.6});
+}
+
+function closePanel(){document.getElementById('dp').classList.remove('open')}
+
+// ── STORY FLY-TO ──────────────────────────────────────────────────────────────
+function flyTo(idx){
+  const s=SITES[idx];
+  MAP.flyTo([s.lat,s.lon],15,{animate:true,duration:1.4});
+  setTimeout(()=>openPanel(s),1200);
+  document.querySelectorAll('.sb-btn').forEach((b,i)=>{b.classList.toggle('active',i===idx)});
+}
+
+function resetView(){
+  MAP.flyTo([23.5,90.2],7,{animate:true,duration:1.2});
+  closePanel();
+  document.querySelectorAll('.sb-btn').forEach(b=>b.classList.remove('active'));
+}
+
+// ── FILTERS ───────────────────────────────────────────────────────────────────
+function flt(f,btn){
+  activeF=f;
+  document.querySelectorAll('.fb').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  apply();
+}
+
+function doSearch(q){srchQ=q.toLowerCase();apply()}
+
+function apply(){
+  let n=0;
+  mks.forEach(({site,mk,pulse,buf})=>{
+    let show=true;
+    if(activeF==='confirmed')show=site.status==='confirmed';
+    if(activeF==='dhaka')show=site.div==='Dhaka';
+    if(activeF==='high')show=site.sch>=5;
+    if(srchQ&&show)show=site.name.toLowerCase().includes(srchQ)||site.div.toLowerCase().includes(srchQ)||site.id.toLowerCase().includes(srchQ);
+
+    const op=show?1:0,fo=show?.8:.03,bo=show?1:.03;
+    mk.setStyle({fillOpacity:fo,opacity:op});
+    buf.setStyle({fillOpacity:show?.07:.01,opacity:bo});
+    if(pulse)pulse.setStyle({opacity:show?.45:0});
+    if(show)n++;
+  });
+  document.getElementById('rc').textContent=`Showing ${n} of ${SITES.length} sites`;
+}
+</script>
+</body>
+</html>
