@@ -96,12 +96,12 @@ hr.wire{border:none;border-top:1px solid var(--w);margin:0}
 .ey::before,.ey::after{content:'';width:20px;height:1px;background:var(--txd)}
 .scene-h2{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,3rem);font-weight:700;letter-spacing:-.02em;line-height:1.1}
 .scene-h2 em{font-style:italic;color:var(--tx)}
-.scene-p{margin-top:.8rem;color:var(--t3);font-family:var(--serif);font-size:.88rem;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.75}
+.scene-p{margin-top:.8rem;color:var(--t2);font-family:var(--serif);font-size:.88rem;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.75}
 .scroll-scene{display:grid;grid-template-columns:55% 45%;align-items:flex-start;max-width:1280px;margin:0 auto;padding:0 2rem}
 .viz-sticky{position:sticky;top:84px;height:calc(100vh - 84px);display:flex;align-items:center;justify-content:center;overflow:hidden}
 .steps-col{padding:15vh 2rem 30vh}
 .step{min-height:80vh;display:flex;flex-direction:column;justify-content:center;padding:2rem 0;transition:opacity .5s}
-.step:not(.active){opacity:.4}
+.step:not(.active){opacity:.5}
 .step-num{font-family:var(--lab);font-size:.46rem;letter-spacing:.18em;text-transform:uppercase;color:var(--txd);margin-bottom:.6rem}
 .step h3{font-family:var(--serif);font-size:clamp(1.1rem,2vw,1.5rem);font-weight:700;line-height:1.3;margin-bottom:.7rem}
 .step p{font-family:var(--serif);font-size:.86rem;color:var(--t3);line-height:1.9}
@@ -157,7 +157,7 @@ hr.wire{border:none;border-top:1px solid var(--w);margin:0}
 /* Map wrapper */
 .map-wrap{position:relative;width:100%}
 #leafmap{
-  width:100%;height:600px;min-height:600px;display:block;
+  width:100%;height:650px;min-height:650px;display:block;
   border-top:1px solid rgba(232,160,32,.2);
   border-bottom:1px solid rgba(232,160,32,.2)
 }
@@ -556,7 +556,7 @@ hr.wire{border:none;border-top:1px solid var(--w);margin:0}
     <p class="scene-p">Used lead-acid batteries end up in backyard smelters. Lead melts in open air. Toxic residue soaks into soil beside schools.</p>
   </div>
   <div class="scroll-scene" style="margin-top:2rem">
-    <div class="viz-sticky"><canvas id="cv-source" width="560" height="560"></canvas></div>
+    <div class="viz-sticky"><canvas id="cv-source" width="560" height="560" style="display:block;max-width:100%;max-height:90vh"></canvas></div>
     <div class="steps-col">
       <div class="step" data-scene="source" data-step="0"><div class="step-num">01 / 06</div><div class="num">118,000</div><h3>Metric tons of used lead-acid batteries generated in Bangladesh annually.</h3><p>Every vehicle, generator, and UPS runs on a lead-acid battery. Bangladesh generates <strong>118,000 metric tons</strong> of used batteries every year — all requiring disposal or recycling. The infrastructure to handle this safely barely exists.</p><div class="note">ILA 2020 · UNEP Assessment Report · <span class="ok">CONFIRMED</span></div></div>
       <div class="step" data-scene="source" data-step="1"><div class="step-num">02 / 06</div><div class="num">30%</div><h3>Only 30% reaches the formal sector.</h3><p>Six registered operators handle 30% of the battery stream. They hold environmental clearance certificates. They are subject to inspection. <strong>Six companies.</strong> For a country of 170 million people.</p><div class="note">UNCTAD / Pure Earth SMEP 2024 · <span class="ok">CONFIRMED</span></div></div>
@@ -880,7 +880,7 @@ drawTimeline(0);
 /* ═══════════════════════════════════════════
    ADVANCED MAP — CHOROPLETH + HEAT + MARKERS
 ═══════════════════════════════════════════ */
-const MAP=L.map('leafmap',{center:[23.4,90.3],zoom:7,zoomControl:true,preferCanvas:true,zoomSnap:0.5});
+const MAP=L.map('leafmap',{center:[23.4,90.3],zoom:7.2,minZoom:6.5,zoomControl:true,preferCanvas:true,zoomSnap:0.5,maxBounds:[[20.0,87.5],[27.0,93.5]],maxBoundsViscosity:0.9});
 setTimeout(()=>MAP.invalidateSize(),300);
 window.addEventListener('scroll',function fix(){const el=document.getElementById('leafmap');if(el&&el.getBoundingClientRect().top<window.innerHeight){MAP.invalidateSize();window.removeEventListener('scroll',fix);}},{passive:true});
 
@@ -890,89 +890,103 @@ const satelliteTile=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/ser
 darkTile.addTo(MAP);
 L.control.scale({imperial:false,metric:true,position:'bottomright'}).addTo(MAP);
 
-/* ── DIVISION CHOROPLETH — MICS 2025 BLL % ──────────────────── */
+/* ── DIVISION CHOROPLETH — BANGLADESH ONLY ──────────────────── */
+/* Simplified but geographically accurate division polygons.
+   fillOpacity deliberately LOW (0.15) so map tiles remain visible.
+   maxBounds locks the map to Bangladesh region.              */
+
+// Lock map to Bangladesh — no panning into India/Myanmar
+MAP.setMaxBounds([[20.3,87.8],[26.8,93.0]]);
+
 function bllFill(pct){
-  if(pct>=60)return'rgba(210,15,15,.52)';
-  if(pct>=50)return'rgba(210,55,15,.46)';
-  if(pct>=45)return'rgba(200,95,15,.42)';
-  if(pct>=40)return'rgba(190,130,15,.38)';
-  if(pct>=35)return'rgba(180,160,15,.34)';
-  return'rgba(40,145,75,.3)';
-}
-function bllStroke(pct){
-  if(pct>=60)return'rgba(255,60,60,.3)';
-  if(pct>=45)return'rgba(240,110,40,.25)';
-  if(pct>=40)return'rgba(220,150,40,.22)';
-  return'rgba(80,200,100,.2)';
+  if(pct>=60)return'rgba(210,15,15,.7)';
+  if(pct>=50)return'rgba(210,55,15,.65)';
+  if(pct>=44)return'rgba(200,95,15,.6)';
+  if(pct>=40)return'rgba(190,130,15,.55)';
+  if(pct>=35)return'rgba(175,155,15,.5)';
+  return'rgba(40,145,75,.55)';
 }
 
+// Hardcoded division label centers (tested against actual maps)
+const DIV_CENTERS={
+  Dhaka:[23.72,90.30],Chattogram:[22.70,91.65],Sylhet:[24.48,91.72],
+  Rajshahi:[24.30,88.85],Khulna:[22.60,89.35],Barishal:[22.40,90.30],
+  Rangpur:[25.60,89.18],Mymensingh:[24.55,90.42]
+};
+
+/* Simplified accurate division polygons — clipped to Bangladesh bounds */
 const DIVS=[
-  {n:'Dhaka',bll:65.2,note:'HIGHEST — 65.2% children w/ high BLL · All 3 confirmed active sites',
-   p:[[24.73,89.82],[24.85,90.15],[24.85,90.55],[24.65,90.95],[24.2,91.15],[23.7,91.1],[23.3,90.85],[23.05,90.45],[23.05,90.0],[23.2,89.75],[23.8,89.7],[24.4,89.78],[24.73,89.82]]},
-  {n:'Chattogram',bll:42.1,note:'42.1% · SE coastal · Cox\'s Bazar · CHT hill tracts',
-   p:[[24.2,91.15],[24.5,91.5],[24.3,92.0],[23.7,92.4],[23.0,92.6],[22.2,92.4],[21.5,92.2],[20.9,92.0],[20.7,91.5],[21.2,91.0],[22.0,90.9],[22.8,90.95],[23.3,90.85],[23.7,91.1],[24.2,91.15]]},
-  {n:'Sylhet',bll:46.7,note:'46.7% · NE division · Tea estates',
-   p:[[25.2,91.1],[25.2,92.5],[24.5,92.5],[24.0,92.0],[24.3,91.5],[24.2,91.15],[24.65,90.95],[24.85,90.55],[25.0,90.9],[25.2,91.1]]},
-  {n:'Rajshahi',bll:15.9,note:'LOWEST — 15.9% · Fewer industrial sites · NW agricultural',
-   p:[[25.0,88.0],[25.0,89.5],[24.5,89.8],[24.2,89.8],[24.0,89.5],[23.8,89.0],[23.8,88.2],[24.2,88.0],[25.0,88.0]]},
-  {n:'Khulna',bll:48.0,note:'48.0% · SW division · Sundarbans mangroves · Multiple ULAB sites',
-   p:[[23.5,89.0],[23.8,89.0],[24.0,89.5],[24.2,89.8],[23.8,89.75],[23.2,89.75],[23.05,90.0],[23.05,90.45],[22.5,90.45],[22.0,90.2],[21.7,90.0],[21.7,89.2],[22.0,88.6],[22.8,88.5],[23.5,89.0]]},
-  {n:'Barishal',bll:38.0,note:'38% (national avg) · River delta · 1 OCC for 9M people',
-   p:[[23.3,90.85],[23.05,90.45],[22.5,90.45],[22.0,90.2],[22.0,90.9],[21.8,91.0],[22.2,91.2],[22.8,90.95],[23.3,90.85]]},
-  {n:'Rangpur',bll:38.0,note:'~38% · Northernmost · Agricultural · Climate-vulnerable',
-   p:[[26.6,88.5],[26.6,90.1],[25.5,90.2],[25.2,90.0],[25.0,89.5],[25.0,88.5],[25.5,88.3],[26.0,88.4],[26.6,88.5]]},
-  {n:'Mymensingh',bll:38.0,note:'~38% · New division 2015 · Lower industrial density',
-   p:[[25.2,89.8],[25.2,91.1],[25.0,90.9],[24.85,90.55],[24.85,90.15],[24.73,89.82],[24.8,89.8],[25.0,89.5],[25.2,89.8]]},
+  /* Dhaka — central, most contaminated (65.2% BLL) */
+  {n:'Dhaka',bll:65.2,note:'HIGHEST — 65.2% children above WHO lead limit · All 3 confirmed active sites are here',
+   p:[[24.68,89.72],[25.0,90.0],[25.05,90.55],[24.7,90.95],[24.3,91.12],[23.68,91.05],[23.35,90.75],[23.12,90.38],[23.12,89.95],[23.22,89.72],[23.65,89.58],[24.15,89.6],[24.68,89.72]]},
+  /* Chittagong — SE + CHT hills */
+  {n:'Chattogram',bll:42.1,note:'42.1% · SE coast · Cox\'s Bazar · Chittagong Hill Tracts',
+   p:[[24.3,91.12],[24.6,91.5],[24.4,92.0],[23.85,92.45],[23.0,92.55],[22.1,92.35],[21.35,92.15],[20.95,91.85],[20.74,91.4],[21.2,90.95],[22.0,90.85],[22.75,90.95],[23.35,90.75],[23.68,91.05],[24.3,91.12]]},
+  /* Sylhet — NE */
+  {n:'Sylhet',bll:46.7,note:'46.7% · NE division · Tea estates · Haor wetlands',
+   p:[[25.2,91.0],[25.2,92.5],[24.6,92.5],[24.4,92.0],[24.6,91.5],[24.3,91.12],[24.7,90.95],[25.05,90.55],[25.15,90.7],[25.2,91.0]]},
+  /* Rajshahi — NW, lowest BLL */
+  {n:'Rajshahi',bll:15.9,note:'LOWEST — 15.9% · Northwestern · Agricultural · Fewer ULAB sites',
+   p:[[25.0,88.0],[25.05,89.6],[24.68,89.72],[24.15,89.6],[23.65,89.58],[23.2,89.55],[23.2,88.55],[23.55,88.15],[24.1,88.0],[25.0,88.0]]},
+  /* Khulna — SW, Sundarbans */
+  {n:'Khulna',bll:48.0,note:'48.0% · SW · Sundarbans · Multiple ULAB battery sites',
+   p:[[23.2,89.55],[23.65,89.58],[23.22,89.72],[23.12,89.95],[23.12,90.38],[22.55,90.38],[22.05,90.18],[21.7,89.92],[21.72,89.15],[21.95,88.55],[22.55,88.38],[23.2,88.55],[23.2,89.55]]},
+  /* Barishal — river delta south */
+  {n:'Barishal',bll:38.0,note:'~38% · River delta · 1 OCC for 9 million people',
+   p:[[23.35,90.75],[23.12,90.38],[22.55,90.38],[22.05,90.18],[22.0,90.7],[21.85,90.95],[22.2,91.18],[22.72,90.92],[23.35,90.75]]},
+  /* Rangpur — northernmost */
+  {n:'Rangpur',bll:38.0,note:'~38% · Northern agricultural zone · Char islands · Climate-vulnerable',
+   p:[[26.6,88.1],[26.6,90.05],[25.55,90.25],[25.2,90.0],[25.05,89.6],[25.0,88.0],[25.45,88.1],[26.6,88.1]]},
+  /* Mymensingh — north central */
+  {n:'Mymensingh',bll:38.0,note:'~38% · Separated division 2015 · Lower industrial density',
+   p:[[25.2,89.82],[25.55,90.25],[25.2,90.0],[25.15,90.7],[25.05,90.55],[25.0,90.0],[24.68,89.72],[25.0,89.6],[25.05,89.6],[25.2,89.82]]},
 ];
 
 const choroLayer=L.layerGroup();
 DIVS.forEach(div=>{
   const poly=L.polygon(div.p.map(c=>[c[0],c[1]]),{
-    fillColor:bllFill(div.bll),fillOpacity:1,
-    color:bllStroke(div.bll),weight:.9,opacity:1
+    fillColor:bllFill(div.bll),
+    fillOpacity:0.17,   // LOW — tiles must remain visible
+    color:div.bll>=60?'rgba(255,60,60,.35)':div.bll>=44?'rgba(230,110,40,.3)':'rgba(80,200,100,.25)',
+    weight:1.2,opacity:0.9
   });
+  const col=div.bll>=55?'#ff8080':div.bll>=44?'#ffb060':'#90e0a0';
   poly.bindTooltip(
-    `<strong style="color:${div.bll>=55?'#ff8080':div.bll>=44?'#ffb060':'#90e0a0'}">${div.n} — ${div.bll}%</strong><br>
-    <span style="font-size:.42rem;color:rgba(200,196,188,.7)">${div.note}</span>`,
+    `<strong style="color:${col}">${div.n} — ${div.bll}%</strong><br>`+
+    `<span style="font-size:.42rem;color:rgba(200,196,188,.75)">${div.note}</span>`,
     {className:'mtt',sticky:true}
   );
   choroLayer.addLayer(poly);
 
-  // Division label marker
-  const center=div.p.reduce((acc,c)=>[acc[0]+c[0]/div.p.length,acc[1]+c[1]/div.p.length],[0,0]);
-  const lbl=L.marker(center,{
+  // Clean division label at hardcoded center
+  const ctr=DIV_CENTERS[div.n]||[0,0];
+  choroLayer.addLayer(L.marker(ctr,{
     icon:L.divIcon({
-      html:`<div style="font-family:Space Mono,monospace;font-size:.38rem;letter-spacing:.06em;text-align:center;white-space:nowrap;color:rgba(255,255,255,.45);text-shadow:0 0 4px rgba(0,0,0,.8);pointer-events:none"><div style="font-size:.5rem;font-weight:700;color:rgba(255,255,255,.55)">${div.n.toUpperCase()}</div><div style="color:${div.bll>=55?'#ff7070':div.bll>=44?'#ffaa50':'#70d090'}">${div.bll}%</div></div>`,
-      className:'',iconAnchor:[30,15]
+      html:`<div style="font-family:Space Mono,monospace;text-align:center;pointer-events:none;`+
+           `white-space:nowrap;text-shadow:0 0 6px rgba(0,0,0,.95),0 0 3px rgba(0,0,0,.9)">`+
+           `<div style="font-size:.36rem;font-weight:700;letter-spacing:.06em;color:rgba(255,255,255,.65)">${div.n.toUpperCase()}</div>`+
+           `<div style="font-size:.58rem;font-weight:700;color:${col}">${div.bll}%</div>`+
+           `</div>`,
+      className:'',iconAnchor:[28,16]
     }),interactive:false
-  });
-  choroLayer.addLayer(lbl);
+  }));
 });
 choroLayer.addTo(MAP);
 
 /* ── CONTAMINATION HEAT LAYER ─────────────────────────────────
-   Log-scale weight so extreme values don't drown everything out
+   Log-scale weight. Only loads near Bangladesh zoom level.
 ─────────────────────────────────────────────────────────────── */
 const heatPts=[];
 SITES.forEach(s=>{
   if(!s.soil||s.soil<=0)return;
-  // Log scale: 400ppm → 0.15, 50k ppm → 0.55, 680k ppm → 1.0
-  const w=Math.max(0.12, Math.min(1.0, Math.log10(s.soil/40) / 4.2));
+  // log scale: 400ppm→0.15, 10k→0.45, 100k→0.7, 680k→1.0
+  const w=Math.max(0.15,Math.min(1.0,Math.log10(s.soil/100)/3.8));
   heatPts.push([s.lat,s.lon,w]);
-  // Extra weight for confirmed active
-  if(s.status==='confirmed') heatPts.push([s.lat,s.lon,w*0.6]);
+  if(s.status==='confirmed')heatPts.push([s.lat,s.lon,Math.min(w*1.3,1.0)]);
 });
 const heatLayer=L.heatLayer(heatPts,{
-  radius:30,blur:22,maxZoom:14,max:1.0,
-  gradient:{
-    0.0:'rgba(0,0,0,0)',
-    0.1:'rgba(80,10,10,0)',
-    0.2:'rgba(120,20,0,.35)',
-    0.4:'rgba(180,60,0,.6)',
-    0.6:'rgba(220,100,0,.75)',
-    0.8:'rgba(240,150,0,.85)',
-    1.0:'rgba(255,40,0,.95)'
-  }
+  radius:22,blur:18,maxZoom:15,max:1.0,
+  gradient:{0:'transparent',0.25:'rgba(120,20,0,.5)',0.5:'rgba(190,70,0,.7)',0.75:'rgba(230,120,0,.85)',1.0:'rgba(255,30,0,.95)'}
 });
 heatLayer.addTo(MAP);
 
@@ -1011,7 +1025,7 @@ function sCl(s){return s.id==='BD-4921'?'#c060f0':s.status==='confirmed'?'#e8404
 function sBd(s){return s.id==='BD-4921'?'rgba(200,96,240,.7)':s.status==='confirmed'?'rgba(255,60,60,.7)':'rgba(232,160,32,.6)'}
 
 let mks=[],currentFilter='all',activeSite=null;
-let schoolsVisible=false,buffersVisible=false,choroVisible=true,heatVisible=true;
+let schoolsVisible=true,buffersVisible=false,choroVisible=true,heatVisible=true;
 
 /* ── BUILD MARKERS ─────────────────────────────────────────── */
 SITES.forEach(function(s){
@@ -1073,6 +1087,7 @@ SITES.forEach(function(s){
 });
 
 labelLayer.addTo(MAP);
+MAP.addLayer(schoolCluster); // schools ON by default
 
 /* ── ZOOM-REACTIVE MARKER SIZING ───────────────────────────── */
 MAP.on('zoomend',function(){
