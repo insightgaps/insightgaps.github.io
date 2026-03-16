@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-heat/0.2.0/leaflet-heat.js"></script>
 <style>
 :root{
   --g:#050508;--g2:#09090e;--g3:#0f0f16;
@@ -100,7 +101,7 @@ hr.wire{border:none;border-top:1px solid var(--w);margin:0}
 .viz-sticky{position:sticky;top:84px;height:calc(100vh - 84px);display:flex;align-items:center;justify-content:center;overflow:hidden}
 .steps-col{padding:15vh 2rem 30vh}
 .step{min-height:80vh;display:flex;flex-direction:column;justify-content:center;padding:2rem 0;transition:opacity .5s}
-.step:not(.active){opacity:.15}
+.step:not(.active){opacity:.4}
 .step-num{font-family:var(--lab);font-size:.46rem;letter-spacing:.18em;text-transform:uppercase;color:var(--txd);margin-bottom:.6rem}
 .step h3{font-family:var(--serif);font-size:clamp(1.1rem,2vw,1.5rem);font-weight:700;line-height:1.3;margin-bottom:.7rem}
 .step p{font-family:var(--serif);font-size:.86rem;color:var(--t3);line-height:1.9}
@@ -611,17 +612,17 @@ hr.wire{border:none;border-top:1px solid var(--w);margin:0}
 <section id="s-map" class="full-scene" style="padding:0;background:#000;min-height:auto">
   <div class="map-hdr">
     <div class="ey">Scene 06 · The Geography</div>
-    <h2 class="scene-h2" style="color:var(--t)">44 Sites. 145 Schools. All of Bangladesh.</h2>
-    <p class="scene-p">Circle size = schools within 500m. Red pulsing = satellite-confirmed active. Amber = assessed. Purple = Kathgora (highest contamination). Click any site for full detail, contamination meter, and school list.</p>
+    <h2 class="scene-h2" style="color:var(--t)">The Lead Belt — Full National Map</h2>
+    <p class="scene-p">Choropleth shows blood lead levels in children by division (MICS 2025). Heat layer shows contamination intensity from site soil data. Red pulsing circles = satellite-confirmed active. Amber = assessed. Click any site for contamination meter and school list.</p>
     <!-- BLL Division Bar -->
-    <div style="font-family:var(--lab);font-size:.44rem;color:var(--t4);letter-spacing:.1em;text-transform:uppercase;margin:.6rem 0 .3rem;text-align:left;max-width:680px;margin-left:auto;margin-right:auto">MICS 2025 — Children above WHO blood lead reference by division:</div>
+    <div style="font-family:var(--lab);font-size:.44rem;color:var(--t4);letter-spacing:.1em;text-transform:uppercase;margin:.6rem 0 .3rem;text-align:left;max-width:680px;margin-left:auto;margin-right:auto">MICS 2025 — % children above WHO blood lead reference by division (choropleth below):</div>
     <div class="map-bll-bar">
-      <div class="bll-div" style="background:rgba(232,64,64,.35)"><div class="bll-pct" style="color:#ff8080">65.2%</div><div class="bll-name">Dhaka</div></div>
-      <div class="bll-div" style="background:rgba(232,120,32,.25)"><div class="bll-pct" style="color:#ffaa60">48.0%</div><div class="bll-name">Khulna</div></div>
-      <div class="bll-div" style="background:rgba(232,120,32,.22)"><div class="bll-pct" style="color:#ffaa60">46.7%</div><div class="bll-name">Sylhet</div></div>
-      <div class="bll-div" style="background:rgba(232,100,32,.2)"><div class="bll-pct" style="color:#ffcc80">42.1%</div><div class="bll-name">Chattogram</div></div>
-      <div class="bll-div" style="background:rgba(200,180,32,.15)"><div class="bll-pct" style="color:var(--txl)">38%</div><div class="bll-name">National avg</div></div>
-      <div class="bll-div" style="background:rgba(48,200,128,.1)"><div class="bll-pct" style="color:var(--sfl)">15.9%</div><div class="bll-name">Rajshahi</div></div>
+      <div class="bll-div" style="background:rgba(232,30,30,.45)"><div class="bll-pct" style="color:#ff7070">65.2%</div><div class="bll-name">Dhaka</div></div>
+      <div class="bll-div" style="background:rgba(220,80,20,.35)"><div class="bll-pct" style="color:#ffaa60">48.0%</div><div class="bll-name">Khulna</div></div>
+      <div class="bll-div" style="background:rgba(210,90,20,.3)"><div class="bll-pct" style="color:#ffbb70">46.7%</div><div class="bll-name">Sylhet</div></div>
+      <div class="bll-div" style="background:rgba(200,130,20,.28)"><div class="bll-pct" style="color:#ffd080">42.1%</div><div class="bll-name">Chattogram</div></div>
+      <div class="bll-div" style="background:rgba(200,160,20,.22)"><div class="bll-pct" style="color:var(--txl)">38%</div><div class="bll-name">National</div></div>
+      <div class="bll-div" style="background:rgba(48,180,100,.18)"><div class="bll-pct" style="color:#80e0a0">15.9%</div><div class="bll-name">Rajshahi</div></div>
     </div>
   </div>
 
@@ -629,18 +630,20 @@ hr.wire{border:none;border-top:1px solid var(--w);margin:0}
   <div class="map-toolbar">
     <span class="mt-label">Filter:</span>
     <button class="mf on" onclick="mFlt('all',this)">All Sites <span class="mfc" id="fc-all">44</span></button>
-    <button class="mf" onclick="mFlt('conf',this)">Satellite Confirmed <span class="mfc" id="fc-conf">3</span></button>
+    <button class="mf" onclick="mFlt('conf',this)">Satellite Active <span class="mfc" id="fc-conf">3</span></button>
     <button class="mf" onclick="mFlt('dhaka',this)">Dhaka <span class="mfc" id="fc-dhaka">—</span></button>
     <button class="mf" onclick="mFlt('high',this)">≥5 Schools <span class="mfc" id="fc-high">—</span></button>
     <button class="mf" onclick="mFlt('chittagong',this)">Chittagong <span class="mfc" id="fc-chittagong">—</span></button>
     <button class="mf" onclick="mFlt('khulna',this)">Khulna <span class="mfc" id="fc-khulna">—</span></button>
     <div class="mt-sep"></div>
     <span class="mt-label">Layers:</span>
-    <button class="ml-toggle" id="tgl-schools" onclick="toggleSchools(this)">🏫 School Markers</button>
-    <button class="ml-toggle" id="tgl-buffers" onclick="toggleBuffers(this)">⭕ 500m Buffers</button>
-    <button class="ml-toggle on" id="tgl-labels" onclick="toggleLabels(this)">🏷 Site IDs</button>
+    <button class="ml-toggle on" id="tgl-choro" onclick="toggleChoro(this)">🗺 BLL Choropleth</button>
+    <button class="ml-toggle on" id="tgl-heat" onclick="toggleHeat(this)">🔥 Contamination Heat</button>
+    <button class="ml-toggle" id="tgl-schools" onclick="toggleSchools(this)">🏫 Schools</button>
+    <button class="ml-toggle" id="tgl-buffers" onclick="toggleBuffers(this)">⭕ 500m Radius</button>
+    <button class="ml-toggle" id="tgl-sat" onclick="toggleSatellite(this)">🛰 Satellite Tiles</button>
     <div class="mt-sep"></div>
-    <input type="text" class="map-search" id="mapSearch" placeholder="Search site ID or location…" oninput="doSearch(this.value)">
+    <input type="text" class="map-search" id="mapSearch" placeholder="Search site ID or area…" oninput="doSearch(this.value)">
   </div>
 
   <!-- MAP -->
@@ -678,14 +681,22 @@ hr.wire{border:none;border-top:1px solid var(--w);margin:0}
     <!-- LEGEND -->
     <div id="mleg">
       <div class="ml-t">Map Legend</div>
-      <div class="ml-i"><div class="ml-d" style="background:#e84040;box-shadow:0 0 0 3px rgba(232,64,64,.25)"></div>Satellite confirmed active</div>
-      <div class="ml-i"><div class="ml-d" style="background:#e8a020;box-shadow:0 0 0 2px rgba(232,160,32,.25)"></div>Assessed — status unverified</div>
-      <div class="ml-i"><div class="ml-d" style="background:#c060f0;box-shadow:0 0 0 2px rgba(192,96,240,.25)"></div>Kathgora — 1,702× safe limit</div>
+      <div style="font-size:.38rem;color:var(--t4);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.3rem">Division — % children w/ high blood lead</div>
+      <div class="ml-i"><div class="ml-d" style="background:rgba(220,30,30,.55);border-radius:2px"></div>Dhaka: 65.2% (highest)</div>
+      <div class="ml-i"><div class="ml-d" style="background:rgba(210,80,20,.5);border-radius:2px"></div>Khulna / Sylhet: 46–48%</div>
+      <div class="ml-i"><div class="ml-d" style="background:rgba(200,130,20,.45);border-radius:2px"></div>Chattogram: 42.1%</div>
+      <div class="ml-i"><div class="ml-d" style="background:rgba(180,160,20,.4);border-radius:2px"></div>Rangpur / Mymensingh: ~38%</div>
+      <div class="ml-i"><div class="ml-d" style="background:rgba(48,160,80,.45);border-radius:2px"></div>Rajshahi: 15.9% (lowest)</div>
       <div class="ml-sep"></div>
-      <div class="ml-i"><div class="ml-d" style="background:rgba(232,160,32,.85)"></div>School building (500m radius)</div>
-      <div class="ml-i"><svg width="9" height="9"><circle cx="4.5" cy="4.5" r="4" fill="none" stroke="rgba(232,160,32,.35)" stroke-width="1" stroke-dasharray="2 2"/></svg>&nbsp;500m buffer zone</div>
+      <div style="font-size:.38rem;color:var(--t4);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.3rem">Contaminated sites</div>
+      <div class="ml-i"><div class="ml-d" style="background:#e84040;box-shadow:0 0 6px rgba(232,64,64,.5)"></div>Satellite confirmed active</div>
+      <div class="ml-i"><div class="ml-d" style="background:#e8a020;box-shadow:0 0 4px rgba(232,160,32,.4)"></div>Assessed — unverified</div>
+      <div class="ml-i"><div class="ml-d" style="background:#c060f0;box-shadow:0 0 4px rgba(192,96,240,.4)"></div>Kathgora — 1,702× safe</div>
       <div class="ml-sep"></div>
-      <div class="ml-i" style="font-size:.38rem;color:var(--t4)">Circle size = schools within 500m</div>
+      <div class="ml-i"><div class="ml-d" style="background:rgba(232,160,32,.85)"></div>School building ≤500m</div>
+      <div class="ml-i" style="font-size:.38rem;color:var(--t4)">Circle size ∝ schools within 500m</div>
+      <div class="ml-sep"></div>
+      <div style="font-size:.38rem;color:rgba(232,100,30,.6);letter-spacing:.06em">🔥 Heat layer = soil lead intensity</div>
     </div>
   </div>
 
@@ -867,170 +878,254 @@ function drawTimeline(step){const W=tCv.width,H=tCv.height;tc.clearRect(0,0,W,H)
 drawTimeline(0);
 
 /* ═══════════════════════════════════════════
-   ADVANCED MAP
+   ADVANCED MAP — CHOROPLETH + HEAT + MARKERS
 ═══════════════════════════════════════════ */
-const MAP=L.map('leafmap',{center:[23.6,90.25],zoom:7,zoomControl:true,preferCanvas:true,zoomSnap:0.5});
-// Fix sticky size
+const MAP=L.map('leafmap',{center:[23.4,90.3],zoom:7,zoomControl:true,preferCanvas:true,zoomSnap:0.5});
 setTimeout(()=>MAP.invalidateSize(),300);
 window.addEventListener('scroll',function fix(){const el=document.getElementById('leafmap');if(el&&el.getBoundingClientRect().top<window.innerHeight){MAP.invalidateSize();window.removeEventListener('scroll',fix);}},{passive:true});
 
-// Tile layers
+/* TILES */
 const darkTile=L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{attribution:'&copy; OSM &copy; CARTO',subdomains:'abcd',maxZoom:19});
 const satelliteTile=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{attribution:'&copy; Esri',maxZoom:19});
 darkTile.addTo(MAP);
 L.control.scale({imperial:false,metric:true,position:'bottomright'}).addTo(MAP);
 
-// Custom zoom buttons
-const ZB=L.control({position:'topright'});
-ZB.onAdd=function(){
-  const d=L.DomUtil.create('div');d.style.cssText='display:flex;flex-direction:column;gap:4px;margin:6px';
-  [['🔴 Dhaka core',23.71,90.38,14],['Kamrangir Char (BD-4591)',23.7227,90.3698,16],['Jatrabari (BD-4802)',23.709654,90.42577,16],['Khulna / Satkhira',22.86,89.04,11],['All Bangladesh',23.6,90.25,7]].forEach(([lbl,lt,ln,z])=>{
-    const b=L.DomUtil.create('button','',d);b.textContent=lbl;
-    b.style.cssText='font-family:Space Mono,monospace;font-size:.42rem;letter-spacing:.08em;text-transform:uppercase;padding:.26rem .6rem;background:rgba(5,5,8,.94);border:1px solid rgba(232,160,32,.3);color:rgba(232,160,32,.8);cursor:pointer;white-space:nowrap;transition:all .2s;';
-    b.onmouseover=()=>b.style.background='rgba(232,160,32,.12)';
-    b.onmouseout=()=>b.style.background='rgba(5,5,8,.94)';
-    L.DomEvent.on(b,'click',()=>{MAP.flyTo([lt,ln],z,{animate:true,duration:1.3});});
-  });
-  return d;
-};
-ZB.addTo(MAP);
+/* ── DIVISION CHOROPLETH — MICS 2025 BLL % ──────────────────── */
+function bllFill(pct){
+  if(pct>=60)return'rgba(210,15,15,.52)';
+  if(pct>=50)return'rgba(210,55,15,.46)';
+  if(pct>=45)return'rgba(200,95,15,.42)';
+  if(pct>=40)return'rgba(190,130,15,.38)';
+  if(pct>=35)return'rgba(180,160,15,.34)';
+  return'rgba(40,145,75,.3)';
+}
+function bllStroke(pct){
+  if(pct>=60)return'rgba(255,60,60,.3)';
+  if(pct>=45)return'rgba(240,110,40,.25)';
+  if(pct>=40)return'rgba(220,150,40,.22)';
+  return'rgba(80,200,100,.2)';
+}
 
-// School cluster group
-const schoolCluster=L.markerClusterGroup({
-  showCoverageOnHover:false,
-  maxClusterRadius:35,
-  iconCreateFunction:function(cluster){
-    const c=cluster.getChildCount();
-    return L.divIcon({html:`<div style="background:rgba(232,160,32,.25);border:1px solid rgba(232,160,32,.5);border-radius:50%;width:${c>20?38:c>10?32:26}px;height:${c>20?38:c>10?32:26}px;display:flex;align-items:center;justify-content:center;font-family:Space Mono,monospace;font-size:.44rem;font-weight:700;color:#f0c060;"><span>${c}</span></div>`,className:'',iconSize:[40,40]});
+const DIVS=[
+  {n:'Dhaka',bll:65.2,note:'HIGHEST — 65.2% children w/ high BLL · All 3 confirmed active sites',
+   p:[[24.73,89.82],[24.85,90.15],[24.85,90.55],[24.65,90.95],[24.2,91.15],[23.7,91.1],[23.3,90.85],[23.05,90.45],[23.05,90.0],[23.2,89.75],[23.8,89.7],[24.4,89.78],[24.73,89.82]]},
+  {n:'Chattogram',bll:42.1,note:'42.1% · SE coastal · Cox\'s Bazar · CHT hill tracts',
+   p:[[24.2,91.15],[24.5,91.5],[24.3,92.0],[23.7,92.4],[23.0,92.6],[22.2,92.4],[21.5,92.2],[20.9,92.0],[20.7,91.5],[21.2,91.0],[22.0,90.9],[22.8,90.95],[23.3,90.85],[23.7,91.1],[24.2,91.15]]},
+  {n:'Sylhet',bll:46.7,note:'46.7% · NE division · Tea estates',
+   p:[[25.2,91.1],[25.2,92.5],[24.5,92.5],[24.0,92.0],[24.3,91.5],[24.2,91.15],[24.65,90.95],[24.85,90.55],[25.0,90.9],[25.2,91.1]]},
+  {n:'Rajshahi',bll:15.9,note:'LOWEST — 15.9% · Fewer industrial sites · NW agricultural',
+   p:[[25.0,88.0],[25.0,89.5],[24.5,89.8],[24.2,89.8],[24.0,89.5],[23.8,89.0],[23.8,88.2],[24.2,88.0],[25.0,88.0]]},
+  {n:'Khulna',bll:48.0,note:'48.0% · SW division · Sundarbans mangroves · Multiple ULAB sites',
+   p:[[23.5,89.0],[23.8,89.0],[24.0,89.5],[24.2,89.8],[23.8,89.75],[23.2,89.75],[23.05,90.0],[23.05,90.45],[22.5,90.45],[22.0,90.2],[21.7,90.0],[21.7,89.2],[22.0,88.6],[22.8,88.5],[23.5,89.0]]},
+  {n:'Barishal',bll:38.0,note:'38% (national avg) · River delta · 1 OCC for 9M people',
+   p:[[23.3,90.85],[23.05,90.45],[22.5,90.45],[22.0,90.2],[22.0,90.9],[21.8,91.0],[22.2,91.2],[22.8,90.95],[23.3,90.85]]},
+  {n:'Rangpur',bll:38.0,note:'~38% · Northernmost · Agricultural · Climate-vulnerable',
+   p:[[26.6,88.5],[26.6,90.1],[25.5,90.2],[25.2,90.0],[25.0,89.5],[25.0,88.5],[25.5,88.3],[26.0,88.4],[26.6,88.5]]},
+  {n:'Mymensingh',bll:38.0,note:'~38% · New division 2015 · Lower industrial density',
+   p:[[25.2,89.8],[25.2,91.1],[25.0,90.9],[24.85,90.55],[24.85,90.15],[24.73,89.82],[24.8,89.8],[25.0,89.5],[25.2,89.8]]},
+];
+
+const choroLayer=L.layerGroup();
+DIVS.forEach(div=>{
+  const poly=L.polygon(div.p.map(c=>[c[0],c[1]]),{
+    fillColor:bllFill(div.bll),fillOpacity:1,
+    color:bllStroke(div.bll),weight:.9,opacity:1
+  });
+  poly.bindTooltip(
+    `<strong style="color:${div.bll>=55?'#ff8080':div.bll>=44?'#ffb060':'#90e0a0'}">${div.n} — ${div.bll}%</strong><br>
+    <span style="font-size:.42rem;color:rgba(200,196,188,.7)">${div.note}</span>`,
+    {className:'mtt',sticky:true}
+  );
+  choroLayer.addLayer(poly);
+
+  // Division label marker
+  const center=div.p.reduce((acc,c)=>[acc[0]+c[0]/div.p.length,acc[1]+c[1]/div.p.length],[0,0]);
+  const lbl=L.marker(center,{
+    icon:L.divIcon({
+      html:`<div style="font-family:Space Mono,monospace;font-size:.38rem;letter-spacing:.06em;text-align:center;white-space:nowrap;color:rgba(255,255,255,.45);text-shadow:0 0 4px rgba(0,0,0,.8);pointer-events:none"><div style="font-size:.5rem;font-weight:700;color:rgba(255,255,255,.55)">${div.n.toUpperCase()}</div><div style="color:${div.bll>=55?'#ff7070':div.bll>=44?'#ffaa50':'#70d090'}">${div.bll}%</div></div>`,
+      className:'',iconAnchor:[30,15]
+    }),interactive:false
+  });
+  choroLayer.addLayer(lbl);
+});
+choroLayer.addTo(MAP);
+
+/* ── CONTAMINATION HEAT LAYER ─────────────────────────────────
+   Log-scale weight so extreme values don't drown everything out
+─────────────────────────────────────────────────────────────── */
+const heatPts=[];
+SITES.forEach(s=>{
+  if(!s.soil||s.soil<=0)return;
+  // Log scale: 400ppm → 0.15, 50k ppm → 0.55, 680k ppm → 1.0
+  const w=Math.max(0.12, Math.min(1.0, Math.log10(s.soil/40) / 4.2));
+  heatPts.push([s.lat,s.lon,w]);
+  // Extra weight for confirmed active
+  if(s.status==='confirmed') heatPts.push([s.lat,s.lon,w*0.6]);
+});
+const heatLayer=L.heatLayer(heatPts,{
+  radius:30,blur:22,maxZoom:14,max:1.0,
+  gradient:{
+    0.0:'rgba(0,0,0,0)',
+    0.1:'rgba(80,10,10,0)',
+    0.2:'rgba(120,20,0,.35)',
+    0.4:'rgba(180,60,0,.6)',
+    0.6:'rgba(220,100,0,.75)',
+    0.8:'rgba(240,150,0,.85)',
+    1.0:'rgba(255,40,0,.95)'
   }
 });
+heatLayer.addTo(MAP);
 
-// Buffer layer group
+/* ── LAYER GROUPS ─────────────────────────────────────────── */
+const schoolCluster=L.markerClusterGroup({
+  showCoverageOnHover:false,maxClusterRadius:45,
+  iconCreateFunction:function(c){
+    const n=c.getChildCount(),sz=n>30?38:n>15?32:26;
+    return L.divIcon({html:`<div style="background:rgba(232,160,32,.2);border:1px solid rgba(232,160,32,.5);border-radius:50%;width:${sz}px;height:${sz}px;display:flex;align-items:center;justify-content:center;font-family:Space Mono,monospace;font-size:.42rem;font-weight:700;color:#f0c060">${n}</div>`,className:'',iconSize:[sz+4,sz+4]});
+  }
+});
 const bufferLayer=L.layerGroup();
-// Label layer group
 const labelLayer=L.layerGroup();
 
-// Compute filter counts
-const divCounts={dhaka:0,chittagong:0,khulna:0,high:0,conf:0};
+/* ── FILTER COUNT BADGES ───────────────────────────────────── */
+const dCnts={dhaka:0,chittagong:0,khulna:0,high:0,conf:0};
 SITES.forEach(s=>{
-  if(s.div==='Dhaka')divCounts.dhaka++;
-  if(s.div==='Chittagong')divCounts.chittagong++;
-  if(s.div==='Khulna')divCounts.khulna++;
-  if(s.sch>=5)divCounts.high++;
-  if(s.status==='confirmed')divCounts.conf++;
+  if(s.div==='Dhaka')dCnts.dhaka++;
+  if(s.div==='Chittagong')dCnts.chittagong++;
+  if(s.div==='Khulna')dCnts.khulna++;
+  if(s.sch>=5)dCnts.high++;
+  if(s.status==='confirmed')dCnts.conf++;
 });
-document.getElementById('fc-dhaka').textContent=divCounts.dhaka;
-document.getElementById('fc-chittagong').textContent=divCounts.chittagong;
-document.getElementById('fc-khulna').textContent=divCounts.khulna;
-document.getElementById('fc-high').textContent=divCounts.high;
+document.getElementById('fc-dhaka').textContent=dCnts.dhaka;
+document.getElementById('fc-chittagong').textContent=dCnts.chittagong;
+document.getElementById('fc-khulna').textContent=dCnts.khulna;
+document.getElementById('fc-high').textContent=dCnts.high;
 
-function siteRadius(s){return s.sch>=15?26:s.sch>=10?20:s.sch>=6?15:s.sch>=3?10:s.sch>=1?7:5}
-function siteColor(s){if(s.id==='BD-4921')return'#c060f0';return s.status==='confirmed'?'#e84040':'#e8a020'}
-function siteBorder(s){if(s.id==='BD-4921')return'rgba(192,96,240,.6)';return s.status==='confirmed'?'rgba(255,80,80,.6)':'rgba(232,160,32,.5)'}
-function contamPct(s){if(!s.soil||!s.x)return 0;return Math.min(s.x/1702,1)}
+/* ── MARKER HELPERS ────────────────────────────────────────── */
+function siteR(s,z){
+  // Small at country zoom, grows as user zooms in
+  const base=s.sch>=15?7:s.sch>=10?6:s.sch>=5?5:s.sch>=2?5:4;
+  return z>=14?base*3:z>=12?base*2:z>=10?base*1.5:z>=8?base*1.15:base;
+}
+function sCl(s){return s.id==='BD-4921'?'#c060f0':s.status==='confirmed'?'#e84040':'#e8a020'}
+function sBd(s){return s.id==='BD-4921'?'rgba(200,96,240,.7)':s.status==='confirmed'?'rgba(255,60,60,.7)':'rgba(232,160,32,.6)'}
 
 let mks=[],currentFilter='all',activeSite=null;
-let schoolsVisible=false,buffersVisible=false,labelsVisible=true;
+let schoolsVisible=false,buffersVisible=false,choroVisible=true,heatVisible=true;
 
+/* ── BUILD MARKERS ─────────────────────────────────────────── */
 SITES.forEach(function(s){
-  // Buffer circle
+  // Buffer ring
   if(s.sch>0){
-    const buf=L.circle([s.lat,s.lon],{radius:500,color:s.id==='BD-4921'?'rgba(192,96,240,.3)':'rgba(232,160,32,.3)',weight:.8,dashArray:'3 5',fillColor:s.id==='BD-4921'?'rgba(192,96,240,.03)':'rgba(232,160,32,.04)',fillOpacity:1});
-    bufferLayer.addLayer(buf);
+    bufferLayer.addLayer(L.circle([s.lat,s.lon],{radius:500,color:s.id==='BD-4921'?'rgba(192,96,240,.22)':'rgba(232,160,32,.22)',weight:.7,dashArray:'4 7',fillColor:'transparent',fillOpacity:0}));
   }
 
-  const r=siteRadius(s),col=siteColor(s),bdr=siteBorder(s);
-  const mk=L.circleMarker([s.lat,s.lon],{radius:r,fillColor:col,fillOpacity:.85,color:bdr,weight:2,opacity:1});
+  const z=MAP.getZoom(),r=siteR(s,z);
+  const mk=L.circleMarker([s.lat,s.lon],{radius:r,fillColor:sCl(s),fillOpacity:.92,color:sBd(s),weight:2,opacity:1});
   mk.addTo(MAP);
 
-  // Pulse ring animation for confirmed
+  // Confirmed active — pulsing ring
   if(s.status==='confirmed'){
-    const pulse=L.circleMarker([s.lat,s.lon],{radius:r,fillColor:'transparent',fillOpacity:0,color:'#e84040',weight:1.2,opacity:.4});
-    pulse.addTo(MAP);
-    let pr=r,pg=true;
-    setInterval(()=>{pr=pg?pr+.4:pr-.4;if(pr>r+12)pg=false;if(pr<=r)pg=true;pulse.setRadius(pr);pulse.setStyle({opacity:(1-(pr-r)/12)*.35});},55);
+    const ring=L.circleMarker([s.lat,s.lon],{radius:r,fillColor:'transparent',fillOpacity:0,color:'#e84040',weight:1.5,opacity:.5});
+    ring.addTo(MAP);
+    let rv=r,rg=true;
+    const ri=setInterval(()=>{if(!MAP.hasLayer(ring)){clearInterval(ri);return;}rv=rg?rv+.55:rv-.55;if(rv>r+16)rg=false;if(rv<=r)rg=true;ring.setRadius(rv);ring.setStyle({opacity:(1-(rv-r)/16)*.45});},50);
   }
 
-  // Kathgora special
+  // Kathgora glow
   if(s.id==='BD-4921'){
-    const kr=L.circleMarker([s.lat,s.lon],{radius:r+6,fillColor:'transparent',fillOpacity:0,color:'#c060f0',weight:.8,opacity:.25,dashArray:'2 3'});
-    kr.addTo(MAP);let kv=r+6,kg=true;setInterval(()=>{kv=kg?kv+.2:kv-.2;if(kv>r+12)kg=false;if(kv<r+6)kg=true;kr.setRadius(kv);},80);
-  }
-
-  // Site ID label
-  if(s.sch>=3){
-    const lbl=L.tooltip({permanent:true,direction:'right',offset:[r+3,0],className:'',opacity:1});
-    lbl.setContent(`<span style="font-family:Space Mono,monospace;font-size:.36rem;letter-spacing:.06em;color:rgba(232,160,32,.55);background:none;border:none;box-shadow:none;padding:0">${s.id}</span>`);
-    mk.bindTooltip(lbl);
-    lbl._source=s.id;
-    labelLayer.addLayer(L.tooltip({permanent:true,direction:'right',offset:[r+3,0],opacity:.6,className:''}).setContent(`<span style="font-family:Space Mono,monospace;font-size:.36rem;color:rgba(232,160,32,.5)">${s.id}</span>`));
+    const kg=L.circleMarker([s.lat,s.lon],{radius:r+6,fillColor:'transparent',fillOpacity:0,color:'#c060f0',weight:.9,opacity:.3,dashArray:'2 3'});
+    kg.addTo(MAP);let kv=r+6,kd=true;setInterval(()=>{kv=kd?kv+.2:kv-.2;if(kv>r+12)kd=false;if(kv<r+6)kd=true;kg.setRadius(kv);},80);
   }
 
   // Hover tooltip
   mk.bindTooltip(
-    `<strong style="color:${col}">${s.id}</strong> · ${s.div}<br><em style="color:rgba(200,196,188,.8)">${s.name.split(',')[0]}</em><br>`+
-    `<strong>${s.sch}</strong> school${s.sch!==1?'s':''} ≤500m`+(s.cm?` · <strong>${s.cm}m</strong> closest`:'')+
-    (s.soil?`<br>Soil lead: <strong style="color:${col}">${s.x?s.x.toLocaleString()+'× safe':s.soil.toLocaleString()+' ppm'}</strong>`:'<br>Soil: no data'),
+    `<strong style="color:${sCl(s)}">${s.id}</strong> · ${s.div}<br>`+
+    `<em style="color:rgba(200,196,188,.8)">${s.name.split(',').slice(0,2).join(',')}</em><br>`+
+    `<strong>${s.sch}</strong> school${s.sch!==1?'s':''} ≤500m`+
+    (s.cm?` · <strong>${s.cm}m</strong> closest`:'')+
+    (s.soil?`<br>Lead: <strong style="color:${sCl(s)}">${s.x?s.x.toLocaleString()+'× safe':s.soil.toLocaleString()+' ppm'}</strong>`:''),
     {className:'mtt',direction:'top',offset:[0,-r-3]}
   );
-
   mk.on('click',()=>openMpl(s,mk));
-  mks.push({s,mk,orig:{r,col,bdr}});
 
-  // School cluster markers
+  // Site ID label
+  if(s.sch>=5){
+    labelLayer.addLayer(L.marker([s.lat,s.lon],{icon:L.divIcon({html:`<span style="font-family:Space Mono,monospace;font-size:.3rem;color:rgba(232,160,32,.5);white-space:nowrap;text-shadow:0 0 3px rgba(0,0,0,.9)">${s.id}</span>`,className:'',iconAnchor:[0,-r-5]}),interactive:false}));
+  }
+
+  // School cluster
   if(s.top5&&s.sch>0){
     const schools=s.top5.split('|');
     const angles=[0.5,1.2,2.1,3.4,4.8,5.6,0.9,2.5];
     schools.forEach((sch,idx)=>{
       if(!sch||sch.indexOf('unnamed')>=0||sch.length<5)return;
-      const dist=idx===0?(s.cm||150):140+idx*60;
-      const angle=angles[idx%8];
-      const latOff=(dist/111111)*Math.cos(angle);
-      const lonOff=(dist/111111)/Math.cos(s.lat*Math.PI/180)*Math.sin(angle);
-      const schMk=L.circleMarker([s.lat+latOff,s.lon+lonOff],{radius:4,fillColor:'rgba(232,160,32,.88)',fillOpacity:.9,color:'rgba(232,160,32,.35)',weight:1});
-      schMk.bindTooltip(
-        '🏫 '+sch.split(',')[0].split('(')[0].trim()+'<br>'+
-        `<span style="font-size:.42rem;color:rgba(160,155,145,.7)">500m radius of ${s.id}</span>`,
-        {className:'mtt',direction:'top'}
-      );
-      schoolCluster.addLayer(schMk);
+      const dist=idx===0?(s.cm||150):140+idx*55;
+      const ang=angles[idx%8];
+      const latOff=(dist/111111)*Math.cos(ang);
+      const lonOff=(dist/111111)/Math.cos(s.lat*Math.PI/180)*Math.sin(ang);
+      const sm=L.circleMarker([s.lat+latOff,s.lon+lonOff],{radius:4.5,fillColor:'rgba(232,160,32,.9)',fillOpacity:.92,color:'rgba(232,160,32,.4)',weight:1});
+      sm.bindTooltip(`🏫 ${sch.split(',')[0].split('(')[0].trim()}<br><span style="font-size:.4rem;color:rgba(160,155,145,.7)">≤500m from ${s.id} · ${s.div}</span>`,{className:'mtt',direction:'top'});
+      schoolCluster.addLayer(sm);
     });
   }
+  mks.push({s,mk,r});
 });
 
 labelLayer.addTo(MAP);
 
+/* ── ZOOM-REACTIVE MARKER SIZING ───────────────────────────── */
+MAP.on('zoomend',function(){
+  const z=MAP.getZoom();
+  mks.forEach(({s,mk})=>{ try{ mk.setRadius(siteR(s,z)); }catch(e){} });
+});
+
+/* ── ZOOM SHORTCUT BUTTONS ─────────────────────────────────── */
+const ZB=L.control({position:'topright'});
+ZB.onAdd=function(){
+  const d=L.DomUtil.create('div');d.style.cssText='display:flex;flex-direction:column;gap:4px;margin:6px;';
+  [['🔴 Dhaka core',23.71,90.38,13],['BD-4591 — 59m from school',23.7227,90.3698,16],['BD-4802 — enforcement zone',23.709654,90.42577,16],['Khulna / Satkhira',22.86,89.04,11],['🇧🇩 All Bangladesh',23.4,90.3,7]].forEach(([lbl,lt,ln,z])=>{
+    const b=L.DomUtil.create('button','',d);b.textContent=lbl;
+    b.style.cssText='font-family:Space Mono,monospace;font-size:.4rem;letter-spacing:.07em;text-transform:uppercase;padding:.26rem .6rem;background:rgba(5,5,8,.94);border:1px solid rgba(232,160,32,.3);color:rgba(232,160,32,.8);cursor:pointer;white-space:nowrap;transition:background .2s;display:block;width:100%;margin-bottom:1px;text-align:left;';
+    b.onmouseover=()=>b.style.background='rgba(232,160,32,.12)';
+    b.onmouseout=()=>b.style.background='rgba(5,5,8,.94)';
+    L.DomEvent.on(b,'click',()=>MAP.flyTo([lt,ln],z,{animate:true,duration:1.3}));
+  });
+  return d;
+};
+ZB.addTo(MAP);
+
+/* ── SITE DETAIL PANEL ─────────────────────────────────────── */
 function openMpl(s,mk){
   activeSite=s;
   const stEl=document.getElementById('mpl-st');
-  if(s.id==='BD-4921'){stEl.textContent='⚠ HIGHEST CONTAMINATION';stEl.className='kath';}
+  if(s.id==='BD-4921'){stEl.textContent='⚠ HIGHEST CONTAMINATION IN BD';stEl.className='kath';}
   else if(s.status==='confirmed'){stEl.textContent='✓ SATELLITE CONFIRMED ACTIVE';stEl.className='conf';}
   else{stEl.textContent='ASSESSED SITE';stEl.className='';}
 
-  // Contamination meter
-  const pct=contamPct(s);
+  const pct=s.x?Math.min(s.x/1702,1):s.soil?Math.min(Math.log10(s.soil/400+1)/3.5,0.06):0;
   const fill=document.getElementById('mpl-mfill');
   fill.style.width='0%';
-  setTimeout(()=>{fill.style.width=(pct*100)+'%';},100);
+  setTimeout(()=>{ fill.style.width=(pct*100)+'%'; },80);
   const mval=document.getElementById('mpl-mval');
-  if(s.x)mval.innerHTML=`<span style="color:${siteColor(s)}">${s.x.toLocaleString()}× safe (400 ppm standard)</span>`;
-  else if(s.soil)mval.innerHTML=`<span style="color:var(--txl)">${s.soil.toLocaleString()} ppm — no × ratio recorded</span>`;
-  else mval.innerHTML=`<span style="color:var(--t4)">Soil data not recorded</span>`;
+  if(s.x)mval.innerHTML=`<span style="color:${sCl(s)}">${s.x.toLocaleString()}× safe (safe limit = 400 ppm)</span>`;
+  else if(s.soil)mval.innerHTML=`<span style="color:var(--txl)">${s.soil.toLocaleString()} ppm · no ratio recorded</span>`;
+  else mval.innerHTML=`<span style="color:var(--t4)">No soil data</span>`;
 
   document.getElementById('mpl-name').textContent=s.name;
-  document.getElementById('mpl-div').textContent=(s.div||'—')+' Division · '+s.id+(s.ass?' · Assessed '+s.ass:'');
+  document.getElementById('mpl-div').textContent=(s.div||'—')+' Div · '+s.id+(s.ass?' · '+s.ass:'');
   document.getElementById('mpl-sc').textContent=s.sch?(s.sch+' school'+(s.sch!==1?'s':'')):'None within 500m';
   document.getElementById('mpl-cm').textContent=s.cm?(s.cm+'m'):'—';
   document.getElementById('mpl-cn').textContent=s.cn||'—';
   document.getElementById('mpl-sl').textContent=s.soil?(s.soil.toLocaleString()+' ppm'):'Not recorded';
   document.getElementById('mpl-xs').textContent=s.x?(s.x.toLocaleString()+'× safe limit'):'—';
-  document.getElementById('mpl-stu').textContent=s.st?('~'+s.st.toLocaleString()+' students (275/school avg)'):'—';
-  document.getElementById('mpl-rs').textContent=s.rs?(s.rs+' / 10'):'Not scored';
+  document.getElementById('mpl-stu').textContent=s.st?('~'+s.st.toLocaleString()+' students'):'—';
+  document.getElementById('mpl-rs').textContent=s.rs?(s.rs+'/10'):'—';
 
-  const schools=s.top5?s.top5.split('|'):['—'];
-  document.getElementById('mpl-sch-list').innerHTML=schools.filter(x=>x&&x.indexOf('unnamed')<0&&x.length>3).map(sc=>
+  const schools=(s.top5||'').split('|').filter(x=>x&&x.indexOf('unnamed')<0&&x.length>3);
+  document.getElementById('mpl-sch-list').innerHTML=schools.map(sc=>
     `<div class="mpl-school-item"><div class="mpl-school-dot"></div>${sc.split(',')[0].split('(')[0].trim()}</div>`
-  ).join('')||'<div style="color:var(--t4);font-size:.44rem">No named schools on record</div>';
+  ).join('')||'<div style="color:var(--t4);font-size:.44rem">No named schools recorded</div>';
 
   const vEl=document.getElementById('mpl-verify');
   if(s.verify){vEl.style.display='block';vEl.innerHTML=s.verify.replace(/\n/g,'<br>');}
@@ -1039,70 +1134,59 @@ function openMpl(s,mk){
   document.getElementById('mpl-flyto').onclick=()=>MAP.flyTo([s.lat,s.lon],16,{duration:1.2});
   document.getElementById('mpl').classList.add('open');
   MAP.panTo([s.lat,s.lon],{animate:true,duration:.5});
-
-  // Highlight this marker
-  mks.forEach(({s:ms,mk:m,orig})=>{if(ms.id!==s.id)m.setStyle({fillOpacity:.15,opacity:.2});});
-  mk.setStyle({fillOpacity:.95,weight:3});
+  mks.forEach(({s:ms,mk:m})=>{ if(ms.id!==s.id) m.setStyle({fillOpacity:.1,opacity:.12}); });
+  mk.setStyle({fillOpacity:.96,weight:3,color:'rgba(255,255,255,.8)'});
 }
 function closeMpl(){
   document.getElementById('mpl').classList.remove('open');
   activeSite=null;
-  mks.forEach(({mk,orig})=>mk.setStyle({fillOpacity:.85,opacity:1,weight:2,color:orig.bdr}));
+  mks.forEach(({s,mk})=>mk.setStyle({fillOpacity:.92,opacity:1,weight:2,color:sBd(s)}));
 }
 
-// Filter function with live stat updates
+/* ── FILTER ────────────────────────────────────────────────── */
 function mFlt(f,btn){
   currentFilter=f;
   document.querySelectorAll('.mf').forEach(b=>b.classList.remove('on'));
   btn.classList.add('on');
   if(document.getElementById('mpl').classList.contains('open'))closeMpl();
-
-  let visibleSites=0,visibleSchools=0,visibleStudents=0,maxX=0,minCm=999;
+  let vs=0,vsc=0,vst=0,mx=0,mc=999;
   mks.forEach(({s,mk})=>{
-    let show=f==='all'||(f==='conf'&&s.status==='confirmed')||(f==='dhaka'&&s.div==='Dhaka')||(f==='high'&&s.sch>=5)||(f==='chittagong'&&s.div==='Chittagong')||(f==='khulna'&&s.div==='Khulna');
-    mk.setStyle({fillOpacity:show?.85:.04,opacity:show?1:.06,weight:show?2:.5});
-    if(show){visibleSites++;visibleSchools+=s.sch||0;visibleStudents+=s.st||0;if(s.x&&s.x>maxX)maxX=s.x;if(s.cm&&s.cm<minCm)minCm=s.cm;}
+    const show=f==='all'||(f==='conf'&&s.status==='confirmed')||(f==='dhaka'&&s.div==='Dhaka')||(f==='high'&&s.sch>=5)||(f==='chittagong'&&s.div==='Chittagong')||(f==='khulna'&&s.div==='Khulna');
+    mk.setStyle({fillOpacity:show?.92:.04,opacity:show?1:.05,weight:show?2:.3});
+    if(show){vs++;vsc+=s.sch||0;vst+=s.st||0;if(s.x&&s.x>mx)mx=s.x;if(s.cm&&s.cm<mc)mc=s.cm;}
   });
-
-  // Update live stats
-  document.getElementById('ms-sites').textContent=visibleSites;
-  document.getElementById('ms-schools').textContent=visibleSchools;
-  document.getElementById('ms-students').textContent='~'+visibleStudents.toLocaleString();
-  document.getElementById('ms-max').textContent=maxX?maxX.toLocaleString()+'×':'—';
-  document.getElementById('ms-closest').textContent=minCm<999?(minCm+'m'):'—';
+  document.getElementById('ms-sites').textContent=vs;
+  document.getElementById('ms-schools').textContent=vsc;
+  document.getElementById('ms-students').textContent='~'+vst.toLocaleString();
+  document.getElementById('ms-max').textContent=mx?mx.toLocaleString()+'×':'—';
+  document.getElementById('ms-closest').textContent=mc<999?(mc+'m'):'—';
+  // Fade choropleth when filtering to specific area
+  if(f!=='all'&&choroLayer){choroLayer.eachLayer(l=>{try{l.setStyle({fillOpacity:.06});}catch(e){}});}
+  else if(choroLayer){DIVS.forEach((div,i)=>{const layers=[...choroLayer.getLayers()];const poly=layers.filter(l=>l.getLatLngs).find(l=>{try{return l.getTooltip()&&l.getTooltip().getContent().includes(div.n);}catch(e){return false;}});if(poly){try{poly.setStyle({fillColor:bllFill(div.bll),fillOpacity:1});}catch(e){}}});}
 }
 
-// Layer toggles
-function toggleSchools(btn){
-  schoolsVisible=!schoolsVisible;
-  btn.classList.toggle('on',schoolsVisible);
-  if(schoolsVisible)MAP.addLayer(schoolCluster);else MAP.removeLayer(schoolCluster);
-}
-function toggleBuffers(btn){
-  buffersVisible=!buffersVisible;
-  btn.classList.toggle('on',buffersVisible);
-  if(buffersVisible)MAP.addLayer(bufferLayer);else MAP.removeLayer(bufferLayer);
-}
-function toggleLabels(btn){
-  labelsVisible=!labelsVisible;
-  btn.classList.toggle('on',labelsVisible);
-  if(labelsVisible)MAP.addLayer(labelLayer);else MAP.removeLayer(labelLayer);
-}
+/* ── LAYER TOGGLES ─────────────────────────────────────────── */
+function toggleChoro(btn){choroVisible=!choroVisible;btn.classList.toggle('on',choroVisible);choroVisible?MAP.addLayer(choroLayer):MAP.removeLayer(choroLayer);}
+function toggleHeat(btn){heatVisible=!heatVisible;btn.classList.toggle('on',heatVisible);heatVisible?MAP.addLayer(heatLayer):MAP.removeLayer(heatLayer);}
+function toggleSchools(btn){schoolsVisible=!schoolsVisible;btn.classList.toggle('on',schoolsVisible);schoolsVisible?MAP.addLayer(schoolCluster):MAP.removeLayer(schoolCluster);}
+function toggleBuffers(btn){buffersVisible=!buffersVisible;btn.classList.toggle('on',buffersVisible);buffersVisible?MAP.addLayer(bufferLayer):MAP.removeLayer(bufferLayer);}
 function toggleSatellite(btn){
-  if(MAP.hasLayer(darkTile)){MAP.removeLayer(darkTile);MAP.addLayer(satelliteTile);btn.textContent='🗺 Dark Map';}
-  else{MAP.removeLayer(satelliteTile);MAP.addLayer(darkTile);btn.textContent='🛰 Satellite';}
+  const on=MAP.hasLayer(satelliteTile);
+  if(on){MAP.removeLayer(satelliteTile);MAP.addLayer(darkTile);btn.textContent='🛰 Satellite Tiles';btn.classList.remove('on');}
+  else{MAP.removeLayer(darkTile);MAP.addLayer(satelliteTile);btn.textContent='🗺 Dark Map';btn.classList.add('on');}
 }
 
-// Search
+/* ── SEARCH ────────────────────────────────────────────────── */
 function doSearch(q){
   q=q.toLowerCase().trim();
-  if(!q){mFlt('all',document.querySelector('.mf.on')||document.querySelector('.mf'));return;}
+  if(!q){mFlt('all',document.querySelectorAll('.mf')[0]);return;}
   mks.forEach(({s,mk})=>{
-    const match=s.id.toLowerCase().includes(q)||s.name.toLowerCase().includes(q)||s.div.toLowerCase().includes(q)||(s.cn&&s.cn.toLowerCase().includes(q));
-    mk.setStyle({fillOpacity:match?.9:.04,opacity:match?1:.06});
-    if(match&&s.id.toLowerCase()===q){MAP.flyTo([s.lat,s.lon],15,{duration:1});openMpl(s,mk);}
+    const m=s.id.toLowerCase().includes(q)||s.name.toLowerCase().includes(q)||s.div.toLowerCase().includes(q)||(s.cn&&s.cn.toLowerCase().includes(q));
+    mk.setStyle({fillOpacity:m?.93:.03,opacity:m?1:.04});
+    if(m&&(s.id.toLowerCase()===q||s.id.toLowerCase().startsWith(q))){MAP.flyTo([s.lat,s.lon],14,{duration:1.1});openMpl(s,mk);}
   });
 }
+
 
 /* ════ SCROLL OBSERVER ════ */
 const io=new IntersectionObserver(entries=>{
