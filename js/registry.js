@@ -3,21 +3,73 @@
  * INSIGHT GAPS — INVESTIGATION REGISTRY
  * ============================================================
  *
+ * THE ONLY FILE YOU EDIT WHEN PUBLISHING A NEW INVESTIGATION.
+ *
  * HOW TO PUBLISH A NEW INVESTIGATION:
- * 1. Upload your investigation HTML file to GitHub
+ * 1. Upload your investigation HTML to: /investigations/[scope]/[slug]/index.html
  * 2. Add one new entry to the INVESTIGATIONS array below
  * 3. Commit — every page updates automatically
  *
  * HOW TO UPDATE AN EXISTING INVESTIGATION:
  * 1. Edit the investigation HTML file
- * 2. Update the entry below if title/summary/findings changed
+ * 2. Update the entry below if title/summary/findings/stats changed
  * 3. Commit — done
  *
  * NOTHING ELSE NEEDS TO BE TOUCHED.
+ *
+ * URL STRUCTURE (standardised — all investigations use folder pattern):
+ *   /investigations/national/[slug]/index.html     ← main report
+ *   /investigations/national/[slug]/visual.html    ← visual story (if exists)
+ *   /investigations/national/[slug]/methodology.html ← methodology (optional)
+ *   /investigations/national/[slug]/tracker.html   ← live tracker (if exists)
+ *   International: /investigations/international/[slug]/
+ *
+ * INVESTIGATION IDs:
+ *   BD-INV-001 → Blood Routes (published)
+ *   BD-INV-002 → The Impunity Machine (published)
+ *   BD-INV-003 → The Lead Belt (published)
+ *   BD-INV-004 → Next national investigation
+ *   INT-INV-001 → The Hidden Tax of War (published)
+ *   INT-INV-002 → Next international investigation
  * ============================================================
  */
 
 const INVESTIGATIONS = [
+
+  // ── BD-INV-003 ─────────────────────────────────────────
+  {
+    id:       "BD-INV-003",
+    title:    "The Lead Belt: Bangladesh's Lead Poisoning Crisis",
+    short:    "The Lead Belt",
+    slug:     "lead-belt",
+    topic:    "environment",
+    scope:    "national",
+    region:   "Bangladesh",
+    date:     "March 2026",
+    year:     2026,
+    sources:  "Pure Earth / UNICEF / Lancet",
+    version:  "v1.0",
+    status:   "published",
+    featured: true,
+    evidence: "Confirmed",
+    summary:  "44 formally assessed lead-contaminated sites across Bangladesh have at least one school within 500 metres — placing an estimated 39,875 students in proximity to sites where soil lead reaches 1,702 times the international safety standard. Not one facility has a public record of permanent closure. The first school-proximity lead analysis in South Asia.",
+    findings: [
+      "<strong>44 sites, 145 schools, ~39,875 students:</strong> The first spatial proximity analysis of its kind in South Asia, built from the Pure Earth contaminated sites database and OpenStreetMap.",
+      "<strong>22 years of documentation. Zero permanent closures:</strong> The Department of Environment has had legal authority and public data since 2003. Not one ULAB facility has a confirmed permanent closure on record.",
+      "<strong>1,702× the safe limit at the highest site:</strong> Soil lead at Kathgora, Savar reaches 680,872 ppm against the 400 ppm international residential standard."
+    ],
+    stats: [
+      { val: "~39,875", lbl: "Students at risk" },
+      { val: "1,702×",  lbl: "Max soil lead vs safe limit" },
+      { val: "0",       lbl: "Permanent closures on record" }
+    ],
+    url:    "/investigations/national/lead-belt/",
+    visual: "/investigations/national/lead-belt/visual.html",
+    series: {
+      methodology: "/investigations/national/lead-belt/methodology.html",
+      data:         null
+    }
+  },
 
   // ── BD-INV-002 ─────────────────────────────────────────
   {
@@ -25,15 +77,15 @@ const INVESTIGATIONS = [
     title:    "The Impunity Machine: Bangladesh's Rape Justice Crisis",
     short:    "The Impunity Machine",
     slug:     "impunity-machine",
-    topic:    "accountability",          // accountability | conflict-economics | operational-intelligence
-    scope:    "national",                // national | international
+    topic:    "accountability",
+    scope:    "national",
     region:   "Bangladesh",
     date:     "March 2026",
     year:     2026,
     sources:  "91",
     version:  "v5.0",
-    status:   "published",              // published | in-development
-    featured: true,                     // true = shows in homepage hero
+    status:   "published",
+    featured: false,
     evidence: "Confirmed",
     summary:  "A forensic audit of Bangladesh's rape justice system. 310 convictions in 23 years for 66,711 women who reached a One-Stop Crisis Centre. Zero convictions in the first seven months of 2024. Child rape cases surged 75% in H1 2025. The machine runs.",
     findings: [
@@ -46,7 +98,9 @@ const INVESTIGATIONS = [
       { val: "0.46%",  lbl: "OCC conviction rate" },
       { val: "66,711", lbl: "Women — 310 convictions" }
     ],
-    url:      "/investigations/national/impunity-machine.html",
+    url:     "/investigations/national/impunity-machine/",
+    visual:  "/investigations/national/impunity-machine/visual.html",
+    tracker: "/investigations/national/impunity-machine/tracker.html",
     series: {
       methodology: "/series/impunity-machine/methodology.html",
       data:         "/series/impunity-machine/data.html"
@@ -80,10 +134,11 @@ const INVESTIGATIONS = [
       { val: "5.8×",    lbl: "Data undercount factor" },
       { val: "~31,578", lbl: "WHO est. deaths" }
     ],
-    url:      "/investigations/national/blood-routes.html",
+    url:    "/investigations/national/blood-routes/",
+    visual: null,
     series: {
       methodology: "/series/blood-routes/methodology.html",
-      data:         "/series/blood-routes/data.html"
+      data:         null
     }
   },
 
@@ -103,7 +158,7 @@ const INVESTIGATIONS = [
     status:   "published",
     featured: false,
     evidence: "Confirmed",
-    summary:  "How armed conflicts — Iraq 2003, Arab Spring 2011, Ukraine 2022, Red Sea 2023–24 — transmit economic shocks through energy, food, and shipping markets to countries that never participated.",
+    summary:  "How armed conflicts — Iraq 2003, Arab Spring 2011, Ukraine 2022, Red Sea 2023–24 — transmit economic shocks through energy, food, and shipping markets to countries that never participated. The War Externality Index framework.",
     findings: [
       "One repeated transmission mechanism across multiple conflicts drives global price spillovers to uninvolved nations.",
       "Import-dependent countries absorb disproportionate welfare losses — bottom-quintile households lose 3–5% of real income.",
@@ -114,7 +169,8 @@ const INVESTIGATIONS = [
       { val: "WEI",   lbl: "War Externality Index" },
       { val: "12–15pp", lbl: "Food inflation gap" }
     ],
-    url:      "/investigations/international/war-tax.html",
+    url:    "/investigations/international/war-tax/",
+    visual: null,
     series: {
       methodology: "/series/war-tax/methodology.html",
       data:         "/series/war-tax/data.html"
@@ -122,14 +178,14 @@ const INVESTIGATIONS = [
   }
 
   // ── ADD NEW INVESTIGATIONS BELOW THIS LINE ─────────────
-  // Copy any block above, update the fields, save, commit.
-  // Every page on the site updates automatically.
+  // Copy any block above, update all fields, save, commit.
+  // Next national ID: BD-INV-004
+  // Next international ID: INT-INV-002
 
 ];
 
 /**
  * TOPIC REGISTRY
- * Update investigation counts here when you add new investigations.
  */
 const TOPICS = {
   "accountability": {
@@ -152,48 +208,49 @@ const TOPICS = {
     colorVar: "var(--teal)",
     url:      "/topics/operational-intelligence/",
     mandate:  "Forensic diagnostics applied to operational systems — cash flow, vendor risk, work order patterns."
+  },
+  "environment": {
+    label:    "Environment & Public Health",
+    color:    "teal",
+    colorVar: "var(--teal)",
+    url:      "/topics/operational-intelligence/",
+    mandate:  "Forensic spatial and environmental analysis of public health crises caused by regulatory failure."
   }
 };
 
 /**
  * HELPER FUNCTIONS
  * Used by all pages to render investigations from registry data.
- * Do not edit these unless you know what you're doing.
  */
 
-// Get all published investigations
 function getPublished() {
   return INVESTIGATIONS.filter(i => i.status === "published");
 }
 
-// Get investigations by topic
 function getByTopic(topic) {
   return getPublished().filter(i => i.topic === topic);
 }
 
-// Get investigations by scope
 function getByScope(scope) {
   return getPublished().filter(i => i.scope === scope);
 }
 
-// Get investigations by year
 function getByYear(year) {
   return getPublished().filter(i => i.year === year);
 }
 
-// Get featured investigation
 function getFeatured() {
   return getPublished().find(i => i.featured === true) || getPublished()[0];
 }
 
-// Get accent color CSS for a scope
 function scopeColor(inv) {
   if (inv.topic === "conflict-economics") return "var(--gold)";
+  if (inv.topic === "environment") return "var(--teal)";
   if (inv.topic === "operational-intelligence") return "var(--teal)";
   return "var(--red)";
 }
 
-// Render a sidebar investigation card (used on homepage)
+// Render sidebar card (homepage)
 function renderSidebarCard(inv) {
   const color = scopeColor(inv);
   const scopeLabel = inv.scope === "international" ? "INTERNATIONAL" : "NATIONAL";
@@ -207,12 +264,12 @@ function renderSidebarCard(inv) {
     </div>`;
 }
 
-// Render a full investigation card (used on investigations/index)
+// Render full investigation card (investigations/index)
 function renderInvCard(inv) {
   const color = scopeColor(inv);
   const bandClass = inv.topic === "conflict-economics" ? "gold" : "";
   const scopeClass = inv.scope === "international" ? "international" : "national";
-  const topicData = TOPICS[inv.topic];
+  const topicData = TOPICS[inv.topic] || TOPICS["accountability"];
 
   const statsHtml = inv.stats.map(s =>
     `<div class="inv-stat"><div class="inv-stat-val">${s.val}</div><div class="inv-stat-lbl">${s.lbl}</div></div>`
@@ -221,6 +278,10 @@ function renderInvCard(inv) {
   const findingsHtml = inv.findings.map(f =>
     `<li>${f}</li>`
   ).join('');
+
+  const visualBtn = inv.visual
+    ? `<a href="${inv.visual}" class="btn-report visual-btn">▶ Visual Story →</a>`
+    : '';
 
   const btnStyle = inv.topic !== "accountability"
     ? `style="border-color:${color};color:${color};" onmouseover="this.style.background='${color}';this.style.color='#fff';" onmouseout="this.style.background='transparent';this.style.color='${color}';"`
@@ -246,13 +307,16 @@ function renderInvCard(inv) {
         </div>
         <div class="inv-card-footer">
           <span class="inv-status" style="${inv.topic !== 'accountability' ? 'color:'+color : ''}">Evidence Tier: ${inv.evidence}</span>
-          <a href="${inv.url}" class="btn-report" ${btnStyle}>View Full Investigation →</a>
+          <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
+            ${visualBtn}
+            <a href="${inv.url}" class="btn-report" ${btnStyle}>View Full Investigation →</a>
+          </div>
         </div>
       </div>
     </article>`;
 }
 
-// Render a topic hub investigation row
+// Render topic hub row
 function renderTopicRow(inv, index) {
   const color = scopeColor(inv);
   const findingsHtml = inv.findings.map(f => `<li>${f}</li>`).join('');
@@ -276,13 +340,27 @@ function renderTopicRow(inv, index) {
     </div>`;
 }
 
-// Render a dossier row for series/index
+// Render dossier row for series/index
 function renderDossierRow(inv) {
   const color = scopeColor(inv);
-  const topicData = TOPICS[inv.topic];
+  const topicData = TOPICS[inv.topic] || TOPICS["accountability"];
   const idStyle = inv.topic === "conflict-economics"
     ? "background:rgba(184,134,11,0.08);color:var(--gold);border:1px solid rgba(184,134,11,0.2);"
     : "background:rgba(196,30,58,0.08);color:var(--red);border:1px solid rgba(196,30,58,0.2);";
+
+  const methodologyLink = inv.series && inv.series.methodology
+    ? `<a href="${inv.series.methodology}" class="dossier-page-link">
+        <span class="dossier-page-icon">MTH</span>
+        <div><div class="dossier-page-label">Methodology</div><div class="dossier-page-desc">Evidence framework · source tiers</div></div>
+      </a>`
+    : '';
+
+  const dataLink = inv.series && inv.series.data
+    ? `<a href="${inv.series.data}" class="dossier-page-link">
+        <span class="dossier-page-icon">DAT</span>
+        <div><div class="dossier-page-label">Data &amp; Evidence</div><div class="dossier-page-desc">Datasets · documentation</div></div>
+      </a>`
+    : '';
 
   return `
     <div class="dossier-row">
@@ -303,14 +381,8 @@ function renderDossierRow(inv) {
             <span class="dossier-page-icon">RPT</span>
             <div><div class="dossier-page-label">Full Investigation</div><div class="dossier-page-desc">${inv.sources} sources · ${inv.evidence}</div></div>
           </a>
-          <a href="${inv.series.methodology}" class="dossier-page-link">
-            <span class="dossier-page-icon">MTH</span>
-            <div><div class="dossier-page-label">Methodology</div><div class="dossier-page-desc">Evidence framework · source tiers</div></div>
-          </a>
-          <a href="${inv.series.data}" class="dossier-page-link">
-            <span class="dossider-page-icon">DAT</span>
-            <div><div class="dossier-page-label">Data &amp; Evidence</div><div class="dossier-page-desc">Datasets · documentation</div></div>
-          </a>
+          ${methodologyLink}
+          ${dataLink}
         </div>
       </div>
     </div>`;
