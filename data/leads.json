@@ -1,1 +1,106 @@
-[]
+[
+  {
+    "id": "lead_001",
+    "hash": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4",
+    "date": "2026-03-06",
+    "headline": "BMP March 2026: 125 girls and 38 women raped; 36 gang-rape victims in March alone",
+    "source": "News on Air",
+    "source_url": "https://www.newsonair.gov.in",
+    "tier": "PROBABLE",
+    "category": "statistics",
+    "notes": "BMP March 2026 press conference data. 442 total violence cases in March. 125 girls + 38 women raped. 36 gang-rape victims. Monthly total not disaggregated from national PHQ data.",
+    "relevant_case": null,
+    "added": "2026-03-06T12:00:00Z"
+  },
+  {
+    "id": "lead_002",
+    "hash": "b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5",
+    "date": "2026-02-20",
+    "headline": "Barishal Trish Godown gang rape verdict: four death sentences for November 2016 assault",
+    "source": "BSS",
+    "source_url": "https://www.bssnews.net/others/325122",
+    "tier": "CONFIRMED",
+    "category": "verdict",
+    "notes": "Four men convicted for November 2016 gang rape. ~3,380 days from assault to verdict. Illustrates normal WCRPA timeline. Judge M Rakibul Islam. Khokon Khan absconding at time of verdict.",
+    "relevant_case": "BS-2016-001",
+    "added": "2026-02-20T00:00:00Z"
+  },
+  {
+    "id": "lead_003",
+    "hash": "c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6",
+    "date": "2026-01-15",
+    "headline": "Barishal court orders arrest of rape complainant and five others under Section 17 after case found unsubstantiated",
+    "source": "TBS News",
+    "source_url": "https://www.tbsnews.net/bangladesh/court/false-rape-case-proved-court-orders-arrest-plaintiff-3-teachers-among-5-1345826",
+    "tier": "CONFIRMED",
+    "category": "section17",
+    "notes": "Second documented Section 17 counter-prosecution of a rape survivor. Three teachers among those charged. Under 2025 Ordinance expansion, Section 17 now includes 'loss of dignity or reputation'.",
+    "relevant_case": "BS-2026-001",
+    "added": "2026-01-15T00:00:00Z"
+  },
+  {
+    "id": "lead_004",
+    "hash": "d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1",
+    "date": "2026-01-10",
+    "headline": "Supreme Court Secretariat: total national cases pending = 4,516,603 as of January 10, 2026",
+    "source": "Lawyers Club BD",
+    "source_url": null,
+    "tier": "CONFIRMED",
+    "category": "backlog",
+    "notes": "SC Secretariat officially launched December 11, 2025. First official national pending case count: 4,516,603 total cases across all courts.",
+    "relevant_case": null,
+    "added": "2026-01-10T00:00:00Z"
+  },
+  {
+    "id": "lead_005",
+    "hash": "e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2",
+    "date": "2025-11-15",
+    "headline": "UNICEF/BBS MICS 2025: 76% lifetime IPV nationally; Dhaka division 72.9%; Barishal highest at 81.5%",
+    "source": "UNICEF Bangladesh / BBS",
+    "source_url": null,
+    "tier": "CONFIRMED",
+    "category": "statistics",
+    "notes": "Updated VAW Survey 2025. 27,476 women interviewed. 62-64% told no one about assault. Divisional breakdown confirms geography of crisis maps onto geography of enforcement failures.",
+    "relevant_case": null,
+    "added": "2025-11-15T00:00:00Z"
+  },
+  {
+    "id": "lead_006",
+    "hash": "f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3",
+    "date": "2025-09-15",
+    "headline": "DNA lab: 1,204 of 1,304 samples (92%) pending as of September 2025 — 789 cases fully stalled",
+    "source": "Prothom Alo",
+    "source_url": null,
+    "tier": "CONFIRMED",
+    "category": "infrastructure",
+    "notes": "NFDPL processing backlog confirmed. 92% of submitted DNA samples unprocessed. 789 cases completely stalled nationwide due to DNA backlog. Only 2 DNA profiling machines for 170M people.",
+    "relevant_case": null,
+    "added": "2025-09-15T00:00:00Z"
+  },
+  {
+    "id": "lead_007",
+    "hash": "a2b3c4d5e6f7a2b3c4d5e6f7a2b3c4d5",
+    "date": "2025-07-01",
+    "headline": "Magura case (MG-2025-001): High Court admits Hitu Sheikh appeal, stays BDT 100,000 fine",
+    "source": "Prothom Alo / Desh Rupantor",
+    "source_url": "https://www.prothomalo.com/bangladesh/3ogez6pzm2",
+    "tier": "CONFIRMED",
+    "category": "appeal",
+    "notes": "HC bench: Justice Mostafizur Rahman + Justice Sagir Hossain. Fine stayed pending review. Death sentence cannot proceed until appeal decided. Case triggered 2025 WCRPA Amendment Ordinance.",
+    "relevant_case": "MG-2025-001",
+    "added": "2025-07-01T00:00:00Z"
+  },
+  {
+    "id": "lead_008",
+    "hash": "b3c4d5e6f7a2b3c4d5e6f7a2b3c4d5e6",
+    "date": "2025-05-17",
+    "headline": "Magura verdict: Hitu Sheikh sentenced to death. 71 days from assault to verdict vs WCRPA average 2,349 days",
+    "source": "BSS / Prothom Alo",
+    "source_url": "https://www.bssnews.net/news-flash/273816",
+    "tier": "CONFIRMED",
+    "category": "verdict",
+    "notes": "Eight-year-old Achia rape-murder case. 71 days from assault to verdict. Three co-accused acquitted for insufficient evidence. Death reference sent to High Court May 21.",
+    "relevant_case": "MG-2025-001",
+    "added": "2025-05-17T00:00:00Z"
+  }
+]
