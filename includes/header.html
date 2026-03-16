@@ -1,14 +1,12 @@
 <style>
 .site-header{background:rgba(6,6,14,.97);border-bottom:1px solid #1e1e32;position:sticky;top:0;z-index:900;backdrop-filter:blur(16px)}
 .header-inner{max-width:1280px;margin:0 auto;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;gap:1rem}
-.logo img{height:36px;width:auto;display:block}
-.logo:hover{opacity:.8}
+.nav-brand{font-family:'JetBrains Mono','Courier New',monospace;font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#c9a84c;text-decoration:none}
+.nav-brand:hover{color:#e8c060}
 .main-nav{display:flex;gap:.2rem;height:100%;align-items:center}
 .nav-item{height:100%;display:flex;align-items:center;position:relative}
-.nav-link{font-family:'JetBrains Mono','Courier New',monospace;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(196,187,181,.55);padding:.22rem .65rem;height:100%;display:flex;align-items:center;text-decoration:none;border:1px solid transparent;transition:all .2s;white-space:nowrap}
+.nav-link{font-family:'JetBrains Mono','Courier New',monospace;font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(196,187,181,.5);padding:.22rem .7rem;height:100%;display:flex;align-items:center;text-decoration:none;border:1px solid transparent;transition:all .2s;white-space:nowrap}
 .nav-link:hover,.nav-link.active{color:#e8e3da;border-color:#1e1e32}
-.nav-link.hot{color:#c4bfb5;border:1px solid rgba(196,30,58,.35)}
-.nav-link.hot:hover{color:#e84060;border-color:#e84060}
 .nav-ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;flex-shrink:0;padding:6px}
 .nav-ham span{display:block;width:20px;height:2px;background:#7a7590;border-radius:1px;transition:all .25s}
 .nav-ham.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
@@ -24,15 +22,13 @@
 
 <header class="site-header" role="banner">
   <div class="header-inner">
-    <a href="/" class="logo" aria-label="Insight Gaps — Home">
-      <img src="/logo.png" alt="Insight Gaps" width="auto" height="36">
-    </a>
+    <a href="/" class="nav-brand" aria-label="Insight Gaps — Home">Insight Gaps</a>
     <nav class="main-nav" role="navigation" aria-label="Main navigation">
       <div class="nav-item"><a href="/" class="nav-link">Home</a></div>
       <div class="nav-item"><a href="/investigations/" class="nav-link">Investigations</a></div>
       <div class="nav-item"><a href="/about/" class="nav-link">About</a></div>
       <div class="nav-item"><a href="/methods/" class="nav-link">Methods</a></div>
-      <div class="nav-item"><a href="/investigations/national/impunity-machine-visual.html" class="nav-link hot">Visual&nbsp;Story&nbsp;↗</a></div>
+      <div class="nav-item"><a href="/data/" class="nav-link">Data</a></div>
     </nav>
     <button class="nav-ham" id="sharedNavHam" aria-label="Open navigation" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -45,14 +41,14 @@
   <a href="/investigations/">Investigations</a>
   <a href="/about/">About</a>
   <a href="/methods/">Methods</a>
-  <a href="/investigations/national/impunity-machine-visual.html">Visual Story ↗</a>
+  <a href="/data/">Data</a>
 </div>
 
 <script>
 (function(){
-  var ham = document.getElementById('sharedNavHam');
-  var drawer = document.getElementById('sharedNavDrawer');
-  if(!ham||!drawer) return;
+  var ham=document.getElementById('sharedNavHam');
+  var drawer=document.getElementById('sharedNavDrawer');
+  if(!ham||!drawer)return;
   ham.addEventListener('click',function(){
     var open=drawer.classList.toggle('open');
     ham.classList.toggle('open',open);
