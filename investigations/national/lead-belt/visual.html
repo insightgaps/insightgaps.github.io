@@ -150,7 +150,7 @@ hr.wire{border:none;border-top:1px solid var(--wire);margin:0}
 /* ── MAP ── */
 #s-map{background:#000;flex-direction:column}
 .map-hdr{padding:4rem 2rem 1.5rem;max-width:900px;margin:0 auto;width:100%;text-align:center}
-#leafmap{width:100%;height:560px;border-top:1px solid rgba(232,160,32,.2);border-bottom:1px solid rgba(232,160,32,.2)}
+#leafmap{width:100%;height:560px;min-height:560px;display:block;border-top:1px solid rgba(232,160,32,.2);border-bottom:1px solid rgba(232,160,32,.2)}
 .map-filters{display:flex;gap:.4rem;justify-content:center;padding:.8rem 2rem;flex-wrap:wrap}
 .mf{font-family:var(--lab);font-size:.46rem;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .7rem;border:1px solid rgba(100,100,120,.25);background:transparent;color:var(--text3);cursor:pointer;transition:all .2s}
 .mf:hover{border-color:var(--toxic);color:var(--toxic)}
@@ -321,7 +321,7 @@ hr.wire{border:none;border-top:1px solid var(--wire);margin:0}
 <section id="hero">
   <canvas id="hero-cv"></canvas>
   <div class="h-pre">BD-INV-003 · Insight Gaps Bureau · Spatial Investigation · 2026</div>
-  <div class="h-data">58,000</div>
+  <div class="h-data">~39,875</div>
   <div class="h-unit">students within 500 metres of confirmed contaminated sites</div>
   <div class="h-facts">
     <div class="hf" id="hf1">44 formally assessed lead-contaminated sites.</div>
@@ -564,7 +564,7 @@ hr.wire{border:none;border-top:1px solid var(--wire);margin:0}
       <div class="sc-src">OpenStreetMap schools · Bangladesh · March 2026</div>
     </div>
     <div class="sc safe">
-      <div class="sc-val safe">58,000</div>
+      <div class="sc-val safe">~39,875</div>
       <div class="sc-lbl">Estimated students at risk — BANBEIS avg 400/school × 145</div>
       <div class="sc-src">BANBEIS national average enrollment · conservative floor estimate</div>
     </div>
@@ -622,7 +622,7 @@ hr.wire{border:none;border-top:1px solid var(--wire);margin:0}
   <div class="map-stats">
     <div class="ms"><span class="ms-n">44</span><span class="ms-l">Assessed sites</span></div>
     <div class="ms"><span class="ms-n">145</span><span class="ms-l">Schools ≤500m</span></div>
-    <div class="ms"><span class="ms-n">58,000</span><span class="ms-l">Students at risk</span></div>
+    <div class="ms"><span class="ms-n">~39,875</span><span class="ms-l">Students at risk</span></div>
     <div class="ms"><span class="ms-n danger">1,702×</span><span class="ms-l">Max soil lead</span></div>
     <div class="ms"><span class="ms-n danger">59m</span><span class="ms-l">Closest school</span></div>
     <div class="ms"><span class="ms-n safe">0</span><span class="ms-l">Permanent closures</span></div>
@@ -1092,7 +1092,18 @@ function drawTimeline(step){
 drawTimeline(0);
 
 /* ════ MAP ════ */
-const MAP=L.map('leafmap',{center:[23.6,90.2],zoom:7,zoomControl:true});
+// Map init with size fix for scroll containers
+const MAP=L.map('leafmap',{center:[23.6,90.2],zoom:7,zoomControl:true,preferCanvas:true});
+// Force Leaflet to recalculate container size after potential layout shifts
+setTimeout(()=>{MAP.invalidateSize();},300);
+// Also invalidate on scroll since map is below fold
+window.addEventListener('scroll',function mapSizeCheck(){
+  const el=document.getElementById('leafmap');
+  if(el&&el.getBoundingClientRect().top<window.innerHeight){
+    MAP.invalidateSize();
+    window.removeEventListener('scroll',mapSizeCheck);
+  }
+},{passive:true});
 L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
   attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com">CARTO</a>',
   subdomains:'abcd',maxZoom:19
