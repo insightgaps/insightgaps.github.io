@@ -4,18 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Insight Gaps — Forensic Data Journalism, Bangladesh</title>
-<meta name="description" content="Forensic data journalism from Bangladesh. Investigating what official narratives omit.">
+<meta name="description" content="Forensic data journalism from Bangladesh. Visual investigations into accountability failures.">
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4PYE0MEK12"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-4PYE0MEK12');</script>
 <style>
 :root{
   --ink:#06060e;--ink2:#0c0c18;--ink3:#131320;
-  --blood:#c41e3a;--bloodl:rgba(196,30,58,.14);
-  --gold:#c9a84c;--goldl:rgba(201,168,76,.1);
-  --ash:#7a7590;--ash2:#3e3c50;
+  --blood:#c41e3a;--bloodl:rgba(196,30,58,.14);--bloodd:#8b1428;
+  --gold:#c9a84c;--goldl:rgba(201,168,76,.1);--goldd:#9a7e36;
+  --teal:#30c880;--tealld:rgba(48,200,128,.12);
+  --ash:#7a7590;--ash2:#3e3c50;--ash3:#252535;
   --white:#e8e3da;--white2:#c4bfb5;
-  --border:#1e1e32;--border2:rgba(255,255,255,.08);
+  --border:#1e1e32;--border2:rgba(255,255,255,.07);
   --mono:'JetBrains Mono',monospace;
   --serif:'Playfair Display',serif;
   --max:1240px;
@@ -29,16 +32,11 @@ a{text-decoration:none;color:inherit}
 body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.45;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E")}
 
-/* ══════════════════════════════════════
-   WEATHER STRIP — TOP OF PAGE
-══════════════════════════════════════ */
+/* ── WEATHER STRIP ── */
 #weather-strip{
-  background:var(--ink2);
-  border-bottom:1px solid var(--border);
-  padding:.45rem 1.5rem;
-  display:flex;align-items:center;justify-content:space-between;
-  gap:1rem;flex-wrap:wrap;
-  font-size:.52rem;letter-spacing:.08em
+  background:var(--ink2);border-bottom:1px solid var(--border);
+  padding:.45rem 1.5rem;display:flex;align-items:center;justify-content:space-between;
+  gap:1rem;flex-wrap:wrap;font-size:.52rem;letter-spacing:.08em
 }
 .ws-left{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap}
 .ws-dhaka{display:flex;align-items:center;gap:.55rem}
@@ -51,13 +49,10 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
 .ws-d{color:var(--ash);font-size:.46rem;letter-spacing:.08em}
 .ws-d strong{color:var(--white2)}
 .ws-right{display:flex;align-items:center;gap:.6rem;color:var(--ash2);font-size:.46rem;letter-spacing:.08em}
-.ws-update{color:var(--ash2)}
 .ws-right a{color:var(--ash2);transition:color .2s}
 .ws-right a:hover{color:var(--gold)}
 
-/* ══════════════════════════════════════
-   NAV
-══════════════════════════════════════ */
+/* ── NAV ── */
 #nav{
   position:sticky;top:0;z-index:800;
   background:rgba(6,6,14,.97);backdrop-filter:blur(16px);
@@ -68,10 +63,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
   display:flex;align-items:center;justify-content:space-between;
   padding:0 1.5rem;height:50px;gap:1rem
 }
-.nav-brand{
-  font-family:var(--mono);font-size:.68rem;font-weight:700;
-  letter-spacing:.18em;text-transform:uppercase;color:var(--gold)
-}
+.nav-brand{font-family:var(--mono);font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
 .nav-links{display:flex;align-items:center;gap:.35rem;height:100%}
 .nav-link{
   font-size:.48rem;letter-spacing:.1em;text-transform:uppercase;
@@ -80,260 +72,336 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
   transition:all .2s
 }
 .nav-link:hover{color:var(--gold);border-color:var(--border2)}
+.nav-link.active{color:var(--white);border-color:var(--border)}
 .nav-new{
   font-size:.48rem;letter-spacing:.1em;text-transform:uppercase;
   color:var(--white2);border:1px solid rgba(196,30,58,.4);
   padding:.25rem .75rem;height:auto;
   animation:np 2.5s ease-in-out infinite
 }
-@keyframes np{0%,100%{opacity:1}50%{opacity:.7}}
+.nav-new:hover{border-color:var(--blood);color:var(--white)}
+@keyframes np{0%,100%{opacity:1}50%{opacity:.65}}
 @media(max-width:760px){.nav-links .nav-link:not(.nav-new){display:none}}
 
-/* ══════════════════════════════════════
-   TICKER / BREAKING
-══════════════════════════════════════ */
+/* ── TICKER ── */
 #ticker{
-  background:rgba(196,30,58,.9);
-  border-bottom:1px solid rgba(196,30,58,.3);
-  display:flex;align-items:center;overflow:hidden;height:32px
+  background:rgba(196,30,58,.88);border-bottom:1px solid rgba(196,30,58,.3);
+  display:flex;align-items:center;overflow:hidden;height:30px
 }
 .tick-tag{
-  font-size:.48rem;letter-spacing:.16em;text-transform:uppercase;
+  font-size:.46rem;letter-spacing:.16em;text-transform:uppercase;
   background:rgba(0,0,0,.3);color:var(--white);
   padding:0 .8rem;height:100%;display:flex;align-items:center;
   white-space:nowrap;flex-shrink:0;border-right:1px solid rgba(255,255,255,.15)
 }
 .tick-content{display:flex;overflow:hidden;flex:1}
 .tick-text{
-  font-size:.52rem;letter-spacing:.05em;color:rgba(255,255,255,.9);
-  animation:tick 22s linear infinite;white-space:nowrap;padding-left:100%
+  font-size:.5rem;letter-spacing:.05em;color:rgba(255,255,255,.92);
+  animation:tick 28s linear infinite;white-space:nowrap;padding-left:100%
 }
 @keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
 
-/* ══════════════════════════════════════
-   HERO — EDITORIAL NEWSPAPER GRID
-══════════════════════════════════════ */
-#hero{max-width:var(--max);margin:0 auto;padding:2.5rem 1.5rem 0}
+/* ── HERO ── */
+#hero{max-width:var(--max);margin:0 auto;padding:2rem 1.5rem 0}
 
 .hero-grid{
-  display:grid;
-  grid-template-columns:1fr 320px;
-  grid-template-rows:auto auto;
-  gap:1.5px;
-  border:1px solid var(--border)
+  display:grid;grid-template-columns:1fr 310px;
+  gap:2px;border:1px solid var(--border)
 }
 @media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
 
-/* Main featured */
+/* ─ FEATURED CARD ─ */
 .hero-feature{
-  background:var(--ink2);
-  border-right:1px solid var(--border);
-  cursor:pointer;position:relative;overflow:hidden;
-  transition:border-color .25s
+  background:var(--ink2);border-right:1px solid var(--border);
+  cursor:pointer;position:relative;overflow-x:clip;transition:border-color .25s
 }
 .hero-feature:hover{border-color:rgba(196,30,58,.4)}
 
-.hf-visual{
-  width:100%;height:240px;
+/* Visual preview banner */
+.hf-visual-banner{
+  width:100%;height:200px;position:relative;overflow:hidden;
+  background:var(--ink3);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center
+}
+.hf-visual-banner::before{
+  content:'';position:absolute;inset:0;
   background:
-    radial-gradient(ellipse 70% 55% at 30% 50%,rgba(196,30,58,.15),transparent 65%),
-    radial-gradient(ellipse 40% 40% at 80% 30%,rgba(201,168,76,.07),transparent 60%),
-    var(--ink2);
-  display:flex;align-items:center;justify-content:center;
-  position:relative;overflow:hidden;border-bottom:1px solid var(--border)
+    radial-gradient(ellipse 80% 60% at 20% 50%,rgba(232,160,32,.12),transparent 60%),
+    radial-gradient(ellipse 50% 50% at 85% 30%,rgba(200,220,48,.06),transparent 60%),
+    repeating-linear-gradient(0deg,transparent,transparent 40px,rgba(232,160,32,.02) 40px,rgba(232,160,32,.02) 41px),
+    repeating-linear-gradient(90deg,transparent,transparent 40px,rgba(232,160,32,.015) 40px,rgba(232,160,32,.015) 41px)
 }
-.hf-bg-num{
-  position:absolute;right:-2rem;bottom:-2rem;
-  font-family:var(--serif);font-size:14rem;font-weight:900;
-  color:var(--blood);opacity:.06;line-height:1;letter-spacing:-.04em;
-  pointer-events:none
+.hf-viz-tag{
+  position:absolute;top:.8rem;left:.8rem;z-index:2;
+  font-size:.42rem;letter-spacing:.18em;text-transform:uppercase;
+  background:rgba(232,160,32,.15);color:#e8a020;border:1px solid rgba(232,160,32,.3);
+  padding:.2rem .55rem;display:flex;align-items:center;gap:.4rem
 }
-.hf-center{position:relative;z-index:1;text-align:center}
-.hf-big{
-  font-family:var(--serif);font-size:clamp(3.5rem,8vw,6rem);font-weight:900;
-  color:var(--blood);line-height:1;letter-spacing:-.04em;
-  text-shadow:0 0 80px rgba(196,30,58,.4)
+.hf-viz-tag::before{content:'▶';font-size:.38rem}
+.hf-bg-stat{
+  position:absolute;right:-1rem;bottom:-1.5rem;z-index:1;
+  font-family:var(--serif);font-size:13rem;font-weight:900;
+  color:#e8a020;opacity:.04;line-height:1;letter-spacing:-.04em;pointer-events:none
 }
-.hf-lbl{font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ash);margin-top:.5rem}
+.hf-center-nums{position:relative;z-index:2;text-align:center}
+.hf-main-num{
+  font-family:var(--serif);font-size:clamp(3rem,9vw,6rem);font-weight:900;
+  color:#e8a020;line-height:.9;letter-spacing:-.04em;
+  text-shadow:0 0 60px rgba(232,160,32,.35)
+}
+.hf-main-lbl{font-size:.46rem;letter-spacing:.16em;text-transform:uppercase;color:#a06a10;margin-top:.5rem}
+.hf-sub-stats{
+  display:flex;gap:2rem;justify-content:center;margin-top:1rem;
+  flex-wrap:wrap
+}
+.hf-sub-stat .n{font-family:var(--mono);font-size:.9rem;font-weight:700;color:var(--white2);line-height:1}
+.hf-sub-stat .l{font-size:.38rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ash);margin-top:.15rem}
 
-.hf-body{padding:2rem 2.2rem 2.2rem}
-.hf-meta{display:flex;align-items:center;gap:.7rem;margin-bottom:1rem;flex-wrap:wrap}
-.badge{font-size:.44rem;letter-spacing:.14em;text-transform:uppercase;padding:.2rem .5rem;border:1px solid}
+/* Feature body */
+.hf-body{padding:1.8rem 2rem 2rem}
+.hf-meta{display:flex;align-items:center;gap:.6rem;margin-bottom:.9rem;flex-wrap:wrap}
+.badge{font-size:.42rem;letter-spacing:.14em;text-transform:uppercase;padding:.2rem .5rem;border:1px solid}
 .b-new{border-color:var(--gold);color:var(--gold)}
-.b-inv{border-color:rgba(196,30,58,.5);color:var(--blood)}
-.b-vis{border-color:rgba(100,180,255,.4);color:rgba(150,200,255,.9)}
-.hf-id{font-size:.48rem;letter-spacing:.12em;color:var(--ash2)}
+.b-inv{border-color:rgba(196,30,58,.45);color:var(--blood)}
+.b-env{border-color:rgba(48,200,128,.35);color:var(--teal)}
+.b-vis{border-color:rgba(100,180,255,.35);color:rgba(150,210,255,.85)}
+.b-just{border-color:rgba(196,30,58,.35);color:#e87070}
+.hf-id{font-size:.46rem;letter-spacing:.1em;color:var(--ash2)}
 .hf-title{
-  font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;
-  line-height:1.05;color:var(--white);letter-spacing:-.02em;margin-bottom:.9rem
+  font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900;
+  line-height:1.05;color:var(--white);letter-spacing:-.02em;margin-bottom:.8rem
 }
-.hf-title em{color:var(--blood);font-style:italic}
-.hf-deck{font-size:.72rem;line-height:1.9;color:var(--white2);margin-bottom:1.8rem;max-width:520px}
-.hf-deck strong{color:var(--white)}
-.hf-actions{display:flex;gap:.6rem;flex-wrap:wrap}
-.btn-p{
-  font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;
-  padding:.55rem 1.2rem;background:var(--blood);color:var(--white);
-  border:1px solid var(--blood);transition:all .2s;display:inline-block
+.hf-title em{color:#e8a020;font-style:italic}
+.hf-finding{
+  font-size:.72rem;line-height:1.85;color:var(--white2);margin-bottom:.6rem;
+  border-left:2px solid rgba(232,160,32,.3);padding-left:1rem
 }
-.btn-p:hover{background:transparent;color:var(--blood)}
-.btn-s{
-  font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;
-  padding:.55rem 1.2rem;background:transparent;color:var(--ash);
-  border:1px solid var(--border2);transition:all .2s;display:inline-block
+.hf-finding strong{color:var(--white)}
+.hf-verdict{
+  font-size:.46rem;letter-spacing:.12em;text-transform:uppercase;
+  color:#e84040;margin:.9rem 0 1.5rem;display:flex;align-items:center;gap:.5rem
 }
-.btn-s:hover{border-color:var(--gold);color:var(--gold)}
-.btn-v{
-  font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;
-  padding:.55rem 1.2rem;background:rgba(100,180,255,.06);color:rgba(150,200,255,.85);
-  border:1px solid rgba(100,180,255,.25);transition:all .2s;display:inline-block
-}
-.btn-v:hover{background:rgba(100,180,255,.12)}
+.hf-verdict::before{content:'';width:6px;height:6px;background:#e84040;border-radius:50%;flex-shrink:0;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(232,64,64,.4)}50%{box-shadow:0 0 0 8px rgba(232,64,64,0)}}
 
-/* Hero sidebar */
-.hero-side{display:flex;flex-direction:column;gap:1.5px}
+/* PRIMARY ACTION — Visual story */
+.hf-primary-cta{
+  display:flex;align-items:center;gap:.8rem;
+  background:#e8a020;color:#06060e;
+  border:1px solid #f0b840;padding:.9rem 1.8rem;
+  font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  transition:all .2s;margin-bottom:.7rem;width:fit-content
+}
+.hf-primary-cta:hover{background:#f0b840}
+.hf-primary-cta svg{flex-shrink:0}
+.hf-secondary-actions{display:flex;gap:.5rem;flex-wrap:wrap}
+.btn-s{
+  font-size:.48rem;letter-spacing:.1em;text-transform:uppercase;
+  padding:.5rem 1rem;background:transparent;color:var(--ash);
+  border:1px solid var(--border2);transition:all .2s
+}
+.btn-s:hover{border-color:var(--goldd);color:var(--gold)}
+.btn-ghost{
+  font-size:.48rem;letter-spacing:.1em;text-transform:uppercase;
+  padding:.5rem 1rem;background:transparent;color:var(--ash2);
+  border:1px solid var(--border);transition:all .2s
+}
+.btn-ghost:hover{color:var(--ash);border-color:var(--border2)}
+
+/* ─ SIDEBAR ─ */
+.hero-side{display:flex;flex-direction:column;gap:2px}
 .hs-stat{
-  background:var(--ink2);padding:1.6rem;flex:1;
+  background:var(--ink2);padding:1.4rem;flex:1;
   position:relative;overflow:hidden;transition:border-color .2s;
   border:1px solid var(--border)
 }
 .hs-stat:hover{border-color:var(--border2)}
-.hs-stat::after{content:'';position:absolute;top:0;left:0;width:2px;height:100%;background:var(--blood)}
-.hs-stat.g::after{background:var(--gold)}
+.hs-stat::before{content:'';position:absolute;top:0;left:0;width:2px;height:100%;background:var(--blood)}
+.hs-stat.g::before{background:var(--gold)}
+.hs-stat.t::before{background:var(--teal)}
 .hs-num{
-  font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;
-  color:var(--blood);line-height:1;margin-bottom:.4rem
+  font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.3rem);font-weight:900;
+  color:var(--blood);line-height:1;margin-bottom:.35rem
 }
 .hs-num.g{color:var(--gold)}
-.hs-lbl{font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ash);line-height:1.6}
-.hs-src{font-size:.44rem;color:var(--ash2);margin-top:.5rem;letter-spacing:.06em}
+.hs-num.t{color:var(--teal)}
+.hs-lbl{font-size:.46rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ash);line-height:1.6}
+.hs-src{font-size:.42rem;color:var(--ash2);margin-top:.4rem;letter-spacing:.06em}
 .hs-link{
   background:var(--ink2);border:1px solid var(--border);
-  padding:1.2rem 1.5rem;transition:border-color .2s;display:block;cursor:pointer
+  padding:1.1rem 1.3rem;transition:border-color .2s;display:block
 }
 .hs-link:hover{border-color:rgba(201,168,76,.3)}
-.hs-link-tag{font-size:.44rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ash2);margin-bottom:.45rem}
-.hs-link-title{font-size:.78rem;color:var(--white);font-weight:500;line-height:1.4;margin-bottom:.4rem}
-.hs-link-arr{font-size:.58rem;color:var(--gold)}
+.hs-link-tag{font-size:.42rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ash2);margin-bottom:.4rem}
+.hs-link-title{font-size:.72rem;color:var(--white);font-weight:500;line-height:1.4;margin-bottom:.35rem}
+.hs-link-vis{
+  font-size:.44rem;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(150,210,255,.85);margin-top:.4rem;
+  display:flex;align-items:center;gap:.3rem
+}
+.hs-link-vis::before{content:'▶';font-size:.38rem}
+.hs-link-arr{font-size:.52rem;color:var(--gold)}
 
-/* ══════════════════════════════════════
-   TRACKER STRIP
-══════════════════════════════════════ */
+/* ── TRACKER STRIP ── */
 #tracker{
-  max-width:var(--max);margin:1.5px auto 0;
+  max-width:var(--max);margin:2px auto 0;
   background:var(--ink2);border:1px solid var(--border);
-  padding:1rem 1.5rem;
+  padding:.9rem 1.5rem;
   display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap
 }
-.tr-id{display:flex;align-items:center;gap:.55rem;flex-shrink:0}
+.tr-id{display:flex;align-items:center;gap:.5rem;flex-shrink:0}
 .tr-dot{width:6px;height:6px;border-radius:50%;background:var(--blood);animation:tdot 2s ease-in-out infinite}
 @keyframes tdot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.25;transform:scale(.5)}}
-.tr-name{font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blood);font-weight:700}
-.tr-vsep{width:1px;height:24px;background:var(--border2);flex-shrink:0}
-.tr-stats{display:flex;gap:1.8rem;flex:1;flex-wrap:wrap}
-.trs .tn{font-size:1.1rem;font-weight:700;line-height:1;margin-bottom:.18rem}
+.tr-name{font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blood);font-weight:700}
+.tr-vsep{width:1px;height:22px;background:var(--border2);flex-shrink:0}
+.tr-stats{display:flex;gap:1.6rem;flex:1;flex-wrap:wrap}
+.trs .tn{font-size:1rem;font-weight:700;line-height:1;margin-bottom:.15rem}
 .trs .tn.r{color:var(--blood)}.trs .tn.g{color:var(--gold)}.trs .tn.w{color:var(--white)}
-.trs .tl{font-size:.44rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ash)}
-.tr-cta{flex-shrink:0}
+.trs .tl{font-size:.42rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ash)}
+.tr-cta{flex-shrink:0;display:flex;flex-direction:column;gap:.3rem}
 .tr-btn{
-  font-size:.52rem;letter-spacing:.12em;text-transform:uppercase;
-  padding:.5rem 1rem;border:1px solid rgba(201,168,76,.28);color:var(--gold);
-  transition:all .2s;display:inline-block
+  font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;
+  padding:.45rem .9rem;border:1px solid rgba(201,168,76,.28);color:var(--gold);
+  transition:all .2s;display:inline-block;text-align:center
 }
 .tr-btn:hover{background:var(--goldl);border-color:var(--gold)}
+.tr-btn.vis{border-color:rgba(232,160,32,.4);color:#e8a020}
+.tr-btn.vis:hover{background:rgba(232,160,32,.1)}
 
-/* ══════════════════════════════════════
-   INVESTIGATIONS TABLE
-══════════════════════════════════════ */
-#inv{max-width:var(--max);margin:2rem auto;padding:0 1.5rem}
+/* ── ALL INVESTIGATIONS ── */
+#inv{max-width:var(--max);margin:2rem auto 0;padding:0 1.5rem}
 .sec-hdr{
   display:flex;align-items:center;justify-content:space-between;
-  padding-bottom:.9rem;border-bottom:1px solid var(--border);margin-bottom:1.5px
+  padding-bottom:.8rem;border-bottom:1px solid var(--border);margin-bottom:2px
 }
-.sec-hdr h2{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ash)}
-.sec-count{font-size:.5rem;color:var(--ash2);letter-spacing:.1em}
+.sec-hdr h2{font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ash)}
+.sec-count{font-size:.48rem;color:var(--ash2);letter-spacing:.08em}
+.sec-div{
+  font-size:.48rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ash2);padding:.6rem 0;border-bottom:1px solid var(--border);
+  margin:1.2rem 0 2px
+}
+
+/* Investigation row */
 .inv-row{
-  display:grid;grid-template-columns:88px 1fr 140px auto;
-  align-items:center;gap:1.2rem;padding:.9rem 1.2rem;
+  display:grid;grid-template-columns:90px 1fr 180px 28px;
+  align-items:stretch;gap:0;
   background:var(--ink2);border:1px solid var(--border);
-  margin-bottom:1.5px;transition:border-color .2s;cursor:pointer
+  margin-bottom:2px;transition:border-color .2s;cursor:pointer;overflow:hidden
 }
 .inv-row:hover{border-color:rgba(196,30,58,.3)}
 .inv-row.new{border-left:2px solid var(--blood)}
-@media(max-width:700px){.inv-row{grid-template-columns:70px 1fr auto}}
-.ir-id{font-size:.5rem;color:var(--ash2);letter-spacing:.1em}
-.ir-title{font-size:.8rem;font-weight:500;color:var(--white);margin-bottom:.22rem}
-.ir-sub{font-size:.58rem;color:var(--ash);line-height:1.5}
-.ir-badges{display:flex;gap:.35rem;margin-top:.35rem;flex-wrap:wrap}
-.ir-status{font-size:.46rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ash2);text-align:right}
-@media(max-width:700px){.ir-status{display:none}}
-.ir-arr{color:var(--ash2);transition:color .2s}
-.inv-row:hover .ir-arr{color:var(--blood)}
+.inv-row.env{border-left:2px solid #e8a020}
+.inv-row.gold-l{border-left:2px solid var(--gold)}
+@media(max-width:750px){.inv-row{grid-template-columns:70px 1fr 28px}}
 
-/* ══════════════════════════════════════
-   LIVE DATA
-══════════════════════════════════════ */
-#live{max-width:var(--max);margin:0 auto;padding:0 1.5rem 3rem}
+/* ID col */
+.ir-id-col{
+  border-right:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  padding:.6rem;
+}
+.ir-id{
+  font-size:.42rem;color:var(--ash2);letter-spacing:.08em;
+  writing-mode:vertical-rl;text-orientation:mixed;transform:rotate(180deg)
+}
+
+/* Content col */
+.ir-content{padding:.9rem 1.2rem}
+.ir-title-row{display:flex;align-items:baseline;gap:.7rem;margin-bottom:.2rem}
+.ir-title{font-size:.82rem;font-weight:500;color:var(--white)}
+.ir-badges{display:flex;gap:.3rem;margin-top:.3rem;flex-wrap:wrap}
+.ir-sub{font-size:.54rem;color:var(--ash);line-height:1.55;margin-top:.3rem}
+
+/* Visual CTA col — this is the key thing */
+.ir-vis-col{
+  border-left:1px solid var(--border);
+  display:flex;flex-direction:column;gap:2px;padding:.6rem;
+  justify-content:center
+}
+@media(max-width:750px){.ir-vis-col{display:none}}
+.ir-vis-btn{
+  font-size:.4rem;letter-spacing:.1em;text-transform:uppercase;
+  padding:.4rem .6rem;transition:all .2s;text-align:center;display:block
+}
+.ir-vis-btn.primary{
+  background:rgba(232,160,32,.1);color:#e8a020;
+  border:1px solid rgba(232,160,32,.3)
+}
+.ir-vis-btn.primary:hover{background:rgba(232,160,32,.2);border-color:#e8a020}
+.ir-vis-btn.primary.red-vis{
+  background:rgba(196,30,58,.08);color:#e87070;
+  border:1px solid rgba(196,30,58,.25)
+}
+.ir-vis-btn.primary.red-vis:hover{background:rgba(196,30,58,.15);border-color:var(--blood)}
+.ir-vis-btn.sec{color:var(--ash2);border:1px solid var(--border)}
+.ir-vis-btn.sec:hover{color:var(--ash);border-color:var(--border2)}
+
+/* Arrow col */
+.ir-arr-col{
+  border-left:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--ash2);transition:color .2s;font-size:.7rem;padding:0 .5rem
+}
+.inv-row:hover .ir-arr-col{color:var(--blood)}
+
+/* ── LIVE DATA ── */
+#live{max-width:var(--max);margin:2rem auto 0;padding:0 1.5rem 3rem}
 .live-hdr{
   display:flex;align-items:center;justify-content:space-between;
-  padding:.9rem 0;border-bottom:1px solid var(--border);margin-bottom:1.5px
+  padding:.8rem 0;border-bottom:1px solid var(--border);margin-bottom:2px
 }
-.live-hdr h2{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ash)}
-.live-ts{font-size:.48rem;color:var(--ash2);letter-spacing:.08em}
-.fx-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1.5px;margin-bottom:1.5px}
+.live-hdr h2{font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ash)}
+.live-ts{font-size:.46rem;color:var(--ash2);letter-spacing:.08em}
+.fx-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:2px;margin-bottom:2px}
 @media(max-width:700px){.fx-grid{grid-template-columns:repeat(3,1fr)}}
-.fx-cell{background:var(--ink2);border:1px solid var(--border);padding:.7rem .9rem}
-.fx-pair{font-size:.46rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ash);margin-bottom:.25rem}
-.fx-val{font-size:.82rem;font-weight:700;color:var(--white)}
-.data-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5px}
+.fx-cell{background:var(--ink2);border:1px solid var(--border);padding:.65rem .85rem}
+.fx-pair{font-size:.44rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ash);margin-bottom:.2rem}
+.fx-val{font-size:.8rem;font-weight:700;color:var(--white)}
+.data-row{display:grid;grid-template-columns:1fr 1fr;gap:2px}
 @media(max-width:700px){.data-row{grid-template-columns:1fr}}
 .dp{background:var(--ink2);border:1px solid var(--border)}
 .dp-hdr{
-  padding:.6rem 1rem;border-bottom:1px solid var(--border);
-  font-size:.48rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ash);
+  padding:.55rem 1rem;border-bottom:1px solid var(--border);
+  font-size:.46rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ash);
   display:flex;justify-content:space-between;align-items:center
 }
 .dp-hdr .ld{color:var(--blood);animation:tdot 1.8s infinite}
-.aqi-inner{padding:.7rem 1rem;display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem}
+.aqi-inner{padding:.65rem 1rem;display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem}
 .aqi-c{text-align:center}
-.aqi-city{font-size:.42rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ash);margin-bottom:.18rem}
-.aqi-v{font-size:.88rem;font-weight:700;line-height:1}
-.aqi-l{font-size:.4rem;text-transform:uppercase;color:var(--ash);margin-top:.12rem}
+.aqi-city{font-size:.4rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ash);margin-bottom:.15rem}
+.aqi-v{font-size:.85rem;font-weight:700;line-height:1}
+.aqi-l{font-size:.38rem;text-transform:uppercase;color:var(--ash);margin-top:.1rem}
 .aqi-good .aqi-v{color:#2aaa6a}.aqi-moderate .aqi-v{color:var(--gold)}.aqi-sensitive .aqi-v{color:#e07020}.aqi-unhealthy .aqi-v,.aqi-very .aqi-v{color:var(--blood)}
-.ni{padding:.55rem 1rem;border-bottom:1px solid var(--border)}
+.ni{padding:.5rem 1rem;border-bottom:1px solid var(--border)}
 .ni:last-child{border-bottom:none}
-.ni-n{font-size:.48rem;color:var(--ash2);margin-right:.5rem}
-.ni-t{font-size:.66rem;color:var(--white2);line-height:1.45}
+.ni-n{font-size:.46rem;color:var(--ash2);margin-right:.45rem}
+.ni-t{font-size:.64rem;color:var(--white2);line-height:1.45}
 .ni-t a{color:var(--white2);transition:color .15s}
 .ni-t a:hover{color:var(--white)}
-.ni-m{font-size:.48rem;color:var(--ash2);margin-top:.12rem}
+.ni-m{font-size:.46rem;color:var(--ash2);margin-top:.1rem}
 
-/* ══════════════════════════════════════
-   FOOTER
-══════════════════════════════════════ */
-footer{
-  background:var(--ink2);border-top:1px solid var(--border);
-  padding:3rem 1.5rem 2rem
-}
-.fi{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;margin-bottom:2rem}
-@media(max-width:700px){.fi{grid-template-columns:1fr;gap:1.8rem}}
-.ft-logo{font-family:var(--mono);font-size:.75rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem}
-.ft-p{font-size:.62rem;color:var(--ash);line-height:1.9}
-.fc h4{font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ash2);margin-bottom:.75rem}
+/* ── FOOTER ── */
+footer{background:var(--ink2);border-top:1px solid var(--border);padding:2.5rem 1.5rem 1.5rem}
+.fi{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;margin-bottom:1.8rem}
+@media(max-width:700px){.fi{grid-template-columns:1fr;gap:1.6rem}}
+.ft-logo{font-family:var(--mono);font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.65rem}
+.ft-p{font-size:.58rem;color:var(--ash);line-height:1.9}
+.fc h4{font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ash2);margin-bottom:.7rem}
 .fc ul{list-style:none}
-.fc li{margin-bottom:.38rem}
-.fc a{font-size:.62rem;color:var(--ash);transition:color .2s}
+.fc li{margin-bottom:.35rem}
+.fc a{font-size:.6rem;color:var(--ash);transition:color .2s}
 .fc a:hover{color:var(--gold)}
 .fb{
-  max-width:var(--max);margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);
+  max-width:var(--max);margin:0 auto;padding-top:1.2rem;border-top:1px solid var(--border);
   display:flex;justify-content:space-between;
-  font-size:.48rem;letter-spacing:.1em;color:var(--ash2);text-transform:uppercase;flex-wrap:wrap;gap:.4rem
+  font-size:.46rem;letter-spacing:.1em;color:var(--ash2);text-transform:uppercase;flex-wrap:wrap;gap:.4rem
 }
 </style>
 </head>
 <body>
 
-<!-- ════════ WEATHER STRIP — TOP ════════ -->
+<!-- WEATHER STRIP -->
 <div id="weather-strip">
   <div class="ws-left">
     <div class="ws-dhaka">
@@ -351,180 +419,230 @@ footer{
     </div>
   </div>
   <div class="ws-right">
-    <span class="ws-update" id="ws-time">—</span>
+    <span id="ws-time">—</span>
     <span>·</span>
-    <a href="https://openweathermap.org" target="_blank" rel="noopener">OpenWeather</a>
+    <a href="https://open-meteo.com" target="_blank" rel="noopener">Open-Meteo</a>
     <span>·</span>
     <span id="ws-date">—</span>
   </div>
 </div>
 
-<!-- ════════ NAV ════════ -->
+<!-- NAV -->
 <div id="nav">
   <div class="nav-inner">
     <a href="/" class="nav-brand">Insight Gaps</a>
     <div class="nav-links">
       <a href="/investigations/" class="nav-link">Investigations</a>
       <a href="/analysis/" class="nav-link">Analysis</a>
-      <a href="/methods/" class="nav-link">Methods</a>
       <a href="/about/" class="nav-link">About</a>
       <a href="/investigations/national/lead-belt/visual.html" class="nav-link nav-new">◉ New: Lead Belt →</a>
     </div>
   </div>
 </div>
 
-<!-- ════════ TICKER ════════ -->
+<!-- TICKER -->
 <div id="ticker">
   <span class="tick-tag">New Investigation</span>
   <div class="tick-content">
-    <span class="tick-text">BD-INV-003 · THE LEAD BELT · 44 contaminated sites near schools · 145 school buildings · ~39,875 students at risk · Soil lead up to 1,702× the safe standard · 138,054 annual deaths from lead · $28.63B annual cost · Satellite-confirmed active operations · Zero school-adjacent closures on record · First school-proximity lead analysis in South Asia · insightgaps.com/investigations/national/lead-belt/</span>
+    <span class="tick-text">BD-INV-003 · THE LEAD BELT · 44 contaminated sites near schools · 145 school buildings · ~39,875 students at risk · Soil lead up to 1,702× the safe standard · $28.63B annual cost · 138,054 annual deaths · Satellite-confirmed active operations in Kamrangir Char, Lalbag &amp; Jatrabari · Zero school-adjacent closures on record · First school-proximity lead analysis in South Asia · insightgaps.com/investigations/national/lead-belt/visual.html</span>
   </div>
 </div>
 
-<!-- ════════ HERO ════════ -->
+<!-- HERO -->
 <div id="hero">
   <div class="hero-grid">
 
-    <!-- Featured -->
-    <a href="/investigations/national/lead-belt/" class="hero-feature">
-      <div class="hf-visual">
-        <div class="hf-bg-num">44</div>
-        <div class="hf-center">
-          <div class="hf-big">39,875</div>
-          <div class="hf-lbl">Students within 500m of contaminated sites</div>
+    <!-- FEATURED: Lead Belt — visual story is the primary action -->
+    <a href="/investigations/national/lead-belt/visual.html" class="hero-feature">
+
+      <!-- Visual preview -->
+      <div class="hf-visual-banner">
+        <div class="hf-viz-tag">Visual Investigation</div>
+        <div class="hf-bg-stat">59</div>
+        <div class="hf-center-nums">
+          <div class="hf-main-num">59m</div>
+          <div class="hf-main-lbl">Closest school to a lead-contaminated site</div>
+          <div class="hf-sub-stats">
+            <div class="hf-sub-stat"><div class="n">44</div><div class="l">Contaminated sites</div></div>
+            <div class="hf-sub-stat"><div class="n">145</div><div class="l">School buildings</div></div>
+            <div class="hf-sub-stat"><div class="n">39,875</div><div class="l">Students at risk</div></div>
+          </div>
         </div>
       </div>
+
+      <!-- Body -->
       <div class="hf-body">
         <div class="hf-meta">
           <span class="badge b-new">New · 2026</span>
           <span class="badge b-inv">BD-INV-003</span>
+          <span class="badge b-env">Environment</span>
           <span class="badge b-vis">Visual Investigation</span>
-          <span class="hf-id">Environmental Accountability · Bangladesh</span>
+          <span class="hf-id">Bangladesh · Spatial Analysis</span>
         </div>
         <h1 class="hf-title">The <em>Lead Belt</em></h1>
-        <p class="hf-deck"><strong>44 formally assessed lead-contaminated sites</strong> across Bangladesh have at least one school within 500 metres. Soil lead at the highest recorded site reaches <strong>1,702 times</strong> the international safety standard. Not one facility has a public record of permanent closure. Insight Gaps' first original spatial investigation.</p>
-        <div class="hf-actions">
-          <span class="btn-p">Read Investigation →</span>
-          <span class="btn-v">◉ Visual Story</span>
-          <span class="btn-s">Dataset →</span>
+        <p class="hf-finding">
+          <strong>44 formally assessed lead-contaminated sites</strong> across Bangladesh have at least one school within 500 metres. Soil lead at the highest recorded site reaches <strong>1,702 times</strong> the safe standard. Not one has a public record of permanent closure.
+        </p>
+        <div class="hf-verdict">None have a public record of permanent closure</div>
+
+        <!-- VISUAL STORY is the primary CTA -->
+        <div class="hf-primary-cta">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          Read the Visual Investigation
+        </div>
+        <div class="hf-secondary-actions">
+          <a href="/investigations/national/lead-belt/" class="btn-s" onclick="event.stopPropagation()">Investigation Index →</a>
+          <a href="/investigations/national/lead-belt/methodology.html" class="btn-ghost" onclick="event.stopPropagation()">Methodology →</a>
         </div>
       </div>
     </a>
 
-    <!-- Sidebar -->
+    <!-- SIDEBAR -->
     <div class="hero-side">
       <div class="hs-stat">
         <div class="hs-num">38%</div>
-        <div class="hs-lbl">Children in Bangladesh with dangerous blood lead levels — national average</div>
+        <div class="hs-lbl">Children in Bangladesh with dangerous blood lead levels</div>
         <div class="hs-src">UNICEF / BBS MICS 2025</div>
       </div>
       <div class="hs-stat g">
         <div class="hs-num g">1,702×</div>
-        <div class="hs-lbl">Highest soil lead above safe limit — Kathgora, Savar, Dhaka</div>
+        <div class="hs-lbl">Highest soil lead above safe limit — Kathgora, Savar</div>
         <div class="hs-src">Pure Earth / UNEP Assessment</div>
       </div>
-      <a href="/investigations/national/impunity-machine.html" class="hs-link">
-        <div class="hs-link-tag">BD-INV-002 · Published · Visual Investigation</div>
+      <div class="hs-stat t">
+        <div class="hs-num t">$28.63B</div>
+        <div class="hs-lbl">Annual economic cost of lead poisoning in Bangladesh</div>
+        <div class="hs-src">Lancet Planetary Health 2023</div>
+      </div>
+      <a href="/investigations/national/impunity-machine-visual.html" class="hs-link">
+        <div class="hs-link-tag">BD-INV-002 · Gender Justice · Visual Investigation</div>
         <div class="hs-link-title">The Impunity Machine — 0.46% rape conviction rate across 23 years</div>
-        <div class="hs-link-arr">Read investigation →</div>
+        <div class="hs-link-vis">Watch the Visual Story</div>
+        <div class="hs-link-arr" style="margin-top:.3rem">Full report + live tracker →</div>
       </a>
     </div>
 
   </div>
 
-  <!-- Tracker strip -->
+  <!-- TRACKER -->
   <div id="tracker">
     <div class="tr-id">
       <div class="tr-dot"></div>
-      <span class="tr-name">Lead Belt</span>
+      <span class="tr-name">Lead Belt Active</span>
     </div>
     <div class="tr-vsep"></div>
     <div class="tr-stats">
       <div class="trs"><div class="tn r">44</div><div class="tl">Sites near schools</div></div>
-      <div class="trs"><div class="tn g">~39,875</div><div class="tl">Students at risk</div></div>
+      <div class="trs"><div class="tn g">39,875</div><div class="tl">Students at risk</div></div>
       <div class="trs"><div class="tn r">1,702×</div><div class="tl">Max soil lead</div></div>
       <div class="trs"><div class="tn w">138,054</div><div class="tl">Annual deaths</div></div>
-      <div class="trs"><div class="tn r">$28.63B</div><div class="tl">Annual cost</div></div>
-      <div class="trs"><div class="tn g">3</div><div class="tl">Satellite verified</div></div>
+      <div class="trs"><div class="tn g">$28.63B</div><div class="tl">Annual cost</div></div>
+      <div class="trs"><div class="tn r">3</div><div class="tl">Satellite verified active</div></div>
     </div>
     <div class="tr-cta">
-      <a href="/investigations/national/lead-belt/visual.html" class="tr-btn">◉ Visual Investigation →</a>
-      <a href="/investigations/national/lead-belt/methodology.html" class="tr-btn" style="margin-top:.4rem;opacity:.7;font-size:.42rem">⊞ Methodology Note →</a>
+      <a href="/investigations/national/lead-belt/visual.html" class="tr-btn vis">▶ Visual Investigation →</a>
+      <a href="/investigations/national/lead-belt/methodology.html" class="tr-btn" style="font-size:.42rem;opacity:.7">Methodology Note →</a>
     </div>
   </div>
 </div>
 
-<!-- ════════ INVESTIGATIONS ════════ -->
+<!-- ALL INVESTIGATIONS -->
 <section id="inv">
   <div class="sec-hdr">
     <h2>All Investigations</h2>
-    <span class="sec-count">4 published · 2 visual</span>
+    <span class="sec-count">4 published · 2 with visual stories</span>
   </div>
 
-  <a href="/investigations/national/lead-belt/" class="inv-row new">
-    <span class="ir-id">BD-INV-003</span>
-    <div>
-      <div class="ir-title">The Lead Belt</div>
-      <div class="ir-sub">44 contaminated sites · 145 schools · ~39,875 students · $28.63B annual cost · 138,054 annual deaths · First school-proximity lead analysis in South Asia</div>
+  <div class="sec-div">National · Bangladesh</div>
+
+  <!-- BD-INV-003 -->
+  <a href="/investigations/national/lead-belt/visual.html" class="inv-row env">
+    <div class="ir-id-col"><span class="ir-id">BD-INV-003</span></div>
+    <div class="ir-content">
+      <div class="ir-title-row">
+        <span class="ir-title">The Lead Belt</span>
+      </div>
       <div class="ir-badges">
         <span class="badge b-new">New · 2026</span>
-        <span class="badge b-vis">Visual</span>
-        <span class="badge b-inv">Environment</span>
+        <span class="badge b-env">Environment</span>
+        <span class="badge b-vis">Visual Story</span>
       </div>
+      <div class="ir-sub">44 sites · 145 schools · ~39,875 students · 1,702× safe limit · $28.63B annual cost · First school-proximity lead analysis in South Asia</div>
     </div>
-    <span class="ir-status">Published<br>March 2026</span>
-    <span class="ir-arr">→</span>
+    <div class="ir-vis-col">
+      <span class="ir-vis-btn primary">▶ Visual Story</span>
+      <a href="/investigations/national/lead-belt/" class="ir-vis-btn sec" onclick="event.stopPropagation()">Overview</a>
+      <a href="/investigations/national/lead-belt/methodology.html" class="ir-vis-btn sec" onclick="event.stopPropagation()">Methodology</a>
+    </div>
+    <div class="ir-arr-col">→</div>
   </a>
 
-  <a href="/investigations/national/impunity-machine.html" class="inv-row">
-    <span class="ir-id">BD-INV-002</span>
-    <div>
-      <div class="ir-title">The Impunity Machine</div>
-      <div class="ir-sub">0.46% conviction rate · 310 convictions from 66,711 cases · 23 years · Rape justice crisis</div>
+  <!-- BD-INV-002 -->
+  <a href="/investigations/national/impunity-machine-visual.html" class="inv-row new">
+    <div class="ir-id-col"><span class="ir-id">BD-INV-002</span></div>
+    <div class="ir-content">
+      <div class="ir-title-row">
+        <span class="ir-title">The Impunity Machine</span>
+      </div>
       <div class="ir-badges">
-        <span class="badge b-vis">Visual</span>
-        <span class="badge b-inv">Gender Justice</span>
+        <span class="badge b-just">Gender Justice</span>
+        <span class="badge b-vis">Visual Story</span>
       </div>
+      <div class="ir-sub">0.46% conviction rate · 310 convictions from 66,711 cases · 23 years · Bangladesh rape justice crisis</div>
     </div>
-    <span class="ir-status">Published<br>March 2026</span>
-    <span class="ir-arr">→</span>
+    <div class="ir-vis-col">
+      <span class="ir-vis-btn primary red-vis">▶ Visual Story</span>
+      <a href="/investigations/national/impunity-machine.html" class="ir-vis-btn sec" onclick="event.stopPropagation()">Full Report</a>
+      <a href="/investigations/national/impunity-machine/tracker.html" class="ir-vis-btn sec" onclick="event.stopPropagation()">◉ Tracker</a>
+    </div>
+    <div class="ir-arr-col">→</div>
   </a>
 
+  <!-- BD-INV-001 -->
   <a href="/investigations/national/blood-routes.html" class="inv-row">
-    <span class="ir-id">BD-INV-001</span>
-    <div>
-      <div class="ir-title">Blood Routes: Dhaka Bus Fatalities</div>
-      <div class="ir-sub">Phoenix operators · Joma system · Dhaka road crisis · Road safety accountability</div>
+    <div class="ir-id-col"><span class="ir-id">BD-INV-001</span></div>
+    <div class="ir-content">
+      <div class="ir-title-row">
+        <span class="ir-title">Blood Routes</span>
+      </div>
       <div class="ir-badges">
         <span class="badge b-inv">Road Safety</span>
       </div>
+      <div class="ir-sub">Dhaka bus fatalities · Phoenix operators · Joma system · 5.8× official undercount · 155+ sources</div>
     </div>
-    <span class="ir-status">Published<br>2025</span>
-    <span class="ir-arr">→</span>
+    <div class="ir-vis-col">
+      <span class="ir-vis-btn primary red-vis">▶ Full Report</span>
+    </div>
+    <div class="ir-arr-col">→</div>
   </a>
 
-  <a href="/investigations/international/war-tax.html" class="inv-row">
-    <span class="ir-id">INT-INV-001</span>
-    <div>
-      <div class="ir-title">The Hidden Tax of War</div>
-      <div class="ir-sub">How conflicts raise global prices · Iraq · Arab Spring · Ukraine · Red Sea</div>
-      <div class="ir-badges">
-        <span class="badge b-inv">International</span>
+  <div class="sec-div">International</div>
+
+  <!-- INT-INV-001 -->
+  <a href="/investigations/international/war-tax.html" class="inv-row gold-l">
+    <div class="ir-id-col"><span class="ir-id">INT-INV-001</span></div>
+    <div class="ir-content">
+      <div class="ir-title-row">
+        <span class="ir-title">The Hidden Tax of War</span>
       </div>
+      <div class="ir-badges">
+        <span class="badge" style="border-color:rgba(201,168,76,.3);color:var(--gold)">Conflict Economics</span>
+      </div>
+      <div class="ir-sub">How conflicts raise global prices · Iraq · Arab Spring · Ukraine · Red Sea · 4 case studies</div>
     </div>
-    <span class="ir-status">Published<br>2025</span>
-    <span class="ir-arr">→</span>
+    <div class="ir-vis-col">
+      <span class="ir-vis-btn primary" style="color:var(--gold);border-color:rgba(201,168,76,.3);background:rgba(201,168,76,.08)">▶ Full Report</span>
+    </div>
+    <div class="ir-arr-col">→</div>
   </a>
-
 </section>
 
-<!-- ════════ LIVE DATA ════════ -->
+<!-- LIVE DATA -->
 <section id="live">
   <div class="live-hdr">
     <h2>Live World Data</h2>
     <span class="live-ts" id="live-ts">—</span>
   </div>
-
   <div class="fx-grid">
     <div class="fx-cell" id="c-bdt"><div class="fx-pair">BDT / USD</div><div class="fx-val">···</div></div>
     <div class="fx-cell" id="c-eur"><div class="fx-pair">EUR / USD</div><div class="fx-val">···</div></div>
@@ -533,20 +651,19 @@ footer{
     <div class="fx-cell" id="c-cny"><div class="fx-pair">CNY / USD</div><div class="fx-val">···</div></div>
     <div class="fx-cell" id="c-inr"><div class="fx-pair">INR / USD</div><div class="fx-val">···</div></div>
   </div>
-
   <div class="data-row">
     <div class="dp">
       <div class="dp-hdr"><span>Air Quality Index <span class="ld">●</span></span><span>8 cities · WAQI</span></div>
-      <div class="aqi-inner" id="aqiGrid"><span style="font-size:.55rem;color:var(--ash);padding:.5rem">Loading…</span></div>
+      <div class="aqi-inner" id="aqiGrid"><span style="font-size:.52rem;color:var(--ash);padding:.5rem">Loading…</span></div>
     </div>
     <div class="dp">
       <div class="dp-hdr"><span>World News</span><span id="news-ts">BBC World · Live</span></div>
-      <div id="newsGrid"><span style="font-size:.55rem;color:var(--ash);padding:1rem;display:block">Loading…</span></div>
+      <div id="newsGrid"><span style="font-size:.52rem;color:var(--ash);padding:1rem;display:block">Loading…</span></div>
     </div>
   </div>
 </section>
 
-<!-- ════════ FOOTER ════════ -->
+<!-- FOOTER -->
 <footer>
   <div class="fi">
     <div>
@@ -556,61 +673,40 @@ footer{
     <div class="fc">
       <h4>Investigations</h4>
       <ul>
-        <li><a href="/investigations/national/lead-belt/">The Lead Belt (BD-INV-003)</a></li>
-        <li><a href="/investigations/national/lead-belt/visual.html">Lead Belt · Visual</a></li>
+        <li><a href="/investigations/national/lead-belt/visual.html">▶ The Lead Belt · Visual</a></li>
+        <li><a href="/investigations/national/lead-belt/">Lead Belt · Overview</a></li>
         <li><a href="/investigations/national/lead-belt/methodology.html">Lead Belt · Methodology</a></li>
-        <li><a href="/investigations/national/impunity-machine.html">The Impunity Machine</a></li>
-        <li><a href="/investigations/national/impunity-machine-visual.html">Impunity Machine · Visual</a></li>
-        <li><a href="/investigations/national/impunity-machine/tracker.html">Live Tracker</a></li>
+        <li><a href="/investigations/national/impunity-machine-visual.html">▶ Impunity Machine · Visual</a></li>
+        <li><a href="/investigations/national/impunity-machine.html">Impunity Machine · Full Report</a></li>
+        <li><a href="/investigations/national/impunity-machine/tracker.html">◉ Live Tracker</a></li>
         <li><a href="/investigations/national/blood-routes.html">Blood Routes</a></li>
+        <li><a href="/investigations/international/war-tax.html">Hidden Tax of War</a></li>
       </ul>
     </div>
     <div class="fc">
       <h4>Bureau</h4>
       <ul>
         <li><a href="/about/">About Insight Gaps</a></li>
-        <li><a href="/methods/">Methodology</a></li>
         <li><a href="/analysis/">Analysis</a></li>
-        <li><a href="/data/">Public Datasets</a></li>
+        <li><a href="/investigations/">All Investigations</a></li>
+        <li><a href="mailto:insightgaps@gmail.com">Contact</a></li>
       </ul>
     </div>
   </div>
   <div class="fb">
     <span>© 2026 Insight Gaps · CC BY-NC 4.0</span>
-    <span>insightgaps.com · Dhaka, Bangladesh</span>
+    <span>insightgaps.com · Dhaka, Bangladesh · Anonymous · Non-partisan</span>
   </div>
 </footer>
 
 <script>
-/* ════ WEATHER — OpenWeatherMap free tier ════ */
-/* Uses Open-Meteo (no API key, completely free) */
+/* WEATHER */
 (function(){
-  var LAT=23.8103,LON=90.4125; /* Dhaka */
-
-  function iconEmoji(code){
-    if(code===0)return'☀️';
-    if(code<=2)return'⛅';
-    if(code<=45)return'🌫️';
-    if(code<=55)return'🌦️';
-    if(code<=67)return'🌧️';
-    if(code<=77)return'❄️';
-    if(code<=82)return'🌦️';
-    return'⛈️';
-  }
-  function descText(code){
-    if(code===0)return'Clear';
-    if(code<=2)return'Partly cloudy';
-    if(code<=45)return'Foggy';
-    if(code<=55)return'Drizzle';
-    if(code<=67)return'Rain';
-    if(code<=77)return'Snow';
-    if(code<=82)return'Showers';
-    return'Thunderstorm';
-  }
-
+  var LAT=23.8103,LON=90.4125;
+  function iconEmoji(c){if(c===0)return'☀️';if(c<=2)return'⛅';if(c<=45)return'🌫️';if(c<=55)return'🌦️';if(c<=67)return'🌧️';if(c<=77)return'❄️';if(c<=82)return'🌦️';return'⛈️';}
+  function descText(c){if(c===0)return'Clear';if(c<=2)return'Partly cloudy';if(c<=45)return'Foggy';if(c<=55)return'Drizzle';if(c<=67)return'Rain';if(c<=77)return'Snow';if(c<=82)return'Showers';return'Thunderstorm';}
   fetch('https://api.open-meteo.com/v1/forecast?latitude='+LAT+'&longitude='+LON+'&current=temperature_2m,relative_humidity_2m,apparent_temperature,wind_speed_10m,weather_code&wind_speed_unit=kmh&timezone=Asia%2FDhaka')
-    .then(function(r){return r.json()})
-    .then(function(d){
+    .then(function(r){return r.json()}).then(function(d){
       var c=d.current;
       document.getElementById('ws-temp').textContent=Math.round(c.temperature_2m)+'°C';
       document.getElementById('ws-icon').textContent=iconEmoji(c.weather_code);
@@ -620,28 +716,18 @@ footer{
       document.getElementById('ws-feel').textContent=Math.round(c.apparent_temperature)+'°C';
       document.getElementById('ws-time').textContent='Updated '+new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
       document.getElementById('ws-date').textContent=new Date().toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});
-    }).catch(function(){
-      document.getElementById('ws-temp').textContent='Dhaka';
-      document.getElementById('ws-desc').textContent='Weather unavailable';
-    });
-
-  /* AQI for Dhaka from WAQI */
+    }).catch(function(){document.getElementById('ws-temp').textContent='Dhaka';document.getElementById('ws-desc').textContent='—';});
   fetch('https://api.waqi.info/feed/dhaka/?token=demo')
-    .then(function(r){return r.json()})
-    .then(function(d){
+    .then(function(r){return r.json()}).then(function(d){
       if(d&&d.status==='ok'&&d.data&&typeof d.data.aqi==='number'){
-        var a=d.data.aqi;
-        var el=document.getElementById('ws-aqi');
+        var a=d.data.aqi,el=document.getElementById('ws-aqi');
         el.textContent=a;
-        if(a>150)el.style.color='var(--blood)';
-        else if(a>100)el.style.color='#e07020';
-        else if(a>50)el.style.color='var(--gold)';
-        else el.style.color='#2aaa6a';
+        if(a>150)el.style.color='var(--blood)';else if(a>100)el.style.color='#e07020';else if(a>50)el.style.color='var(--gold)';else el.style.color='#2aaa6a';
       }
     }).catch(function(){});
 })();
 
-/* ════ CURRENCY ════ */
+/* CURRENCY */
 function now(){return new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',timeZoneName:'short'})}
 function setFx(id,v){var e=document.getElementById(id);if(!e)return;e.querySelector('.fx-val').textContent=v}
 fetch('https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.min.json')
@@ -656,7 +742,7 @@ fetch('https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currenci
     var ts=document.getElementById('live-ts');if(ts)ts.textContent='Updated '+now();
   }).catch(function(){});
 
-/* ════ AQI GRID ════ */
+/* AQI GRID */
 var cities=[
   {id:'dhaka',name:'Dhaka',slug:'dhaka'},{id:'delhi',name:'Delhi',slug:'delhi'},
   {id:'beijing',name:'Beijing',slug:'beijing'},{id:'london',name:'London',slug:'london'},
@@ -664,7 +750,7 @@ var cities=[
   {id:'mumbai',name:'Mumbai',slug:'mumbai'},{id:'shanghai',name:'Shanghai',slug:'shanghai'}
 ];
 function aqiCls(v){if(!v||isNaN(v))return'aqi-moderate';if(v<=50)return'aqi-good';if(v<=100)return'aqi-moderate';if(v<=150)return'aqi-sensitive';if(v<=200)return'aqi-unhealthy';return'aqi-very'}
-function aqiLbl(v){if(!v||isNaN(v))return'—';if(v<=50)return'Good';if(v<=100)return'Moderate';if(v<=150)return'Sensitive';if(v<=200)return'Unhealthy';return'V.Unhealthy'}
+function aqiLbl(v){if(!v||isNaN(v))return'—';if(v<=50)return'Good';if(v<=100)return'Moderate';if(v<=150)return'Sensitive';if(v<=200)return'Unhealthy';return'V.Unhlthy'}
 var done=0,res={};
 cities.forEach(function(c){
   fetch('https://api.waqi.info/feed/'+c.slug+'/?token=demo')
@@ -678,7 +764,7 @@ cities.forEach(function(c){
     }).catch(function(){done++;});
 });
 
-/* ════ NEWS ════ */
+/* NEWS */
 function ago(s){var m=Math.floor((new Date()-new Date(s))/60000);if(m<1)return'Just now';if(m<60)return m+'m ago';return Math.floor(m/60)+'h ago'}
 fetch('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent('https://feeds.bbci.co.uk/news/world/rss.xml')+'&count=8')
   .then(function(r){return r.json()}).then(function(d){
