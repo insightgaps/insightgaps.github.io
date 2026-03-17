@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hidden Tax of War — How Conflicts Raise Prices Paid by Countries That Didn't Fight</title>
+<meta name="description" content="A global data investigation: how armed conflict transmits economic shocks through energy, food, and shipping markets to the world's most import-dependent countries.">
+<link rel="canonical" href="https://www.insightgaps.com/investigations/international/war-tax.html">
+<meta property="og:title" content="The Hidden Tax of War">
+<meta property="og:description" content="How conflicts raise prices paid by countries that never fought. A cross-conflict data investigation covering Iraq 2003, Arab Spring 2011, Ukraine 2022, and Red Sea 2023–24.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://www.insightgaps.com/investigations/national/hero-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Hidden Tax of War">
+<meta name="twitter:description" content="Armed conflict as an economic tax on uninvolved nations. A data investigation.">
+
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  /* ─── TOKENS ─────────────────────────────────── */
+  :root {
+    --ink:      #0e0e0e;
+    --paper:    #f5f0e8;
+    --amber:    #c8881a;
+    --amber-lt: #e8b84b;
+    --rust:     #8b2e1a;
+    --slate:    #2c3e50;
+    --mist:     #7f8c8d;
+    --rule:     #d4c9b0;
+    --card:     #ede8de;
+    --white:    #ffffff;
+    --font-head: 'Playfair Display', Georgia, serif;
+    --font-body: 'Source Serif 4', Georgia, serif;
+    --font-data: 'Space Mono', monospace;
+    --max-w: 780px;
+    --wide-w: 1080px;
+  }
+
+  /* ─── RESET ──────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── READING PROGRESS ───────────────────────── */
+  #progress-bar {
+    position: fixed; top: 0; left: 0; z-index: 1000;
+    height: 3px; width: 0%;
+    background: linear-gradient(90deg, var(--amber), var(--amber-lt));
+    transition: width 0.1s linear;
+  }
+
+  /* ─── NAV ────────────────────────────────────── */
+  nav {
+    position: sticky; top: 0; z-index: 900;
+    background: rgba(245,240,232,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+    padding: 0.75rem 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-brand {
+    font-family: var(--font-data);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mist);
+  }
+  .nav-links {
+    display: flex; gap: 2rem; list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--font-data);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mist);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--amber); }
+  @media (max-width: 600px) { .nav-links { display: none; } }
+
+  /* ─── HERO ───────────────────────────────────── */
+  #hero {
+    min-height: 100vh;
+    background: var(--ink);
+    color: var(--paper);
+    display: grid;
+    grid-template-rows: 1fr auto;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 40%, rgba(200,136,26,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 80% at 20% 80%, rgba(139,46,26,0.06) 0%, transparent 50%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image:
+      linear-gradient(var(--rule) 1px, transparent 1px),
+      linear-gradient(90deg, var(--rule) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .hero-inner {
+    position: relative; z-index: 2;
+    max-width: var(--wide-w);
+    margin: 0 auto;
+    padding: 8rem 2rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  @media (max-width: 768px) {
+    .hero-inner { grid-template-columns: 1fr; padding: 6rem 1.5rem 3rem; }
+  }
+  .hero-label {
+    font-family: var(--font-data);
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 1.5rem;
+    opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
+  }
+  h1.hero-title {
+    font-family: var(--font-head);
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 900;
+    line-height: 1.0;
+    color: var(--paper);
+    margin-bottom: 1.5rem;
+    opacity: 0; animation: fadeUp 0.8s 0.4s forwards;
+  }
+  h1.hero-title em {
+    font-style: italic;
+    color: var(--amber-lt);
+  }
+  .hero-subhead {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: #c8c0b0;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0; animation: fadeUp 0.8s 0.6s forwards;
+  }
+  .hero-meta {
+    display: flex; gap: 2rem; flex-wrap: wrap;
+    opacity: 0; animation: fadeUp 0.8s 0.8s forwards;
+  }
+  .hero-meta-item {
+    font-family: var(--font-data);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mist);
+    border-top: 1px solid #333;
+    padding-top: 0.5rem;
+  }
+  .hero-meta-item strong {
+    display: block;
+    font-size: 0.7rem;
+    color: #aaa;
+    margin-top: 0.2rem;
+  }
+
+  /* ─── HERO STAT PANEL ────────────────────────── */
+  .hero-stats {
+    opacity: 0; animation: fadeUp 0.8s 0.6s forwards;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(200,136,26,0.2);
+    border-radius: 2px;
+    padding: 2rem;
+    margin-bottom: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .stat-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--amber);
+  }
+  .stat-number {
+    font-family: var(--font-data);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--amber-lt);
+    line-height: 1;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .stat-label {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: #aaa;
+    font-style: italic;
+  }
+  .stat-source {
+    font-family: var(--font-data);
+    font-size: 0.55rem;
+    color: #666;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+  }
+  .hero-scroll {
+    position: relative; z-index: 2;
+    text-align: center;
+    padding: 2rem;
+    font-family: var(--font-data);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #555;
+    opacity: 0; animation: fadeUp 0.8s 1.2s forwards;
+  }
+  .scroll-arrow {
+    display: block;
+    width: 24px; height: 24px;
+    border-right: 1px solid #555;
+    border-bottom: 1px solid #555;
+    transform: rotate(45deg);
+    margin: 0.5rem auto 0;
+    animation: bounce 2s infinite;
+  }
+
+  /* ─── WRAPPER / LAYOUT ───────────────────────── */
+  .wrapper {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  .wrapper-wide {
+    max-width: var(--wide-w);
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  section { padding: 5rem 0; }
+  section + section { border-top: 1px solid var(--rule); }
+
+  /* ─── SECTION LABELS ─────────────────────────── */
+  .section-eyebrow {
+    font-family: var(--font-data);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .section-eyebrow::after {
+    content: '';
+    flex: 1; max-width: 60px;
+    height: 1px;
+    background: var(--amber);
+    opacity: 0.4;
+  }
+
+  /* ─── TYPOGRAPHY ─────────────────────────────── */
+  h2 {
+    font-family: var(--font-head);
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+  h3 {
+    font-family: var(--font-head);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--slate);
+    margin: 2rem 0 0.75rem;
+  }
+  p { margin-bottom: 1.25rem; }
+  p:last-child { margin-bottom: 0; }
+  a { color: var(--amber); text-decoration: none; border-bottom: 1px solid rgba(200,136,26,0.3); }
+  a:hover { border-bottom-color: var(--amber); }
+  .source-ref {
+    font-family: var(--font-data);
+    font-size: 0.6rem;
+    color: var(--mist);
+    letter-spacing: 0.04em;
+    vertical-align: super;
+    border: none;
+  }
+  .source-ref:hover { color: var(--amber); border: none; }
+
+  /* ─── TL;DR BLOCK ────────────────────────────── */
+  #tldr {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 4rem 0;
+    border-top: none;
+  }
+  #tldr .wrapper {}
+  .tldr-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  @media (max-width: 768px) { .tldr-grid { grid-template-columns: 1fr; gap: 2rem; } }
+  .tldr-label {
+    font-family: var(--font-data);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 1rem;
+  }
+  .tldr-text {
+    font-size: 1rem;
+    color: #c8c0b0;
+    line-height: 1.8;
+  }
+  .key-findings {
+    list-style: none;
+  }
+  .key-findings li {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--paper);
+    padding: 1.2rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+  }
+  .key-findings li::before {
+    content: '';
+    position: absolute; left: 0; top: 1.7rem;
+    width: 6px; height: 6px;
+    background: var(--amber);
+    border-radius: 50%;
+  }
+  .key-findings li strong { color: var(--amber-lt); }
+
+  /* ─── MECHANISM ──────────────────────────────── */
+  .mechanism-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+  }
+  @media (max-width: 680px) { .mechanism-grid { grid-template-columns: 1fr; } }
+  .channel-card {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    padding: 1.75rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .channel-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+  .channel-num {
+    font-family: var(--font-data);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 0.75rem;
+  }
+  .channel-title {
+    font-family: var(--font-head);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--ink);
+  }
+  .channel-body {
+    font-size: 0.88rem;
+    color: #555;
+    line-height: 1.65;
+    margin-bottom: 0.75rem;
+  }
+  .channel-analogy {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-style: italic;
+    color: var(--slate);
+    border-left: 2px solid var(--amber);
+    padding-left: 0.75rem;
+    margin-top: 0.75rem;
+  }
+
+  /* ─── PULLQUOTE ──────────────────────────────── */
+  blockquote.pull {
+    border: none;
+    margin: 3rem 0;
+    padding: 0;
+    position: relative;
+  }
+  blockquote.pull p {
+    font-family: var(--font-head);
+    font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--slate);
+    border-left: 4px solid var(--amber);
+    padding-left: 1.5rem;
+    margin-bottom: 0;
+  }
+
+  /* ─── TABLES ─────────────────────────────────── */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 2rem 0;
+    border: 1px solid var(--rule);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-data);
+    font-size: 0.75rem;
+  }
+  thead th {
+    background: var(--slate);
+    color: var(--paper);
+    text-align: left;
+    padding: 0.9rem 1rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  tbody tr:nth-child(even) { background: #ede8de55; }
+  tbody tr:hover { background: rgba(200,136,26,0.06); }
+  tbody td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  tbody td:first-child { font-weight: 700; color: var(--slate); }
+  .table-note {
+    font-family: var(--font-data);
+    font-size: 0.62rem;
+    color: var(--mist);
+    padding: 0.6rem 1rem;
+    background: var(--card);
+    border-top: 1px solid var(--rule);
+    line-height: 1.6;
+  }
+
+  /* ─── SVG CHARTS ─────────────────────────────── */
+  .chart-wrap {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    position: relative;
+  }
+  .chart-title {
+    font-family: var(--font-data);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 1rem;
+  }
+  figcaption {
+    font-family: var(--font-data);
+    font-size: 0.62rem;
+    color: var(--mist);
+    margin-top: 0.6rem;
+    line-height: 1.6;
+  }
+
+  /* ─── CASE STUDY BLOCKS ──────────────────────── */
+  .case-header {
+    background: var(--slate);
+    color: var(--paper);
+    padding: 2.5rem;
+    margin-bottom: 0;
+  }
+  .case-header-label {
+    font-family: var(--font-data);
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber-lt);
+    margin-bottom: 0.5rem;
+  }
+  .case-header h2 {
+    color: var(--paper);
+    margin-bottom: 0.5rem;
+  }
+  .case-header p {
+    color: #aab;
+    font-size: 0.9rem;
+    margin-bottom: 0;
+    font-style: italic;
+  }
+
+  /* ─── WEI BLOCK ──────────────────────────────── */
+  #wei {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  #wei h2 { color: var(--paper); }
+  .wei-dims {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px;
+    background: #333;
+    margin: 2rem 0;
+    border: 1px solid #333;
+  }
+  @media (max-width: 768px) { .wei-dims { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .wei-dims { grid-template-columns: 1fr; } }
+  .wei-dim {
+    background: #1a1a1a;
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+  }
+  .wei-dim-num {
+    font-family: var(--font-data);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--amber);
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+  .wei-dim-name {
+    font-family: var(--font-data);
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #888;
+    line-height: 1.4;
+  }
+  .wei-note {
+    font-size: 0.9rem;
+    color: #888;
+    font-style: italic;
+    border-left: 3px solid var(--amber);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  /* ─── PATTERN SECTION ────────────────────────── */
+  .conflict-timeline {
+    position: relative;
+    margin: 2.5rem 0;
+    padding-left: 2rem;
+  }
+  .conflict-timeline::before {
+    content: '';
+    position: absolute; left: 0; top: 0.5rem; bottom: 0.5rem;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--amber), var(--rust));
+  }
+  .timeline-item {
+    position: relative;
+    padding-bottom: 2rem;
+    padding-left: 1.5rem;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute; left: -2.4rem; top: 0.4rem;
+    width: 10px; height: 10px;
+    background: var(--amber);
+    border-radius: 50%;
+    border: 2px solid var(--paper);
+  }
+  .timeline-year {
+    font-family: var(--font-data);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+  }
+  .timeline-title {
+    font-family: var(--font-head);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+  .timeline-channels {
+    font-family: var(--font-data);
+    font-size: 0.62rem;
+    color: var(--mist);
+    letter-spacing: 0.06em;
+  }
+  .channel-tag {
+    display: inline-block;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    padding: 0.15rem 0.5rem;
+    margin: 0.1rem;
+    font-size: 0.6rem;
+    font-family: var(--font-data);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+  .channel-tag.active {
+    background: var(--amber);
+    border-color: var(--amber);
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  /* ─── BANGLADESH BRIDGE ──────────────────────── */
+  #bd-bridge {
+    background: var(--card);
+    border-left: 4px solid var(--amber);
+    padding: 2.5rem;
+    margin: 3rem 0;
+  }
+  #bd-bridge h3 {
+    font-family: var(--font-data);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 0.75rem;
+    margin-top: 0;
+  }
+  #bd-bridge p {
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-bottom: 1rem;
+  }
+  .btn {
+    display: inline-block;
+    font-family: var(--font-data);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.75rem 1.5rem;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    text-decoration: none;
+    transition: background 0.2s;
+    cursor: pointer;
+  }
+  .btn:hover { background: var(--amber); color: var(--ink); border-bottom: none; }
+  .btn-outline {
+    background: transparent;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    margin-left: 1rem;
+  }
+  .btn-outline:hover { background: var(--ink); color: var(--paper); }
+
+  /* ─── COLLAPSIBLE ────────────────────────────── */
+  details {
+    border: 1px solid var(--rule);
+    margin: 1rem 0;
+  }
+  summary {
+    padding: 1rem 1.5rem;
+    font-family: var(--font-data);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    user-select: none;
+    color: var(--slate);
+    background: var(--card);
+    list-style: none;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  summary::after { content: '+'; font-size: 1rem; color: var(--amber); }
+  details[open] summary::after { content: '−'; }
+  details[open] summary { border-bottom: 1px solid var(--rule); }
+  .details-body {
+    padding: 1.5rem;
+    font-size: 0.88rem;
+    line-height: 1.75;
+    color: #444;
+  }
+  .details-body p { margin-bottom: 1rem; }
+  .details-body h4 {
+    font-family: var(--font-data);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin: 1.5rem 0 0.5rem;
+  }
+
+  /* ─── CTA / DOWNLOAD ─────────────────────────── */
+  .download-bar {
+    background: var(--amber);
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 3rem 0;
+  }
+  .download-bar p {
+    font-family: var(--font-data);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin: 0;
+    font-weight: 700;
+  }
+  .download-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .download-links a {
+    font-family: var(--font-data);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+    padding-bottom: 1px;
+  }
+  .download-links a:hover { border-bottom-color: var(--ink); }
+
+  /* ─── FOOTER ─────────────────────────────────── */
+  footer {
+    background: var(--ink);
+    color: #666;
+    padding: 4rem 0 2rem;
+    font-family: var(--font-data);
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #222;
+    margin-bottom: 1.5rem;
+  }
+  @media (max-width: 640px) { .footer-grid { grid-template-columns: 1fr; gap: 2rem; } }
+  .footer-col-title {
+    color: var(--amber);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 1rem;
+    font-size: 0.58rem;
+  }
+  .footer-col p, .footer-col li { line-height: 2; color: #555; }
+  .footer-col ul { list-style: none; }
+  .footer-col a { color: #555; border: none; }
+  .footer-col a:hover { color: var(--amber); }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-bottom p { color: #333; font-size: 0.58rem; }
+
+  /* ─── ANIMATIONS ─────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes bounce {
+    0%, 100% { transform: rotate(45deg) translateY(0); }
+    50% { transform: rotate(45deg) translateY(4px); }
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── UTILITY ────────────────────────────────── */
+  .text-amber { color: var(--amber); }
+  .text-muted { color: var(--mist); font-style: italic; }
+  .mono { font-family: var(--font-data); }
+  .mt-2 { margin-top: 2rem; }
+  .mb-2 { margin-bottom: 2rem; }
+  hr.section-rule {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 3rem 0;
+  }
+</style>
+</head>
+
+<body>
+
+<div id="progress-bar"></div>
+
+<!-- ══ NAV ══════════════════════════════════════════ -->
+<nav role="navigation" aria-label="Site navigation">
+  <a href="/" class="nav-brand" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;font-family:'Space Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mist);border:1px solid var(--rule);padding:5px 12px;border-radius:2px;transition:color .15s,border-color .15s;" onmouseover="this.style.color=var('--amber');this.style.borderColor='var(--amber)';" onmouseout="this.style.color='var(--mist)';this.style.borderColor='var(--rule)';">
+    ← Insight Gaps
+  </a>
+  <ul class="nav-links">
+    <li><a href="#mechanism">Mechanism</a></li>
+    <li><a href="#ukraine">Ukraine</a></li>
+    <li><a href="#redsea">Red Sea</a></li>
+    <li><a href="#pattern">Pattern</a></li>
+    <li><a href="#wei">WEI</a></li>
+    <li><a href="#methodology">Method</a></li>
+  </ul>
+</nav>
+
+<!-- ══ HERO ═════════════════════════════════════════ -->
+<header id="hero" role="banner">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+
+  <div class="hero-inner wrapper-wide">
+    <div class="hero-left">
+      <p class="hero-label">Global Data Investigation · 2025</p>
+      <h1 class="hero-title">The <em>Hidden</em><br>Tax of War</h1>
+      <p class="hero-subhead">How armed conflicts raise the cost of living for countries that never voted for them — transmitted through energy, food, and shipping markets.</p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">Scope<strong>4 Conflicts · 2003–2024</strong></div>
+        <div class="hero-meta-item">Framework<strong>War Externality Index</strong></div>
+        <div class="hero-meta-item">Read time<strong>~9 minutes</strong></div>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat-card">
+        <span class="stat-number" data-target="71">0</span><span class="stat-number">%</span>
+        <span class="stat-label">Estimated wheat price increase in 8 weeks — Feb to March 2022</span>
+        <p class="stat-source">CBOT settlement data · conservative range 65–72%</p>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" data-target="233">0</span><span class="stat-number">%</span>
+        <span class="stat-label">Container freight rate increase on Asia–Europe routes, Nov 2023 to Jan 2024</span>
+        <p class="stat-source">Freightos Baltic Index · range 200–250%</p>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">$8–12B</span>
+        <span class="stat-label">Conservative estimate of additional food import costs, low-income net food importers, 2022 alone</span>
+        <p class="stat-source">IMF · World Bank · FAO · direct transmission only</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll" aria-hidden="true">
+    Scroll to read
+    <span class="scroll-arrow"></span>
+  </div>
+</header>
+
+<!-- ══ TL;DR ═════════════════════════════════════════ -->
+<section id="tldr" aria-labelledby="tldr-heading">
+  <div class="wrapper">
+    <div class="tldr-grid">
+      <div>
+        <p class="tldr-label">Executive Summary</p>
+        <p class="tldr-text">This investigation examines how armed conflict functions as an involuntary economic tax on countries with no involvement in hostilities. Drawing on data from four conflicts across two decades, it identifies a repeating transmission pattern: conflict disrupts energy supplies, food commodity markets, and maritime shipping simultaneously. Price shocks travel through global trade networks and are absorbed disproportionately by import-dependent, low-income countries.</p>
+        <p class="tldr-text" style="margin-top:1rem;">The investigation introduces the <strong style="color:var(--amber-lt)">War Externality Index (WEI)</strong> — a comparative classification framework scoring countries on five structural dimensions of exposure. The same countries appear in the highest vulnerability tier across all four conflicts. All data is drawn from public institutional sources. Estimates are conservative and reflect direct price transmission only.</p>
+      </div>
+      <div>
+        <p class="tldr-label">Key Findings</p>
+        <ul class="key-findings" role="list">
+          <li>Every major armed conflict since 2003 has activated the same three economic transmission channels — and the same group of countries has absorbed the cost each time.</li>
+          <li><strong>Low-income net food importers</strong> paid an estimated USD 8–12 billion in additional food import costs in 2022 alone, before accounting for energy or shipping increases.</li>
+          <li>Bottom-quintile households in high-WEI countries lost an estimated <strong>3–8% of real income</strong> to war-aligned commodity shocks in 2022 — compared to 0.8–1.2% for top-quintile households in the same countries.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MECHANISM ═════════════════════════════════════ -->
+<section id="mechanism" aria-labelledby="mechanism-heading">
+  <div class="wrapper">
+    <p class="section-eyebrow">How It Works</p>
+    <h2 id="mechanism-heading">Three Channels. One Pattern.</h2>
+    <p>Armed conflict activates up to three simultaneous price transmission channels. Each operates through global markets, respects no political borders, and lands with compounded force on countries whose structural characteristics leave them with the least capacity to absorb the cost. These channels are explained here once. All later sections assume reader familiarity and present evidence only.</p>
+
+    <div class="mechanism-grid">
+      <article class="channel-card reveal">
+        <p class="channel-num">Channel 01</p>
+        <p class="channel-title">Energy</p>
+        <p class="channel-body">Conflict disrupts oil and gas supply or transit routes. Benchmark prices rise globally. Every net energy-importing country pays more — with the cost compounded by currency depreciation in vulnerable economies.</p>
+        <p class="channel-analogy">"A single broken pipe raises pressure throughout the entire network."</p>
+      </article>
+      <article class="channel-card reveal" style="transition-delay:0.1s">
+        <p class="channel-num">Channel 02</p>
+        <p class="channel-title">Food</p>
+        <p class="channel-body">Conflict zones are often major agricultural exporters. When supply is removed from the market, global commodity prices spike. Countries with concentrated import pipelines face both the price increase and accelerated supply competition.</p>
+        <p class="channel-analogy">"Remove one major water source and every downstream user pays the scarcity premium."</p>
+      </article>
+      <article class="channel-card reveal" style="transition-delay:0.2s">
+        <p class="channel-num">Channel 03</p>
+        <p class="channel-title">Shipping</p>
+        <p class="channel-body">Conflict near shipping lanes triggers route diversion and war-risk insurance premiums. Every traded good on affected routes costs more to import — and small, high-dependency importers have least leverage to negotiate alternatives.</p>
+        <p class="channel-analogy">"When one road closes, every vehicle on the detour pays for the extra distance."</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══ UKRAINE CASE STUDY ════════════════════════════ -->
+<section id="ukraine" aria-labelledby="ukraine-heading">
+  <div class="wrapper">
+    <div class="case-header" style="margin: 0 -2rem 2rem; padding: 2.5rem 2rem;">
+      <p class="case-header-label">Case Study One · All Three Channels</p>
+      <h2 id="ukraine-heading" style="color:var(--paper); margin-bottom:0.4rem;">The Russia-Ukraine War, 2022</h2>
+      <p style="color:#aab; font-style:italic; font-size:0.9rem;">The largest concurrent activation of all three channels since the 2008 commodity crisis.</p>
+    </div>
+
+    <p>The full-scale Russian invasion of Ukraine on February 24, 2022 produced the most significant concurrent commodity price shock in this investigation's scope. All three transmission channels activated simultaneously — wheat supply disruption, oil price escalation, and compounding container freight stress — arriving in household budgets of high-WEI countries before institutional responses were possible.</p>
+
+    <p>Ukraine's Black Sea ports, through which the majority of its grain exports move, were effectively closed from the first weeks of conflict. The period from February through July 2022 represented a near-complete interruption of Ukrainian wheat export capacity. Russia — the world's largest wheat exporter — faced simultaneous sanctions-driven trade uncertainty. The combined effect pushed wheat futures to levels not seen since the 2008 food crisis. <a href="https://www.cmegroup.com/" class="source-ref" target="_blank" rel="noopener">[CBOT]</a></p>
+
+    <!-- WHEAT PRICE CHART -->
+    <figure class="chart-wrap reveal" aria-label="Wheat price movement chart">
+      <p class="chart-title">CBOT Wheat Futures — Jan 2021 to Dec 2022 (USD per metric ton, indicative range)</p>
+      <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Line chart showing wheat price rising from around USD 220 in Jan 2021 to a peak of approximately USD 490 in March 2022, then declining to around USD 280 by Dec 2022">
+        <defs>
+          <linearGradient id="wheatGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#c8881a" stop-opacity="0.3"/>
+            <stop offset="100%" stop-color="#c8881a" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <!-- Grid lines -->
+        <line x1="60" y1="20" x2="680" y2="20" stroke="#d4c9b0" stroke-width="0.5"/>
+        <line x1="60" y1="60" x2="680" y2="60" stroke="#d4c9b0" stroke-width="0.5"/>
+        <line x1="60" y1="100" x2="680" y2="100" stroke="#d4c9b0" stroke-width="0.5"/>
+        <line x1="60" y1="140" x2="680" y2="140" stroke="#d4c9b0" stroke-width="0.5"/>
+        <line x1="60" y1="180" x2="680" y2="180" stroke="#d4c9b0" stroke-width="0.5"/>
+        <!-- Y-axis labels -->
+        <text x="50" y="23" font-family="Space Mono, monospace" font-size="9" fill="#7f8c8d" text-anchor="end">500</text>
+        <text x="50" y="63" font-family="Space Mono, monospace" font-size="9" fill="#7f8c8d" text-anchor="end">400</text>
+        <text x="50" y="103" font-family="Space Mono, monospace" font-size="9" fill="#7f8c8d" text-anchor="end">300</text>
+        <text x="50" y="143" font-family="Space Mono, monospace" font-size="9" fill="#7f8c8d" text-anchor="end">200</text>
+        <text x="50" y="183" font-family="Space Mono, monospace" font-size="9" fill="#7f8c8d" text-anchor="end">100</text>
+        <!-- X-axis labels -->
+        <text x="60" y="196" font-family="Space Mono, monospace" font-size="8" fill="#7f8c8d">Jan 21</text>
+        <text x="185" y="196" font-family="Space Mono, monospace" font-size="8" fill="#7f8c8d">Jul 21</text>
+        <text x="310" y="196" font-family="Space Mono, monospace" font-size="8" fill="#7f8c8d">Jan 22</text>
+        <text x="435" y="196" font-family="Space Mono, monospace" font-size="8" fill="#7f8c8d">Jul 22</text>
+        <text x="560" y="196" font-family="Space Mono, monospace" font-size="8" fill="#7f8c8d">Jan 23</text>
+        <!-- Shaded range band -->
+        <polygon points="60,155 120,148 180,140 240,125 300,118 360,28 400,22 440,30 480,55 520,85 580,100 640,108 680,112 680,180 640,175 580,168 520,158 480,130 440,105 400,95 360,100 300,140 240,155 180,165 120,170 60,175" fill="url(#wheatGrad)"/>
+        <!-- Main price line -->
+        <polyline points="60,157 120,149 180,141 240,126 300,119 360,25 400,20 440,32 480,58 520,87 580,102 640,110 680,113" fill="none" stroke="#c8881a" stroke-width="2.5" stroke-linejoin="round"/>
+        <!-- Invasion marker -->
+        <line x1="310" y1="15" x2="310" y2="185" stroke="#8b2e1a" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="314" y="28" font-family="Space Mono, monospace" font-size="8" fill="#8b2e1a">Invasion</text>
+        <text x="314" y="38" font-family="Space Mono, monospace" font-size="8" fill="#8b2e1a">Feb 24</text>
+        <!-- Peak label -->
+        <circle cx="400" cy="20" r="4" fill="#c8881a"/>
+        <text x="404" y="16" font-family="Space Mono, monospace" font-size="8" fill="#c8881a">~$490 peak</text>
+        <!-- Start label -->
+        <circle cx="60" cy="157" r="3" fill="#7f8c8d"/>
+        <text x="64" y="153" font-family="Space Mono, monospace" font-size="8" fill="#7f8c8d">~$220</text>
+      </svg>
+      <figcaption>CBOT wheat futures, indicative price range Jan 2021–Dec 2022. Shaded band represents price range uncertainty. Exact figures vary by contract month. <span class="text-muted">Source: CBOT / CME Group. Conservative range: +65 to +72% peak-to-trough, Feb–Mar 2022.</span></figcaption>
+    </figure>
+
+    <p>The inequality of impact is measurable at the household level. IMF spillover analysis found food price inflation in low-income countries averaged 12–15 percentage points higher than in advanced economies during 2022. World Bank household survey data from twelve developing countries found bottom-quintile households lost an estimated 3–5% of real income to food price inflation — versus 0.8–1.2% for top-quintile households in the same countries. <a href="https://www.imf.org" class="source-ref" target="_blank" rel="noopener">[IMF]</a><a href="https://www.worldbank.org" class="source-ref" target="_blank" rel="noopener">[WB]</a></p>
+
+    <p>Currency depreciation compounded food channel effects. Bangladesh's taka depreciated approximately 20–25% against the USD in 2022. Sri Lanka's rupee fell approximately 40–45% — driven by pre-existing fiscal fragility that the commodity shock accelerated. The war did not cause all inflation in these countries. It contributed a measurable, war-aligned component through identified channels.</p>
+
+    <div class="table-wrap reveal">
+      <table>
+        <caption style="text-align:left; font-family:var(--font-data); font-size:0.65rem; padding:0.5rem 0; letter-spacing:0.06em; text-transform:uppercase; color:var(--mist);">Selected High-WEI Countries — Ukraine War Impact, 2022</caption>
+        <thead>
+          <tr>
+            <th>Country</th>
+            <th>Wheat import share from RU/UA</th>
+            <th>Food CPI change 2022</th>
+            <th>Reserve buffer (pre-invasion)</th>
+            <th>Est. bottom-quintile real income loss</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Egypt</td><td>~70–80%</td><td>+21% approx.</td><td>~4–5 months</td><td>5–7% (conservative range)</td></tr>
+          <tr><td>Bangladesh</td><td>~40–55%</td><td>+8–9% (food)</td><td>~4–5 months</td><td>3.5–5% (conservative range)</td></tr>
+          <tr><td>Ethiopia</td><td>~35–45%</td><td>+30–35% approx.</td><td>~1–2 months</td><td>6–9% (conservative range)</td></tr>
+          <tr><td>Sri Lanka</td><td>~60–70%</td><td>+45% approx.</td><td>&lt;1 month (crisis)</td><td>8–11% (conservative range)</td></tr>
+          <tr><td>Pakistan</td><td>~30–40%</td><td>+22–24% approx.</td><td>~2–3 months</td><td>4.5–6.5% (conservative range)</td></tr>
+          <tr><td>Tunisia</td><td>~45–55%</td><td>+10–12% approx.</td><td>~3 months</td><td>3.8–5.5% (conservative range)</td></tr>
+        </tbody>
+      </table>
+      <div class="table-note">Sources: UN Comtrade (import shares); IMF WEO &amp; World Bank (food CPI); IMF IFS (reserves). Real income loss estimates are conservative direct-transmission ranges from World Bank cross-country household survey analysis. All figures are indicative ranges, not point estimates.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ RED SEA CASE STUDY ════════════════════════════ -->
+<section id="redsea" aria-labelledby="redsea-heading">
+  <div class="wrapper">
+    <div class="case-header" style="margin: 0 -2rem 2rem; padding: 2.5rem 2rem; background: #3d2b1a;">
+      <p class="case-header-label">Case Study Two · Shipping Channel</p>
+      <h2 id="redsea-heading" style="color:var(--paper); margin-bottom:0.4rem;">The Red Sea Crisis, 2023–24</h2>
+      <p style="color:#aab; font-style:italic; font-size:0.9rem;">A sustained shipping shock layered onto commodity markets still recovering from 2022.</p>
+    </div>
+
+    <p>Beginning October 2023, Houthi forces conducted attacks on commercial vessels in the Red Sea and Bab-el-Mandeb strait. By December 2023, major container carriers had suspended Red Sea transits. The crisis activated the shipping channel in near-isolation — operating as an additional cost layer on a market environment that had not fully normalised from 2022.</p>
+
+    <p>Route diversion from the Suez Canal to the Cape of Good Hope added approximately 3,000–3,500 nautical miles per voyage — 10 to 14 additional sailing days at standard commercial speeds. Each additional day represents direct fuel cost, crew cost, and reduced fleet capacity as vessels complete fewer annual round trips. <a href="https://unctad.org" class="source-ref" target="_blank" rel="noopener">[UNCTAD]</a></p>
+
+    <!-- FREIGHT RATE BAR CHART -->
+    <figure class="chart-wrap reveal" aria-label="Container freight rate bar chart">
+      <p class="chart-title">Container Freight Rates — Before vs. Peak Crisis (USD per FEU, approximate ranges)</p>
+      <svg viewBox="0 0 660 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart comparing freight rates before and during Red Sea crisis on three major routes. All routes showed 200-250% increases.">
+        <defs>
+          <pattern id="hatch" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
+            <line x1="0" y1="0" x2="0" y2="6" stroke="#c8881a" stroke-width="1.5"/>
+          </pattern>
+        </defs>
+        <!-- Labels -->
+        <text x="110" y="195" font-family="Space Mono" font-size="7.5" fill="#555" text-anchor="middle">Shanghai–Europe</text>
+        <text x="330" y="195" font-family="Space Mono" font-size="7.5" fill="#555" text-anchor="middle">Shanghai–E. Africa</text>
+        <text x="550" y="195" font-family="Space Mono" font-size="7.5" fill="#555" text-anchor="middle">Asia–South Asia</text>
+        <!-- Legend -->
+        <rect x="30" y="8" width="12" height="10" fill="#2c3e50"/>
+        <text x="46" y="17" font-family="Space Mono" font-size="8" fill="#555">Nov 2023 (pre-crisis)</text>
+        <rect x="200" y="8" width="12" height="10" fill="url(#hatch)" stroke="#c8881a" stroke-width="1"/>
+        <text x="216" y="17" font-family="Space Mono" font-size="8" fill="#555">Jan–Feb 2024 (peak)</text>
+        <!-- Route 1 -->
+        <rect x="55" y="153" width="45" height="27" fill="#2c3e50"/>
+        <text x="77" y="162" font-family="Space Mono" font-size="7" fill="white" text-anchor="middle">~$1,500</text>
+        <rect x="120" y="50" width="45" height="130" fill="url(#hatch)" stroke="#c8881a" stroke-width="1"/>
+        <text x="142" y="62" font-family="Space Mono" font-size="7" fill="#c8881a" text-anchor="middle">~$5,200</text>
+        <!-- Route 2 -->
+        <rect x="275" y="162" width="45" height="18" fill="#2c3e50"/>
+        <text x="297" y="174" font-family="Space Mono" font-size="7" fill="white" text-anchor="middle">~$1,200</text>
+        <rect x="340" y="68" width="45" height="112" fill="url(#hatch)" stroke="#c8881a" stroke-width="1"/>
+        <text x="362" y="80" font-family="Space Mono" font-size="7" fill="#c8881a" text-anchor="middle">~$4,000</text>
+        <!-- Route 3 -->
+        <rect x="495" y="167" width="45" height="13" fill="#2c3e50"/>
+        <text x="517" y="178" font-family="Space Mono" font-size="7" fill="white" text-anchor="middle">~$1,000</text>
+        <rect x="560" y="80" width="45" height="100" fill="url(#hatch)" stroke="#c8881a" stroke-width="1"/>
+        <text x="582" y="92" font-family="Space Mono" font-size="7" fill="#c8881a" text-anchor="middle">~$3,100</text>
+        <!-- Axis -->
+        <line x1="30" y1="180" x2="640" y2="180" stroke="#d4c9b0" stroke-width="1"/>
+      </svg>
+      <figcaption>Approximate freight rate ranges before and at crisis peak. Exact rates varied by carrier, vessel type, and contract terms. <span class="text-muted">Source: Freightos Baltic Index; Lloyd's List; UNCTAD Maritime Review 2024. All figures are indicative ranges.</span></figcaption>
+    </figure>
+
+    <div class="table-wrap reveal">
+      <table>
+        <caption style="text-align:left; font-family:var(--font-data); font-size:0.65rem; padding:0.5rem 0; letter-spacing:0.06em; text-transform:uppercase; color:var(--mist);">Red Sea Crisis — Freight Rate Movements by Route</caption>
+        <thead>
+          <tr><th>Route</th><th>Nov 2023 (approx.)</th><th>Jan–Feb 2024 peak</th><th>Approx. change</th><th>Primary exposed importers</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Shanghai – Rotterdam</td><td>~USD 1,500/FEU</td><td>~USD 5,000–5,500</td><td>+230–270%</td><td>South Asia, East Africa, MENA</td></tr>
+          <tr><td>Shanghai – East Africa</td><td>~USD 1,200/FEU</td><td>~USD 3,800–4,200</td><td>+215–250%</td><td>Kenya, Ethiopia, Tanzania</td></tr>
+          <tr><td>Asia – South Asia</td><td>~USD 900–1,100/FEU</td><td>~USD 2,800–3,400</td><td>+190–240%</td><td>Bangladesh, Pakistan, India</td></tr>
+          <tr><td>War risk insurance</td><td>Near zero</td><td>~0.5–1% vessel value/voyage</td><td>New cost layer</td><td>All Red Sea–dependent routes</td></tr>
+        </tbody>
+      </table>
+      <div class="table-note">Sources: Freightos Baltic Index; Lloyd's List; UNCTAD Maritime Review 2024. Rates are approximate ranges; contract terms, vessel type, and carrier vary significantly.</div>
+    </div>
+
+    <p>Countries most exposed to the shipping channel are precisely those the WEI identifies as most structurally vulnerable: high-import-dependency nations with limited capacity to negotiate preferential freight terms or substitute through alternative routes. Bangladesh imports approximately 85% of its raw cotton, significant wheat volumes, and refined petroleum through routes influenced by Red Sea freight pricing — meaning the cost increase embedded across multiple import categories simultaneously.</p>
+  </div>
+</section>
+
+<!-- ══ PATTERN SECTION ═══════════════════════════════ -->
+<section id="pattern" aria-labelledby="pattern-heading">
+  <div class="wrapper">
+    <p class="section-eyebrow">The Core Finding</p>
+    <h2 id="pattern-heading">One Mechanism. Four Conflicts. Same Countries.</h2>
+
+    <p>The central finding of this investigation is not specific to any single war. It is the structural consistency of the transmission pattern across four geographically, politically, and militarily distinct conflicts over two decades.</p>
+
+    <blockquote class="pull reveal">
+      <p>The conflict's geography changes. Its political context changes. Its military dynamics change. The transmission pathway does not.</p>
+    </blockquote>
+
+    <div class="conflict-timeline reveal">
+      <div class="timeline-item">
+        <p class="timeline-year">2003–2004</p>
+        <p class="timeline-title">Iraq War</p>
+        <span class="channel-tag active">Energy</span>
+        <span class="channel-tag">Food</span>
+        <span class="channel-tag">Shipping</span>
+        <p style="font-size:0.85rem; color:var(--mist); margin-top:0.5rem;">Brent Crude: ~+100% over 18 months. Primary exposed: Sub-Saharan Africa, South Asia, Central Asia.</p>
+      </div>
+      <div class="timeline-item">
+        <p class="timeline-year">2011</p>
+        <p class="timeline-title">Arab Spring / Libya</p>
+        <span class="channel-tag active">Energy</span>
+        <span class="channel-tag active">Food</span>
+        <span class="channel-tag">Shipping</span>
+        <p style="font-size:0.85rem; color:var(--mist); margin-top:0.5rem;">Oil ~+50%; FAO Food Price Index peak. Exposed: Egypt, Tunisia, Yemen, Jordan, Bangladesh.</p>
+      </div>
+      <div class="timeline-item">
+        <p class="timeline-year">2022</p>
+        <p class="timeline-title">Russia-Ukraine War</p>
+        <span class="channel-tag active">Energy</span>
+        <span class="channel-tag active">Food</span>
+        <span class="channel-tag active">Shipping</span>
+        <p style="font-size:0.85rem; color:var(--mist); margin-top:0.5rem;">All three channels simultaneously. Largest concurrent shock in study period. Exposed: Bangladesh, Egypt, Ethiopia, Sri Lanka, Pakistan.</p>
+      </div>
+      <div class="timeline-item">
+        <p class="timeline-year">2023–24</p>
+        <p class="timeline-title">Red Sea Crisis</p>
+        <span class="channel-tag">Energy</span>
+        <span class="channel-tag">Food</span>
+        <span class="channel-tag active">Shipping</span>
+        <p style="font-size:0.85rem; color:var(--mist); margin-top:0.5rem;">Shipping channel dominant; layered on unresolved 2022 commodity stress. Ongoing as of mid-2024. Exposed: Bangladesh, Kenya, Ethiopia, Pakistan, India.</p>
+      </div>
+    </div>
+
+    <div class="table-wrap reveal">
+      <table>
+        <caption style="text-align:left; font-family:var(--font-data); font-size:0.65rem; padding:0.5rem 0; letter-spacing:0.06em; text-transform:uppercase; color:var(--mist);">The Pattern — Four Conflicts, Recurring High-Exposure Countries</caption>
+        <thead>
+          <tr><th>Conflict</th><th>Dominant channel</th><th>Est. welfare cost, bottom quintile</th><th>Recurring high-WEI countries</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Iraq War 2003</td><td>Energy</td><td>~1.5–2.5% real income</td><td>Ethiopia, Bangladesh, Nepal, Central Africa</td></tr>
+          <tr><td>Arab Spring 2011</td><td>Energy + Food</td><td>~2.5–4.5% real income</td><td>Egypt, Tunisia, Yemen, Bangladesh, Jordan</td></tr>
+          <tr><td>Ukraine 2022</td><td>Food + Energy + Shipping</td><td>~3.5–8% real income</td><td>Bangladesh, Egypt, Ethiopia, Sri Lanka, Pakistan</td></tr>
+          <tr><td>Red Sea 2023–24</td><td>Shipping</td><td>~0.8–2.5% real income (ongoing)</td><td>Bangladesh, Kenya, Ethiopia, Pakistan, India</td></tr>
+        </tbody>
+      </table>
+      <div class="table-note">Welfare cost estimates: conservative, direct price transmission effects on bottom-quintile households. Sources: IMF, World Bank PovcalNet, academic pass-through literature. The repetition of country names across rows is the primary analytical finding.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WEI ═══════════════════════════════════════════ -->
+<section id="wei" aria-labelledby="wei-heading">
+  <div style="background:var(--ink); padding: 5rem 0;">
+    <div class="wrapper">
+      <p class="section-eyebrow" style="color:var(--amber);">Original Framework</p>
+      <h2 id="wei-heading" style="color:var(--paper);">War Externality Index</h2>
+      <p style="color:#aaa; max-width:620px;">The WEI is a comparative classification framework — not a welfare loss calculator or a moral ranking. It identifies which countries are structurally positioned to absorb conflict-driven commodity shocks, and why the same countries appear across multiple conflicts. Scores reflect position in global trade architecture, not governance quality.</p>
+
+      <div class="wei-dims" role="list" aria-label="Five WEI dimensions">
+        <div class="wei-dim" role="listitem">
+          <span class="wei-dim-num">01</span>
+          <span class="wei-dim-name">Food Import<br>Dependency</span>
+        </div>
+        <div class="wei-dim" role="listitem">
+          <span class="wei-dim-num">02</span>
+          <span class="wei-dim-name">Energy Import<br>Dependency</span>
+        </div>
+        <div class="wei-dim" role="listitem">
+          <span class="wei-dim-num">03</span>
+          <span class="wei-dim-name">Foreign Reserve<br>Buffer</span>
+        </div>
+        <div class="wei-dim" role="listitem">
+          <span class="wei-dim-num">04</span>
+          <span class="wei-dim-name">Currency<br>Vulnerability</span>
+        </div>
+        <div class="wei-dim" role="listitem">
+          <span class="wei-dim-num">05</span>
+          <span class="wei-dim-name">Fiscal<br>Space</span>
+        </div>
+      </div>
+
+      <p class="wei-note">High-WEI countries are not unlucky. They are structurally exposed — by import concentration, shallow fiscal buffers, and limited monetary resilience. These characteristics predate every conflict in this study. That is why the same countries absorb the cost each time.</p>
+
+      <details>
+        <summary>Full WEI Methodology</summary>
+        <div class="details-body">
+          <h4>Food Import Dependency</h4>
+          <p>Measured as the percentage of food calories consumed that are sourced through imports. High-exposure threshold: &gt;40% of food calories. Source: FAO food balance sheets. Countries exceeding this threshold face direct exposure to global commodity price movements with limited domestic substitution. The threshold is drawn from FAO food security literature on structural import dependency.</p>
+          <h4>Energy Import Dependency</h4>
+          <p>Percentage of primary energy consumed that is imported. High-exposure threshold: &gt;70% of petroleum products. Source: IEA / World Bank energy data. Above this level, transport, agriculture, and manufacturing costs rise simultaneously during energy price shocks, creating a broad-based cost increase that cannot be isolated to a single sector.</p>
+          <h4>Foreign Reserve Buffer</h4>
+          <p>Central bank reserves expressed as months of import cover. High-exposure threshold: &lt;3 months, per IMF minimum adequacy benchmark. Source: IMF International Financial Statistics. Countries below this threshold have limited capacity to defend their currency or finance temporary import cost increases through reserve drawdown, meaning commodity shocks pass directly into domestic prices.</p>
+          <h4>Currency Vulnerability</h4>
+          <p>Local currency depreciation against the USD over a preceding two-year window. High-exposure threshold: &gt;20% depreciation. Source: BIS exchange rate data. Most commodity trade is denominated in USD; a depreciating currency creates a multiplicative (not additive) cost effect when combined with commodity price increases.</p>
+          <h4>Fiscal Space</h4>
+          <p>Government capacity to deploy subsidies, cash transfers, or duty adjustments. Measured through debt-to-GDP ratio, fiscal deficit position, and domestic revenue capacity. High-exposure threshold: debt &gt;80% GDP + deficit &gt;5%. Source: IMF Fiscal Monitor. Constrained fiscal space means commodity price shocks pass through to household budgets more completely, as governments cannot sustain cushioning measures.</p>
+          <h4>Important caveats</h4>
+          <p>The WEI does not produce a single composite score in this publication, as weighting choices would introduce analytical assumptions beyond what the data supports. The five dimensions are used qualitatively to classify countries into exposure tiers. A quantitative scoring version with explicit weighting rationale is under development and will be published in the companion technical note. All dimension data is publicly available and independently verifiable from the cited sources.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHAT WOULD CHANGE THIS ════════════════════════ -->
+<section id="response" aria-labelledby="response-heading">
+  <div class="wrapper">
+    <p class="section-eyebrow">Evidence from Peer Cases</p>
+    <h2 id="response-heading">What the Data Suggests Helps</h2>
+    <p>This section presents structural interventions that the cross-conflict data supports as having reduced transmission costs in specific peer cases. These are observations from evidence, not policy prescriptions.</p>
+    <h3>Strategic commodity reserves</h3>
+    <p>Countries maintaining above 90 days of domestic cereal stock coverage experienced food price inflation 3–7 percentage points below countries with fewer than 30 days of coverage during commodity shock periods, based on World Bank cross-country analysis. India's stock release during the 2022 price spike contributed to food CPI running below regional peer averages for the first half of the year. Reserve maintenance has direct fiscal costs. Evidence consistently suggests those costs are smaller than the welfare costs of absorbing uncushioned shocks. <a href="https://www.worldbank.org" class="source-ref" target="_blank" rel="noopener">[WB]</a></p>
+    <h3>Import diversification</h3>
+    <p>Countries that maintained supply relationships across multiple exporting regions before 2022 were better positioned to source alternative wheat supply when Black Sea exports were disrupted — accepting moderately higher prices rather than facing acute supply compression. Diversification in normal periods typically involves a cost premium. The cross-conflict evidence suggests that premium functions as insurance with positive expected value. <a href="https://www.fao.org" class="source-ref" target="_blank" rel="noopener">[FAO]</a></p>
+    <h3>Scalable social protection</h3>
+    <p>Countries with functioning cash transfer or food voucher infrastructure deployed targeted support to affected households within weeks of the 2022 price surge. Countries without such infrastructure faced the choice between expensive untargeted subsidies or no response. Building social protection delivery capacity during non-crisis periods is the preparatory investment the evidence most consistently supports.</p>
+  </div>
+</section>
+
+<!-- ══ CLOSING ═══════════════════════════════════════ -->
+<section id="closing" aria-labelledby="closing-heading" style="background:var(--card);">
+  <div class="wrapper">
+    <p class="section-eyebrow">Conclusion</p>
+    <h2 id="closing-heading">The Tax Collector Nobody Elected</h2>
+
+    <p>Across four conflicts and approximately two decades, the same structural outcome recurs: armed conflict produces commodity price increases absorbed, disproportionately, by low-income import-dependent countries with no involvement in the hostilities. The mechanism is not unpredictable. The countries most exposed are not unknown. The transmission channels are not novel.</p>
+
+    <blockquote class="pull">
+      <p>Conservative estimates suggest low-income net food importers paid USD 8–12 billion in additional food import costs in 2022 alone — before energy or shipping costs. The full figure, across all three channels and all four conflicts, is not calculable with the precision this investigation's data discipline permits. It is substantially larger.</p>
+    </blockquote>
+
+    <p>The wars examined here have ended or continue. The structural conditions that make certain countries absorb their economic costs remain. The next conflict will activate the same channels. The same countries will appear in the same exposure tier. This investigation cannot prevent that. It can document that the invoice exists, specify its approximate value, and identify the structural conditions that will generate it again.</p>
+
+    <p style="font-family:var(--font-data); font-size:0.75rem; letter-spacing:0.06em; color:var(--rust); margin-top:2rem; padding-top:1.5rem; border-top:1px solid var(--rule);">NO REPARATION HAS BEEN PAID. NO MECHANISM EXISTS TO PAY IT.</p>
+  </div>
+</section>
+
+<!-- ══ BANGLADESH BRIDGE ══════════════════════════════ -->
+<section aria-labelledby="bd-heading" style="padding: 3rem 0;">
+  <div class="wrapper">
+    <div id="bd-bridge">
+      <h3 id="bd-heading">Companion Investigation</h3>
+      <p>The cross-conflict analysis above uses aggregated national-level data and household survey ranges. Aggregate data obscures the distributional and sectoral detail necessary for a precise accounting of how commodity shocks move through domestic supply chains to specific household categories. Bangladesh — which appears in the high-exposure tier of the WEI across all four conflicts, holds comprehensive household survey data through the BBS HIES series, and illustrates multi-channel exposure with unusual clarity — is the subject of a companion country-level audit published separately.</p>
+      <a href="#" class="btn" aria-label="Read Bangladesh companion investigation">Read: Bangladesh's Bill →</a>
+      <a href="#methodology" class="btn btn-outline" aria-label="View methodology">Methodology</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DATA / DOWNLOAD ════════════════════════════════ -->
+<div class="wrapper">
+  <div class="download-bar" role="complementary" aria-label="Data download">
+    <p>Data &amp; Downloads — All datasets used in this investigation</p>
+    <div class="download-links">
+      <a href="#" aria-label="Download main data CSV">📥 Main CSV</a>
+      <a href="#" aria-label="Download WEI dataset">📥 WEI Dataset</a>
+      <a href="#" aria-label="Download freight rates data">📥 Freight Rates</a>
+      <a href="#" aria-label="View GitHub repository">⟨/⟩ GitHub Repo</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══ METHODOLOGY ════════════════════════════════════ -->
+<section id="methodology" aria-labelledby="method-heading" style="background:var(--ink); color:var(--paper);">
+  <div class="wrapper">
+    <p class="section-eyebrow" style="color:var(--amber);">Technical Note</p>
+    <h2 id="method-heading" style="color:var(--paper);">Methodology &amp; Limits</h2>
+
+    <details style="border-color:#333;">
+      <summary style="background:#1a1a1a; color:#aaa;">Data Sources &amp; Attribution</summary>
+      <div class="details-body" style="background:#111; color:#888;">
+        <h4>Primary Data Sources</h4>
+        <p>This investigation draws exclusively on publicly available data: FAO Food Price Index and GIEWS food security series; UN Comtrade bilateral trade data; Freightos Baltic Index and Baltic Exchange container and dry bulk freight data; IMF World Economic Outlook, International Financial Statistics, and Fiscal Monitor; World Bank Open Data, PovcalNet household survey database; UNCTAD Maritime Review reports; EIA Brent Crude and natural gas price series; BIS exchange rate data; UNICEF nutrition databases.</p>
+        <h4>Attribution Methodology</h4>
+        <p>The attribution of price increases to war-driven commodity shocks is based on alignment of timing, magnitude, and transmission channel — not on formal econometric causal identification. Multiple factors contributed to inflation in all countries examined. This report attributes only the war-aligned component, identified through price decomposition and pass-through ratio methodology from IMF and World Bank literature. This distinction is explicit throughout the text and must be maintained in any citation of specific figures.</p>
+        <h4>What Is Excluded</h4>
+        <p>All welfare loss estimates reflect direct price transmission effects only. Excluded from estimates: second-order effects (reduced investment, fiscal deterioration acceleration, currency crisis cascades, nutrition-linked productivity losses). Including these effects would substantially increase total estimated welfare costs. This exclusion is conservative by design.</p>
+        <h4>Conflicting Source Data</h4>
+        <p>Where institutional sources reported conflicting figures for the same country and period, this investigation uses the more conservative estimate. Discrepancies are noted in the accompanying technical dataset.</p>
+        <h4>WEI Classification</h4>
+        <p>The War Externality Index is an original analytical framework. It is a comparative classification tool, not a precise welfare loss calculator or governance ranking. High WEI scores reflect structural trade and financial integration characteristics that are largely independent of recent policy decisions. The framework is open to methodological critique and will be updated as new data and peer review feedback is received.</p>
+      </div>
+    </details>
+
+    <details style="border-color:#333; margin-top:1rem;">
+      <summary style="background:#1a1a1a; color:#aaa;">Data Source Links &amp; References</summary>
+      <div class="details-body" style="background:#111; color:#888;">
+        <ul style="list-style:none; line-height:2.5;">
+          <li><a href="https://www.fao.org/worldfoodsituation/foodpricesindex/" style="color:var(--amber);">FAO Food Price Index</a> — fao.org/worldfoodsituation</li>
+          <li><a href="https://comtradeplus.un.org" style="color:var(--amber);">UN Comtrade</a> — comtradeplus.un.org</li>
+          <li><a href="https://fbx.freightos.com" style="color:var(--amber);">Freightos Baltic Index</a> — fbx.freightos.com</li>
+          <li><a href="https://www.imf.org/en/Publications/WEO" style="color:var(--amber);">IMF World Economic Outlook</a> — imf.org</li>
+          <li><a href="https://data.worldbank.org" style="color:var(--amber);">World Bank Open Data</a> — data.worldbank.org</li>
+          <li><a href="https://unctad.org/topic/transport-and-trade-logistics/review-of-maritime-transport" style="color:var(--amber);">UNCTAD Maritime Review</a> — unctad.org</li>
+          <li><a href="https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=pet&s=rbrte&f=d" style="color:var(--amber);">EIA Brent Crude Data</a> — eia.gov</li>
+          <li><a href="https://www.bis.org/statistics/xrusd.htm" style="color:var(--amber);">BIS Exchange Rate Data</a> — bis.org</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ══ FOOTER ═════════════════════════════════════════ -->
+<footer role="contentinfo">
+  <div class="wrapper">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <p class="footer-col-title">Investigation</p>
+        <ul>
+          <li>The Hidden Tax of War</li>
+          <li>Global Investigative Report</li>
+          <li>Published 2025</li>
+          <li>War Externality Index (WEI)</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Data Sources</p>
+        <ul>
+          <li><a href="https://www.fao.org">FAO</a></li>
+          <li><a href="https://www.imf.org">IMF</a></li>
+          <li><a href="https://www.worldbank.org">World Bank</a></li>
+          <li><a href="https://unctad.org">UNCTAD</a></li>
+          <li><a href="https://fbx.freightos.com">Freightos</a></li>
+          <li><a href="https://www.eia.gov">EIA</a></li>
+          <li><a href="https://www.bis.org">BIS</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Contact &amp; License</p>
+        <p>For republication enquiries, methodology questions, or data requests, contact the author.</p>
+        <p style="margin-top:1rem;">Published under Creative Commons Attribution 4.0. Data is free to reuse with attribution.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 — The Hidden Tax of War Investigation. All estimates conservative. Methodology published separately.</p>
+      <p>Built with public institutional data · <a href="#methodology" style="color:#555;">View sources</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ JAVASCRIPT ═════════════════════════════════════ -->
+<script>
+  // Reading progress bar
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrollTop / docHeight) * 100;
+    document.getElementById('progress-bar').style.width = progress + '%';
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  // Animated stat counters
+  const counters = document.querySelectorAll('[data-target]');
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const target = parseInt(entry.target.getAttribute('data-target'));
+        let current = 0;
+        const increment = target / 60;
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            entry.target.textContent = target;
+            clearInterval(timer);
+          } else {
+            entry.target.textContent = Math.floor(current);
+          }
+        }, 20);
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(el => counterObserver.observe(el));
+</script>
+
+
+<!-- ══════════════════════════════════════════════════════
+     BUREAU CONTEXT BLOCK — Conflict Economics
+══════════════════════════════════════════════════════ -->
+<div style="background: var(--ink); padding: var(--s12) 0; margin-top: var(--s16);">
+  <div class="wrap" style="max-width: var(--max-w);">
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--s8); align-items: start;">
+
+      <div>
+        <div style="font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: var(--s3);">Research Program</div>
+        <div style="font-family: var(--serif); font-size: var(--t-lg); color: #fff; margin-bottom: var(--s3); line-height: 1.2;">Conflict Economics</div>
+        <div style="font-family: var(--sans); font-size: var(--t-sm); color: rgba(255,255,255,0.45); line-height: 1.6; margin-bottom: var(--s5);">This investigation is part of the bureau's systematic research into how conflicts transmit economic harm to uninvolved countries.</div>
+        <a href="/topics/conflict-economics/" style="font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.08em; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(184,134,11,0.4); padding-bottom: 1px;">View Research Program →</a>
+      </div>
+
+      <div>
+        <div style="font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: var(--s5);">Investigations in this Program</div>
+        <div style="display: flex; flex-direction: column; gap: var(--s4);">
+          <a href="/investigations/international/war-tax.html" style="text-decoration: none; padding: var(--s4); background: rgba(255,255,255,0.06); border: 1px solid rgba(184,134,11,0.2); border-radius: var(--r);">
+            <div style="font-family: var(--mono); font-size: 0.58rem; color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px;">INT-INV-001 · Current</div>
+            <div style="font-family: var(--sans); font-size: var(--t-sm); color: rgba(255,255,255,0.7); font-weight: 500;">The Hidden Tax of War</div>
+          </a>
+          <div style="padding: var(--s4); background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.08); border-radius: var(--r); opacity: 0.5;">
+            <div style="font-family: var(--mono); font-size: 0.58rem; color: rgba(255,255,255,0.3); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px;">In Development</div>
+            <div style="font-family: var(--sans); font-size: var(--t-sm); color: rgba(255,255,255,0.4);">Sanctions Spillover: Civilian Economic Impact</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: var(--s5);">Evidence &amp; Data</div>
+        <div style="display: flex; flex-direction: column; gap: var(--s3); margin-bottom: var(--s6);">
+          <a href="/data/" style="font-family: var(--sans); font-size: var(--t-sm); color: rgba(255,255,255,0.55); text-decoration: none; display: flex; align-items: center; gap: var(--s3); transition: color 0.15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+            <span style="font-family: var(--mono); font-size: 0.6rem; color: var(--teal);">CSV</span> WEI Framework Data
+          </a>
+          <a href="/data/" style="font-family: var(--sans); font-size: var(--t-sm); color: rgba(255,255,255,0.55); text-decoration: none; display: flex; align-items: center; gap: var(--s3); transition: color 0.15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+            <span style="font-family: var(--mono); font-size: 0.6rem; color: var(--teal);">DOC</span> Methodology: WEI Index
+          </a>
+          <a href="/methods/" style="font-family: var(--sans); font-size: var(--t-sm); color: rgba(255,255,255,0.55); text-decoration: none; display: flex; align-items: center; gap: var(--s3); transition: color 0.15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+            <span style="font-family: var(--mono); font-size: 0.6rem; color: var(--teal);">PDF</span> Editorial Standards
+          </a>
+        </div>
+        <div style="padding-top: var(--s5); border-top: 1px solid rgba(255,255,255,0.08);">
+          <div style="font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-bottom: var(--s3);">Bureau Standards</div>
+          <div style="font-family: var(--sans); font-size: 0.78rem; color: rgba(255,255,255,0.35); line-height: 1.5;">Independent · Non-partisan · Evidence tier-rated · Open methodology</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
