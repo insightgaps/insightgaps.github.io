@@ -268,6 +268,51 @@ nav{position:sticky;top:34px;z-index:890;height:42px;background:rgba(3,3,5,.97);
   .dm{grid-template-columns:1fr}
   .cl-btns{flex-direction:column}
 }
+
+/* ════ STAT SECTION ════ */
+.stat-section{max-width:1100px;margin:0 auto;padding:5rem 2rem 5.5rem}
+.ss-hdr{text-align:center;max-width:720px;margin:0 auto 2.8rem}
+.stat-wall{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--b1);margin-bottom:1.5rem}
+.sw-cell{background:var(--g3);padding:1.7rem 1.3rem;display:flex;flex-direction:column;gap:.45rem;opacity:0;transform:translateY(10px);transition:opacity .55s ease,transform .55s ease}
+.sw-num{font-family:var(--lab);font-size:clamp(2rem,4vw,3.5rem);font-weight:700;line-height:1}
+.sw-lbl{font-family:var(--serif);font-size:.82rem;color:var(--t1);line-height:1.75;flex:1}
+.sw-src{font-size:.32rem;color:var(--t3);line-height:1.6;margin-top:.2rem}
+.stat-callout{display:flex;gap:1.4rem;align-items:flex-start;background:rgba(232,160,32,.04);border:1px solid rgba(232,160,32,.2);border-left:3px solid var(--tx);padding:1.4rem 1.6rem;margin-top:1.4rem}
+.scall-icon{font-size:1.5rem;flex-shrink:0;line-height:1;padding-top:.1rem;color:var(--tx)}
+.scall-num{font-family:var(--lab);font-size:clamp(.9rem,1.8vw,1.4rem);font-weight:700;color:var(--txl);margin-bottom:.32rem}
+.scall-lbl{font-family:var(--serif);font-size:.82rem;color:var(--t2);line-height:1.85}
+.scall-src{font-size:.34rem;color:var(--t3);margin-top:.38rem;line-height:1.65}
+/* SOURCE */
+.source-split{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;margin-bottom:1.4rem;align-items:start}
+.src-bars{display:flex;flex-direction:column;gap:1.2rem}
+.src-bar-item{display:flex;flex-direction:column;gap:.28rem}
+.src-bar-label{font-size:.36rem;letter-spacing:.06em;text-transform:uppercase;color:var(--t2)}
+.src-bar-track{height:28px;background:rgba(16,16,24,.85);border-radius:1px;overflow:hidden}
+.src-bar-fill{height:100%;border-radius:1px}
+.src-bar-pct{font-family:var(--serif);font-size:.82rem;color:var(--t2);line-height:1.65}
+.src-bar-note{font-size:.34rem;color:var(--t3);line-height:1.65;margin-top:.5rem;border-top:1px solid var(--b1);padding-top:.5rem}
+.src-facts{display:flex;flex-direction:column;gap:1.4rem}
+.src-fact{padding-left:1rem;border-left:2px solid var(--b2);opacity:0;transform:translateY(10px);transition:opacity .55s ease,transform .55s ease}
+.sf-val{font-family:var(--lab);font-size:clamp(1.4rem,2.8vw,2.4rem);font-weight:700;line-height:1;margin-bottom:.22rem}
+.sf-lbl{font-family:var(--serif);font-size:.82rem;color:var(--t2);line-height:1.75}
+/* SOIL */
+.soil-bars{display:flex;flex-direction:column;gap:.9rem;margin-bottom:1rem}
+.soil-safe-marker{display:flex;align-items:center;gap:.45rem;margin-bottom:.3rem}
+.soil-safe-line{width:2px;height:14px;background:var(--sf);flex-shrink:0}
+.soil-safe-marker span{font-size:.32rem;color:var(--sf);letter-spacing:.06em}
+.soil-bar-item{display:flex;flex-direction:column;gap:.2rem;opacity:0;transform:translateY(8px);transition:opacity .5s ease,transform .5s ease}
+.sbi-id{font-size:.36rem;color:var(--t2);line-height:1.4}
+.sbi-badge{display:inline-block;font-size:.28rem;padding:.08rem .35rem;background:rgba(232,160,32,.12);border:1px solid rgba(232,160,32,.28);color:var(--tx);margin-left:.35rem;vertical-align:middle;border-radius:1px}
+.sbi-badge.red{background:rgba(232,64,64,.12);border-color:rgba(232,64,64,.28);color:var(--dnl)}
+.sbi-track{height:18px;background:rgba(14,14,20,.85);border-radius:1px;overflow:hidden}
+.sbi-fill{height:100%;border-radius:1px}
+.sbi-info{display:flex;align-items:center;gap:.9rem;font-size:.34rem;flex-wrap:wrap}
+.sbi-x{font-weight:700}
+.sbi-sch{color:var(--t3);margin-left:auto}
+.soil-note{font-size:.34rem;color:var(--t3);line-height:1.7;border-top:1px solid var(--b1);padding-top:.75rem;margin-top:.8rem}
+@media(max-width:768px){.stat-wall{grid-template-columns:1fr 1fr}.source-split{grid-template-columns:1fr}.sbi-sch{display:none}}
+@media(max-width:500px){.stat-wall{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -454,148 +499,154 @@ nav{position:sticky;top:34px;z-index:890;height:42px;background:rgba(3,3,5,.97);
 </section>
 <hr class="wire">
 
-<!-- ══════════════════════════════════
-     SCENE 03 — THE POISON (scroll)
-══════════════════════════════════ -->
+<!-- SCENE 03 — THE BLOOD -->
 <section id="s-poison" style="background:var(--g2)">
-  <div style="text-align:center;padding:5rem 2rem 0;max-width:820px;margin:0 auto">
-    <div class="ey">Scene 03 · The Poison</div>
-    <h2 class="sh2">A contamination<br><em>with no antidote.</em></h2>
-    <p class="sp">Lead causes permanent neurological damage in children. No drug reverses it. The only intervention is stopping exposure before it happens.</p>
-  </div>
-  <div class="sscene" style="margin-top:2rem">
-    <div class="vsticky"><canvas id="cv-poison" width="540" height="540"></canvas></div>
-    <div class="stcol">
-      <div class="step" data-scene="poison" data-step="0">
-        <div class="sn">01 / 05</div>
-        <div class="bnum">38%</div>
-        <h3>Of Bangladesh's children carry dangerous blood lead levels.</h3>
-        <p>UNICEF–BBS MICS 2025 found <strong>38% of children aged 12–59 months</strong> above the WHO reference threshold of 3.5 μg/dL. One in three. Nationally.</p>
-        <div class="snote">UNICEF / Bangladesh Bureau of Statistics · MICS 2025 · November 2025 · <span class="ok">CONFIRMED</span></div>
+  <div class="stat-section">
+    <div class="ss-hdr">
+      <div class="ey">Scene 03 · The Blood</div>
+      <h2 class="sh2">Lead is already<br><em>inside the children.</em></h2>
+      <p class="sp">No drug reverses neurological damage from lead. The only solution is stopping the source before exposure happens.</p>
+    </div>
+    <div class="stat-wall">
+      <div class="sw-cell">
+        <div class="sw-num" style="color:var(--txl)">38%</div>
+        <div class="sw-lbl">Of Bangladesh's children carry blood lead above the WHO safe reference level — one in three, nationally</div>
+        <div class="sw-src">UNICEF / BBS MICS 2025 · National · Nov 2025 · <span class="ok">CONFIRMED</span></div>
       </div>
-      <div class="step" data-scene="poison" data-step="1">
-        <div class="sn">02 / 05</div>
-        <div class="bnum r">65%</div>
-        <h3>In Dhaka: two children out of three.</h3>
-        <p>Dhaka is the worst-affected division. <strong>65% of Dhaka's children</strong> carry blood lead above the safe threshold. Rajshahi: 15.9%. Location is destiny.</p>
-        <div class="snote">UNICEF / BBS MICS 2025 · Dhaka Division · <span class="ok">CONFIRMED</span></div>
+      <div class="sw-cell">
+        <div class="sw-num" style="color:var(--dnl)">65%</div>
+        <div class="sw-lbl">Of Dhaka's children — two out of three — carry dangerous blood lead. Location determines destiny.</div>
+        <div class="sw-src">MICS 2025 · Dhaka Division · Highest in Bangladesh · <span class="ok">CONFIRMED</span></div>
       </div>
-      <div class="step" data-scene="poison" data-step="2">
-        <div class="sn">03 / 05</div>
-        <div class="bnum r">98%</div>
-        <h3>Of 500 Dhaka children aged 2–4 exceeded the CDC reference level.</h3>
-        <p>icddr,b and Stanford researchers measured 500 Dhaka children. <strong>98% exceeded 3.5 μg/dL.</strong> Children within 1km of industrial sites had blood lead <strong>43% higher</strong> than others.</p>
-        <div class="snote">Sultana et al. · icddr,b / Stanford · IJHEH 2026 Vol 273:114756 · <span class="ok">PEER-REVIEWED</span></div>
+      <div class="sw-cell">
+        <div class="sw-num" style="color:var(--dnl)">98%</div>
+        <div class="sw-lbl">Of 500 Dhaka children aged 2–4 exceeded the CDC reference level when tested by icddr,b</div>
+        <div class="sw-src">Sultana et al. · icddr,b / Stanford · IJHEH 2026 Vol 273:114756 · <span class="ok">PEER-REVIEWED</span></div>
       </div>
-      <div class="step" data-scene="poison" data-step="3">
-        <div class="sn">04 / 05</div>
-        <div class="bnum">#4</div>
-        <h3>Bangladesh ranks 4th globally. $28.63 billion annual cost. 138,054 deaths per year.</h3>
-        <p>Over <strong>35 million Bangladeshi children</strong> carry blood lead above safe limits. Annual economic cost: <strong>$28.63 billion</strong>. Annual premature cardiovascular deaths from childhood lead exposure: <strong>138,054.</strong></p>
-        <div class="snote">Larsen & Sánchez-Triana · Lancet Planetary Health 2023 · PMID:37708911 · <span class="ok">CONFIRMED</span></div>
+      <div class="sw-cell">
+        <div class="sw-num" style="color:var(--dnl)">+43%</div>
+        <div class="sw-lbl">Higher blood lead in children living within 1km of an industrial site vs those living further away</div>
+        <div class="sw-src">Same study · icddr,b / Stanford · 2026</div>
       </div>
-      <div class="step" data-scene="poison" data-step="4">
-        <div class="sn">05 / 05</div>
-        <h3>The question is not where. The question is who allowed it.</h3>
-        <p>The sources are identified, mapped, and published. The Department of Environment has legal authority to inspect, fine, and close these operations. <strong>The tools exist. The enforcement does not.</strong></p>
+      <div class="sw-cell">
+        <div class="sw-num" style="color:var(--dnl)">138,054</div>
+        <div class="sw-lbl">Premature cardiovascular deaths per year in Bangladesh caused by childhood lead exposure</div>
+        <div class="sw-src">Larsen & Sánchez-Triana · Lancet Planetary Health 2023 · PMID:37708911 · <span class="ok">PEER-REVIEWED</span></div>
+      </div>
+      <div class="sw-cell">
+        <div class="sw-num" style="color:var(--txl)">#4</div>
+        <div class="sw-lbl">Bangladesh ranks 4th globally for lead exposure burden. Over 35 million children affected.</div>
+        <div class="sw-src">Pure Earth Global Alliance · 2024</div>
+      </div>
+    </div>
+    <div class="stat-callout">
+      <div class="scall-icon">$</div>
+      <div>
+        <div class="scall-num">$28.63 billion every year</div>
+        <div class="scall-lbl">Bangladesh's combined annual economic loss from lead exposure — $10.89B in IQ reduction costs + $17.74B from premature cardiovascular deaths. That is 5.9% of Bangladesh's GDP. Every year. For children already sitting in these schools.</div>
+        <div class="scall-src">Larsen & Sánchez-Triana · Lancet Planetary Health 2023 · DOI:10.1016/S2542-5196(23)00166-3 · <span class="ok">CONFIRMED</span></div>
       </div>
     </div>
   </div>
 </section>
 <hr class="wire">
 
-<!-- ══════════════════════════════════
-     SCENE 04 — THE SOURCE (scroll)
-══════════════════════════════════ -->
+<!-- SCENE 04 — THE SOURCE -->
 <section id="s-source" style="background:var(--void)">
-  <div style="text-align:center;padding:5rem 2rem 0;max-width:820px;margin:0 auto">
-    <div class="ey">Scene 04 · The Source</div>
-    <h2 class="sh2">6,000 illegal recyclers.<br><em>6 are registered.</em></h2>
-    <p class="sp">Used lead-acid batteries end up in backyard smelters. Lead melts in open air. Toxic residue soaks into soil beside schools.</p>
-  </div>
-  <div class="sscene" style="margin-top:2rem">
-    <div class="vsticky"><canvas id="cv-source" width="540" height="540"></canvas></div>
-    <div class="stcol">
-      <div class="step" data-scene="source" data-step="0">
-        <div class="sn">01 / 05</div><div class="bnum">118,000</div>
-        <h3>Metric tons of used lead-acid batteries generated in Bangladesh annually.</h3>
-        <p>Every vehicle, generator, and UPS runs on a lead-acid battery. Bangladesh generates <strong>118,000 metric tons</strong> every year — all requiring disposal. The infrastructure to handle this safely barely exists.</p>
-        <div class="snote">ILA 2020 · UNEP Assessment Report · <span class="ok">CONFIRMED</span></div>
+  <div class="stat-section">
+    <div class="ss-hdr">
+      <div class="ey">Scene 04 · The Source</div>
+      <h2 class="sh2">6,000 illegal recyclers.<br><em>6 are registered.</em></h2>
+      <p class="sp">Used lead-acid batteries end up in backyard smelters. Lead melts in open air. Toxic residue soaks into soil beside schools. The state knows. The state does nothing.</p>
+    </div>
+    <div class="source-split">
+      <div class="src-bars">
+        <div class="src-bar-item">
+          <div class="src-bar-label">Formal sector — 6 registered operators</div>
+          <div class="src-bar-track"><div class="src-bar-fill" style="width:30%;background:var(--sf)"></div></div>
+          <div class="src-bar-pct" style="color:var(--sf)">30% of Bangladesh's 118,000 mt annual battery waste</div>
+        </div>
+        <div class="src-bar-item" style="margin-top:.5rem">
+          <div class="src-bar-label">Informal sector — 6,000+ unregistered operations</div>
+          <div class="src-bar-track"><div class="src-bar-fill" style="width:70%;background:var(--dn)"></div></div>
+          <div class="src-bar-pct" style="color:var(--dnl)">70% — open-air smelting, zero oversight, zero tax</div>
+        </div>
+        <div class="src-bar-note">Source: ILA 2020 · UNEP Assessment · UNCTAD/Pure Earth SMEP 2024 · ESDO Bangladesh</div>
       </div>
-      <div class="step" data-scene="source" data-step="1">
-        <div class="sn">02 / 05</div><div class="bnum a">30%</div>
-        <h3>Only 30% reaches the formal sector.</h3>
-        <p>Six registered operators hold environmental clearance certificates. They handle 30% of the battery stream. <strong>Six companies.</strong> For a country of 170 million people.</p>
-        <div class="snote">UNCTAD / Pure Earth SMEP 2024 · <span class="ok">CONFIRMED</span></div>
+      <div class="src-facts">
+        <div class="src-fact">
+          <div class="sf-val" style="color:var(--dnl)">0.1%</div>
+          <div class="sf-lbl">Formalization rate. India: 487 registered recyclers. Bangladesh: 6. Nigeria and Indonesia both closed multiple sites after investigations. Bangladesh: zero permanent closures.</div>
+        </div>
+        <div class="src-fact">
+          <div class="sf-val" style="color:var(--txl)">$91M</div>
+          <div class="sf-lbl">Annual tax revenue lost because 70% of the sector is invisible to the state. They are poisoning children and stealing from the national economy simultaneously.</div>
+        </div>
       </div>
-      <div class="step" data-scene="source" data-step="2">
-        <div class="sn">03 / 05</div><div class="bnum r">70%</div>
-        <h3>70% goes to 6,000+ informal operations. Open-air smelting. No oversight.</h3>
-        <p>The majority of Bangladesh's batteries are broken open, melted in unventilated yards, and left to contaminate soil and groundwater. <strong>This is the infrastructure of the informal economy.</strong></p>
-        <div class="snote">ESDO / UNEP Assessment · <span class="ok">CONFIRMED</span></div>
-      </div>
-      <div class="step" data-scene="source" data-step="3">
-        <div class="sn">04 / 05</div><div class="bnum r">0.1%</div>
-        <h3>Formalization rate. India: 487 registered recyclers. Bangladesh: 6.</h3>
-        <p>Six registered operators against 6,000+ informal — 0.1% formalization. India: <strong>487 registered recyclers</strong> (CPCB Dec 2025). Nigeria, Indonesia: closed multiple sites after investigations. <strong>Bangladesh: zero permanent closures.</strong></p>
-        <div class="snote">RJSC Bangladesh / Pure Earth / CPCB India Dec 2025 · <span class="ok">CONFIRMED</span></div>
-      </div>
-      <div class="step" data-scene="source" data-step="4">
-        <div class="sn">05 / 05</div><div class="bnum">$91M</div>
-        <h3>Annual tax revenue lost — 70% of the sector invisible to the state.</h3>
-        <p>With 70% unregistered, Bangladesh foregoes an estimated <strong>USD 91 million per year</strong> in tax revenue. The illegal recyclers are poisoning children <em>and</em> stealing from the national economy.</p>
-        <div class="snote">UNCTAD / Pure Earth SMEP 2024 · <span class="ok">CONFIRMED</span></div>
+    </div>
+    <div class="stat-callout" style="border-color:rgba(232,64,64,.3);background:rgba(232,64,64,.04)">
+      <div class="scall-icon">⚖</div>
+      <div>
+        <div class="scall-num" style="color:var(--dnl)">351 days. Same factory. Still active.</div>
+        <div class="scall-lbl">BD-4802 — Doyagonj ULAB Market, Jatrabari, Dhaka. Soil lead: 297,786 ppm (744× safe). The Department of Environment conducted crackdown operations here in March 2025 and declared the site "sealed." Insight Gaps satellite verification, March 2026: the facility is still operational. 351 days. This is not a capacity problem. This is a will problem.</div>
+        <div class="scall-src">DoE Enforcement Bulletin Sep 2025 · Insight Gaps Gemini Vision AI satellite analysis March 2026 · <span class="ok">CONFIRMED</span></div>
       </div>
     </div>
   </div>
 </section>
 <hr class="wire">
 
-<!-- ══════════════════════════════════
-     SCENE 05 — THE SOIL (scroll)
-══════════════════════════════════ -->
+<!-- SCENE 05 — THE SOIL -->
 <section id="s-soil" style="background:var(--g1)">
-  <div style="text-align:center;padding:5rem 2rem 0;max-width:820px;margin:0 auto">
-    <div class="ey">Scene 05 · The Soil</div>
-    <h2 class="sh2">How far above safe<br><em>is the ground?</em></h2>
-    <p class="sp">International residential soil lead standard: 400 ppm. What Pure Earth measured goes orders of magnitude beyond that number.</p>
-  </div>
-  <div class="sscene" style="margin-top:2rem">
-    <div class="vsticky"><canvas id="cv-soil" width="540" height="540"></canvas></div>
-    <div class="stcol">
-      <div class="step" data-scene="soil" data-step="0">
-        <div class="sn">01 / 05</div>
-        <h3>The international safe limit for residential soil lead: 400 parts per million.</h3>
-        <p>This is the US EPA and WHO benchmark. Children absorb lead through hand-to-mouth contact during normal play. <strong>Every site in this investigation exceeds this standard.</strong></p>
-        <div class="snote">US EPA Residential Soil Lead Standard · WHO reference · <span class="ok">CONFIRMED</span></div>
+  <div class="stat-section">
+    <div class="ss-hdr">
+      <div class="ey">Scene 05 · The Soil</div>
+      <h2 class="sh2">How far above safe<br><em>is the ground?</em></h2>
+      <p class="sp">International residential safe limit: 400 ppm. These are the highest-contaminated sites with schools within 500 metres.</p>
+    </div>
+    <div class="soil-bars">
+      <div class="soil-safe-marker"><div class="soil-safe-line"></div><span>← 400 ppm international safe limit</span></div>
+      <div class="soil-bar-item">
+        <div class="sbi-id">BD-4921 · Kathgora, Ashulia, Savar</div>
+        <div class="sbi-track"><div class="sbi-fill" style="width:100%;background:#c060f0"></div></div>
+        <div class="sbi-info"><span style="color:#c080f0;font-weight:700">680,872 ppm</span><span class="sbi-x" style="color:#c080f0">1,702× safe</span><span class="sbi-sch">0 schools — but children 200m away tested at 21.3 μg/dL BLL</span></div>
       </div>
-      <div class="step" data-scene="soil" data-step="1">
-        <div class="sn">02 / 05</div><div class="bnum">245,307 ppm</div>
-        <h3>Nawabgonj, Lalbag, Dhaka. 613× safe. 14 schools within 500m.</h3>
-        <p>BD-4653 — satellite-confirmed active. <strong>245,307 ppm.</strong> Aloron School & College is 267 metres away.</p>
-        <div class="snote">Pure Earth / UNEP Annex A · Insight Gaps proximity analysis · <span class="ok">CONFIRMED</span></div>
+      <div class="soil-bar-item">
+        <div class="sbi-id">BD-4591 · Rosulpur, Kamrangir Char, Dhaka <span class="sbi-badge">★ 59m from school · 18 schools within 500m</span></div>
+        <div class="sbi-track"><div class="sbi-fill" style="width:48.5%;background:#e84040"></div></div>
+        <div class="sbi-info"><span style="color:#ff7070;font-weight:700">330,001 ppm</span><span class="sbi-x" style="color:#ff7070">825× safe</span><span class="sbi-sch">🏫 18 schools · 7,200 students at risk</span></div>
       </div>
-      <div class="step" data-scene="soil" data-step="2">
-        <div class="sn">03 / 05</div><div class="bnum r">297,786 ppm</div>
-        <h3>Jatrabari, Dhaka. 744×. Inside DoE enforcement zone. Still active.</h3>
-        <p>BD-4802 — highest risk score. <strong>297,786 ppm.</strong> DoE crackdown here March–September 2025. Satellite March 2026: <strong>still active. 351 days.</strong> This is the accountability proof.</p>
-        <div class="snote">Pure Earth · DoE Enforcement Bulletin Sep 2025 · Insight Gaps satellite March 2026 · <span class="ok">CONFIRMED</span></div>
+      <div class="soil-bar-item">
+        <div class="sbi-id">BD-4802 · Doyagonj ULAB Market, Jatrabari, Dhaka <span class="sbi-badge red">★ DoE sealed Mar 2025 — still active Mar 2026</span></div>
+        <div class="sbi-track"><div class="sbi-fill" style="width:43.8%;background:#e84040"></div></div>
+        <div class="sbi-info"><span style="color:#ff7070;font-weight:700">297,786 ppm</span><span class="sbi-x" style="color:#ff7070">744× safe</span><span class="sbi-sch">🏫 3 schools · 1,200 students at risk</span></div>
       </div>
-      <div class="step" data-scene="soil" data-step="3">
-        <div class="sn">04 / 05</div><div class="bnum r">330,001 ppm</div>
-        <h3>Kamrangir Char, Dhaka. 825×. A school 59 metres away.</h3>
-        <p>BD-4591 — the Insight Gaps priority site. <strong>330,001 ppm.</strong> Rahmat Ali Ideal Govt. Primary School sits 59 metres from the factory. <strong>Not in the DoE crackdown zone.</strong></p>
-        <div class="snote">Pure Earth / UNEP Annex A · Insight Gaps original finding · <span class="ok">CONFIRMED</span></div>
+      <div class="soil-bar-item">
+        <div class="sbi-id">BD-4653 · Nawabgonj, Lalbag, Dhaka</div>
+        <div class="sbi-track"><div class="sbi-fill" style="width:36%;background:#e8601a"></div></div>
+        <div class="sbi-info"><span style="color:#ffaa60;font-weight:700">245,307 ppm</span><span class="sbi-x" style="color:#ffaa60">613× safe</span><span class="sbi-sch">🏫 14 schools · 5,600 students at risk</span></div>
       </div>
-      <div class="step" data-scene="soil" data-step="4">
-        <div class="sn">05 / 05</div><div class="bnum r">680,872 ppm</div>
-        <h3>Kathgora, Savar. The highest recorded site. 1,702× safe.</h3>
-        <p>BD-4921 — abandoned but still contaminating. <strong>680,872 ppm.</strong> Operations stopped in 2016. <strong>The soil did not stop contaminating.</strong> Children tested nearby in 2019: blood lead 4.3× safe level.</p>
-        <div class="snote">Pure Earth / icddr,b / Stanford University · Environmental Research 2021 · <span class="ok">CONFIRMED</span></div>
+      <div class="soil-bar-item">
+        <div class="sbi-id">BD-7172 · Uzan Boilore, Trishal, Mymensingh</div>
+        <div class="sbi-track"><div class="sbi-fill" style="width:30.9%;background:#e8601a"></div></div>
+        <div class="sbi-info"><span style="color:#ffaa60;font-weight:700">210,312 ppm</span><span class="sbi-x" style="color:#ffaa60">526× safe</span><span class="sbi-sch">🏫 1 school · 400 students at risk</span></div>
+      </div>
+      <div class="soil-bar-item">
+        <div class="sbi-id">BD-7173 · Kazir Shimla, Trishal, Mymensingh</div>
+        <div class="sbi-track"><div class="sbi-fill" style="width:22.4%;background:#e8a020"></div></div>
+        <div class="sbi-info"><span style="color:#f0b840;font-weight:700">152,319 ppm</span><span class="sbi-x" style="color:#f0b840">381× safe</span><span class="sbi-sch">🏫 4 schools · 1,600 students at risk</span></div>
+      </div>
+      <div class="soil-bar-item">
+        <div class="sbi-id">BD-4808 · Jamal Engineering, Sheikhpara, Khulna</div>
+        <div class="sbi-track"><div class="sbi-fill" style="width:21%;background:#e8a020"></div></div>
+        <div class="sbi-info"><span style="color:#f0b840;font-weight:700">142,763 ppm</span><span class="sbi-x" style="color:#f0b840">357× safe</span><span class="sbi-sch">🏫 1 school · 400 students at risk</span></div>
       </div>
     </div>
+    <div class="soil-note">All contamination data: Pure Earth / University of Dhaka field assessments, 2016–2019. School proximity analysis: Insight Gaps Bureau, Haversine formula, 500m radius, OpenStreetMap March 2026. Student estimates: BANBEIS national primary school average (APSS 2024). Safe limit: US EPA / WHO residential soil standard, 400 ppm.</div>
   </div>
 </section>
+
+
 <hr class="wire">
 
 <!-- ══════════════════════════════════
@@ -1074,122 +1125,19 @@ function doSearch(q){
 }
 
 /* ════════════════════════════════════════════
-   CANVAS VISUALISATIONS
-════════════════════════════════════════════ */
-function labTxt(ctx,txt,x,y,sz,col,align,bold){
-  ctx.font=(bold?'700':'400')+' '+sz+'px "Space Mono",monospace';
-  ctx.fillStyle=col||'#dcd8d0';
-  ctx.textAlign=align||'left';
-  ctx.fillText(txt,x,y);
-}
-
-/* — POISON CANVAS — */
-const pCv=document.getElementById('cv-poison'), pc=pCv.getContext('2d');
-function drawPoison(step){
-  const W=pCv.width,H=pCv.height;
-  pc.clearRect(0,0,W,H);
-  const pcts=[.38,.65,.38,.65], pct=pcts[Math.min(step,3)];
-  const isRed=step===1||step===3;
-  const R=6,HX=R*Math.sqrt(3),HY=R*1.5;
-  const COLS=Math.floor((W-50)/(HX+2)), ROWS=Math.floor((H-80)/(HY+2));
-  const total=COLS*ROWS, poison=Math.round(total*pct);
-  labTxt(pc,'Blood lead above WHO reference',W/2,16,8,'rgba(90,86,80,.65)','center');
-  let count=0; const sx=28,sy=30;
-  for(let r=0;r<ROWS;r++){
-    for(let c=0;c<COLS;c++){
-      const off=r%2===0?0:HX/2+1;
-      const x=sx+off+c*(HX+2)+HX/2, y=sy+r*(HY+2)+R;
-      const isP=count<poison;
-      pc.beginPath();
-      for(let a=0;a<6;a++){const ang=Math.PI/6+a*Math.PI/3;pc.lineTo(x+R*.85*Math.cos(ang),y+R*.85*Math.sin(ang));}
-      pc.closePath();
-      pc.fillStyle=isP?(isRed?'rgba(232,64,64,.82)':'rgba(232,160,32,.78)'):'rgba(18,18,26,.7)';
-      pc.fill();
-      count++;
-    }
-  }
-  labTxt(pc,step===1||step===3?'Dhaka Division — 65%':'National — 38% of children',W/2,H-28,9,'rgba(232,160,32,.82)','center',true);
-}
-drawPoison(0);
-
-/* — SOURCE CANVAS — */
-const sCv=document.getElementById('cv-source'), sc=sCv.getContext('2d');
-const SBARS=[
-  {lbl:'118,000 mt generated',val:1.0,col:'rgba(232,160,32,.65)'},
-  {lbl:'30% formal sector (6 operators)',val:.3,col:'rgba(40,184,112,.7)'},
-  {lbl:'70% informal (6,000+ ops)',val:.7,col:'rgba(232,64,64,.72)'},
-  {lbl:'Formalization: 0.1%',val:.001,col:'rgba(40,184,112,.88)'},
-  {lbl:'$91M tax revenue lost',val:.7,col:'rgba(232,160,32,.62)'},
-];
-function drawSource(step){
-  const W=sCv.width,H=sCv.height;
-  sc.clearRect(0,0,W,H);
-  labTxt(sc,'ULAB Recycling Sector — Bangladesh',W/2,16,8,'rgba(90,86,80,.65)','center');
-  const mW=W-190,bH=34,gap=20,sx=170,sy=42;
-  for(let i=0;i<=Math.min(step,SBARS.length-1);i++){
-    const d=SBARS[i],y=sy+i*(bH+gap),w=mW*d.val;
-    sc.fillStyle='rgba(18,18,26,.65)'; sc.fillRect(sx,y,mW,bH);
-    sc.fillStyle=d.col; sc.fillRect(sx,y,Math.max(w,3),bH);
-    labTxt(sc,d.lbl,sx-6,y+bH/2+4,8.5,'rgba(210,206,200,.8)','right',true);
-    if(w>55){
-      const pctTxt=i===3?'0.1%':i===4?'$91M':Math.round(d.val*100)+'%';
-      labTxt(sc,pctTxt,sx+w-6,y+bH/2+4,9.5,'rgba(255,255,255,.85)','right',true);
-    }
-  }
-}
-drawSource(0);
-
-/* — SOIL CANVAS — */
-const soCv=document.getElementById('cv-soil'), soc=soCv.getContext('2d');
-const CSITES=[
-  {id:'Safe limit',nm:'400 ppm (international standard)',ppm:400,col:'rgba(40,184,112,.88)'},
-  {id:'BD-4653',nm:'Nawabgonj, Lalbag, Dhaka',ppm:245307,col:'rgba(232,100,32,.85)'},
-  {id:'BD-4802',nm:'Jatrabari ★ DoE sealed, still active',ppm:297786,col:'rgba(232,64,40,.88)'},
-  {id:'BD-4591',nm:'Kamrangir Char ★★ 59m from school',ppm:330001,col:'rgba(232,64,40,.92)'},
-  {id:'BD-4921',nm:'Kathgora (HIGHEST — 1,702× safe)',ppm:680872,col:'rgba(200,80,240,.92)'},
-];
-function drawSoil(step){
-  const W=soCv.width,H=soCv.height;
-  soc.clearRect(0,0,W,H);
-  labTxt(soc,'Soil lead vs safe standard (400 ppm)',W/2,16,8,'rgba(90,86,80,.65)','center');
-  const maxP=680872,mW=W-210,bH=38,gap=20,sx=175,sy=36;
-  const n=Math.min(step+1,CSITES.length);
-  for(let i=0;i<n;i++){
-    const d=CSITES[i],y=sy+i*(bH+gap),w=(d.ppm/maxP)*mW;
-    const isK=i===n-1&&i>0;
-    soc.fillStyle='rgba(14,14,22,.75)'; soc.fillRect(sx,y,mW,bH);
-    if(isK){const g=soc.createLinearGradient(sx,0,sx+w,0);g.addColorStop(0,d.col);g.addColorStop(1,'rgba(255,100,120,.95)');soc.fillStyle=g;}
-    else soc.fillStyle=d.col;
-    soc.fillRect(sx,y,Math.max(w,4),bH);
-    labTxt(soc,d.id,sx-7,y+bH/2+1,7.5,'rgba(150,146,140,.65)','right',true);
-    labTxt(soc,d.nm,sx-7,y+bH/2+12,7,'rgba(90,86,80,.55)','right');
-    if(d.ppm>400&&w>28){
-      const x=d.ppm/400;
-      labTxt(soc,x.toLocaleString()+'×',sx+w+5,y+bH/2+4,9,i>=3?'rgba(255,80,80,.92)':'rgba(232,120,32,.8)','left',true);
-    }else if(d.ppm===400){
-      labTxt(soc,'← SAFE',sx+w+5,y+bH/2+4,9,'rgba(40,184,112,.9)','left',true);
-    }
-  }
-}
-drawSoil(0);
-
-/* ════════════════════════════════════════════
-   INTERSECTION OBSERVER — scroll-triggered
+   SCROLL REVEAL — stat cells, facts, bars
 ════════════════════════════════════════════ */
 const io=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add('active');
-      const sc=e.target.dataset.scene, st=parseInt(e.target.dataset.step);
-      if(sc==='poison') drawPoison(st);
-      if(sc==='source') drawSource(st);
-      if(sc==='soil')   drawSoil(st);
-    } else {
-      e.target.classList.remove('active');
-    }
-  });
-},{rootMargin:'-35% 0px -35% 0px'});
-document.querySelectorAll('[data-step]').forEach(el=>io.observe(el));
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in-view')});
+},{threshold:.12});
+const revStyle=document.createElement('style');
+revStyle.textContent='.in-view{opacity:1!important;transform:none!important}';
+document.head.appendChild(revStyle);
+document.querySelectorAll('.sw-cell,.src-fact,.soil-bar-item,.tl-e,.dm,.hgc').forEach((el,i)=>{
+  el.style.transitionDelay=(i%3)*.08+'s';
+  io.observe(el);
+});
+
 
 /* NAV ACTIVE TRACKING */
 const navLinks=document.querySelectorAll('.nav-sc a');
