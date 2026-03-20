@@ -596,7 +596,7 @@ nav{position:sticky;top:34px;z-index:890;height:42px;background:rgba(3,3,5,.97);
   </div>
 
   <div class="map-wrap">
-    <div id="leafmap"></div>
+    <div id="leafmap"><div id="map-loading" style="display:flex;align-items:center;justify-content:center;height:100%;background:var(--g2);color:var(--tx);font-family:var(--lab);font-size:.55rem;flex-direction:column;gap:.5rem"><div style="opacity:.6">Loading map…</div><div style="font-size:.4rem;opacity:.4">If map stays blank, check browser console for errors</div></div></div>
 
     <!-- SITE DETAIL PANEL -->
     <div id="mpl">
@@ -1003,6 +1003,7 @@ setTimeout(()=>{
 },2300);
 
 window.addEventListener('load', function initMap() {
+try {
 
 /* ════════════════════════════════════════════
    LEAFLET MAP — with Leaflet panes for z-ordering
@@ -1012,6 +1013,15 @@ if(typeof L === 'undefined'){
 } else {
 /* Force container height before Leaflet measures */
 (function(){var el=document.getElementById('leafmap');if(el)el.style.height='660px';})();
+/* Force explicit pixel height before Leaflet measures */
+const leafEl = document.getElementById('leafmap');
+if(leafEl){
+  leafEl.style.height = Math.min(660, Math.round(window.innerHeight * 0.6)) + 'px';
+  leafEl.style.minHeight = '380px';
+  leafEl.style.display = 'block';
+  leafEl.style.visibility = 'visible';
+  leafEl.style.position = 'relative';
+}
 const MAP = L.map('leafmap',{
   center:[23.6,90.35], zoom:7.2,
   minZoom:6, maxZoom:19,
@@ -1029,11 +1039,26 @@ MAP.createPane('pinPan');     MAP.getPane('pinPan').style.zIndex     = 600;
 MAP.createPane('schoolPan');  MAP.getPane('schoolPan').style.zIndex  = 650;
 MAP.createPane('bufPan');     MAP.getPane('bufPan').style.zIndex     = 420;
 
-const darkTile = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-  {attribution:'©OSM ©CARTO',subdomains:'abcd',maxZoom:19});
+const darkTile = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
+  attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
+  subdomains:'abcd',maxZoom:19,crossOrigin:true
+});
 const satTile = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
   {attribution:'©Esri',maxZoom:19});
 darkTile.addTo(MAP);
+darkTile.on('tileload', function(){
+  const lo=document.getElementById('map-loading');
+  if(lo)lo.style.display='none';
+});
+
+/* Tile load error fallback — switch to OSM if CartoDB fails */
+darkTile.on('tileerror', function(e){
+  console.warn('CartoDB tile failed, switching to OSM');
+  MAP.removeLayer(darkTile);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{
+    attribution:'&copy; OpenStreetMap contributors',maxZoom:19
+  }).addTo(MAP);
+});
 L.control.scale({imperial:false,metric:true,position:'bottomright'}).addTo(MAP);
 
 /* invalidateSize — multiple attempts to handle scroll/layout timing */
@@ -1493,6 +1518,11 @@ if(window.innerWidth<768){
   document.querySelectorAll('.step').forEach(el=>el.style.opacity='1');
 }
 
+} catch(err) {
+  console.error('MAP INIT ERROR:', err);
+  var lm=document.getElementById('leafmap');
+  if(lm)lm.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#e84040;font-family:monospace;font-size:12px;padding:20px;text-align:center">Map error: '+err.message+'<br><br>Please check browser console.</div>';
+}
 }); /* end window.load */
 
 </script>
