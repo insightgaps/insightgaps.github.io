@@ -596,7 +596,7 @@ nav{position:sticky;top:34px;z-index:890;height:42px;background:rgba(3,3,5,.97);
   </div>
 
   <div class="map-wrap">
-    <div id="leafmap"><div id="map-loading" style="display:flex;align-items:center;justify-content:center;height:100%;background:var(--g2);color:var(--tx);font-family:var(--lab);font-size:.55rem;flex-direction:column;gap:.5rem"><div style="opacity:.6">Loading map…</div><div style="font-size:.4rem;opacity:.4">If map stays blank, check browser console for errors</div></div></div>
+    <div id="leafmap"></div>
 
     <!-- SITE DETAIL PANEL -->
     <div id="mpl">
@@ -1002,7 +1002,10 @@ setTimeout(()=>{
   ['htitle','hsub'].forEach(id=>{const e=document.getElementById(id);if(e)e.classList.add('vis')});
 },2300);
 
-window.addEventListener('load', function initMap() {
+document.addEventListener('DOMContentLoaded', function() {
+  /* Use requestAnimationFrame to ensure layout is complete */
+  requestAnimationFrame(function() {
+    requestAnimationFrame(function initMap() {
 try {
 
 /* ════════════════════════════════════════════
@@ -1039,17 +1042,36 @@ MAP.createPane('pinPan');     MAP.getPane('pinPan').style.zIndex     = 600;
 MAP.createPane('schoolPan');  MAP.getPane('schoolPan').style.zIndex  = 650;
 MAP.createPane('bufPan');     MAP.getPane('bufPan').style.zIndex     = 420;
 
+/* Try CartoDB dark first, fall back to Stadia then OSM if blocked */
 const darkTile = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
-  attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
-  subdomains:'abcd',maxZoom:19,crossOrigin:true
+  attribution:'&copy; <a href="https://www.openstreetmap.org/">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
+  subdomains:'abcd',maxZoom:19
 });
 const satTile = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
   {attribution:'©Esri',maxZoom:19});
 darkTile.addTo(MAP);
+/* Remove loading indicator on first tile OR after timeout */
 darkTile.on('tileload', function(){
   const lo=document.getElementById('map-loading');
-  if(lo)lo.style.display='none';
+  if(lo)lo.remove();
 });
+darkTile.on('tileerror', function(){
+  /* Fallback to OSM if CartoDB blocked */
+  if(!window._osmFallback){
+    window._osmFallback=true;
+    MAP.removeLayer(darkTile);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{
+      attribution:'&copy; OpenStreetMap contributors',maxZoom:19
+    }).addTo(MAP);
+    const lo=document.getElementById('map-loading');
+    if(lo)lo.remove();
+  }
+});
+/* Force-remove loading div after 3s regardless */
+setTimeout(function(){
+  const lo=document.getElementById('map-loading');
+  if(lo)lo.remove();
+},3000);
 
 /* Tile load error fallback — switch to OSM if CartoDB fails */
 darkTile.on('tileerror', function(e){
@@ -1523,7 +1545,9 @@ if(window.innerWidth<768){
   var lm=document.getElementById('leafmap');
   if(lm)lm.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#e84040;font-family:monospace;font-size:12px;padding:20px;text-align:center">Map error: '+err.message+'<br><br>Please check browser console.</div>';
 }
-}); /* end window.load */
+    }); /* end rAF inner */
+  }); /* end rAF outer */
+}); /* end DOMContentLoaded */
 
 </script>
 </body>
