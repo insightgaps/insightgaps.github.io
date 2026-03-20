@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-heat/0.2.0/leaflet-heat.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"></script>
 <style>
 :root{
@@ -586,7 +586,7 @@ nav{position:sticky;top:34px;z-index:890;height:42px;background:rgba(3,3,5,.97);
       <span class="mbl">Layers:</span>
       <button class="lyrbtn on" id="lb-choro" onclick="togL('choro',this)">🗺 Choropleth</button>
       <button class="lyrbtn on" id="lb-bg"    onclick="togL('bg',this)">⬤ All 294 Sites</button>
-      <button class="lyrbtn on" id="lb-heat"  onclick="togL('heat',this)">🔥 Heat Map</button>
+      <button class="lyrbtn on" id="lb-heat"  onclick="" disabled style="opacity:.3;cursor:not-allowed">🔥 Heat Map</button>
       <button class="lyrbtn"    id="lb-sch"   onclick="togL('sch',this)">🏫 Schools</button>
       <button class="lyrbtn"    id="lb-buf"   onclick="togL('buf',this)">⭕ 500m Radius</button>
       <button class="lyrbtn"    id="lb-sat"   onclick="togL('sat',this)">🛰 Satellite View</button>
@@ -1186,16 +1186,7 @@ const choroG = L.geoJSON(GEOJSON,{
 });
 choroG.addTo(MAP);
 
-/* ── HEAT LAYER ────────────────────────────────────────── */
-const heatPts=SITES.filter(s=>s.p>0).map(s=>{
-  const w=Math.max(.1,Math.min(1,Math.log10(s.p/100)/3.8));
-  return[s.la,s.lo,w];
-});
-const heatL=L.heatLayer(heatPts,{
-  radius:18,blur:15,maxZoom:15,max:1,
-  gradient:{0:'transparent',.2:'rgba(100,15,0,.5)',.45:'rgba(180,50,0,.65)',.7:'rgba(220,100,0,.8)',1:'rgba(255,20,0,.95)'}
-});
-heatL.addTo(MAP);
+
 
 /* ── SITE MARKERS ──────────────────────────────────────── */
 /* Triangle-style divIcon (like Pure Earth) for all sites */
@@ -1484,7 +1475,7 @@ function togL(k,btn){
     else{MAP.removeLayer(darkTile);MAP.addLayer(satTile);}
     btn.classList.toggle('on',!on); return;
   }
-  const lg={choro:choroG,heat:heatL,bg:siteG,sch:schG,buf:bufG}[k];
+  const lg={choro:choroG,bg:siteG,sch:schG,buf:bufG}[k];
   if(!lg)return;
   const on=MAP.hasLayer(lg);
   if(on)MAP.removeLayer(lg); else MAP.addLayer(lg);
