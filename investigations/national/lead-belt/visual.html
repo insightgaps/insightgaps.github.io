@@ -96,7 +96,7 @@ nav{position:sticky;top:34px;z-index:890;height:42px;background:rgba(3,3,5,.97);
 .sp{font-family:var(--serif);font-size:1rem;color:var(--t2);line-height:1.85;max-width:560px;margin:.8rem auto 0}
 
 /* MAP SECTION */
-#s-map{background:var(--void);display:flex;flex-direction:column}
+#s-map{background:var(--void);display:flex;flex-direction:column;width:100%}
 .map-hdr{padding:4rem 1.5rem 1.5rem;max-width:1100px;margin:0 auto;width:100%;text-align:center}
 .bll-strip{display:flex;max-width:700px;margin:.9rem auto;border:1px solid var(--b2);overflow:hidden}
 .bll-cell{flex:1;text-align:center;padding:.52rem .3rem}
@@ -115,8 +115,8 @@ nav{position:sticky;top:34px;z-index:890;height:42px;background:rgba(3,3,5,.97);
 .msearch{font-family:var(--lab);font-size:.4rem;background:rgba(12,12,20,.85);border:1px solid var(--b2);color:var(--t0);padding:.22rem .55rem;width:165px;outline:none;transition:border-color .2s}
 .msearch:focus{border-color:var(--txd)}
 .msearch::placeholder{color:var(--t3)}
-.map-wrap{position:relative;width:100%}
-#leafmap{width:100%;height:min(660px,60vh);min-height:380px;display:block;border-top:1px solid var(--b1);border-bottom:1px solid var(--b1)}
+.map-wrap{position:relative;width:100%;flex-shrink:0}
+#leafmap{width:100%;height:min(660px,60vh);min-height:380px;display:block;flex-shrink:0;border-top:1px solid var(--b1);border-bottom:1px solid var(--b1)}
 
 /* SITE PANEL */
 #mpl{position:absolute;right:10px;top:10px;z-index:500;width:300px;background:rgba(7,7,12,.97);border:1px solid var(--b2);display:none;flex-direction:column;box-shadow:0 12px 40px rgba(0,0,0,.7);max-height:570px;overflow:hidden}
@@ -1036,10 +1036,26 @@ const satTile = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/service
 darkTile.addTo(MAP);
 L.control.scale({imperial:false,metric:true,position:'bottomright'}).addTo(MAP);
 
-/* invalidateSize after render */
+/* invalidateSize — multiple attempts to handle scroll/layout timing */
 setTimeout(()=>MAP.invalidateSize(),50);
 setTimeout(()=>MAP.invalidateSize(),300);
-setTimeout(()=>MAP.invalidateSize(),1000);
+setTimeout(()=>MAP.invalidateSize(),800);
+setTimeout(()=>MAP.invalidateSize(),1500);
+window.addEventListener('load',()=>{ setTimeout(()=>MAP.invalidateSize(),100); });
+/* Force re-init when section scrolls into view */
+if('IntersectionObserver' in window){
+  const mapObs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        MAP.invalidateSize();
+        setTimeout(()=>MAP.invalidateSize(),200);
+        mapObs.disconnect();
+      }
+    });
+  },{threshold:.01});
+  const mapEl=document.getElementById('s-map');
+  if(mapEl)mapObs.observe(mapEl);
+}
 
 /* ── PPM COLOUR SCALE ─────────────────────────────── */
 function ppmCol(ppm,a){
@@ -1462,6 +1478,9 @@ document.querySelectorAll('.sw-cell,.src-fact,.soil-bar-item,.tl-e,.dm,.hgc').fo
 /* ── NAV ACTIVE TRACKING ──────────────────────────── */
 const navLinks=document.querySelectorAll('.nav-sc a');
 window.addEventListener('scroll',function(){
+  /* Also invalidate map if visible */
+  const lm=document.getElementById('leafmap');
+  if(lm){const r=lm.getBoundingClientRect();if(r.top>=0&&r.bottom<=window.innerHeight+200){MAP.invalidateSize();}}
   let cur='';
   document.querySelectorAll('section[id]').forEach(s=>{
     if(window.scrollY>=s.offsetTop-110)cur=s.id;
