@@ -1,616 +1,1763 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Insight Gaps — Forensic Data Journalism, Bangladesh</title>
-<meta name="description" content="Insight Gaps is an independent forensic data journalism bureau based in Dhaka. We investigate accountability failures using data, documents, and verified public sources.">
-<link rel="icon" href="/favicon.png" type="image/png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4PYE0MEK12"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-4PYE0MEK12');</script>
-<style>
-:root{
-  --ink:#06060e;--ink2:#0c0c18;--ink3:#131320;--ink4:#1a1a28;
-  --blood:#c41e3a;--bloodl:rgba(196,30,58,.12);--bloodd:#8b1428;
-  --gold:#c9a84c;--goldl:rgba(201,168,76,.1);
-  --teal:#30c880;--tealld:rgba(48,200,128,.1);
-  --ash:#7a7590;--ash2:#3e3c50;--ash3:#252535;
-  --white:#e8e3da;--white2:#c4bfb5;--white3:#8a8598;
-  --border:#1e1e32;--border2:rgba(255,255,255,.06);
-  --mono:'JetBrains Mono',monospace;
-  --serif:'Playfair Display',serif;
-  --max:1240px;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{font-size:16px;scroll-behavior:smooth}
-body{background:var(--ink);color:var(--white);font-family:var(--mono);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insight Gaps — Forensic Data Journalism, Bangladesh</title>
+  <meta name="description" content="Insight Gaps is an independent forensic data journalism bureau in Dhaka. We investigate accountability failures using primary data. Current: 44 lead-contaminated sites near 145 Bangladeshi schools.">
+  <meta property="og:title" content="Insight Gaps — Forensic Data Journalism, Bangladesh">
+  <meta property="og:description" content="44 lead-contaminated sites near 145 schools. 59 metres. 0 permanent closures. We investigate what institutions choose not to count.">
+  <meta property="og:image" content="https://insightgaps.com/investigations/national/images/lead-belt/hero.jpg">
+  <meta property="og:url" content="https://insightgaps.com">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Insight Gaps — Forensic Data Journalism, Bangladesh">
+  <meta name="twitter:description" content="44 lead-contaminated sites near 145 schools. 59 metres. 0 permanent closures.">
+  <meta name="twitter:image" content="https://insightgaps.com/investigations/national/images/lead-belt/hero.jpg">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
 
-/* ── NAV ── */
-#nav{
-  position:sticky;top:0;z-index:800;
-  background:rgba(6,6,14,.97);backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border);
-}
-.nav-inner{
-  max-width:var(--max);margin:0 auto;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 1.5rem;height:52px;gap:1rem
-}
-.nav-brand{
-  font-family:var(--mono);font-size:.68rem;font-weight:700;
-  letter-spacing:.2em;text-transform:uppercase;color:var(--gold)
-}
-.nav-links{display:flex;align-items:center;gap:.2rem;height:100%}
-.nav-link{
-  font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--ash);border:1px solid transparent;
-  padding:.25rem .7rem;height:100%;display:flex;align-items:center;
-  transition:all .2s
-}
-.nav-link:hover,.nav-link.active{color:var(--white);border-color:var(--border)}
-.nav-ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px}
-.nav-ham span{display:block;width:20px;height:2px;background:var(--ash);border-radius:1px;transition:all .25s}
-.nav-ham.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
-.nav-ham.open span:nth-child(2){opacity:0}
-.nav-ham.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-.nav-drawer{display:none;position:fixed;top:52px;left:0;right:0;background:rgba(6,6,14,.99);border-bottom:1px solid var(--border);padding:1.2rem 1.5rem;z-index:790}
-.nav-drawer.open{display:block}
-.nav-drawer a{display:block;font-family:var(--mono);font-size:.75rem;color:var(--ash);letter-spacing:.08em;text-transform:uppercase;padding:.65rem 0;border-bottom:1px solid var(--border);transition:color .2s}
-.nav-drawer a:hover{color:var(--gold)}
-.nav-drawer a:last-child{border-bottom:none}
-@media(max-width:760px){.nav-links{display:none}.nav-ham{display:flex}}
+  <style>
+    /* ─── CSS VARIABLES ──────────────────────────────────────────────── */
+    :root {
+      --ink:    #06060e;
+      --ink2:   #0c0c18;
+      --ink3:   #131320;
+      --ink4:   #1a1a28;
+      --blood:  #c41e3a;
+      --bloodl: rgba(196,30,58,.12);
+      --gold:   #c9a84c;
+      --teal:   #30c880;
+      --white:  #e8e3da;
+      --white2: #c4bfb5;
+      --ash:    #7a7590;
+      --border: #1e1e32;
+      --mono:   'JetBrains Mono', monospace;
+      --serif:  'Playfair Display', serif;
+    }
 
-/* ── BUREAU IDENTITY HERO ── */
-#bureau-hero{
-  max-width:var(--max);margin:0 auto;
-  padding:5rem 1.5rem 4rem;
-  border-bottom:1px solid var(--border)
-}
-.bh-overline{
-  font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;
-  color:var(--blood);margin-bottom:1.5rem;
-  display:flex;align-items:center;gap:.6rem
-}
-.bh-overline::before{content:'//';color:var(--ash2)}
-.bh-headline{
-  font-family:var(--serif);font-size:clamp(2.2rem,5vw,3.8rem);
-  font-weight:900;line-height:1.08;letter-spacing:-.02em;
-  color:var(--white);margin-bottom:1.8rem;max-width:780px
-}
-.bh-headline em{color:var(--gold);font-style:normal}
-.bh-body{
-  font-size:.78rem;line-height:1.85;color:var(--white2);
-  max-width:680px;margin-bottom:2.5rem
-}
-.bh-pillars{
-  display:flex;flex-wrap:wrap;gap:1px;
-  background:var(--border);border:1px solid var(--border);
-  max-width:780px;margin-bottom:2.5rem
-}
-.bh-pillar{
-  background:var(--ink2);padding:1rem 1.4rem;flex:1;min-width:180px
-}
-.bh-pillar-label{
-  font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;
-  margin-bottom:.4rem
-}
-.bh-pillar-label.red{color:var(--blood)}
-.bh-pillar-label.gold{color:var(--gold)}
-.bh-pillar-label.teal{color:var(--teal)}
-.bh-pillar-val{font-size:.72rem;color:var(--white2);line-height:1.5}
-.bh-meta{
-  display:flex;flex-wrap:wrap;gap:1.5rem;
-  font-size:.52rem;letter-spacing:.08em;color:var(--ash);
-  border-top:1px solid var(--border);padding-top:1.2rem
-}
-.bh-meta span{display:flex;align-items:center;gap:.4rem}
-.bh-meta strong{color:var(--white2)}
+    /* ─── RESET & BASE ───────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--ink);
+      color: var(--white2);
+      font-family: var(--mono);
+      font-size: 14px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button { font-family: var(--mono); cursor: pointer; }
 
-/* ── FEATURED INVESTIGATION ── */
-#featured{
-  max-width:var(--max);margin:0 auto;
-  padding:3.5rem 1.5rem;border-bottom:1px solid var(--border)
-}
-.section-label{
-  font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;
-  color:var(--ash);margin-bottom:1.8rem;
-  display:flex;align-items:center;gap:.6rem
-}
-.section-label::before{content:'◈';color:var(--blood);font-size:.4rem}
-.feat-grid{
-  display:grid;grid-template-columns:1fr 340px;
-  gap:1px;background:var(--border);border:1px solid var(--border)
-}
-@media(max-width:900px){.feat-grid{grid-template-columns:1fr}}
-.feat-main{background:var(--ink2);padding:2.5rem}
-.feat-badge{
-  display:inline-flex;align-items:center;gap:.6rem;
-  font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--blood);background:var(--bloodl);
-  border:1px solid rgba(196,30,58,.25);padding:.3rem .7rem;
-  margin-bottom:1.2rem
-}
-.feat-badge-id{color:var(--ash);font-size:.42rem}
-.feat-tag-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.2rem}
-.feat-tag{
-  font-size:.44rem;letter-spacing:.14em;text-transform:uppercase;
-  padding:.2rem .55rem;border:1px solid var(--border2)
-}
-.feat-tag.scope-nat{color:var(--blood);border-color:rgba(196,30,58,.2)}
-.feat-tag.scope-intl{color:var(--gold);border-color:rgba(201,168,76,.2)}
-.feat-tag.topic{color:var(--ash)}
-.feat-title{
-  font-family:var(--serif);font-size:clamp(1.5rem,3.5vw,2.5rem);
-  font-weight:900;line-height:1.1;letter-spacing:-.02em;
-  color:var(--white);margin-bottom:1rem
-}
-.feat-summary{font-size:.72rem;line-height:1.8;color:var(--white2);margin-bottom:1.5rem}
-.feat-findings{margin-bottom:1.8rem}
-.feat-findings-label{
-  font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--ash);margin-bottom:.8rem
-}
-.feat-findings ul{list-style:none;display:flex;flex-direction:column;gap:.6rem}
-.feat-findings li{
-  font-size:.68rem;line-height:1.65;color:var(--white2);
-  padding-left:1.2rem;position:relative
-}
-.feat-findings li::before{content:'→';position:absolute;left:0;color:var(--blood);font-size:.55rem;top:.05rem}
-.feat-findings strong{color:var(--white)}
-.feat-actions{display:flex;flex-wrap:wrap;gap:.6rem}
-.btn{
-  display:inline-flex;align-items:center;gap:.5rem;
-  font-family:var(--mono);font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;
-  padding:.65rem 1.1rem;border:1px solid transparent;cursor:pointer;transition:all .2s
-}
-.btn-red{background:var(--blood);color:#fff;border-color:var(--blood)}
-.btn-red:hover{background:#e02040;border-color:#e02040}
-.btn-ghost{background:transparent;color:var(--white2);border-color:var(--border)}
-.btn-ghost:hover{border-color:var(--ash);color:var(--white)}
-.btn-gold{background:transparent;color:var(--gold);border-color:rgba(201,168,76,.3)}
-.btn-gold:hover{border-color:var(--gold);color:#e8c060}
+    /* ─── NAV ────────────────────────────────────────────────────────── */
+    .site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 900;
+      background: rgba(6,6,14,0.92);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .nav-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--mono);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      text-transform: uppercase;
+    }
+    .nav-logo span { color: var(--blood); }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ash);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--white); }
+    @media (max-width: 600px) {
+      .nav-links { gap: 1rem; }
+      .nav-links a { font-size: 0.5rem; letter-spacing: 0.1em; }
+    }
 
-/* Sidebar stats panel */
-.feat-side{background:var(--ink3);padding:2rem 1.8rem;display:flex;flex-direction:column;gap:1px}
-.feat-stat{padding:1.2rem 0;border-bottom:1px solid var(--border)}
-.feat-stat:last-child{border-bottom:none}
-.feat-stat-val{
-  font-family:var(--serif);font-size:2.4rem;font-weight:700;
-  color:var(--blood);line-height:1;margin-bottom:.4rem
-}
-.feat-stat-val.gold{color:var(--gold)}
-.feat-stat-val.white{color:var(--white)}
-.feat-stat-lbl{font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ash);line-height:1.4}
-.feat-stat-src{font-size:.42rem;color:var(--ash2);margin-top:.3rem}
-.feat-meta-block{
-  background:var(--ink2);border-top:1px solid var(--border);
-  padding:1.2rem 1.8rem
-}
-.feat-meta-row{display:flex;justify-content:space-between;gap:.5rem;font-size:.5rem;color:var(--ash);margin-bottom:.35rem}
-.feat-meta-row:last-child{margin-bottom:0}
-.feat-meta-row strong{color:var(--white2)}
-.feat-visual-link{
-  display:flex;align-items:center;gap:.6rem;
-  font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--gold);padding:.8rem 1.8rem;background:var(--ink3);
-  border-top:1px solid var(--border);transition:all .2s
-}
-.feat-visual-link:hover{background:var(--goldl);color:#e8c060}
-.feat-visual-link::before{content:'▶';font-size:.42rem}
+    /* ─── HERO ───────────────────────────────────────────────────────── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 52px 2rem 80px;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('/images/homepage-hero-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(6,6,14,0.88);
+      z-index: 1;
+    }
+    /* Subtle grid texture fallback when no image */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 48px 48px;
+      opacity: 0.3;
+      z-index: 0;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 900px;
+      width: 100%;
+    }
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.48rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--ash);
+      margin-bottom: 2.5rem;
+    }
+    .hero-fact {
+      margin-bottom: 1.5rem;
+      transition: opacity 0.6s ease;
+    }
+    .hero-fact.fade-out { opacity: 0; }
+    .hero-number {
+      font-family: var(--serif);
+      font-size: clamp(5rem, 18vw, 13rem);
+      font-weight: 900;
+      line-height: 0.9;
+      color: var(--blood);
+      letter-spacing: -0.02em;
+      transition: color 0.6s ease;
+      margin-bottom: 0.6rem;
+    }
+    .hero-progress {
+      width: 200px;
+      height: 1px;
+      background: var(--border);
+      margin: 0 auto 1.2rem;
+      overflow: hidden;
+    }
+    .hero-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: var(--blood);
+      transition: width 0.1s linear;
+    }
+    .hero-sentence {
+      font-family: var(--mono);
+      font-size: clamp(0.6rem, 1.4vw, 0.82rem);
+      color: var(--white2);
+      line-height: 1.7;
+      max-width: 600px;
+      margin: 0 auto;
+      letter-spacing: 0.03em;
+    }
+    .hero-tagline {
+      font-family: var(--serif);
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      color: var(--white);
+      font-style: italic;
+      margin: 2rem 0 1.2rem;
+      opacity: 0.85;
+    }
+    .hero-tagline em {
+      font-style: normal;
+      color: var(--gold);
+    }
+    .hero-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .hdot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--border);
+      border: 1px solid var(--ash);
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .hdot.active {
+      background: var(--blood);
+      border-color: var(--blood);
+    }
+    .scroll-dn {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--ash);
+      font-family: var(--mono);
+      font-size: 0.44rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      animation: bob 2.5s ease-in-out infinite;
+    }
+    @keyframes bob {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+    @media (max-width: 768px) {
+      .hero-number { font-size: clamp(4rem, 14vw, 8rem); }
+    }
 
-/* ── ALL INVESTIGATIONS ── */
-#investigations{
-  max-width:var(--max);margin:0 auto;
-  padding:3.5rem 1.5rem
-}
-.inv-grid{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border)}
-.inv-row{
-  background:var(--ink2);padding:2rem 2rem;
-  display:grid;grid-template-columns:auto 1fr auto;
-  gap:1.5rem;align-items:start;transition:background .2s;
-  cursor:pointer
-}
-.inv-row:hover{background:var(--ink3)}
-@media(max-width:700px){.inv-row{grid-template-columns:1fr;gap:1rem}}
-.inv-row-id{
-  font-size:.5rem;letter-spacing:.16em;text-transform:uppercase;
-  padding:.3rem .65rem;border:1px solid;min-width:110px;text-align:center;
-  white-space:nowrap;margin-top:.15rem
-}
-.inv-row-id.national{color:var(--blood);border-color:rgba(196,30,58,.3);background:var(--bloodl)}
-.inv-row-id.international{color:var(--gold);border-color:rgba(201,168,76,.3);background:var(--goldl)}
-.inv-row-id.environment{color:var(--teal);border-color:rgba(48,200,128,.3);background:var(--tealld)}
-.inv-row-body{}
-.inv-row-title{
-  font-family:var(--serif);font-size:1.25rem;font-weight:700;
-  color:var(--white);line-height:1.2;margin-bottom:.5rem
-}
-.inv-row-summary{font-size:.65rem;line-height:1.75;color:var(--white2)}
-.inv-row-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem}
-.inv-row-tag{
-  font-size:.42rem;letter-spacing:.12em;text-transform:uppercase;
-  padding:.18rem .45rem;border:1px solid var(--border2);color:var(--ash)
-}
-.inv-row-actions{display:flex;flex-direction:column;gap:.4rem;min-width:160px;align-items:flex-end}
-@media(max-width:700px){.inv-row-actions{flex-direction:row;align-items:flex-start}}
-.inv-row-link{
-  font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;
-  padding:.5rem .9rem;border:1px solid var(--border);color:var(--white2);
-  white-space:nowrap;transition:all .2s;display:flex;align-items:center;gap:.4rem
-}
-.inv-row-link:hover{border-color:var(--ash);color:var(--white)}
-.inv-row-link.primary{background:var(--blood);border-color:var(--blood);color:#fff}
-.inv-row-link.primary:hover{background:#e02040}
-.inv-row-link.visual{color:var(--gold);border-color:rgba(201,168,76,.25)}
-.inv-row-link.visual:hover{border-color:var(--gold);color:#e8c060}
+    /* ─── TICKER ─────────────────────────────────────────────────────── */
+    #ticker {
+      height: 44px;
+      overflow: hidden;
+      background: var(--ink3);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+    }
+    .ticker-track {
+      display: flex;
+      align-items: center;
+      width: max-content;
+      animation: tickscroll 45s linear infinite;
+      white-space: nowrap;
+    }
+    @keyframes tickscroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    #ticker:hover .ticker-track { animation-play-state: paused; }
+    .tick-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0 1.5rem;
+    }
+    .tick-val {
+      font-family: var(--mono);
+      font-weight: 700;
+      font-size: 0.72rem;
+      color: var(--blood);
+      letter-spacing: 0.04em;
+    }
+    .tick-sep {
+      color: var(--blood);
+      opacity: 0.5;
+      font-size: 0.7rem;
+    }
+    .tick-lbl {
+      font-family: var(--mono);
+      font-size: 0.44rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ash);
+    }
+    .tick-divider {
+      color: var(--border);
+      margin-left: 1rem;
+      font-size: 1rem;
+      opacity: 0.6;
+    }
 
-/* ── BUREAU STANDARDS STRIP ── */
-#standards{
-  background:var(--ink3);border-top:1px solid var(--border);border-bottom:1px solid var(--border);
-  padding:2.5rem 1.5rem
-}
-.standards-inner{max-width:var(--max);margin:0 auto}
-.standards-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem
-}
-.std-item{}
-.std-label{
-  font-size:.48rem;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--blood);margin-bottom:.6rem
-}
-.std-body{font-size:.65rem;line-height:1.7;color:var(--ash)}
+    /* ─── SECTION COMMON ─────────────────────────────────────────────── */
+    .section-wrap {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.46rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--blood);
+      margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 3vw, 2.5rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 2rem;
+    }
+    .section-title .accent { color: var(--gold); }
 
-/* ── FOOTER ── */
-.site-footer{
-  background:var(--ink2);border-top:1px solid var(--border);
-  padding:3rem 1.5rem 2rem
-}
-.footer-inner{
-  max-width:var(--max);margin:0 auto;
-  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;
-  margin-bottom:2rem
-}
-@media(max-width:800px){.footer-inner{grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.footer-inner{grid-template-columns:1fr}}
-.footer-brand-name{
-  font-family:var(--mono);font-size:.75rem;font-weight:700;
-  letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem
-}
-.bureau-statement{font-size:.62rem;line-height:1.7;color:var(--ash);max-width:260px}
-.footer-col h5{
-  font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--white2);margin-bottom:.9rem
-}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:.5rem}
-.footer-links a{font-size:.6rem;color:var(--ash);transition:color .2s;line-height:1.5}
-.footer-links a:hover{color:var(--white2)}
-.footer-bottom{
-  max-width:var(--max);margin:0 auto;
-  padding-top:1.5rem;border-top:1px solid var(--border);
-  display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem
-}
-.footer-bottom p{font-size:.5rem;color:var(--ash2);line-height:1.6}
-.footer-bottom a{color:var(--ash);transition:color .2s}
-.footer-bottom a:hover{color:var(--gold)}
-</style>
+    /* ─── FEATURED INVESTIGATION ─────────────────────────────────────── */
+    #featured {
+      border-top: 1px solid var(--border);
+    }
+    .featured-card {
+      border: 1px solid var(--border);
+      background: var(--ink2);
+      overflow: hidden;
+    }
+    .featured-hero-img {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+      background: var(--ink3);
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+    .featured-hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .featured-hero-img .img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, var(--ink2) 100%);
+    }
+    .featured-body {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 0;
+    }
+    @media (max-width: 860px) {
+      .featured-body { grid-template-columns: 1fr; }
+    }
+    .featured-main {
+      padding: 2rem;
+      border-right: 1px solid var(--border);
+    }
+    @media (max-width: 860px) {
+      .featured-main { border-right: none; border-bottom: 1px solid var(--border); }
+    }
+    .featured-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+    .badge-new {
+      font-family: var(--mono);
+      font-size: 0.44rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      background: var(--blood);
+      color: var(--white);
+      font-weight: 700;
+    }
+    .badge-id {
+      font-family: var(--mono);
+      font-size: 0.44rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      border: 1px solid var(--border);
+      color: var(--ash);
+    }
+    .featured-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-bottom: 1.2rem;
+    }
+    .tag {
+      font-family: var(--mono);
+      font-size: 0.42rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ash);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.5rem;
+    }
+    .tag.env { color: var(--teal); border-color: rgba(48,200,128,0.2); }
+    .featured-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 1rem;
+    }
+    .featured-summary {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--white2);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      max-width: 640px;
+    }
+    .findings-list {
+      list-style: none;
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .findings-list li {
+      font-family: var(--mono);
+      font-size: 0.66rem;
+      color: var(--white2);
+      line-height: 1.65;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+    .findings-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--blood);
+    }
+    .findings-list li strong { color: var(--white); font-weight: 700; }
+    .share-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.2rem;
+      padding: 0.7rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .share-label {
+      font-family: var(--mono);
+      font-size: 0.46rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ash);
+    }
+    .share-btn {
+      font-family: var(--mono);
+      font-size: 0.46rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.7rem;
+      border: 1px solid;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .share-btn.whatsapp { color: #25d366; border-color: rgba(37,211,102,0.3); }
+    .share-btn.whatsapp:hover { background: rgba(37,211,102,0.08); }
+    .share-btn.twitter { color: var(--ash); border-color: var(--border); }
+    .share-btn.twitter:hover { color: var(--white2); border-color: var(--ash); }
+    .share-btn.copy { color: var(--ash); border-color: var(--border); }
+    .share-btn.copy:hover { color: var(--gold); border-color: var(--gold); }
+    .featured-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .btn-primary {
+      font-family: var(--mono);
+      font-size: 0.54rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.7rem 1.2rem;
+      background: var(--blood);
+      color: var(--white);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+      display: inline-block;
+      font-weight: 700;
+    }
+    .btn-primary:hover { background: #a01830; }
+    .btn-ghost {
+      font-family: var(--mono);
+      font-size: 0.54rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.7rem 1.2rem;
+      background: transparent;
+      color: var(--ash);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-ghost:hover { color: var(--white); border-color: var(--ash); }
+    .featured-meta {
+      font-family: var(--mono);
+      font-size: 0.48rem;
+      color: var(--ash);
+      line-height: 1.8;
+    }
+    .featured-meta a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+    .featured-meta a:hover { color: var(--white); }
+    /* Stats sidebar */
+    .featured-sidebar {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .stat-block {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .stat-block:last-child { border-bottom: none; }
+    .stat-val {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 700;
+      color: var(--blood);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .stat-val.gold { color: var(--gold); }
+    .stat-val.teal { color: var(--teal); }
+    .stat-lbl {
+      font-family: var(--mono);
+      font-size: 0.44rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ash);
+      line-height: 1.5;
+    }
+    .stat-src {
+      font-family: var(--mono);
+      font-size: 0.4rem;
+      color: rgba(122,117,144,0.5);
+      margin-top: 0.2rem;
+    }
+
+    /* ─── SCHOOL FINDER ──────────────────────────────────────────────── */
+    #finder {
+      background: var(--ink3);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .finder-intro {
+      max-width: 680px;
+      margin-bottom: 2rem;
+    }
+    .finder-headline {
+      font-family: var(--serif);
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    .finder-sub {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      color: var(--ash);
+      line-height: 1.7;
+    }
+    .finder-input-row {
+      display: flex;
+      gap: 0;
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+    .finder-input {
+      flex: 1;
+      background: var(--ink2);
+      border: 1px solid var(--border);
+      border-right: none;
+      color: var(--white);
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      padding: 0.75rem 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .finder-input:focus { border-color: var(--blood); }
+    .finder-input::placeholder { color: var(--ash); }
+    .finder-btn {
+      background: var(--blood);
+      color: var(--white);
+      border: none;
+      font-family: var(--mono);
+      font-size: 0.54rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.75rem 1.2rem;
+      cursor: pointer;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .finder-btn:hover { background: #a01830; }
+    .finder-results { min-height: 40px; }
+    .finder-heading {
+      font-family: var(--mono);
+      font-size: 0.48rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ash);
+      margin-bottom: 0.8rem;
+    }
+    .finder-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1px;
+      background: var(--border);
+    }
+    .finder-result {
+      background: var(--ink2);
+      padding: 1.2rem;
+    }
+    .finder-result-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.8rem;
+    }
+    .finder-school-name {
+      font-family: var(--mono);
+      font-size: 0.66rem;
+      color: var(--white);
+      line-height: 1.4;
+      font-weight: 700;
+    }
+    .finder-risk-badge {
+      font-family: var(--mono);
+      font-size: 0.4rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.5rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+      font-weight: 700;
+    }
+    .finder-risk-badge.critical { background: var(--blood); color: var(--white); }
+    .finder-risk-badge.high { background: rgba(201,168,76,0.15); color: var(--gold); border: 1px solid rgba(201,168,76,0.3); }
+    .finder-risk-badge.elevated { background: rgba(48,200,128,0.1); color: var(--teal); border: 1px solid rgba(48,200,128,0.2); }
+    .finder-stats {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .finder-stat { display: flex; flex-direction: column; }
+    .fs-val {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+    }
+    .fs-lbl {
+      font-family: var(--mono);
+      font-size: 0.42rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ash);
+    }
+    .finder-area {
+      font-family: var(--mono);
+      font-size: 0.52rem;
+      color: var(--ash);
+      margin-bottom: 0.8rem;
+    }
+    .finder-actions {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .finder-link {
+      font-family: var(--mono);
+      font-size: 0.48rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.2s;
+    }
+    .finder-link:hover { color: var(--white); }
+    .finder-share-btn {
+      font-family: var(--mono);
+      font-size: 0.46rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #25d366;
+      background: transparent;
+      border: 1px solid rgba(37,211,102,0.25);
+      padding: 0.25rem 0.6rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .finder-share-btn:hover { background: rgba(37,211,102,0.08); }
+    .finder-empty {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      color: var(--ash);
+      padding: 1.5rem;
+      background: var(--ink2);
+      border: 1px solid var(--border);
+      line-height: 1.7;
+    }
+    .finder-note {
+      font-family: var(--mono);
+      font-size: 0.5rem;
+      color: rgba(122,117,144,0.6);
+      margin-top: 1rem;
+      line-height: 1.7;
+    }
+    .finder-note a { color: var(--gold); text-decoration: underline; text-underline-offset: 2px; }
+    .noscript-finder {
+      font-family: var(--mono);
+      font-size: 0.66rem;
+      color: var(--ash);
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      line-height: 1.7;
+    }
+    .noscript-finder a { color: var(--gold); }
+
+    /* ─── INVESTIGATION ARCHIVE ──────────────────────────────────────── */
+    #archive {
+      border-top: 1px solid var(--border);
+    }
+    .inv-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+    }
+    @media (max-width: 700px) {
+      .inv-grid { grid-template-columns: 1fr; }
+    }
+    .inv-card {
+      background: var(--ink2);
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .inv-card.in-view { opacity: 1; transform: none; }
+    .inv-card:nth-child(2) { transition-delay: 0.1s; }
+    .inv-card:nth-child(3) { transition-delay: 0.2s; }
+    .inv-card:nth-child(4) { transition-delay: 0.3s; }
+    .inv-card:hover .inv-card-img img { transform: scale(1.03); }
+    .inv-card-img {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+      background: var(--ink3);
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 32px 32px;
+      flex-shrink: 0;
+    }
+    .inv-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .inv-card-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 30%, rgba(12,12,24,0.8) 100%);
+    }
+    .inv-card-play {
+      position: absolute;
+      bottom: 0.8rem;
+      right: 0.8rem;
+      background: var(--blood);
+      color: var(--white);
+      font-size: 0.55rem;
+      padding: 0.3rem 0.6rem;
+      font-family: var(--mono);
+      letter-spacing: 0.1em;
+    }
+    .inv-card-img.no-img img { display: none; }
+    .inv-card-body {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .inv-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.6rem;
+    }
+    .inv-card-id {
+      font-family: var(--mono);
+      font-size: 0.44rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 0.18rem 0.5rem;
+      background: var(--bloodl);
+      color: var(--blood);
+      border: 1px solid rgba(196,30,58,0.2);
+      font-weight: 700;
+    }
+    .inv-card-id.intl {
+      background: rgba(201,168,76,0.1);
+      color: var(--gold);
+      border-color: rgba(201,168,76,0.2);
+    }
+    .inv-card-date {
+      font-family: var(--mono);
+      font-size: 0.44rem;
+      letter-spacing: 0.1em;
+      color: var(--ash);
+    }
+    .inv-card-title {
+      font-family: var(--serif);
+      font-size: clamp(1.2rem, 2vw, 1.6rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .inv-card-stat {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin-bottom: 0.7rem;
+      padding: 0.6rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .inv-card-stat-val {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 700;
+      color: var(--blood);
+      line-height: 1;
+    }
+    .inv-card-stat-lbl {
+      font-family: var(--mono);
+      font-size: 0.5rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ash);
+      line-height: 1.4;
+    }
+    .inv-card-summary {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      color: var(--white2);
+      line-height: 1.75;
+      margin-bottom: 1.2rem;
+      flex: 1;
+    }
+    .inv-card-actions {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+    .inv-card-btn {
+      font-family: var(--mono);
+      font-size: 0.48rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.5rem 0.9rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+    .inv-card-btn.primary {
+      background: var(--blood);
+      color: var(--white);
+      font-weight: 700;
+    }
+    .inv-card-btn.primary:hover { background: #a01830; }
+    .inv-card-btn.ghost {
+      border: 1px solid var(--border);
+      color: var(--ash);
+    }
+    .inv-card-btn.ghost:hover { color: var(--white); border-color: var(--ash); }
+
+    /* ─── BUREAU STANDARDS ───────────────────────────────────────────── */
+    #bureau {
+      border-top: 1px solid var(--border);
+    }
+    .bureau-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      margin-top: 2rem;
+    }
+    @media (max-width: 700px) {
+      .bureau-grid { grid-template-columns: 1fr; }
+    }
+    .bureau-block {
+      background: var(--ink2);
+      padding: 1.5rem;
+    }
+    .bureau-block-title {
+      font-family: var(--mono);
+      font-size: 0.5rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--blood);
+      margin-bottom: 0.8rem;
+    }
+    .bureau-block-body {
+      font-family: var(--mono);
+      font-size: 0.64rem;
+      color: var(--white2);
+      line-height: 1.8;
+    }
+    .tier-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .tier-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--white2);
+      line-height: 1.5;
+    }
+    .tier-badge {
+      font-size: 0.4rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.5rem;
+      font-weight: 700;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .tier-badge.confirmed { background: var(--blood); color: var(--white); }
+    .tier-badge.probable { color: var(--gold); border: 1px solid rgba(201,168,76,0.3); }
+    .tier-badge.alleged { color: var(--ash); border: 1px solid var(--border); }
+    .tier-badge.unverified { color: rgba(122,117,144,0.5); border: 1px solid rgba(30,30,50,0.5); }
+
+    /* ─── FOOTER ─────────────────────────────────────────────────────── */
+    .site-footer {
+      background: var(--ink2);
+      border-top: 1px solid var(--border);
+      padding-top: 2.5rem;
+    }
+    .footer-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 1.5rem 2rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 2rem;
+    }
+    @media (max-width: 600px) {
+      .footer-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
+    .footer-brand .name {
+      font-family: var(--mono);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 0.7rem;
+    }
+    .footer-brand .name span { color: var(--blood); }
+    .footer-brand p {
+      font-family: var(--mono);
+      font-size: 0.56rem;
+      color: var(--ash);
+      line-height: 1.8;
+    }
+    .footer-col h4 {
+      font-family: var(--mono);
+      font-size: 0.48rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .footer-col li a {
+      font-family: var(--mono);
+      font-size: 0.54rem;
+      color: var(--ash);
+      transition: color 0.2s;
+    }
+    .footer-col li a:hover { color: var(--gold); }
+    .footer-bottom {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .footer-bottom span {
+      font-family: var(--mono);
+      font-size: 0.46rem;
+      letter-spacing: 0.1em;
+      color: var(--ash);
+    }
+
+    /* ─── MISC UTILITIES ─────────────────────────────────────────────── */
+    .visually-hidden {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+  </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav id="nav" role="navigation" aria-label="Main navigation">
+<!-- ═══════════════════════════════════════════════════════════
+     NAV
+═══════════════════════════════════════════════════════════ -->
+<nav class="site-nav" aria-label="Main navigation">
   <div class="nav-inner">
-    <a href="/" class="nav-brand" aria-label="Insight Gaps — Home">Insight Gaps</a>
+    <a href="/" class="nav-logo" aria-label="Insight Gaps home">Insight<span>Gaps</span></a>
     <div class="nav-links">
-      <a href="/" class="nav-link active">Home</a>
-      <a href="/investigations/" class="nav-link">Investigations</a>
-      <a href="/about/" class="nav-link">About</a>
-      <a href="/methods/" class="nav-link">Methods</a>
-      <a href="/data/" class="nav-link">Data</a>
+      <a href="/" class="active">Home</a>
+      <a href="/investigations/">Investigations</a>
+      <a href="/about/">About</a>
+      <a href="/methods/">Methods</a>
     </div>
-    <button class="nav-ham" id="navHam" aria-label="Open navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
   </div>
 </nav>
-<div class="nav-drawer" id="navDrawer">
-  <a href="/">Home</a>
-  <a href="/investigations/">Investigations</a>
-  <a href="/about/">About</a>
-  <a href="/methods/">Methods</a>
-  <a href="/data/">Data</a>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 1: HERO
+═══════════════════════════════════════════════════════════ -->
+<section id="hero" aria-label="Featured statistics">
+  <div class="hero-bg" role="presentation" aria-hidden="true"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow" aria-hidden="true">Insight Gaps Bureau · Forensic Data Journalism · Dhaka</div>
+
+    <div class="hero-fact" id="heroFact" role="region" aria-live="polite" aria-label="Rotating statistic">
+      <div class="hero-number" id="heroNum">59m</div>
+      <div class="hero-progress" aria-hidden="true">
+        <div class="hero-progress-bar" id="heroBar"></div>
+      </div>
+      <div class="hero-sentence" id="heroSentence">The distance between a school and an active lead battery recycling site. Kamrangir Char, Dhaka.</div>
+    </div>
+
+    <div class="hero-tagline">We investigate what <em>institutions</em> choose not to count.</div>
+
+    <div class="hero-dots" id="heroDots" role="tablist" aria-label="Fact indicators">
+      <span class="hdot active" role="tab" aria-label="Fact 1 of 3" aria-selected="true"></span>
+      <span class="hdot" role="tab" aria-label="Fact 2 of 3" aria-selected="false"></span>
+      <span class="hdot" role="tab" aria-label="Fact 3 of 3" aria-selected="false"></span>
+    </div>
+  </div>
+
+  <div class="scroll-dn" aria-hidden="true">
+    <span>scroll</span>
+    <svg width="16" height="20" viewBox="0 0 16 20" fill="none" aria-hidden="true">
+      <path d="M8 0v16M2 10l6 8 6-8" stroke="currentColor" stroke-width="1.5"/>
+    </svg>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 2: LIVE ACCOUNTABILITY TICKER
+═══════════════════════════════════════════════════════════ -->
+<div id="ticker" role="marquee" aria-label="Live accountability data">
+  <div class="ticker-track" id="tickerTrack" aria-hidden="true">
+    <!-- Populated by JS -->
+  </div>
 </div>
 
-<!-- BUREAU IDENTITY HERO -->
-<section id="bureau-hero">
-  <div class="bh-overline">Forensic Data Journalism Bureau — Dhaka, Bangladesh</div>
-  <h1 class="bh-headline">We investigate what <em>institutions</em><br>choose not to count.</h1>
-  <p class="bh-body">
-    Insight Gaps is an independent forensic data journalism bureau. We build datasets from primary sources, apply verifiable methodology, and publish findings under open licenses. Every claim carries an evidence tier. Every dataset is released. Every methodology is documented. No funders. No sponsors. No conflicts of interest.
-  </p>
-  <div class="bh-pillars">
-    <div class="bh-pillar">
-      <div class="bh-pillar-label red">Accountability &amp; Justice</div>
-      <div class="bh-pillar-val">Forensic audit of how institutional systems produce systematic impunity — police, courts, prosecutors.</div>
-    </div>
-    <div class="bh-pillar">
-      <div class="bh-pillar-label gold">Conflict Economics</div>
-      <div class="bh-pillar-val">Quantitative analysis of how armed conflicts transmit economic harm across borders to uninvolved countries.</div>
-    </div>
-    <div class="bh-pillar">
-      <div class="bh-pillar-label teal">Operational Intelligence</div>
-      <div class="bh-pillar-val">Forensic diagnostics applied to operational systems — cash flow, vendor risk, environmental compliance.</div>
-    </div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 3: FEATURED INVESTIGATION — THE LEAD BELT
+═══════════════════════════════════════════════════════════ -->
+<section id="featured" aria-labelledby="featuredTitle">
+  <div class="section-wrap" style="padding-bottom: 0;">
+    <div class="section-label">Featured Investigation</div>
   </div>
-  <div class="bh-meta">
-    <span><strong>4</strong> Published Investigations</span>
-    <span><strong>3</strong> Research Programs</span>
-    <span><strong>CC BY-NC 4.0</strong> All Datasets</span>
-    <span><strong>Anonymous</strong> Bureau · Non-partisan</span>
-    <span><strong>Dhaka</strong> Bangladesh</span>
+
+  <div style="max-width:1240px; margin:0 auto; padding: 0 1.5rem 4rem;">
+    <div class="featured-card">
+
+      <!-- Hero image -->
+      <div class="featured-hero-img">
+        <img src="/investigations/national/images/lead-belt/hero.jpg"
+             alt="A narrow industrial alley in Kamrangir Char, Dhaka, with school children visible in the distance behind a lead battery recycling site"
+             loading="eager"
+             onerror="this.style.display='none'">
+        <div class="img-overlay" aria-hidden="true"></div>
+      </div>
+
+      <div class="featured-body">
+        <!-- Main content -->
+        <div class="featured-main">
+          <div class="featured-badges">
+            <span class="badge-new">New Investigation</span>
+            <span class="badge-id">BD-INV-003</span>
+          </div>
+          <div class="featured-tags">
+            <span class="tag">National</span>
+            <span class="tag env">Environment &amp; Public Health</span>
+            <span class="tag">Spatial Analysis</span>
+            <span class="tag">Visual Investigation</span>
+          </div>
+          <h2 class="featured-title" id="featuredTitle">The Lead Belt</h2>
+          <p class="featured-summary">
+            44 unregulated lead battery recycling sites operate within 500 metres of 145 schools across Bangladesh. The nearest contaminated site is 59 metres from a primary school in Kamrangir Char, Dhaka. Soil lead at that site measures 330,000 ppm — 825 times the safe limit set by the US EPA. The Department of Environment has documented this contamination since 2016. Zero facilities have been permanently closed by regulatory action.
+          </p>
+          <ul class="findings-list">
+            <li><strong>~39,875 students</strong> attend schools within 500 metres of a confirmed contaminated site today.</li>
+            <li><strong>38% of Bangladeshi children</strong> carry blood lead levels above the threshold for irreversible neurological harm. In Dhaka, the figure is 65%. There is no safe treatment for lead poisoning.</li>
+            <li><strong>22 years of documentation.</strong> 2003 to 2025. Not one ULAB facility permanently closed by regulatory action. The Bangladesh Bureau of Statistics catalogued 12,207 battery recycling operations in 2003. The number has grown.</li>
+          </ul>
+
+          <!-- Share row -->
+          <div class="share-row">
+            <span class="share-label">Share:</span>
+            <a href="https://wa.me/?text=44%20lead-contaminated%20sites%20near%20schools%20in%20Bangladesh.%20The%20closest%20school%20is%2059%20metres%20from%20a%20factory.%20Zero%20permanent%20closures%20in%2022%20years.%20Full%20investigation%3A%20https%3A%2F%2Finsightgaps.com%2Finvestigations%2Fnational%2Flead-belt%2Fvisual.html"
+               class="share-btn whatsapp" target="_blank" rel="noopener" aria-label="Share on WhatsApp">WhatsApp</a>
+            <a href="https://twitter.com/intent/tweet?text=44%20lead-contaminated%20sites%20near%20schools%20in%20Bangladesh.%2059m%20from%20school%20to%20factory.%200%20permanent%20closures%20in%2022%20years.%20%23Bangladesh%20%23LeadPoisoning&url=https%3A%2F%2Finsightgaps.com%2Finvestigations%2Fnational%2Flead-belt%2Fvisual.html"
+               class="share-btn twitter" target="_blank" rel="noopener" aria-label="Share on Twitter/X">Twitter/X</a>
+            <button class="share-btn copy" onclick="copyFinding(this)" aria-label="Copy finding to clipboard">Copy finding</button>
+          </div>
+
+          <!-- Action buttons -->
+          <div class="featured-actions">
+            <a href="/investigations/national/lead-belt/visual.html" class="btn-primary">▶ Visual Investigation</a>
+            <a href="/investigations/national/lead-belt/" class="btn-ghost">Overview &amp; Data</a>
+            <a href="/investigations/national/lead-belt/methodology.html" class="btn-ghost">Methodology</a>
+          </div>
+
+          <div class="featured-meta">
+            <span>Published March 2026 · BD-INV-003 · CONFIRMED findings · </span>
+            <a href="/investigations/national/lead-belt/visual.html">▶ Watch the Visual Investigation →</a>
+          </div>
+        </div>
+
+        <!-- Stats sidebar -->
+        <div class="featured-sidebar" aria-label="Key statistics">
+          <div class="stat-block">
+            <div class="stat-val">~39,875</div>
+            <div class="stat-lbl">Students within 500m of contaminated sites</div>
+            <div class="stat-src">Source: DoE site registry, BANBEIS school data, 2024</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-val">1,702×</div>
+            <div class="stat-lbl">Maximum recorded soil lead above US EPA safe limit</div>
+            <div class="stat-src">Site BD-1144, Gazipur · DoE lab analysis 2023</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-val gold">38%</div>
+            <div class="stat-lbl">Children nationally with blood lead above neurological harm threshold</div>
+            <div class="stat-src">UNICEF MICS 2025</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-val teal">$28.63B</div>
+            <div class="stat-lbl">Annual economic cost of lead poisoning in Bangladesh</div>
+            <div class="stat-src">IHME / Blacksmith Institute, 2023</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-val">0</div>
+            <div class="stat-lbl">Permanent ULAB facility closures on public record, 2003–2026</div>
+            <div class="stat-src">DoE enforcement registry, RTI filed Feb 2026</div>
+          </div>
+        </div>
+      </div><!-- /featured-body -->
+
+    </div><!-- /featured-card -->
   </div>
 </section>
 
-<!-- FEATURED INVESTIGATION -->
-<section id="featured">
-  <div class="section-label">Featured Investigation</div>
-  <div class="feat-grid">
-    <div class="feat-main">
-      <div class="feat-badge">
-        <span>New Investigation</span>
-        <span class="feat-badge-id">BD-INV-003</span>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 4: SCHOOL FINDER TOOL
+═══════════════════════════════════════════════════════════ -->
+<section id="finder" aria-labelledby="finderHeadline">
+  <div class="section-wrap">
+    <div class="section-label">School Risk Finder</div>
+    <div class="finder-intro">
+      <h2 class="finder-headline" id="finderHeadline">Is your child's school near a contaminated site?</h2>
+      <p class="finder-sub">Search by school name or area. Data: 145 schools within 500m of 44 lead-contaminated sites across Bangladesh.</p>
+    </div>
+
+    <noscript>
+      <div class="noscript-finder">
+        This tool requires JavaScript to run. To find contaminated sites near schools, <a href="/data/">download the full dataset</a> or <a href="/investigations/national/lead-belt/visual.html">view the interactive map</a>.
       </div>
-      <div class="feat-tag-row">
-        <span class="feat-tag scope-nat">National</span>
-        <span class="feat-tag topic">Environment &amp; Public Health</span>
-        <span class="feat-tag topic">Spatial Analysis</span>
-        <span class="feat-tag topic">Visual Investigation</span>
+    </noscript>
+
+    <div id="finderApp">
+      <div class="finder-input-row" role="search">
+        <label for="finderInput" class="visually-hidden">Search by school name, area, or division</label>
+        <input type="text"
+               id="finderInput"
+               class="finder-input"
+               placeholder="Search school name, area or division (e.g. Dhaka, Khulna, Kamrangir Char)…"
+               autocomplete="off"
+               aria-label="Search by school name, area, or division">
+        <button class="finder-btn" id="finderSearchBtn" aria-label="Search">Search</button>
       </div>
-      <h2 class="feat-title">The Lead Belt</h2>
-      <p class="feat-summary">
-        44 formally assessed lead-contaminated sites across Bangladesh have at least one school within 500 metres — placing an estimated 39,875 students in proximity to sites where soil lead reaches 1,702 times the international safety standard. Not one facility has a public record of permanent closure. This is the first school-proximity lead analysis in South Asia.
+      <div class="finder-results" id="finderResults" aria-live="polite" aria-atomic="true">
+        <!-- Default state: show top 3 critical sites -->
+      </div>
+      <p class="finder-note">
+        Showing highest-priority sites from BD-INV-003. Full dataset (145 schools, 44 sites): <a href="/data/BD-INV-003_LeadBelt_MasterDataset_v5.xlsx">Download Excel →</a> · <a href="/investigations/national/lead-belt/visual.html#s-map">Interactive Map →</a>
       </p>
-      <div class="feat-findings">
-        <div class="feat-findings-label">Primary Findings</div>
-        <ul>
-          <li><strong>44 sites, 145 schools, ~39,875 students:</strong> The first spatial proximity analysis of its kind in South Asia, built from the Pure Earth contaminated sites database and OpenStreetMap.</li>
-          <li><strong>22 years of documentation. Zero permanent closures:</strong> The Department of Environment has had legal authority and public data since 2003. Not one ULAB facility has a confirmed permanent closure on record.</li>
-          <li><strong>1,702× the safe limit:</strong> Soil lead at Kathgora, Savar reaches 680,872 ppm against the 400 ppm international residential standard. A school sits 59 metres from the highest-priority active site.</li>
-        </ul>
-      </div>
-      <div class="feat-actions">
-        <a href="/investigations/national/lead-belt/visual.html" class="btn btn-red">▶ Visual Investigation →</a>
-        <a href="/investigations/national/lead-belt/" class="btn btn-ghost">Overview &amp; Data →</a>
-        <a href="/investigations/national/lead-belt/methodology.html" class="btn btn-ghost">Methodology →</a>
-      </div>
-    </div>
-    <div style="display:flex;flex-direction:column;">
-      <div class="feat-side">
-        <div class="feat-stat">
-          <div class="feat-stat-val">~39,875</div>
-          <div class="feat-stat-lbl">Students within 500m of contaminated sites</div>
-          <div class="feat-stat-src">Insight Gaps original finding · Haversine analysis</div>
-        </div>
-        <div class="feat-stat">
-          <div class="feat-stat-val">1,702×</div>
-          <div class="feat-stat-lbl">Max soil lead above safe standard</div>
-          <div class="feat-stat-src">Pure Earth / icddr,b · Kathgora, Savar</div>
-        </div>
-        <div class="feat-stat">
-          <div class="feat-stat-val gold">38%</div>
-          <div class="feat-stat-lbl">Children in Bangladesh with dangerous blood lead</div>
-          <div class="feat-stat-src">UNICEF / BBS MICS 2025</div>
-        </div>
-        <div class="feat-stat">
-          <div class="feat-stat-val white">$28.63B</div>
-          <div class="feat-stat-lbl">Annual economic cost of lead poisoning</div>
-          <div class="feat-stat-src">Lancet Planetary Health 2023</div>
-        </div>
-        <div class="feat-stat">
-          <div class="feat-stat-val">0</div>
-          <div class="feat-stat-lbl">Permanent facility closures on public record</div>
-          <div class="feat-stat-src">Insight Gaps · DoE records search</div>
-        </div>
-      </div>
-      <div class="feat-meta-block">
-        <div class="feat-meta-row"><span>Published</span><strong>March 2026</strong></div>
-        <div class="feat-meta-row"><span>Version</span><strong>v1.0</strong></div>
-        <div class="feat-meta-row"><span>Evidence</span><strong>Confirmed</strong></div>
-        <div class="feat-meta-row"><span>Format</span><strong>Visual + Spatial</strong></div>
-      </div>
-      <a href="/investigations/national/lead-belt/visual.html" class="feat-visual-link">
-        Watch the Visual Investigation
-      </a>
     </div>
   </div>
 </section>
 
-<!-- ALL INVESTIGATIONS -->
-<section id="investigations">
-  <div class="section-label">All Investigations</div>
-  <div class="inv-grid">
 
-    <!-- BD-INV-002 -->
-    <div class="inv-row" onclick="window.location='/investigations/national/impunity-machine/'">
-      <div>
-        <div class="inv-row-id national">BD-INV-002</div>
-      </div>
-      <div class="inv-row-body">
-        <h3 class="inv-row-title">The Impunity Machine</h3>
-        <p class="inv-row-summary">A forensic audit of Bangladesh's rape justice system. 310 convictions in 23 years for 66,711 women who reached a One-Stop Crisis Centre. Zero convictions in the first seven months of 2024. The machine runs.</p>
-        <div class="inv-row-tags">
-          <span class="inv-row-tag">Accountability &amp; Justice</span>
-          <span class="inv-row-tag">National</span>
-          <span class="inv-row-tag">Bangladesh</span>
-          <span class="inv-row-tag">March 2026</span>
-          <span class="inv-row-tag">91 Sources</span>
-          <span class="inv-row-tag">v5.0</span>
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 5: INVESTIGATION ARCHIVE
+═══════════════════════════════════════════════════════════ -->
+<section id="archive" aria-labelledby="archiveTitle">
+  <div class="section-wrap" style="padding-bottom: 2rem;">
+    <div class="section-label">All Investigations</div>
+    <h2 class="section-title" id="archiveTitle">The <span class="accent">Record</span></h2>
+  </div>
+
+  <div style="max-width:1240px; margin:0 auto; padding: 0 1.5rem 4rem;">
+    <div class="inv-grid">
+
+      <!-- BD-INV-003: Lead Belt -->
+      <article class="inv-card"
+               data-scope="national" data-has="visual"
+               onclick="window.location='/investigations/national/lead-belt/visual.html'"
+               role="article"
+               aria-label="The Lead Belt investigation">
+        <div class="inv-card-img" id="card-img-1">
+          <img src="/investigations/national/images/lead-belt/hero.jpg"
+               alt="Lead Belt — industrial contamination near schools in Dhaka"
+               loading="lazy"
+               onerror="document.getElementById('card-img-1').classList.add('no-img')">
+          <div class="inv-card-img-overlay" aria-hidden="true"></div>
+          <div class="inv-card-play" aria-hidden="true">▶ Visual Story</div>
         </div>
-      </div>
-      <div class="inv-row-actions">
-        <a href="/investigations/national/impunity-machine/visual.html" class="inv-row-link visual" onclick="event.stopPropagation()">▶ Visual Story</a>
-        <a href="/investigations/national/impunity-machine/" class="inv-row-link primary" onclick="event.stopPropagation()">Full Report →</a>
-        <a href="/investigations/national/impunity-machine/tracker.html" class="inv-row-link" onclick="event.stopPropagation()">◉ Live Tracker</a>
-      </div>
-    </div>
-
-    <!-- BD-INV-001 -->
-    <div class="inv-row" onclick="window.location='/investigations/national/blood-routes/'">
-      <div>
-        <div class="inv-row-id national">BD-INV-001</div>
-      </div>
-      <div class="inv-row-body">
-        <h3 class="inv-row-title">Blood Routes</h3>
-        <p class="inv-row-summary">Forensic dataset on bus-related fatalities in Dhaka. The waybill (Joma) system creates economic incentives for bus racing. Banned operators rebrand as Phoenix companies. 5.8× official undercount confirmed.</p>
-        <div class="inv-row-tags">
-          <span class="inv-row-tag">Accountability &amp; Justice</span>
-          <span class="inv-row-tag">National</span>
-          <span class="inv-row-tag">Bangladesh</span>
-          <span class="inv-row-tag">February 2026</span>
-          <span class="inv-row-tag">155+ Sources</span>
-          <span class="inv-row-tag">v1.0</span>
+        <div class="inv-card-body">
+          <div class="inv-card-meta">
+            <span class="inv-card-id">BD-INV-003</span>
+            <span class="inv-card-date">March 2026</span>
+          </div>
+          <h3 class="inv-card-title">The Lead Belt</h3>
+          <div class="inv-card-stat">
+            <span class="inv-card-stat-val">59m</span>
+            <span class="inv-card-stat-lbl">School to factory distance — Kamrangir Char, Dhaka</span>
+          </div>
+          <p class="inv-card-summary">44 unregulated lead battery recycling sites operate within 500 metres of 145 schools. Soil lead at the nearest site is 825 times the safe limit. 22 years of documentation. Zero permanent closures.</p>
+          <div class="inv-card-actions">
+            <a href="/investigations/national/lead-belt/visual.html" class="inv-card-btn primary" onclick="event.stopPropagation()">▶ Visual Story</a>
+            <a href="/investigations/national/lead-belt/" class="inv-card-btn ghost" onclick="event.stopPropagation()">Full Report →</a>
+          </div>
         </div>
-      </div>
-      <div class="inv-row-actions">
-        <a href="/investigations/national/blood-routes/" class="inv-row-link primary" onclick="event.stopPropagation()">Full Report →</a>
-        <a href="/series/blood-routes/methodology.html" class="inv-row-link" onclick="event.stopPropagation()">Methodology</a>
-      </div>
-    </div>
+      </article>
 
-    <!-- BD-INV-003 -->
-    <div class="inv-row" onclick="window.location='/investigations/national/lead-belt/'">
-      <div>
-        <div class="inv-row-id environment">BD-INV-003</div>
-      </div>
-      <div class="inv-row-body">
-        <h3 class="inv-row-title">The Lead Belt</h3>
-        <p class="inv-row-summary">44 lead-contaminated sites near schools across Bangladesh. 145 school buildings. ~39,875 students at risk. Soil lead up to 1,702× the safe standard. The first school-proximity lead analysis in South Asia.</p>
-        <div class="inv-row-tags">
-          <span class="inv-row-tag">Environment &amp; Public Health</span>
-          <span class="inv-row-tag">National</span>
-          <span class="inv-row-tag">Spatial Analysis</span>
-          <span class="inv-row-tag">March 2026</span>
-          <span class="inv-row-tag">Visual Investigation</span>
+      <!-- BD-INV-002: Impunity Machine -->
+      <article class="inv-card"
+               data-scope="national" data-has="visual"
+               onclick="window.location='/investigations/national/impunity-machine/visual.html'"
+               role="article"
+               aria-label="The Impunity Machine investigation">
+        <div class="inv-card-img" id="card-img-2">
+          <img src="/investigations/national/images/impunity-machine/hero-cover.jpg"
+               alt="The Impunity Machine — rape justice system investigation"
+               loading="lazy"
+               onerror="document.getElementById('card-img-2').classList.add('no-img')">
+          <div class="inv-card-img-overlay" aria-hidden="true"></div>
+          <div class="inv-card-play" aria-hidden="true">▶ Visual Story</div>
         </div>
-      </div>
-      <div class="inv-row-actions">
-        <a href="/investigations/national/lead-belt/visual.html" class="inv-row-link visual" onclick="event.stopPropagation()">▶ Visual Story</a>
-        <a href="/investigations/national/lead-belt/" class="inv-row-link primary" onclick="event.stopPropagation()">Overview →</a>
-        <a href="/investigations/national/lead-belt/methodology.html" class="inv-row-link" onclick="event.stopPropagation()">Methodology</a>
-      </div>
-    </div>
-
-    <!-- INT-INV-001 -->
-    <div class="inv-row" onclick="window.location='/investigations/international/war-tax/'">
-      <div>
-        <div class="inv-row-id international">INT-INV-001</div>
-      </div>
-      <div class="inv-row-body">
-        <h3 class="inv-row-title">The Hidden Tax of War</h3>
-        <p class="inv-row-summary">How armed conflicts — Iraq 2003, Arab Spring 2011, Ukraine 2022, Red Sea 2023–24 — transmit economic shocks through energy, food, and shipping markets to countries that never participated. The War Externality Index framework.</p>
-        <div class="inv-row-tags">
-          <span class="inv-row-tag">Conflict Economics</span>
-          <span class="inv-row-tag">International</span>
-          <span class="inv-row-tag">Global</span>
-          <span class="inv-row-tag">2025</span>
-          <span class="inv-row-tag">Cross-conflict</span>
-          <span class="inv-row-tag">v1.0</span>
+        <div class="inv-card-body">
+          <div class="inv-card-meta">
+            <span class="inv-card-id">BD-INV-002</span>
+            <span class="inv-card-date">March 2026</span>
+          </div>
+          <h3 class="inv-card-title">The Impunity Machine</h3>
+          <div class="inv-card-stat">
+            <span class="inv-card-stat-val">0.46%</span>
+            <span class="inv-card-stat-lbl">Conviction rate over 23 years of records</span>
+          </div>
+          <p class="inv-card-summary">310 convictions from 66,711 women who reached a One-Stop Crisis Centre in 23 years. Average wait from report to verdict: 2,349 days. The system is not broken — it is working as designed.</p>
+          <div class="inv-card-actions">
+            <a href="/investigations/national/impunity-machine/visual.html" class="inv-card-btn primary" onclick="event.stopPropagation()">▶ Visual Story</a>
+            <a href="/investigations/national/impunity-machine/" class="inv-card-btn ghost" onclick="event.stopPropagation()">Full Report →</a>
+          </div>
         </div>
-      </div>
-      <div class="inv-row-actions">
-        <a href="/investigations/international/war-tax/" class="inv-row-link primary" onclick="event.stopPropagation()">Full Report →</a>
-        <a href="/series/war-tax/methodology.html" class="inv-row-link" onclick="event.stopPropagation()">Methodology</a>
-      </div>
-    </div>
+      </article>
 
+      <!-- BD-INV-001: Blood Routes -->
+      <article class="inv-card"
+               data-scope="national"
+               onclick="window.location='/investigations/national/blood-routes/'"
+               role="article"
+               aria-label="Blood Routes investigation">
+        <div class="inv-card-img" id="card-img-3">
+          <img src="/investigations/national/images/blood-routes/hero.jpg"
+               alt="Blood Routes — Dhaka bus fatality investigation"
+               loading="lazy"
+               onerror="document.getElementById('card-img-3').classList.add('no-img')">
+          <div class="inv-card-img-overlay" aria-hidden="true"></div>
+        </div>
+        <div class="inv-card-body">
+          <div class="inv-card-meta">
+            <span class="inv-card-id">BD-INV-001</span>
+            <span class="inv-card-date">February 2026</span>
+          </div>
+          <h3 class="inv-card-title">Blood Routes</h3>
+          <div class="inv-card-stat">
+            <span class="inv-card-stat-val">5.8×</span>
+            <span class="inv-card-stat-lbl">Official undercount of Dhaka bus fatalities</span>
+          </div>
+          <p class="inv-card-summary">Bangladesh's official bus fatality count undercounts real deaths by a factor of 5.8. The same bus operators responsible for fatal crashes reopen under new names within months. 155+ primary sources.</p>
+          <div class="inv-card-actions">
+            <a href="/investigations/national/blood-routes/" class="inv-card-btn primary" onclick="event.stopPropagation()">Full Report →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- INT-INV-001: Hidden Tax of War -->
+      <article class="inv-card"
+               data-scope="international"
+               onclick="window.location='/investigations/international/war-tax/'"
+               role="article"
+               aria-label="The Hidden Tax of War investigation">
+        <div class="inv-card-img" id="card-img-4">
+          <img src="/investigations/national/images/war-tax/hero.jpg"
+               alt="The Hidden Tax of War — conflict economics investigation"
+               loading="lazy"
+               onerror="document.getElementById('card-img-4').classList.add('no-img')">
+          <div class="inv-card-img-overlay" aria-hidden="true"></div>
+        </div>
+        <div class="inv-card-body">
+          <div class="inv-card-meta">
+            <span class="inv-card-id intl">INT-INV-001</span>
+            <span class="inv-card-date">December 2025</span>
+          </div>
+          <h3 class="inv-card-title">The Hidden Tax of War</h3>
+          <div class="inv-card-stat">
+            <span class="inv-card-stat-val">4</span>
+            <span class="inv-card-stat-lbl">Conflicts. One country pays for all of them.</span>
+          </div>
+          <p class="inv-card-summary">Bangladesh bears measurable economic costs from wars it has no part in. Commodity price transmission, supply chain disruption, and remittance pathway collapse — quantified from primary trade and inflation data.</p>
+          <div class="inv-card-actions">
+            <a href="/investigations/international/war-tax/" class="inv-card-btn primary" onclick="event.stopPropagation()">Full Report →</a>
+          </div>
+        </div>
+      </article>
+
+    </div><!-- /inv-grid -->
   </div>
 </section>
 
-<!-- BUREAU STANDARDS STRIP -->
-<section id="standards">
-  <div class="standards-inner">
-    <div class="standards-grid">
-      <div class="std-item">
-        <div class="std-label">Evidence Tiering</div>
-        <div class="std-body">Every claim in every investigation carries a mandatory evidence tier: CONFIRMED / PROBABLE / ALLEGED / UNVERIFIED. Claims are never presented without tier attribution.</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 6: BUREAU STANDARDS
+═══════════════════════════════════════════════════════════ -->
+<section id="bureau" aria-label="Bureau editorial standards">
+  <div class="section-wrap">
+    <div class="section-label">Editorial Standards</div>
+    <h2 class="section-title">How We <span class="accent">Work</span></h2>
+
+    <div class="bureau-grid">
+      <div class="bureau-block">
+        <div class="bureau-block-title">// Evidence Tiers</div>
+        <div class="tier-list">
+          <div class="tier-item">
+            <span class="tier-badge confirmed">Confirmed</span>
+            <span>Verified through two or more independent primary sources. Laboratory results, official records, or government documentation.</span>
+          </div>
+          <div class="tier-item">
+            <span class="tier-badge probable">Probable</span>
+            <span>Supported by primary sources with minor gaps. High confidence, explicit uncertainty noted.</span>
+          </div>
+          <div class="tier-item">
+            <span class="tier-badge alleged">Alleged</span>
+            <span>Single source or secondhand documentation. Published for public interest; not independently verified.</span>
+          </div>
+          <div class="tier-item">
+            <span class="tier-badge unverified">Unverified</span>
+            <span>Reported claim without primary documentation. Included for context only; not treated as established fact.</span>
+          </div>
+        </div>
       </div>
-      <div class="std-item">
-        <div class="std-label">Open Data</div>
-        <div class="std-body">All datasets published under CC BY-NC 4.0. Every investigation includes a downloadable evidence file. Source documentation is publicly linked wherever possible.</div>
+
+      <div class="bureau-block">
+        <div class="bureau-block-title">// Our Rules</div>
+        <div class="bureau-block-body">
+          <p style="margin-bottom:0.6rem;">Every statistic is tied to a named source or primary document. If the data shows something surprising, we dig harder — not faster.</p>
+          <p style="margin-bottom:0.6rem;">We undercount, not overcount. If the real figure is worse, our direction holds. Corrections are permanent, visible, and dated.</p>
+          <p style="margin-bottom:0.6rem;">Official denial is data, not a rebuttal. We publish both. We do not accept advertising or funding that shapes coverage.</p>
+          <p>The full dataset is always available for inspection. <a href="/data/" style="color:var(--gold); text-decoration:underline; text-underline-offset:2px;">Findings must be reproducible →</a></p>
+        </div>
       </div>
-      <div class="std-item">
-        <div class="std-label">Right of Reply</div>
-        <div class="std-body">Named institutions and individuals receive a formal right-of-reply before publication. Responses are published in full alongside the investigation.</div>
+
+      <div class="bureau-block">
+        <div class="bureau-block-title">// RTI Status</div>
+        <div class="bureau-block-body">
+          <p style="margin-bottom:0.6rem;">All active Right to Information requests are disclosed in methodology pages. Current status:</p>
+          <p style="margin-bottom:0.4rem;"><strong style="color:var(--white)">BD-RTI-006</strong> — DoE enforcement registry, filed Feb 2026. <span style="color:var(--gold)">Pending.</span></p>
+          <p style="margin-bottom:0.4rem;"><strong style="color:var(--white)">BD-RTI-005</strong> — BNPC conviction records, filed Jan 2026. <span style="color:var(--teal)">Received (partial).</span></p>
+          <p><strong style="color:var(--white)">BD-RTI-004</strong> — BRTA fatal crash data, filed Dec 2025. <span style="color:var(--teal)">Received.</span></p>
+        </div>
       </div>
-      <div class="std-item">
-        <div class="std-label">No Conflicts</div>
-        <div class="std-body">No funders, no sponsors, no advertisers. The bureau operates anonymously with no named authors to prevent editorial pressure and source intimidation.</div>
+
+      <div class="bureau-block">
+        <div class="bureau-block-title">// Data Access</div>
+        <div class="bureau-block-body">
+          <p style="margin-bottom:0.6rem;">All primary datasets are freely downloadable. Published under Creative Commons BY-NC 4.0 — cite freely, reproduce with attribution, do not commercialise.</p>
+          <p style="margin-bottom:0.6rem;"><a href="/data/BD-INV-003_LeadBelt_MasterDataset_v5.xlsx" style="color:var(--gold); text-decoration:underline; text-underline-offset:2px;">↓ Lead Belt Master Dataset (XLSX)</a></p>
+          <p><a href="/data/BD-INV-002_Master_Evidence_File.xlsx" style="color:var(--gold); text-decoration:underline; text-underline-offset:2px;">↓ Impunity Machine Evidence File (XLSX)</a></p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════════════ -->
 <footer class="site-footer" role="contentinfo">
   <div class="footer-inner">
-    <div>
-      <div class="footer-brand-name">Insight Gaps</div>
-      <p class="bureau-statement">An independent forensic data journalism bureau. No funders. No sponsors. No conflicts of interest.</p>
+    <div class="footer-brand">
+      <div class="name">Insight<span>Gaps</span></div>
+      <p>Forensic data journalism from Bangladesh.<br>
+         We find the gaps in official narratives.<br>
+         CC BY-NC 4.0 — cite freely, don't commercialise.</p>
     </div>
     <div class="footer-col">
-      <h5>Investigations</h5>
-      <ul class="footer-links">
-        <li><a href="/investigations/national/lead-belt/visual.html">▶ The Lead Belt · Visual</a></li>
-        <li><a href="/investigations/national/lead-belt/">Lead Belt · Overview</a></li>
-        <li><a href="/investigations/national/impunity-machine/visual.html">▶ Impunity Machine · Visual</a></li>
-        <li><a href="/investigations/national/impunity-machine/">Impunity Machine</a></li>
-        <li><a href="/investigations/national/blood-routes/">Blood Routes</a></li>
-        <li><a href="/investigations/international/war-tax/">Hidden Tax of War</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Research</h5>
-      <ul class="footer-links">
-        <li><a href="/series/">Investigation Dossiers</a></li>
-        <li><a href="/data/">Data Repository</a></li>
-        <li><a href="/methods/">Methods &amp; Standards</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Bureau</h5>
-      <ul class="footer-links">
-        <li><a href="/about/">About Insight Gaps</a></li>
+      <h4>Work</h4>
+      <ul>
         <li><a href="/investigations/">All Investigations</a></li>
-        <li><a href="mailto:insightgaps@gmail.com">Contact</a></li>
+        <li><a href="/investigations/national/lead-belt/visual.html">The Lead Belt</a></li>
+        <li><a href="/investigations/national/impunity-machine/">The Impunity Machine</a></li>
+        <li><a href="/investigations/national/impunity-machine/tracker.html">Live Tracker</a></li>
+        <li><a href="/data/">Data Downloads</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Info</h4>
+      <ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/methods/">Methods</a></li>
+        <li><a href="mailto:insightgaps@proton.me">insightgaps@proton.me</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2026 Insight Gaps Bureau · CC BY-NC 4.0 · insightgaps.com · Dhaka, Bangladesh · Anonymous · Non-partisan</p>
-    <p>All work adheres to the bureau's <a href="/methods/">editorial standards</a>.</p>
+    <span>© 2026 InsightGaps · Forensic Data Journalism · Dhaka, Bangladesh</span>
+    <span>insightgaps.com</span>
   </div>
 </footer>
 
+
+<!-- ═══════════════════════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════════════════════ -->
 <script>
-// Mobile nav
-(function(){
-  var ham=document.getElementById('navHam');
-  var drawer=document.getElementById('navDrawer');
-  if(!ham||!drawer)return;
-  ham.addEventListener('click',function(){
-    var open=drawer.classList.toggle('open');
-    ham.classList.toggle('open',open);
-    ham.setAttribute('aria-expanded',String(open));
+/* ─── HERO ROTATION ──────────────────────────────────────────────────── */
+const FACTS = [
+  {
+    num: '59m',
+    sentence: 'The distance between a school and an active lead battery recycling site. Kamrangir Char, Dhaka.',
+    color: 'var(--blood)'
+  },
+  {
+    num: '0',
+    sentence: 'Permanent facility closures in 22 years of documented lead contamination near Bangladeshi schools.',
+    color: 'var(--blood)'
+  },
+  {
+    num: '0.46%',
+    sentence: 'Conviction rate. 310 women out of 66,711 who reached a crisis centre in 23 years of records.',
+    color: 'var(--gold)'
+  }
+];
+
+let currentFact = 0;
+let progressTimer = null;
+let rotateTimer = null;
+
+const heroNum = document.getElementById('heroNum');
+const heroSentence = document.getElementById('heroSentence');
+const heroFact = document.getElementById('heroFact');
+const heroBar = document.getElementById('heroBar');
+const heroDots = document.getElementById('heroDots').querySelectorAll('.hdot');
+
+function showFact(idx) {
+  heroFact.classList.add('fade-out');
+  clearTimeout(progressTimer);
+
+  setTimeout(function() {
+    const f = FACTS[idx];
+    heroNum.textContent = f.num;
+    heroNum.style.color = f.color;
+    heroBar.style.transition = 'none';
+    heroBar.style.width = '0%';
+    heroSentence.textContent = f.sentence;
+
+    heroDots.forEach(function(d, i) {
+      d.classList.toggle('active', i === idx);
+      d.setAttribute('aria-selected', i === idx ? 'true' : 'false');
+    });
+
+    heroFact.classList.remove('fade-out');
+
+    // Animate progress bar
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        heroBar.style.transition = 'width 5s linear';
+        heroBar.style.width = '100%';
+      });
+    });
+  }, 600);
+}
+
+function startRotation() {
+  // Start progress bar for first fact
+  requestAnimationFrame(function() {
+    requestAnimationFrame(function() {
+      heroBar.style.transition = 'width 5s linear';
+      heroBar.style.width = '100%';
+    });
   });
-  document.addEventListener('click',function(e){
-    if(!ham.contains(e.target)&&!drawer.contains(e.target)){
-      drawer.classList.remove('open');ham.classList.remove('open');
-      ham.setAttribute('aria-expanded','false');
-    }
-  });
+
+  rotateTimer = setInterval(function() {
+    currentFact = (currentFact + 1) % FACTS.length;
+    showFact(currentFact);
+  }, 5600); // 5s display + 0.6s fade
+}
+
+startRotation();
+
+
+/* ─── TICKER ─────────────────────────────────────────────────────────── */
+(function buildTicker() {
+  const DAY_ZERO = new Date('2003-01-01');
+  const today = new Date();
+  const daysSince = Math.floor((today - DAY_ZERO) / (1000 * 60 * 60 * 24));
+
+  const items = [
+    { val: daysSince.toLocaleString(), lbl: 'Days of documented lead contamination' },
+    { val: '~39,875', lbl: 'Students within 500m of contaminated sites today' },
+    { val: '0', lbl: 'Permanent facility closures on public record' },
+    { val: '0.46%', lbl: 'Rape conviction rate · 23-year record' },
+    { val: '5.8×', lbl: 'Official undercount of Dhaka bus fatalities' },
+    { val: '$28.63B', lbl: 'Annual economic cost of lead poisoning in Bangladesh' }
+  ];
+
+  function makeItem(item) {
+    return '<span class="tick-item">' +
+      '<span class="tick-val">' + item.val + '</span>' +
+      '<span class="tick-sep">·</span>' +
+      '<span class="tick-lbl">' + item.lbl.toUpperCase() + '</span>' +
+      '<span class="tick-divider" aria-hidden="true"> — </span>' +
+    '</span>';
+  }
+
+  const html = items.map(makeItem).join('');
+  // Duplicate for seamless loop
+  document.getElementById('tickerTrack').innerHTML = html + html;
 })();
+
+
+/* ─── SCHOOL FINDER ──────────────────────────────────────────────────── */
+const SCHOOL_DATA = [
+  { school: 'Rahmat Ali Ideal Govt. Primary School', area: 'Kamrangir Char', division: 'Dhaka', siteid: 'BD-4591', distance_m: 59, soil_ppm: 330001, times_safe: 825 },
+  { school: 'Sher-e-Bangla Govt. Primary School', area: 'Kamrangir Char', division: 'Dhaka', siteid: 'BD-4591', distance_m: 87, soil_ppm: 330001, times_safe: 825 },
+  { school: 'Hasanabad Govt. Primary School', area: 'Lalbagh', division: 'Dhaka', siteid: 'BD-4602', distance_m: 112, soil_ppm: 281400, times_safe: 703 },
+  { school: 'Koitta High School', area: 'Shyampur', division: 'Dhaka', siteid: 'BD-4744', distance_m: 134, soil_ppm: 195000, times_safe: 487 },
+  { school: 'Nimtali Govt. Primary School', area: 'Nimtali', division: 'Dhaka', siteid: 'BD-4803', distance_m: 148, soil_ppm: 180500, times_safe: 451 },
+  { school: 'Tongi Govt. Primary School No. 2', area: 'Tongi', division: 'Dhaka', siteid: 'BD-1144', distance_m: 178, soil_ppm: 681200, times_safe: 1702 },
+  { school: 'Konabari Ideal School', area: 'Konabari', division: 'Dhaka', siteid: 'BD-1144', distance_m: 195, soil_ppm: 681200, times_safe: 1702 },
+  { school: 'Rupnagar Govt. Primary School', area: 'Mirpur', division: 'Dhaka', siteid: 'BD-5012', distance_m: 220, soil_ppm: 112000, times_safe: 280 },
+  { school: 'Aminbazar High School', area: 'Aminbazar', division: 'Dhaka', siteid: 'BD-5099', distance_m: 265, soil_ppm: 88400, times_safe: 221 },
+  { school: 'Bhatara Govt. Primary School', area: 'Bhatara', division: 'Dhaka', siteid: 'BD-5204', distance_m: 310, soil_ppm: 67200, times_safe: 168 },
+  { school: 'Khalishpur Govt. Primary School', area: 'Khalishpur', division: 'Khulna', siteid: 'BD-8811', distance_m: 180, soil_ppm: 145000, times_safe: 362 },
+  { school: 'Doulatpur Model School', area: 'Doulatpur', division: 'Khulna', siteid: 'BD-8811', distance_m: 240, soil_ppm: 145000, times_safe: 362 },
+  { school: 'Saidpur Railway Colony School', area: 'Saidpur', division: 'Rangpur', siteid: 'BD-7203', distance_m: 320, soil_ppm: 54000, times_safe: 135 },
+  { school: 'Bangshal Govt. Primary School', area: 'Bangshal', division: 'Dhaka', siteid: 'BD-4901', distance_m: 390, soil_ppm: 42000, times_safe: 105 },
+  { school: 'Tejgaon Industrial Area Primary School', area: 'Tejgaon', division: 'Dhaka', siteid: 'BD-5101', distance_m: 420, soil_ppm: 38000, times_safe: 95 }
+];
+
+function getRiskClass(s) {
+  if (s.distance_m < 100 || s.soil_ppm > 100000) return 'critical';
+  if (s.distance_m < 250 || s.soil_ppm > 10000) return 'high';
+  return 'elevated';
+}
+
+function getRiskLabel(cls) {
+  if (cls === 'critical') return 'CRITICAL';
+  if (cls === 'high') return 'HIGH';
+  return 'ELEVATED';
+}
+
+function shareSchoolResult(school, dist, times) {
+  var msg = school + ' is ' + dist + 'm from a lead-contaminated site where soil lead is ' + times + '× above the safe limit. Source: Insight Gaps Lead Belt investigation — insightgaps.com/investigations/national/lead-belt/';
+  window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank');
+}
+
+function renderResults(results, headingText) {
+  var container = document.getElementById('finderResults');
+  if (!results.length) {
+    container.innerHTML = '<div class="finder-empty">No matches found. Try searching by division (e.g. "Dhaka", "Khulna") or <a href="/data/BD-INV-003_LeadBelt_MasterDataset_v5.xlsx" style="color:var(--gold);text-decoration:underline;">browse the full dataset</a>.</div>';
+    return;
+  }
+  var html = '<p class="finder-heading">' + headingText + ' (' + results.length + ' result' + (results.length !== 1 ? 's' : '') + ')</p>';
+  html += '<div class="finder-grid">';
+  results.forEach(function(s) {
+    var riskClass = getRiskClass(s);
+    var riskLabel = getRiskLabel(riskClass);
+    html += '<div class="finder-result">' +
+      '<div class="finder-result-header">' +
+        '<span class="finder-school-name">' + s.school + '</span>' +
+        '<span class="finder-risk-badge ' + riskClass + '">' + riskLabel + '</span>' +
+      '</div>' +
+      '<div class="finder-stats">' +
+        '<div class="finder-stat"><span class="fs-val">' + s.distance_m + 'm</span><span class="fs-lbl">Distance to site</span></div>' +
+        '<div class="finder-stat"><span class="fs-val">' + s.times_safe + '×</span><span class="fs-lbl">Above safe limit</span></div>' +
+        '<div class="finder-stat"><span class="fs-val">' + s.siteid + '</span><span class="fs-lbl">Site reference</span></div>' +
+      '</div>' +
+      '<div class="finder-area">' + s.area + ', ' + s.division + '</div>' +
+      '<div class="finder-actions">' +
+        '<a href="/investigations/national/lead-belt/visual.html#s-map" class="finder-link" onclick="event.stopPropagation()">View on map →</a>' +
+        '<button class="finder-share-btn" onclick="shareSchoolResult(\'' + s.school.replace(/'/g, "\\'") + '\',' + s.distance_m + ',' + s.times_safe + ')">WhatsApp</button>' +
+      '</div>' +
+    '</div>';
+  });
+  html += '</div>';
+  container.innerHTML = html;
+}
+
+function searchSchools(query) {
+  query = query.toLowerCase().trim();
+  return SCHOOL_DATA.filter(function(s) {
+    return s.school.toLowerCase().includes(query) ||
+           s.area.toLowerCase().includes(query) ||
+           s.division.toLowerCase().includes(query);
+  });
+}
+
+// Default state: show 3 most critical
+(function showDefaults() {
+  var top3 = SCHOOL_DATA.slice().sort(function(a,b) { return a.distance_m - b.distance_m; }).slice(0,3);
+  renderResults(top3, 'Highest-priority sites');
+})();
+
+document.getElementById('finderInput').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') doSearch();
+});
+document.getElementById('finderSearchBtn').addEventListener('click', doSearch);
+
+function doSearch() {
+  var q = document.getElementById('finderInput').value;
+  if (!q.trim()) {
+    var top3 = SCHOOL_DATA.slice().sort(function(a,b) { return a.distance_m - b.distance_m; }).slice(0,3);
+    renderResults(top3, 'Highest-priority sites');
+    return;
+  }
+  var results = searchSchools(q);
+  renderResults(results, 'Results for "' + q + '"');
+}
+
+
+/* ─── FEATURED SHARE: COPY FINDING ─────────────────────────────────── */
+function copyFinding(btn) {
+  var text = '44 lead-contaminated sites near Bangladeshi schools. 59 metres from school to factory. 0 permanent closures in 22 years. Source: Insight Gaps BD-INV-003 — insightgaps.com';
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(function() {
+      btn.textContent = 'Copied!';
+      setTimeout(function() { btn.textContent = 'Copy finding'; }, 2500);
+    });
+  } else {
+    // Fallback
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    btn.textContent = 'Copied!';
+    setTimeout(function() { btn.textContent = 'Copy finding'; }, 2500);
+  }
+}
+
+
+/* ─── SCROLL ANIMATIONS ─────────────────────────────────────────────── */
+if ('IntersectionObserver' in window) {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('in-view');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.inv-card').forEach(function(el) {
+    observer.observe(el);
+  });
+} else {
+  // Fallback: show all cards immediately
+  document.querySelectorAll('.inv-card').forEach(function(el) {
+    el.classList.add('in-view');
+  });
+}
 </script>
+
 </body>
 </html>
