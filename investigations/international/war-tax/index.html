@@ -21,22 +21,17 @@
 <style>
   /* ─── TOKENS ─────────────────────────────────── */
   :root {
-    --ink:      #0e0e0e;
-    --paper:    #f5f0e8;
-    --amber:    #c8881a;
-    --amber-lt: #e8b84b;
-    --rust:     #8b2e1a;
-    --slate:    #2c3e50;
-    --mist:     #7f8c8d;
-    --rule:     #d4c9b0;
-    --card:     #ede8de;
-    --white:    #ffffff;
-    --font-head: 'Playfair Display', Georgia, serif;
-    --font-body: 'Source Serif 4', Georgia, serif;
-    --font-data: 'Space Mono', monospace;
-    --max-w: 780px;
-    --wide-w: 1080px;
-  }
+  --ink: #1a1a1a; --paper: #f7f6f3; --amber: #8a6914; --amber-lt: #a07a20;
+  --rust: #c41e3a; --slate: #3d3d3d; --mist: #6b6b6b; --rule: #e2ddd8;
+  --card: #f0ede8; --white: #ffffff;
+}
+
+html[data-theme="dark"] {
+  --ink: #0e0e0e; --paper: #f5f0e8; --amber: #c8881a; --amber-lt: #e8b84b;
+  --rust: #8b2e1a; --slate: #2c3e50; --mist: #7f8c8d; --rule: #d4c9b0;
+  --card: #ede8de; --white: #ffffff;
+}
+html[data-theme="dark"] body { background: #0e0e0e; color: #f5f0e8; }
 
   /* ─── RESET ──────────────────────────────────── */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -800,6 +795,10 @@
     margin: 3rem 0;
   }
 </style>
+<script>
+(function(){var t=localStorage.getItem('ig-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();
+</script>
+<script src="../../../../theme-toggle.js"></script>
 </head>
 
 <body>
@@ -819,7 +818,7 @@
     <li><a href="#wei">WEI</a></li>
     <li><a href="#methodology">Method</a></li>
   </ul>
-</nav>
+<button class="theme-toggle-btn" aria-label="Switch to dark theme" title="Toggle theme" style="background:none;border:none;cursor:pointer;font-size:.9rem;padding:4px 8px;color:inherit;opacity:.7;flex-shrink:0"><span class="theme-icon">●</span></button></nav>
 
 <!-- ══ HERO ═════════════════════════════════════════ -->
 <header id="hero" role="banner">

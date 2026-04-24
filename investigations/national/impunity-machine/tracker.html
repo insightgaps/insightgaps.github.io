@@ -16,33 +16,25 @@
    The question: is anything changing?
 ══════════════════════════════════════════════════ */
 :root {
-  --ink:      #06060e;
-  --ink1:     #0a0a14;
-  --ink2:     #0f0f1c;
-  --ink3:     #141424;
-  --ink4:     #1a1a2e;
-  --border:   #1e1e32;
-  --border2:  #262640;
-
-  --paper:    #ddd8cc;
-  --paper2:   #8a8478;
-  --paper3:   #4a4660;
-
-  --white:    #f0ece0;
-  --blood:    #c41e3a;
-  --blood2:   rgba(196,30,58,0.12);
-  --blood3:   rgba(196,30,58,0.06);
-  --bloodl:   #e84060;
-  --gold:     #c9a84c;
-  --gold2:    rgba(201,168,76,0.15);
-  --green:    #2d8a5a;
-  --greenl:   #40c070;
-  --amber:    #d4800a;
-
-  --mono:     'JetBrains Mono', monospace;
-  --display:  'Syne', sans-serif;
-  --serif:    'Lora', serif;
+  --ink:#ffffff; --ink1:#f7f6f3; --ink2:#f0ede8; --ink3:#e8e4de; --ink4:#ddd9d2;
+  --border:#e2ddd8; --border2:#d0cbc4;
+  --paper:#1a1a1a; --paper2:#3d3d3d; --paper3:#6b6b6b;
+  --white:#000000;
+  --blood:#c41e3a; --blood2:rgba(196,30,58,0.08); --blood3:rgba(196,30,58,0.04); --bloodl:#e0304e;
+  --gold:#8a6914; --gold2:rgba(138,105,20,0.12);
+  --green:#1a7a50; --greenl:#2d9a6a; --amber:#8a6914;
 }
+
+html[data-theme="dark"] {
+  --ink:#06060e; --ink1:#0a0a14; --ink2:#0f0f1c; --ink3:#141424; --ink4:#1a1a2e;
+  --border:#1e1e32; --border2:#262640;
+  --paper:#ddd8cc; --paper2:#8a8478; --paper3:#4a4660;
+  --white:#f0ece0;
+  --blood:#c41e3a; --blood2:rgba(196,30,58,0.12); --blood3:rgba(196,30,58,0.06); --bloodl:#e84060;
+  --gold:#c9a84c; --gold2:rgba(201,168,76,0.15);
+  --green:#2d8a5a; --greenl:#40c070; --amber:#d4800a;
+}
+html[data-theme="dark"] body { background: var(--ink); color: var(--paper); }
 
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
 html { font-size:16px; scroll-behavior:smooth; }
@@ -537,6 +529,10 @@ a:hover { color:var(--gold); }
   border:1px solid rgba(40,140,80,0.25);
 }
 </style>
+<script>
+(function(){var t=localStorage.getItem('ig-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();
+</script>
+<script src="../../../../theme-toggle.js"></script>
 </head>
 <body>
 

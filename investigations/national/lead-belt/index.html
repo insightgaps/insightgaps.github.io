@@ -10,34 +10,35 @@
 <title>The Lead Belt · Insight Gaps · BD-INV-003</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-:root{
-  --ground:#050508;
-  --ground2:#09090f;
-  --ground3:#0e0e18;
-  --border:#1a1a28;
-  --border2:#252535;
-  --text:#ddd8ce;
-  --text2:#a8a49a;
-  --muted:#5a5870;
-  --muted2:#2e2c3c;
-  --toxic:#e8a020;
-  --toxicl:#f0b840;
-  --toxicd:#a06a10;
-  --acid:#c8dc30;
-  --acidd:#8a9820;
-  --danger:#e84040;
-  --dangerl:#ff5555;
-  --safe:#30c880;
-  --lab:"Space Mono","Courier New",monospace;
-  --serif:"Libre Baskerville",Georgia,serif;
+:root {
+  --ground:#ffffff; --ground2:#f7f6f3; --ground3:#f0ede8;
+  --border:#e2ddd8; --border2:#d0cbc4;
+  --text:#1a1a1a; --text2:#3d3d3d; --muted:#6b6b6b; --muted2:#9b9b9b;
+  --toxic:#c41e3a; --toxicl:#e0304e; --toxicd:#8a1428;
+  --acid:#8a6914; --acidd:#6b5010;
+  --danger:#c41e3a; --dangerl:#e0304e;
+  --safe:#1a7a50;
 }
+
+html[data-theme="dark"] {
+  --ground:#050508; --ground2:#09090f; --ground3:#0e0e18;
+  --border:#1a1a28; --border2:#252535;
+  --text:#ddd8ce; --text2:#a8a49a; --muted:#5a5870; --muted2:#2e2c3c;
+  --toxic:#e8a020; --toxicl:#f0b840; --toxicd:#a06a10;
+  --acid:#c8dc30; --acidd:#8a9820;
+  --danger:#e84040; --dangerl:#ff5555;
+  --safe:#30c880;
+}
+html[data-theme="dark"] body { background: var(--ground); color: var(--text); }
+html[data-theme="dark"] .topbar { background: var(--nav-bg,rgba(255,255,255,.98)); border-color: var(--border); }
+html[data-theme="dark"] a { color: var(--toxic); }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--ground);color:var(--text);font-family:var(--serif);overflow-x:hidden;line-height:1.6}
 a{color:var(--toxic);text-decoration:none}
 
 /* ── TOPBAR ── */
-.topbar{position:sticky;top:0;z-index:900;background:rgba(5,5,8,.98);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);height:38px;display:flex;align-items:center;padding:0 1.5rem;gap:0;font-family:var(--lab)}
+.topbar{position:sticky;top:0;z-index:900;background:var(--nav-bg,rgba(255,255,255,.98));backdrop-filter:blur(16px);border-bottom:1px solid var(--border);height:38px;display:flex;align-items:center;padding:0 1.5rem;gap:0;font-family:var(--lab)}
 .topbar-series{font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);padding-right:1rem;border-right:1px solid var(--border);white-space:nowrap;flex-shrink:0}
 .topbar-nav{display:flex;flex:1;overflow-x:auto;scrollbar-width:none}
 .topbar-nav a{font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;padding:0 1rem;height:38px;display:flex;align-items:center;border-right:1px solid var(--border);white-space:nowrap;color:var(--muted);transition:color .2s}
@@ -183,6 +184,10 @@ footer{background:var(--ground2);border-top:1px solid var(--border);padding:3rem
   .site-id{display:none}
 }
 </style>
+<script>
+(function(){var t=localStorage.getItem('ig-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();
+</script>
+<script src="../../../../theme-toggle.js"></script>
 </head>
 <body>
 
@@ -194,7 +199,7 @@ footer{background:var(--ground2);border-top:1px solid var(--border);padding:3rem
     <a href="/investigations/national/lead-belt/visual.html">▶ Visual Investigation</a>
     <a href="/investigations/national/lead-belt/methodology.html">Methodology</a>
   </div>
-  <a href="/" class="topbar-home">↩ insightgaps.com</a>
+  <button class="theme-toggle-btn" aria-label="Switch to dark theme" title="Toggle theme" style="background:none;border:none;cursor:pointer;font-size:.9rem;padding:4px 8px;color:inherit;opacity:.7;flex-shrink:0"><span class="theme-icon">●</span></button><a href="/" class="topbar-home">↩ insightgaps.com</a>
 </div>
 
 <!-- ══════════════════════════════════════

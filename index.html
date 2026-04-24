@@ -901,7 +901,30 @@
 
     /* ─── ANIMATION INIT ─────────────────────────────────── */
     .anim-fade { opacity: 0; transform: translateY(16px); }
-  </style>
+  
+html[data-theme="dark"] {
+  --bg:   #0a0a0f;
+  --bg2:  #0f0f16;
+  --bg3:  #131320;
+  --bg4:  #1a1a28;
+  --ink:  #ddd8ce;
+  --ink2: #a8a49a;
+  --ink3: #5a5870;
+  --ink4: #2e2c3c;
+  --red:  #c41e3a;
+  --redl: rgba(196,30,58,0.12);
+  --gold: #c9a84c;
+  --teal: #30c880;
+  --rule: #1e1e32;
+  --rule2:#2a2a40;
+}
+html[data-theme="dark"] body { background: var(--bg); color: var(--ink); }
+html[data-theme="dark"] nav  { background: rgba(10,10,15,.97); border-color: var(--rule); }
+</style>
+<script>
+(function(){var t=localStorage.getItem('ig-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();
+</script>
+<script src="/theme-toggle.js"></script>
 </head>
 <body>
 
@@ -916,7 +939,7 @@
       <li><a href="/data/">Data</a></li>
       <li><a href="/about/">About</a></li>
     </ul>
-  </nav>
+  <button class="theme-toggle-btn" aria-label="Switch to dark theme" title="Toggle theme" style="background:none;border:none;cursor:pointer;font-size:.9rem;padding:4px 8px;color:inherit;opacity:.7;flex-shrink:0"><span class="theme-icon">●</span></button></nav>
 
   <!-- ════════════════════════════════════════════════
        SECTION 2 · HERO

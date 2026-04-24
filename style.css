@@ -1,36 +1,108 @@
-/* ============================================================
-   INSIGHT GAPS — GLOBAL STYLESHEET
-   insightgaps.com | Dark Theme | Forensic Data Journalism
-   ============================================================ */
+/* ── THEME SYSTEM ─────────────────────────────────────────────────────────
+   White is default. Dark activates when html[data-theme="dark"] is set.
+   ──────────────────────────────────────────────────────────────────────── */
 
 :root {
+  /* White theme overrides */
+  --bg-primary:     #ffffff;
+  --bg-secondary:   #f7f6f3;
+  --bg-card:        #f0ede8;
+  --bg-elevated:    #e8e4de;
+  --border:         #e2ddd8;
+  --border-bright:  #d0cbc4;
+  --border-dark:    #e2ddd8;
+
+  --text-primary:   #1a1a1a;
+  --text-secondary: #3d3d3d;
+  --text-muted:     #6b6b6b;
+  --text-bright:    #000000;
+  --text-inv:       #1a1a1a;
+  --text-inv-soft:  #3d3d3d;
+
+  --red:            #c41e3a;
+  --red-bright:     #e0304e;
+  --red-dim:        rgba(196,30,58,0.15);
+  --gold:           #8a6914;
+  --gold-bright:    #a07a20;
+  --gold-dim:       rgba(138,105,20,0.15);
+  --teal:           #1a7a50;
+  --green:          #1a7a50;
+  --greenl:         #2d9a6a;
+  --amber:          #8a6914;
+
+  --ink:            #ffffff;
+  --ink2:           #f7f6f3;
+  --ink3:           #f0ede8;
+  --ink4:           #e8e4de;
+  --white:          #1a1a1a;
+  --white2:         #3d3d3d;
+  --cream:          #f7f6f3;
+  --ash:            #6b6b6b;
+  --ash2:           #9b9b9b;
+  --ash3:           #d0cbc4;
+
+  --nav-bg:         rgba(255,255,255,0.97);
+  --nav-border:     #e2ddd8;
+}
+
+html[data-theme="dark"] {
+  /* Restore original dark values */
   --bg-primary:     #0a0a0f;
   --bg-secondary:   #0f0f16;
   --bg-card:        #121218;
   --bg-elevated:    #1a1a24;
   --border:         #1e1e2e;
   --border-bright:  #2a2a3e;
+  --border-dark:    #1e1e2e;
 
   --text-primary:   #d4d4d8;
   --text-secondary: #7c7c8e;
   --text-muted:     #4a4a5e;
   --text-bright:    #f0f0f4;
+  --text-inv:       #f0f0f4;
+  --text-inv-soft:  #b0b0c0;
 
   --red:            #cc2200;
   --red-bright:     #ff3300;
-  --red-dim:        #7a1500;
+  --red-dim:        rgba(204,34,0,0.12);
   --gold:           #c8920a;
   --gold-bright:    #e8aa10;
-  --gold-dim:       #7a5800;
+  --gold-dim:       rgba(200,146,10,0.12);
+  --teal:           #30c880;
+  --green:          #30c880;
+  --greenl:         #52b788;
+  --amber:          #c8920a;
 
-  --font-mono:      'IBM Plex Mono', 'Courier New', monospace;
-  --font-serif:     Georgia, 'Times New Roman', serif;
+  --ink:            #06060e;
+  --ink2:           #0c0c18;
+  --ink3:           #131320;
+  --ink4:           #181828;
+  --white:          #e8e3da;
+  --white2:         #c4bfb5;
+  --cream:          #0c0c18;
+  --ash:            #7a7590;
+  --ash2:           #3e3c50;
+  --ash3:           #252535;
 
-  --nav-height:     56px;
-  --max-width:      1200px;
-  --radius:         2px;
-  --transition:     0.2s ease;
+  --nav-bg:         rgba(6,6,14,0.97);
+  --nav-border:     #1e1e32;
 }
+
+/* ── THEME TOGGLE BUTTON (universal) ──────────────────────── */
+.theme-toggle-btn {
+  background: none;
+  border: 1px solid var(--border-bright);
+  cursor: pointer;
+  font-size: .75rem;
+  padding: 3px 8px;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  line-height: 1;
+  transition: color .2s, border-color .2s;
+}
+.theme-toggle-btn:hover { color: var(--text-primary); border-color: var(--text-muted); }
+
+
 
 /* ── RESET ─────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -52,7 +124,7 @@ ul { list-style: none; }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(10, 10, 15, 0.95);
+  background: var(--nav-bg, rgba(255,255,255,0.97));
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(8px);
   height: var(--nav-height);

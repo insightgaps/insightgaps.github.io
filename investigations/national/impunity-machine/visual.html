@@ -7,23 +7,30 @@
 <title>The Impunity Machine · Visual Investigation · Insight Gaps</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --ink:#06060e;--ink2:#0d0d18;--ink3:#12121e;
-  --border:#1e1e32;--text:#e8e3da;--text2:#c4bfb5;--muted:#7a7590;--muted2:#3e3c50;
-  --blood:#c41e3a;--bloodl:#e84060;--bloodd:#8b1428;
-  --gold:#c9a84c;--gold2:#9a7e36;
-  --amber:#d4a060;--amberl:#e8c080;
-  --green:#2d6a4f;--greenl:#52b788;
-  --teall:#40c0c0;
-  --mono:"JetBrains Mono","Courier New",monospace;
-  --display:"Playfair Display",Georgia,serif;
-  --body:"Lora",Georgia,serif;
+:root {
+  --ink:#ffffff; --ink2:#f7f6f3; --ink3:#f0ede8;
+  --border:#e2ddd8; --text:#1a1a1a; --text2:#3d3d3d; --muted:#6b6b6b; --muted2:#9b9b9b;
+  --blood:#c41e3a; --bloodl:#e0304e; --bloodd:#8a1428;
+  --gold:#8a6914; --gold2:#6b5010;
+  --amber:#8a6914; --amberl:#a07a20;
+  --green:#1a7a50; --greenl:#2d9a6a; --teall:#1a7a7a;
 }
+
+html[data-theme="dark"] {
+  --ink:#06060e; --ink2:#0d0d18; --ink3:#12121e;
+  --border:#1e1e32; --text:#e8e3da; --text2:#c4bfb5; --muted:#7a7590; --muted2:#3e3c50;
+  --blood:#c41e3a; --bloodl:#e84060; --bloodd:#8b1428;
+  --gold:#c9a84c; --gold2:#9a7e36;
+  --amber:#d4a060; --amberl:#e8c080;
+  --green:#2d6a4f; --greenl:#52b788; --teall:#40c0c0;
+}
+html[data-theme="dark"] body { background: var(--ink); color: var(--text); }
+html[data-theme="dark"] a { color: var(--gold); }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--ink);color:var(--text);font-family:var(--body);overflow-x:hidden}
 a{color:var(--gold);text-decoration:none}
-nav{position:fixed;top:38px;left:0;right:0;z-index:900;background:rgba(6,6,14,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 1.5rem;height:50px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+nav{position:fixed;top:38px;left:0;right:0;z-index:900;background:var(--nav-bg,rgba(255,255,255,.97));backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 1.5rem;height:50px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
 .nav-brand{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
 .nav-scenes{display:flex;gap:.7rem}
 .nav-scenes a{font-family:var(--mono);font-size:.42rem;color:var(--muted2);letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
@@ -220,6 +227,10 @@ nav{position:fixed;top:38px;left:0;right:0;z-index:900;background:rgba(6,6,14,.9
   .step{min-height:50vh}
 }
 </style>
+<script>
+(function(){var t=localStorage.getItem('ig-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();
+</script>
+<script src="../../../../theme-toggle.js"></script>
 </head>
 <body>
 
@@ -238,7 +249,7 @@ nav{position:fixed;top:38px;left:0;right:0;z-index:900;background:rgba(6,6,14,.9
 </div>
 
 <nav style="top:38px;">
-  <div class="nav-brand">Insight Gaps · BD-INV-002 · v3.0</div>
+  <div class="nav-brand">Insight Gaps · BD-INV-002 · v3.0</div><button class="theme-toggle-btn" aria-label="Switch to dark theme" title="Toggle theme" style="background:none;border:none;cursor:pointer;font-size:.9rem;padding:4px 8px;color:inherit;opacity:.7;flex-shrink:0"><span class="theme-icon">●</span></button>
   <div class="nav-scenes">
     <a href="#s1">Funnel</a><a href="#s2">Clocks</a><a href="#sinv">Inversion</a>
     <a href="#s3">Race</a><a href="#s4">Backlog</a><a href="#s5">Map</a>
@@ -446,7 +457,7 @@ nav{position:fixed;top:38px;left:0;right:0;z-index:900;background:rgba(6,6,14,.9
 ════════════════════════════════════════════ -->
 <section id="sinv" class="scene scene-bg">
   <div class="sbg" style="background-image:url('/investigations/national/images/impunity-machine/scene-07-reckoning.png');opacity:.15;background-position:center top"></div>
-  <div class="sbg-overlay" style="background:linear-gradient(to bottom,rgba(6,6,14,.96) 0%,rgba(6,6,14,.9) 100%)"></div>
+  <div class="sbg-overlay" style="background:linear-gradient(to bottom,var(--nav-bg,rgba(255,255,255,.97)) 0%,rgba(6,6,14,.9) 100%)"></div>
   <div class="scene-title">
     <div class="eyebrow">Scene 03 &middot; The Inversion</div>
     <h2>The State Moved For the Woman Who Reported. Against Her.</h2>

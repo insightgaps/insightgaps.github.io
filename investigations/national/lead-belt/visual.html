@@ -13,17 +13,25 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"></script>
 <style>
-:root{
-  --void:#030305;--g1:#07070c;--g2:#0c0c14;--g3:#111119;--g4:#18181f;
-  --b0:rgba(255,255,255,.04);--b1:rgba(255,255,255,.07);--b2:rgba(255,255,255,.11);--b3:rgba(255,255,255,.18);
-  --t0:#f0ece4;--t1:#c8c4bc;--t2:#8a8680;--t3:#4a4844;--t4:#2a2826;
-  --tx:#e8a020;--txl:#f4be50;--txd:rgba(232,160,32,.4);--txf:rgba(232,160,32,.06);
-  --dn:#e84040;--dnl:#ff6868;--dnf:rgba(232,64,64,.06);
-  --ac:#c8dc30;--acl:#ddf060;--sf:#28b870;
-  --lab:"Space Mono","Courier New",monospace;
-  --serif:"Libre Baskerville",Georgia,serif;
-  --mono:"DM Mono","Courier New",monospace;
+:root {
+  --void:#ffffff; --g1:#f7f6f3; --g2:#f0ede8; --g3:#e8e4de; --g4:#ddd9d2;
+  --b0:rgba(0,0,0,.04); --b1:rgba(0,0,0,.07); --b2:rgba(0,0,0,.11); --b3:rgba(0,0,0,.18);
+  --t0:#1a1a1a; --t1:#3d3d3d; --t2:#6b6b6b; --t3:#9b9b9b; --t4:#c0bcb7;
+  --tx:#c41e3a; --txl:#e0304e; --txd:rgba(196,30,58,.25); --txf:rgba(196,30,58,.06);
+  --dn:#c41e3a; --dnl:#e0304e; --dnf:rgba(196,30,58,.06);
+  --ac:#8a6914; --acl:#a07a20; --sf:#1a7a50;
 }
+
+html[data-theme="dark"] {
+  --void:#030305; --g1:#07070c; --g2:#0c0c14; --g3:#111119; --g4:#18181f;
+  --b0:rgba(255,255,255,.04); --b1:rgba(255,255,255,.07); --b2:rgba(255,255,255,.11); --b3:rgba(255,255,255,.18);
+  --t0:#f0ece4; --t1:#c8c4bc; --t2:#8a8680; --t3:#4a4844; --t4:#2a2826;
+  --tx:#e8a020; --txl:#f4be50; --txd:rgba(232,160,32,.4); --txf:rgba(232,160,32,.06);
+  --dn:#e84040; --dnl:#ff6868; --dnf:rgba(232,64,64,.06);
+  --ac:#c8dc30; --acl:#ddf060; --sf:#28b870;
+}
+html[data-theme="dark"] body { background: var(--void); color: var(--t0); }
+html[data-theme="dark"] a { color: var(--tx); }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:17px}
 body{background:var(--void);color:var(--t0);font-family:var(--lab);overflow-x:hidden;-webkit-font-smoothing:antialiased}
@@ -491,6 +499,10 @@ nav{position:sticky;top:34px;z-index:890;height:42px;background:rgba(3,3,5,.97);
 .leaflet-cluster-spider-leg { stroke:rgba(232,160,32,.5)!important; stroke-width:1.5!important }
 
 </style>
+<script>
+(function(){var t=localStorage.getItem('ig-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();
+</script>
+<script src="../../../../theme-toggle.js"></script>
 </head>
 <body>
 
@@ -507,7 +519,7 @@ nav{position:sticky;top:34px;z-index:890;height:42px;background:rgba(3,3,5,.97);
 
 <!-- SECTION NAV -->
 <nav>
-  <span class="nav-brand">Insight Gaps · BD-INV-003</span>
+  <span class="nav-brand">Insight Gaps · BD-INV-003</span><button class="theme-toggle-btn" aria-label="Switch to dark theme" title="Toggle theme" style="background:none;border:none;cursor:pointer;font-size:.9rem;padding:4px 8px;color:inherit;opacity:.7;flex-shrink:0"><span class="theme-icon">●</span></button>
   <div class="nav-sc">
     <a href="#hero">Intro</a>
     <a href="#s-map">Map</a>

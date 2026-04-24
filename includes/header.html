@@ -1,21 +1,21 @@
 <style>
-.site-header{background:rgba(6,6,14,.97);border-bottom:1px solid #1e1e32;position:sticky;top:0;z-index:900;backdrop-filter:blur(16px)}
+.site-header{background:var(--nav-bg,rgba(255,255,255,.97));border-bottom:1px solid var(--nav-border,#e2ddd8);position:sticky;top:0;z-index:900;backdrop-filter:blur(16px)}
 .header-inner{max-width:1280px;margin:0 auto;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;gap:1rem}
-.nav-brand{font-family:'JetBrains Mono','Courier New',monospace;font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#c9a84c;text-decoration:none}
-.nav-brand:hover{color:#e8c060}
+.nav-brand{font-family:'JetBrains Mono','Courier New',monospace;font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold,#8a6914);text-decoration:none}
+.nav-brand:hover{color:var(--gold-bright,#a07a20)}
 .main-nav{display:flex;gap:.2rem;height:100%;align-items:center}
 .nav-item{height:100%;display:flex;align-items:center;position:relative}
-.nav-link{font-family:'JetBrains Mono','Courier New',monospace;font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(196,187,181,.5);padding:.22rem .7rem;height:100%;display:flex;align-items:center;text-decoration:none;border:1px solid transparent;transition:all .2s;white-space:nowrap}
-.nav-link:hover,.nav-link.active{color:#e8e3da;border-color:#1e1e32}
+.nav-link{font-family:'JetBrains Mono','Courier New',monospace;font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-secondary,#6b6b6b);padding:.22rem .7rem;height:100%;display:flex;align-items:center;text-decoration:none;border:1px solid transparent;transition:all .2s;white-space:nowrap}
+.nav-link:hover,.nav-link.active{color:var(--text-primary,#1a1a1a);border-color:var(--border,#e2ddd8)}
 .nav-ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;flex-shrink:0;padding:6px}
-.nav-ham span{display:block;width:20px;height:2px;background:#7a7590;border-radius:1px;transition:all .25s}
+.nav-ham span{display:block;width:20px;height:2px;background:var(--text-muted,#6b6b6b);border-radius:0;transition:all .25s}
 .nav-ham.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
 .nav-ham.open span:nth-child(2){opacity:0}
 .nav-ham.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-.nav-drawer{display:none;position:fixed;top:52px;left:0;right:0;background:rgba(6,6,14,.99);border-bottom:1px solid #1e1e32;padding:1.2rem 1.5rem;z-index:890}
+.nav-drawer{display:none;position:fixed;top:52px;left:0;right:0;background:var(--nav-bg,rgba(255,255,255,.99));border-bottom:1px solid var(--nav-border,#e2ddd8);padding:1.2rem 1.5rem;z-index:890}
 .nav-drawer.open{display:block}
-.nav-drawer a{display:block;font-family:'JetBrains Mono','Courier New',monospace;font-size:.8rem;color:#7a7590;letter-spacing:.08em;text-transform:uppercase;padding:.65rem 0;border-bottom:1px solid #1e1e32;transition:color .2s;text-decoration:none}
-.nav-drawer a:hover{color:#c9a84c}
+.nav-drawer a{display:block;font-family:'JetBrains Mono','Courier New',monospace;font-size:.8rem;color:var(--text-muted,#6b6b6b);letter-spacing:.08em;text-transform:uppercase;padding:.65rem 0;border-bottom:1px solid var(--nav-border,#e2ddd8);transition:color .2s;text-decoration:none}
+.nav-drawer a:hover{color:var(--gold,#8a6914)}
 .nav-drawer a:last-child{border-bottom:none}
 @media(max-width:760px){.main-nav{display:none}.nav-ham{display:flex}}
 </style>
@@ -30,6 +30,7 @@
       <div class="nav-item"><a href="/methods/" class="nav-link">Methods</a></div>
       <div class="nav-item"><a href="/data/" class="nav-link">Data</a></div>
     </nav>
+    <button class="theme-toggle-btn" aria-label="Switch to dark theme" title="Toggle theme" style="background:none;border:none;cursor:pointer;font-size:.9rem;padding:4px 8px;color:inherit;opacity:.7;flex-shrink:0"><span class="theme-icon">●</span></button>
     <button class="nav-ham" id="sharedNavHam" aria-label="Open navigation" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -62,3 +63,5 @@
   });
 })();
 </script>
+
+<script src="/theme-toggle.js"></script>

@@ -29,18 +29,27 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <style>
-:root{
-  --ink:#06060e;--ink2:#0b0b16;--ink3:#11111e;--ink4:#181828;
-  --border:#1e1e30;--border2:#2a2a40;
-  --text:#e8e3da;--text2:#c4bfb5;--muted:#7a7590;--muted2:#4e4b60;
-  --blood:#c41e3a;--bloodl:#e84060;
-  --gold:#c9a84c;--gold2:#9a7e36;--gold3:#5a4820;
-  --amber:#b07d4a;--amberl:#d4a060;
-  --green:#2d6a4f;--greenl:#52b788;
-  --display:'Playfair Display',Georgia,serif;
-  --body:'Lora',Georgia,serif;
-  --mono:'JetBrains Mono','Courier New',monospace;
+:root {
+  --ink:#ffffff; --ink2:#f7f6f3; --ink3:#f0ede8; --ink4:#e8e4de;
+  --border:#e2ddd8; --border2:#d0cbc4;
+  --text:#1a1a1a; --text2:#3d3d3d; --muted:#6b6b6b; --muted2:#9b9b9b;
+  --blood:#c41e3a; --bloodl:#e0304e; --bloodd:#8a1428;
+  --gold:#8a6914; --gold2:#6b5010; --gold3:#4a3808;
+  --amber:#8a6914; --amberl:#a07a20;
+  --green:#1a7a50; --greenl:#2d9a6a;
 }
+
+html[data-theme="dark"] {
+  --ink:#06060e; --ink2:#0b0b16; --ink3:#11111e; --ink4:#181828;
+  --border:#1e1e30; --border2:#2a2a40;
+  --text:#e8e3da; --text2:#c4bfb5; --muted:#7a7590; --muted2:#4e4b60;
+  --blood:#c41e3a; --bloodl:#e84060; --bloodd:#8b1428;
+  --gold:#c9a84c; --gold2:#9a7e36; --gold3:#5a4820;
+  --amber:#b07d4a; --amberl:#d4a060;
+  --green:#2d6a4f; --greenl:#52b788;
+}
+html[data-theme="dark"] body { background: var(--ink); color: var(--text); }
+html[data-theme="dark"] a { color: var(--gold); }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--ink);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.75;overflow-x:hidden}
@@ -48,7 +57,7 @@ a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5}
 
 /* NAV */
-nav{position:fixed;top:38px;left:0;right:0;z-index:500;background:rgba(6,6,14,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 2rem}
+nav{position:fixed;top:38px;left:0;right:0;z-index:500;background:var(--nav-bg,rgba(255,255,255,.97));backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 2rem}
 .nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:48px;gap:1rem}
 .nav-brand{font-family:var(--mono);font-size:.78rem;color:var(--gold);letter-spacing:.18em;text-transform:uppercase;flex-shrink:0}
 .nav-brand a{color:inherit;text-decoration:none}.nav-brand span{color:var(--muted2)}
@@ -62,7 +71,7 @@ nav{position:fixed;top:38px;left:0;right:0;z-index:500;background:rgba(6,6,14,.9
 .nav-ham.open span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
 .nav-ham.open span:nth-child(2){opacity:0}
 .nav-ham.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
-.nav-drawer{display:none;position:fixed;top:86px;left:0;right:0;background:rgba(6,6,14,.99);border-bottom:1px solid var(--border);padding:1.2rem 2rem;z-index:490}
+.nav-drawer{display:none;position:fixed;top:86px;left:0;right:0;background:var(--nav-bg,rgba(255,255,255,.99));border-bottom:1px solid var(--border);padding:1.2rem 2rem;z-index:490}
 .nav-drawer.open{display:block}
 .nav-drawer a{display:block;font-family:var(--mono);font-size:.66rem;color:var(--muted2);letter-spacing:.08em;text-transform:uppercase;padding:.5rem 0;border-bottom:1px solid var(--border);transition:color .2s}
 .nav-drawer a:hover{color:var(--gold);text-decoration:none}.nav-drawer a:last-child{border-bottom:none}
@@ -388,6 +397,10 @@ canvas{display:block;width:100%}
 @media(max-width:900px){.bureau-grid{grid-template-columns:1fr 1fr}.bureau-grid>:nth-child(3){grid-column:1/-1}.rm-row{grid-template-columns:1fr 1fr}.rm-row .rm-cell:last-child{grid-column:1/-1}.rm-row.hd .rm-cell:last-child{display:none}.dp-label{flex:0 0 140px}}
 @media(max-width:640px){.nav-links{display:none}.nav-ham{display:flex}.bureau-grid{grid-template-columns:1fr}.rm-row{grid-template-columns:1fr}.rm-row.hd{display:none}.hm-cell{width:20px;height:20px}.case-grid{grid-template-columns:1fr}.card-grid{grid-template-columns:1fr 1fr}.dp-row{flex-direction:column;align-items:flex-start;gap:.3rem}.dp-label{flex:unset;text-align:left}.dp-track{width:100%}}
 </style>
+<script>
+(function(){var t=localStorage.getItem('ig-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();
+</script>
+<script src="../../../../theme-toggle.js"></script>
 </head>
 <body>
 
@@ -424,7 +437,7 @@ canvas{display:block;width:100%}
       <a href="#conclusion">Conclusion</a>
       <a href="#sources">Sources</a>
     </div>
-    <button class="nav-ham" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <button class="theme-toggle-btn" aria-label="Switch to dark theme" title="Toggle theme" style="background:none;border:none;cursor:pointer;font-size:.9rem;padding:4px 8px;color:inherit;opacity:.7;flex-shrink:0"><span class="theme-icon">●</span></button><button class="nav-ham" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div class="nav-drawer" id="nav-drawer" aria-hidden="true">

@@ -11,18 +11,26 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4PYE0MEK12"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-4PYE0MEK12');</script>
 <style>
-:root{
-  --ink:#06060e;--ink2:#0c0c18;--ink3:#131320;
-  --blood:#c41e3a;--bloodl:rgba(196,30,58,.12);
-  --gold:#c9a84c;--goldl:rgba(201,168,76,.1);
-  --teal:#30c880;
-  --ash:#7a7590;--ash2:#3e3c50;--ash3:#252535;
-  --white:#e8e3da;--white2:#c4bfb5;
-  --border:#1e1e32;--border2:rgba(255,255,255,.07);
-  --mono:'JetBrains Mono',monospace;
-  --serif:'Playfair Display',serif;
-  --max:1100px;
+:root {
+  --ink:#ffffff; --ink2:#f7f6f3; --ink3:#f0ede8;
+  --blood:#c41e3a; --bloodl:rgba(196,30,58,.08);
+  --gold:#8a6914; --goldl:rgba(138,105,20,.08);
+  --teal:#1a7a50;
+  --ash:#6b6b6b; --ash2:#9b9b9b; --ash3:#d0cbc4;
+  --white:#1a1a1a; --white2:#3d3d3d;
+  --border:#e2ddd8; --border2:rgba(0,0,0,.07);
 }
+
+html[data-theme="dark"] {
+  --ink:#06060e; --ink2:#0c0c18; --ink3:#131320;
+  --blood:#c41e3a; --bloodl:rgba(196,30,58,.12);
+  --gold:#c9a84c; --goldl:rgba(201,168,76,.1);
+  --teal:#30c880;
+  --ash:#7a7590; --ash2:#3e3c50; --ash3:#252535;
+  --white:#e8e3da; --white2:#c4bfb5;
+  --border:#1e1e32; --border2:rgba(255,255,255,.07);
+}
+html[data-theme="dark"] body { background: var(--ink); color: var(--white); }
 *{box-sizing:border-box;margin:0;padding:0}
 html{font-size:16px;scroll-behavior:smooth}
 body{background:var(--ink);color:var(--white);font-family:var(--mono);-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -35,7 +43,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
 /* ── NAV ── */
 #nav{
   position:sticky;top:0;z-index:800;
-  background:rgba(6,6,14,.97);backdrop-filter:blur(16px);
+  background:var(--nav-bg,rgba(255,255,255,.97));backdrop-filter:blur(16px);
   border-bottom:1px solid var(--border);
 }
 .nav-inner{
@@ -205,13 +213,17 @@ footer{background:var(--ink2);border-top:1px solid var(--border);padding:2.5rem 
   font-size:.46rem;letter-spacing:.1em;color:var(--ash2);text-transform:uppercase;flex-wrap:wrap;gap:.4rem
 }
 </style>
+<script>
+(function(){var t=localStorage.getItem('ig-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();
+</script>
+<script src="../../theme-toggle.js"></script>
 </head>
 <body>
 
 <!-- NAV -->
 <div id="nav">
   <div class="nav-inner">
-    <a href="/" class="nav-brand">Insight Gaps</a>
+    <a href="/" class="nav-brand">Insight Gaps</a><button class="theme-toggle-btn" aria-label="Switch to dark theme" title="Toggle theme" style="background:none;border:none;cursor:pointer;font-size:.9rem;padding:4px 8px;color:inherit;opacity:.7;flex-shrink:0"><span class="theme-icon">●</span></button>
     <div class="nav-links">
       <a href="/investigations/" class="nav-link active">Investigations</a>
       <a href="/analysis/" class="nav-link">Analysis</a>
