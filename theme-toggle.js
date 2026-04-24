@@ -1,5 +1,4 @@
-/* Insight Gaps — Theme Toggle
-   White = default. Dark = opt-in. Persisted via localStorage. */
+/* Insight Gaps — Theme Toggle v2 */
 (function () {
   var DARK = 'dark';
   var KEY  = 'ig-theme';
@@ -17,27 +16,31 @@
   try { stored = localStorage.getItem(KEY) || ''; } catch(e) {}
   apply(stored);
 
+  function updateButtons(isDark) {
+    document.querySelectorAll('.theme-toggle-btn').forEach(function(btn) {
+      btn.setAttribute('aria-label', isDark ? 'Switch to white theme' : 'Switch to dark theme');
+      btn.setAttribute('data-active', isDark ? 'dark' : 'light');
+      var icon = btn.querySelector('.theme-icon');
+      var label = btn.querySelector('.theme-label');
+      if (icon) icon.textContent = isDark ? '☀' : '◗';
+      if (label) label.textContent = isDark ? 'Light' : 'Dark';
+    });
+  }
+
   function toggle() {
     var current = document.documentElement.getAttribute('data-theme');
     var next = (current === DARK) ? '' : DARK;
     try { localStorage.setItem(KEY, next); } catch(e) {}
     apply(next);
-    /* Update all toggle buttons on page */
-    document.querySelectorAll('.theme-toggle-btn').forEach(function(btn) {
-      btn.setAttribute('aria-label', next === DARK ? 'Switch to white theme' : 'Switch to dark theme');
-      btn.querySelector('.theme-icon').textContent = next === DARK ? '◑' : '●';
-    });
+    updateButtons(next === DARK);
   }
 
-  /* Expose globally so inline onclick can call it */
   window.igToggleTheme = toggle;
 
-  /* Init button state on DOMContentLoaded */
   document.addEventListener('DOMContentLoaded', function () {
+    var isDark = document.documentElement.getAttribute('data-theme') === DARK;
+    updateButtons(isDark);
     document.querySelectorAll('.theme-toggle-btn').forEach(function(btn) {
-      var isDark = document.documentElement.getAttribute('data-theme') === DARK;
-      btn.setAttribute('aria-label', isDark ? 'Switch to white theme' : 'Switch to dark theme');
-      btn.querySelector('.theme-icon').textContent = isDark ? '◑' : '●';
       btn.addEventListener('click', toggle);
     });
   });
