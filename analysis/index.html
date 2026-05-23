@@ -3,91 +3,215 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Operational Analysis Domains | Insight Gaps</title>
-  <meta name="description" content="Applied operational analysis derived from public investigations. Commissioned diagnostics available for organizations — Insight Gaps Bureau.">
-  <link rel="canonical" href="https://www.insightgaps.com/analysis/">
-  <link rel="icon" href="/favicon.png" type="image/png">
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Analysis | Insight Gaps">
-  <meta property="og:description" content="Forensic operational diagnostics derived from investigative work. Commissioned engagements available under strict confidentiality.">
-  <meta property="og:url" content="https://www.insightgaps.com/analysis/">
-  <meta name="twitter:card" content="summary">
-  <link rel="stylesheet" href="/style.css">
 
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4PYE0MEK12"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-4PYE0MEK12');
-  </script>
+  <title>Analysis Domains — Insight Gaps Bureau</title>
+  <meta name="description" content="Forensic business analysis reports and portfolio domains by Insight Gaps Bureau.">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="Analysis Domains — Insight Gaps Bureau">
+  <meta property="og:description" content="Forensic business analysis reports and portfolio domains.">
+  <meta property="og:url"         content="https://insightgaps.com/analysis/">
+  <meta property="og:image"       content="/assets/img/og-default.jpg">
+
+  <link rel="canonical" href="https://insightgaps.com/analysis/">
+
+  <!-- Font preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+
+  <style>
+    .analysis-page {
+      width:          100%;
+      padding-bottom: var(--space-9);
+    }
+
+    .analysis-page__header {
+      padding:       var(--space-8) 0 var(--space-7);
+      border-bottom: var(--border-width) solid var(--color-border);
+      margin-bottom: var(--space-7);
+    }
+
+    .analysis-page__header-inner {
+      max-width: var(--grid-max);
+      margin:    0 auto;
+      padding:   0 var(--grid-padding);
+    }
+
+    .analysis-page__title {
+      font-family:    var(--font-headline);
+      font-size:      var(--type-h1);
+      font-weight:    700;
+      line-height:    var(--leading-tight);
+      letter-spacing: var(--tracking-tight);
+      color:          var(--color-text-primary);
+      margin-bottom:  var(--space-3);
+    }
+
+    .analysis-page__subtitle {
+      font-family:    var(--font-mono);
+      font-size:      var(--type-label);
+      letter-spacing: var(--tracking-wide);
+      color:          var(--color-text-muted);
+    }
+
+    .analysis-page__body {
+      max-width: var(--grid-max);
+      margin:    0 auto;
+      padding:   0 var(--grid-padding);
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ── HEADER ── -->
-  <div data-include="header" data-path="/includes/header.html"></div>
-
-  <main class="page-container" role="main">
-
-    <!-- Page header -->
-    <header style="max-width: var(--container-narrow); margin-bottom: var(--sp-12);">
-      <p class="domain-tag">Applied Analysis</p>
-      <h1>Operational Analysis</h1>
-      <p class="lead">
-        Forensic diagnostics derived from investigative work into real operational workflows.
-        Private commissioned engagements are available under strict confidentiality.
+  <!-- AI DISCLOSURE BAR -->
+  <div class="ai-disclosure-bar" role="note" aria-label="AI use disclosure">
+    <div class="ai-disclosure-bar__inner">
+      <p class="ai-disclosure-bar__text">
+        AI tools were used in producing this report.
+        <a href="/content/trust/ai-use.html">View AI use disclosure &rarr;</a>
       </p>
-      <p class="last-updated">Last updated: January 2026</p>
-    </header>
-
-    <hr>
-
-    <section style="margin-top: var(--sp-12);">
-      <div class="inquiries-box">
-        <p><strong>Operational Intelligence Reports</strong> — The Bureau produces forensic diagnostics applied to real operational systems: cash flow analysis, vendor leakage mapping, work order risk, and documentation failure patterns.</p>
-        <p>These reports are available to qualified organisations and individuals on request. All commissioned work is delivered under strict confidentiality. No client names or data are disclosed without written consent.</p>
-        <p>To request access to existing reports or commission a diagnostic, contact the Bureau directly.</p>
-        <a href="mailto:insightgaps@gmail.com" class="btn-solid-red" style="margin-top: var(--sp-4); display:inline-block;">Request Access &rarr;</a>
-      </div>
-
-      <div class="domains-grid" style="margin-top: var(--sp-12);">
-        <div class="domain">
-          <p class="type">Domain 01</p>
-          <h2>Cash Flow Risk</h2>
-          <p>How revenue moves through invoicing and collection cycles — and where retention breaks down. Full diagnostic available on request.</p>
-        </div>
-        <div class="domain">
-          <p class="type">Domain 02</p>
-          <h2>Profit Leakage</h2>
-          <p>Recurring margin erosion from vendor overruns, rework loops, and structural inefficiencies — mapped and classified. Available on request.</p>
-        </div>
-        <div class="domain">
-          <p class="type">Domain 03</p>
-          <h2>Work Order Risk</h2>
-          <p>Which service types scale profitably and which quietly amplify operational risk. Risk matrix and breakdown available on request.</p>
-        </div>
-      </div>
-    </section>
-
-</main>
-
-  <!-- Image popup -->
-  <div id="imagePopup" class="popup-overlay" onclick="closePopup()" role="dialog" aria-modal="true" aria-label="Image preview">
-    <div class="popup-content" onclick="event.stopPropagation()">
-      <button class="popup-close" onclick="closePopup()" aria-label="Close preview">&times;</button>
-      <a id="popupLink" href="#">
-        <img id="popupImg" src="" alt="Preview" class="popup-image">
-      </a>
-      <div id="popupCaption" class="popup-caption"></div>
     </div>
   </div>
 
-  <!-- ── FOOTER ── -->
-  <div data-include="footer" data-path="/includes/footer.html"></div>
+  <!-- GLOBAL HEADER -->
+  <a href="#main-content" class="skip-link">Skip to content</a>
 
-  <script src="/js/components.js"></script>
-  <script src="/js/ui.js"></script>
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+      <a href="/" class="site-header__logo" aria-label="Insight Gaps Bureau — Home">
+        Insight&nbsp;Gaps
+      </a>
+      <button class="site-header__toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="primary-nav" aria-label="Primary navigation">
+        <a href="/content/investigations/" class="site-nav__link">Investigations</a>
+        <a href="/analysis/"               class="site-nav__link site-nav__link--active" aria-current="page">Analysis</a>
+        <a href="/archive.html"            class="site-nav__link">Archive</a>
+        <a href="/about.html"              class="site-nav__link">About</a>
+        <a href="/content/trust/methodology.html" class="site-nav__link">Trust</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main id="main-content" class="analysis-page">
+
+    <div class="analysis-page__header">
+      <div class="analysis-page__header-inner">
+        <h1 class="analysis-page__title">Analysis Domains</h1>
+        <p class="analysis-page__subtitle" id="js-analysis-subtitle">
+          Forensic business analysis portfolio and client commissions
+        </p>
+      </div>
+    </div>
+
+    <div class="analysis-page__body">
+      <!-- Renders active domains from analysis.json -->
+      <div class="card-grid--two" id="js-analysis-cards-grid" aria-live="polite">
+        <article class="analysis-card">
+          <h3 class="analysis-card__title">
+            <a href="/analysis/property-preservation/">Property Preservation</a>
+          </h3>
+          <p class="analysis-card__description">
+            Forensic financial and operational analysis for property preservation businesses in the United States. Covers cash flow risk, vendor performance, compliance exposure, and portfolio health. Designed for operators, investors, and portfolio reviewers who need data-backed insight, not summaries.
+          </p>
+          <div class="analysis-card__footer">
+            <span class="analysis-card__count">3 reports</span>
+            <time class="analysis-card__date" datetime="2025-01-01">1 January 2025</time>
+          </div>
+          <a class="analysis-card__link" href="/analysis/property-preservation/">
+            <span class="sr-only">Read Property Preservation</span>
+          </a>
+        </article>
+        <noscript>
+          <p class="home__empty-state">JavaScript is required to load analysis domains.</p>
+        </noscript>
+      </div>
+
+      <div class="analysis-cta">
+        <h2 class="analysis-cta__headline">Commission a Custom Analysis</h2>
+        <p class="analysis-cta__text">
+          Need a forensic data report tailored to your specific question, portfolio, or institution? Insight Gaps Bureau produces bespoke analysis on request.
+        </p>
+        <a href="/contact.html" class="btn btn--primary">Get in touch &rarr;</a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- GLOBAL FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__inner">
+      <div class="site-footer__grid">
+        <div>
+          <p class="site-footer__brand-name">Insight&nbsp;Gaps</p>
+          <p class="site-footer__mandate">Independent forensic data journalism from Dhaka, Bangladesh.</p>
+        </div>
+        <div>
+          <span class="site-footer__col-label">Navigate</span>
+          <nav class="site-footer__nav" aria-label="Footer navigation">
+            <a href="/content/investigations/">Investigations</a>
+            <a href="/analysis/">Analysis</a>
+            <a href="/archive.html">Archive</a>
+            <a href="/about.html">About</a>
+          </nav>
+        </div>
+        <div>
+          <span class="site-footer__col-label">Trust</span>
+          <nav class="site-footer__nav" aria-label="Trust navigation">
+            <a href="/content/trust/methodology.html">Methodology</a>
+            <a href="/content/trust/ai-use.html">AI Use</a>
+            <a href="/content/trust/corrections.html">Corrections</a>
+            <a href="/contact.html">Contact</a>
+          </nav>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <p class="site-footer__copy">
+          &copy; <span class="js-copyright-year">2025</span> Insight Gaps Bureau. Original reporting licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC&nbsp;BY&nbsp;4.0</a>. Deployed on Vercel.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Header scripts -->
+  <script>
+  (function () {
+    'use strict';
+    var toggle = document.querySelector('.site-header__toggle');
+    var nav    = document.querySelector('.site-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', function () {
+        var isOpen = nav.classList.toggle('site-nav--open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+      document.addEventListener('click', function (e) {
+        if (!toggle.contains(e.target) && !nav.contains(e.target)) {
+          nav.classList.remove('site-nav--open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && nav.classList.contains('site-nav--open')) {
+          nav.classList.remove('site-nav--open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.focus();
+        }
+      });
+    }
+    var yr = String(new Date().getFullYear());
+    document.querySelectorAll('.js-copyright-year').forEach(function (el) { el.textContent = yr; });
+  }());
+  </script>
+
+  <!-- Data loader -->
+  <script src="/assets/js/data-loader.js" defer></script>
+
 </body>
 </html>

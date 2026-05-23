@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investigations - Insight Gaps Bureau</title>
+  <meta name="description" content="Published and developing investigations from Insight Gaps Bureau.">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <style>
+    .investigations-index {
+      padding-bottom: var(--space-9);
+    }
+
+    .investigations-index__header {
+      padding: var(--space-8) 0 var(--space-7);
+      border-bottom: var(--border-width) solid var(--color-border);
+      margin-bottom: var(--space-7);
+    }
+
+    .investigations-index__inner {
+      max-width: var(--grid-max);
+      margin: 0 auto;
+      padding: 0 var(--grid-padding);
+    }
+
+    .investigations-index__title {
+      margin-bottom: var(--space-3);
+    }
+
+    .investigations-index__dek {
+      max-width: var(--grid-content);
+      color: var(--color-text-secondary);
+    }
+  </style>
+</head>
+<body>
+  <div class="ai-disclosure-bar" role="note" aria-label="AI use disclosure">
+    <div class="ai-disclosure-bar__inner">
+      <p class="ai-disclosure-bar__text">
+        AI tools were used in producing this report.
+        <a href="/content/trust/ai-use.html">View AI use disclosure &rarr;</a>
+      </p>
+    </div>
+  </div>
+
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+      <a href="/" class="site-header__logo" aria-label="Insight Gaps Bureau - Home">Insight&nbsp;Gaps</a>
+      <button class="site-header__toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="primary-nav" aria-label="Primary navigation">
+        <a href="/content/investigations/" class="site-nav__link site-nav__link--active" aria-current="page">Investigations</a>
+        <a href="/analysis/" class="site-nav__link">Analysis</a>
+        <a href="/archive.html" class="site-nav__link">Archive</a>
+        <a href="/about.html" class="site-nav__link">About</a>
+        <a href="/content/trust/methodology.html" class="site-nav__link">Trust</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="investigations-index">
+    <section class="investigations-index__header">
+      <div class="investigations-index__inner">
+        <p class="section-label">Investigations</p>
+        <h1 class="investigations-index__title">Investigations</h1>
+        <p class="investigations-index__dek">
+          A structured index of Insight Gaps investigations, separated from the commercial analysis track.
+        </p>
+      </div>
+    </section>
+
+    <section class="investigations-index__inner" aria-labelledby="investigation-list-label">
+      <p class="section-label" id="investigation-list-label">All investigations</p>
+      <div class="card-grid--three" id="js-investigation-cards" aria-live="polite">
+        <p class="home__empty-state">Loading investigations...</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__inner">
+      <div class="site-footer__grid">
+        <div>
+          <p class="site-footer__brand-name">Insight&nbsp;Gaps</p>
+          <p class="site-footer__mandate">Independent forensic data journalism from Dhaka, Bangladesh.</p>
+        </div>
+        <div>
+          <span class="site-footer__col-label">Navigate</span>
+          <nav class="site-footer__nav" aria-label="Footer navigation">
+            <a href="/content/investigations/">Investigations</a>
+            <a href="/analysis/">Analysis</a>
+            <a href="/archive.html">Archive</a>
+            <a href="/about.html">About</a>
+          </nav>
+        </div>
+        <div>
+          <span class="site-footer__col-label">Trust</span>
+          <nav class="site-footer__nav" aria-label="Trust navigation">
+            <a href="/content/trust/methodology.html">Methodology</a>
+            <a href="/content/trust/ai-use.html">AI Use</a>
+            <a href="/content/trust/corrections.html">Corrections</a>
+            <a href="/contact.html">Contact</a>
+          </nav>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <p class="site-footer__copy">
+          &copy; <span class="js-copyright-year">2025</span> Insight Gaps Bureau.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    'use strict';
+    var toggle = document.querySelector('.site-header__toggle');
+    var nav = document.querySelector('.site-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', function () {
+        var isOpen = nav.classList.toggle('site-nav--open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+    }
+    document.querySelectorAll('.js-copyright-year').forEach(function (el) {
+      el.textContent = String(new Date().getFullYear());
+    });
+  }());
+  </script>
+  <script src="/assets/js/data-loader.js" defer></script>
+</body>
+</html>

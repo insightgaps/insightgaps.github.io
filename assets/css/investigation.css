@@ -1,0 +1,580 @@
+/* ============================================================
+   INSIGHT GAPS BUREAU — INVESTIGATION PAGE STYLES
+   investigation.css — v1.0
+   Investigation-specific layout and component styles.
+   Requires: style.css (tokens) + components.css (shared components)
+   Never hardcode values — reference tokens only.
+   ============================================================ */
+
+
+/* ============================================================
+   PAGE WRAPPER — INVESTIGATION
+   ============================================================ */
+
+.investigation {
+  width:   100%;
+  padding-bottom: var(--space-9);
+}
+
+
+/* ============================================================
+   INVESTIGATION HERO
+   Contains: tier badge, status badge, title, dek,
+             byline, meta row (date + case ID)
+   ============================================================ */
+
+.investigation__hero {
+  padding:          var(--space-8) 0 var(--space-7);
+  border-bottom:    var(--border-width) solid var(--color-border);
+  margin-bottom:    var(--space-7);
+}
+
+.investigation__hero-inner {
+  max-width: var(--grid-content);
+  margin:    0 auto;
+  padding:   0 var(--grid-padding);
+}
+
+/* Badge row — status badge + tier badge side by side */
+.investigation__badges {
+  display:        flex;
+  align-items:    center;
+  gap:            var(--space-3);
+  margin-bottom:  var(--space-5);
+  flex-wrap:      wrap;
+}
+
+/* Tier badge — investigation type label (Tier 1 / 2 / 3) */
+.tier-badge {
+  display:        inline-block;
+  font-family:    var(--font-mono);
+  font-size:      var(--type-label);
+  font-weight:    400;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  padding:        var(--space-1) var(--space-2);
+  border-radius:  var(--radius-sm);
+  line-height:    1;
+  color:          var(--color-text-secondary);
+  background-color: transparent;
+  border:         var(--border-width) solid var(--color-border-strong);
+}
+
+/* Title */
+.investigation__title {
+  font-family:    var(--font-headline);
+  font-size:      var(--type-h1);
+  font-weight:    700;
+  line-height:    var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color:          var(--color-text-primary);
+  margin-bottom:  var(--space-4);
+}
+
+/* Dek — italic sentence below title */
+.investigation__dek {
+  font-family:    var(--font-body);
+  font-size:      var(--type-body);
+  font-style:     italic;
+  line-height:    var(--leading-body);
+  color:          var(--color-text-secondary);
+  margin-bottom:  var(--space-5);
+}
+
+/* Byline — "Insight Gaps Bureau · date" */
+.investigation__byline {
+  display:        flex;
+  align-items:    center;
+  gap:            var(--space-3);
+  font-family:    var(--font-mono);
+  font-size:      var(--type-label);
+  color:          var(--color-text-secondary);
+  letter-spacing: var(--tracking-wide);
+  margin-bottom:  var(--space-5);
+  flex-wrap:      wrap;
+}
+
+.investigation__byline-name {
+  color:       var(--color-text-primary);
+  font-weight: 400;
+}
+
+.investigation__byline-sep {
+  color: var(--color-border-strong);
+}
+
+/* Revised notice — shown only when date_revised is populated */
+.investigation__revised {
+  font-family:    var(--font-mono);
+  font-size:      var(--type-label);
+  color:          var(--color-status-corrected);
+  letter-spacing: var(--tracking-wide);
+  margin-top:     var(--space-2);
+}
+
+/* Meta row — date left, case ID right */
+.investigation__meta {
+  display:        flex;
+  align-items:    center;
+  justify-content: space-between;
+  gap:            var(--space-4);
+  padding-top:    var(--space-4);
+  border-top:     var(--border-width) solid var(--color-border);
+  flex-wrap:      wrap;
+}
+
+.investigation__date {
+  font-family:    var(--font-mono);
+  font-size:      var(--type-label);
+  color:          var(--color-text-muted);
+  letter-spacing: var(--tracking-wide);
+}
+
+/* Case ID — right-aligned, prominent mono treatment */
+.investigation__id {
+  font-family:    var(--font-mono);
+  font-size:      var(--type-label);
+  color:          var(--color-text-secondary);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  padding:        var(--space-1) var(--space-2);
+  border:         var(--border-width) solid var(--color-border);
+  border-radius:  var(--radius-sm);
+}
+
+
+/* ============================================================
+   INVESTIGATION FINDINGS SECTION
+   Wraps the key-findings-panel component.
+   Accent divider appears above it.
+   ============================================================ */
+
+.investigation__findings {
+  max-width:     var(--grid-content);
+  margin:        0 auto var(--space-7);
+  padding:       0 var(--grid-padding);
+}
+
+/* Accent divider sits immediately above findings panel */
+.investigation__findings::before {
+  content:      '';
+  display:      block;
+  width:        3rem;
+  height:       var(--border-width-strong);
+  background:   var(--color-accent);
+  margin-bottom: var(--space-6);
+}
+
+
+/* ============================================================
+   INVESTIGATION BODY
+   All prose, inline callouts, and breakout visual blocks.
+   Prose stays at --grid-content width.
+   Visual blocks break out to --grid-wide.
+   ============================================================ */
+
+.investigation__body {
+  max-width: var(--grid-content);
+  margin:    0 auto;
+  padding:   0 var(--grid-padding);
+}
+
+/* Prose headings within body */
+.investigation__body h2 {
+  font-family:    var(--font-headline);
+  font-size:      var(--type-h2);
+  font-weight:    600;
+  line-height:    var(--leading-tight);
+  color:          var(--color-text-primary);
+  margin-top:     var(--space-8);
+  margin-bottom:  var(--space-4);
+}
+
+.investigation__body h3 {
+  font-family:    var(--font-headline);
+  font-size:      var(--type-h3);
+  font-weight:    600;
+  line-height:    var(--leading-tight);
+  color:          var(--color-text-primary);
+  margin-top:     var(--space-6);
+  margin-bottom:  var(--space-3);
+}
+
+/* Paragraphs */
+.investigation__body p {
+  font-family: var(--font-body);
+  font-size:   var(--type-body);
+  line-height: var(--leading-body);
+  color:       var(--color-text-primary);
+  margin-bottom: var(--space-4);
+}
+
+/* Unordered and ordered lists in body */
+.investigation__body ul,
+.investigation__body ol {
+  padding-left:  var(--space-5);
+  margin-bottom: var(--space-4);
+}
+
+.investigation__body ul {
+  list-style: disc;
+}
+
+.investigation__body ol {
+  list-style: decimal;
+}
+
+.investigation__body li {
+  font-family:   var(--font-body);
+  font-size:     var(--type-body);
+  line-height:   var(--leading-body);
+  color:         var(--color-text-primary);
+  margin-bottom: var(--space-2);
+}
+
+/* Inline emphasis */
+.investigation__body strong {
+  font-weight: 700;
+  color:       var(--color-text-primary);
+}
+
+.investigation__body em {
+  font-style: italic;
+}
+
+/* Inline citation callout — amber highlight for cited data points */
+.callout-inline {
+  background-color: var(--color-accent-subtle);
+  border-left:      var(--border-width-accent) solid var(--color-accent);
+  padding:          var(--space-4) var(--space-5);
+  margin:           var(--space-6) 0;
+  border-radius:    0 var(--radius-md) var(--radius-md) 0;
+}
+
+.callout-inline p {
+  font-family:   var(--font-body);
+  font-size:     var(--type-body);
+  font-style:    italic;
+  color:         var(--color-text-primary);
+  margin-bottom: 0;
+}
+
+.callout-inline cite {
+  display:     block;
+  font-family: var(--font-mono);
+  font-size:   var(--type-label);
+  color:       var(--color-text-secondary);
+  margin-top:  var(--space-2);
+  font-style:  normal;
+  letter-spacing: var(--tracking-wide);
+}
+
+/* Blockquote — source-level direct quote */
+.investigation__body blockquote {
+  border-left:  var(--border-width-accent) solid var(--color-border-strong);
+  padding:      var(--space-3) var(--space-5);
+  margin:       var(--space-6) 0;
+  color:        var(--color-text-secondary);
+  font-style:   italic;
+}
+
+/* Data table within prose */
+.investigation__body .data-table-wrap {
+  overflow-x: auto;
+  margin:     var(--space-6) 0;
+}
+
+.investigation__body table {
+  font-family: var(--font-mono);
+  font-size:   var(--type-data);
+  line-height: var(--leading-data);
+  width:       100%;
+}
+
+.investigation__body thead th {
+  font-family:    var(--font-headline);
+  font-size:      var(--type-label);
+  font-weight:    600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color:          var(--color-text-secondary);
+  border-bottom:  var(--border-width-strong) solid var(--color-border-strong);
+  padding:        var(--space-3) var(--space-4);
+  text-align:     left;
+}
+
+.investigation__body tbody td {
+  padding:      var(--space-3) var(--space-4);
+  border-bottom: var(--border-width) solid var(--color-border);
+  color:        var(--color-text-primary);
+  vertical-align: top;
+}
+
+.investigation__body tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.investigation__body tbody tr:hover td {
+  background-color: var(--color-surface);
+}
+
+/* Section divider within body */
+.investigation__body .divider {
+  margin: var(--space-8) 0;
+}
+
+
+/* ============================================================
+   VISUAL BLOCK — WIDE BREAKOUT
+   Charts, maps, full-width images, data tables that need room.
+   Breaks out of the prose column to --grid-wide width.
+   ============================================================ */
+
+.visual-block {
+  margin:  var(--space-7) 0;
+}
+
+.visual-block--wide {
+  max-width:   var(--grid-wide);
+  width:       100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding:     0 var(--grid-padding);
+  margin-top:  var(--space-7);
+  margin-bottom: var(--space-7);
+}
+
+/* Visual block caption */
+.visual-block__caption {
+  font-family:  var(--font-body);
+  font-size:    var(--type-body-sm);
+  color:        var(--color-text-secondary);
+  margin-top:   var(--space-3);
+  line-height:  var(--leading-body);
+}
+
+/* Visual block source line */
+.visual-block__source {
+  font-family:    var(--font-mono);
+  font-size:      var(--type-label);
+  color:          var(--color-text-muted);
+  letter-spacing: var(--tracking-wide);
+  margin-top:     var(--space-2);
+}
+
+/* Constrain images inside visual blocks */
+.visual-block img,
+.visual-block--wide img {
+  width:         100%;
+  height:        auto;
+  display:       block;
+  border:        var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+/* Full-width map container */
+.visual-block--wide .map-container {
+  width:         100%;
+  height:        480px;
+  border:        var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow:      hidden;
+}
+
+@media (max-width: 768px) {
+  .visual-block--wide .map-container {
+    height: 320px;
+  }
+}
+
+
+/* ============================================================
+   SOURCES SECTION
+   PRIMARY SOURCES label + count + numbered list.
+   ============================================================ */
+
+.investigation__sources {
+  max-width:     var(--grid-content);
+  margin:        var(--space-9) auto 0;
+  padding:       var(--space-7) var(--grid-padding) 0;
+  border-top:    var(--border-width) solid var(--color-border);
+}
+
+.investigation__sources-header {
+  display:        flex;
+  align-items:    baseline;
+  justify-content: space-between;
+  gap:            var(--space-4);
+  margin-bottom:  var(--space-6);
+  flex-wrap:      wrap;
+}
+
+.investigation__sources-count {
+  font-family:    var(--font-mono);
+  font-size:      var(--type-label);
+  color:          var(--color-text-muted);
+  letter-spacing: var(--tracking-wide);
+}
+
+/* Numbered source list */
+.source-list {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--space-4);
+  counter-reset:  source-counter;
+  list-style:     none;
+  padding:        0;
+}
+
+.source-list__item {
+  display:       grid;
+  grid-template-columns: 2rem 1fr;
+  gap:           var(--space-3);
+  align-items:   baseline;
+}
+
+.source-list__item::before {
+  counter-increment: source-counter;
+  content:           counter(source-counter, decimal-leading-zero);
+  font-family:       var(--font-mono);
+  font-size:         var(--type-label);
+  color:             var(--color-text-muted);
+  letter-spacing:    var(--tracking-wide);
+  flex-shrink:       0;
+  padding-top:       2px;
+}
+
+.source-list__item p {
+  font-family:   var(--font-body);
+  font-size:     var(--type-body-sm);
+  line-height:   var(--leading-body);
+  color:         var(--color-text-secondary);
+  margin-bottom: 0;
+}
+
+.source-list__item a {
+  color:           var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  word-break:      break-all;
+}
+
+
+/* ============================================================
+   METHODOLOGY SECTION
+   METHODOLOGY label + content + link to global methodology.
+   ============================================================ */
+
+.investigation__methodology {
+  max-width:     var(--grid-content);
+  margin:        var(--space-8) auto 0;
+  padding:       var(--space-7) var(--grid-padding) 0;
+  border-top:    var(--border-width) solid var(--color-border);
+}
+
+/* Accent divider above methodology — signals shift to structured data */
+.investigation__methodology::before {
+  content:      '';
+  display:      block;
+  width:        3rem;
+  height:       var(--border-width-strong);
+  background:   var(--color-accent);
+  margin-bottom: var(--space-6);
+}
+
+.investigation__methodology p {
+  font-family:   var(--font-body);
+  font-size:     var(--type-body-sm);
+  line-height:   var(--leading-body);
+  color:         var(--color-text-secondary);
+  margin-bottom: var(--space-4);
+}
+
+.investigation__methodology-link {
+  font-family:    var(--font-mono);
+  font-size:      var(--type-label);
+  color:          var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  letter-spacing: var(--tracking-wide);
+  display:        inline-block;
+  margin-top:     var(--space-2);
+}
+
+.investigation__methodology-link:hover {
+  color: var(--color-accent-hover);
+}
+
+
+/* ============================================================
+   RELATED INVESTIGATIONS SECTION
+   Max three investigation cards. Only renders if
+   related_items array is populated.
+   ============================================================ */
+
+.investigation__related {
+  max-width:     var(--grid-wide);
+  margin:        var(--space-9) auto 0;
+  padding:       var(--space-7) var(--grid-padding) 0;
+  border-top:    var(--border-width) solid var(--color-border);
+}
+
+.investigation__related-label {
+  font-family:    var(--font-mono);
+  font-size:      var(--type-label);
+  font-weight:    400;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color:          var(--color-text-secondary);
+  display:        block;
+  margin-bottom:  var(--space-6);
+}
+
+
+/* ============================================================
+   RESPONSIVE — INVESTIGATION PAGE
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+  .investigation__hero {
+    padding: var(--space-6) 0;
+  }
+
+  .investigation__title {
+    font-size: 1.75rem;
+  }
+
+  .investigation__meta {
+    flex-direction: column;
+    align-items:    flex-start;
+    gap:            var(--space-2);
+  }
+
+  .investigation__sources-header {
+    flex-direction: column;
+    align-items:    flex-start;
+  }
+
+  .visual-block--wide {
+    padding: 0 var(--grid-padding);
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .investigation__title {
+    font-size: 1.5rem;
+  }
+
+  .investigation__badges {
+    flex-direction: column;
+    align-items:    flex-start;
+  }
+
+  .source-list__item {
+    grid-template-columns: 1.5rem 1fr;
+  }
+
+}
