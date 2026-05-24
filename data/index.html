@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Data Repository — Insight Gaps Bureau</title>
+  <meta name="description" content="Public evidence packages, datasets, and source documentation for Insight Gaps Bureau investigations.">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="Data Repository — Insight Gaps Bureau">
+  <meta property="og:description" content="Public evidence packages, datasets, and source documentation for Insight Gaps Bureau investigations.">
+  <meta property="og:url"         content="https://insightgaps.com/data/index.html">
+  <meta property="og:image"       content="/assets/img/og-default.jpg">
+
+  <link rel="canonical" href="https://insightgaps.com/data/">
+
+  <!-- Font preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+
+  <style>
+    /* ---- Data Repository Layout ---- */
+    .data-page {
+      padding-bottom: var(--space-9);
+    }
+
+    .data-page__header {
+      padding: var(--space-8) 0 var(--space-7);
+      border-bottom: var(--border-width) solid var(--color-border);
+      margin-bottom: var(--space-7);
+      background-color: var(--color-surface-alt);
+    }
+
+    .data-page__header-inner {
+      max-width: var(--grid-max);
+      margin: 0 auto;
+      padding: 0 var(--grid-padding);
+    }
+
+    .data-page__title {
+      font-family: var(--font-headline);
+      font-size: var(--type-h1);
+      font-weight: 700;
+      line-height: var(--leading-tight);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-3);
+    }
+
+    .data-page__description {
+      max-width: var(--grid-content);
+      font-family: var(--font-body);
+      font-size: var(--type-body);
+      color: var(--color-text-secondary);
+      line-height: var(--leading-body);
+    }
+
+    .data-page__body {
+      max-width: var(--grid-max);
+      margin: 0 auto;
+      padding: 0 var(--grid-padding);
+    }
+
+    /* ---- Section Headers ---- */
+    .data-section-title {
+      margin-top: var(--space-7);
+      margin-bottom: var(--space-5);
+      border-bottom: var(--border-width-strong) solid var(--color-border);
+      padding-bottom: var(--space-2);
+      font-size: var(--type-h2);
+    }
+
+    /* ---- Data Packages ---- */
+    .data-package {
+      background-color: var(--color-surface);
+      border: var(--border-width) solid var(--color-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: var(--space-6);
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+    }
+
+    .data-package:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .data-package__header {
+      padding: var(--space-4) var(--space-5);
+      border-bottom: var(--border-width) solid var(--color-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--color-surface-alt);
+    }
+
+    .data-package__id {
+      font-family: var(--font-mono);
+      font-size: var(--type-label);
+      color: var(--color-accent-dark);
+      background-color: var(--color-accent-subtle);
+      border: var(--border-width) solid var(--color-accent-border);
+      padding: var(--space-1) var(--space-2);
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+    }
+
+    .data-package__status {
+      font-family: var(--font-mono);
+      font-size: var(--type-label);
+      color: var(--color-text-secondary);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    .data-package__status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--color-status-published);
+      display: inline-block;
+    }
+
+    .data-package__status-dot--partial {
+      background-color: var(--color-status-developing);
+    }
+
+    .data-package__body {
+      padding: var(--space-5);
+    }
+
+    .data-package__title {
+      font-size: var(--type-h3);
+      margin-bottom: var(--space-2);
+    }
+
+    .data-package__desc {
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-5);
+      max-width: var(--grid-content);
+    }
+
+    /* ---- Files Grid ---- */
+    .data-files {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: var(--space-4);
+      margin-bottom: var(--space-4);
+    }
+
+    .data-file {
+      background-color: var(--color-surface-alt);
+      border: var(--border-width) solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+      display: flex;
+      gap: var(--space-3);
+      position: relative;
+      text-decoration: none;
+      color: inherit;
+      transition: background-color var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .data-file:hover {
+      background-color: var(--color-surface);
+      border-color: var(--color-border-strong);
+    }
+
+    .data-file__icon {
+      font-family: var(--font-mono);
+      font-size: var(--type-label);
+      font-weight: 700;
+      color: var(--color-text-secondary);
+      background-color: var(--color-border);
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-sm);
+      flex-shrink: 0;
+    }
+
+    .data-file__icon--xlsx {
+      background-color: rgba(33, 115, 70, 0.1);
+      color: rgb(33, 115, 70);
+    }
+
+    .data-file__icon--csv {
+      background-color: rgba(37, 99, 235, 0.1);
+      color: rgb(37, 99, 235);
+    }
+
+    .data-file__icon--md {
+      background-color: rgba(107, 26, 26, 0.1);
+      color: rgb(107, 26, 26);
+    }
+
+    .data-file__details {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .data-file__name {
+      font-weight: 600;
+      font-size: var(--type-body-sm);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-1);
+    }
+
+    .data-file__size {
+      font-family: var(--font-mono);
+      font-size: var(--type-label);
+      color: var(--color-text-muted);
+    }
+
+    .data-file__disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .data-file__disabled:hover {
+      background-color: var(--color-surface-alt);
+      border-color: var(--color-border);
+    }
+
+    .data-package__footer {
+      padding: var(--space-4) var(--space-5);
+      border-top: var(--border-width) solid var(--color-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+    }
+
+    .data-package__meta {
+      font-family: var(--font-mono);
+      font-size: var(--type-label);
+      color: var(--color-text-muted);
+    }
+
+    /* ---- Policy block ---- */
+    .data-policy {
+      background-color: var(--color-surface-alt);
+      border: var(--border-width) solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      margin-top: var(--space-8);
+    }
+
+    .data-policy__title {
+      font-family: var(--font-headline);
+      font-size: var(--type-h3);
+      margin-bottom: var(--space-4);
+    }
+
+    .data-policy__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: var(--space-5);
+    }
+
+    .data-policy__item-title {
+      font-weight: 700;
+      margin-bottom: var(--space-1);
+      font-size: var(--type-body-sm);
+    }
+
+    .data-policy__item-desc {
+      font-size: var(--type-body-sm);
+      color: var(--color-text-secondary);
+      line-height: var(--leading-body);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- AI DISCLOSURE BAR -->
+  <div class="ai-disclosure-bar" role="note" aria-label="AI use disclosure">
+    <div class="ai-disclosure-bar__inner">
+      <p class="ai-disclosure-bar__text">
+        AI tools were used in producing this report.
+        <a href="/content/trust/ai-use.html">View AI use disclosure &rarr;</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- GLOBAL HEADER -->
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+      <a href="/" class="site-header__logo" aria-label="Insight Gaps Bureau — Home">
+        Insight&nbsp;Gaps
+      </a>
+      <button class="site-header__toggle"
+              aria-label="Toggle navigation"
+              aria-expanded="false"
+              aria-controls="primary-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav" id="primary-nav" aria-label="Primary navigation">
+        <a href="/content/investigations/" class="site-nav__link">Investigations</a>
+        <a href="/analysis/"               class="site-nav__link">Analysis</a>
+        <a href="/archive.html"            class="site-nav__link">Archive</a>
+        <a href="/about.html"              class="site-nav__link">About</a>
+        <a href="/content/trust/methodology.html" class="site-nav__link">Trust</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main id="main-content" class="data-page">
+
+    <section class="data-page__header">
+      <div class="data-page__header-inner">
+        <p class="section-label">Evidence &amp; Data Hub</p>
+        <h1 class="data-page__title">Data Repository</h1>
+        <p class="data-page__description">
+          Public evidence packages, datasets, and source documentation for all published investigations. 
+          Open data is central to our credibility standard — findings must be traceable and reproducible.
+        </p>
+      </div>
+    </section>
+
+    <div class="data-page__body">
+
+      <!-- Accountability & Justice Program -->
+      <h2 class="data-section-title">Accountability &amp; Justice</h2>
+
+      <!-- BD-INV-003 (The Lead Belt) -->
+      <article class="data-package">
+        <div class="data-package-header">
+          <span class="data-package-id">BD-INV-003 · Evidence Package</span>
+          <span class="data-package-status">
+            <span class="data-package__status-dot"></span> Active — Fully Verified
+          </span>
+        </div>
+        <div class="data-package-body">
+          <h3 class="data-package__title">The Lead Belt — Dataset &amp; Proximity Map Files</h3>
+          <p class="data-package__desc">
+            Geospatial dataset, safety metrics, and proximity verification records mapping 294 contaminated sites 
+            and nearby school populations across Bangladesh. The master package includes satellite assessment notes, 
+            safety denominators, and enrollment projections.
+          </p>
+          <div class="data-files">
+            <a href="/data/BD-INV-003_LeadBelt_MasterDataset_v5.xlsx" class="data-file" download>
+              <div class="data-file__icon data-file__icon--xlsx">XLSX</div>
+              <div class="data-file__details">
+                <span class="data-file__name">Master Dataset v5</span>
+                <span class="data-file__size">654 KB · Excel Workbook</span>
+              </div>
+            </a>
+            <a href="/data/BD-INV-003_LeadBelt_MasterDataset_v5.csv" class="data-file" download>
+              <div class="data-file__icon data-file__icon--csv">CSV</div>
+              <div class="data-file__details">
+                <span class="data-file__name">Mapped Sites CSV</span>
+                <span class="data-file__size">32 KB · Flat text file</span>
+              </div>
+            </a>
+            <a href="/content/investigations/the-lead-belt/methodology/methodology.md" class="data-file">
+              <div class="data-file__icon data-file__icon--md">MD</div>
+              <div class="data-file__details">
+                <span class="data-file__name">Methodology Note</span>
+                <span class="data-file__size">1 KB · Markdown spec</span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="data-package__footer">
+          <span class="data-package__meta">Evidence Tier: 2 (Data-Driven) · Released May 2026 · v5.0</span>
+          <a href="/content/investigations/the-lead-belt/" class="btn btn--primary">View Investigation &rarr;</a>
+        </div>
+      </article>
+
+      <!-- BD-INV-002 (The Impunity Machine) -->
+      <article class="data-package">
+        <div class="data-package-header">
+          <span class="data-package-id">BD-INV-002 · Evidence Package</span>
+          <span class="data-package-status">
+            <span class="data-package__status-dot data-package__status-dot--partial"></span> Partial — Documentation Available
+          </span>
+        </div>
+        <div class="data-package-body">
+          <h3 class="data-package__title">The Impunity Machine — Case &amp; Attrition Records</h3>
+          <p class="data-package__desc">
+            Source documentation, data classification indices, and methodology notes for the Bangladesh rape justice investigation. 
+            Primary data drawn from One-Stop Crisis Centre (OCC) records, BLAST litigation logs, and comparative South Asian justice indicators.
+          </p>
+          <div class="data-files">
+            <div class="data-file data-file__disabled">
+              <div class="data-file__icon data-file__icon--csv">CSV</div>
+              <div class="data-file__details">
+                <span class="data-file__name">OCC Conviction Data</span>
+                <span class="data-file__size">2001–2024 · 66,711 cases (Restricted)</span>
+              </div>
+            </div>
+            <div class="data-file data-file__disabled">
+              <div class="data-file__icon data-file__icon--xlsx">XLSX</div>
+              <div class="data-file__details">
+                <span class="data-file__name">Source Classification Matrix</span>
+                <span class="data-file__size">60+ sources · Tiered</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="data-package__footer">
+          <span class="data-package__meta">Evidence Tier: 1 (Document-Heavy) · Released March 2026 · v1.6</span>
+          <a href="/content/investigations/the-impunity-machine/" class="btn btn--ghost">View Investigation &rarr;</a>
+        </div>
+      </article>
+
+      <!-- BD-INV-001 (Blood Routes) -->
+      <article class="data-package">
+        <div class="data-package-header">
+          <span class="data-package-id">BD-INV-001 · Evidence Package</span>
+          <span class="data-package-status">
+            <span class="data-package__status-dot data-package__status-dot--partial"></span> Partial — Documentation Available
+          </span>
+        </div>
+        <div class="data-package-body">
+          <h3 class="data-package__title">Blood Routes — Fatality &amp; Operator Registry</h3>
+          <p class="data-package__desc">
+            Source registry and spatial methodology for the Dhaka bus fatalities investigation. Fatality data compiled 
+            from Nirapad Sarak Chai records, BRTA operator registers, and operator geocoding logs.
+          </p>
+          <div class="data-files">
+            <div class="data-file data-file__disabled">
+              <div class="data-file__icon data-file__icon--csv">CSV</div>
+              <div class="data-file__details">
+                <span class="data-file__name">Fatality Incident Records</span>
+                <span class="data-file__size">2015–2024 (Restricted)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="data-package__footer">
+          <span class="data-package__meta">Evidence Tier: 1 (Document-Heavy) · Released February 2026 · v1.0</span>
+          <span class="btn btn--ghost data-file__disabled">View Investigation &rarr;</span>
+        </div>
+      </article>
+
+      <!-- Conflict Economics Program -->
+      <h2 class="data-section-title">Conflict Economics</h2>
+
+      <!-- INT-INV-001 (Hidden Tax of War) -->
+      <article class="data-package">
+        <div class="data-package-header">
+          <span class="data-package-id">INT-INV-001 · Evidence Package</span>
+          <span class="data-package-status">
+            <span class="data-package__status-dot data-package__status-dot--partial"></span> Framework Available
+          </span>
+        </div>
+        <div class="data-package-body">
+          <h3 class="data-package__title">Hidden Tax of War —Externality Indicators</h3>
+          <p class="data-package__desc">
+            Commodity price external transmission equations, FAO food indices, and World Bank commodity price sets 
+            used to evaluate the economic impact of major conflicts on import-dependent developing markets.
+          </p>
+          <div class="data-files">
+            <div class="data-file data-file__disabled">
+              <div class="data-file__icon data-file__icon--csv">CSV</div>
+              <div class="data-file__details">
+                <span class="data-file__name">WEI Externality Series</span>
+                <span class="data-file__size">4 conflicts (In Preparation)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="data-package__footer">
+          <span class="data-package__meta">Evidence Tier: 2 (Data-Driven) · Released October 2025 · v1.0</span>
+          <span class="btn btn--ghost data-file__disabled">View Investigation &rarr;</span>
+        </div>
+      </article>
+
+      <!-- Data Policy -->
+      <section class="data-policy" aria-labelledby="policy-title">
+        <h3 class="data-policy__title" id="policy-title">Data Publication Policy</h3>
+        <div class="data-policy__grid">
+          <div>
+            <h4 class="data-policy__item-title">Open Access</h4>
+            <p class="data-policy__item-desc">All public datasets are freely downloadable. No login, no registrations, no tracking.</p>
+          </div>
+          <div>
+            <h4 class="data-policy__item-title">Anonymization</h4>
+            <p class="data-policy__item-desc">All identifying personal details are strictly scrubbed to protect sources and privacy.</p>
+          </div>
+          <div>
+            <h4 class="data-policy__item-title">Reproducibility</h4>
+            <p class="data-policy__item-desc">Every numerical claim must trace back to open methodology and published calculations.</p>
+          </div>
+          <div>
+            <h4 class="data-policy__item-title">Error Correction</h4>
+            <p class="data-policy__item-desc">Identified mistakes are never silently removed. All corrections are logged transparently.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- GLOBAL FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__inner">
+      <div class="site-footer__grid">
+        <div>
+          <p class="site-footer__brand-name">Insight&nbsp;Gaps</p>
+          <p class="site-footer__mandate">
+            Independent forensic data journalism from Dhaka, Bangladesh.
+          </p>
+        </div>
+        <div>
+          <span class="site-footer__col-label">Navigate</span>
+          <nav class="site-footer__nav" aria-label="Footer navigation">
+            <a href="/content/investigations/">Investigations</a>
+            <a href="/analysis/">Analysis</a>
+            <a href="/archive.html">Archive</a>
+            <a href="/about.html">About</a>
+          </nav>
+        </div>
+        <div>
+          <span class="site-footer__col-label">Trust</span>
+          <nav class="site-footer__nav" aria-label="Trust navigation">
+            <a href="/content/trust/methodology.html">Methodology</a>
+            <a href="/content/trust/ai-use.html">AI Use</a>
+            <a href="/content/trust/corrections.html">Corrections</a>
+            <a href="/contact.html">Contact</a>
+          </nav>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <p class="site-footer__copy">
+          &copy; <span class="js-copyright-year">2025</span> Insight Gaps Bureau.
+          Original reporting licensed under
+          <a href="https://creativecommons.org/licenses/by/4.0/"
+             target="_blank"
+             rel="noopener noreferrer">CC&nbsp;BY&nbsp;4.0</a>
+          unless otherwise noted. Deployed on Vercel.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+  (function () {
+    'use strict';
+
+    var toggle = document.querySelector('.site-header__toggle');
+    var nav    = document.querySelector('.site-nav');
+
+    if (toggle && nav) {
+      toggle.addEventListener('click', function () {
+        var isOpen = nav.classList.toggle('site-nav--open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!toggle.contains(e.target) && !nav.contains(e.target)) {
+          nav.classList.remove('site-nav--open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && nav.classList.contains('site-nav--open')) {
+          nav.classList.remove('site-nav--open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.focus();
+        }
+      });
+    }
+
+    /* Active nav link */
+    var path  = window.location.pathname;
+    var links = document.querySelectorAll('.site-nav__link');
+    links.forEach(function (link) {
+      var href = link.getAttribute('href');
+      if (
+        href === path ||
+        (href !== '/' && href.length > 1 && path.startsWith(href))
+      ) {
+        link.classList.add('site-nav__link--active');
+        link.setAttribute('aria-current', 'page');
+      }
+    });
+
+    /* Copyright year */
+    var yr  = String(new Date().getFullYear());
+    var els = document.querySelectorAll('.js-copyright-year');
+    els.forEach(function (el) { el.textContent = yr; });
+
+  }());
+  </script>
+
+</body>
+</html>
