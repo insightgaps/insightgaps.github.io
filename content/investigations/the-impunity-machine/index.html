@@ -45,34 +45,7 @@
   --nav-bg: rgba(245,243,239,0.97);
 }
 
-html[data-theme="dark"] {
-  --ink:  #08080F;
-  --ink2: #0F0F18;
-  --ink3: #16161F;
 
-  --border: #1E1E2C;
-  --text:   #E8E3DA;
-  --text2:  #B0A9A0;
-  --muted:  #6A6575;
-  --muted2: #3A3845;
-
-  --blood:  #DC2626;
-  --bloodl: #EF4444;
-  --bloodd: #B91C1C;
-
-  --gold:   #C9A84C;
-  --gold2:  #9A7E36;
-  --amber:  #C9A84C;
-  --amberl: #E8C560;
-
-  --green:  #1A7A50;
-  --greenl: #34D399;
-  --teall:  #34D399;
-
-  --nav-bg: rgba(8,8,15,0.97);
-}
-html[data-theme="dark"] body { background: var(--ink); color: var(--text); }
-html[data-theme="dark"] a { color: var(--gold); }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--ink);color:var(--text);font-family:var(--sans);overflow-x:hidden}
@@ -244,8 +217,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:var(--nav-bg);bac
 
 /* ═══ CLOSING ═══ */
 #closing{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem;background:var(--ink2);position:relative;overflow-x:clip;border-top:1px solid var(--border)}
-#closing .bg-img{position:absolute;inset:0;background-image:linear-gradient(180deg, rgba(185,28,28,.16), rgba(8,8,15,.92));background-size:cover;background-position:center top;z-index:0;opacity:.22;filter:grayscale(20%)}
-#closing .bg-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(6,6,14,.6) 0%,rgba(6,6,14,.88) 50%,rgba(6,6,14,1) 100%);z-index:1}
+#closing .bg-img{display:none}
+#closing .bg-overlay{display:none}
 #closing>*:not(.bg-img):not(.bg-overlay){position:relative;z-index:2}
 .closing-v{font-family:var(--display);font-size:clamp(2rem,5vw,4rem);font-weight:700;line-height:1.1;letter-spacing:-.02em;margin-bottom:1rem}
 .closing-v em{font-style:italic;color:var(--blood)}
@@ -263,7 +236,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:var(--nav-bg);bac
 
 @media(max-width:768px){
   .scroll-scene{display:block}
-  .viz-sticky{position:sticky;top:88px;height:42vw;min-height:200px;max-height:340px;z-index:5;background:var(--ink);border-bottom:1px solid var(--border)}
+  .viz-sticky{position:sticky;top:88px;height:42vw;min-height:200px;max-height:340px;z-index:5;background:var(--ink2);border-bottom:1px solid var(--border)}
   .steps-col{padding:2rem 1.2rem 8rem}
   .step{min-height:60vh;padding:2rem 0}
   .step:not(.active){opacity:.85}
@@ -383,26 +356,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:var(--nav-bg);bac
   color: var(--gold);
 }
 </style>
-<script>
-(function(){var t=localStorage.getItem('ig-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();
-</script>
-<script>
-(function(){
-  function applyTheme(theme){
-    if(theme === 'dark') document.documentElement.setAttribute('data-theme','dark');
-    else document.documentElement.removeAttribute('data-theme');
-    localStorage.setItem('ig-theme', theme === 'dark' ? 'dark' : 'light');
-  }
-  window.addEventListener('DOMContentLoaded', function(){
-    var btn = document.querySelector('.theme-toggle-btn');
-    if(!btn) return;
-    btn.addEventListener('click', function(){
-      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      applyTheme(isDark ? 'light' : 'dark');
-    });
-  });
-})();
-</script>
 </head>
 <body>
 
@@ -417,7 +370,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:var(--nav-bg);bac
     <a href="/content/trust/methodology.html">Trust</a>
   </div>
   <div class="nav-actions">
-    <button class="theme-toggle-btn" aria-label="Switch theme" title="Toggle theme" style="background:none;border:none;cursor:pointer;font-size:.9rem;padding:4px 8px;color:var(--muted);opacity:.7;flex-shrink:0"><span class="theme-icon">●</span></button>
     <button class="nav-ham" id="navHam" aria-label="Open navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -516,11 +468,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:var(--nav-bg);bac
 <!-- ═══════════════════════════════════════════
      KEY NUMBERS
 ════════════════════════════════════════════ -->
-<section id="key-numbers" style="background:var(--ink);border-bottom:1px solid var(--border)">
+<section id="key-numbers" style="background:var(--ink2);border-bottom:1px solid var(--border)">
   <div style="max-width:1100px;margin:0 auto;padding:3.5rem 2rem 4rem">
     <div style="font-family:var(--mono);font-size:0.575rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted2);text-align:center;margin-bottom:1.5rem">Key Numbers &middot; BD-INV-002 &middot; The Impunity Machine</div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)">
-      <div style="background:var(--ink2);padding:2rem 1.4rem;text-align:center">
+      <div style="background:#fff;padding:2rem 1.4rem;text-align:center">
         <div style="font-family:var(--mono);font-size:clamp(2.5rem,5vw,3.5rem);font-weight:700;color:var(--blood);line-height:1;letter-spacing:-.04em">0.46%</div>
         <div style="font-family:var(--mono);font-size:0.575rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:.6rem;line-height:1.65">Conviction rate<br>23-yr OCC programme</div>
         <div style="font-family:var(--mono);font-size:0.47rem;color:var(--muted2);margin-top:.5rem;line-height:1.6">310 of 66,711 &middot; Daily Star 2024 &middot; CONFIRMED</div>
@@ -1251,7 +1203,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:var(--nav-bg);bac
 <!-- ═══════════════════════════════════════════
      TIMELINE
 ════════════════════════════════════════════ -->
-<section id="s-timeline" style="background:var(--ink2);border-top:1px solid var(--border);padding:5rem 2rem">
+<section id="s-timeline" style="background:var(--ink);border-top:1px solid var(--border);padding:5rem 2rem">
   <div style="max-width:780px;margin:0 auto">
     <div style="font-family:var(--mono);font-size:0.575rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);margin-bottom:.8rem">Legislative Timeline &middot; 2000&ndash;2026</div>
     <h2 style="font-family:var(--display);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;letter-spacing:-.02em;margin-bottom:.7rem">25 Years. Zero Official Conviction Data Published.</h2>
@@ -1326,24 +1278,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:var(--nav-bg);bac
 <!-- ═══════════════════════════════════════════
      HOW WE DID THIS
 ════════════════════════════════════════════ -->
-<section id="how-we-did-this" style="background:var(--ink);border-top:1px solid var(--border);padding:5rem 2rem">
+<section id="how-we-did-this" style="background:var(--ink2);border-top:1px solid var(--border);padding:5rem 2rem">
   <div style="max-width:780px;margin:0 auto">
     <div style="font-family:var(--mono);font-size:0.575rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);margin-bottom:.8rem">Transparency &middot; BD-INV-002</div>
     <h2 style="font-family:var(--display);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;letter-spacing:-.02em;margin-bottom:2rem">How This Investigation Was Built</h2>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);border:1px solid var(--border);margin-bottom:2rem">
-      <div style="background:var(--ink2);padding:1.4rem 1.6rem">
+      <div style="background:#fff;padding:1.4rem 1.6rem">
         <div style="font-family:var(--mono);font-size:0.525rem;letter-spacing:.15em;text-transform:uppercase;color:var(--blood);margin-bottom:.6rem">91 Named Sources</div>
         <p style="font-size:0.825rem;color:var(--text2);line-height:1.85">Every factual claim carries a CONFIRMED, PROBABLE, or CONFIRMED ABSENT tier label. No claim appears without a named source. The conviction rate range (0.12%&ndash;3.66%) is fully documented with denominator explanations for each of the 12 measurements.</p>
       </div>
-      <div style="background:var(--ink2);padding:1.4rem 1.6rem;border-left:1px solid var(--border)">
+      <div style="background:#fff;padding:1.4rem 1.6rem;border-left:1px solid var(--border)">
         <div style="font-family:var(--mono);font-size:0.525rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold2);margin-bottom:.6rem">Source Hierarchy</div>
         <p style="font-size:0.825rem;color:var(--text2);line-height:1.85">Priority: (1)&nbsp;GoB official statistics, (2)&nbsp;UN treaty body documents, (3)&nbsp;peer-reviewed studies with primary data collection, (4)&nbsp;major NGO programme evaluations, (5)&nbsp;named investigative journalism citing primary documents.</p>
       </div>
-      <div style="background:var(--ink2);padding:1.4rem 1.6rem;border-top:1px solid var(--border)">
+      <div style="background:#fff;padding:1.4rem 1.6rem;border-top:1px solid var(--border)">
         <div style="font-family:var(--mono);font-size:0.525rem;letter-spacing:.15em;text-transform:uppercase;color:var(--amberl);margin-bottom:.6rem">The Visualisations</div>
         <p style="font-size:0.825rem;color:var(--text2);line-height:1.85">All figures in the scrollytelling scenes are sourced identically to the text. Denominator differences are explicitly labelled. The 1-in-4,650 probability is marked PROBABLE &mdash; a compound attrition model, not a direct count.</p>
       </div>
-      <div style="background:var(--ink2);padding:1.4rem 1.6rem;border-top:1px solid var(--border);border-left:1px solid var(--border)">
+      <div style="background:#fff;padding:1.4rem 1.6rem;border-top:1px solid var(--border);border-left:1px solid var(--border)">
         <div style="font-family:var(--mono);font-size:0.525rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.6rem">12 Confirmed Gaps</div>
         <p style="font-size:0.825rem;color:var(--text2);line-height:1.85">12 confirmed absent datasets are formally documented (GA-001 through GA-012). Each represents data a specific institution holds and does not publish. These are not research limitations &mdash; they are accountability findings.</p>
       </div>
