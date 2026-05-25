@@ -490,6 +490,185 @@ nav {
     gap: 2.2rem;
   }
 }
+
+/* ═══ FULL-WIDTH COUNTRY MAP SECTION ═══ */
+.fullmap-sec {
+  position: relative;
+  padding: 0;
+  background: var(--ink);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+.fullmap-header {
+  text-align: center;
+  padding: 4rem 2rem 2rem;
+  position: relative;
+  z-index: 2;
+}
+.fullmap-header .eyebrow {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bloodl);
+  margin-bottom: 1rem;
+}
+.fullmap-header h2 {
+  font-family: var(--display);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 0.7rem;
+}
+.fullmap-header p {
+  color: var(--muted);
+  font-size: 0.88rem;
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+.fullmap-body {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 0;
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: 80vh;
+}
+.fullmap-canvas {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem 3rem;
+}
+.fullmap-canvas .svg-map {
+  max-height: 85vh;
+  width: 100%;
+  height: auto;
+}
+.fullmap-sidebar {
+  background: var(--ink2);
+  border-left: 1px solid var(--border);
+  padding: 2.5rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  overflow-y: auto;
+  max-height: 85vh;
+  position: sticky;
+  top: 84px;
+}
+.fullmap-sidebar-title {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amberl);
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+.fm-stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+.fm-stat-card {
+  background: var(--ink3);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  text-align: center;
+}
+.fm-stat-num {
+  font-family: var(--mono);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--bloodl);
+  line-height: 1;
+}
+.fm-stat-label {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 0.3rem;
+}
+.fm-div-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.fm-div-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0.7rem;
+  background: var(--ink3);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all 0.25s;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+}
+.fm-div-item:hover {
+  border-color: var(--amberl);
+  background: rgba(201, 168, 76, 0.04);
+}
+.fm-div-item .div-name {
+  color: var(--text2);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.fm-div-item .div-risk {
+  font-size: 0.6rem;
+  padding: 0.15rem 0.45rem;
+  border: 1px solid;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.fm-div-item .div-risk.extreme { color: var(--bloodl); border-color: var(--bloodl); }
+.fm-div-item .div-risk.high { color: var(--amberl); border-color: var(--amberl); }
+.fm-div-item .div-risk.moderate { color: var(--muted); border-color: var(--muted2); }
+.fm-detail-card {
+  background: var(--ink3);
+  border: 1px solid var(--border);
+  padding: 1.2rem;
+  min-height: 100px;
+}
+.fm-detail-card .mdc-title {
+  font-size: 0.75rem;
+}
+.fm-detail-card .mdc-desc {
+  font-size: 0.72rem;
+}
+.fullmap-controls {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  padding: 0.8rem 0;
+}
+@keyframes route-trace {
+  from { stroke-dashoffset: 1000; }
+  to { stroke-dashoffset: 0; }
+}
+.route-animated {
+  stroke-dasharray: 1000;
+  animation: route-trace 4s ease-out forwards;
+}
+@media(max-width:960px){
+  .fullmap-body {
+    grid-template-columns: 1fr;
+  }
+  .fullmap-sidebar {
+    position: static;
+    max-height: none;
+    border-left: none;
+    border-top: 1px solid var(--border);
+  }
+}
 </style>
 <script>
 (function(){
@@ -532,6 +711,7 @@ nav {
   <div class="nav-brand">Insight Gaps · BD-INV-001 · v1.1</div>
   <div class="nav-scenes">
     <a href="#s1">The Gap</a>
+    <a href="#bloodmap">The Map</a>
     <a href="#s2">The Machine</a>
     <a href="#s3">The Phoenix</a>
     <a href="#s4">The Hour</a>
@@ -915,6 +1095,264 @@ nav {
         <div class="mdc-risk" id="mdcNodeRisk" style="color: var(--bloodl); font-weight: 700;">25 nationwide hotspots · 8 divisions · click any pulsing node</div>
         <div class="mdc-desc" id="mdcNodeDesc">Country-wide GIS risk model mapping historical collision records with infrastructural, economic, and operational variables across all divisions of Bangladesh.</div>
         <div class="mdc-division" id="mdcNodeDiv"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══ FULL-WIDTH COUNTRY MAP: BLOOD ROUTES OF BANGLADESH ═══ -->
+<section id="bloodmap" class="fullmap-sec">
+  <div class="fullmap-header">
+    <div class="eyebrow">Interactive National Map · 8 Divisions · 25 Hotspots</div>
+    <h2>Blood Routes of Bangladesh</h2>
+    <p>Every glowing node is a documented fatality cluster. Every golden line is a highway where the joma system sends drivers racing. The heat zones show where bodies accumulate.</p>
+  </div>
+
+  <div class="fullmap-body">
+    <!-- Full-width SVG map canvas -->
+    <div class="fullmap-canvas">
+      <svg viewBox="0 0 500 720" class="svg-map" id="bdMapSvgFull">
+        <defs>
+          <radialGradient id="heatExtreme2" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="rgba(196,30,58,0.6)" />
+            <stop offset="35%" stop-color="rgba(224,48,78,0.3)" />
+            <stop offset="100%" stop-color="rgba(196,30,58,0)" />
+          </radialGradient>
+          <radialGradient id="heatHigh2" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="rgba(196,30,58,0.42)" />
+            <stop offset="40%" stop-color="rgba(224,48,78,0.18)" />
+            <stop offset="100%" stop-color="rgba(196,30,58,0)" />
+          </radialGradient>
+          <radialGradient id="heatMed2" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="rgba(212,160,96,0.35)" />
+            <stop offset="45%" stop-color="rgba(201,168,76,0.12)" />
+            <stop offset="100%" stop-color="rgba(212,160,96,0)" />
+          </radialGradient>
+          <radialGradient id="heatLow2" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="rgba(160,122,32,0.22)" />
+            <stop offset="50%" stop-color="rgba(160,122,32,0.07)" />
+            <stop offset="100%" stop-color="rgba(160,122,32,0)" />
+          </radialGradient>
+        </defs>
+
+        <!-- Division boundaries -->
+        <g id="fmDivisions">
+          <path class="map-division" d="M95,50 L140,35 L195,40 L210,55 L215,100 L200,130 L170,155 L135,170 L100,155 L80,120 L75,85 Z" data-division="Rangpur" onclick="fmHighlightDiv('Rangpur')" />
+          <path class="map-division" d="M50,155 L100,155 L135,170 L170,195 L175,240 L155,275 L115,290 L65,275 L40,235 L35,195 Z" data-division="Rajshahi" onclick="fmHighlightDiv('Rajshahi')" />
+          <path class="map-division" d="M210,55 L265,45 L310,65 L330,100 L315,155 L275,175 L235,175 L200,165 L200,130 L215,100 Z" data-division="Mymensingh" onclick="fmHighlightDiv('Mymensingh')" />
+          <path class="map-division" d="M310,65 L370,55 L420,85 L440,135 L430,190 L395,215 L350,210 L315,195 L315,155 L330,100 Z" data-division="Sylhet" onclick="fmHighlightDiv('Sylhet')" />
+          <path class="map-division" d="M170,195 L200,165 L235,175 L275,175 L315,195 L350,210 L345,270 L320,320 L280,345 L240,350 L205,330 L175,300 L155,275 Z" data-division="Dhaka" onclick="fmHighlightDiv('Dhaka')" />
+          <path class="map-division" d="M40,290 L65,275 L115,290 L155,275 L175,300 L175,355 L155,400 L130,440 L90,460 L50,430 L30,380 L30,330 Z" data-division="Khulna" onclick="fmHighlightDiv('Khulna')" />
+          <path class="map-division" d="M175,355 L205,330 L240,350 L260,380 L250,430 L225,470 L190,490 L155,475 L140,445 L130,440 L155,400 Z" data-division="Barishal" onclick="fmHighlightDiv('Barishal')" />
+          <path class="map-division" d="M280,345 L320,320 L345,270 L375,255 L410,280 L430,330 L440,400 L445,470 L435,540 L415,600 L385,640 L355,620 L340,560 L330,490 L310,430 L280,380 Z" data-division="Chattogram" onclick="fmHighlightDiv('Chattogram')" />
+        </g>
+
+        <!-- Rivers -->
+        <g id="fmRivers">
+          <path class="map-river" d="M180,50 C182,100 188,150 192,200 C196,230 200,260 210,290" />
+          <path class="map-river" d="M40,240 C70,245 110,255 150,265 C175,272 195,278 210,290" />
+          <path class="map-river" d="M210,290 C220,320 230,350 240,380 C250,410 255,440 260,470" />
+          <path class="map-river" d="M380,110 C350,150 320,190 300,230 C280,270 260,310 250,340" />
+          <path class="map-river" d="M250,340 C248,360 245,380 242,400" />
+          <path class="map-river" d="M50,200 C65,210 80,215 95,225" />
+        </g>
+
+        <!-- Blood Routes — national highways with trace animation -->
+        <g id="fmHighways">
+          <path class="map-highway active route-animated" d="M250,300 L275,325 L300,350 L325,385 L345,420 L365,460 L390,510 L405,560" style="stroke: rgba(196,30,58,0.5); stroke-width: 3;" />
+          <path class="map-highway active route-animated" d="M250,300 L280,275 L310,250 L340,225 L370,200 L395,175 L415,140" style="animation-delay: 0.5s;" />
+          <path class="map-highway active route-animated" d="M250,300 L252,270 L255,240 L258,210 L262,175 L268,140" style="animation-delay: 1s;" />
+          <path class="map-highway route-animated" d="M230,240 L215,210 L205,180 L200,155" style="animation-delay: 1.5s;" />
+          <path class="map-highway active route-animated" d="M250,300 L225,280 L200,265 L180,245 L165,220 L155,195 L148,170 L140,140 L135,100 L130,70" style="animation-delay: 0.8s;" />
+          <path class="map-highway route-animated" d="M95,225 L110,210 L130,200 L155,195" style="animation-delay: 2s;" />
+          <path class="map-highway route-animated" d="M155,195 L150,170 L145,145 L140,120 L138,100" style="animation-delay: 2.2s;" />
+          <path class="map-highway active route-animated" d="M250,300 L230,325 L215,345 L195,365 L170,385 L150,405 L120,425" style="animation-delay: 1.2s;" />
+          <path class="map-highway route-animated" d="M120,425 L110,445 L105,460" style="animation-delay: 2.5s;" />
+          <path class="map-highway active route-animated" d="M405,560 L400,590 L395,620 L388,645" style="animation-delay: 1.8s; stroke: rgba(196,30,58,0.4); stroke-width: 2.5;" />
+        </g>
+
+        <!-- Risk corridors -->
+        <g id="fmRiskZones">
+          <path class="map-risk-zone visible" d="M250,300 L275,325 L300,350" stroke="var(--bloodl)" stroke-width="6" />
+          <path class="map-risk-zone visible" d="M365,460 L390,510 L405,560" stroke="var(--bloodl)" stroke-width="5" />
+          <path class="map-risk-zone visible" d="M310,250 L340,225 L370,200" stroke="var(--bloodl)" stroke-width="4.5" />
+          <path class="map-risk-zone visible" d="M250,300 L252,270 L255,240" stroke="var(--bloodl)" stroke-width="5" />
+          <path class="map-risk-zone visible" d="M225,280 L200,265 L180,245" stroke="var(--bloodl)" stroke-width="4.5" />
+          <circle class="map-risk-zone visible" cx="215" cy="345" r="16" stroke="var(--bloodl)" stroke-width="3" />
+          <path class="map-risk-zone visible" d="M95,225 L130,200" stroke="var(--bloodl)" stroke-width="3.5" />
+          <path class="map-risk-zone visible" d="M400,590 L395,620 L388,645" stroke="var(--bloodl)" stroke-width="4" />
+        </g>
+
+        <!-- Heat map overlay -->
+        <g id="fmHeatmap" class="map-heat-zone visible">
+          <ellipse cx="250" cy="300" rx="60" ry="55" fill="url(#heatExtreme2)" />
+          <ellipse cx="248" cy="282" rx="35" ry="28" fill="url(#heatExtreme2)" />
+          <ellipse cx="240" cy="248" rx="40" ry="32" fill="url(#heatHigh2)" />
+          <ellipse cx="405" cy="558" rx="40" ry="50" fill="url(#heatHigh2)" />
+          <ellipse cx="330" cy="400" rx="35" ry="40" fill="url(#heatHigh2)" />
+          <ellipse cx="400" cy="168" rx="30" ry="30" fill="url(#heatMed2)" />
+          <ellipse cx="88" cy="230" rx="28" ry="24" fill="url(#heatMed2)" />
+          <ellipse cx="120" cy="415" rx="25" ry="22" fill="url(#heatMed2)" />
+          <ellipse cx="210" cy="420" rx="24" ry="24" fill="url(#heatLow2)" />
+          <ellipse cx="145" cy="88" rx="24" ry="22" fill="url(#heatLow2)" />
+          <ellipse cx="270" cy="128" rx="22" ry="20" fill="url(#heatLow2)" />
+          <ellipse cx="325" cy="378" rx="22" ry="65" fill="url(#heatMed2)" transform="rotate(30,325,378)" />
+          <ellipse cx="150" cy="168" rx="20" ry="32" fill="url(#heatLow2)" transform="rotate(10,150,168)" />
+          <ellipse cx="390" cy="635" rx="22" ry="24" fill="url(#heatMed2)" />
+        </g>
+
+        <!-- Country-wide hotspots -->
+        <g id="fmHotspots">
+          <!-- DHAKA -->
+          <circle class="map-hotspot glow-intense" cx="248" cy="298" r="5.5" onclick="fmShowSpot('tejgaon')" />
+          <circle class="map-hotspot glow-intense" cx="252" cy="285" r="5.5" onclick="fmShowSpot('airport')" />
+          <circle class="map-hotspot glow-intense" cx="255" cy="310" r="5.5" onclick="fmShowSpot('jatrabari')" />
+          <circle class="map-hotspot glow" cx="225" cy="278" r="5" onclick="fmShowSpot('savar')" />
+          <circle class="map-hotspot glow-intense" cx="254" cy="255" r="5.5" onclick="fmShowSpot('gazipur')" />
+          <circle class="map-hotspot glow" cx="265" cy="318" r="4.5" onclick="fmShowSpot('shonir')" />
+          <circle class="map-hotspot glow" cx="230" cy="238" r="4.5" onclick="fmShowSpot('tangail')" />
+          <circle class="map-hotspot glow" cx="215" cy="300" r="4" onclick="fmShowSpot('manikganj')" />
+          <!-- CHATTOGRAM -->
+          <circle class="map-hotspot glow" cx="310" cy="355" r="5" onclick="fmShowSpot('comilla')" />
+          <circle class="map-hotspot glow" cx="288" cy="340" r="4.5" onclick="fmShowSpot('daudkandi')" />
+          <circle class="map-hotspot glow" cx="350" cy="430" r="4.5" onclick="fmShowSpot('feni')" />
+          <circle class="map-hotspot glow-intense" cx="405" cy="555" r="5.5" onclick="fmShowSpot('ctg_city')" />
+          <circle class="map-hotspot glow" cx="390" cy="635" r="4.5" onclick="fmShowSpot('coxsbazar')" />
+          <circle class="map-hotspot glow" cx="310" cy="395" r="4" onclick="fmShowSpot('noakhali')" />
+          <!-- SYLHET -->
+          <circle class="map-hotspot glow" cx="400" cy="165" r="4.5" onclick="fmShowSpot('sylhet')" />
+          <circle class="map-hotspot glow" cx="355" cy="215" r="4" onclick="fmShowSpot('habiganj')" />
+          <!-- RAJSHAHI -->
+          <circle class="map-hotspot glow" cx="85" cy="230" r="4.5" onclick="fmShowSpot('rajshahi')" />
+          <circle class="map-hotspot glow" cx="152" cy="190" r="4.5" onclick="fmShowSpot('bogura')" />
+          <circle class="map-hotspot glow" cx="120" cy="210" r="3.5" onclick="fmShowSpot('natore')" />
+          <!-- RANGPUR -->
+          <circle class="map-hotspot glow" cx="142" cy="88" r="4.5" onclick="fmShowSpot('rangpur')" />
+          <circle class="map-hotspot glow" cx="110" cy="68" r="3.5" onclick="fmShowSpot('dinajpur')" />
+          <!-- KHULNA -->
+          <circle class="map-hotspot glow" cx="118" cy="415" r="4.5" onclick="fmShowSpot('khulna')" />
+          <circle class="map-hotspot glow" cx="95" cy="365" r="4" onclick="fmShowSpot('jessore')" />
+          <!-- BARISHAL -->
+          <circle class="map-hotspot glow" cx="210" cy="420" r="4" onclick="fmShowSpot('barishal')" />
+          <!-- MYMENSINGH -->
+          <circle class="map-hotspot glow" cx="270" cy="130" r="4.5" onclick="fmShowSpot('mymensingh')" />
+        </g>
+
+        <!-- Labels -->
+        <g id="fmLabels">
+          <text x="130" y="105" class="map-division-label">Rangpur</text>
+          <text x="78" y="250" class="map-division-label">Rajshahi</text>
+          <text x="252" y="155" class="map-division-label">Mymensingh</text>
+          <text x="372" y="155" class="map-division-label">Sylhet</text>
+          <text x="62" y="400" class="map-division-label">Khulna</text>
+          <text x="188" y="455" class="map-division-label">Barishal</text>
+          <text x="362" y="470" class="map-division-label">Chattogram</text>
+
+          <text x="260" y="296" class="map-city-label capital">DHAKA</text>
+          <text x="415" y="558" class="map-city-label">Chattogram</text>
+          <text x="408" y="162" class="map-city-label">Sylhet</text>
+          <text x="278" y="128" class="map-city-label">Mymensingh</text>
+          <text x="92" y="226" class="map-city-label">Rajshahi</text>
+          <text x="128" y="413" class="map-city-label">Khulna</text>
+          <text x="218" y="418" class="map-city-label">Barishal</text>
+          <text x="150" y="86" class="map-city-label">Rangpur</text>
+          <text x="318" y="353" class="map-city-label">Comilla</text>
+          <text x="395" y="633" class="map-city-label">Cox's Bazar</text>
+          <text x="158" y="188" class="map-city-label">Bogura</text>
+          <text x="238" y="236" class="map-city-label">Tangail</text>
+
+          <!-- Highway Labels -->
+          <text x="355" y="465" font-family="var(--mono)" font-size="6" fill="var(--gold)" font-weight="700" transform="rotate(38,355,465)">N1</text>
+          <text x="345" y="220" font-family="var(--mono)" font-size="6" fill="var(--gold)" font-weight="700" transform="rotate(-30,345,220)">N2</text>
+          <text x="245" y="225" font-family="var(--mono)" font-size="6" fill="var(--gold)" font-weight="700" transform="rotate(85,245,225)">N3</text>
+          <text x="165" y="225" font-family="var(--mono)" font-size="6" fill="var(--gold)" font-weight="700" transform="rotate(55,165,225)">N5</text>
+          <text x="200" y="360" font-family="var(--mono)" font-size="6" fill="var(--gold)" font-weight="700" transform="rotate(50,200,360)">N8</text>
+          <text x="398" y="600" font-family="var(--mono)" font-size="6" fill="var(--gold)" font-weight="700">N1x</text>
+        </g>
+
+        <!-- Legend -->
+        <g transform="translate(15,660)">
+          <text x="0" y="0" class="map-legend" font-weight="700" fill="var(--muted)">FATALITY DENSITY</text>
+          <rect x="0" y="7" width="14" height="7" rx="1" fill="rgba(196,30,58,0.55)" />
+          <text x="18" y="14" class="map-legend">EXTREME</text>
+          <rect x="62" y="7" width="14" height="7" rx="1" fill="rgba(196,30,58,0.35)" />
+          <text x="80" y="14" class="map-legend">HIGH</text>
+          <rect x="108" y="7" width="14" height="7" rx="1" fill="rgba(212,160,96,0.3)" />
+          <text x="126" y="14" class="map-legend">MEDIUM</text>
+          <rect x="168" y="7" width="14" height="7" rx="1" fill="rgba(160,122,32,0.2)" />
+          <text x="186" y="14" class="map-legend">LOW</text>
+          <text x="0" y="30" class="map-legend" fill="var(--muted2)">Source: Deduplicated micro-data · RSF · Police records · BD-INV-001</text>
+        </g>
+      </svg>
+    </div>
+
+    <!-- Sidebar: Division risk index + detail card -->
+    <div class="fullmap-sidebar">
+      <div class="fullmap-sidebar-title">National Snapshot</div>
+
+      <div class="fm-stat-grid">
+        <div class="fm-stat-card">
+          <div class="fm-stat-num">25</div>
+          <div class="fm-stat-label">Hotspots</div>
+        </div>
+        <div class="fm-stat-card">
+          <div class="fm-stat-num">8</div>
+          <div class="fm-stat-label">Divisions</div>
+        </div>
+        <div class="fm-stat-card">
+          <div class="fm-stat-num">10</div>
+          <div class="fm-stat-label">Highways</div>
+        </div>
+        <div class="fm-stat-card">
+          <div class="fm-stat-num" style="color:var(--amberl)">8</div>
+          <div class="fm-stat-label">Risk Corridors</div>
+        </div>
+      </div>
+
+      <div class="fullmap-sidebar-title" style="margin-top:0.5rem">Division Risk Index</div>
+      <div class="fm-div-list">
+        <div class="fm-div-item" onclick="fmHighlightDiv('Dhaka')">
+          <span class="div-name">Dhaka</span>
+          <span class="div-risk extreme">Extreme</span>
+        </div>
+        <div class="fm-div-item" onclick="fmHighlightDiv('Chattogram')">
+          <span class="div-name">Chattogram</span>
+          <span class="div-risk extreme">Extreme</span>
+        </div>
+        <div class="fm-div-item" onclick="fmHighlightDiv('Rajshahi')">
+          <span class="div-name">Rajshahi</span>
+          <span class="div-risk high">High</span>
+        </div>
+        <div class="fm-div-item" onclick="fmHighlightDiv('Sylhet')">
+          <span class="div-name">Sylhet</span>
+          <span class="div-risk high">High</span>
+        </div>
+        <div class="fm-div-item" onclick="fmHighlightDiv('Khulna')">
+          <span class="div-name">Khulna</span>
+          <span class="div-risk moderate">Moderate</span>
+        </div>
+        <div class="fm-div-item" onclick="fmHighlightDiv('Rangpur')">
+          <span class="div-name">Rangpur</span>
+          <span class="div-risk moderate">Moderate</span>
+        </div>
+        <div class="fm-div-item" onclick="fmHighlightDiv('Mymensingh')">
+          <span class="div-name">Mymensingh</span>
+          <span class="div-risk moderate">Moderate</span>
+        </div>
+        <div class="fm-div-item" onclick="fmHighlightDiv('Barishal')">
+          <span class="div-name">Barishal</span>
+          <span class="div-risk moderate">Moderate</span>
+        </div>
+      </div>
+
+      <div class="fullmap-sidebar-title" style="margin-top:0.5rem">Hotspot Detail</div>
+      <div class="fm-detail-card" id="fmDetailCard">
+        <div class="mdc-title" id="fmDetailName">Click any hotspot or division</div>
+        <div class="mdc-risk" id="fmDetailRisk" style="color: var(--bloodl); font-weight: 700;">to audit risk factors</div>
+        <div class="mdc-desc" id="fmDetailDesc">Interactive country-wide fatality map showing all documented crash clusters across Bangladesh's national highway network.</div>
+        <div class="mdc-division" id="fmDetailDiv"></div>
       </div>
     </div>
   </div>
@@ -1931,6 +2369,67 @@ function toggleMapLayer(layer) {
     el.style.display = show ? 'none' : 'block';
     btn.classList.toggle("active", !show);
   }
+}
+
+// ═══ FULL MAP SECTION INTERACTIVE LOGIC ═══
+const divisionInfo = {
+  Dhaka: { risk: 'Extreme', hotspots: 8, desc: 'Highest fatality concentration in the country. Contains 5 of the top 10 deadliest intersections. Joma racing system is most intense on N1/N3/N5 corridors radiating from the capital.' },
+  Chattogram: { risk: 'Extreme', hotspots: 6, desc: 'Second-highest fatality division. N1 highway carries extreme night-time long-haul traffic. Port-area truck collisions and Cox\'s Bazar seasonal surges compound the risk.' },
+  Rajshahi: { risk: 'High', hotspots: 3, desc: 'Western Bangladesh\'s primary transit hub. N5/N6/N7 junction at Bogura creates dangerous merging conflicts. Agricultural vehicle mixing with intercity coaches.' },
+  Sylhet: { risk: 'High', hotspots: 2, desc: 'Mountainous terrain creates brake-failure fatalities on Tamabil Highway. Undivided N2 corridor between Brahmanbaria and Habiganj has persistent head-on collision patterns.' },
+  Khulna: { risk: 'Moderate', hotspots: 2, desc: 'Post-Padma Bridge (2022) traffic surge increased volumes without infrastructure upgrades. River ferry approach roads create additional congestion bottlenecks.' },
+  Rangpur: { risk: 'Moderate', hotspots: 2, desc: 'Northern border region with heavy cross-border truck traffic from Burimari. Poor road condition and absence of rest stops leads to fatigue-related crashes.' },
+  Mymensingh: { risk: 'Moderate', hotspots: 1, desc: 'N3 terminus carrying Dhaka-bound coach traffic through the city centre. Medical university area has high pedestrian density creating crossing conflicts.' },
+  Barishal: { risk: 'Moderate', hotspots: 1, desc: 'Multi-modal transport hub. Chaotic interchange at launch terminal between buses, auto-rickshaws, and pedestrians creates persistent low-speed high-casualty zones.' }
+};
+
+function fmShowSpot(id) {
+  const profile = hotspotProfiles[id];
+  if (!profile) return;
+  document.getElementById("fmDetailName").textContent = profile.name;
+  document.getElementById("fmDetailRisk").textContent = profile.risk;
+  document.getElementById("fmDetailRisk").style.color = profile.risk.includes("Extreme") ? "var(--bloodl)" : profile.risk.includes("High") ? "var(--amberl)" : "var(--muted)";
+  document.getElementById("fmDetailDesc").textContent = profile.desc;
+  const divEl = document.getElementById("fmDetailDiv");
+  if (divEl && profile.division) divEl.textContent = profile.division;
+
+  // Highlight hotspot on the full map
+  document.querySelectorAll("#fmHotspots .map-hotspot").forEach(el => {
+    el.style.fill = "";
+    el.removeAttribute("style");
+  });
+
+  // Highlight corresponding division
+  if (profile.division) {
+    const divName = profile.division.replace(" Division", "");
+    fmHighlightDiv(divName, true);
+  }
+}
+
+function fmHighlightDiv(divName, keepDetail) {
+  // Highlight polygon
+  document.querySelectorAll("#fmDivisions .map-division").forEach(d => {
+    d.classList.toggle("highlighted", d.getAttribute("data-division") === divName);
+  });
+
+  // Update sidebar detail if not keeping existing detail
+  if (!keepDetail) {
+    const info = divisionInfo[divName];
+    if (info) {
+      document.getElementById("fmDetailName").textContent = divName + " Division";
+      document.getElementById("fmDetailRisk").textContent = info.risk + " Risk · " + info.hotspots + " Hotspots";
+      document.getElementById("fmDetailRisk").style.color = info.risk === "Extreme" ? "var(--bloodl)" : info.risk === "High" ? "var(--amberl)" : "var(--muted)";
+      document.getElementById("fmDetailDesc").textContent = info.desc;
+      document.getElementById("fmDetailDiv").textContent = "";
+    }
+  }
+
+  // Highlight the division item in sidebar
+  document.querySelectorAll(".fm-div-item").forEach(item => {
+    const name = item.querySelector(".div-name").textContent;
+    item.style.borderColor = name === divName ? "var(--amberl)" : "";
+    item.style.background = name === divName ? "rgba(201,168,76,0.06)" : "";
+  });
 }
 </script>
 </body>
