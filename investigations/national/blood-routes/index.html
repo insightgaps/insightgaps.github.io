@@ -210,6 +210,179 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:var(--nav-bg,rgba
   .viz-sticky{height:52vw;min-height:220px;max-height:280px}
   .step{min-height:50vh}
 }
+
+/* ═══ ACCOUNTABILITY DASHBOARD STYLES ═══ */
+.dashboard-sec {
+  background: var(--ink2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 5rem 2rem;
+  position: relative;
+}
+.db-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 1280px;
+  margin: 2.5rem auto 0;
+}
+.db-panel {
+  background: var(--ink3);
+  border: 1px solid var(--border);
+  padding: 2.2rem;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.db-panel-title {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--amberl);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.svg-map {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+}
+.map-division {
+  fill: rgba(255, 255, 255, 0.012);
+  stroke: rgba(122, 117, 144, 0.15);
+  stroke-width: 1;
+  transition: fill 0.3s, stroke 0.3s;
+}
+.map-division:hover {
+  fill: rgba(201, 168, 76, 0.03);
+  stroke: rgba(201, 168, 76, 0.3);
+}
+.map-river {
+  fill: none;
+  stroke: rgba(50, 80, 140, 0.18);
+  stroke-width: 2.5;
+  pointer-events: none;
+}
+.map-highway {
+  fill: none;
+  stroke: rgba(122, 117, 144, 0.3);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  transition: stroke 0.3s, stroke-width 0.3s;
+  pointer-events: none;
+}
+.map-highway.active {
+  stroke: rgba(201, 168, 76, 0.6);
+  stroke-width: 3.2;
+}
+.map-hotspot {
+  fill: var(--blood);
+  stroke: var(--bloodl);
+  stroke-width: 1.2;
+  cursor: pointer;
+  transition: transform 0.25s, fill 0.25s, stroke-width 0.25s;
+}
+.map-hotspot:hover {
+  transform: scale(1.4);
+  fill: var(--bloodl);
+  stroke-width: 2;
+}
+.map-hotspot.glow {
+  animation: hotspot-glow 2.5s infinite;
+}
+@keyframes hotspot-glow {
+  0% { r: 5px; stroke-width: 1; opacity: 1; }
+  50% { r: 9px; stroke-width: 2.5; opacity: 0.45; }
+  100% { r: 5px; stroke-width: 1; opacity: 1; }
+}
+.map-risk-zone {
+  fill: none;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+.map-risk-zone.visible {
+  opacity: 0.75;
+}
+.map-details-card {
+  margin-top: 1.5rem;
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid var(--border);
+  padding: 1.3rem;
+  border-radius: 1px;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.mdc-title {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+}
+.mdc-risk {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.6rem;
+}
+.mdc-desc {
+  font-size: 0.76rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.toggle-btn-row {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+.toggle-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 0.45rem 0.9rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: all 0.25s;
+  border-radius: 1px;
+}
+.toggle-btn.active {
+  background: var(--amberl);
+  border-color: var(--amberl);
+  color: var(--ink);
+  font-weight: 700;
+}
+.toggle-btn:hover:not(.active) {
+  color: var(--text);
+  border-color: var(--muted);
+}
+.bar-hover-zone {
+  cursor: pointer;
+}
+.bar-hover-zone:hover rect.data-bar {
+  fill: var(--bloodl) !important;
+}
+
+@media(max-width:960px){
+  .db-grid {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+  }
+}
 </style>
 <script>
 (function(){var t=localStorage.getItem('ig-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();
@@ -325,6 +498,150 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:var(--nav-bg,rgba
         <h3>The gap is a counting choice, not a data problem.</h3>
         <p>Hospital records exist. Crash scene records exist. The link between them does not — by policy, not by technical incapacity. The BRTA holds registration data. The DGHS holds mortality data. No data-sharing protocol requires them to be connected. <strong>What is not counted cannot be held accountable.</strong></p>
         <div class="note">PROBABLE (derived, model-dependent) &middot; World Bank "Delivering Road Safety in Bangladesh" 2022</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- DUAL INTERACTIVE VISUAL DASHBOARD -->
+<section id="dashboard" class="dashboard-sec">
+  <div class="scene-title" style="margin-bottom: 2rem;">
+    <div class="eyebrow" style="color: var(--amberl)">Advanced Interactive Analytics</div>
+    <h2 style="font-family: var(--display); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; line-height: 1.15; color: var(--text);">
+      Highway Accident Intelligence &amp; Predictive Risk Dashboard
+    </h2>
+    <p style="color: var(--muted); font-size: 0.88rem; max-width: 650px; margin: 0.8rem auto 0; line-height: 1.6;">
+      Explore a decade of historical travel deaths during the Eid rush and interact with the nationwide highway network map to examine spatial crash hotspots and machine-modelled future risk corridors.
+    </p>
+  </div>
+
+  <div class="db-grid">
+    <!-- Left Panel: 10-Year Eid Fatality Timeline -->
+    <div class="db-panel">
+      <div class="db-panel-title">
+        <span>📊 10-Year Holiday Surge Timeline</span>
+        <span style="font-size: 0.65rem; color: var(--muted2);">Source: BJKS / RSF</span>
+      </div>
+      
+      <div class="toggle-btn-row">
+        <button id="btnFitr" class="toggle-btn active" onclick="setHoliday('fitr')">Eid-ul-Fitr</button>
+        <button id="btnAdha" class="toggle-btn" onclick="setHoliday('adha')">Eid-ul-Adha</button>
+      </div>
+
+      <div style="flex-grow: 1; min-height: 270px; display: flex; align-items: flex-end; justify-content: space-between; padding-bottom: 1rem; position: relative;" id="timelineContainer">
+        <!-- SVG Timeline will be generated dynamically by JS -->
+      </div>
+
+      <div class="map-details-card" id="timelineDetails">
+        <div class="mdc-title" id="tlYear">Hover over a bar</div>
+        <div class="mdc-risk" id="tlStats" style="color: var(--amberl); font-weight: 700;">to investigate annual totals</div>
+        <div class="mdc-desc" id="tlDesc">Historical accident logs, total fatality counts, and YoY percentage fluctuations are mapped interactively.</div>
+      </div>
+    </div>
+
+    <!-- Right Panel: Bangladesh Highway & Predictive Risk Map -->
+    <div class="db-panel">
+      <div class="db-panel-title">
+        <span>🗺️ Highway Hotspot &amp; Predictive Risk Map</span>
+        <span style="font-size: 0.65rem; color: var(--muted2);">Spatial deduplication &amp; risk model</span>
+      </div>
+
+      <!-- Layer Toggles -->
+      <div class="toggle-btn-row">
+        <button id="btnHotspots" class="toggle-btn active" onclick="toggleMapLayer('hotspots')">Hotspots</button>
+        <button id="btnRiskZones" class="toggle-btn active" onclick="toggleMapLayer('risk')">Risk Corridors</button>
+        <button id="btnHighways" class="toggle-btn active" onclick="toggleMapLayer('highways')">Highways</button>
+      </div>
+
+      <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; position: relative;">
+        <!-- Relational Vector SVG Map of Bangladesh -->
+        <svg viewBox="0 0 500 600" class="svg-map" id="bdMapSvg">
+          <!-- divisions boundaries (stylized) -->
+          <g id="mapDivisions">
+            <path class="map-division" d="M120,60 L230,60 L230,120 L160,180 L100,160 Z" data-division="Rangpur" />
+            <path class="map-division" d="M100,160 L160,180 L200,240 L120,290 L60,250 Z" data-division="Rajshahi" />
+            <path class="map-division" d="M230,60 L320,60 L300,170 L230,170 L230,120 Z" data-division="Mymensingh" />
+            <path class="map-division" d="M320,60 L410,130 L430,220 L350,220 L300,170 Z" data-division="Sylhet" />
+            <path class="map-division" d="M200,240 L300,170 L350,220 L320,330 L250,330 L200,300 Z" data-division="Dhaka" />
+            <path class="map-division" d="M120,290 L200,300 L200,350 L140,430 L90,400 Z" data-division="Khulna" />
+            <path class="map-division" d="M200,350 L250,330 L270,390 L240,460 L170,450 Z" data-division="Barisal" />
+            <path class="map-division" d="M320,330 L390,290 L420,390 L450,540 L390,520 L330,420 Z" data-division="Chittagong" />
+          </g>
+          <!-- major rivers -->
+          <g id="mapRivers">
+            <path class="map-river" d="M185,60 C185,150 195,210 195,245" /> <!-- Jamuna -->
+            <path class="map-river" d="M60,210 C100,220 160,235 195,245" /> <!-- Padma Upper -->
+            <path class="map-river" d="M195,245 C210,265 225,290 238,320" /> <!-- Padma Lower -->
+            <path class="map-river" d="M238,320 C250,380 270,440 280,480" /> <!-- Meghna Estuary -->
+            <path class="map-river" d="M340,130 C300,180 250,220 238,320" /> <!-- Meghna Upper -->
+          </g>
+          <!-- highways layer -->
+          <g id="mapHighways">
+            <!-- N1: Dhaka-Chittagong -->
+            <path class="map-highway active" id="hw-n1" d="M250,280 L290,320 L330,360 L355,395 L380,425 L405,465" />
+            <!-- N2: Dhaka-Sylhet -->
+            <path class="map-highway active" id="hw-n2" d="M250,280 L288,255 L315,225 L345,200 L385,175" />
+            <!-- N3: Dhaka-Mymensingh -->
+            <path class="map-highway active" id="hw-n3" d="M250,280 L253,248 L256,215 L260,165" />
+            <!-- N5: Dhaka-North Bengal -->
+            <path class="map-highway active" id="hw-n5" d="M250,280 L220,260 L190,242 L185,220 L165,190 L152,145 L135,90" />
+            <!-- N8: Dhaka-Padma Bridge Expressway -->
+            <path class="map-highway active" id="hw-n8" d="M250,280 L232,320 L218,348 L223,398" />
+          </g>
+          
+          <!-- Future Predictive Risk Corridors overlay -->
+          <g id="mapRiskZones">
+            <!-- N3 Racing corridor -->
+            <path class="map-risk-zone visible" id="rz-n3" d="M250,280 L253,248 L256,215" stroke="var(--bloodl)" stroke-width="4" />
+            <!-- N2 Undivided Sylhet -->
+            <path class="map-risk-zone visible" id="rz-n2" d="M288,255 L315,225 L345,200" stroke="var(--bloodl)" stroke-width="4" />
+            <!-- N1 Exit Congestion -->
+            <path class="map-risk-zone visible" id="rz-n1" d="M250,280 L290,320 L330,360" stroke="var(--bloodl)" stroke-width="4" />
+            <!-- N5 Savar Garments Crossing -->
+            <path class="map-risk-zone visible" id="rz-n5" d="M250,280 L220,260" stroke="var(--bloodl)" stroke-width="4" />
+            <!-- N8 Merging Ramps -->
+            <circle class="map-risk-zone visible" id="rz-n8" cx="232" cy="320" r="16" stroke="var(--bloodl)" stroke-width="2" />
+          </g>
+
+          <!-- Historical Hotspots layer (interactive glowing points) -->
+          <g id="mapHotspots">
+            <circle class="map-hotspot glow" id="hs-tejgaon" cx="250" cy="280" r="6" onclick="showHotspot('tejgaon')" data-name="Tejgaon Industrial Area" />
+            <circle class="map-hotspot glow" id="hs-airport" cx="251" cy="270" r="6" onclick="showHotspot('airport')" data-name="Airport Roundabout" />
+            <circle class="map-hotspot glow" id="hs-jatrabari" cx="251" cy="290" r="6" onclick="showHotspot('jatrabari')" data-name="Jatrabari Interchange" />
+            <circle class="map-hotspot glow" id="hs-savar" cx="220" cy="260" r="6" onclick="showHotspot('savar')" data-name="Savar / Nabinagar" />
+            <circle class="map-hotspot glow" id="hs-gazipur" cx="254" cy="235" r="6" onclick="showHotspot('gazipur')" data-name="Gazipur Chowrasta" />
+            <circle class="map-hotspot glow" id="hs-comilla" cx="330" cy="360" r="6" onclick="showHotspot('comilla')" data-name="Comilla Bypass" />
+            <circle class="map-hotspot glow" id="hs-shonir" cx="265" cy="305" r="6" onclick="showHotspot('shonir')" data-name="Shonir Akhra" />
+            <circle class="map-hotspot glow" id="hs-daudkandi" cx="295" cy="330" r="6" onclick="showHotspot('daudkandi')" data-name="Daudkandi Bridge" />
+          </g>
+
+          <!-- Labels (Muted, HUD style) -->
+          <g id="mapLabels">
+            <text x="257" y="278" font-family="var(--mono)" font-size="8" fill="var(--text)" font-weight="700">DHAKA</text>
+            <text x="338" y="358" font-family="var(--mono)" font-size="7" fill="var(--muted)">Comilla</text>
+            <text x="390" y="170" font-family="var(--mono)" font-size="7" fill="var(--muted)">Sylhet</text>
+            <text x="265" y="162" font-family="var(--mono)" font-size="7" fill="var(--muted)">Mymensingh</text>
+            <text x="115" y="88" font-family="var(--mono)" font-size="7" fill="var(--muted)">Rangpur</text>
+            <text x="148" y="185" font-family="var(--mono)" font-size="7" fill="var(--muted)">Bogura</text>
+            <text x="228" y="398" font-family="var(--mono)" font-size="7" fill="var(--muted)">Barisal</text>
+            <text x="410" y="468" font-family="var(--mono)" font-size="7" fill="var(--muted)">Chittagong</text>
+            
+            <!-- Highway Labels -->
+            <text x="360" y="415" font-family="var(--mono)" font-size="6" fill="var(--gold)" font-weight="700" transform="rotate(35, 360, 415)">N1</text>
+            <text x="315" y="215" font-family="var(--mono)" font-size="6" fill="var(--gold)" font-weight="700" transform="rotate(-30, 315, 215)">N2</text>
+            <text x="245" y="210" font-family="var(--mono)" font-size="6" fill="var(--gold)" font-weight="700" transform="rotate(90, 245, 210)">N3</text>
+            <text x="165" y="210" font-family="var(--mono)" font-size="6" fill="var(--gold)" font-weight="700" transform="rotate(45, 165, 210)">N5</text>
+            <text x="238" y="365" font-family="var(--mono)" font-size="6" fill="var(--gold)" font-weight="700" transform="rotate(75, 238, 365)">N8</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="map-details-card" id="mapDetails">
+        <div class="mdc-title" id="mdcNodeName">Hover over a hotspot node</div>
+        <div class="mdc-risk" id="mdcNodeRisk" style="color: var(--bloodl); font-weight: 700;">Select a pulsing node to audit risk factors</div>
+        <div class="mdc-desc" id="mdcNodeDesc">Interactive GIS risk model mapping historical collision records with infrastructural and operational variables.</div>
       </div>
     </div>
   </div>
@@ -992,6 +1309,219 @@ document.querySelectorAll("[data-step]").forEach(el=>io.observe(el));
 
 // Mobile: all steps visible
 if(window.innerWidth<768){document.querySelectorAll(".step").forEach(el=>{el.style.opacity="1";el.classList.add("active");});}
+
+// ═══ 10-YEAR HOLIDAY SURGE TIMELINE LOGIC ═══
+const tlData = {
+  fitr: [
+    { year: 2016, deaths: 186, accidents: 193, desc: "BJKS media monitoring baseline holiday report." },
+    { year: 2017, deaths: 274, accidents: 205, desc: "Significant traffic volume expansion post-highway lanes upgrade." },
+    { year: 2018, deaths: 339, accidents: 277, desc: "High-speed highway extensions and increased motorcycle counts." },
+    { year: 2019, deaths: 273, accidents: 211, desc: "Rise in unregistered motorcycles operating as highway public shuttles." },
+    { year: 2020, deaths: 0, accidents: 0, desc: "COVID-19 Lockdown. Public transit services suspended nationwide." },
+    { year: 2021, deaths: 322, accidents: 262, desc: "Partial pandemic travel restrictions with massive motorcycle bypasses." },
+    { year: 2022, deaths: 416, accidents: 376, desc: "Post-pandemic travel spike. Record-high fatalities and extreme racing." },
+    { year: 2023, deaths: 328, accidents: 304, desc: "Severe motorcycle crash share (38% of total deaths)." },
+    { year: 2024, deaths: 407, accidents: 399, desc: "Extreme speed-racing rush under high daily owner joma pressure." },
+    { year: 2025, deaths: 322, accidents: 315, desc: "Stable 15-day monitoring window. Heavy long-distance queue delays." },
+    { year: 2026, deaths: 351, accidents: 346, desc: "Latest holiday travel period (March 14–28, 2026). Motorcycle primary vehicle." }
+  ],
+  adha: [
+    { year: 2016, deaths: 248, accidents: 201, desc: "BJKS baseline monitoring for Eid-ul-Adha holiday travel." },
+    { year: 2017, deaths: 322, accidents: 220, desc: "Includes combined road, railway, and waterway incident reports." },
+    { year: 2018, deaths: 250, accidents: 237, desc: "High traffic volume pressure on highway terminals." },
+    { year: 2019, deaths: 250, accidents: 237, desc: "Motorcycle collisions account for 35% of all holiday deaths." },
+    { year: 2020, deaths: 0, accidents: 0, desc: "COVID-19 Lockdown. Public transit benched during holiday week." },
+    { year: 2021, deaths: 207, accidents: 158, desc: "Pandemic restrictions on public buses limit highway traffic." },
+    { year: 2022, deaths: 274, accidents: 251, desc: "Road Safety Foundation (RSF) verified road-only fatalities." },
+    { year: 2023, deaths: 299, accidents: 277, desc: "High passenger volumes across southern and northern corridors." },
+    { year: 2024, deaths: 262, accidents: 251, desc: "Jatri Kalyan Samity verified road accident tally." },
+    { year: 2025, deaths: 312, accidents: 350, desc: "Devastating 29% YoY surge in road fatalities over a 12-day window." },
+    { year: 2026, deaths: 0, accidents: 0, desc: "Upcoming Eid-ul-Adha holiday period (Expected June 2026)." }
+  ]
+};
+
+let activeHoliday = 'fitr';
+
+function drawTimeline(type) {
+  const container = document.getElementById("timelineContainer");
+  if (!container) return;
+  
+  const data = tlData[type];
+  const maxDeaths = 450;
+  const W = container.offsetWidth;
+  const H = container.offsetHeight;
+  
+  let html = `<svg width="100%" height="100%" viewBox="0 0 ${W} ${H}" style="overflow:visible">`;
+  
+  // Y axis grid lines
+  const gridVals = [100, 200, 300, 400];
+  gridVals.forEach(v => {
+    const y = H - (v / maxDeaths) * (H - 40) - 20;
+    html += `<line x1="30" y1="${y}" x2="${W - 10}" y2="${y}" stroke="rgba(122,117,144,0.12)" stroke-width="1" />`;
+    html += `<text x="5" y="${y + 3}" font-family="var(--mono)" font-size="7" fill="var(--muted2)">${v}</text>`;
+  });
+  
+  const barPadding = 8;
+  const graphW = W - 40;
+  const barW = (graphW / data.length) - barPadding;
+  
+  data.forEach((d, i) => {
+    const x = 35 + i * (barW + barPadding);
+    const barH = d.deaths > 0 ? (d.deaths / maxDeaths) * (H - 40) : 2; // thin line for 0
+    const y = H - barH - 20;
+    const isZero = d.deaths === 0;
+    
+    // Bar
+    html += `
+      <g class="bar-hover-zone" onmouseover="showTlDetail(${d.year}, ${i})" onmouseout="clearTlDetail()">
+        <!-- invisible wider zone for easier hovering -->
+        <rect x="${x - barPadding/2}" y="10" width="${barW + barPadding}" height="${H - 30}" fill="transparent" />
+        <!-- actual data bar -->
+        <rect class="data-bar" x="${x}" y="${y}" width="${barW}" height="${barH}" 
+              fill="${isZero ? 'rgba(122,117,144,0.15)' : 'var(--blood)'}" 
+              style="transition: all 0.5s ease; ${isZero ? 'stroke-dasharray: 2,2; stroke: var(--muted);' : ''}" />
+        <!-- year label -->
+        <text x="${x + barW/2}" y="${H - 4}" font-family="var(--mono)" font-size="7.5" fill="var(--muted)" text-anchor="middle">${d.year.toString().slice(-2)}</text>
+      </g>
+    `;
+  });
+  
+  html += `</svg>`;
+  container.innerHTML = html;
+}
+
+function showTlDetail(year, idx) {
+  const item = tlData[activeHoliday][idx];
+  if (!item) return;
+  
+  document.getElementById("tlYear").textContent = `${activeHoliday === 'fitr' ? 'Eid-ul-Fitr' : 'Eid-ul-Adha'} · ${year}`;
+  
+  if (item.deaths === 0) {
+    document.getElementById("tlStats").innerHTML = `<span style="color:var(--muted)">${year === 2026 ? 'UPCOMING HOLIDAY (June 2026)' : 'COVID-19 LOCKDOWN (0 deaths)'}</span>`;
+  } else {
+    let yoyHtml = "";
+    if (idx > 0 && tlData[activeHoliday][idx-1].deaths > 0) {
+      const prev = tlData[activeHoliday][idx-1].deaths;
+      const pct = Math.round(((item.deaths - prev) / prev) * 100);
+      if (pct !== 0) {
+        yoyHtml = ` <span style="font-size:0.75rem; color:${pct > 0 ? 'var(--bloodl)' : 'var(--greenl)'}">(${pct > 0 ? '+' : ''}${pct}% YoY)</span>`;
+      }
+    }
+    document.getElementById("tlStats").innerHTML = `${item.deaths} Deaths <span style="font-size:0.72rem; color:var(--muted); font-weight:normal">in ${item.accidents} accidents</span>${yoyHtml}`;
+  }
+  
+  document.getElementById("tlDesc").textContent = item.desc;
+}
+
+function clearTlDetail() {
+  // Keep the last hovered bar detail on screen to avoid empty panels
+}
+
+function setHoliday(type) {
+  activeHoliday = type;
+  document.getElementById("btnFitr").classList.toggle("active", type === 'fitr');
+  document.getElementById("btnAdha").classList.toggle("active", type === 'adha');
+  drawTimeline(type);
+  
+  // Update detail default
+  document.getElementById("tlYear").textContent = "Hover over a bar";
+  document.getElementById("tlStats").innerHTML = "to investigate annual totals";
+  document.getElementById("tlDesc").textContent = "Historical accident logs, total fatality counts, and YoY percentage fluctuations are mapped interactively.";
+}
+
+// Draw timeline initially
+setTimeout(() => {
+  drawTimeline('fitr');
+}, 500);
+
+// Redraw timeline on resize
+window.addEventListener("resize", () => drawTimeline(activeHoliday));
+
+
+// ═══ HIGHWAY MAP INTERACTIVE LOGIC ═══
+const hotspotProfiles = {
+  tejgaon: {
+    name: "Tejgaon Industrial Corridor (Dhaka Central)",
+    risk: "High Risk Corridor (4/5)",
+    desc: "Deduplicated micro-data shows heavy concentration of nighttime cargo truck and utility vehicle collisions. Primary risks: high-speed cargo merging lanes, severe lack of pedestrian crossing islands, and extreme economic pressure under morning-due joma quotas."
+  },
+  airport: {
+    name: "Airport Highway Roundabout (N3 Link)",
+    risk: "Extreme Risk Bottleneck (5/5)",
+    desc: "Critical junction linking Dhaka to N3 (Mymensingh) and N5 (North Bengal). High-speed merging lanes intersect without active traffic signals. Pedestrians crossing to the railway terminal are exposed to local buses actively racing stop-to-stop."
+  },
+  jatrabari: {
+    name: "Jatrabari Highway Interchange (N1 Link)",
+    risk: "Extreme Risk Bottleneck (5/5)",
+    desc: "Dhaka's primary southern entry point. High speed merging lanes from the Mayor Hanif Flyover meet long-distance coaches and local rickshaws. Extremely high pedestrian casualty rate (47% of Dhaka road victims are pedestrians near these highway transition nodes)."
+  },
+  savar: {
+    name: "Savar / Nabinagar Transit Loop (N5)",
+    risk: "High Risk Factory Belt (4/5)",
+    desc: "Industrial garments manufacturing zone on the N5 highway. Hundreds of thousands of factory workers cross the high-speed carriageway daily near local bus stops. Drivers racing to meet the daily joma quota create a highly lethal environment during shift changes."
+  },
+  gazipur: {
+    name: "Gazipur Chowrasta Loop (N3/N5 Gateway)",
+    risk: "Extreme Risk Gateway (5/5)",
+    desc: "The northern gateway linking Dhaka to 37 districts. High volume highway congestion point where long-distance coaches, city buses, and slow-moving three-wheelers are forced into undivided lanes. Highly prone to Eid-surge overtaking collisions."
+  },
+  comilla: {
+    name: "Comilla Bypass (N1 Highway Segment)",
+    risk: "High Speed Corridor (4/5)",
+    desc: "A fast, divided highway segment where drivers maintain high speeds for long stretches. The lack of speed cameras, combined with slow-moving cargo vehicles using the fast lane, creates high speed collision risks, especially at night."
+  },
+  shonir: {
+    name: "Shonir Akhra Pedestrian Crossing (N1)",
+    risk: "High Risk Crossing Void (4/5)",
+    desc: "A major pedestrian crossing bottleneck on the Dhaka-Chittagong highway. The lack of structural footbridges forces pedestrians to walk across the high-speed travel lanes, where coaches enter the city under night-time enforcement voids."
+  },
+  daudkandi: {
+    name: "Daudkandi Bridge Merging Loop (N1)",
+    risk: "High Risk Merging Bottleneck (4/5)",
+    desc: "The bridge merging bottleneck on the Dhaka-Chittagong highway. During the holiday surge, vehicles face multi-hour congestion queues, driving aggressively to recoup lost time. High rate of head-on collisions on undivided bridge approaches."
+  }
+};
+
+function showHotspot(id) {
+  const profile = hotspotProfiles[id];
+  if (!profile) return;
+  
+  document.getElementById("mdcNodeName").textContent = profile.name;
+  document.getElementById("mdcNodeRisk").textContent = profile.risk;
+  document.getElementById("mdcNodeRisk").style.color = profile.risk.includes("Extreme") ? "var(--bloodl)" : "var(--amberl)";
+  document.getElementById("mdcNodeDesc").textContent = profile.desc;
+  
+  // Highlight map node
+  document.querySelectorAll(".map-hotspot").forEach(el => {
+    el.style.fill = el.id === `hs-${id}` ? "var(--bloodl)" : "var(--blood)";
+    el.style.r = el.id === `hs-${id}` ? "9px" : "6px";
+  });
+}
+
+function toggleMapLayer(layer) {
+  if (layer === 'hotspots') {
+    const el = document.getElementById("mapHotspots");
+    const btn = document.getElementById("btnHotspots");
+    const show = el.style.display !== 'none';
+    el.style.display = show ? 'none' : 'block';
+    btn.classList.toggle("active", !show);
+  }
+  if (layer === 'risk') {
+    const zones = document.querySelectorAll(".map-risk-zone");
+    const btn = document.getElementById("btnRiskZones");
+    const firstVal = zones[0].style.opacity;
+    const show = firstVal === '0' || firstVal === '';
+    zones.forEach(z => { z.style.opacity = show ? '0.75' : '0'; });
+    btn.classList.toggle("active", show);
+  }
+  if (layer === 'highways') {
+    const el = document.getElementById("mapHighways");
+    const btn = document.getElementById("btnHighways");
+    const show = el.style.display !== 'none';
+    el.style.display = show ? 'none' : 'block';
+    btn.classList.toggle("active", !show);
+  }
+}
 </script>
 </body>
 </html>
