@@ -14,6 +14,10 @@
   --gold:#8a6914; --gold2:#6b5010;
   --amber:#8a6914; --amberl:#a07a20;
   --green:#1a7a50; --greenl:#2d9a6a; --teall:#1a7a7a;
+  --body: 'Lora', Georgia, serif;
+  --mono: 'JetBrains Mono', monospace;
+  --display: 'Playfair Display', Georgia, serif;
+  --nav-bg: rgba(255, 255, 255, 0.97);
 }
 
 html[data-theme="dark"] {
@@ -23,6 +27,7 @@ html[data-theme="dark"] {
   --gold:#c9a84c; --gold2:#9a7e36;
   --amber:#d4a060; --amberl:#e8c080;
   --green:#2d6a4f; --greenl:#52b788; --teall:#40c0c0;
+  --nav-bg: rgba(6, 6, 14, 0.97);
 }
 html[data-theme="dark"] body { background: var(--ink); color: var(--text); }
 html[data-theme="dark"] a { color: var(--gold); }
@@ -30,12 +35,48 @@ html[data-theme="dark"] a { color: var(--gold); }
 html{scroll-behavior:smooth}
 body{background:var(--ink);color:var(--text);font-family:var(--body);overflow-x:hidden}
 a{color:var(--gold);text-decoration:none}
-nav{position:fixed;top:0;left:0;right:0;z-index:900;background:var(--nav-bg,rgba(255,255,255,.97));backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 1.5rem;height:50px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+#snav {
+  position: sticky;
+  top: 0;
+  z-index: 950;
+  height: 34px;
+  background: rgba(6, 6, 14, 0.98);
+  border-bottom: 1px solid rgba(30, 30, 48, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+}
+#snav a {
+  color: rgba(200, 190, 175, 0.4);
+  text-decoration: none;
+}
+#snav a:hover {
+  color: var(--gold);
+}
+nav {
+  position: sticky;
+  top: 34px;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  background: var(--nav-bg, rgba(255, 255, 255, 0.97));
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 1.5rem;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
 .nav-brand{font-family:var(--mono);font-size:.75rem;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
 .nav-scenes{display:flex;gap:.7rem}
 .nav-scenes a{font-family:var(--mono);font-size:.72rem;color:var(--muted2);letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
 .nav-scenes a:hover,.nav-scenes a.active{color:var(--gold)}
-.nav-links{display:flex;gap:.5rem}
+.nav-links{display:flex;align-items:center;gap:.7rem}
 .nbtn{font-family:var(--mono);font-size:.72rem;color:var(--muted);border:1px solid var(--border);padding:.22rem .65rem;transition:all .2s;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
 .nbtn:hover{color:var(--gold);border-color:var(--gold2)}
 .nbtn.hot{color:var(--text2);border-color:rgba(200,160,60,.4)}
@@ -47,7 +88,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:var(--nav-bg,rgba
 .nav-ham.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
 .nav-ham.open span:nth-child(2){opacity:0}
 .nav-ham.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-.nav-drawer-br{display:none;position:fixed;top:50px;left:0;right:0;background:var(--nav-bg,rgba(255,255,255,.99));border-bottom:1px solid #1e1e32;padding:1.2rem 1.5rem;z-index:890}
+.nav-drawer-br{display:none;position:fixed;top:84px;left:0;right:0;background:var(--nav-bg,rgba(255,255,255,.99));border-bottom:1px solid #1e1e32;padding:1.2rem 1.5rem;z-index:890}
 .nav-drawer-br.open{display:block}
 .nav-drawer-br a{display:block;font-family:"JetBrains Mono","Courier New",monospace;font-size:.8rem;color:#7a7590;letter-spacing:.08em;text-transform:uppercase;padding:.65rem 0;border-bottom:1px solid #1e1e32;transition:color .2s;text-decoration:none}
 .nav-drawer-br a:hover{color:#c9a84c}
@@ -196,8 +237,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:var(--nav-bg,rgba
 .tier-note{font-family:var(--mono);font-size:.72rem;color:var(--muted2);margin-top:1.5rem;line-height:1.9;max-width:640px;border-top:1px solid var(--border);padding-top:1.5rem}
 
 @media(max-width:768px){
+  #snav{height:30px;padding:0 .8rem}
+  nav{height:40px;padding:0 .8rem;top:30px}
+  .nav-drawer-br{top:70px}
   .scroll-scene{display:block}
-  .viz-sticky{position:sticky;top:50px;height:44vw;min-height:200px;max-height:340px;z-index:5;background:var(--ink);border-bottom:1px solid var(--border)}
+  .viz-sticky{position:sticky;top:70px;height:44vw;min-height:200px;max-height:340px;z-index:5;background:var(--ink);border-bottom:1px solid var(--border)}
   .steps-col{padding:2rem 1.2rem 8rem}
   .step{min-height:60vh;padding:2rem 0}
   .step:not(.active){opacity:.85}
@@ -385,28 +429,44 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:var(--nav-bg,rgba
 }
 </style>
 <script>
-(function(){var t=localStorage.getItem('ig-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();
+(function(){
+  var saved = localStorage.getItem('ig-theme');
+  if(saved === 'dark') document.documentElement.setAttribute('data-theme','dark');
+  window.addEventListener('DOMContentLoaded', function(){
+    var btn = document.querySelector('.theme-toggle-btn');
+    if(!btn) return;
+    btn.addEventListener('click', function(){
+      var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if(dark){
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('ig-theme','light');
+      } else {
+        document.documentElement.setAttribute('data-theme','dark');
+        localStorage.setItem('ig-theme','dark');
+      }
+    });
+  });
+})();
 </script>
-<script src="../../../../theme-toggle.js"></script>
 </head>
 <body>
 
 <!-- breadcrumb -->
-<div style="background:rgba(6,6,14,.98);border-bottom:1px solid rgba(30,30,48,.8);padding:.35rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:.8rem;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;position:relative;z-index:950">
-  <div style="display:flex;align-items:center;gap:.5rem;font-size:.75rem;color:rgba(200,190,175,.5);text-transform:uppercase;letter-spacing:.1em">
-    <a href="/" style="color:rgba(200,190,175,.4)">Insight Gaps</a>
+<div id="snav">
+  <div style="display:flex;align-items:center;gap:.5rem;text-transform:uppercase;letter-spacing:.1em">
+    <a href="/">Insight Gaps</a>
     <span style="color:rgba(100,95,120,.4)">›</span>
     <span style="color:rgba(212,160,96,.6)">BD-INV-001 · Blood Routes</span>
   </div>
   <div style="display:flex;gap:.35rem;flex-wrap:wrap">
-    <span style="font-size:.72rem;color:rgba(100,95,120,.5);letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(100,95,120,.15);padding:.15rem .5rem">BD-INV-001</span>
-    <span style="font-size:.72rem;color:rgba(212,160,96,.5);letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(212,160,96,.15);padding:.15rem .5rem">v1.1 · Eid Deep Dive</span>
+    <span style="color:rgba(100,95,120,.5);letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(100,95,120,.15);padding:.15rem .5rem;line-height:1">BD-INV-001</span>
+    <span style="color:rgba(212,160,96,.5);letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(212,160,96,.15);padding:.15rem .5rem;line-height:1">v1.1 · Eid Deep Dive</span>
   </div>
 </div>
 
 <!-- nav -->
 <nav>
-  <div class="nav-brand">Insight Gaps · BD-INV-001 · v1.1</div><button class="theme-toggle-btn" aria-label="Switch to dark theme" title="Toggle theme" style="background:none;border:none;cursor:pointer;font-size:.9rem;padding:4px 8px;color:inherit;opacity:.7;flex-shrink:0"><span class="theme-icon">●</span></button>
+  <div class="nav-brand">Insight Gaps · BD-INV-001 · v1.1</div>
   <div class="nav-scenes">
     <a href="#s1">The Gap</a>
     <a href="#s2">The Machine</a>
@@ -416,7 +476,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:var(--nav-bg,rgba
     <a href="#s6">The Voids</a>
   </div>
   <div class="nav-links">
-    <a class="nbtn" href="/series/blood-routes/methodology.html">Methodology</a>
+    <button class="theme-toggle-btn" aria-label="Switch to dark theme" title="Toggle theme" style="background:none;border:none;cursor:pointer;font-size:.9rem;padding:4px 8px;color:inherit;opacity:.7;flex-shrink:0"><span class="theme-icon">●</span></button>
+    <a class="nbtn" href="#methodology">Methodology</a>
     <a class="nbtn hot" href="#closing">Findings &#8595;</a>
   </div>
 </nav>
@@ -894,7 +955,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:var(--nav-bg,rgba
 <hr class="divider">
 
 <!-- NEW RESEARCH CARD: DATA AUDIT DISCOVERIES -->
-<section class="full-scene dark" style="min-height: auto; padding: 4rem 2rem;">
+<section id="methodology" class="full-scene dark" style="min-height: auto; padding: 4rem 2rem;">
   <div class="research-card">
     <div class="rc-title">🔍 Academic Data Quality Audit (Figshare Dataset)</div>
     <div class="rc-bullet">
@@ -1022,7 +1083,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:var(--nav-bg,rgba
   </div>
 
   <div class="btn-row">
-    <a class="btn btn-red" href="/series/blood-routes/methodology.html">Methodology &amp; Sources &#8594;</a>
+    <a class="btn btn-red" href="#methodology">Methodology &amp; Sources &#8594;</a>
     <a class="btn btn-gold" href="/data/">Data Files</a>
     <a class="btn btn-gold" href="/">All Investigations</a>
   </div>
