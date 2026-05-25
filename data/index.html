@@ -368,13 +368,58 @@
                 <span class="data-file__size">32 KB · Flat text file</span>
               </div>
             </a>
-            <a href="/content/investigations/the-lead-belt/lead-belt-method-paper.md" class="data-file">
-              <div class="data-file__icon data-file__icon--md">MD</div>
+            <a href="/data/osm_schools.geojson" class="data-file" download>
+              <div class="data-file__icon data-file__icon--csv" style="background-color: rgba(107, 26, 26, 0.1); color: rgb(107, 26, 26);">JSON</div>
               <div class="data-file__details">
-                <span class="data-file__name">Methodology Paper</span>
-                <span class="data-file__size">5 KB · Reader methodology & replication</span>
+                <span class="data-file__name">OSM School Snapshot</span>
+                <span class="data-file__size">3.0 MB · GeoJSON school nodes</span>
               </div>
             </a>
+            <a href="/content/investigations/the-lead-belt/methodology.html" class="data-file">
+              <div class="data-file__icon data-file__icon--md" style="background-color: rgba(193, 125, 17, 0.1); color: rgb(193, 125, 17);">HTML</div>
+              <div class="data-file__details">
+                <span class="data-file__name">Methodology Paper</span>
+                <span class="data-file__size">20 KB · Reader methodology & replication</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- Dataset Schema Details -->
+          <div style="margin-top: var(--space-4); border-top: var(--border-width) solid var(--color-border); padding-top: var(--space-4); font-size: var(--type-body-sm); color: var(--color-text-secondary); line-height: var(--leading-body);">
+            <strong style="color: var(--color-text-primary); text-transform: uppercase; font-size: var(--type-label); letter-spacing: var(--tracking-wide); display: block; margin-bottom: var(--space-2);">Dataset Schemas &amp; Field Dictionaries</strong>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-5);">
+              <div>
+                <span style="font-family: var(--font-mono); font-weight: 600; color: var(--color-text-primary); font-size: var(--type-body-sm);">Mapped Sites CSV Schema (BD-INV-003_LeadBelt_MasterDataset_v5.csv):</span>
+                <ul style="padding-left: var(--space-4); margin-top: var(--space-1); list-style-type: disc;">
+                  <li><code>i</code>: Unique Site ID (e.g. BD-4591)</li>
+                  <li><code>d</code>: Division (e.g. Dhaka)</li>
+                  <li><code>n</code>: Site Type / Name (e.g. ULAB Recycling Factory)</li>
+                  <li><code>th</code>: Thana / Upazila name (e.g. Rosulpur)</li>
+                  <li><code>p</code>: Soil lead concentration (PPM)</li>
+                  <li><code>v</code>: Contamination tier classification (e.g. critical, severe)</li>
+                  <li><code>la</code>, <code>lo</code>: Latitude and Longitude coordinate points</li>
+                  <li><code>sc</code>: Count of school campuses within 500 meters</li>
+                  <li><code>cm</code>: Great-circle distance to the closest school in meters</li>
+                  <li><code>cn</code>: Name of the closest school campus</li>
+                  <li><code>sat</code>: Boolean indicating if active smelting operations are visually visible in satellite imagery</li>
+                  <li><code>tp</code>: Verification audit verdict note</li>
+                </ul>
+              </div>
+              <div>
+                <span style="font-family: var(--font-mono); font-weight: 600; color: var(--color-text-primary); font-size: var(--type-body-sm);">OSM School snapshot GeoJSON (osm_schools.geojson):</span>
+                <ul style="padding-left: var(--space-4); margin-top: var(--space-1); list-style-type: disc;">
+                  <li><code>type</code>: GeoJSON Feature type</li>
+                  <li><code>geometry</code>: Coordinate points (longitude, latitude)</li>
+                  <li><code>properties</code>: Feature tags from OpenStreetMap:
+                    <ul style="padding-left: var(--space-3); list-style-type: circle;">
+                      <li><code>id</code>: Historic OSM node, way, or relation ID</li>
+                      <li><code>name</code>: Name of school (transliterated or English)</li>
+                      <li><code>amenity</code>: Set to <code>"school"</code></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
         <div class="data-package__footer">
