@@ -26,7 +26,7 @@
     "methodology_link": "/investigations/national/blood-routes/",
     "has_correction": false,
     "correction_notes": [],
-    "og_image_path": "/assets/img/og-default.jpg",
+    "og_image_path": "/assets/img/blood-routes-infographic.png",
     "related_items": [
       "BD-INV-002"
     ],
@@ -58,7 +58,7 @@
     "methodology_link": "/content/investigations/the-lead-belt/lead-belt-method-paper.md",
     "has_correction": false,
     "correction_notes": [],
-    "og_image_path": "/content/investigations/the-lead-belt/assets/og-the-lead-belt.jpg",
+    "og_image_path": "/assets/img/lead-belt-infographic.png",
     "related_items": [
       "BD-INV-002"
     ],
@@ -90,7 +90,7 @@
     "methodology_link": "/content/investigations/the-impunity-machine/methodology/methodology.md",
     "has_correction": false,
     "correction_notes": [],
-    "og_image_path": "/content/investigations/the-impunity-machine/assets/og-the-impunity-machine.jpg",
+    "og_image_path": "/assets/img/impunity-machine-infographic.jpg",
     "related_items": [
       "BD-INV-003"
     ],

@@ -129,9 +129,13 @@
     ].join('\n');
 
     if (imageTarget) {
-      imageTarget.innerHTML = '<div class="home__hero-image-placeholder" aria-hidden="true">' +
-        '<span>' + esc(inv.id) + '</span>' +
-        '</div>';
+      if (inv.og_image_path) {
+        imageTarget.innerHTML = '<img src="' + esc(inv.og_image_path) + '" alt="Visual summary of ' + esc(inv.title) + '" style="width:100%; height:100%; object-fit:cover; display:block;">';
+      } else {
+        imageTarget.innerHTML = '<div class="home__hero-image-placeholder" aria-hidden="true">' +
+          '<span>' + esc(inv.id) + '</span>' +
+          '</div>';
+      }
     }
   }
 
