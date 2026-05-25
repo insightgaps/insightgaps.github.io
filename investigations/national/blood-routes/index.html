@@ -294,66 +294,113 @@ nav {
 .svg-map {
   width: 100%;
   height: auto;
-  max-height: 480px;
+  max-height: 640px;
 }
 .map-division {
   fill: rgba(255, 255, 255, 0.012);
-  stroke: rgba(122, 117, 144, 0.15);
-  stroke-width: 1;
-  transition: fill 0.3s, stroke 0.3s;
+  stroke: rgba(122, 117, 144, 0.18);
+  stroke-width: 1.2;
+  transition: fill 0.4s, stroke 0.4s;
+  cursor: pointer;
 }
 .map-division:hover {
-  fill: rgba(201, 168, 76, 0.03);
-  stroke: rgba(201, 168, 76, 0.3);
+  fill: rgba(201, 168, 76, 0.05);
+  stroke: rgba(201, 168, 76, 0.4);
+}
+.map-division.highlighted {
+  fill: rgba(196, 30, 58, 0.06);
+  stroke: rgba(196, 30, 58, 0.35);
 }
 .map-river {
   fill: none;
-  stroke: rgba(50, 80, 140, 0.18);
-  stroke-width: 2.5;
+  stroke: rgba(50, 80, 140, 0.2);
+  stroke-width: 2;
   pointer-events: none;
 }
 .map-highway {
   fill: none;
-  stroke: rgba(122, 117, 144, 0.3);
-  stroke-width: 2.2;
+  stroke: rgba(122, 117, 144, 0.25);
+  stroke-width: 1.8;
   stroke-linecap: round;
+  stroke-dasharray: none;
   transition: stroke 0.3s, stroke-width 0.3s;
   pointer-events: none;
 }
 .map-highway.active {
-  stroke: rgba(201, 168, 76, 0.6);
-  stroke-width: 3.2;
+  stroke: rgba(201, 168, 76, 0.55);
+  stroke-width: 2.5;
 }
 .map-hotspot {
   fill: var(--blood);
   stroke: var(--bloodl);
-  stroke-width: 1.2;
+  stroke-width: 1;
   cursor: pointer;
-  transition: transform 0.25s, fill 0.25s, stroke-width 0.25s;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 3px rgba(196, 30, 58, 0.5));
 }
 .map-hotspot:hover {
-  transform: scale(1.4);
   fill: var(--bloodl);
   stroke-width: 2;
+  filter: drop-shadow(0 0 8px rgba(224, 48, 78, 0.8));
 }
 .map-hotspot.glow {
-  animation: hotspot-glow 2.5s infinite;
+  animation: hotspot-glow 2.8s infinite ease-in-out;
+}
+.map-hotspot.glow-intense {
+  animation: hotspot-glow-intense 2s infinite ease-in-out;
 }
 @keyframes hotspot-glow {
-  0% { r: 5px; stroke-width: 1; opacity: 1; }
-  50% { r: 9px; stroke-width: 2.5; opacity: 0.45; }
-  100% { r: 5px; stroke-width: 1; opacity: 1; }
+  0%,100% { r: 5; stroke-width: 1; opacity: 0.9; }
+  50% { r: 7; stroke-width: 2; opacity: 0.5; }
+}
+@keyframes hotspot-glow-intense {
+  0%,100% { r: 6; stroke-width: 1.5; opacity: 1; filter: drop-shadow(0 0 4px rgba(196,30,58,0.7)); }
+  50% { r: 10; stroke-width: 3; opacity: 0.4; filter: drop-shadow(0 0 12px rgba(224,48,78,0.9)); }
 }
 .map-risk-zone {
   fill: none;
-  stroke-width: 2.2;
+  stroke-width: 2.5;
   stroke-linecap: round;
   opacity: 0;
-  transition: opacity 0.4s;
+  transition: opacity 0.5s;
   pointer-events: none;
 }
 .map-risk-zone.visible {
-  opacity: 0.75;
+  opacity: 0.7;
+}
+.map-heat-zone {
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.map-heat-zone.visible {
+  opacity: 1;
+}
+.map-division-label {
+  font-family: var(--mono);
+  font-size: 6.5px;
+  fill: var(--muted2);
+  pointer-events: none;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.6;
+}
+.map-city-label {
+  font-family: var(--mono);
+  font-size: 7px;
+  fill: var(--muted);
+  pointer-events: none;
+}
+.map-city-label.capital {
+  font-size: 8.5px;
+  fill: var(--text);
+  font-weight: 700;
+}
+.map-legend {
+  font-family: var(--mono);
+  font-size: 6px;
+  fill: var(--muted);
 }
 .map-details-card {
   margin-top: 1.5rem;
@@ -385,9 +432,19 @@ nav {
   color: var(--muted);
   line-height: 1.6;
 }
+.mdc-division {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted2);
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
+}
 .toggle-btn-row {
   display: flex;
-  gap: 0.6rem;
+  gap: 0.5rem;
   margin-bottom: 1.5rem;
   flex-wrap: wrap;
 }
@@ -395,9 +452,9 @@ nav {
   background: transparent;
   border: 1px solid var(--border);
   color: var(--muted);
-  padding: 0.45rem 0.9rem;
+  padding: 0.4rem 0.75rem;
   font-family: var(--mono);
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   cursor: pointer;
@@ -410,7 +467,13 @@ nav {
   color: var(--ink);
   font-weight: 700;
 }
-.toggle-btn:hover:not(.active) {
+.toggle-btn.heat-active {
+  background: var(--blood);
+  border-color: var(--bloodl);
+  color: #fff;
+  font-weight: 700;
+}
+.toggle-btn:hover:not(.active):not(.heat-active) {
   color: var(--text);
   border-color: var(--muted);
 }
@@ -605,104 +668,253 @@ nav {
     <!-- Right Panel: Bangladesh Highway & Predictive Risk Map -->
     <div class="db-panel">
       <div class="db-panel-title">
-        <span>🗺️ Highway Hotspot &amp; Predictive Risk Map</span>
-        <span style="font-size: 0.65rem; color: var(--muted2);">Spatial deduplication &amp; risk model</span>
+        <span>🗺️ Nationwide Fatality Hotspot &amp; Risk Heat Map</span>
+        <span style="font-size: 0.65rem; color: var(--muted2);">Country-wide · 8 divisions · 25 hotspots · heat overlay</span>
       </div>
 
       <!-- Layer Toggles -->
       <div class="toggle-btn-row">
         <button id="btnHotspots" class="toggle-btn active" onclick="toggleMapLayer('hotspots')">Hotspots</button>
+        <button id="btnHeatmap" class="toggle-btn heat-active" onclick="toggleMapLayer('heatmap')">Heat Map</button>
         <button id="btnRiskZones" class="toggle-btn active" onclick="toggleMapLayer('risk')">Risk Corridors</button>
         <button id="btnHighways" class="toggle-btn active" onclick="toggleMapLayer('highways')">Highways</button>
       </div>
 
       <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; position: relative;">
-        <!-- Relational Vector SVG Map of Bangladesh -->
-        <svg viewBox="0 0 500 600" class="svg-map" id="bdMapSvg">
-          <!-- divisions boundaries (stylized) -->
+        <!-- Country-Wide Bangladesh Vector Map with Heatmap Overlay -->
+        <svg viewBox="0 0 500 720" class="svg-map" id="bdMapSvg">
+          <defs>
+            <!-- Heat radial gradients (blood red, varying intensity) -->
+            <radialGradient id="heatExtreme" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="rgba(196,30,58,0.55)" />
+              <stop offset="40%" stop-color="rgba(224,48,78,0.25)" />
+              <stop offset="100%" stop-color="rgba(196,30,58,0)" />
+            </radialGradient>
+            <radialGradient id="heatHigh" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="rgba(196,30,58,0.38)" />
+              <stop offset="45%" stop-color="rgba(224,48,78,0.15)" />
+              <stop offset="100%" stop-color="rgba(196,30,58,0)" />
+            </radialGradient>
+            <radialGradient id="heatMedium" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="rgba(212,160,96,0.3)" />
+              <stop offset="50%" stop-color="rgba(201,168,76,0.1)" />
+              <stop offset="100%" stop-color="rgba(212,160,96,0)" />
+            </radialGradient>
+            <radialGradient id="heatLow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="rgba(160,122,32,0.2)" />
+              <stop offset="50%" stop-color="rgba(160,122,32,0.06)" />
+              <stop offset="100%" stop-color="rgba(160,122,32,0)" />
+            </radialGradient>
+            <!-- Map texture filter -->
+            <filter id="mapGlow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" />
+            </filter>
+          </defs>
+
+          <!-- Division boundaries — geographically improved polygons -->
           <g id="mapDivisions">
-            <path class="map-division" d="M120,60 L230,60 L230,120 L160,180 L100,160 Z" data-division="Rangpur" />
-            <path class="map-division" d="M100,160 L160,180 L200,240 L120,290 L60,250 Z" data-division="Rajshahi" />
-            <path class="map-division" d="M230,60 L320,60 L300,170 L230,170 L230,120 Z" data-division="Mymensingh" />
-            <path class="map-division" d="M320,60 L410,130 L430,220 L350,220 L300,170 Z" data-division="Sylhet" />
-            <path class="map-division" d="M200,240 L300,170 L350,220 L320,330 L250,330 L200,300 Z" data-division="Dhaka" />
-            <path class="map-division" d="M120,290 L200,300 L200,350 L140,430 L90,400 Z" data-division="Khulna" />
-            <path class="map-division" d="M200,350 L250,330 L270,390 L240,460 L170,450 Z" data-division="Barisal" />
-            <path class="map-division" d="M320,330 L390,290 L420,390 L450,540 L390,520 L330,420 Z" data-division="Chittagong" />
+            <!-- Rangpur Division (far northwest) -->
+            <path class="map-division" d="M95,50 L140,35 L195,40 L210,55 L215,100 L200,130 L170,155 L135,170 L100,155 L80,120 L75,85 Z" data-division="Rangpur" />
+            <!-- Rajshahi Division (west-central) -->
+            <path class="map-division" d="M50,155 L100,155 L135,170 L170,195 L175,240 L155,275 L115,290 L65,275 L40,235 L35,195 Z" data-division="Rajshahi" />
+            <!-- Mymensingh Division (north-central) -->
+            <path class="map-division" d="M210,55 L265,45 L310,65 L330,100 L315,155 L275,175 L235,175 L200,165 L200,130 L215,100 Z" data-division="Mymensingh" />
+            <!-- Sylhet Division (northeast) -->
+            <path class="map-division" d="M310,65 L370,55 L420,85 L440,135 L430,190 L395,215 L350,210 L315,195 L315,155 L330,100 Z" data-division="Sylhet" />
+            <!-- Dhaka Division (central) -->
+            <path class="map-division" d="M170,195 L200,165 L235,175 L275,175 L315,195 L350,210 L345,270 L320,320 L280,345 L240,350 L205,330 L175,300 L155,275 Z" data-division="Dhaka" />
+            <!-- Khulna Division (southwest) -->
+            <path class="map-division" d="M40,290 L65,275 L115,290 L155,275 L175,300 L175,355 L155,400 L130,440 L90,460 L50,430 L30,380 L30,330 Z" data-division="Khulna" />
+            <!-- Barishal Division (south-central) -->
+            <path class="map-division" d="M175,355 L205,330 L240,350 L260,380 L250,430 L225,470 L190,490 L155,475 L140,445 L130,440 L155,400 Z" data-division="Barishal" />
+            <!-- Chattogram Division (southeast) -->
+            <path class="map-division" d="M280,345 L320,320 L345,270 L375,255 L410,280 L430,330 L440,400 L445,470 L435,540 L415,600 L385,640 L355,620 L340,560 L330,490 L310,430 L280,380 Z" data-division="Chattogram" />
           </g>
-          <!-- major rivers -->
+
+          <!-- Major rivers -->
           <g id="mapRivers">
-            <path class="map-river" d="M185,60 C185,150 195,210 195,245" /> <!-- Jamuna -->
-            <path class="map-river" d="M60,210 C100,220 160,235 195,245" /> <!-- Padma Upper -->
-            <path class="map-river" d="M195,245 C210,265 225,290 238,320" /> <!-- Padma Lower -->
-            <path class="map-river" d="M238,320 C250,380 270,440 280,480" /> <!-- Meghna Estuary -->
-            <path class="map-river" d="M340,130 C300,180 250,220 238,320" /> <!-- Meghna Upper -->
+            <path class="map-river" d="M180,50 C182,100 188,150 192,200 C196,230 200,260 210,290" /> <!-- Jamuna -->
+            <path class="map-river" d="M40,240 C70,245 110,255 150,265 C175,272 195,278 210,290" /> <!-- Padma Upper -->
+            <path class="map-river" d="M210,290 C220,320 230,350 240,380 C250,410 255,440 260,470" /> <!-- Padma-Meghna Lower -->
+            <path class="map-river" d="M380,110 C350,150 320,190 300,230 C280,270 260,310 250,340" /> <!-- Meghna Upper -->
+            <path class="map-river" d="M250,340 C248,360 245,380 242,400" /> <!-- Meghna connector -->
+            <path class="map-river" d="M50,200 C65,210 80,215 95,225" /> <!-- Padma branch west -->
           </g>
-          <!-- highways layer -->
+
+          <!-- Highways layer — all major national highways -->
           <g id="mapHighways">
-            <!-- N1: Dhaka-Chittagong -->
-            <path class="map-highway active" id="hw-n1" d="M250,280 L290,320 L330,360 L355,395 L380,425 L405,465" />
-            <!-- N2: Dhaka-Sylhet -->
-            <path class="map-highway active" id="hw-n2" d="M250,280 L288,255 L315,225 L345,200 L385,175" />
-            <!-- N3: Dhaka-Mymensingh -->
-            <path class="map-highway active" id="hw-n3" d="M250,280 L253,248 L256,215 L260,165" />
-            <!-- N5: Dhaka-North Bengal -->
-            <path class="map-highway active" id="hw-n5" d="M250,280 L220,260 L190,242 L185,220 L165,190 L152,145 L135,90" />
-            <!-- N8: Dhaka-Padma Bridge Expressway -->
-            <path class="map-highway active" id="hw-n8" d="M250,280 L232,320 L218,348 L223,398" />
+            <!-- N1: Dhaka–Chattogram -->
+            <path class="map-highway active" id="hw-n1" d="M250,300 L275,325 L300,350 L325,385 L345,420 L365,460 L390,510 L405,560" />
+            <!-- N2: Dhaka–Sylhet -->
+            <path class="map-highway active" id="hw-n2" d="M250,300 L280,275 L310,250 L340,225 L370,200 L395,175 L415,140" />
+            <!-- N3: Dhaka–Mymensingh -->
+            <path class="map-highway active" id="hw-n3" d="M250,300 L252,270 L255,240 L258,210 L262,175 L268,140" />
+            <!-- N4: Tangail–Jamalpur -->
+            <path class="map-highway" id="hw-n4" d="M230,240 L215,210 L205,180 L200,155" />
+            <!-- N5: Dhaka–Rangpur (North Bengal) -->
+            <path class="map-highway active" id="hw-n5" d="M250,300 L225,280 L200,265 L180,245 L165,220 L155,195 L148,170 L140,140 L135,100 L130,70" />
+            <!-- N6: Rajshahi–Natore -->
+            <path class="map-highway" id="hw-n6" d="M95,225 L110,210 L130,200 L155,195" />
+            <!-- N7: Bogura–Rangpur -->
+            <path class="map-highway" id="hw-n7" d="M155,195 L150,170 L145,145 L140,120 L138,100" />
+            <!-- N8: Dhaka–Padma Bridge–Khulna -->
+            <path class="map-highway active" id="hw-n8" d="M250,300 L230,325 L215,345 L195,365 L170,385 L150,405 L120,425" />
+            <!-- N105: Khulna–Mongla -->
+            <path class="map-highway" id="hw-n105" d="M120,425 L110,445 L105,460" />
+            <!-- N1 extension: Chattogram–Cox's Bazar -->
+            <path class="map-highway active" id="hw-n1x" d="M405,560 L400,590 L395,620 L388,645" />
           </g>
-          
-          <!-- Future Predictive Risk Corridors overlay -->
+
+          <!-- Risk Corridors overlay -->
           <g id="mapRiskZones">
-            <!-- N3 Racing corridor -->
-            <path class="map-risk-zone visible" id="rz-n3" d="M250,280 L253,248 L256,215" stroke="var(--bloodl)" stroke-width="4" />
-            <!-- N2 Undivided Sylhet -->
-            <path class="map-risk-zone visible" id="rz-n2" d="M288,255 L315,225 L345,200" stroke="var(--bloodl)" stroke-width="4" />
-            <!-- N1 Exit Congestion -->
-            <path class="map-risk-zone visible" id="rz-n1" d="M250,280 L290,320 L330,360" stroke="var(--bloodl)" stroke-width="4" />
-            <!-- N5 Savar Garments Crossing -->
-            <path class="map-risk-zone visible" id="rz-n5" d="M250,280 L220,260" stroke="var(--bloodl)" stroke-width="4" />
-            <!-- N8 Merging Ramps -->
-            <circle class="map-risk-zone visible" id="rz-n8" cx="232" cy="320" r="16" stroke="var(--bloodl)" stroke-width="2" />
+            <!-- N1: Dhaka–Comilla high-fatality stretch -->
+            <path class="map-risk-zone visible" id="rz-n1a" d="M250,300 L275,325 L300,350" stroke="var(--bloodl)" stroke-width="5" />
+            <!-- N1: Feni–Chattogram night corridor -->
+            <path class="map-risk-zone visible" id="rz-n1b" d="M365,460 L390,510 L405,560" stroke="var(--bloodl)" stroke-width="4" />
+            <!-- N2: Brahmanbaria undivided stretch -->
+            <path class="map-risk-zone visible" id="rz-n2" d="M310,250 L340,225 L370,200" stroke="var(--bloodl)" stroke-width="4" />
+            <!-- N3: Gazipur racing corridor -->
+            <path class="map-risk-zone visible" id="rz-n3" d="M250,300 L252,270 L255,240" stroke="var(--bloodl)" stroke-width="4.5" />
+            <!-- N5: Savar-Tangail corridor -->
+            <path class="map-risk-zone visible" id="rz-n5" d="M225,280 L200,265 L180,245" stroke="var(--bloodl)" stroke-width="4" />
+            <!-- N8: Padma approach merging -->
+            <circle class="map-risk-zone visible" id="rz-n8" cx="215" cy="345" r="14" stroke="var(--bloodl)" stroke-width="2.5" />
+            <!-- Rajshahi corridor -->
+            <path class="map-risk-zone visible" id="rz-raj" d="M95,225 L130,200" stroke="var(--bloodl)" stroke-width="3" />
+            <!-- Cox's Bazar coastal corridor -->
+            <path class="map-risk-zone visible" id="rz-cox" d="M400,590 L395,620 L388,645" stroke="var(--bloodl)" stroke-width="3.5" />
           </g>
 
-          <!-- Historical Hotspots layer (interactive glowing points) -->
+          <!-- HEAT MAP overlay — fatality density zones -->
+          <g id="mapHeatmap" class="map-heat-zone visible">
+            <!-- Dhaka Division — EXTREME density -->
+            <ellipse cx="250" cy="300" rx="55" ry="50" fill="url(#heatExtreme)" />
+            <ellipse cx="248" cy="285" rx="30" ry="25" fill="url(#heatExtreme)" />
+            <!-- Gazipur–Tangail N3/N5 corridor -->
+            <ellipse cx="240" cy="250" rx="35" ry="30" fill="url(#heatHigh)" />
+            <!-- Chattogram city cluster -->
+            <ellipse cx="405" cy="560" rx="35" ry="45" fill="url(#heatHigh)" />
+            <!-- N1 Comilla–Feni corridor -->
+            <ellipse cx="330" cy="405" rx="30" ry="35" fill="url(#heatHigh)" />
+            <!-- Sylhet approach -->
+            <ellipse cx="400" cy="170" rx="28" ry="28" fill="url(#heatMedium)" />
+            <!-- Rajshahi city -->
+            <ellipse cx="90" cy="230" rx="25" ry="22" fill="url(#heatMedium)" />
+            <!-- Khulna city -->
+            <ellipse cx="120" cy="415" rx="22" ry="20" fill="url(#heatMedium)" />
+            <!-- Barishal -->
+            <ellipse cx="210" cy="420" rx="22" ry="22" fill="url(#heatLow)" />
+            <!-- Rangpur -->
+            <ellipse cx="145" cy="90" rx="22" ry="20" fill="url(#heatLow)" />
+            <!-- Mymensingh -->
+            <ellipse cx="270" cy="130" rx="20" ry="18" fill="url(#heatLow)" />
+            <!-- N1 full corridor glow -->
+            <ellipse cx="325" cy="380" rx="20" ry="60" fill="url(#heatMedium)" transform="rotate(30,325,380)" />
+            <!-- N5 Bogura–Rangpur -->
+            <ellipse cx="150" cy="170" rx="18" ry="30" fill="url(#heatLow)" transform="rotate(10,150,170)" />
+            <!-- Cox's Bazar -->
+            <ellipse cx="390" cy="635" rx="20" ry="22" fill="url(#heatMedium)" />
+          </g>
+
+          <!-- Country-wide Hotspots (interactive) -->
           <g id="mapHotspots">
-            <circle class="map-hotspot glow" id="hs-tejgaon" cx="250" cy="280" r="6" onclick="showHotspot('tejgaon')" data-name="Tejgaon Industrial Area" />
-            <circle class="map-hotspot glow" id="hs-airport" cx="251" cy="270" r="6" onclick="showHotspot('airport')" data-name="Airport Roundabout" />
-            <circle class="map-hotspot glow" id="hs-jatrabari" cx="251" cy="290" r="6" onclick="showHotspot('jatrabari')" data-name="Jatrabari Interchange" />
-            <circle class="map-hotspot glow" id="hs-savar" cx="220" cy="260" r="6" onclick="showHotspot('savar')" data-name="Savar / Nabinagar" />
-            <circle class="map-hotspot glow" id="hs-gazipur" cx="254" cy="235" r="6" onclick="showHotspot('gazipur')" data-name="Gazipur Chowrasta" />
-            <circle class="map-hotspot glow" id="hs-comilla" cx="330" cy="360" r="6" onclick="showHotspot('comilla')" data-name="Comilla Bypass" />
-            <circle class="map-hotspot glow" id="hs-shonir" cx="265" cy="305" r="6" onclick="showHotspot('shonir')" data-name="Shonir Akhra" />
-            <circle class="map-hotspot glow" id="hs-daudkandi" cx="295" cy="330" r="6" onclick="showHotspot('daudkandi')" data-name="Daudkandi Bridge" />
+            <!-- === DHAKA DIVISION === -->
+            <circle class="map-hotspot glow-intense" id="hs-tejgaon" cx="248" cy="298" r="5" onclick="showHotspot('tejgaon')" data-name="Tejgaon Industrial Area" data-div="Dhaka" />
+            <circle class="map-hotspot glow-intense" id="hs-airport" cx="252" cy="285" r="5" onclick="showHotspot('airport')" data-name="Airport Roundabout" data-div="Dhaka" />
+            <circle class="map-hotspot glow-intense" id="hs-jatrabari" cx="255" cy="310" r="5" onclick="showHotspot('jatrabari')" data-name="Jatrabari Interchange" data-div="Dhaka" />
+            <circle class="map-hotspot glow" id="hs-savar" cx="225" cy="278" r="5" onclick="showHotspot('savar')" data-name="Savar / Nabinagar" data-div="Dhaka" />
+            <circle class="map-hotspot glow-intense" id="hs-gazipur" cx="254" cy="255" r="5" onclick="showHotspot('gazipur')" data-name="Gazipur Chowrasta" data-div="Dhaka" />
+            <circle class="map-hotspot glow" id="hs-shonir" cx="265" cy="318" r="4.5" onclick="showHotspot('shonir')" data-name="Shonir Akhra" data-div="Dhaka" />
+            <circle class="map-hotspot glow" id="hs-tangail" cx="230" cy="238" r="4.5" onclick="showHotspot('tangail')" data-name="Tangail Bus Stand" data-div="Dhaka" />
+            <circle class="map-hotspot glow" id="hs-manikganj" cx="215" cy="300" r="4" onclick="showHotspot('manikganj')" data-name="Manikganj N8 Junction" data-div="Dhaka" />
+
+            <!-- === CHATTOGRAM DIVISION === -->
+            <circle class="map-hotspot glow" id="hs-comilla" cx="310" cy="355" r="5" onclick="showHotspot('comilla')" data-name="Comilla Bypass" data-div="Chattogram" />
+            <circle class="map-hotspot glow" id="hs-daudkandi" cx="288" cy="340" r="4.5" onclick="showHotspot('daudkandi')" data-name="Daudkandi Bridge" data-div="Chattogram" />
+            <circle class="map-hotspot glow" id="hs-feni" cx="350" cy="430" r="4.5" onclick="showHotspot('feni')" data-name="Feni District Junction" data-div="Chattogram" />
+            <circle class="map-hotspot glow-intense" id="hs-ctg_city" cx="405" cy="555" r="5" onclick="showHotspot('ctg_city')" data-name="Chattogram City Hub" data-div="Chattogram" />
+            <circle class="map-hotspot glow" id="hs-coxsbazar" cx="390" cy="635" r="4.5" onclick="showHotspot('coxsbazar')" data-name="Cox's Bazar Coastal Road" data-div="Chattogram" />
+            <circle class="map-hotspot glow" id="hs-noakhali" cx="310" cy="395" r="4" onclick="showHotspot('noakhali')" data-name="Noakhali Trunk Road" data-div="Chattogram" />
+
+            <!-- === SYLHET DIVISION === -->
+            <circle class="map-hotspot glow" id="hs-sylhet" cx="400" cy="165" r="4.5" onclick="showHotspot('sylhet')" data-name="Sylhet–Tamabil Highway" data-div="Sylhet" />
+            <circle class="map-hotspot glow" id="hs-habiganj" cx="355" cy="215" r="4" onclick="showHotspot('habiganj')" data-name="Habiganj N2 Corridor" data-div="Sylhet" />
+
+            <!-- === RAJSHAHI DIVISION === -->
+            <circle class="map-hotspot glow" id="hs-rajshahi" cx="85" cy="230" r="4.5" onclick="showHotspot('rajshahi')" data-name="Rajshahi City Hub" data-div="Rajshahi" />
+            <circle class="map-hotspot glow" id="hs-bogura" cx="152" cy="190" r="4.5" onclick="showHotspot('bogura')" data-name="Bogura N7 Junction" data-div="Rajshahi" />
+            <circle class="map-hotspot glow" id="hs-natore" cx="120" cy="210" r="3.5" onclick="showHotspot('natore')" data-name="Natore Transit Corridor" data-div="Rajshahi" />
+
+            <!-- === RANGPUR DIVISION === -->
+            <circle class="map-hotspot glow" id="hs-rangpur" cx="142" cy="88" r="4.5" onclick="showHotspot('rangpur')" data-name="Rangpur City Bypass" data-div="Rangpur" />
+            <circle class="map-hotspot glow" id="hs-dinajpur" cx="110" cy="68" r="3.5" onclick="showHotspot('dinajpur')" data-name="Dinajpur–Thakurgaon Road" data-div="Rangpur" />
+
+            <!-- === KHULNA DIVISION === -->
+            <circle class="map-hotspot glow" id="hs-khulna" cx="118" cy="415" r="4.5" onclick="showHotspot('khulna')" data-name="Khulna City Junction" data-div="Khulna" />
+            <circle class="map-hotspot glow" id="hs-jessore" cx="95" cy="365" r="4" onclick="showHotspot('jessore')" data-name="Jessore N7 Corridor" data-div="Khulna" />
+
+            <!-- === BARISHAL DIVISION === -->
+            <circle class="map-hotspot glow" id="hs-barishal" cx="210" cy="420" r="4" onclick="showHotspot('barishal')" data-name="Barishal Launch Terminal" data-div="Barishal" />
+
+            <!-- === MYMENSINGH DIVISION === -->
+            <circle class="map-hotspot glow" id="hs-mymensingh" cx="270" cy="130" r="4.5" onclick="showHotspot('mymensingh')" data-name="Mymensingh City Hub" data-div="Mymensingh" />
           </g>
 
-          <!-- Labels (Muted, HUD style) -->
+          <!-- Labels -->
           <g id="mapLabels">
-            <text x="257" y="278" font-family="var(--mono)" font-size="8" fill="var(--text)" font-weight="700">DHAKA</text>
-            <text x="338" y="358" font-family="var(--mono)" font-size="7" fill="var(--muted)">Comilla</text>
-            <text x="390" y="170" font-family="var(--mono)" font-size="7" fill="var(--muted)">Sylhet</text>
-            <text x="265" y="162" font-family="var(--mono)" font-size="7" fill="var(--muted)">Mymensingh</text>
-            <text x="115" y="88" font-family="var(--mono)" font-size="7" fill="var(--muted)">Rangpur</text>
-            <text x="148" y="185" font-family="var(--mono)" font-size="7" fill="var(--muted)">Bogura</text>
-            <text x="228" y="398" font-family="var(--mono)" font-size="7" fill="var(--muted)">Barisal</text>
-            <text x="410" y="468" font-family="var(--mono)" font-size="7" fill="var(--muted)">Chittagong</text>
-            
+            <!-- Division labels -->
+            <text x="130" y="105" class="map-division-label">Rangpur</text>
+            <text x="80" y="250" class="map-division-label">Rajshahi</text>
+            <text x="255" y="155" class="map-division-label">Mymensingh</text>
+            <text x="375" y="155" class="map-division-label">Sylhet</text>
+            <text x="65" y="400" class="map-division-label">Khulna</text>
+            <text x="190" y="455" class="map-division-label">Barishal</text>
+            <text x="365" y="470" class="map-division-label">Chattogram</text>
+
+            <!-- City labels -->
+            <text x="260" y="298" class="map-city-label capital">DHAKA</text>
+            <text x="415" y="558" class="map-city-label">Chattogram</text>
+            <text x="408" y="162" class="map-city-label">Sylhet</text>
+            <text x="278" y="128" class="map-city-label">Mymensingh</text>
+            <text x="92" y="228" class="map-city-label">Rajshahi</text>
+            <text x="128" y="413" class="map-city-label">Khulna</text>
+            <text x="218" y="418" class="map-city-label">Barishal</text>
+            <text x="150" y="86" class="map-city-label">Rangpur</text>
+            <text x="318" y="353" class="map-city-label">Comilla</text>
+            <text x="395" y="633" class="map-city-label">Cox's Bazar</text>
+            <text x="158" y="188" class="map-city-label">Bogura</text>
+            <text x="238" y="236" class="map-city-label">Tangail</text>
+
             <!-- Highway Labels -->
-            <text x="360" y="415" font-family="var(--mono)" font-size="6" fill="var(--gold)" font-weight="700" transform="rotate(35, 360, 415)">N1</text>
-            <text x="315" y="215" font-family="var(--mono)" font-size="6" fill="var(--gold)" font-weight="700" transform="rotate(-30, 315, 215)">N2</text>
-            <text x="245" y="210" font-family="var(--mono)" font-size="6" fill="var(--gold)" font-weight="700" transform="rotate(90, 245, 210)">N3</text>
-            <text x="165" y="210" font-family="var(--mono)" font-size="6" fill="var(--gold)" font-weight="700" transform="rotate(45, 165, 210)">N5</text>
-            <text x="238" y="365" font-family="var(--mono)" font-size="6" fill="var(--gold)" font-weight="700" transform="rotate(75, 238, 365)">N8</text>
+            <text x="355" y="465" font-family="var(--mono)" font-size="5.5" fill="var(--gold)" font-weight="700" transform="rotate(38,355,465)">N1</text>
+            <text x="345" y="220" font-family="var(--mono)" font-size="5.5" fill="var(--gold)" font-weight="700" transform="rotate(-30,345,220)">N2</text>
+            <text x="245" y="225" font-family="var(--mono)" font-size="5.5" fill="var(--gold)" font-weight="700" transform="rotate(85,245,225)">N3</text>
+            <text x="165" y="225" font-family="var(--mono)" font-size="5.5" fill="var(--gold)" font-weight="700" transform="rotate(55,165,225)">N5</text>
+            <text x="200" y="360" font-family="var(--mono)" font-size="5.5" fill="var(--gold)" font-weight="700" transform="rotate(50,200,360)">N8</text>
+            <text x="398" y="600" font-family="var(--mono)" font-size="5.5" fill="var(--gold)" font-weight="700">N1x</text>
+          </g>
+
+          <!-- Heat map legend -->
+          <g id="mapLegend" transform="translate(15,640)">
+            <text x="0" y="0" class="map-legend" font-weight="700" fill="var(--muted)">FATALITY DENSITY</text>
+            <rect x="0" y="6" width="12" height="6" rx="1" fill="rgba(196,30,58,0.55)" />
+            <text x="16" y="12" class="map-legend">EXTREME</text>
+            <rect x="55" y="6" width="12" height="6" rx="1" fill="rgba(196,30,58,0.35)" />
+            <text x="71" y="12" class="map-legend">HIGH</text>
+            <rect x="98" y="6" width="12" height="6" rx="1" fill="rgba(212,160,96,0.3)" />
+            <text x="114" y="12" class="map-legend">MEDIUM</text>
+            <rect x="152" y="6" width="12" height="6" rx="1" fill="rgba(160,122,32,0.2)" />
+            <text x="168" y="12" class="map-legend">LOW</text>
+            <text x="0" y="26" class="map-legend" fill="var(--muted2)">Source: Deduplicated micro-data · RSF · Police records</text>
           </g>
         </svg>
       </div>
 
       <div class="map-details-card" id="mapDetails">
-        <div class="mdc-title" id="mdcNodeName">Hover over a hotspot node</div>
-        <div class="mdc-risk" id="mdcNodeRisk" style="color: var(--bloodl); font-weight: 700;">Select a pulsing node to audit risk factors</div>
-        <div class="mdc-desc" id="mdcNodeDesc">Interactive GIS risk model mapping historical collision records with infrastructural and operational variables.</div>
+        <div class="mdc-title" id="mdcNodeName">Select a hotspot node</div>
+        <div class="mdc-risk" id="mdcNodeRisk" style="color: var(--bloodl); font-weight: 700;">25 nationwide hotspots · 8 divisions · click any pulsing node</div>
+        <div class="mdc-desc" id="mdcNodeDesc">Country-wide GIS risk model mapping historical collision records with infrastructural, economic, and operational variables across all divisions of Bangladesh.</div>
+        <div class="mdc-division" id="mdcNodeDiv"></div>
       </div>
     </div>
   </div>
@@ -1501,45 +1713,163 @@ window.addEventListener("resize", () => drawTimeline(activeHoliday));
 
 // ═══ HIGHWAY MAP INTERACTIVE LOGIC ═══
 const hotspotProfiles = {
+  // ── DHAKA DIVISION ──
   tejgaon: {
-    name: "Tejgaon Industrial Corridor (Dhaka Central)",
+    name: "Tejgaon Industrial Corridor",
     risk: "High Risk Corridor (4/5)",
-    desc: "Deduplicated micro-data shows heavy concentration of nighttime cargo truck and utility vehicle collisions. Primary risks: high-speed cargo merging lanes, severe lack of pedestrian crossing islands, and extreme economic pressure under morning-due joma quotas."
+    division: "Dhaka Division",
+    desc: "Deduplicated micro-data shows heavy concentration of nighttime cargo truck collisions. Primary risks: high-speed cargo merging lanes, severe lack of pedestrian crossing islands, and extreme economic pressure under morning-due joma quotas."
   },
   airport: {
     name: "Airport Highway Roundabout (N3 Link)",
     risk: "Extreme Risk Bottleneck (5/5)",
-    desc: "Critical junction linking Dhaka to N3 (Mymensingh) and N5 (North Bengal). High-speed merging lanes intersect without active traffic signals. Pedestrians crossing to the railway terminal are exposed to local buses actively racing stop-to-stop."
+    division: "Dhaka Division",
+    desc: "Critical junction linking Dhaka to N3 (Mymensingh) and N5 (North Bengal). High-speed merging lanes intersect without active traffic signals. Pedestrians crossing to the railway terminal face buses actively racing stop-to-stop."
   },
   jatrabari: {
     name: "Jatrabari Highway Interchange (N1 Link)",
     risk: "Extreme Risk Bottleneck (5/5)",
-    desc: "Dhaka's primary southern entry point. High speed merging lanes from the Mayor Hanif Flyover meet long-distance coaches and local rickshaws. Extremely high pedestrian casualty rate (47% of Dhaka road victims are pedestrians near these highway transition nodes)."
+    division: "Dhaka Division",
+    desc: "Dhaka's primary southern entry point. High speed merging lanes from the Mayor Hanif Flyover meet long-distance coaches and local rickshaws. 47% of Dhaka road victims are pedestrians near these highway transition nodes."
   },
   savar: {
     name: "Savar / Nabinagar Transit Loop (N5)",
     risk: "High Risk Factory Belt (4/5)",
-    desc: "Industrial garments manufacturing zone on the N5 highway. Hundreds of thousands of factory workers cross the high-speed carriageway daily near local bus stops. Drivers racing to meet the daily joma quota create a highly lethal environment during shift changes."
+    division: "Dhaka Division",
+    desc: "Industrial garments zone on N5. Hundreds of thousands of factory workers cross the high-speed carriageway daily near bus stops. Drivers racing to meet daily joma create a lethal environment during shift changes."
   },
   gazipur: {
     name: "Gazipur Chowrasta Loop (N3/N5 Gateway)",
     risk: "Extreme Risk Gateway (5/5)",
-    desc: "The northern gateway linking Dhaka to 37 districts. High volume highway congestion point where long-distance coaches, city buses, and slow-moving three-wheelers are forced into undivided lanes. Highly prone to Eid-surge overtaking collisions."
-  },
-  comilla: {
-    name: "Comilla Bypass (N1 Highway Segment)",
-    risk: "High Speed Corridor (4/5)",
-    desc: "A fast, divided highway segment where drivers maintain high speeds for long stretches. The lack of speed cameras, combined with slow-moving cargo vehicles using the fast lane, creates high speed collision risks, especially at night."
+    division: "Dhaka Division",
+    desc: "Northern gateway linking Dhaka to 37 districts. High volume congestion point where long-distance coaches, city buses, and three-wheelers merge into undivided lanes. Highly prone to Eid-surge overtaking collisions."
   },
   shonir: {
     name: "Shonir Akhra Pedestrian Crossing (N1)",
     risk: "High Risk Crossing Void (4/5)",
-    desc: "A major pedestrian crossing bottleneck on the Dhaka-Chittagong highway. The lack of structural footbridges forces pedestrians to walk across the high-speed travel lanes, where coaches enter the city under night-time enforcement voids."
+    division: "Dhaka Division",
+    desc: "Major pedestrian crossing bottleneck on the Dhaka–Chittagong highway. No structural footbridges forces pedestrians across high-speed lanes, where coaches enter the city under night-time enforcement voids."
+  },
+  tangail: {
+    name: "Tangail Bus Terminal Junction (N4/N5)",
+    risk: "High Risk Junction (4/5)",
+    division: "Dhaka Division",
+    desc: "Major transit hub where N4 (Jamalpur) meets the N5 corridor. Overloaded buses and trucks compete for narrow road space. High concentration of head-on collisions on undivided stretches during Eid migration peaks."
+  },
+  manikganj: {
+    name: "Manikganj N8 Junction",
+    risk: "Moderate Risk Merging (3/5)",
+    division: "Dhaka Division",
+    desc: "Key junction on the Padma Bridge approach route. Increased traffic post-Padma Bridge opening (2022) without commensurate road widening has created new collision patterns, especially for southbound holiday traffic."
+  },
+  // ── CHATTOGRAM DIVISION ──
+  comilla: {
+    name: "Comilla Bypass (N1 Corridor)",
+    risk: "High Speed Corridor (4/5)",
+    division: "Chattogram Division",
+    desc: "Fast, divided highway segment where drivers maintain high speeds. Lack of speed cameras and slow-moving cargo vehicles in the fast lane create high collision risks, especially at night during long-haul coach operations."
   },
   daudkandi: {
     name: "Daudkandi Bridge Merging Loop (N1)",
     risk: "High Risk Merging Bottleneck (4/5)",
-    desc: "The bridge merging bottleneck on the Dhaka-Chittagong highway. During the holiday surge, vehicles face multi-hour congestion queues, driving aggressively to recoup lost time. High rate of head-on collisions on undivided bridge approaches."
+    division: "Chattogram Division",
+    desc: "Bridge merging bottleneck on N1. During holiday surges, vehicles face multi-hour congestion queues, then drive aggressively to recoup time. High rate of head-on collisions on undivided bridge approaches."
+  },
+  feni: {
+    name: "Feni District Junction (N1)",
+    risk: "High Risk Night Corridor (4/5)",
+    division: "Chattogram Division",
+    desc: "Critical N1 waypoint between Comilla and Chattogram. Long-haul buses accelerate through Feni between 11pm–4am under near-zero enforcement. Multiple documented multi-vehicle pile-ups in foggy winter months."
+  },
+  ctg_city: {
+    name: "Chattogram City Hub (Port Area)",
+    risk: "Extreme Risk Urban Density (5/5)",
+    division: "Chattogram Division",
+    desc: "Bangladesh's second-largest city and primary port. Heavy goods vehicles, inter-city coaches, and dense pedestrian traffic create a high-fatality urban environment. Port-area truck traffic runs 24 hours with minimal regulation."
+  },
+  coxsbazar: {
+    name: "Cox's Bazar Coastal Road",
+    risk: "High Risk Seasonal (4/5)",
+    division: "Chattogram Division",
+    desc: "The country's primary tourist highway sees massive seasonal traffic spikes. Narrow, winding coastal road with sheer drops. Tourist bus operators under intense commercial pressure replicate the joma racing model on mountain curves."
+  },
+  noakhali: {
+    name: "Noakhali Trunk Road",
+    risk: "Moderate Risk Corridor (3/5)",
+    division: "Chattogram Division",
+    desc: "Connects the southern chars to the N1 corridor. Poor road surface, absence of lane markings, and unlit stretches create persistent night-time collision risks for cargo and passenger vehicles."
+  },
+  // ── SYLHET DIVISION ──
+  sylhet: {
+    name: "Sylhet–Tamabil Highway",
+    risk: "High Risk Mountain Corridor (4/5)",
+    division: "Sylhet Division",
+    desc: "Mountainous border highway connecting Sylhet to the Indian frontier. Steep gradients, sharp curves, and heavily loaded stone-carrying trucks create a lethal mix. Brake failure is a leading documented cause of multi-fatality crashes."
+  },
+  habiganj: {
+    name: "Habiganj N2 Corridor",
+    risk: "Moderate Risk Undivided (3/5)",
+    division: "Sylhet Division",
+    desc: "Long undivided stretch on N2 between Brahmanbaria and Habiganj. High-speed overtaking on single carriageway is a leading cause of head-on collisions. No median barrier exists on this 60km stretch."
+  },
+  // ── RAJSHAHI DIVISION ──
+  rajshahi: {
+    name: "Rajshahi City Hub",
+    risk: "Moderate Risk Urban (3/5)",
+    division: "Rajshahi Division",
+    desc: "Western Bangladesh's largest city. Urban-rural interface creates collision hotspots where slow agricultural vehicles share roads with intercity buses. Documented pattern of pedestrian fatalities near university zone crossings."
+  },
+  bogura: {
+    name: "Bogura N7 Junction",
+    risk: "High Risk Corridor (4/5)",
+    division: "Rajshahi Division",
+    desc: "Critical junction connecting N5 (Dhaka–Rangpur) with N7 (Bogura–Dinajpur). High volume of both passenger and heavy cargo traffic. The junction lacks grade separation, creating dangerous merging conflicts during peak hours."
+  },
+  natore: {
+    name: "Natore Transit Corridor",
+    risk: "Moderate Risk (3/5)",
+    division: "Rajshahi Division",
+    desc: "Corridor connecting Rajshahi to the N5 highway. Mixed traffic of slow three-wheelers, intercity buses, and agricultural vehicles on narrow undivided roads. Night-time visibility near zero on unlit stretches."
+  },
+  // ── RANGPUR DIVISION ──
+  rangpur: {
+    name: "Rangpur City Bypass",
+    risk: "Moderate Risk (3/5)",
+    division: "Rangpur Division",
+    desc: "Northern Bangladesh's key transit city. The bypass road carries heavy truck traffic from the Indian border (Burimari). Poor road condition and absence of rest stops leads to fatigue-related crashes for long-haul drivers."
+  },
+  dinajpur: {
+    name: "Dinajpur–Thakurgaon Road",
+    risk: "Moderate Risk Border (3/5)",
+    division: "Rangpur Division",
+    desc: "Border-region highway carrying cross-border trade traffic. Heavily overloaded trucks on poor-quality road surfaces. Limited emergency response infrastructure means casualties from survivable crashes often escalate."
+  },
+  // ── KHULNA DIVISION ──
+  khulna: {
+    name: "Khulna City Junction",
+    risk: "Moderate Risk (3/5)",
+    division: "Khulna Division",
+    desc: "Southwest Bangladesh's primary urban centre. Post-Padma Bridge traffic surge (2022+) has dramatically increased vehicle volume without infrastructure upgrades. River ferry approach roads create congestion bottlenecks."
+  },
+  jessore: {
+    name: "Jessore N7 Corridor",
+    risk: "Moderate Risk (3/5)",
+    division: "Khulna Division",
+    desc: "Key highway connecting Khulna to Dhaka via the Padma Bridge. Increased traffic post-2022 on roads designed for lower volumes. No median barriers on long stretches create persistent head-on collision risks."
+  },
+  // ── BARISHAL DIVISION ──
+  barishal: {
+    name: "Barishal Launch Terminal Area",
+    risk: "Moderate Risk Transition (3/5)",
+    division: "Barishal Division",
+    desc: "Multi-modal transport hub where road traffic meets river launch services. Chaotic interchange between bus, auto-rickshaw, and pedestrian traffic at the launch terminal creates a persistent low-speed but high-casualty pedestrian zone."
+  },
+  // ── MYMENSINGH DIVISION ──
+  mymensingh: {
+    name: "Mymensingh City Hub (N3 Terminus)",
+    risk: "Moderate Risk (3/5)",
+    division: "Mymensingh Division",
+    desc: "N3 highway terminus and gateway to Haor regions. Undivided highway carrying Dhaka-bound coach traffic through the city centre. High pedestrian density near the medical university creates crossing conflicts."
   }
 };
 
@@ -1549,13 +1879,25 @@ function showHotspot(id) {
   
   document.getElementById("mdcNodeName").textContent = profile.name;
   document.getElementById("mdcNodeRisk").textContent = profile.risk;
-  document.getElementById("mdcNodeRisk").style.color = profile.risk.includes("Extreme") ? "var(--bloodl)" : "var(--amberl)";
+  document.getElementById("mdcNodeRisk").style.color = profile.risk.includes("Extreme") ? "var(--bloodl)" : profile.risk.includes("High") ? "var(--amberl)" : "var(--muted)";
   document.getElementById("mdcNodeDesc").textContent = profile.desc;
   
-  // Highlight map node
+  // Show division tag
+  const divEl = document.getElementById("mdcNodeDiv");
+  if (divEl && profile.division) divEl.textContent = profile.division;
+  
+  // Highlight map node and its division
   document.querySelectorAll(".map-hotspot").forEach(el => {
-    el.style.fill = el.id === `hs-${id}` ? "var(--bloodl)" : "var(--blood)";
-    el.style.r = el.id === `hs-${id}` ? "9px" : "6px";
+    const isSelected = el.id === `hs-${id}`;
+    el.style.fill = isSelected ? "var(--bloodl)" : "var(--blood)";
+    el.setAttribute("r", isSelected ? "8" : el.dataset.origR || "5");
+  });
+  
+  // Highlight the division polygon
+  const hotspotEl = document.getElementById(`hs-${id}`);
+  const divName = hotspotEl ? hotspotEl.getAttribute("data-div") : null;
+  document.querySelectorAll(".map-division").forEach(d => {
+    d.classList.toggle("highlighted", d.getAttribute("data-division") === divName);
   });
 }
 
@@ -1567,12 +1909,19 @@ function toggleMapLayer(layer) {
     el.style.display = show ? 'none' : 'block';
     btn.classList.toggle("active", !show);
   }
+  if (layer === 'heatmap') {
+    const el = document.getElementById("mapHeatmap");
+    const btn = document.getElementById("btnHeatmap");
+    const isVisible = el.classList.contains("visible");
+    el.classList.toggle("visible", !isVisible);
+    btn.classList.toggle("heat-active", !isVisible);
+  }
   if (layer === 'risk') {
     const zones = document.querySelectorAll(".map-risk-zone");
     const btn = document.getElementById("btnRiskZones");
     const firstVal = zones[0].style.opacity;
     const show = firstVal === '0' || firstVal === '';
-    zones.forEach(z => { z.style.opacity = show ? '0.75' : '0'; });
+    zones.forEach(z => { z.style.opacity = show ? '0.7' : '0'; });
     btn.classList.toggle("active", show);
   }
   if (layer === 'highways') {
