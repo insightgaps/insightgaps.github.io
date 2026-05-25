@@ -69,7 +69,7 @@ Motivated reasoning enters when teams suppress this trigger to protect sunk work
 ---
 
 ### GATE 3 — BUILD
-**Entry condition:** Frozen `architecture.md` and `/docs/02-design-system.md` both present
+**Entry condition:** Frozen `architecture.md` and `docs/governance/04a-design-tokens.md` both present
 **Active stack:** Codex / Claude Code / Antigravity
 **Action:** Component generation, data processing scripts, layout compilation
 **Constraint:** No architectural decisions at this stage. Implementation only. Deviations require returning to Gate 2.

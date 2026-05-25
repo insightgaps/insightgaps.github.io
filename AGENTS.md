@@ -3,14 +3,17 @@
 This file is the single source of truth for all coding agents operating in this repository.
 
 ## 1) Governance Documents
-Insight Gaps is governed by the following documents located in the repository root:
-- `03-content-architecture.md`
-- `04-content-schema.md`
-- `04a-design-tokens.md`
-- `04b-component-rules.md`
-- `04c-page-specs.md`
-- `04d-template-specs.md`
-- `06-ai-workflow.md`
+Insight Gaps is governed by the following documents located in `docs/governance/`.
+
+Read them in this order before making any changes:
+
+- `docs/governance/03-content-architecture.md`
+- `docs/governance/04-content-schema.md`
+- `docs/governance/04a-design-tokens.md`
+- `docs/governance/04b-component-rules.md`
+- `docs/governance/04c-page-specs.md`
+- `docs/governance/04d-template-specs.md`
+- `docs/governance/06-ai-workflow.md`
 
 **Requirement:** Agents MUST read all of these governance files before making any changes.
 
@@ -41,7 +44,7 @@ Insight Gaps is governed by the following documents located in the repository ro
 - **Conflict Protocol:** If any user request or instruction conflicts with the governance documentation, the agent must **STOP immediately and report the conflict** to the user.
 - **Minimal Diffs:** Always make the smallest possible change that satisfies the request. Keep unrelated files untouched.
 - **Pre-edit Explanation:** Always explain planned changes in detail before performing edits.
-- **Path Validation:** Always validate file paths against the repository architecture specified in `03-content-architecture.md`.
+- **Path Validation:** Always validate file paths against the repository architecture specified in `docs/governance/03-content-architecture.md`.
 - **Content Separation:** Always preserve the separation between the **investigation** and **analysis** content tracks.
 - **Locality:** Work only inside the cloned repository context. Treat the repo as the only valid working context. Do not make outside assumptions.
 - **Build Discipline:** Follow the locked architecture and page specs exactly. Use the existing design tokens and component rules only. Do not create ad hoc CSS or JS patterns when a shared asset already exists. Do not add dependencies unless approved.

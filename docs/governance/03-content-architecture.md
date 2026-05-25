@@ -182,14 +182,18 @@
 │
 │
 ├── docs/                              # OPERATING DOCUMENTATION — not deployed, version controlled
-│   ├── 01-operating-principles.md
-│   ├── 02-ai-roles.md
-│   ├── 03-content-architecture.md    # This file
-│   ├── 04-design-system.md           # Typography, color palette, spacing scale, grid rules
-│   ├── 05-investigation-workflow.md  # Full investigation lifecycle (iterative)
-│   ├── 06-ai-workflow.md             # AI operating engine — the five gates
-│   ├── 07-source-protection.md       # OPSEC protocol
-│   └── 08-corrections-policy.md      # Corrections and retractions framework
+│   ├── README.md                      # Documentation index and placement rules
+│   ├── WEBSITE_BLUEPRINT.md           # Website purpose, sitemap, priorities, and guardrails
+│   ├── governance/                    # Required rules for AI agents and human maintainers
+│   │   ├── README.md                  # Governance read order
+│   │   ├── 03-content-architecture.md # This file
+│   │   ├── 04-content-schema.md       # Required fields for each page type
+│   │   ├── 04a-design-tokens.md       # Typography, color palette, spacing scale, grid rules
+│   │   ├── 04b-component-rules.md     # Shared components and visual behavior
+│   │   ├── 04c-page-specs.md          # Page assembly rules
+│   │   ├── 04d-template-specs.md      # Template skeletons and slots
+│   │   └── 06-ai-workflow.md          # AI operating engine — the five gates
+│   └── publication/                   # Release plans, audits, inventories, implementation notes
 │
 │
 └── _meta/                             # DEPLOYMENT METADATA
