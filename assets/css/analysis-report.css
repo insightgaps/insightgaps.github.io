@@ -103,3 +103,28 @@
     font-size: 2rem;
   }
 }
+
+/* Sticky Local Sub-Navigation Wrapper */
+.sticky-subnav-wrapper {
+  position: sticky;
+  top: 4rem;
+  z-index: var(--z-raised);
+  background-color: rgba(249, 248, 246, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: var(--border-width) solid var(--color-border);
+  padding: var(--space-2) 0;
+  margin-bottom: var(--space-6);
+  transition: top 0.25s ease;
+}
+
+.sticky-subnav-inner {
+  max-width: var(--grid-wide);
+  margin: 0 auto;
+  padding: 0 var(--grid-padding);
+}
+
+.sticky-subnav-inner .rsn {
+  border-bottom: none;
+  margin-top: 0;
+}

@@ -169,3 +169,66 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Next Diagnostic Card Component */
+.next-diagnostic-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--color-surface);
+  border: var(--border-width) solid var(--color-border);
+  border-left: var(--border-width-accent) solid var(--color-accent);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  margin-top: var(--space-7);
+  margin-bottom: var(--space-7);
+  text-decoration: none;
+  color: inherit;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.next-diagnostic-card:hover {
+  transform: translateX(4px);
+  border-color: var(--color-border-strong);
+  color: inherit;
+}
+
+.next-diagnostic-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.next-diagnostic-card__label {
+  font-family: var(--font-mono);
+  font-size: var(--type-label);
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+}
+
+.next-diagnostic-card__title {
+  font-family: var(--font-headline);
+  font-size: var(--type-h3);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 2px;
+}
+
+.next-diagnostic-card__desc {
+  font-family: var(--font-body);
+  font-size: var(--type-body-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-body);
+}
+
+.next-diagnostic-card__arrow {
+  font-size: var(--type-h2);
+  color: var(--color-accent);
+  transition: transform var(--transition-fast);
+  padding-left: var(--space-4);
+}
+
+.next-diagnostic-card:hover .next-diagnostic-card__arrow {
+  transform: translateX(4px);
+}

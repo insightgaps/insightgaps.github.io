@@ -93,7 +93,13 @@
           <div class="analysis-report__metadata-item">Rework WOs: <span>100</span></div>
         </div>
 
-        <nav class="rsn rsn--header" aria-label="Report navigation">
+      </div>
+    </div>
+
+    <!-- Sticky Local Navigation -->
+    <div class="sticky-subnav-wrapper">
+      <div class="sticky-subnav-inner">
+        <nav class="rsn" aria-label="Report navigation">
           <a href="financial-health.html" class="snl">Financial Health</a>
           <a href="leakage-breakdown.html" class="snl active" aria-current="page">Leakage Breakdown</a>
           <a href="work-order-breakdown.html" class="snl">Work Order Breakdown</a>
@@ -340,13 +346,15 @@
         </ul>
       </section>
 
-      <!-- Navigation tabs (bottom) -->
-      <nav class="rsn" aria-label="Report navigation bottom" style="margin-top: var(--space-7); margin-bottom: var(--space-6); border-top: var(--border-width) solid var(--color-border); padding-top: var(--space-5);">
-        <a href="financial-health.html" class="snl">Financial Health</a>
-        <a href="leakage-breakdown.html" class="snl active" style="color: var(--color-accent); border-bottom-color: var(--color-accent);">Leakage Breakdown</a>
-        <a href="work-order-breakdown.html" class="snl">Work Order Breakdown</a>
-        <a href="sheet.html" class="snl">Workbook &amp; Dashboard</a>
-      </nav>
+      <!-- Next Diagnostic Callout -->
+      <a href="work-order-breakdown.html" class="next-diagnostic-card">
+        <div class="next-diagnostic-card__content">
+          <span class="next-diagnostic-card__label">Next Diagnostic</span>
+          <h3 class="next-diagnostic-card__title">Work Order Breakdown: Performance Bottlenecks</h3>
+          <p class="next-diagnostic-card__desc">Examine cycle times, client validation delays, and photo compliance issues across the vendor roster.</p>
+        </div>
+        <div class="next-diagnostic-card__arrow" aria-hidden="true">&rarr;</div>
+      </a>
 
       <!-- Section 4 — Methodology -->
       <section class="analysis-methodology-box" aria-label="Methodology">
