@@ -85,6 +85,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:var(--nav-bg);bac
 .nav-links a.active{color:var(--text);border-bottom-color:var(--gold)}
 .nav-actions{display:flex;align-items:center;gap:.75rem;flex-shrink:0}
 @media(max-width:768px){.nav-links{display:none}}
+.nav-ham{display:none;flex-direction:column;gap:4px;cursor:pointer;background:none;border:none;padding:6px 4px;margin-left:.5rem}
+.nav-ham span{display:block;width:18px;height:2px;background:var(--muted);border-radius:1px;transition:all .25s}
+.nav-ham.open span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+.nav-ham.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.nav-ham.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
+.nav-drawer{display:none;position:fixed;top:52px;left:0;right:0;background:var(--nav-bg);border-bottom:1px solid var(--border);padding:1.2rem 2rem;z-index:880;backdrop-filter:blur(16px)}
+.nav-drawer.open{display:flex;flex-direction:column}
+.nav-drawer a{font-family:var(--sans);font-size:0.875rem;color:var(--muted);padding:.65rem 0;border-bottom:1px solid var(--border);text-decoration:none;transition:color .2s}
+.nav-drawer a:hover{color:var(--text)}
+.nav-drawer a:last-child{border-bottom:none}
+@media(max-width:768px){.nav-ham{display:flex}}
 
 /* ═══ HERO ═══ */
 #hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 2rem 4rem;position:relative;overflow-x:clip;background:var(--ink)}
@@ -407,8 +418,40 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:var(--nav-bg);bac
   </div>
   <div class="nav-actions">
     <button class="theme-toggle-btn" aria-label="Switch theme" title="Toggle theme" style="background:none;border:none;cursor:pointer;font-size:.9rem;padding:4px 8px;color:var(--muted);opacity:.7;flex-shrink:0"><span class="theme-icon">●</span></button>
+    <button class="nav-ham" id="navHam" aria-label="Open navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
+<div class="nav-drawer" id="navDrawer" aria-hidden="true">
+  <a href="/content/investigations/">Investigations</a>
+  <a href="/analysis/">Analysis</a>
+  <a href="/archive.html">Archive</a>
+  <a href="/about.html">About</a>
+  <a href="/content/trust/methodology.html">Trust</a>
+  <a href="/content/investigations/the-impunity-machine/tracker.html" style="color:var(--blood)">&#9711; Impunity Tracker</a>
+  <a href="/content/investigations/the-impunity-machine/methodology.html" style="color:var(--gold)">Methodology &#8594;</a>
+</div>
+<script>
+(function(){
+  var ham=document.getElementById('navHam');
+  var drawer=document.getElementById('navDrawer');
+  if(ham&&drawer){
+    ham.addEventListener('click',function(){
+      var isOpen=drawer.classList.toggle('open');
+      ham.classList.toggle('open',isOpen);
+      ham.setAttribute('aria-expanded',isOpen);
+      drawer.setAttribute('aria-hidden',!isOpen);
+    });
+    document.addEventListener('click',function(e){
+      if(!ham.contains(e.target)&&!drawer.contains(e.target)){
+        drawer.classList.remove('open');
+        ham.classList.remove('open');
+        ham.setAttribute('aria-expanded','false');
+        drawer.setAttribute('aria-hidden','true');
+      }
+    });
+  }
+})();
+</script>
 
 <!-- ═══════════════════════════════════════════
      HERO
@@ -464,7 +507,49 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:var(--nav-bg);bac
 
     <div class="context-actions">
       <a href="#evidence-export" class="btn-ctx btn-ctx-red">View Evidence Export</a>
-      <a href="/content/investigations/the-impunity-machine/methodology/methodology.md" class="btn-ctx btn-ctx-outline">Methodology &amp; Standards →</a>
+      <a href="/content/investigations/the-impunity-machine/methodology.html" class="btn-ctx btn-ctx-outline">Methodology &amp; Standards &#8594;</a>
+      <a href="/content/investigations/the-impunity-machine/tracker.html" class="btn-ctx btn-ctx-outline">&#9711; Live Tracker &#8594;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     KEY NUMBERS
+════════════════════════════════════════════ -->
+<section id="key-numbers" style="background:var(--ink);border-bottom:1px solid var(--border)">
+  <div style="max-width:1100px;margin:0 auto;padding:3.5rem 2rem 4rem">
+    <div style="font-family:var(--mono);font-size:0.575rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted2);text-align:center;margin-bottom:1.5rem">Key Numbers &middot; BD-INV-002 &middot; The Impunity Machine</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)">
+      <div style="background:var(--ink2);padding:2rem 1.4rem;text-align:center">
+        <div style="font-family:var(--mono);font-size:clamp(2.5rem,5vw,3.5rem);font-weight:700;color:var(--blood);line-height:1;letter-spacing:-.04em">0.46%</div>
+        <div style="font-family:var(--mono);font-size:0.575rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:.6rem;line-height:1.65">Conviction rate<br>23-yr OCC programme</div>
+        <div style="font-family:var(--mono);font-size:0.47rem;color:var(--muted2);margin-top:.5rem;line-height:1.6">310 of 66,711 &middot; Daily Star 2024 &middot; CONFIRMED</div>
+      </div>
+      <div style="background:var(--ink2);padding:2rem 1.4rem;text-align:center;border-left:1px solid var(--border)">
+        <div style="font-family:var(--mono);font-size:clamp(1.7rem,3.2vw,2.5rem);font-weight:700;color:var(--bloodl);line-height:1;letter-spacing:-.04em">1 in 4,650</div>
+        <div style="font-family:var(--mono);font-size:0.575rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:.6rem;line-height:1.65">Probability a rape<br>results in punishment</div>
+        <div style="font-family:var(--mono);font-size:0.47rem;color:var(--muted2);margin-top:.5rem;line-height:1.6">Compound model &middot; IG-MODEL &middot; PROBABLE</div>
+      </div>
+      <div style="background:var(--ink2);padding:2rem 1.4rem;text-align:center;border-left:1px solid var(--border)">
+        <div style="font-family:var(--mono);font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--amberl);line-height:1;letter-spacing:-.04em">~150,000</div>
+        <div style="font-family:var(--mono);font-size:0.575rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:.6rem;line-height:1.65">Cases pending<br>March 2025</div>
+        <div style="font-family:var(--mono);font-size:0.47rem;color:var(--muted2);margin-top:.5rem;line-height:1.6">PHQ via SHARE-Net + DS &middot; S-63, S-64 &middot; CONFIRMED</div>
+      </div>
+      <div style="background:var(--ink2);padding:2rem 1.4rem;text-align:center;border-top:1px solid var(--border)">
+        <div style="font-family:var(--mono);font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--gold);line-height:1;letter-spacing:-.04em">2,349</div>
+        <div style="font-family:var(--mono);font-size:0.575rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:.6rem;line-height:1.65">Days average<br>wait for verdict</div>
+        <div style="font-family:var(--mono);font-size:0.47rem;color:var(--muted2);margin-top:.5rem;line-height:1.6">BRAC/Agile 2022 &middot; 16 districts &middot; 385 cases &middot; CONFIRMED</div>
+      </div>
+      <div style="background:var(--ink2);padding:2rem 1.4rem;text-align:center;border-top:1px solid var(--border);border-left:1px solid var(--border)">
+        <div style="font-family:var(--mono);font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--bloodl);line-height:1;letter-spacing:-.04em">92%</div>
+        <div style="font-family:var(--mono);font-size:0.575rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:.6rem;line-height:1.65">DNA samples<br>unprocessed 2025</div>
+        <div style="font-family:var(--mono);font-size:0.47rem;color:var(--muted2);margin-top:.5rem;line-height:1.6">1,204 of 1,304 &middot; NFDPL Sep 2025 &middot; S-66 &middot; CONFIRMED</div>
+      </div>
+      <div style="background:var(--ink2);padding:2rem 1.4rem;text-align:center;border-top:1px solid var(--border);border-left:1px solid var(--border)">
+        <div style="font-family:var(--mono);font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--gold);line-height:1;letter-spacing:-.04em">50 of 64</div>
+        <div style="font-family:var(--mono);font-size:0.575rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:.6rem;line-height:1.65">Districts with<br>no full OCC</div>
+        <div style="font-family:var(--mono);font-size:0.47rem;color:var(--muted2);margin-top:.5rem;line-height:1.6">GoB UNSG Submission May 2024 &middot; S-09 &middot; CONFIRMED</div>
+      </div>
     </div>
   </div>
 </section>
@@ -1164,6 +1249,119 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:var(--nav-bg);bac
 <hr class="divider">
 
 <!-- ═══════════════════════════════════════════
+     TIMELINE
+════════════════════════════════════════════ -->
+<section id="s-timeline" style="background:var(--ink2);border-top:1px solid var(--border);padding:5rem 2rem">
+  <div style="max-width:780px;margin:0 auto">
+    <div style="font-family:var(--mono);font-size:0.575rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);margin-bottom:.8rem">Legislative Timeline &middot; 2000&ndash;2026</div>
+    <h2 style="font-family:var(--display);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;letter-spacing:-.02em;margin-bottom:.7rem">25 Years. Zero Official Conviction Data Published.</h2>
+    <p style="font-size:0.875rem;color:var(--muted);line-height:1.75;margin-bottom:2.5rem">Every legislative milestone. The same compliance gap. The law moves. The accountability data does not appear.</p>
+    <div style="position:relative;padding-left:1.8rem">
+      <div style="position:absolute;left:.4rem;top:0;bottom:0;width:2px;background:var(--border)"></div>
+      <!-- 2000 -->
+      <div style="position:relative;padding-bottom:1.8rem">
+        <div style="position:absolute;left:-1.4rem;top:.3rem;width:10px;height:10px;border-radius:50%;background:var(--gold2);border:2px solid var(--ink2)"></div>
+        <div style="font-family:var(--mono);font-size:0.675rem;font-weight:700;color:var(--gold)">2000</div>
+        <div style="font-size:0.875rem;font-weight:600;color:var(--text);margin-top:.2rem">WCRPA enacted</div>
+        <div style="font-size:0.8rem;color:var(--muted);line-height:1.65;margin-top:.25rem">Women and Children Repression Prevention Act. Creates Nari-O-Shishu Tribunals. 180-day trial mandate. Death penalty for rape of minors.</div>
+      </div>
+      <!-- 2001 -->
+      <div style="position:relative;padding-bottom:1.8rem">
+        <div style="position:absolute;left:-1.4rem;top:.3rem;width:10px;height:10px;border-radius:50%;background:var(--gold2);border:2px solid var(--ink2)"></div>
+        <div style="font-family:var(--mono);font-size:0.675rem;font-weight:700;color:var(--gold)">2001</div>
+        <div style="font-size:0.875rem;font-weight:600;color:var(--text);margin-top:.2rem">First OCC opened &middot; Tribunals begin operating</div>
+        <div style="font-size:0.8rem;color:var(--muted);line-height:1.65;margin-top:.25rem">The 23-year clock starts. 66,711 women will come to these centres. 310 convictions will result &mdash; a 0.46% rate that will not be published by any government agency.</div>
+      </div>
+      <!-- 2015 -->
+      <div style="position:relative;padding-bottom:1.8rem">
+        <div style="position:absolute;left:-1.4rem;top:.3rem;width:10px;height:10px;border-radius:50%;background:var(--amber);border:2px solid var(--ink2)"></div>
+        <div style="font-family:var(--mono);font-size:0.675rem;font-weight:700;color:var(--gold)">2015</div>
+        <div style="font-size:0.875rem;font-weight:600;color:var(--text);margin-top:.2rem">Witness Protection Bill drafted &mdash; not enacted</div>
+        <div style="font-size:0.8rem;color:var(--muted);line-height:1.65;margin-top:.25rem">Bill exists. Parliament has not passed it. Witnesses remain unprotected across four successive governments. Still pending as of 2026.</div>
+        <div style="font-family:var(--mono);font-size:0.48rem;color:var(--amber);margin-top:.35rem;letter-spacing:.08em">STATUS: UNENACTED &middot; GA-008 &middot; CONFIRMED ABSENT</div>
+      </div>
+      <!-- 2016 -->
+      <div style="position:relative;padding-bottom:1.8rem">
+        <div style="position:absolute;left:-1.4rem;top:.3rem;width:10px;height:10px;border-radius:50%;background:var(--amber);border:2px solid var(--ink2)"></div>
+        <div style="font-family:var(--mono);font-size:0.675rem;font-weight:700;color:var(--gold)">2016</div>
+        <div style="font-size:0.875rem;font-weight:600;color:var(--text);margin-top:.2rem">CEDAW: Remove marital rape exemption</div>
+        <div style="font-size:0.8rem;color:var(--muted);line-height:1.65;margin-top:.25rem">CEDAW Committee (CEDAW/C/BGD/CO/8, Para 19a) required removal. Still in force in 2026. 47 countries have enacted marital rape laws since Bangladesh received this instruction.</div>
+        <div style="font-family:var(--mono);font-size:0.48rem;color:var(--amber);margin-top:.35rem;letter-spacing:.08em">STATUS: NOT COMPLIED &middot; GA-009 &middot; CONFIRMED</div>
+      </div>
+      <!-- 2020 -->
+      <div style="position:relative;padding-bottom:1.8rem">
+        <div style="position:absolute;left:-1.4rem;top:.3rem;width:10px;height:10px;border-radius:50%;background:var(--blood);border:2px solid var(--ink2)"></div>
+        <div style="font-family:var(--mono);font-size:0.675rem;font-weight:700;color:var(--gold)">October 2020</div>
+        <div style="font-size:0.875rem;font-weight:600;color:var(--text);margin-top:.2rem">Death penalty added for all rape</div>
+        <div style="font-size:0.8rem;color:var(--muted);line-height:1.65;margin-top:.25rem">WCRPA amended to maximum severity. Conviction rate: did not improve. Academic consensus: certainty deters crime; severity alone does not. Bangladesh chose severity. The backlog grew.</div>
+        <div style="font-family:var(--mono);font-size:0.48rem;color:var(--blood);margin-top:.35rem;letter-spacing:.08em">OUTCOME: NO DOCUMENTED IMPROVEMENT &middot; GA-006 &middot; CONFIRMED ABSENT (comparison data)</div>
+      </div>
+      <!-- 2022-2023 -->
+      <div style="position:relative;padding-bottom:1.8rem">
+        <div style="position:absolute;left:-1.4rem;top:.3rem;width:10px;height:10px;border-radius:50%;background:var(--blood);border:2px solid var(--ink2)"></div>
+        <div style="font-family:var(--mono);font-size:0.675rem;font-weight:700;color:var(--bloodl)">March 2022 &rarr; April 2023</div>
+        <div style="font-size:0.875rem;font-weight:600;color:var(--text);margin-top:.2rem">Runa Akhter &mdash; the &sect;17 inversion</div>
+        <div style="font-size:0.8rem;color:var(--muted);line-height:1.65;margin-top:.25rem">Filed rape case (March 2022). Convicted under &sect;17 in 56 days (April 13, 2023). Her original rape case: still pending as of March 2026 &mdash; 1,461+ days later.</div>
+        <div style="font-family:var(--mono);font-size:0.48rem;color:var(--bloodl);margin-top:.35rem;letter-spacing:.08em">CONFIRMED &middot; S-14, S-69 &middot; Cox's Bazar</div>
+      </div>
+      <!-- 2025 -->
+      <div style="position:relative;padding-bottom:1.8rem">
+        <div style="position:absolute;left:-1.4rem;top:.3rem;width:10px;height:10px;border-radius:50%;background:var(--amber);border:2px solid var(--ink2)"></div>
+        <div style="font-family:var(--mono);font-size:0.675rem;font-weight:700;color:var(--gold)">2025</div>
+        <div style="font-size:0.875rem;font-weight:600;color:var(--text);margin-top:.2rem">2025 Amendment Ordinance &middot; 90-day limit &middot; &sect;17 expanded</div>
+        <div style="font-size:0.8rem;color:var(--muted);line-height:1.65;margin-top:.25rem">90-day trial limit replaces 180-day. &sect;17 expanded to include &ldquo;loss of dignity or reputation.&rdquo; Compliance rate: unpublished. DNA backlog: 92% unprocessed. Cases pending: ~150,000.</div>
+        <div style="font-family:var(--mono);font-size:0.48rem;color:var(--amber);margin-top:.35rem;letter-spacing:.08em">90-DAY COMPLIANCE RATE: CONFIRMED ABSENT &middot; GA-003</div>
+      </div>
+      <!-- 2026 -->
+      <div style="position:relative">
+        <div style="position:absolute;left:-1.4rem;top:.3rem;width:10px;height:10px;border-radius:50%;background:var(--muted2);border:2px solid var(--ink2)"></div>
+        <div style="font-family:var(--mono);font-size:0.675rem;font-weight:700;color:var(--muted)">March 2026</div>
+        <div style="font-size:0.875rem;font-weight:600;color:var(--text);margin-top:.2rem">This investigation published</div>
+        <div style="font-size:0.8rem;color:var(--muted);line-height:1.65;margin-top:.25rem">25 years since WCRPA. 310 convictions from 66,711 women. No annual conviction rate ever published by government. No witness protection law. 90-day mandate compliance unpublished. The machine continues.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     HOW WE DID THIS
+════════════════════════════════════════════ -->
+<section id="how-we-did-this" style="background:var(--ink);border-top:1px solid var(--border);padding:5rem 2rem">
+  <div style="max-width:780px;margin:0 auto">
+    <div style="font-family:var(--mono);font-size:0.575rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);margin-bottom:.8rem">Transparency &middot; BD-INV-002</div>
+    <h2 style="font-family:var(--display);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;letter-spacing:-.02em;margin-bottom:2rem">How This Investigation Was Built</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);border:1px solid var(--border);margin-bottom:2rem">
+      <div style="background:var(--ink2);padding:1.4rem 1.6rem">
+        <div style="font-family:var(--mono);font-size:0.525rem;letter-spacing:.15em;text-transform:uppercase;color:var(--blood);margin-bottom:.6rem">91 Named Sources</div>
+        <p style="font-size:0.825rem;color:var(--text2);line-height:1.85">Every factual claim carries a CONFIRMED, PROBABLE, or CONFIRMED ABSENT tier label. No claim appears without a named source. The conviction rate range (0.12%&ndash;3.66%) is fully documented with denominator explanations for each of the 12 measurements.</p>
+      </div>
+      <div style="background:var(--ink2);padding:1.4rem 1.6rem;border-left:1px solid var(--border)">
+        <div style="font-family:var(--mono);font-size:0.525rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold2);margin-bottom:.6rem">Source Hierarchy</div>
+        <p style="font-size:0.825rem;color:var(--text2);line-height:1.85">Priority: (1)&nbsp;GoB official statistics, (2)&nbsp;UN treaty body documents, (3)&nbsp;peer-reviewed studies with primary data collection, (4)&nbsp;major NGO programme evaluations, (5)&nbsp;named investigative journalism citing primary documents.</p>
+      </div>
+      <div style="background:var(--ink2);padding:1.4rem 1.6rem;border-top:1px solid var(--border)">
+        <div style="font-family:var(--mono);font-size:0.525rem;letter-spacing:.15em;text-transform:uppercase;color:var(--amberl);margin-bottom:.6rem">The Visualisations</div>
+        <p style="font-size:0.825rem;color:var(--text2);line-height:1.85">All figures in the scrollytelling scenes are sourced identically to the text. Denominator differences are explicitly labelled. The 1-in-4,650 probability is marked PROBABLE &mdash; a compound attrition model, not a direct count.</p>
+      </div>
+      <div style="background:var(--ink2);padding:1.4rem 1.6rem;border-top:1px solid var(--border);border-left:1px solid var(--border)">
+        <div style="font-family:var(--mono);font-size:0.525rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.6rem">12 Confirmed Gaps</div>
+        <p style="font-size:0.825rem;color:var(--text2);line-height:1.85">12 confirmed absent datasets are formally documented (GA-001 through GA-012). Each represents data a specific institution holds and does not publish. These are not research limitations &mdash; they are accountability findings.</p>
+      </div>
+    </div>
+    <div style="display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:2rem">
+      <a href="/content/investigations/the-impunity-machine/methodology.html" style="font-family:var(--mono);font-size:0.575rem;letter-spacing:.1em;text-transform:uppercase;padding:.7rem 1.4rem;background:transparent;color:var(--gold2);border:1px solid rgba(138,105,20,.4);text-decoration:none;transition:all .2s">Full Methodology &#8594;</a>
+      <a href="/content/investigations/the-impunity-machine/tracker.html" style="font-family:var(--mono);font-size:0.575rem;letter-spacing:.1em;text-transform:uppercase;padding:.7rem 1.4rem;background:transparent;color:var(--muted);border:1px solid var(--border);text-decoration:none;transition:all .2s">&#9711; Active Tracker &#8594;</a>
+      <a href="/data/BD-INV-002_Master_Evidence_File.xlsx" style="font-family:var(--mono);font-size:0.575rem;letter-spacing:.1em;text-transform:uppercase;padding:.7rem 1.4rem;background:transparent;color:var(--muted);border:1px solid var(--border);text-decoration:none;transition:all .2s">&#8595; Evidence File</a>
+    </div>
+    <div style="font-family:var(--mono);font-size:0.48rem;color:var(--muted2);line-height:1.9;border-top:1px solid var(--border);padding-top:1.5rem">
+      BD-INV-002 &middot; The Impunity Machine &middot; Version 3.0 &middot; March 2026 &middot; Insight Gaps<br>
+      91 named sources &middot; All claims evidence-tiered &middot; Her Story: composite figure, all details from primary sources &middot; CC BY-NC 4.0<br>
+      Anonymous publication &middot; Open-source posture &middot; Corrections: <a href="mailto:insightgaps@proton.me" style="color:var(--gold2)">insightgaps@proton.me</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
      CLOSING
 ════════════════════════════════════════════ -->
 <section id="closing">
@@ -1183,13 +1381,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:var(--nav-bg);bac
     <div class="iv"><div class="iv-n">Intervention 05</div><div class="iv-t">Section 17 National Registry</div><div class="iv-d">No institution tracks &#167;17 prosecutions. Under the 2025 expansion, monitoring is urgent. A court-level reporting requirement creates the first national registry. Required: Supreme Court administrative order.</div><div class="iv-m">Required: one administrative directive</div></div>
     <div class="iv"><div class="iv-n">Intervention 06</div><div class="iv-t">Marital Rape Criminalisation</div><div class="iv-d">CEDAW required this in 2016. 47 countries have enacted it since. The exemption creates a legal category of invisible violence. Required: one amendment to WCRPA Section 2.</div><div class="iv-m">CEDAW/C/BGD/CO/8 &middot; 2016 &middot; Para 19(a)</div></div>
   </div>
-  <div class="btn-row" id="evidence-export">
-    <a class="btn btn-red" href="#" onclick="dlCSV(event)">&#8595; Download Evidence Data</a>
-    <a class="btn btn-teal" href="#" onclick="dlCSV(event)">Evidence Rows (CSV) &#8594;</a>
-    <a class="btn btn-gold" href="/content/investigations/the-impunity-machine/methodology/methodology.md">Methodology &#8594;</a>
-    <a class="btn btn-gold" href="#" onclick="dlCSV(event)">&#8595; Download Evidence Data</a>
+  <div class="btn-row" id="evidence-export" style="flex-direction:column;align-items:center;gap:1.2rem">
+    <div style="display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center">
+      <a class="btn btn-red" href="/data/BD-INV-002_Master_Evidence_File.xlsx">&#8595; Master Evidence File (Excel)</a>
+      <a class="btn btn-teal" href="#" onclick="dlCSV(event)">&#8595; Evidence Export (CSV)</a>
+    </div>
+    <div style="display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center">
+      <a class="btn btn-gold" href="/content/investigations/the-impunity-machine/methodology.html">Methodology &#8594;</a>
+      <a class="btn btn-gold" href="/content/investigations/the-impunity-machine/tracker.html">&#9711; Active Tracker</a>
+      <a class="btn btn-gold" href="/data/cases.json">cases.json</a>
+      <a class="btn btn-gold" href="/data/monthly.json">monthly.json</a>
+    </div>
   </div>
-  <div class="tier-note">BD-INV-002 &middot; The Impunity Machine &middot; Version 3.0 &middot; March 2026 &middot; Insight Gaps<br>91 named sources &middot; All claims evidence-tiered &middot; Her Story panels: composite figure, all details from primary sources &middot; CC BY-NC 4.0<br>Anonymous publication &middot; Open-source posture &middot; <a href="/content/investigations/the-impunity-machine/methodology/methodology.md">Full methodology &#8594;</a></div>
+  <div class="tier-note">BD-INV-002 &middot; The Impunity Machine &middot; Version 3.0 &middot; March 2026 &middot; Insight Gaps<br>91 named sources &middot; All claims evidence-tiered &middot; Her Story panels: composite figure, all details from primary sources &middot; CC BY-NC 4.0<br>Anonymous publication &middot; Open-source posture &middot; <a href="/content/investigations/the-impunity-machine/methodology.html">Full methodology &#8594;</a></div>
 </section>
 
 <script>
