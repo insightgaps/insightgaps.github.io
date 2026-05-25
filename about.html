@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About — Insight Gaps Bureau</title>
-  <meta name="description" content="Who runs Insight Gaps Bureau, why it exists, how it is funded, and the editorial principles behind the work.">
+  <title>About the Bureau — Insight Gaps Bureau</title>
+  <meta name="description" content="Insight Gaps Bureau is an independent forensic data journalism organization and operational intelligence practice based in Dhaka, Bangladesh, producing accountability investigations and public-interest data audits.">
   <meta property="og:type"        content="website">
   <meta property="og:title"       content="About — Insight Gaps Bureau">
-  <meta property="og:description" content="Who runs Insight Gaps Bureau, why it exists, and how it is funded.">
+  <meta property="og:description" content="Independent forensic data journalism and operational intelligence from Dhaka, Bangladesh. Built to verify facts and expose systemic gaps.">
   <meta property="og:url"         content="https://insightgaps.com/about.html">
   <meta property="og:image"       content="/assets/img/og-default.jpg">
   <link rel="canonical" href="https://insightgaps.com/about.html">
@@ -15,6 +15,64 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="stylesheet" href="/assets/css/components.css">
+
+  <!-- JSON-LD Structured Data for AI & Search Discoverability -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "NewsMediaOrganization",
+        "@id": "https://insightgaps.com/#organization",
+        "name": "Insight Gaps Bureau",
+        "url": "https://insightgaps.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://insightgaps.com/assets/img/og-default.jpg"
+        },
+        "description": "An independent forensic data journalism bureau and operational intelligence practice based in Dhaka, Bangladesh, producing accountability investigations and public-interest data analysis.",
+        "publishingPrinciples": "https://insightgaps.com/content/trust/methodology.html",
+        "correctionsPolicy": "https://insightgaps.com/content/trust/corrections.html",
+        "founder": {
+          "@id": "https://insightgaps.com/#person"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://insightgaps.com/#person",
+        "name": "Anowar Hossain Anik",
+        "jobTitle": [
+          "Founder & Editor",
+          "Forensic Data Journalist",
+          "Operational Intelligence Analyst"
+        ],
+        "affiliation": {
+          "@id": "https://insightgaps.com/#organization"
+        },
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "University of Chittagong",
+          "sameAs": "https://en.wikipedia.org/wiki/University_of_Chittagong"
+        },
+        "description": "Founder and Sole Editor of Insight Gaps Bureau, specializing in operations analytics, operational intelligence systems, KPI reporting design, geospatial investigation, and public records analysis.",
+        "knowsAbout": [
+          "Data Journalism",
+          "Forensic Investigation",
+          "Geospatial Intelligence",
+          "Operational Performance",
+          "Public Records Research",
+          "KPI Frameworks",
+          "Workflow Analysis"
+        ],
+        "award": [
+          "Data Journalism Certificate from Transparency International Bangladesh (TIB)",
+          "Digital Journalism Certification from Reuters & Meta Journalism Project"
+        ]
+      }
+    ]
+  }
+  </script>
+
   <style>
 
     .about-page {
@@ -175,6 +233,101 @@
       margin-bottom: 0;
     }
 
+    /* Selected investigations list */
+    .investigation-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+      margin: var(--space-6) 0;
+    }
+    .investigation-item {
+      background: var(--color-surface);
+      border: var(--border-width) solid var(--color-border);
+      border-left: 4px solid var(--color-accent);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: var(--space-6);
+      transition: border-color var(--transition-fast);
+    }
+    .investigation-item:hover {
+      border-color: var(--color-border-strong);
+    }
+    .investigation-item__title {
+      font-family: var(--font-headline);
+      font-size: var(--type-h3);
+      font-weight: 700;
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-2);
+    }
+    .investigation-item__title a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .investigation-item__title a:hover {
+      color: var(--color-accent);
+      text-decoration: underline;
+    }
+    .investigation-item__meta {
+      font-family: var(--font-mono);
+      font-size: var(--type-label);
+      color: var(--color-text-muted);
+      display: block;
+      margin-bottom: var(--space-3);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-wide);
+    }
+    .investigation-item__desc {
+      font-family: var(--font-body);
+      font-size: var(--type-body-sm);
+      line-height: var(--leading-body);
+      color: var(--color-text-secondary);
+      margin-bottom: 0 !important;
+    }
+
+    /* Methodology pipeline list */
+    .pipeline-list {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: var(--space-3);
+      margin: var(--space-6) 0;
+      list-style: none;
+      padding: 0;
+    }
+    @media (max-width: 768px) {
+      .pipeline-list {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+      }
+    }
+    .pipeline-step {
+      background: var(--color-surface);
+      border: var(--border-width) solid var(--color-border);
+      border-top: 3px solid var(--color-border-strong);
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+      text-align: left;
+    }
+    .pipeline-step__num {
+      font-family: var(--font-mono);
+      font-size: var(--type-label);
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: var(--space-2);
+    }
+    .pipeline-step__name {
+      font-family: var(--font-headline);
+      font-size: var(--type-body-sm);
+      font-weight: 700;
+      color: var(--color-text-primary);
+      display: block;
+      margin-bottom: var(--space-2);
+    }
+    .pipeline-step__desc {
+      font-family: var(--font-body);
+      font-size: 13px;
+      line-height: 1.4;
+      color: var(--color-text-secondary);
+    }
+
   </style>
 </head>
 <body>
@@ -201,10 +354,9 @@
 
     <div class="about-page__header">
       <div class="about-page__header-inner">
-        <h1 class="about-page__title">About Insight Gaps</h1>
+        <h1 class="about-page__title">About the Bureau</h1>
         <p class="about-page__intro">
-          An independent forensic data journalism bureau based in Dhaka, Bangladesh.
-          Built to find what the numbers are not being asked to say.
+          An independent forensic investigation bureau, data journalism organization, and operational intelligence practice based in Dhaka, Bangladesh.
         </p>
       </div>
     </div>
@@ -214,41 +366,91 @@
       <h2>Mission</h2>
 
       <p>
-        Insight Gaps Bureau exists to produce forensic data journalism on issues
-        that affect public health, the environment, and institutional accountability
-        in Bangladesh. The bureau's work begins with data — raw, primary, and
-        independently verified — and ends with published investigations that name
-        what the data shows.
+        Insight Gaps Bureau exists to produce forensic data audits and environmental risk investigations in the public interest. The bureau's work begins with geocoded coordinates, public records, and legal archives, and ends with published investigations that name what the evidence shows.
       </p>
       <p>
-        The name reflects the operating premise: the most important stories are not
-        in what has been reported, but in what the available data has not yet been
-        asked to reveal. Every investigation starts by identifying a gap — between
-        what institutions say and what the records show, between what policies
-        promise and what the numbers confirm.
+        Our operating premise is that the most important stories are not in what is declared, but in what the available records have not yet been asked to reveal. Every investigation starts by identifying a gap — between what institutions report and what the raw data confirms.
       </p>
 
-      <h2>Editor</h2>
+      <h2>Selected Investigations</h2>
+
+      <div class="investigation-list" aria-label="Selected Investigations">
+        
+        <div class="investigation-item">
+          <h3 class="investigation-item__title">
+            <a href="/content/investigations/the-lead-belt/">The Lead Belt (BD-INV-003)</a>
+          </h3>
+          <span class="investigation-item__meta">Data-Driven Spatial Audit</span>
+          <p class="investigation-item__desc">
+            A comprehensive spatial audit of 294 lead-contaminated sites across Bangladesh. The analysis cross-referenced site coordinates with 7,257 OpenStreetMap school nodes, revealing that 44 toxic sites sit within 500 meters of primary schools, putting an estimated 39,875 students at risk of cognitive and physical development issues.
+          </p>
+        </div>
+
+        <div class="investigation-item">
+          <h3 class="investigation-item__title">
+            <a href="/content/investigations/the-impunity-machine/">The Impunity Machine (BD-INV-002)</a>
+          </h3>
+          <span class="investigation-item__meta">Institutional Audit & Enforcement Tracker</span>
+          <p class="investigation-item__desc">
+            A forensic investigation into the Department of Environment's enforcement drives, tracking why illegal lead acid battery smelters continue operating despite judicial closures. The audit documented a pattern of administrative impunity, fine evasion, and regulatory loopholes.
+          </p>
+        </div>
+
+      </div>
+
+      <h2>Our Approach</h2>
+
+      <p>
+        Every investigation is built on a structured data-verification pipeline to ensure reproducibility and absolute accuracy.
+      </p>
+
+      <ol class="pipeline-list" aria-label="Methodology Gates">
+        <li class="pipeline-step">
+          <span class="pipeline-step__num">Gate 01</span>
+          <span class="pipeline-step__name">Records</span>
+          <span class="pipeline-step__desc">Acquiring raw directories, geocoded datasets, and official registries.</span>
+        </li>
+        <li class="pipeline-step">
+          <span class="pipeline-step__num">Gate 02</span>
+          <span class="pipeline-step__name">Verification</span>
+          <span class="pipeline-step__desc">Cross-checking coordinates, satellite imagery, and academic sources.</span>
+        </li>
+        <li class="pipeline-step">
+          <span class="pipeline-step__num">Gate 03</span>
+          <span class="pipeline-step__name">Analysis</span>
+          <span class="pipeline-step__desc">Applying mathematical models, spatial buffers, and statistical audits.</span>
+        </li>
+        <li class="pipeline-step">
+          <span class="pipeline-step__num">Gate 04</span>
+          <span class="pipeline-step__name">Publication</span>
+          <span class="pipeline-step__desc">Releasing the reports alongside raw Excel files and data dashboards.</span>
+        </li>
+        <li class="pipeline-step">
+          <span class="pipeline-step__num">Gate 05</span>
+          <span class="pipeline-step__name">Corrections</span>
+          <span class="pipeline-step__desc">Logging corrections and edits permanently on an append-only register.</span>
+        </li>
+      </ol>
+
+      <h2>Founder &amp; Editor</h2>
 
       <div class="editor-block">
         <p class="editor-block__name">Anowar Hossain Anik</p>
-        <span class="editor-block__role">Founder &amp; Sole Editor</span>
+        <span class="editor-block__role">Founder &amp; Lead Investigator</span>
+        
         <p class="editor-block__bio">
-          Anik is a Business Analyst by profession and a data journalist by practice,
-          based in Dhaka, Bangladesh. He founded Insight Gaps Bureau to apply
-          systematic data analysis to public interest reporting — bringing the
-          same forensic rigour used in business intelligence to accountability journalism.
+          Anowar Hossain Anik is an Operations &amp; Performance Analyst, public records researcher, and geospatial investigation practitioner based in Dhaka. He founded Insight Gaps Bureau to apply the systematic rigour of operational intelligence and forensic data analysis to public-interest journalism.
         </p>
+        
         <p class="editor-block__bio">
-          He holds certifications in Data Journalism from Transparency International
-          Bangladesh (TIB) and in Digital Journalism from Reuters and Meta. His
-          technical work spans Advanced Excel, Google Sheets, Looker Studio,
-          Power BI, Tableau, SQL, and Python.
+          His professional expertise includes designing KPI frameworks, workflow reporting systems, exception analysis methodologies, and SLA performance tracking. He specializes in mapping spatial datasets and tracing regulatory failures.
         </p>
-        <ul class="credentials-list" aria-label="Credentials">
-          <li>Data Journalism Certificate — Transparency International Bangladesh (TIB)</li>
-          <li>Digital Journalism Certificate — Reuters / Meta</li>
-          <li>Specialist skills: Excel, Sheets, Looker Studio, Power BI, Tableau, SQL, Python</li>
+
+        <ul class="credentials-list" aria-label="Qualifications & Credentials">
+          <li><strong>BSS (Honours) in Communication &amp; Journalism</strong> — University of Chittagong</li>
+          <li><strong>Data Journalism Certification</strong> — Transparency International Bangladesh (TIB)</li>
+          <li><strong>Digital Journalism Certification</strong> — Reuters &amp; Meta Journalism Project</li>
+          <li><strong>Expertise</strong> — Operational performance audits, KPI design, spatial data analysis, and geocoded record verification.</li>
         </ul>
       </div>
 
@@ -257,33 +459,28 @@
       <div class="funding-block" role="note" aria-label="Funding disclosure">
         <span class="funding-block__label">Funding disclosure</span>
         <p class="funding-block__text">
-          Insight Gaps Bureau is currently self-funded by its sole editor.
-          No external organisation, donor, government body, or corporate
-          entity funds or influences the bureau's editorial output.
+          Insight Gaps Bureau is completely self-funded by its founder. We accept no political funding, government grants, or corporate sponsorships.
         </p>
         <p class="funding-block__text">
-          The bureau's analysis track — forensic business reports commissioned
-          by clients — generates income that supports continued investigative work.
-          Commercial analysis work is clearly separated from the investigations
-          track. No client has any editorial input into investigations.
+          The bureau's commercial analysis track — forensic business intelligence, reporting systems, and operational audits commissioned by corporate clients — generates the revenue that supports our public-interest data investigations.
         </p>
         <p class="funding-block__text">
-          If the funding model changes, this disclosure will be updated immediately.
+          An absolute firewall separates commercial client engagements from investigative reporting. Clients have no preview rights, influence, or oversight regarding published investigations.
         </p>
       </div>
 
-      <h2>Methodology</h2>
+      <h2>Trust Infrastructure</h2>
 
       <p>
-        Every investigation published by Insight Gaps Bureau passes through a
-        defined five-gate verification workflow. No claim is published without
-        a traceable primary source. No correction is suppressed. The full
-        methodology — including verification tiers, data handling rules, and
-        AI tool constraints — is publicly documented.
+        Credibility requires transparency. To ensure readers can verify and replicate our findings, the bureau maintains a public trust infrastructure:
       </p>
-      <p>
-        <a href="/content/trust/methodology.html">Read the full methodology →</a>
-      </p>
+
+      <ul class="credentials-list" aria-label="Trust Infrastructure Links" style="margin-top: var(--space-4);">
+        <li><a href="/content/trust/methodology.html"><strong>Methodology Philosophy</strong></a> — Details our verification tiers, data handling protocols, and replication instructions.</li>
+        <li><a href="/content/trust/ai-use.html"><strong>AI Use Disclosure</strong></a> — Lists the specific roles of AI assistants in our research workflow and defines our human-editor verification requirements.</li>
+        <li><a href="/content/trust/corrections.html"><strong>Corrections Log</strong></a> — An append-only record documenting every factual correction made to our published investigations.</li>
+        <li><a href="/contact.html"><strong>Contact &amp; Tips</strong></a> — Provides channels to securely submit documents, data, or tips to the bureau.</li>
+      </ul>
 
     </article>
 
