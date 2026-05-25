@@ -69,12 +69,19 @@
 }
 
 .rsn {
-  border-bottom: var(--border-width) solid var(--color-border);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.sticky-subnav-inner .rsn {
+  flex-wrap: nowrap;
 }
 
 .rsn--header {
   margin-top: var(--space-6);
-  padding: var(--space-2) var(--space-4) 0;
+  padding: var(--space-3);
   background: var(--color-surface);
   border: var(--border-width) solid var(--color-border);
   border-radius: var(--radius-lg);
@@ -82,20 +89,27 @@
 }
 
 .rsn .snl {
+  font-family: var(--font-mono);
+  font-size: var(--type-label);
   color: var(--color-text-secondary);
   text-decoration: none;
-  padding: var(--space-3) 0;
-  border-bottom: 2px solid transparent;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
 }
 
 .rsn .snl.active,
 .rsn .snl[aria-current="page"] {
   color: var(--color-accent);
-  border-bottom-color: var(--color-accent);
+  background-color: var(--color-accent-subtle);
+  border-color: var(--color-accent-border);
 }
 
 .rsn .snl:hover {
   color: var(--color-text-primary);
+  background-color: rgba(26, 25, 23, 0.04);
 }
 
 @media (max-width: 768px) {
@@ -113,7 +127,7 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: var(--border-width) solid var(--color-border);
-  padding: var(--space-2) 0;
+  padding: var(--space-3) 0;
   margin-bottom: var(--space-6);
   transition: top 0.25s ease;
 }
@@ -124,7 +138,20 @@
   padding: 0 var(--grid-padding);
 }
 
-.sticky-subnav-inner .rsn {
-  border-bottom: none;
-  margin-top: 0;
+@media (max-width: 768px) {
+  .sticky-subnav-wrapper {
+    padding: var(--space-2) 0;
+  }
+  .sticky-subnav-inner {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .sticky-subnav-inner::-webkit-scrollbar {
+    display: none;
+  }
+  .sticky-subnav-inner .rsn {
+    padding-bottom: 2px;
+  }
 }
