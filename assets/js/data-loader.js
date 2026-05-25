@@ -49,6 +49,7 @@
   }
 
   function investigationUrl(inv) {
+    if (inv.url) return inv.url;
     return '/content/investigations/' + encodeURIComponent(inv.slug || '') + '/';
   }
 
