@@ -1255,9 +1255,26 @@ html[data-theme="dark"] .sub-nav {
         <button class="toggle-btn" data-year="2026" onclick="setMapYear(2026)">2026</button>
       </div>
 
-      <div style="position: relative; width: 100%; height: 640px; border: 1px solid var(--border); border-radius: 2px; overflow: hidden; background: var(--ink3);">
+      <div style="position: relative; width: 100%; height: 640px; border: 1px solid var(--border); border-radius: 2px; overflow: hidden; background: var(--ink3);" id="leafmap-container">
         <!-- Leaflet Map Div -->
         <div id="leafmap" style="width: 100%; height: 100%;"></div>
+        
+        <!-- Floating Tooltip for Divisions -->
+        <div id="div-tooltip" style="
+          position: absolute;
+          z-index: 1000;
+          background: rgba(13, 13, 24, 0.95);
+          border: 1px solid var(--border);
+          color: var(--text);
+          padding: 0.6rem 0.9rem;
+          font-family: var(--mono);
+          font-size: 0.72rem;
+          border-radius: 2px;
+          pointer-events: none;
+          display: none;
+          box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+          line-height: 1.45;
+        "></div>
 
         <!-- Map Loading Spinner overlay -->
         <div id="map-loading" style="position: absolute; inset: 0; background: rgba(6, 6, 14, 0.94); z-index: 1000; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: var(--mono); font-size: 0.85rem; color: var(--muted); gap: 1rem;">
@@ -2391,6 +2408,19 @@ let MAP;
 let accidentCluster;
 let allAccidents = [];
 let activeYear = 'all';
+let geojsonLayer;
+let divisionLayers = {};
+
+const divisionPops = {
+  'Dhaka': 44.20,
+  'Chattogram': 33.20,
+  'Rajshahi': 20.40,
+  'Rangpur': 17.60,
+  'Khulna': 17.40,
+  'Mymensingh': 12.20,
+  'Sylhet': 11.00,
+  'Barishal': 9.10
+};
 
 // Initialize map on DOMContentLoaded
 window.addEventListener('DOMContentLoaded', function() {
@@ -2439,28 +2469,198 @@ window.addEventListener('DOMContentLoaded', function() {
 
   MAP.addLayer(accidentCluster);
 
-  // Fetch the enriched JSON dataset
-  fetch('/data/blood_routes_accidents.json')
-    .then(res => {
-      if (!res.ok) throw new Error('Data load failed');
+  // Listen to map zoom changes to switch layers
+  MAP.on('zoomend', updateMapLayers);
+
+  // Fetch both the boundary GeoJSON and the accident logs concurrently
+  Promise.all([
+    fetch('/data/bangladesh.geojson').then(res => {
+      if (!res.ok) throw new Error('Boundary GeoJSON load failed');
+      return res.json();
+    }),
+    fetch('/data/blood_routes_accidents.json').then(res => {
+      if (!res.ok) throw new Error('Accident dataset load failed');
       return res.json();
     })
-    .then(data => {
-      allAccidents = data;
-      renderAccidents();
-      
-      // Remove loading screen
-      const loader = document.getElementById('map-loading');
-      if (loader) loader.remove();
-    })
-    .catch(err => {
-      console.error('Error loading map data:', err);
-      const loader = document.getElementById('map-loading');
-      if (loader) {
-        loader.innerHTML = '<span style="color:var(--bloodl)">Error loading interactive map data.</span>';
+  ])
+  .then(([geoData, accData]) => {
+    allAccidents = accData;
+    initChoropleth(geoData);
+    renderAccidents();
+    updateMapLayers();
+    
+    // Remove loading screen
+    const loader = document.getElementById('map-loading');
+    if (loader) loader.remove();
+  })
+  .catch(err => {
+    console.error('Error loading map assets:', err);
+    const loader = document.getElementById('map-loading');
+    if (loader) {
+      loader.innerHTML = '<span style="color:var(--bloodl)">Error loading interactive map assets.</span>';
+    }
+  });
+});
+
+function getDivisionStats(divName) {
+  const filtered = allAccidents.filter(a => {
+    return (activeYear === 'all' || a.year === activeYear) && a.division === divName;
+  });
+  
+  const count = filtered.length;
+  const pop = divisionPops[divName] || 10.0;
+  const rate = count > 0 ? (count / pop).toFixed(2) : "0.00";
+  
+  return {
+    count: count,
+    pop: pop,
+    rate: rate
+  };
+}
+
+function getDivisionColor(divName) {
+  const stats = getDivisionStats(divName);
+  const r = parseFloat(stats.rate);
+  
+  if (activeYear === 'all') {
+    if (r >= 17.0) return 'rgba(196, 30, 58, 0.75)'; // Extreme
+    if (r >= 12.0) return 'rgba(196, 30, 58, 0.55)'; // High-Extreme
+    if (r >= 8.0)  return 'rgba(212, 160, 96, 0.65)'; // High
+    if (r >= 5.0)  return 'rgba(201, 168, 76, 0.5)';  // Moderate
+    return 'rgba(122, 117, 144, 0.25)'; // Low
+  } else {
+    if (r >= 2.5) return 'rgba(196, 30, 58, 0.75)'; // Extreme
+    if (r >= 1.8) return 'rgba(196, 30, 58, 0.55)'; // High-Extreme
+    if (r >= 1.2) return 'rgba(212, 160, 96, 0.65)'; // High
+    if (r >= 0.6) return 'rgba(201, 168, 76, 0.5)';  // Moderate
+    return 'rgba(122, 117, 144, 0.25)'; // Low
+  }
+}
+
+function initChoropleth(geoData) {
+  divisionLayers = {};
+  
+  geojsonLayer = L.geoJSON(geoData, {
+    style: styleFeature,
+    onEachFeature: onEachFeature
+  });
+  
+  function styleFeature(feature) {
+    const divName = feature.properties.division_name;
+    return {
+      fillColor: getDivisionColor(divName),
+      weight: 0.6,
+      opacity: 0.15,
+      color: 'var(--border)',
+      fillOpacity: 0.55
+    };
+  }
+  
+  function onEachFeature(feature, layer) {
+    const divName = feature.properties.division_name;
+    if (!divName) return;
+    
+    if (!divisionLayers[divName]) {
+      divisionLayers[divName] = [];
+    }
+    divisionLayers[divName].push(layer);
+    
+    layer.on({
+      mouseover: function(e) {
+        highlightDivision(divName);
+        showDivisionTooltip(divName, e.originalEvent);
+      },
+      mouseout: function(e) {
+        resetDivisionHighlight(divName);
+        hideDivisionTooltip();
+      },
+      click: function() {
+        fmHighlightDiv(divName);
       }
     });
-});
+  }
+}
+
+function highlightDivision(divName) {
+  if (divisionLayers[divName]) {
+    divisionLayers[divName].forEach(layer => {
+      layer.setStyle({
+        fillOpacity: 0.8,
+        weight: 1.2,
+        color: 'var(--amberl)'
+      });
+    });
+  }
+}
+
+function resetDivisionHighlight(divName) {
+  if (divisionLayers[divName]) {
+    divisionLayers[divName].forEach(layer => {
+      if (geojsonLayer) geojsonLayer.resetStyle(layer);
+    });
+  }
+}
+
+function showDivisionTooltip(divName, event) {
+  const tooltip = document.getElementById('div-tooltip');
+  const mapContainer = document.getElementById('leafmap');
+  if (!tooltip || !mapContainer) return;
+  
+  const stats = getDivisionStats(divName);
+  
+  tooltip.innerHTML = `
+    <div style="font-weight: 700; color: var(--text); font-family: var(--display); font-size: 0.85rem; margin-bottom: 0.2rem;">${divName} Division</div>
+    <div style="color: var(--muted); margin-bottom: 0.15rem;">Population: ${stats.pop}M</div>
+    <div style="color: var(--bloodl); font-weight: 700; margin-bottom: 0.15rem;">Accidents: ${stats.count}</div>
+    <div style="color: var(--amberl); font-weight: 700;">Rate: ${stats.rate} per million</div>
+  `;
+  
+  const rect = mapContainer.getBoundingClientRect();
+  tooltip.style.display = 'block';
+  tooltip.style.left = (event.clientX - rect.left + 15) + 'px';
+  tooltip.style.top = (event.clientY - rect.top + 15) + 'px';
+}
+
+function hideDivisionTooltip() {
+  const tooltip = document.getElementById('div-tooltip');
+  if (tooltip) tooltip.style.display = 'none';
+}
+
+function updateMapLayers() {
+  if (!MAP) return;
+  const currentZoom = MAP.getZoom();
+  
+  if (currentZoom <= 7.5) {
+    // Zoomed out: Show Choropleth, Hide Marker Clusters
+    if (geojsonLayer && !MAP.hasLayer(geojsonLayer)) {
+      MAP.addLayer(geojsonLayer);
+    }
+    // Refresh colors in case the year filter changed
+    if (geojsonLayer) {
+      geojsonLayer.setStyle(function(feature) {
+        const divName = feature.properties.division_name;
+        return {
+          fillColor: getDivisionColor(divName),
+          weight: 0.6,
+          opacity: 0.15,
+          color: 'var(--border)',
+          fillOpacity: 0.55
+        };
+      });
+    }
+    if (accidentCluster && MAP.hasLayer(accidentCluster)) {
+      MAP.removeLayer(accidentCluster);
+    }
+  } else {
+    // Zoomed in: Hide Choropleth, Show Marker Clusters
+    if (geojsonLayer && MAP.hasLayer(geojsonLayer)) {
+      MAP.removeLayer(geojsonLayer);
+    }
+    if (accidentCluster && !MAP.hasLayer(accidentCluster)) {
+      MAP.addLayer(accidentCluster);
+    }
+  }
+}
 
 function getMarkerIcon(deaths) {
   let size = 9;
@@ -2620,6 +2820,7 @@ function setMapYear(year) {
   });
 
   renderAccidents();
+  updateMapLayers();
   
   // Reset map view
   if (MAP) {
