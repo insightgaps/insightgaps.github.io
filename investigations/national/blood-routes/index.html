@@ -2321,14 +2321,73 @@ const hotspotProfiles = {
   }
 };
 
+function getHotspotAccidents(id) {
+  const searchTerms = {
+    tejgaon: 'tejgaon',
+    airport: 'airport',
+    jatrabari: 'jatrabari',
+    savar: 'savar',
+    gazipur: 'gazipur',
+    shonir: 'shonir',
+    tangail: 'tangail',
+    manikganj: 'manikganj',
+    comilla: 'comilla',
+    daudkandi: 'daudkandi',
+    feni: 'feni',
+    ctg_city: 'chattogram',
+    coxsbazar: 'cox',
+    noakhali: 'noakhali',
+    sylhet: 'sylhet',
+    habiganj: 'habiganj',
+    rajshahi: 'rajshahi',
+    bogura: 'bogura',
+    natore: 'natore',
+    rangpur: 'rangpur',
+    dinajpur: 'dinajpur',
+    khulna: 'khulna',
+    jessore: 'jashore',
+    barishal: 'barishal',
+    mymensingh: 'mymensingh'
+  };
+  
+  const term = searchTerms[id];
+  if (!term || !allAccidents) return [];
+  
+  return allAccidents.filter(a => a.location.toLowerCase().includes(term));
+}
+
 function showHotspot(id) {
   const profile = hotspotProfiles[id];
   if (!profile) return;
   
+  // Calculate dynamic stats
+  const filtered = getHotspotAccidents(id);
+  const count = filtered.length;
+  const deaths = filtered.reduce((sum, a) => sum + a.deaths, 0);
+  const injuries = filtered.reduce((sum, a) => sum + a.injuries, 0);
+  
+  const busCounts = {};
+  filtered.forEach(a => {
+    if (a.bus_name) {
+      busCounts[a.bus_name] = (busCounts[a.bus_name] || 0) + 1;
+    }
+  });
+  const topBuses = Object.entries(busCounts)
+    .sort((a, b) => b[1] - a[1])
+    .map(entry => entry[0])
+    .slice(0, 2)
+    .join(', ');
+  
   document.getElementById("mdcNodeName").textContent = profile.name;
-  document.getElementById("mdcNodeRisk").textContent = profile.risk;
-  document.getElementById("mdcNodeRisk").style.color = profile.risk.includes("Extreme") ? "var(--bloodl)" : profile.risk.includes("High") ? "var(--amberl)" : "var(--muted)";
-  document.getElementById("mdcNodeDesc").textContent = profile.desc;
+  
+  let riskStr = `${profile.risk} · ${count} Crashes, ${deaths} Deaths`;
+  if (topBuses) {
+    riskStr += ` · Key Bus: ${topBuses}`;
+  }
+  document.getElementById("mdcNodeRisk").textContent = riskStr;
+  document.getElementById("mdcNodeRisk").style.color = profile.risk.includes("Extreme") ? "var(--bloodl)" : "var(--amberl)";
+  
+  document.getElementById("mdcNodeDesc").innerHTML = `${profile.desc}<br><br><strong style="color: var(--text);">Data Audit (2016-2026):</strong> This node represents a major highway corridor bottleneck, recording <strong>${count}</strong> unique fatal and severe crashes, resulting in <strong>${deaths}</strong> deaths and <strong>${injuries}</strong> injuries. ${topBuses ? `Commercial carriers operating under daily joma leases (primarily <strong>${topBuses}</strong>) are frequently documented in these collisions.` : ''}`;
   
   // Show division tag
   const divEl = document.getElementById("mdcNodeDiv");
