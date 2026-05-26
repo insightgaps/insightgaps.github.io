@@ -2469,6 +2469,8 @@ let allAccidents = [];
 let activeYear = 'all';
 let geojsonLayer;
 let divisionLayers = {};
+let highwayLayerGroup;
+let labelLayerGroup;
 
 const divisionPops = {
   'Dhaka': 44.20,
@@ -2480,6 +2482,83 @@ const divisionPops = {
   'Sylhet': 11.00,
   'Barishal': 9.10
 };
+
+const highwaysData = {
+  'N1': {
+    name: 'N1 Highway (Dhaka-Chattogram-Cox\'s Bazar)',
+    coords: [
+      [23.7099, 90.4485], // Jatrabari
+      [23.7145, 90.4262], // Shonir Akhra
+      [23.5312, 90.7225], // Daudkandi
+      [23.4682, 91.1785], // Comilla
+      [23.0135, 91.3985], // Feni
+      [22.3155, 91.8015], // Chattogram
+      [21.4339, 92.0158]  // Cox's Bazar
+    ]
+  },
+  'N2': {
+    name: 'N2 Highway (Dhaka-Sylhet)',
+    coords: [
+      [23.7099, 90.4485],
+      [23.9229, 90.7176], // Narsingdi
+      [24.0479, 90.9824], // Bhairab
+      [24.3842, 91.4125], // Habiganj
+      [24.8949, 91.8687]  // Sylhet
+    ]
+  },
+  'N3': {
+    name: 'N3 Highway (Dhaka-Mymensingh)',
+    coords: [
+      [23.7599, 90.3982], // Tejgaon
+      [23.7777, 90.4005], // Mohakhali
+      [23.8517, 90.4002], // Airport
+      [23.9998, 90.3785], // Gazipur
+      [24.7471, 90.4203]  // Mymensingh
+    ]
+  },
+  'N5': {
+    name: 'N5 Highway (Dhaka-Savar-Tangail-Bogura)',
+    coords: [
+      [23.8061, 90.3669], // Mirpur
+      [23.8967, 90.2678], // Savar
+      [23.8617, 89.9833], // Manikganj
+      [24.2502, 89.9167], // Tangail
+      [24.4102, 89.0125], // Natore
+      [24.8481, 89.3730], // Bogura
+      [25.7439, 89.2752], // Rangpur
+      [25.6279, 88.6332]  // Dinajpur
+    ]
+  },
+  'N8': {
+    name: 'N8 Expressway (Dhaka-Barishal)',
+    coords: [
+      [23.7099, 90.4485],
+      [23.6822, 90.4311], // Postogola
+      [23.4795, 90.2598], // Mawa
+      [23.4478, 90.2415], // Padma Bridge
+      [23.3812, 90.1485], // Bhanga
+      [22.7010, 90.3535]  // Barishal
+    ]
+  },
+  'N7': {
+    name: 'N7 Highway (Khulna-Jashore)',
+    coords: [
+      [22.8456, 89.5403], // Khulna
+      [23.1667, 89.2133]  // Jashore
+    ]
+  }
+};
+
+const dhakaLabels = [
+  { name: "Tejgaon", coords: [23.7599, 90.3982] },
+  { name: "Airport", coords: [23.8517, 90.4002] },
+  { name: "Jatrabari", coords: [23.7099, 90.4485] },
+  { name: "Mirpur", coords: [23.8061, 90.3669] },
+  { name: "Uttara", coords: [23.8720, 90.3990] },
+  { name: "Savar", coords: [23.8967, 90.2678] },
+  { name: "Badda / Progati Sarani", coords: [23.7800, 90.4200] },
+  { name: "Banani", coords: [23.7925, 90.4125] }
+];
 
 // Initialize map on DOMContentLoaded
 window.addEventListener('DOMContentLoaded', function() {
@@ -2527,6 +2606,65 @@ window.addEventListener('DOMContentLoaded', function() {
   });
 
   MAP.addLayer(accidentCluster);
+
+  // Initialize highway polylines
+  highwayLayerGroup = L.layerGroup();
+  Object.entries(highwaysData).forEach(([code, hw]) => {
+    const line = L.polyline(hw.coords, {
+      color: 'rgba(201, 168, 76, 0.4)', // Gold
+      weight: 2.8,
+      opacity: 0.6,
+      lineCap: 'round',
+      lineJoin: 'round'
+    });
+    
+    line.bindTooltip(hw.name, {
+      sticky: true,
+      className: 'leaflet-tooltip'
+    });
+    
+    line.on('mouseover', function() {
+      line.setStyle({
+        color: 'var(--bloodl)',
+        weight: 3.8
+      });
+    });
+    
+    line.on('mouseout', function() {
+      line.setStyle({
+        color: 'rgba(201, 168, 76, 0.4)',
+        weight: 2.8
+      });
+    });
+    
+    line.addTo(highwayLayerGroup);
+  });
+
+  // Initialize area labels
+  labelLayerGroup = L.layerGroup();
+  dhakaLabels.forEach(label => {
+    L.marker(label.coords, {
+      icon: L.divIcon({
+        html: `<div style="
+          font-family: var(--mono);
+          font-size: 8px;
+          font-weight: 700;
+          color: var(--text2);
+          opacity: 0.7;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          white-space: nowrap;
+          background: rgba(13, 13, 24, 0.75);
+          padding: 2px 5px;
+          border-radius: 1px;
+          border: 0.5px solid rgba(122, 117, 144, 0.35);
+        ">${label.name}</div>`,
+        className: 'area-label-icon',
+        iconSize: [80, 20],
+        iconAnchor: [40, 10]
+      })
+    }).addTo(labelLayerGroup);
+  });
 
   // Listen to map zoom changes to switch layers
   MAP.on('zoomend', updateMapLayers);
@@ -2690,7 +2828,7 @@ function updateMapLayers() {
   const currentZoom = MAP.getZoom();
   
   if (currentZoom <= 7.5) {
-    // Zoomed out: Show Choropleth, Hide Marker Clusters
+    // Zoomed out: Show Choropleth, Hide Marker Clusters, Highways, and Labels
     if (geojsonLayer && !MAP.hasLayer(geojsonLayer)) {
       MAP.addLayer(geojsonLayer);
     }
@@ -2710,13 +2848,25 @@ function updateMapLayers() {
     if (accidentCluster && MAP.hasLayer(accidentCluster)) {
       MAP.removeLayer(accidentCluster);
     }
+    if (highwayLayerGroup && MAP.hasLayer(highwayLayerGroup)) {
+      MAP.removeLayer(highwayLayerGroup);
+    }
+    if (labelLayerGroup && MAP.hasLayer(labelLayerGroup)) {
+      MAP.removeLayer(labelLayerGroup);
+    }
   } else {
-    // Zoomed in: Hide Choropleth, Show Marker Clusters
+    // Zoomed in: Hide Choropleth, Show Marker Clusters, Highways, and Labels
     if (geojsonLayer && MAP.hasLayer(geojsonLayer)) {
       MAP.removeLayer(geojsonLayer);
     }
     if (accidentCluster && !MAP.hasLayer(accidentCluster)) {
       MAP.addLayer(accidentCluster);
+    }
+    if (highwayLayerGroup && !MAP.hasLayer(highwayLayerGroup)) {
+      MAP.addLayer(highwayLayerGroup);
+    }
+    if (labelLayerGroup && !MAP.hasLayer(labelLayerGroup)) {
+      MAP.addLayer(labelLayerGroup);
     }
   }
 }
