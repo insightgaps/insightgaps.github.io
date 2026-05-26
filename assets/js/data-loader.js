@@ -68,9 +68,13 @@
     var correction = inv.has_correction
       ? '<span class="inv-card__correction-dot" aria-label="Correction issued"></span>'
       : '';
+    var img = inv.og_image_path
+      ? '  <div class="inv-card__image-wrap"><img class="inv-card__image" src="' + esc(inv.og_image_path) + '" alt="' + esc(inv.title) + '"></div>'
+      : '';
 
     return [
       '<article class="inv-card" data-type="investigation" data-status="' + esc(inv.status) + '">',
+      img,
       '  <div class="inv-card__header">',
       '    <span class="inv-card__tag">' + esc(tag) + '</span>',
       '    ' + statusBadge(inv.status),

@@ -8,31 +8,74 @@
 <meta property="og:title" content="Impunity Tracker · Insight Gaps · BD-INV-002">
 <meta property="og:description" content="Is anything changing? A live monitoring station for Bangladesh's rape justice system.">
 <meta property="og:site_name" content="Insight Gaps">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/components.css">
 <style>
 /* ══════════════════════════════════════════════════
    INSIGHT GAPS — IMPUNITY TRACKER
    Monitoring station. Not a report. Not an archive.
    The question: is anything changing?
-══════════════════════════════════════════════════ */
+   ══════════════════════════════════════════════════ */
 :root {
-  --ink:#ffffff; --ink1:#f7f6f3; --ink2:#f0ede8; --ink3:#e8e4de; --ink4:#ddd9d2;
-  --border:#e2ddd8; --border2:#d0cbc4;
-  --paper:#1a1a1a; --paper2:#3d3d3d; --paper3:#6b6b6b;
-  --white:#000000;
-  --blood:#c41e3a; --blood2:rgba(196,30,58,0.08); --blood3:rgba(196,30,58,0.04); --bloodl:#e0304e;
-  --gold:#8a6914; --gold2:rgba(138,105,20,0.12);
-  --green:#1a7a50; --greenl:#2d9a6a; --amber:#8a6914;
+  --display: var(--font-headline);
+  --mono:    var(--font-mono);
+  --serif:   var(--font-body);
+
+  --ink:  var(--color-bg);
+  --ink1: var(--color-surface-alt);
+  --ink2: var(--color-surface);
+  --ink3: var(--color-surface-alt);
+  --ink4: var(--color-surface-alt);
+  
+  --border:  var(--color-border);
+  --border2: var(--color-border-strong);
+  
+  --paper:  var(--color-text-primary);
+  --paper2: var(--color-text-secondary);
+  --paper3: var(--color-text-muted);
+  
+  --white: var(--color-text-primary);
+  
+  --blood:  #c41e3a;
+  --blood2: rgba(196,30,58,0.08);
+  --blood3: rgba(196,30,58,0.04);
+  --bloodl: #e0304e;
+  
+  --gold:  var(--color-accent);
+  --gold2: rgba(193,125,17,0.12);
+  
+  --green:  #1a7a50;
+  --greenl: #2d9a6a;
+  --amber:  #8a6914;
 }
 
 html[data-theme="dark"] {
-  --ink:#06060e; --ink1:#0a0a14; --ink2:#0f0f1c; --ink3:#141424; --ink4:#1a1a2e;
-  --border:#1e1e32; --border2:#262640;
-  --paper:#ddd8cc; --paper2:#8a8478; --paper3:#4a4660;
-  --white:#f0ece0;
-  --blood:#c41e3a; --blood2:rgba(196,30,58,0.12); --blood3:rgba(196,30,58,0.06); --bloodl:#e84060;
-  --gold:#c9a84c; --gold2:rgba(201,168,76,0.15);
-  --green:#2d8a5a; --greenl:#40c070; --amber:#d4800a;
+  --ink:#06060e;
+  --ink1:#0d0d18;
+  --ink2:#12121e;
+  --ink3:#141424;
+  --ink4:#1a1a2e;
+  
+  --border:#1e1e32;
+  --border2:#262640;
+  
+  --paper:#e8e3da;
+  --paper2:#c4bfb5;
+  --paper3:#7a7590;
+  
+  --white:#e8e3da;
+  
+  --blood:#c41e3a;
+  --blood2:rgba(196,30,58,0.12);
+  --blood3:rgba(196,30,58,0.06);
+  --bloodl:#e84060;
+  
+  --gold:#c9a84c;
+  --gold2:rgba(201,168,76,0.15);
+  
+  --green:#2d6a4f;
+  --greenl:#52b788;
+  --amber:#d4a060;
 }
 html[data-theme="dark"] body { background: var(--ink); color: var(--paper); }
 
@@ -59,80 +102,7 @@ body::after {
 a { color:var(--blood); text-decoration:none; }
 a:hover { color:var(--gold); }
 
-/* ── BREADCRUMB BAR ── */
-.breadcrumb {
-  background: var(--ink1);
-  border-bottom: 1px solid var(--border);
-  padding: 0 24px;
-  height: 36px;
-  display: flex; align-items: center;
-  justify-content: space-between;
-  gap: 12px; flex-wrap: wrap;
-  font-size: 9px; letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-.bc-left { display:flex; align-items:center; gap:6px; color:var(--paper3); }
-.bc-left a { color:var(--paper3); }
-.bc-left a:hover { color:var(--paper); }
-.bc-sep { color:var(--border2); }
-.bc-active { color:var(--gold); }
-.bc-right { display:flex; gap:6px; flex-wrap:wrap; }
-.bc-link {
-  color:var(--paper3); padding:0 8px; height:36px;
-  display:inline-flex; align-items:center;
-  border-left: 1px solid var(--border);
-  transition: color .15s;
-  font-size: 8px; letter-spacing: 0.1em;
-}
-.bc-link:hover { color:var(--paper); }
-.bc-link.active { color:var(--gold); border-bottom: 2px solid var(--gold); }
-
-/* ── TOP BAR ── */
-.topbar {
-  background: var(--ink1);
-  border-bottom: 1px solid var(--border2);
-  box-shadow: 0 1px 0 rgba(196,30,58,0.25);
-  padding: 0 24px;
-  height: 50px;
-  display: flex; align-items: center;
-  justify-content: space-between;
-  position: sticky; top: 0; z-index: 300;
-  gap: 16px;
-}
-.tb-brand {
-  display: flex; align-items: center; gap: 8px;
-  font-family: var(--mono); font-size: 9px;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  color: rgba(240,236,224,0.35);
-  text-decoration: none; transition: color .15s;
-}
-.tb-brand:hover { color: var(--white); }
-.tb-dot { width:6px; height:6px; border-radius:50%; background:var(--blood); }
-.tb-id { color:var(--paper2); font-size:9px; letter-spacing:0.15em; }
-.live-badge {
-  display: flex; align-items: center; gap: 6px;
-  font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--blood); border: 1px solid rgba(196,30,58,0.35);
-  padding: 4px 10px;
-}
-.live-pulse {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--blood);
-  animation: pulse-dot 2s ease-in-out infinite;
-}
-@keyframes pulse-dot {
-  0%,100% { opacity:1; transform:scale(1); }
-  50% { opacity:0.4; transform:scale(0.7); }
-}
-.tb-right { display:flex; align-items:center; gap:12px; }
-.tb-report-link {
-  font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--paper3); border: 1px solid var(--border2);
-  padding: 5px 12px; transition: all .15s;
-}
-.tb-report-link:hover { color:var(--white); border-color:var(--paper2); }
-.tb-report-link.hot { color:var(--paper2); border-color:rgba(196,30,58,0.3); }
-.tb-report-link.hot:hover { color:var(--bloodl); border-color:var(--blood); }
+/* Custom navigation styles removed — global components style sheet in use */
 
 /* ── HERO ── */
 .hero {
@@ -546,42 +516,90 @@ a:hover { color:var(--gold); }
 </head>
 <body>
 
-<!-- BREADCRUMB -->
-<div class="breadcrumb">
-  <div class="bc-left">
-    <a href="/">Insight Gaps</a>
-    <span class="bc-sep">›</span>
-    <a href="/content/investigations/">Investigations</a>
-    <span class="bc-sep">›</span>
-    <a href="/content/investigations/the-impunity-machine/">BD-INV-002</a>
-    <span class="bc-sep">›</span>
-    <span class="bc-active">Tracker</span>
-  </div>
-  <div class="bc-right">
-    <a href="/content/investigations/the-impunity-machine/" class="bc-link">Report</a>
-    <a href="/content/investigations/the-impunity-machine/tracker.html" class="bc-link active">◉ Tracker</a>
-    <a href="/content/investigations/the-impunity-machine/methodology.html" class="bc-link">Methods</a>
+<!-- AI Disclosure Bar -->
+<div class="ai-disclosure-bar" role="note" aria-label="AI use disclosure">
+  <div class="ai-disclosure-bar__inner">
+    <p class="ai-disclosure-bar__text">
+      AI tools were used in producing this report.
+      <a href="/content/trust/ai-use.html">View AI use disclosure &rarr;</a>
+    </p>
   </div>
 </div>
 
-<!-- TOP BAR -->
-<div class="topbar">
-  <div style="display:flex;align-items:center;gap:16px;">
-    <a href="/" class="tb-brand">
-      <span class="tb-dot"></span>
-      Insight Gaps
+<a href="#main-content" class="skip-link">Skip to content</a>
+
+<header class="site-header" role="banner">
+  <div class="site-header__inner">
+
+    <a href="/" class="site-header__logo" aria-label="Insight Gaps Bureau — Home">
+      Insight&nbsp;Gaps
     </a>
-    <div class="tb-id">BD-INV-002 · Impunity Tracker</div>
+
+    <button class="site-header__toggle"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+            aria-controls="primary-nav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="site-nav" id="primary-nav" aria-label="Primary navigation">
+      <a href="/content/investigations/" class="site-nav__link site-nav__link--active" aria-current="page">Investigations</a>
+      <a href="/analysis/"               class="site-nav__link">Analysis</a>
+      <a href="/archive.html"            class="site-nav__link">Archive</a>
+      <a href="/about.html"              class="site-nav__link">About</a>
+      <a href="/content/trust/methodology.html" class="site-nav__link">Trust</a>
+    </nav>
+
   </div>
-  <div class="live-badge">
-    <div class="live-pulse"></div>
-    Monitoring
+</header>
+
+<nav class="sub-nav">
+  <div class="sub-nav__inner">
+    <div class="sub-nav__brand">BD-INV-002</div>
+    <div class="sub-nav__scenes">
+      <a class="sub-nav__link" href="/content/investigations/the-impunity-machine/">Report</a>
+      <a class="sub-nav__link active" href="/content/investigations/the-impunity-machine/tracker.html">◉ Tracker</a>
+      <a class="sub-nav__link" href="/content/investigations/the-impunity-machine/methodology.html">Methodology</a>
+    </div>
+    <div class="sub-nav__actions">
+      <button class="theme-toggle-btn" aria-label="Toggle theme" title="Toggle theme">
+        <span class="theme-icon">◑</span>
+      </button>
+      <a class="sub-nav__btn sub-nav__btn--hot" href="/content/investigations/the-impunity-machine/#closing">Findings &darr;</a>
+    </div>
   </div>
-  <div class="tb-right">
-    <a href="/content/investigations/the-impunity-machine/" class="tb-report-link hot">Full Report →</a>
-    <a href="/content/investigations/the-impunity-machine/methodology.html" class="tb-report-link">Methodology</a>
-  </div>
-</div>
+</nav>
+
+<script>
+(function () {
+  'use strict';
+  var toggle = document.querySelector('.site-header__toggle');
+  var nav    = document.querySelector('.site-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function () {
+      var isOpen = nav.classList.toggle('site-nav--open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    document.addEventListener('click', function (e) {
+      if (!toggle.contains(e.target) && !nav.contains(e.target)) {
+        nav.classList.remove('site-nav--open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('site-nav--open')) {
+        nav.classList.remove('site-nav--open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.focus();
+      }
+    });
+  }
+}());
+</script>
+
+<main id="main-content">
 
 <!-- HERO -->
 <div class="hero">
@@ -1210,44 +1228,58 @@ a:hover { color:var(--gold); }
   </div>
 </div>
 
-<!-- FOOTER -->
-<footer class="site-footer">
-  <div class="footer-grid">
-    <div>
-      <div class="footer-wordmark">
-        <span class="footer-wordmark-dot"></span>
-        Insight Gaps
+</main>
+
+<!-- Global Footer -->
+<footer class="site-footer" role="contentinfo">
+  <div class="site-footer__inner">
+    <div class="site-footer__grid">
+      <div>
+        <p class="site-footer__brand-name">Insight&nbsp;Gaps</p>
+        <p class="site-footer__mandate">
+          Independent forensic data journalism from Dhaka, Bangladesh.
+        </p>
       </div>
-      <div style="color:var(--paper3);line-height:1.9;">
-        Forensic data journalism<br>
-        Bangladesh · BD-INV-002<br>
-        CC BY-NC 4.0 — cite freely, tier labels mandatory
+      <div>
+        <span class="site-footer__col-label">Navigate</span>
+        <nav class="site-footer__nav" aria-label="Footer navigation">
+          <a href="/content/investigations/">Investigations</a>
+          <a href="/analysis/">Analysis</a>
+          <a href="/archive.html">Archive</a>
+          <a href="/about.html">About</a>
+        </nav>
+      </div>
+      <div>
+        <span class="site-footer__col-label">Trust</span>
+        <nav class="site-footer__nav" aria-label="Trust navigation">
+          <a href="/content/trust/methodology.html">Methodology</a>
+          <a href="/content/trust/ai-use.html">AI Use</a>
+          <a href="/content/trust/corrections.html">Corrections</a>
+          <a href="/contact.html">Contact</a>
+        </nav>
       </div>
     </div>
-    <div>
-      <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--paper3);margin-bottom:14px;">BD-INV-002 Series</div>
-      <div style="display:flex;flex-direction:column;gap:8px;">
-        <a href="/content/investigations/the-impunity-machine/" style="font-size:10px;color:var(--paper2);">Full Report →</a>
-        <a href="/content/investigations/the-impunity-machine/tracker.html" style="font-size:10px;color:var(--gold);">◉ Tracker (current)</a>
-        <a href="/content/investigations/the-impunity-machine/methodology.html" style="font-size:10px;color:var(--paper2);">Methodology →</a>
-        <a href="/data/BD-INV-002_Master_Evidence_File.xlsx" style="font-size:10px;color:var(--paper2);">Evidence File ↓</a>
-      </div>
+    <div class="site-footer__bottom">
+      <p class="site-footer__copy">
+        &copy; <span class="js-copyright-year">2026</span> Insight Gaps Bureau.
+        Original reporting licensed under
+        <a href="https://creativecommons.org/licenses/by/4.0/"
+           target="_blank"
+           rel="noopener noreferrer">CC&nbsp;BY&nbsp;4.0</a>
+        unless otherwise noted. Deployed on Vercel.
+      </p>
     </div>
-    <div>
-      <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--paper3);margin-bottom:14px;">Standards</div>
-      <div style="color:var(--paper3);line-height:1.9;font-size:10px;">
-        All claims carry tier labels<br>
-        CONFIRMED · PROBABLE · ALLEGED<br>
-        No outreach — open-source posture<br>
-        Corrections: insightgaps@gmail.com
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div>insightgaps.com · BD-INV-002 · Impunity Tracker · March 2026</div>
-    <div style="color:var(--paper3);">License: CC BY-NC 4.0 · <a href="https://github.com/insightgaps/insightgaps.github.io" style="color:var(--paper3);">GitHub</a></div>
   </div>
 </footer>
+
+<script>
+(function () {
+  'use strict';
+  document.querySelectorAll('.js-copyright-year').forEach(function (el) {
+    el.textContent = String(new Date().getFullYear());
+  });
+}());
+</script>
 
 <script>
 // ── ACCOUNTABILITY COUNTER ──

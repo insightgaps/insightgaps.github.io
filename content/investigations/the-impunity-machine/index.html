@@ -5,70 +5,79 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="The Impunity Machine — A visual data investigation into Bangladesh's rape justice crisis. BD-INV-002.">
 <title>The Impunity Machine · Visual Investigation · Insight Gaps</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/components.css">
+<script>
+(function(){
+  var saved = localStorage.getItem('ig-theme');
+  if(saved === 'dark') document.documentElement.setAttribute('data-theme','dark');
+  window.addEventListener('DOMContentLoaded', function(){
+    var btn = document.querySelector('.theme-toggle-btn');
+    if(!btn) return;
+    btn.addEventListener('click', function(){
+      var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if(dark){
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('ig-theme','light');
+      } else {
+        document.documentElement.setAttribute('data-theme','dark');
+        localStorage.setItem('ig-theme','dark');
+      }
+    });
+  });
+})();
+</script>
 <style>
 :root {
   /* ── Font families ── */
-  --display: 'Playfair Display', Georgia, serif;
-  --sans:    'IBM Plex Sans', system-ui, sans-serif;
-  --mono:    'IBM Plex Mono', 'Courier New', monospace;
+  --display: var(--font-headline);
+  --sans:    var(--font-body);
+  --mono:    var(--font-mono);
 
   /* ── Backgrounds ── */
-  --ink:  #F5F3EF;   /* warm off-white — primary page bg */
-  --ink2: #FFFFFF;   /* card / panel surface */
-  --ink3: #F0EDE8;   /* secondary surface */
+  --ink:  var(--color-bg);
+  --ink2: var(--color-surface);
+  --ink3: var(--color-surface-alt);
 
   /* ── Borders & text ── */
-  --border: #E2DDD8;
-  --text:   #111111;
-  --text2:  #3D3D3D;
-  --muted:  #6B6B6B;
-  --muted2: #9B9B9B;
+  --border: var(--color-border);
+  --text:   var(--color-text-primary);
+  --text2:  var(--color-text-secondary);
+  --muted:  var(--color-text-secondary);
+  --muted2: var(--color-text-muted);
 
   /* ── Accent palette ── */
   --blood:  #B91C1C;   /* danger / evidence / alert */
   --bloodl: #DC2626;
   --bloodd: #7F1D1D;
 
-  --gold:   #92711A;   /* investigation IDs / links */
-  --gold2:  #6B5010;
-  --amber:  #92711A;
-  --amberl: #B08A20;
+  --gold:   var(--color-accent);
+  --gold2:  var(--color-accent-dark);
+  --amber:  var(--color-accent);
+  --amberl: var(--color-accent-border);
 
   --green:  #1A7A50;
   --greenl: #2D9A6A;
   --teall:  #1A7A7A;
 
   /* ── Navigation ── */
-  --nav-bg: rgba(245,243,239,0.97);
+  --nav-bg: rgba(255,255,255,0.97);
 }
 
+html[data-theme="dark"] {
+  --ink:#06060e; --ink2:#0d0d18; --ink3:#12121e;
+  --border:#1e1e32; --text:#e8e3da; --text2:#c4bfb5; --muted:#7a7590; --muted2:#3e3c50;
+  --blood:#c41e3a; --bloodl:#e84060; --bloodd:#8b1428;
+  --gold:#c9a84c; --gold2:#9a7e36;
+  --amber:#d4a060; --amberl:#e8c080;
+  --green:#2d6a4f; --greenl:#52b788; --teall:#40c0c0;
+  --nav-bg: rgba(6, 6, 14, 0.97);
+}
 
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--ink);color:var(--text);font-family:var(--sans);overflow-x:hidden}
 a{color:var(--gold);text-decoration:none}
-nav{position:fixed;top:0;left:0;right:0;z-index:900;background:var(--nav-bg);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 2rem;height:52px;display:flex;align-items:center;justify-content:space-between;gap:2rem}
-.nav-brand{font-family:var(--sans);font-size:0.875rem;font-weight:700;color:var(--text);letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;white-space:nowrap;flex-shrink:0}
-.nav-links{display:flex;align-items:center;gap:2rem}
-.nav-links a{font-family:var(--sans);font-size:0.875rem;font-weight:400;color:var(--muted);letter-spacing:0;text-transform:none;text-decoration:none;border-bottom:2px solid transparent;padding-bottom:2px;transition:color .2s,border-color .2s;white-space:nowrap}
-.nav-links a:hover{color:var(--text)}
-.nav-links a.active{color:var(--text);border-bottom-color:var(--gold)}
-.nav-actions{display:flex;align-items:center;gap:.75rem;flex-shrink:0}
-@media(max-width:768px){.nav-links{display:none}}
-.nav-ham{display:none;flex-direction:column;gap:4px;cursor:pointer;background:none;border:none;padding:6px 4px;margin-left:.5rem}
-.nav-ham span{display:block;width:18px;height:2px;background:var(--muted);border-radius:1px;transition:all .25s}
-.nav-ham.open span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
-.nav-ham.open span:nth-child(2){opacity:0;transform:scaleX(0)}
-.nav-ham.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
-.nav-drawer{display:none;position:fixed;top:52px;left:0;right:0;background:var(--nav-bg);border-bottom:1px solid var(--border);padding:1.2rem 2rem;z-index:880;backdrop-filter:blur(16px)}
-.nav-drawer.open{display:flex;flex-direction:column}
-.nav-drawer a{font-family:var(--sans);font-size:0.875rem;color:var(--muted);padding:.65rem 0;border-bottom:1px solid var(--border);text-decoration:none;transition:color .2s}
-.nav-drawer a:hover{color:var(--text)}
-.nav-drawer a:last-child{border-bottom:none}
-@media(max-width:768px){.nav-ham{display:flex}}
 
 /* ═══ HERO ═══ */
 #hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 2rem 4rem;position:relative;overflow-x:clip;background:var(--ink)}
@@ -359,51 +368,94 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:var(--nav-bg);bac
 </head>
 <body>
 
-
-<nav>
-  <a href="/" class="nav-brand">Insight Gaps</a>
-  <div class="nav-links">
-    <a href="/content/investigations/">Investigations</a>
-    <a href="/analysis/">Analysis</a>
-    <a href="/archive.html">Archive</a>
-    <a href="/about.html">About</a>
-    <a href="/content/trust/methodology.html">Trust</a>
+<!-- AI Disclosure Bar -->
+<div class="ai-disclosure-bar" role="note" aria-label="AI use disclosure">
+  <div class="ai-disclosure-bar__inner">
+    <p class="ai-disclosure-bar__text">
+      AI tools were used in producing this report.
+      <a href="/content/trust/ai-use.html">View AI use disclosure &rarr;</a>
+    </p>
   </div>
-  <div class="nav-actions">
-    <button class="nav-ham" id="navHam" aria-label="Open navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</div>
+
+<a href="#main-content" class="skip-link">Skip to content</a>
+
+<header class="site-header" role="banner">
+  <div class="site-header__inner">
+
+    <a href="/" class="site-header__logo" aria-label="Insight Gaps Bureau — Home">
+      Insight&nbsp;Gaps
+    </a>
+
+    <button class="site-header__toggle"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+            aria-controls="primary-nav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="site-nav" id="primary-nav" aria-label="Primary navigation">
+      <a href="/content/investigations/" class="site-nav__link site-nav__link--active" aria-current="page">Investigations</a>
+      <a href="/analysis/"               class="site-nav__link">Analysis</a>
+      <a href="/archive.html"            class="site-nav__link">Archive</a>
+      <a href="/about.html"              class="site-nav__link">About</a>
+      <a href="/content/trust/methodology.html" class="site-nav__link">Trust</a>
+    </nav>
+
+  </div>
+</header>
+
+<nav class="sub-nav">
+  <div class="sub-nav__inner">
+    <div class="sub-nav__brand">BD-INV-002</div>
+    <div class="sub-nav__scenes">
+      <a class="sub-nav__link" href="#hero">Overview</a>
+      <a class="sub-nav__link" href="#s1">Attrition</a>
+      <a class="sub-nav__link" href="#s2">Verdicts</a>
+      <a class="sub-nav__link" href="#s4">Backlog</a>
+      <a class="sub-nav__link" href="#sdna">DNA Backlog</a>
+    </div>
+    <div class="sub-nav__actions">
+      <button class="theme-toggle-btn" aria-label="Toggle theme" title="Toggle theme">
+        <span class="theme-icon">◑</span>
+      </button>
+      <a class="sub-nav__btn" href="#how-we-did-this">Methodology</a>
+      <a class="sub-nav__btn sub-nav__btn--hot" href="#closing">Findings &darr;</a>
+    </div>
   </div>
 </nav>
-<div class="nav-drawer" id="navDrawer" aria-hidden="true">
-  <a href="/content/investigations/">Investigations</a>
-  <a href="/analysis/">Analysis</a>
-  <a href="/archive.html">Archive</a>
-  <a href="/about.html">About</a>
-  <a href="/content/trust/methodology.html">Trust</a>
-  <a href="/content/investigations/the-impunity-machine/tracker.html" style="color:var(--blood)">&#9711; Impunity Tracker</a>
-  <a href="/content/investigations/the-impunity-machine/methodology.html" style="color:var(--gold)">Methodology &#8594;</a>
-</div>
+
 <script>
-(function(){
-  var ham=document.getElementById('navHam');
-  var drawer=document.getElementById('navDrawer');
-  if(ham&&drawer){
-    ham.addEventListener('click',function(){
-      var isOpen=drawer.classList.toggle('open');
-      ham.classList.toggle('open',isOpen);
-      ham.setAttribute('aria-expanded',isOpen);
-      drawer.setAttribute('aria-hidden',!isOpen);
+(function () {
+  'use strict';
+  var toggle = document.querySelector('.site-header__toggle');
+  var nav    = document.querySelector('.site-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function () {
+      var isOpen = nav.classList.toggle('site-nav--open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
     });
-    document.addEventListener('click',function(e){
-      if(!ham.contains(e.target)&&!drawer.contains(e.target)){
-        drawer.classList.remove('open');
-        ham.classList.remove('open');
-        ham.setAttribute('aria-expanded','false');
-        drawer.setAttribute('aria-hidden','true');
+    document.addEventListener('click', function (e) {
+      if (!toggle.contains(e.target) && !nav.contains(e.target)) {
+        nav.classList.remove('site-nav--open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('site-nav--open')) {
+        nav.classList.remove('site-nav--open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.focus();
       }
     });
   }
-})();
+}());
 </script>
+
+<main id="main-content">
+<a href="#main-content" class="skip-link" style="position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden">Skip to report</a>
 
 <!-- ═══════════════════════════════════════════
      HERO
@@ -1516,8 +1568,62 @@ setTimeout(()=>["hs1","hs2","hs3","hs4"].forEach((id,i)=>setTimeout(()=>{const e
 if(window.innerWidth<768){document.querySelectorAll(".step").forEach(el=>el.style.opacity="1");}
 setTimeout(()=>{const t=document.getElementById("htitle");if(t)t.classList.add("vis");const s=document.getElementById("hsub");if(s)s.classList.add("vis");},2200);
 
-const navLinks=document.querySelectorAll(".nav-scenes a");
-window.addEventListener("scroll",()=>{let cur="";document.querySelectorAll("section[id]").forEach(s=>{if(window.scrollY>=s.offsetTop-100)cur=s.id;});navLinks.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+cur));},{passive:true});
+</main>
+
+<!-- Global Footer -->
+<footer class="site-footer" role="contentinfo">
+  <div class="site-footer__inner">
+    <div class="site-footer__grid">
+      <div>
+        <p class="site-footer__brand-name">Insight&nbsp;Gaps</p>
+        <p class="site-footer__mandate">
+          Independent forensic data journalism from Dhaka, Bangladesh.
+        </p>
+      </div>
+      <div>
+        <span class="site-footer__col-label">Navigate</span>
+        <nav class="site-footer__nav" aria-label="Footer navigation">
+          <a href="/content/investigations/">Investigations</a>
+          <a href="/analysis/">Analysis</a>
+          <a href="/archive.html">Archive</a>
+          <a href="/about.html">About</a>
+        </nav>
+      </div>
+      <div>
+        <span class="site-footer__col-label">Trust</span>
+        <nav class="site-footer__nav" aria-label="Trust navigation">
+          <a href="/content/trust/methodology.html">Methodology</a>
+          <a href="/content/trust/ai-use.html">AI Use</a>
+          <a href="/content/trust/corrections.html">Corrections</a>
+          <a href="/contact.html">Contact</a>
+        </nav>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <p class="site-footer__copy">
+        &copy; <span class="js-copyright-year">2026</span> Insight Gaps Bureau.
+        Original reporting licensed under
+        <a href="https://creativecommons.org/licenses/by/4.0/"
+           target="_blank"
+           rel="noopener noreferrer">CC&nbsp;BY&nbsp;4.0</a>
+        unless otherwise noted. Deployed on Vercel.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  document.querySelectorAll('.js-copyright-year').forEach(function (el) {
+    el.textContent = String(new Date().getFullYear());
+  });
+}());
+</script>
+
+<script>
+const navLinks=document.querySelectorAll(".sub-nav__link");
+window.addEventListener("scroll",()=>{let cur="";document.querySelectorAll("section[id]").forEach(s=>{if(window.scrollY>=s.offsetTop-120)cur=s.id;});navLinks.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+cur));},{passive:true});
 
 let scSt=-1;
 const io=new IntersectionObserver(entries=>{

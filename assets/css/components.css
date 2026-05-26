@@ -322,6 +322,28 @@
   border-left-color: var(--color-accent);
 }
 
+.inv-card__image-wrap {
+  width:            100%;
+  aspect-ratio:     16 / 10;
+  border-radius:    var(--radius-sm);
+  overflow:         hidden;
+  border:           var(--border-width) solid var(--color-border);
+  background-color: var(--color-surface-alt);
+  margin-bottom:    var(--space-2);
+}
+
+.inv-card__image {
+  width:            100%;
+  height:           100%;
+  object-fit:       cover;
+  display:          block;
+  transition:       transform var(--transition-base);
+}
+
+.inv-card:hover .inv-card__image {
+  transform:        scale(1.02);
+}
+
 .inv-card__header {
   display:     flex;
   align-items: center;
@@ -801,6 +823,153 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ============================================================
+   COMPONENT 13 — STICKY LOCAL SUB-NAVIGATION
+   Sticky local sections navigation for Visual Investigations.
+   ============================================================ */
+
+.sub-nav {
+  position: sticky;
+  top: 4rem; /* below global header (64px) */
+  left: 0;
+  right: 0;
+  z-index: 890;
+  background: var(--color-surface);
+  border-bottom: var(--border-width) solid var(--color-border);
+  height: 42px;
+  display: flex;
+  align-items: center;
+  transition: background-color var(--transition-base), border-color var(--transition-base);
+}
+
+.sub-nav__inner {
+  width: 100%;
+  max-width: var(--grid-max);
+  margin: 0 auto;
+  padding: 0 var(--grid-padding);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.sub-nav__brand {
+  font-family: var(--font-mono);
+  font-size: var(--type-label);
+  color: var(--color-accent);
+  font-weight: 700;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.sub-nav__scenes {
+  display: flex;
+  gap: var(--space-5);
+  align-items: center;
+}
+
+.sub-nav__link {
+  font-family: var(--font-mono);
+  font-size: var(--type-label);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color var(--transition-fast);
+}
+
+.sub-nav__link:hover,
+.sub-nav__link.active {
+  color: var(--color-accent);
+}
+
+.sub-nav__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.sub-nav__btn {
+  font-family: var(--font-mono);
+  font-size: var(--type-label);
+  color: var(--color-text-secondary);
+  border: var(--border-width) solid var(--color-border);
+  padding: var(--space-1) var(--space-3);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  line-height: 1.4;
+  border-radius: var(--radius-sm);
+}
+
+.sub-nav__btn:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.sub-nav__btn--hot {
+  color: var(--color-accent-dark);
+  border-color: var(--color-accent-border);
+  background: var(--color-accent-subtle);
+}
+
+.sub-nav__btn--hot:hover {
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+  border-color: var(--color-accent);
+}
+
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 4px 8px;
+  color: var(--color-text-secondary);
+  opacity: 0.7;
+  transition: opacity var(--transition-fast), color var(--transition-fast);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle-btn:hover {
+  opacity: 1;
+  color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+  .sub-nav {
+    top: 4rem;
+    height: 38px;
+  }
+  .sub-nav__brand {
+    display: none;
+  }
+  .sub-nav__inner {
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .sub-nav__inner::-webkit-scrollbar {
+    display: none;
+  }
+  .sub-nav__scenes {
+    gap: var(--space-4);
+    padding-right: var(--space-4);
+  }
+  .sub-nav__actions {
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+}
+
 
 
 /* ============================================================
