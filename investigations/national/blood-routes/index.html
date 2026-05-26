@@ -2376,8 +2376,13 @@ function toggleMapLayer(layer) {
     if (btn) {
       const active = btn.classList.toggle("active");
       if (dhakaMap) {
-        if (active) dhakaMap.addLayer(dhakaHotspotLayerGroup);
-        else dhakaMap.removeLayer(dhakaHotspotLayerGroup);
+        if (active) {
+          dhakaMap.addLayer(dhakaHotspotLayerGroup);
+          if (dhakaAccidentCluster) dhakaMap.addLayer(dhakaAccidentCluster);
+        } else {
+          dhakaMap.removeLayer(dhakaHotspotLayerGroup);
+          if (dhakaAccidentCluster) dhakaMap.removeLayer(dhakaAccidentCluster);
+        }
       }
     }
   }
@@ -2452,13 +2457,14 @@ let dhakaHighwayLayerGroup;
 let dhakaRiskLayerGroup;
 let dhakaHeatmapLayerGroup;
 let dhakaHotspotMarkers = {};
+let dhakaAccidentCluster;
 
 const dhakaHotspotsCoords = {
   tejgaon: { name: "Tejgaon Industrial Corridor", coords: [23.7599, 90.3982], intense: true },
   airport: { name: "Airport Highway Roundabout", coords: [23.8517, 90.4002], intense: true },
   jatrabari: { name: "Jatrabari Highway Interchange", coords: [23.7099, 90.4485], intense: true },
   savar: { name: "Savar Transit Loop", coords: [23.8967, 90.2678], intense: false },
-  gazipur: { name: "Gazipur Chowrasta Loop", coords: [23.9998, 90.3785], intense: true },
+  gazipur: { name: "Gazipur Chowrasta Loop", coords: [23.9997, 90.4251], intense: true },
   shonir: { name: "Shonir Akhra Pedestrian Crossing", coords: [23.7011, 90.4578], intense: false },
   tangail: { name: "Tangail Bus Terminal Junction", coords: [24.2502, 89.9167], intense: false },
   manikganj: { name: "Manikganj N8 Junction", coords: [23.8617, 89.9833], intense: false }
@@ -2621,6 +2627,28 @@ window.addEventListener('DOMContentLoaded', function() {
     dhakaHighwayLayerGroup = L.layerGroup().addTo(dhakaMap);
     dhakaRiskLayerGroup = L.layerGroup().addTo(dhakaMap);
     dhakaHeatmapLayerGroup = L.layerGroup().addTo(dhakaMap);
+
+    dhakaAccidentCluster = L.markerClusterGroup({
+      maxClusterRadius: 35,
+      showCoverageOnHover: false,
+      zoomToBoundsOnClick: true,
+      disableClusteringAtZoom: 13,
+      iconCreateFunction: function(cluster) {
+        const childCount = cluster.getChildCount();
+        let c = ' cluster-small';
+        if (childCount >= 50) {
+          c = ' cluster-large';
+        } else if (childCount >= 15) {
+          c = ' cluster-medium';
+        }
+        return L.divIcon({
+          html: `<div class="cluster-inner${c}"><span>${childCount}</span></div>`,
+          className: 'marker-cluster-custom',
+          iconSize: [40, 40]
+        });
+      }
+    });
+    dhakaMap.addLayer(dhakaAccidentCluster);
 
     // Render Dhaka Heatmap circles (overlapping gradients)
     Object.entries(dhakaHotspotsCoords).forEach(([id, hs]) => {
@@ -2857,6 +2885,7 @@ function hideDivisionTooltip() {
 
 function updateMapLayers() {
   if (!MAP) return;
+  hideDivisionTooltip();
   const currentZoom = MAP.getZoom();
   
   if (currentZoom <= 7.5) {
@@ -2981,6 +3010,10 @@ function renderAccidents() {
   if (!accidentCluster) return;
   accidentCluster.clearLayers();
 
+  if (dhakaAccidentCluster) {
+    dhakaAccidentCluster.clearLayers();
+  }
+
   const filtered = allAccidents.filter(a => {
     return activeYear === 'all' || a.year === activeYear;
   });
@@ -3011,13 +3044,48 @@ function renderAccidents() {
       } catch(e) {}
       
       let desc = `Accident occurred on ${dateFormatted}. Vehicles involved: ${a.vehicle}. Death count: ${a.deaths}, injuries: ${a.injuries}.`;
-      if (a.bus_operator) {
-        desc += ` commercial transport carrier: ${a.bus_name} (${a.bus_operator}).`;
+      if (a.bus_name) {
+        desc += ` commercial transport carrier: ${a.bus_name}.`;
       }
       document.getElementById("fmDetailDesc").textContent = desc;
     });
 
     accidentCluster.addLayer(marker);
+
+    // Add to Dhaka map accident cluster if in Dhaka division
+    if (a.division === 'Dhaka' && dhakaAccidentCluster) {
+      const dhakaMarker = L.marker([a.lat, a.lon], {
+        icon: getMarkerIcon(a.deaths)
+      });
+
+      dhakaMarker.bindPopup(buildPopupHTML(a), {
+        maxWidth: 280,
+        minWidth: 200
+      });
+
+      dhakaMarker.on('click', function() {
+        document.getElementById("mdcNodeName").textContent = a.location;
+
+        let riskStr = `${a.deaths} Fatalities`;
+        if (a.bus_name) riskStr += ` · ${a.bus_name}`;
+        document.getElementById("mdcNodeRisk").textContent = riskStr;
+        document.getElementById("mdcNodeRisk").style.color = a.deaths >= 3 ? "var(--bloodl)" : "var(--amberl)";
+
+        let dateFormatted = a.date;
+        try {
+          const d = new Date(a.date);
+          if (!isNaN(d.getTime())) dateFormatted = d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+        } catch(e) {}
+
+        let desc = `Accident occurred on ${dateFormatted}. Vehicles involved: ${a.vehicle}. Death count: ${a.deaths}, injuries: ${a.injuries}.`;
+        if (a.bus_name) {
+          desc += ` Commercial carrier: ${a.bus_name}.`;
+        }
+        document.getElementById("mdcNodeDesc").textContent = desc;
+      });
+
+      dhakaAccidentCluster.addLayer(dhakaMarker);
+    }
   });
 
   // Update national summary numbers dynamically
