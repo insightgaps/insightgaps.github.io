@@ -27,6 +27,12 @@ All data transformations must be executed via reproducible Python scripts (using
 * **Do Not Guess:** Never fill missing numerical values (imputation) without a statistically validated model. If a field is blank, mark it as `Unknown`.
 * **Disclose Omissions:** Document the percentage of null values for each column in the cleaning log. If a column has >20% missing values, it cannot be used to support primary quantitative claims.
 
+### D. Version Control on Cleaned Outputs
+Data cleaning is iterative. To ensure reliability and trace transformations:
+1. **Never Overwrite Cleaned State:** Each cleaning run that introduces structural changes or major filtering must save its output with a versioned suffix (e.g., `accidents_v1_raw.csv` -> `accidents_v2_trimmed.csv` -> `accidents_v3_deduped.csv`).
+2. **Maintain a Cleaning Changelog:** Every topic or investigation dataset directory under `data/cleaned/` must contain a `CHANGELOG.md` detailing what each cleaning version modified, which script generated it, and what anomalies were filtered.
+3. **Rollback Capability:** If an error is discovered in cleaning logic, the pipeline should easily point back to the previous version `v(N-1)` without requiring re-scraping or raw recovery.
+
 ---
 
 ## 2. DATA MODELING & SCHEMAS
