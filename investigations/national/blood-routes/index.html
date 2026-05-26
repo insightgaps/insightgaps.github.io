@@ -1023,7 +1023,7 @@ html[data-theme="dark"] .sub-nav {
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-eyebrow">BD-INV-001 &middot; Nationwide Bangladesh &middot; 2022–2026</div>
+  <div class="hero-eyebrow">BD-INV-001 &middot; Nationwide Bangladesh &middot; Source records: 2022–2024</div>
   <div class="hero-num" id="heroNum">~31,578</div>
   <div class="hero-num-sub">estimated road deaths annually — WHO modelled estimate</div>
   <div class="hero-official">Official government figure (BRTA): <strong>5,480</strong></div>
@@ -1113,7 +1113,7 @@ html[data-theme="dark"] .sub-nav {
       Highway Accident Intelligence &amp; Predictive Risk Dashboard
     </h2>
     <p style="color: var(--muted); font-size: 0.88rem; max-width: 650px; margin: 0.8rem auto 0; line-height: 1.6;">
-      Explore a decade of historical travel deaths during the Eid rush and interact with the nationwide highway network map to examine spatial crash hotspots and machine-modelled future risk corridors.
+      Explore historical travel deaths during the Eid rush and interact with a nationwide highway map that separates exact Dhaka source coordinates from clearly labelled modelled corridor placements.
     </p>
   </div>
 
@@ -1192,7 +1192,7 @@ html[data-theme="dark"] .sub-nav {
   <div class="fullmap-header">
     <div class="eyebrow">Interactive National Map · 8 Divisions · 25 Hotspots</div>
     <h2>Blood Routes of Bangladesh</h2>
-    <p>Every glowing node is a documented fatality cluster. Every golden line is a highway where the joma system sends drivers racing. The heat zones show where bodies accumulate.</p>
+    <p>Every glowing node is a deduplicated crash record: exact where the source gives Dhaka coordinates, modelled onto representative highway corridors elsewhere. The golden lines show the national routes where economic pressure, weak enforcement, and holiday surges converge.</p>
   </div>
 
   <div class="fullmap-body">
@@ -1201,17 +1201,9 @@ html[data-theme="dark"] .sub-nav {
       <!-- Year Filter Control Panel -->
       <div class="fullmap-controls" style="margin-bottom: 1.2rem; display: flex; gap: 0.5rem; justify-content: center; width: 100%; flex-wrap: wrap; z-index: 10;">
         <button class="toggle-btn active" data-year="all" onclick="setMapYear('all')">All Years</button>
-        <button class="toggle-btn" data-year="2016" onclick="setMapYear(2016)">2016</button>
-        <button class="toggle-btn" data-year="2017" onclick="setMapYear(2017)">2017</button>
-        <button class="toggle-btn" data-year="2018" onclick="setMapYear(2018)">2018</button>
-        <button class="toggle-btn" data-year="2019" onclick="setMapYear(2019)">2019</button>
-        <button class="toggle-btn" data-year="2020" onclick="setMapYear(2020)">2020</button>
-        <button class="toggle-btn" data-year="2021" onclick="setMapYear(2021)">2021</button>
         <button class="toggle-btn" data-year="2022" onclick="setMapYear(2022)">2022</button>
         <button class="toggle-btn" data-year="2023" onclick="setMapYear(2023)">2023</button>
         <button class="toggle-btn" data-year="2024" onclick="setMapYear(2024)">2024</button>
-        <button class="toggle-btn" data-year="2025" onclick="setMapYear(2025)">2025</button>
-        <button class="toggle-btn" data-year="2026" onclick="setMapYear(2026)">2026</button>
       </div>
 
       <div style="position: relative; width: 100%; height: 640px; border: 1px solid var(--border); border-radius: 2px; overflow: hidden; background: var(--ink3);" id="leafmap-container">
@@ -1306,7 +1298,7 @@ html[data-theme="dark"] .sub-nav {
       <div class="fm-detail-card" id="fmDetailCard">
         <div class="mdc-title" id="fmDetailName">Click any hotspot or division</div>
         <div class="mdc-risk" id="fmDetailRisk" style="color: var(--bloodl); font-weight: 700;">to audit risk factors</div>
-        <div class="mdc-desc" id="fmDetailDesc">Interactive country-wide fatality map showing all documented crash clusters across Bangladesh's national highway network.</div>
+        <div class="mdc-desc" id="fmDetailDesc">Interactive country-wide map of deduplicated source records. Dhaka points use exact source coordinates; non-Dhaka records are placed on representative highway corridors and labelled as modelled.</div>
         <div class="mdc-division" id="fmDetailDiv"></div>
       </div>
     </div>
@@ -1568,7 +1560,7 @@ html[data-theme="dark"] .sub-nav {
     <div class="rc-title">🔍 Academic Data Quality Audit (Figshare Dataset)</div>
     <div class="rc-bullet">
       <strong>20.39× Padding Factor:</strong> 
-      Our automated audit of the Figshare <em>"Bangladesh Road Traffic Accident Dataset (2007–2024)"</em> revealed that out of 47,680 database rows, only <strong>2,331 represent unique incidents</strong>. The remaining 95.11% of rows are artificial padding created by cross-joining single unique accidents across permuted metadata values.
+      Our automated audit of the Figshare API source <em>"Bangladesh Road Traffic Accident Dataset (2007–2024)"</em> revealed that out of 47,680 database rows, only <strong>2,331 represent unique incidents</strong>. The remaining 95.11% of rows are artificial padding created by cross-joining single unique accidents across permuted metadata values.
     </div>
     <div class="rc-bullet">
       <strong>True Temporal Scope Mismatch:</strong> 
@@ -1581,6 +1573,10 @@ html[data-theme="dark"] .sub-nav {
     <div class="rc-bullet">
       <strong>Spatial Fatality Bottlenecks:</strong> 
       Micro-data mapping shows heavy crash concentrations around logistical bottlenecks: <strong>Tejgaon Industrial Area</strong>, <strong>Airport Roundabout</strong>, <strong>Jatrabari</strong>, <strong>Mayor Mohammad Hanif Flyover</strong>, and <strong>Shonir Akhra (Dhaka-Chittagong Highway)</strong>.
+    </div>
+    <div class="rc-bullet">
+      <strong>Map Provenance:</strong>
+      The public download now includes <code>Coordinate Method</code>, <code>Division Method</code>, <code>Date Method</code>, and <code>Operator Method</code>. Dhaka points are exact source coordinates; non-Dhaka points are visual corridor placements, not street-level claims. Operator names are not assigned because the crash log does not carry a reliable operator field.
     </div>
   </div>
 </section>
@@ -2325,28 +2321,13 @@ function showHotspot(id) {
   const deaths = filtered.reduce((sum, a) => sum + a.deaths, 0);
   const injuries = filtered.reduce((sum, a) => sum + a.injuries, 0);
   
-  const busCounts = {};
-  filtered.forEach(a => {
-    if (a.bus_name) {
-      busCounts[a.bus_name] = (busCounts[a.bus_name] || 0) + 1;
-    }
-  });
-  const topBuses = Object.entries(busCounts)
-    .sort((a, b) => b[1] - a[1])
-    .map(entry => entry[0])
-    .slice(0, 2)
-    .join(', ');
-  
   document.getElementById("mdcNodeName").textContent = profile.name;
   
   let riskStr = `${profile.risk} · ${count} Crashes, ${deaths} Deaths`;
-  if (topBuses) {
-    riskStr += ` · Key Bus: ${topBuses}`;
-  }
   document.getElementById("mdcNodeRisk").textContent = riskStr;
   document.getElementById("mdcNodeRisk").style.color = profile.risk.includes("Extreme") ? "var(--bloodl)" : "var(--amberl)";
   
-  document.getElementById("mdcNodeDesc").innerHTML = `${profile.desc}<br><br><strong style="color: var(--text);">Data Audit (2016-2026):</strong> This node represents a major highway corridor bottleneck, recording <strong>${count}</strong> unique fatal and severe crashes, resulting in <strong>${deaths}</strong> deaths and <strong>${injuries}</strong> injuries. ${topBuses ? `Commercial carriers operating under daily joma leases (primarily <strong>${topBuses}</strong>) are frequently documented in these collisions.` : ''}`;
+  document.getElementById("mdcNodeDesc").innerHTML = `${profile.desc}<br><br><strong style="color: var(--text);">Data Audit (2022-2024 source records):</strong> This node aggregates <strong>${count}</strong> deduplicated crash records, resulting in <strong>${deaths}</strong> deaths and <strong>${injuries}</strong> injuries. Non-Dhaka node positions are modelled corridor placements for visual analysis, not street-level source coordinates.`;
   
   // Show division tag
   const divEl = document.getElementById("mdcNodeDiv");
@@ -2961,11 +2942,6 @@ function getMarkerIcon(deaths) {
 }
 
 function buildPopupHTML(a) {
-  let busHtml = '';
-  if (a.bus_name) {
-    busHtml = `<div class="map-pop__op">🚍 Operator: ${escHtml(a.bus_name)}</div>`;
-  }
-  
   // Format date
   let dateFormatted = a.date;
   try {
@@ -2982,7 +2958,8 @@ function buildPopupHTML(a) {
         <span>📅 ${dateFormatted}</span>
         <span>ID: ${a.id}</span>
       </div>
-      ${busHtml}
+      <div class="map-pop__op">${escHtml(getCoordinateLabel(a))}</div>
+      <div class="map-pop__op">Operator field: ${escHtml(getOperatorLabel(a))}</div>
       <div class="map-pop__stats">
         <div class="map-pop__stat">
           <span class="map-pop__num deaths">${a.deaths}</span>
@@ -2996,6 +2973,21 @@ function buildPopupHTML(a) {
       <div class="map-pop__veh">Collision: ${escHtml(a.vehicle)}</div>
     </div>
   `;
+}
+
+function getCoordinateLabel(a) {
+  if (a.coordinate_method === 'source_exact_dhaka') {
+    return 'Coordinate: exact source coordinate';
+  }
+  if (a.coordinate_method === 'dhaka_default_fallback') {
+    return 'Coordinate: Dhaka fallback placement';
+  }
+  return 'Coordinate: modelled highway corridor placement';
+}
+
+function getOperatorLabel(a) {
+  if (a.bus_name) return a.bus_name;
+  return a.is_bus_record ? 'bus involved; company not recorded in source' : 'not recorded in source';
 }
 
 function escHtml(str) {
@@ -3033,7 +3025,7 @@ function renderAccidents() {
       document.getElementById("fmDetailName").textContent = a.location;
       
       let riskStr = `${a.deaths} Fatalities`;
-      if (a.bus_name) riskStr += ` · ${a.bus_name}`;
+      riskStr += ` · ${getCoordinateLabel(a)}`;
       document.getElementById("fmDetailRisk").textContent = riskStr;
       document.getElementById("fmDetailRisk").style.color = a.deaths >= 3 ? "var(--bloodl)" : "var(--amberl)";
       
@@ -3043,10 +3035,7 @@ function renderAccidents() {
         if (!isNaN(d.getTime())) dateFormatted = d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
       } catch(e) {}
       
-      let desc = `Accident occurred on ${dateFormatted}. Vehicles involved: ${a.vehicle}. Death count: ${a.deaths}, injuries: ${a.injuries}.`;
-      if (a.bus_name) {
-        desc += ` commercial transport carrier: ${a.bus_name}.`;
-      }
+      let desc = `Source date: ${dateFormatted}. Vehicles involved: ${a.vehicle}. Death count: ${a.deaths}, injuries: ${a.injuries}. ${a.coordinate_note || getCoordinateLabel(a)} Operator field: ${getOperatorLabel(a)}.`;
       document.getElementById("fmDetailDesc").textContent = desc;
     });
 
@@ -3067,7 +3056,7 @@ function renderAccidents() {
         document.getElementById("mdcNodeName").textContent = a.location;
 
         let riskStr = `${a.deaths} Fatalities`;
-        if (a.bus_name) riskStr += ` · ${a.bus_name}`;
+        riskStr += ` · ${getCoordinateLabel(a)}`;
         document.getElementById("mdcNodeRisk").textContent = riskStr;
         document.getElementById("mdcNodeRisk").style.color = a.deaths >= 3 ? "var(--bloodl)" : "var(--amberl)";
 
@@ -3077,10 +3066,7 @@ function renderAccidents() {
           if (!isNaN(d.getTime())) dateFormatted = d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
         } catch(e) {}
 
-        let desc = `Accident occurred on ${dateFormatted}. Vehicles involved: ${a.vehicle}. Death count: ${a.deaths}, injuries: ${a.injuries}.`;
-        if (a.bus_name) {
-          desc += ` Commercial carrier: ${a.bus_name}.`;
-        }
+        let desc = `Source date: ${dateFormatted}. Vehicles involved: ${a.vehicle}. Death count: ${a.deaths}, injuries: ${a.injuries}. ${a.coordinate_note || getCoordinateLabel(a)} Operator field: ${getOperatorLabel(a)}.`;
         document.getElementById("mdcNodeDesc").textContent = desc;
       });
 
@@ -3092,8 +3078,8 @@ function renderAccidents() {
   const totalAccidents = filtered.length;
   const totalDeaths = filtered.reduce((sum, a) => sum + a.deaths, 0);
   
-  // Count bus accidents
-  const totalBusAccidents = filtered.filter(a => a.bus_name !== null).length;
+  // Count bus-involved records without inventing company/operator names.
+  const totalBusAccidents = filtered.filter(a => a.is_bus_record === true).length;
   
   // Approximate corridors and highways involved
   const activeCorridors = activeYear === 'all' ? 8 : Math.max(2, Math.min(8, Math.round(totalAccidents / 35)));
@@ -3108,7 +3094,7 @@ function renderAccidents() {
     cards[1].querySelector('.fm-stat-label').textContent = 'Fatalities';
     
     cards[2].querySelector('.fm-stat-num').textContent = totalBusAccidents;
-    cards[2].querySelector('.fm-stat-label').textContent = 'Bus Crashes';
+    cards[2].querySelector('.fm-stat-label').textContent = 'Bus-Involved';
     
     cards[3].querySelector('.fm-stat-num').textContent = activeCorridors;
     cards[3].querySelector('.fm-stat-label').textContent = 'Risk Zones';
