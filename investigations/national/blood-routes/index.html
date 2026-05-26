@@ -1152,8 +1152,6 @@ html[data-theme="dark"] .sub-nav {
       <div class="toggle-btn-row">
         <button id="btnHotspots" class="toggle-btn active" onclick="toggleMapLayer('hotspots')">Hotspots</button>
         <button id="btnHeatmap" class="toggle-btn heat-active" onclick="toggleMapLayer('heatmap')">Heat Map</button>
-        <button id="btnRiskZones" class="toggle-btn active" onclick="toggleMapLayer('risk')">Risk Corridors</button>
-        <button id="btnHighways" class="toggle-btn active" onclick="toggleMapLayer('highways')">Highways</button>
       </div>
 
       <div style="flex-grow: 1; position: relative; width: 100%; height: 420px; min-height: 300px; border: 1px solid var(--border); border-radius: 2px; overflow: hidden; background: var(--ink3);" id="dhaka-leafmap-container">
@@ -2375,34 +2373,42 @@ function showHotspot(id) {
 function toggleMapLayer(layer) {
   if (layer === 'hotspots') {
     const btn = document.getElementById("btnHotspots");
-    const active = btn.classList.toggle("active");
-    if (dhakaMap) {
-      if (active) dhakaMap.addLayer(dhakaHotspotLayerGroup);
-      else dhakaMap.removeLayer(dhakaHotspotLayerGroup);
+    if (btn) {
+      const active = btn.classList.toggle("active");
+      if (dhakaMap) {
+        if (active) dhakaMap.addLayer(dhakaHotspotLayerGroup);
+        else dhakaMap.removeLayer(dhakaHotspotLayerGroup);
+      }
     }
   }
   if (layer === 'heatmap') {
     const btn = document.getElementById("btnHeatmap");
-    const active = btn.classList.toggle("heat-active");
-    if (dhakaMap) {
-      if (active) dhakaMap.addLayer(dhakaHeatmapLayerGroup);
-      else dhakaMap.removeLayer(dhakaHeatmapLayerGroup);
+    if (btn) {
+      const active = btn.classList.toggle("heat-active");
+      if (dhakaMap) {
+        if (active) dhakaMap.addLayer(dhakaHeatmapLayerGroup);
+        else dhakaMap.removeLayer(dhakaHeatmapLayerGroup);
+      }
     }
   }
   if (layer === 'risk') {
     const btn = document.getElementById("btnRiskZones");
-    const active = btn.classList.toggle("active");
-    if (dhakaMap) {
-      if (active) dhakaMap.addLayer(dhakaRiskLayerGroup);
-      else dhakaMap.removeLayer(dhakaRiskLayerGroup);
+    if (btn) {
+      const active = btn.classList.toggle("active");
+      if (dhakaMap) {
+        if (active) dhakaMap.addLayer(dhakaRiskLayerGroup);
+        else dhakaMap.removeLayer(dhakaRiskLayerGroup);
+      }
     }
   }
   if (layer === 'highways') {
     const btn = document.getElementById("btnHighways");
-    const active = btn.classList.toggle("active");
-    if (dhakaMap) {
-      if (active) dhakaMap.addLayer(dhakaHighwayLayerGroup);
-      else dhakaMap.removeLayer(dhakaHighwayLayerGroup);
+    if (btn) {
+      const active = btn.classList.toggle("active");
+      if (dhakaMap) {
+        if (active) dhakaMap.addLayer(dhakaHighwayLayerGroup);
+        else dhakaMap.removeLayer(dhakaHighwayLayerGroup);
+      }
     }
   }
 }
@@ -2602,7 +2608,7 @@ window.addEventListener('DOMContentLoaded', function() {
       minZoom: 8,
       maxZoom: 16,
       zoomControl: true,
-      scrollWheelZoom: false
+      scrollWheelZoom: true
     });
 
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
@@ -2615,39 +2621,6 @@ window.addEventListener('DOMContentLoaded', function() {
     dhakaHighwayLayerGroup = L.layerGroup().addTo(dhakaMap);
     dhakaRiskLayerGroup = L.layerGroup().addTo(dhakaMap);
     dhakaHeatmapLayerGroup = L.layerGroup().addTo(dhakaMap);
-
-    // Render Dhaka Highways
-    Object.entries(highwaysData).forEach(([code, hw]) => {
-      if (['N1', 'N2', 'N3', 'N5', 'N8'].includes(code)) {
-        L.polyline(hw.coords, {
-          color: 'rgba(201, 168, 76, 0.55)', // Gold
-          weight: 3.2,
-          opacity: 0.7,
-          lineCap: 'round',
-          lineJoin: 'round'
-        }).bindTooltip(hw.name, {
-          sticky: true,
-          className: 'leaflet-tooltip'
-        }).addTo(dhakaHighwayLayerGroup);
-      }
-    });
-
-    // Render Dhaka Risk Corridors
-    const dhakaRiskCorridors = [
-      [[23.7099, 90.4485], [23.7011, 90.4578], [23.6894, 90.4804], [23.6989, 90.5226], [23.5312, 90.7225]], // N1
-      [[23.7599, 90.3982], [23.7777, 90.4005], [23.8517, 90.4002], [23.9998, 90.3785]], // N3
-      [[23.8061, 90.3669], [23.7989, 90.3012], [23.8454, 90.2647], [23.8967, 90.2678]], // N5
-      [[23.7099, 90.4485], [23.6822, 90.4311], [23.6089, 90.3424], [23.4795, 90.2598]] // N8
-    ];
-    dhakaRiskCorridors.forEach(coords => {
-      L.polyline(coords, {
-        color: 'var(--bloodl)',
-        weight: 5.5,
-        opacity: 0.8,
-        lineCap: 'round',
-        lineJoin: 'round'
-      }).addTo(dhakaRiskLayerGroup);
-    });
 
     // Render Dhaka Heatmap circles (overlapping gradients)
     Object.entries(dhakaHotspotsCoords).forEach(([id, hs]) => {
@@ -2698,36 +2671,6 @@ window.addEventListener('DOMContentLoaded', function() {
 
   // Initialize highway polylines
   highwayLayerGroup = L.layerGroup();
-  Object.entries(highwaysData).forEach(([code, hw]) => {
-    const line = L.polyline(hw.coords, {
-      color: 'rgba(201, 168, 76, 0.4)', // Gold
-      weight: 2.8,
-      opacity: 0.6,
-      lineCap: 'round',
-      lineJoin: 'round'
-    });
-    
-    line.bindTooltip(hw.name, {
-      sticky: true,
-      className: 'leaflet-tooltip'
-    });
-    
-    line.on('mouseover', function() {
-      line.setStyle({
-        color: 'var(--bloodl)',
-        weight: 3.8
-      });
-    });
-    
-    line.on('mouseout', function() {
-      line.setStyle({
-        color: 'rgba(201, 168, 76, 0.4)',
-        weight: 2.8
-      });
-    });
-    
-    line.addTo(highwayLayerGroup);
-  });
 
   // Initialize area labels
   labelLayerGroup = L.layerGroup();
