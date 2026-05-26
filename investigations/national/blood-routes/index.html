@@ -1241,10 +1241,18 @@ html[data-theme="dark"] .sub-nav {
     <div class="fullmap-canvas" style="flex-direction: column; align-items: stretch; justify-content: flex-start; width: 100%;">
       <!-- Year Filter Control Panel -->
       <div class="fullmap-controls" style="margin-bottom: 1.2rem; display: flex; gap: 0.5rem; justify-content: center; width: 100%; flex-wrap: wrap; z-index: 10;">
-        <button id="btnFAll" class="toggle-btn active" onclick="setMapYear('all')">All Years</button>
-        <button id="btnF2022" class="toggle-btn" onclick="setMapYear(2022)">2022</button>
-        <button id="btnF2023" class="toggle-btn" onclick="setMapYear(2023)">2023</button>
-        <button id="btnF2024" class="toggle-btn" onclick="setMapYear(2024)">2024</button>
+        <button class="toggle-btn active" data-year="all" onclick="setMapYear('all')">All Years</button>
+        <button class="toggle-btn" data-year="2016" onclick="setMapYear(2016)">2016</button>
+        <button class="toggle-btn" data-year="2017" onclick="setMapYear(2017)">2017</button>
+        <button class="toggle-btn" data-year="2018" onclick="setMapYear(2018)">2018</button>
+        <button class="toggle-btn" data-year="2019" onclick="setMapYear(2019)">2019</button>
+        <button class="toggle-btn" data-year="2020" onclick="setMapYear(2020)">2020</button>
+        <button class="toggle-btn" data-year="2021" onclick="setMapYear(2021)">2021</button>
+        <button class="toggle-btn" data-year="2022" onclick="setMapYear(2022)">2022</button>
+        <button class="toggle-btn" data-year="2023" onclick="setMapYear(2023)">2023</button>
+        <button class="toggle-btn" data-year="2024" onclick="setMapYear(2024)">2024</button>
+        <button class="toggle-btn" data-year="2025" onclick="setMapYear(2025)">2025</button>
+        <button class="toggle-btn" data-year="2026" onclick="setMapYear(2026)">2026</button>
       </div>
 
       <div style="position: relative; width: 100%; height: 640px; border: 1px solid var(--border); border-radius: 2px; overflow: hidden; background: var(--ink3);">
@@ -2579,8 +2587,7 @@ function renderAccidents() {
   const totalBusAccidents = filtered.filter(a => a.bus_name !== null).length;
   
   // Approximate corridors and highways involved
-  const activeHighways = activeYear === 'all' ? 10 : activeYear === 2024 ? 9 : 6;
-  const activeCorridors = activeYear === 'all' ? 8 : activeYear === 2024 ? 7 : 4;
+  const activeCorridors = activeYear === 'all' ? 8 : Math.max(2, Math.min(8, Math.round(totalAccidents / 35)));
 
   // Let's modify the stat cards in the sidebar dynamically!
   const cards = document.querySelectorAll('.fm-stat-card');
@@ -2603,10 +2610,14 @@ function setMapYear(year) {
   activeYear = year;
   
   // Toggle active class on control buttons
-  document.getElementById('btnFAll').classList.toggle('active', year === 'all');
-  document.getElementById('btnF2022').classList.toggle('active', year === 2022);
-  document.getElementById('btnF2023').classList.toggle('active', year === 2023);
-  document.getElementById('btnF2024').classList.toggle('active', year === 2024);
+  document.querySelectorAll('.fullmap-controls .toggle-btn').forEach(btn => {
+    const btnYear = btn.getAttribute('data-year');
+    if (year === 'all') {
+      btn.classList.toggle('active', btnYear === 'all');
+    } else {
+      btn.classList.toggle('active', btnYear == year);
+    }
+  });
 
   renderAccidents();
   
