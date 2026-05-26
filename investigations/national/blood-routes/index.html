@@ -806,6 +806,28 @@ html[data-theme="dark"] .sub-nav {
   background: transparent !important;
   border: none !important;
 }
+#dhaka-leafmap {
+  width: 100%;
+  height: 100% !important;
+  background: var(--ink) !important;
+}
+.dhaka-hotspot-pulse {
+  border-radius: 50%;
+  background: var(--blood);
+  border: 1.5px solid var(--bloodl);
+  box-shadow: 0 0 10px rgba(196, 30, 58, 0.7);
+  transition: all 0.3s ease;
+}
+.dhaka-hotspot-pulse.intense {
+  background: var(--bloodl);
+  box-shadow: 0 0 15px rgba(224, 48, 78, 0.9);
+}
+.dhaka-hotspot-pulse.highlighted {
+  background: #ff3b30 !important;
+  border: 2px solid #ffffff !important;
+  box-shadow: 0 0 0 3.5px var(--ink2), 0 0 25px 6px rgba(255, 59, 48, 0.95) !important;
+  z-index: 1000 !important;
+}
 .cluster-inner {
   display: flex;
   align-items: center;
@@ -1134,86 +1156,25 @@ html[data-theme="dark"] .sub-nav {
         <button id="btnHighways" class="toggle-btn active" onclick="toggleMapLayer('highways')">Highways</button>
       </div>
 
-      <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; position: relative;">
-        <!-- Dhaka-zoomed SVG — viewBox crops to Dhaka metro area only -->
-        <svg viewBox="170 210 160 160" class="svg-map" id="bdMapSvg" style="max-height: 420px;">
-          <defs>
-            <radialGradient id="heatExtreme" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="rgba(196,30,58,0.55)" />
-              <stop offset="40%" stop-color="rgba(224,48,78,0.25)" />
-              <stop offset="100%" stop-color="rgba(196,30,58,0)" />
-            </radialGradient>
-            <radialGradient id="heatHigh" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="rgba(196,30,58,0.38)" />
-              <stop offset="45%" stop-color="rgba(224,48,78,0.15)" />
-              <stop offset="100%" stop-color="rgba(196,30,58,0)" />
-            </radialGradient>
-          </defs>
-
-          <!-- Dhaka Division outline (context) -->
-          <g id="mapDivisions">
-            <path class="map-division" d="M170,195 L200,165 L235,175 L275,175 L315,195 L350,210 L345,270 L320,320 L280,345 L240,350 L205,330 L175,300 L155,275 Z" data-division="Dhaka" />
-          </g>
-
-          <!-- Rivers in Dhaka area -->
-          <g id="mapRivers">
-            <path class="map-river" d="M192,210 C196,230 200,260 210,290" />
-            <path class="map-river" d="M210,290 C220,320 230,350 240,370" />
-          </g>
-
-          <!-- Highways radiating from Dhaka (clipped to view) -->
-          <g id="mapHighways">
-            <path class="map-highway active" d="M250,300 L275,325 L300,350" /> <!-- N1 start -->
-            <path class="map-highway active" d="M250,300 L280,275 L310,250" /> <!-- N2 start -->
-            <path class="map-highway active" d="M250,300 L252,270 L255,240 L258,215" /> <!-- N3 -->
-            <path class="map-highway" d="M230,240 L215,215" /> <!-- N4 -->
-            <path class="map-highway active" d="M250,300 L225,280 L200,265 L180,245 L172,228" /> <!-- N5 -->
-            <path class="map-highway active" d="M250,300 L230,325 L215,345 L200,360" /> <!-- N8 -->
-          </g>
-
-          <!-- Risk Corridors (Dhaka area only) -->
-          <g id="mapRiskZones">
-            <path class="map-risk-zone visible" d="M250,300 L275,325 L300,350" stroke="var(--bloodl)" stroke-width="5" />
-            <path class="map-risk-zone visible" d="M250,300 L252,270 L255,240" stroke="var(--bloodl)" stroke-width="4.5" />
-            <path class="map-risk-zone visible" d="M225,280 L200,265 L180,245" stroke="var(--bloodl)" stroke-width="4" />
-            <circle class="map-risk-zone visible" cx="215" cy="345" r="10" stroke="var(--bloodl)" stroke-width="2.5" />
-          </g>
-
-          <!-- Heat Map (Dhaka only) -->
-          <g id="mapHeatmap" class="map-heat-zone visible">
-            <ellipse cx="250" cy="300" rx="45" ry="42" fill="url(#heatExtreme)" />
-            <ellipse cx="248" cy="285" rx="25" ry="20" fill="url(#heatExtreme)" />
-            <ellipse cx="240" cy="250" rx="30" ry="25" fill="url(#heatHigh)" />
-          </g>
-
-          <!-- Dhaka Division hotspots only -->
-          <g id="mapHotspots">
-            <circle class="map-hotspot glow-intense" id="hs-tejgaon" cx="248" cy="298" r="4" onclick="showHotspot('tejgaon')" data-name="Tejgaon Industrial Area" data-div="Dhaka" />
-            <circle class="map-hotspot glow-intense" id="hs-airport" cx="252" cy="285" r="4" onclick="showHotspot('airport')" data-name="Airport Roundabout" data-div="Dhaka" />
-            <circle class="map-hotspot glow-intense" id="hs-jatrabari" cx="255" cy="310" r="4" onclick="showHotspot('jatrabari')" data-name="Jatrabari Interchange" data-div="Dhaka" />
-            <circle class="map-hotspot glow" id="hs-savar" cx="225" cy="278" r="3.5" onclick="showHotspot('savar')" data-name="Savar / Nabinagar" data-div="Dhaka" />
-            <circle class="map-hotspot glow-intense" id="hs-gazipur" cx="254" cy="255" r="4" onclick="showHotspot('gazipur')" data-name="Gazipur Chowrasta" data-div="Dhaka" />
-            <circle class="map-hotspot glow" id="hs-shonir" cx="265" cy="318" r="3.5" onclick="showHotspot('shonir')" data-name="Shonir Akhra" data-div="Dhaka" />
-            <circle class="map-hotspot glow" id="hs-tangail" cx="230" cy="238" r="3.5" onclick="showHotspot('tangail')" data-name="Tangail Bus Stand" data-div="Dhaka" />
-            <circle class="map-hotspot glow" id="hs-manikganj" cx="215" cy="300" r="3" onclick="showHotspot('manikganj')" data-name="Manikganj N8 Junction" data-div="Dhaka" />
-          </g>
-
-          <!-- Labels -->
-          <g id="mapLabels">
-            <text x="260" y="296" class="map-city-label capital" font-size="5">DHAKA</text>
-            <text x="260" y="252" class="map-city-label" font-size="3.5">Gazipur</text>
-            <text x="210" y="276" class="map-city-label" font-size="3.5">Savar</text>
-            <text x="218" y="237" class="map-city-label" font-size="3.5">Tangail</text>
-            <text x="200" y="300" class="map-city-label" font-size="3.5">Manikganj</text>
-
-            <!-- Highway labels -->
-            <text x="282" y="338" font-family="var(--mono)" font-size="3.5" fill="var(--gold)" font-weight="700">N1</text>
-            <text x="290" y="260" font-family="var(--mono)" font-size="3.5" fill="var(--gold)" font-weight="700">N2</text>
-            <text x="260" y="225" font-family="var(--mono)" font-size="3.5" fill="var(--gold)" font-weight="700">N3</text>
-            <text x="188" y="253" font-family="var(--mono)" font-size="3.5" fill="var(--gold)" font-weight="700">N5</text>
-            <text x="220" y="350" font-family="var(--mono)" font-size="3.5" fill="var(--gold)" font-weight="700">N8</text>
-          </g>
-        </svg>
+      <div style="flex-grow: 1; position: relative; width: 100%; height: 420px; min-height: 300px; border: 1px solid var(--border); border-radius: 2px; overflow: hidden; background: var(--ink3);" id="dhaka-leafmap-container">
+        <div id="dhaka-leafmap"></div>
+        
+        <!-- Floating Tooltip for Dhaka Hotspots -->
+        <div id="dhaka-tooltip" style="
+          position: absolute;
+          z-index: 1000;
+          background: rgba(13, 13, 24, 0.95);
+          border: 1px solid var(--border);
+          color: var(--text);
+          padding: 0.6rem 0.9rem;
+          font-family: var(--mono);
+          font-size: 0.72rem;
+          border-radius: 2px;
+          pointer-events: none;
+          display: none;
+          box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+          line-height: 1.45;
+        "></div>
       </div>
 
       <div class="map-details-card" id="mapDetails">
@@ -2393,50 +2354,56 @@ function showHotspot(id) {
   const divEl = document.getElementById("mdcNodeDiv");
   if (divEl && profile.division) divEl.textContent = profile.division;
   
-  // Highlight map node and its division
-  document.querySelectorAll(".map-hotspot").forEach(el => {
-    const isSelected = el.id === `hs-${id}`;
-    el.style.fill = isSelected ? "var(--bloodl)" : "var(--blood)";
-    el.setAttribute("r", isSelected ? "8" : el.dataset.origR || "5");
+  // Highlight map marker on dhakaMap
+  Object.entries(dhakaHotspotMarkers).forEach(([k, marker]) => {
+    const isSelected = k === id;
+    const intense = dhakaHotspotsCoords[k].intense;
+    const size = isSelected ? (intense ? 18 : 15) : (intense ? 12 : 9);
+    
+    marker.setIcon(L.divIcon({
+      className: `dhaka-hotspot-pulse${intense ? ' intense' : ''}${isSelected ? ' highlighted' : ''}`,
+      iconSize: [size, size],
+      iconAnchor: [size/2, size/2]
+    }));
   });
-  
-  // Highlight the division polygon
-  const hotspotEl = document.getElementById(`hs-${id}`);
-  const divName = hotspotEl ? hotspotEl.getAttribute("data-div") : null;
-  document.querySelectorAll(".map-division").forEach(d => {
-    d.classList.toggle("highlighted", d.getAttribute("data-division") === divName);
-  });
+
+  // Highlight division polygon and sync with country map
+  const divName = profile.division.split(' ')[0];
+  fmHighlightDiv(divName, true);
 }
 
 function toggleMapLayer(layer) {
   if (layer === 'hotspots') {
-    const el = document.getElementById("mapHotspots");
     const btn = document.getElementById("btnHotspots");
-    const show = el.style.display !== 'none';
-    el.style.display = show ? 'none' : 'block';
-    btn.classList.toggle("active", !show);
+    const active = btn.classList.toggle("active");
+    if (dhakaMap) {
+      if (active) dhakaMap.addLayer(dhakaHotspotLayerGroup);
+      else dhakaMap.removeLayer(dhakaHotspotLayerGroup);
+    }
   }
   if (layer === 'heatmap') {
-    const el = document.getElementById("mapHeatmap");
     const btn = document.getElementById("btnHeatmap");
-    const isVisible = el.classList.contains("visible");
-    el.classList.toggle("visible", !isVisible);
-    btn.classList.toggle("heat-active", !isVisible);
+    const active = btn.classList.toggle("heat-active");
+    if (dhakaMap) {
+      if (active) dhakaMap.addLayer(dhakaHeatmapLayerGroup);
+      else dhakaMap.removeLayer(dhakaHeatmapLayerGroup);
+    }
   }
   if (layer === 'risk') {
-    const zones = document.querySelectorAll(".map-risk-zone");
     const btn = document.getElementById("btnRiskZones");
-    const firstVal = zones[0].style.opacity;
-    const show = firstVal === '0' || firstVal === '';
-    zones.forEach(z => { z.style.opacity = show ? '0.7' : '0'; });
-    btn.classList.toggle("active", show);
+    const active = btn.classList.toggle("active");
+    if (dhakaMap) {
+      if (active) dhakaMap.addLayer(dhakaRiskLayerGroup);
+      else dhakaMap.removeLayer(dhakaRiskLayerGroup);
+    }
   }
   if (layer === 'highways') {
-    const el = document.getElementById("mapHighways");
     const btn = document.getElementById("btnHighways");
-    const show = el.style.display !== 'none';
-    el.style.display = show ? 'none' : 'block';
-    btn.classList.toggle("active", !show);
+    const active = btn.classList.toggle("active");
+    if (dhakaMap) {
+      if (active) dhakaMap.addLayer(dhakaHighwayLayerGroup);
+      else dhakaMap.removeLayer(dhakaHighwayLayerGroup);
+    }
   }
 }
 
@@ -2471,6 +2438,25 @@ let geojsonLayer;
 let divisionLayers = {};
 let highwayLayerGroup;
 let labelLayerGroup;
+
+// Dhaka Metro Zoomable Leaflet Map variables
+let dhakaMap;
+let dhakaHotspotLayerGroup;
+let dhakaHighwayLayerGroup;
+let dhakaRiskLayerGroup;
+let dhakaHeatmapLayerGroup;
+let dhakaHotspotMarkers = {};
+
+const dhakaHotspotsCoords = {
+  tejgaon: { name: "Tejgaon Industrial Corridor", coords: [23.7599, 90.3982], intense: true },
+  airport: { name: "Airport Highway Roundabout", coords: [23.8517, 90.4002], intense: true },
+  jatrabari: { name: "Jatrabari Highway Interchange", coords: [23.7099, 90.4485], intense: true },
+  savar: { name: "Savar Transit Loop", coords: [23.8967, 90.2678], intense: false },
+  gazipur: { name: "Gazipur Chowrasta Loop", coords: [23.9998, 90.3785], intense: true },
+  shonir: { name: "Shonir Akhra Pedestrian Crossing", coords: [23.7011, 90.4578], intense: false },
+  tangail: { name: "Tangail Bus Terminal Junction", coords: [24.2502, 89.9167], intense: false },
+  manikganj: { name: "Manikganj N8 Junction", coords: [23.8617, 89.9833], intense: false }
+};
 
 const divisionPops = {
   'Dhaka': 44.20,
@@ -2606,6 +2592,109 @@ window.addEventListener('DOMContentLoaded', function() {
   });
 
   MAP.addLayer(accidentCluster);
+
+  // Initialize Dhaka Metro Map
+  const dhakaMapContainer = document.getElementById('dhaka-leafmap');
+  if (dhakaMapContainer) {
+    dhakaMap = L.map('dhaka-leafmap', {
+      center: [23.83, 90.37],
+      zoom: 10,
+      minZoom: 8,
+      maxZoom: 16,
+      zoomControl: true,
+      scrollWheelZoom: false
+    });
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(dhakaMap);
+
+    dhakaHotspotLayerGroup = L.layerGroup().addTo(dhakaMap);
+    dhakaHighwayLayerGroup = L.layerGroup().addTo(dhakaMap);
+    dhakaRiskLayerGroup = L.layerGroup().addTo(dhakaMap);
+    dhakaHeatmapLayerGroup = L.layerGroup().addTo(dhakaMap);
+
+    // Render Dhaka Highways
+    Object.entries(highwaysData).forEach(([code, hw]) => {
+      if (['N1', 'N2', 'N3', 'N5', 'N8'].includes(code)) {
+        L.polyline(hw.coords, {
+          color: 'rgba(201, 168, 76, 0.55)', // Gold
+          weight: 3.2,
+          opacity: 0.7,
+          lineCap: 'round',
+          lineJoin: 'round'
+        }).bindTooltip(hw.name, {
+          sticky: true,
+          className: 'leaflet-tooltip'
+        }).addTo(dhakaHighwayLayerGroup);
+      }
+    });
+
+    // Render Dhaka Risk Corridors
+    const dhakaRiskCorridors = [
+      [[23.7099, 90.4485], [23.7011, 90.4578], [23.6894, 90.4804], [23.6989, 90.5226], [23.5312, 90.7225]], // N1
+      [[23.7599, 90.3982], [23.7777, 90.4005], [23.8517, 90.4002], [23.9998, 90.3785]], // N3
+      [[23.8061, 90.3669], [23.7989, 90.3012], [23.8454, 90.2647], [23.8967, 90.2678]], // N5
+      [[23.7099, 90.4485], [23.6822, 90.4311], [23.6089, 90.3424], [23.4795, 90.2598]] // N8
+    ];
+    dhakaRiskCorridors.forEach(coords => {
+      L.polyline(coords, {
+        color: 'var(--bloodl)',
+        weight: 5.5,
+        opacity: 0.8,
+        lineCap: 'round',
+        lineJoin: 'round'
+      }).addTo(dhakaRiskLayerGroup);
+    });
+
+    // Render Dhaka Heatmap circles (overlapping gradients)
+    Object.entries(dhakaHotspotsCoords).forEach(([id, hs]) => {
+      const radius = hs.intense ? 4500 : 3000;
+      const color = hs.intense ? 'rgba(196, 30, 58, 0.45)' : 'rgba(212, 160, 96, 0.35)';
+      
+      L.circle(hs.coords, {
+        radius: radius,
+        fillColor: color,
+        fillOpacity: 0.16,
+        stroke: false,
+        interactive: false
+      }).addTo(dhakaHeatmapLayerGroup);
+      
+      L.circle(hs.coords, {
+        radius: radius * 0.4,
+        fillColor: 'rgba(196, 30, 58, 0.65)',
+        fillOpacity: 0.28,
+        stroke: false,
+        interactive: false
+      }).addTo(dhakaHeatmapLayerGroup);
+    });
+
+    // Render Hotspot markers
+    Object.entries(dhakaHotspotsCoords).forEach(([id, hs]) => {
+      const size = hs.intense ? 12 : 9;
+      const marker = L.marker(hs.coords, {
+        icon: L.divIcon({
+          className: `dhaka-hotspot-pulse${hs.intense ? ' intense' : ''}`,
+          iconSize: [size, size],
+          iconAnchor: [size/2, size/2]
+        })
+      }).addTo(dhakaHotspotLayerGroup);
+      
+      marker.on('click', () => {
+        showHotspot(id);
+        dhakaMap.panTo(hs.coords);
+      });
+      
+      marker.bindTooltip(hs.name, {
+        direction: 'top',
+        className: 'leaflet-tooltip'
+      });
+      
+      dhakaHotspotMarkers[id] = marker;
+    });
+  }
 
   // Initialize highway polylines
   highwayLayerGroup = L.layerGroup();
