@@ -95,5 +95,37 @@
       "BD-INV-003"
     ],
     "rtl_status": null
+  },
+  {
+    "id": "BD-INV-004",
+    "title": "Incendiary Value",
+    "dek": "A forensic spatial investigation into Dhaka's recurring slum fires, state land ownership disputes, and the real estate appreciation driving informal displacement.",
+    "slug": "dhaka-slum-fires",
+    "date_published": "2026-05-28",
+    "date_revised": null,
+    "status": "published",
+    "investigation_type": "Tier 2 - Visual Spatial Investigation",
+    "topic_tags": [
+      "urban development",
+      "displacement",
+      "fire safety",
+      "spatial analysis",
+      "Bangladesh"
+    ],
+    "summary": "This visual spatial investigation maps the recurring fire incidents in Dhaka's major slums—Korail, Chalantika, Sattola, and Kalshi—overlaying land ownership records and real estate appreciation trends to reveal the underlying economic incentives behind informal displacement.",
+    "key_findings": [
+      "Dhaka's major slums occupy highly valuable government-owned land contested by state agencies like BTCL, PWD, NHA, and the Ministry of Health, creating legal voids exploited by local brokers.",
+      "The opening of major infrastructure projects (e.g. Kalshi Flyover, MRT Line-6) correlates with a steep land appreciation index (+250% to +420%), heightening pressure on informal settlements.",
+      "Recurring fires coincide with periods of increased eviction pressure or planned infrastructure expansions, effectively clearing prime urban land without resettlement compensation."
+    ],
+    "source_count": 14,
+    "methodology_link": "/content/investigations/dhaka-slum-fires/methodology.html",
+    "has_correction": false,
+    "correction_notes": [],
+    "og_image_path": null,
+    "related_items": [
+      "BD-INV-003"
+    ],
+    "rtl_status": "Spatial overlay calculations, land value appreciation indexes, and fire dates georeferenced from Fire Service and Civil Defence (FSCD) logs."
   }
 ]

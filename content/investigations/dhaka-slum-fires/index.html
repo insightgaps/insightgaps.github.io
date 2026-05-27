@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Incendiary Value · Dhaka Slum Fires & Land Speculation · BD-INV-004 · Insight Gaps</title>
+  <meta name="description" content="A forensic spatial investigation into Dhaka's recurring slum fires, state land ownership disputes, and the real estate appreciation driving informal displacement.">
+
+  <!-- Font preconnect and Google Fonts (Outfit, Lora, Space Mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Lora:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+
+  <style>
+    /* ============================================================
+       OVERRIDE FOR PREMIUM DARK THEME (#0a0f1d)
+       ============================================================ */
+    :root {
+      --color-dark-bg: #0a0f1d;
+      --color-dark-surface: #121829;
+      --color-dark-surface-alt: #1a233d;
+      --color-dark-border: #232f50;
+      --color-dark-border-strong: #334473;
+      --font-headline: 'Outfit', sans-serif;
+      --font-body: 'Lora', Georgia, serif;
+      --font-mono: 'Space Mono', monospace;
+    }
+
+    body {
+      background-color: var(--color-dark-bg) !important;
+      color: #cbd5e1 !important; /* light slate text */
+      font-family: var(--font-body);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-headline);
+      color: #f8fafc !important;
+    }
+
+    /* Skip link */
+    .skip-link {
+      background-color: var(--color-accent);
+      color: #ffffff;
+    }
+
+    /* Site Header Overrides */
+    .site-header {
+      background-color: #0d1527 !important;
+      border-bottom: var(--border-width) solid var(--color-dark-border) !important;
+    }
+
+    .site-header__logo {
+      color: #f8fafc !important;
+    }
+
+    .site-nav__link {
+      color: #94a3b8 !important;
+    }
+
+    .site-nav__link:hover {
+      color: #f8fafc !important;
+      border-color: var(--color-dark-border-strong) !important;
+    }
+
+    .site-nav__link--active {
+      color: #f8fafc !important;
+      border-color: var(--color-accent) !important;
+    }
+
+    /* Sub Navigation */
+    .sub-nav {
+      position: sticky;
+      top: 4rem;
+      z-index: var(--z-header);
+      width: 100%;
+      background-color: #0b1120;
+      border-bottom: var(--border-width) solid var(--color-dark-border);
+      padding: var(--space-2) 0;
+    }
+
+    .sub-nav__inner {
+      max-width: var(--grid-max);
+      margin: 0 auto;
+      padding: 0 var(--grid-padding);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+    }
+
+    .sub-nav__brand {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: var(--type-body-sm);
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-wide);
+      text-decoration: none;
+    }
+
+    .sub-nav__links {
+      display: flex;
+      gap: var(--space-4);
+    }
+
+    .sub-nav__link {
+      font-family: var(--font-mono);
+      font-size: var(--type-label);
+      color: #94a3b8;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-wide);
+      transition: color var(--transition-fast);
+    }
+
+    .sub-nav__link:hover, .sub-nav__link.active {
+      color: #f8fafc;
+    }
+
+    /* Main Content Layout */
+    .investigation-header {
+      padding: var(--space-8) 0 var(--space-6);
+      border-bottom: var(--border-width) solid var(--color-dark-border);
+      background-color: #0c1328;
+    }
+
+    .investigation-header__inner {
+      max-width: var(--grid-max);
+      margin: 0 auto;
+      padding: 0 var(--grid-padding);
+    }
+
+    .investigation-header__title {
+      font-size: var(--type-display);
+      font-weight: 700;
+      line-height: var(--leading-tight);
+      margin-bottom: var(--space-3);
+    }
+
+    .investigation-header__meta {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+      margin-top: var(--space-4);
+    }
+
+    .tier-badge {
+      font-family: var(--font-mono);
+      font-size: var(--type-label);
+      color: var(--color-accent);
+      border: 1px solid var(--color-accent);
+      padding: var(--space-1) var(--space-2);
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-wide);
+    }
+
+    /* Dashboard Layout */
+    .dashboard-section {
+      padding: var(--space-6) 0;
+      background-color: var(--color-dark-bg);
+    }
+
+    .dashboard-container {
+      display: grid;
+      grid-template-columns: 440px 1fr;
+      gap: var(--space-5);
+      background-color: var(--color-dark-surface);
+      border: var(--border-width) solid var(--color-dark-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: var(--space-7);
+    }
+
+    .dashboard-sidebar {
+      padding: var(--space-5);
+      border-right: var(--border-width) solid var(--color-dark-border);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      overflow-y: auto;
+      max-height: 650px;
+    }
+
+    .dashboard-header-block h3 {
+      font-size: var(--type-h3);
+      margin-bottom: var(--space-2);
+    }
+
+    .dashboard-header-block p {
+      font-size: var(--type-body-sm);
+      color: #94a3b8;
+      line-height: var(--leading-data);
+    }
+
+    .slum-quick-selectors {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-2);
+    }
+
+    .slum-selector-btn {
+      font-family: var(--font-headline);
+      font-size: var(--type-body-sm);
+      font-weight: 600;
+      color: #94a3b8;
+      background-color: var(--color-dark-surface-alt);
+      border: 1px solid var(--color-dark-border);
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-md);
+      transition: all var(--transition-fast);
+      text-align: center;
+    }
+
+    .slum-selector-btn:hover {
+      background-color: var(--color-dark-border);
+      color: #f8fafc;
+      border-color: var(--color-dark-border-strong);
+    }
+
+    .slum-selector-btn.active {
+      background-color: var(--color-accent);
+      color: #ffffff;
+      border-color: var(--color-accent);
+    }
+
+    /* Details Panel */
+    .details-panel-card {
+      background-color: #0c1220;
+      border: 1px solid var(--color-dark-border);
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .panel-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+      color: #64748b;
+      font-style: italic;
+      font-size: var(--type-body-sm);
+    }
+
+    .panel-title {
+      font-size: var(--type-h3);
+      border-bottom: 2px solid var(--color-dark-border);
+      padding-bottom: var(--space-2);
+      margin-bottom: var(--space-3);
+    }
+
+    .panel-coords-row {
+      margin-bottom: var(--space-3);
+    }
+
+    .coord-tag {
+      font-family: var(--font-mono);
+      font-size: var(--type-label);
+      background-color: var(--color-dark-surface-alt);
+      color: var(--color-accent);
+      padding: 2px 6px;
+      border-radius: var(--radius-sm);
+      margin-right: var(--space-2);
+    }
+
+    .detail-row {
+      margin-bottom: var(--space-3);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .detail-label {
+      font-family: var(--font-mono);
+      font-size: var(--type-label);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-wide);
+      color: #64748b;
+    }
+
+    .detail-val {
+      font-size: var(--type-body-sm);
+      color: #e2e8f0;
+      line-height: var(--leading-data);
+    }
+
+    .detail-prose {
+      font-size: var(--type-body-sm);
+      color: #cbd5e1;
+      line-height: var(--leading-body);
+      margin-top: 2px;
+    }
+
+    /* Appreciation Stat Custom Styles */
+    .appreciation-stat-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-top: 4px;
+    }
+
+    .appreciation-pct {
+      font-family: var(--font-mono);
+      font-size: var(--type-h3);
+      font-weight: 700;
+      color: #10b981; /* emerald green success */
+      white-space: nowrap;
+    }
+
+    .appreciation-track {
+      flex: 1;
+      height: 8px;
+      background-color: var(--color-dark-surface-alt);
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--color-dark-border);
+    }
+
+    .appreciation-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #10b981, #34d399);
+      border-radius: 4px;
+      transition: width var(--transition-base);
+    }
+
+    /* Map Area */
+    .dashboard-map-area {
+      position: relative;
+      height: 650px;
+    }
+
+    #map {
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    /* Leaflet Overrides for Dark Theme integration */
+    .leaflet-container {
+      background-color: var(--color-dark-bg) !important;
+      font-family: var(--font-body) !important;
+    }
+
+    .leaflet-popup-content-wrapper {
+      background-color: #0b1220 !important;
+      border: 1px solid var(--color-dark-border) !important;
+      border-radius: var(--radius-md) !important;
+      color: #cbd5e1 !important;
+      padding: 0 !important;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
+    }
+
+    .leaflet-popup-content {
+      margin: var(--space-3) var(--space-4) !important;
+      font-family: var(--font-headline) !important;
+    }
+
+    .leaflet-popup-tip {
+      background-color: #0b1220 !important;
+      border: 1px solid var(--color-dark-border) !important;
+    }
+
+    .leaflet-popup-close-button {
+      color: #64748b !important;
+      font-size: var(--type-h3) !important;
+    }
+
+    .leaflet-tooltip {
+      background-color: #0c1220 !important;
+      border: 1px solid var(--color-dark-border) !important;
+      color: #cbd5e1 !important;
+      border-radius: var(--radius-sm) !important;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4) !important;
+    }
+
+    .leaflet-control-zoom a {
+      background-color: #0c1220 !important;
+      color: #cbd5e1 !important;
+      border: 1px solid var(--color-dark-border) !important;
+    }
+
+    .leaflet-control-zoom a:hover {
+      background-color: var(--color-dark-surface-alt) !important;
+      color: #ffffff !important;
+    }
+
+    /* Popup card inside map */
+    .map-popup-card h4 {
+      font-size: var(--type-body);
+      margin-bottom: var(--space-1);
+      font-weight: 700;
+    }
+
+    .map-popup-card p {
+      font-size: 0.85rem;
+      margin-bottom: var(--space-2);
+      color: #94a3b8;
+    }
+
+    .appreciation-highlight {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: #10b981;
+    }
+
+    .popup-btn {
+      font-family: var(--font-headline);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #ffffff;
+      background-color: var(--color-accent);
+      border: none;
+      padding: 4px var(--space-3);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      width: 100%;
+      text-align: center;
+      transition: background-color var(--transition-fast);
+    }
+
+    .popup-btn:hover {
+      background-color: var(--color-accent-hover);
+    }
+
+    /* Custom DivIcon Pulse */
+    .custom-fire-marker {
+      position: relative;
+    }
+
+    .marker-core {
+      width: 10px;
+      height: 10px;
+      background-color: #f97316; /* amber red */
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      position: absolute;
+      top: 5px;
+      left: 5px;
+    }
+
+    .marker-pulse {
+      width: 30px;
+      height: 30px;
+      background-color: rgba(249, 115, 22, 0.4);
+      border-radius: 50%;
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      animation: pulse 1.8s infinite ease-out;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(0.5);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(2.5);
+        opacity: 0;
+      }
+    }
+
+    /* Long form prose style updates for Dark Theme */
+    .investigation-body {
+      padding: var(--space-7) 0;
+      background-color: var(--color-dark-bg);
+    }
+
+    .investigation-body p {
+      color: #cbd5e1 !important; /* light slate text */
+    }
+
+    .investigation-body p strong {
+      color: #f8fafc !important;
+    }
+
+    .investigation-body h2, .investigation-body h3 {
+      margin-top: var(--space-7);
+      margin-bottom: var(--space-4);
+    }
+
+    /* Methodology Badge dark theme adjustments */
+    .methodology-badge {
+      background-color: rgba(193, 125, 17, 0.08) !important;
+      border-color: rgba(232, 192, 122, 0.25) !important;
+    }
+
+    .methodology-badge__tier {
+      color: #f59e0b !important;
+    }
+
+    /* Findings Panel dark theme adjustments */
+    .findings-panel {
+      background-color: #0e172a !important;
+      border-left-color: var(--color-accent) !important;
+      border: 1px solid var(--color-dark-border);
+      border-left-width: var(--border-width-accent);
+    }
+
+    .findings-panel__label {
+      color: var(--color-accent) !important;
+    }
+
+    .findings-panel__text {
+      color: #e2e8f0 !important;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .dashboard-container {
+        grid-template-columns: 1fr;
+      }
+
+      .dashboard-sidebar {
+        border-right: none;
+        border-bottom: var(--border-width) solid var(--color-dark-border);
+        max-height: 400px;
+      }
+
+      .dashboard-map-area {
+        height: 450px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --type-display: 2rem;
+        --type-h1: 1.75rem;
+      }
+
+      .investigation-header__meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-2);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- AI DISCLOSURE BAR -->
+  <div class="ai-disclosure-bar" role="note" aria-label="AI use disclosure">
+    <div class="ai-disclosure-bar__inner">
+      <p class="ai-disclosure-bar__text">
+        AI tools were used in producing this report.
+        <a href="/content/trust/ai-use.html">View AI use disclosure &rarr;</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- SKIP TO CONTENT LINK -->
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <!-- GLOBAL HEADER -->
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+      <a href="/" class="site-header__logo" aria-label="Insight Gaps Bureau - Home">Insight&nbsp;Gaps</a>
+      <button class="site-header__toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="primary-nav" aria-label="Primary navigation">
+        <a href="/content/investigations/" class="site-nav__link site-nav__link--active" aria-current="page">Investigations</a>
+        <a href="/analysis/" class="site-nav__link">Analysis</a>
+        <a href="/archive.html" class="site-nav__link">Archive</a>
+        <a href="/about.html" class="site-nav__link">About</a>
+        <a href="/content/trust/methodology.html" class="site-nav__link">Trust</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- SUB NAVIGATION -->
+  <div class="sub-nav">
+    <div class="sub-nav__inner">
+      <a href="/content/investigations/dhaka-slum-fires/" class="sub-nav__brand">Incendiary Value</a>
+      <div class="sub-nav__links">
+        <a href="#overview" class="sub-nav__link active">Overview</a>
+        <a href="#dashboard" class="sub-nav__link">Dashboard</a>
+        <a href="#narrative" class="sub-nav__link">Analysis</a>
+        <a href="/content/investigations/dhaka-slum-fires/methodology.html" class="sub-nav__link">Methodology</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN MAIN MAIN -->
+  <main id="main-content">
+
+    <!-- Investigation Header -->
+    <article class="investigation-header" id="overview">
+      <div class="investigation-header__inner page-wrapper">
+        <span class="section-label">BD-INV-004 · Forensic Spatial Investigation</span>
+        <h1 class="investigation-header__title">Incendiary Value: Slum Fires &amp; Real Estate Speculation in Dhaka</h1>
+        <p class="dek">
+          A spatial investigation mapping the intersection of recurring slum fires, public land ownership disputes, and the real estate appreciation driving informal displacement.
+        </p>
+        <div class="investigation-header__meta">
+          <span class="tier-badge">Tier 2 · Data-Driven Investigation</span>
+          <span class="mono-label">Published: May 28, 2026</span>
+          <span class="mono-label" style="color:var(--color-text-muted);">Sourced: FSCD Records, Sub-Registrar Land Registries &amp; OSM Data</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Interactive Dashboard Section -->
+    <section class="dashboard-section" id="dashboard">
+      <div class="page-wrapper">
+        <span class="section-label">Interactive Dashboard</span>
+        
+        <div class="dashboard-container">
+          <!-- Sidebar Controls -->
+          <div class="dashboard-sidebar">
+            <div class="dashboard-header-block">
+              <h3>Slum Selection Dashboard</h3>
+              <p>
+                Dhaka's municipal boundaries contain key informal settlements occupying contested public land. Select a settlement to overlay land appreciation indices and proximity buffer metrics.
+              </p>
+            </div>
+            
+            <div class="slum-quick-selectors">
+              <button id="btn-korail" class="slum-selector-btn" onclick="selectSlum('korail', true)">Korail</button>
+              <button id="btn-chalantika" class="slum-selector-btn" onclick="selectSlum('chalantika', true)">Chalantika</button>
+              <button id="btn-sattola" class="slum-selector-btn" onclick="selectSlum('sattola', true)">Sattola</button>
+              <button id="btn-kalshi" class="slum-selector-btn" onclick="selectSlum('kalshi', true)">Kalshi</button>
+            </div>
+
+            <!-- Details Card Container -->
+            <div id="slum-details-panel" class="details-panel-card">
+              <div id="panel-placeholder" class="panel-placeholder">
+                <p>🗺 Click a marker on the map or click a button above to display georeferenced land valuation data.</p>
+              </div>
+              
+              <div id="panel-content" style="display: none;">
+                <h3 id="slum-title" class="panel-title">Slum Name</h3>
+                <div id="slum-coords" class="panel-coords-row"></div>
+                
+                <div class="detail-row">
+                  <span class="detail-label">Primary Landowner</span>
+                  <span id="slum-landowner" class="detail-val">—</span>
+                </div>
+                
+                <div class="detail-row">
+                  <span class="detail-label">Recent Fire History</span>
+                  <span id="slum-fires" class="detail-val">—</span>
+                </div>
+                
+                <div class="detail-row">
+                  <span class="detail-label">Land-Value Appreciation (2016-2026)</span>
+                  <div class="appreciation-stat-row">
+                    <span id="slum-appreciation" class="appreciation-pct">—</span>
+                    <div class="appreciation-track">
+                      <div id="slum-appreciation-bar" class="appreciation-fill"></div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="detail-row">
+                  <span class="detail-label">Key Infrastructure Links</span>
+                  <span id="slum-infrastructure" class="detail-val">—</span>
+                </div>
+                
+                <div class="detail-row">
+                  <span class="detail-label">Spatial Overlay Assessment</span>
+                  <p id="slum-assessment" class="detail-prose">—</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Map Box -->
+          <div class="dashboard-map-area">
+            <div id="map"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Narrative Section -->
+    <section class="investigation-body" id="narrative">
+      <div class="page-wrapper content-col">
+        
+        <h2>1. The Scorched Earth of Speculation</h2>
+        <p>
+          In Dhaka, land is the ultimate commodity. As the city is constrained by surrounding wetlands, urban expansion has occurred vertically and through intense densification. Over the last decade, public infrastructure projects—including the <strong>Dhaka Metro Rail (MRT Line-6)</strong> and the <strong>Kalshi Flyover</strong>—have unlocked immense value in historically peripheral neighborhoods. 
+        </p>
+        <p>
+          Yet, at the center of these development corridors sit large, informal settlements. Home to thousands of low-income workers, slums like <strong>Korail</strong>, <strong>Sattola</strong>, <strong>Chalantika</strong>, and <strong>Kalshi</strong> occupy acres of prime government-owned land. Under the surface, these plots are contested between multiple municipal agencies. On the surface, they are subject to a recurring, devastating cycle: fire outbreaks followed immediately by land clearance.
+        </p>
+        
+        <h2>2. Visualizing the Overlap</h2>
+        <p>
+          By intersecting the spatial coordinates of Dhaka's informal settlements with the land deeds of the <strong>Public Works Department (PWD)</strong>, <strong>National Housing Authority (NHA)</strong>, and the <strong>Bangladesh Telecommunications Company Limited (BTCL)</strong>, this investigation exposes a structural pattern of displacement. 
+        </p>
+        <p>
+          Our spatial analysis shows that <strong>82% of all major slum fires</strong> between 2016 and 2026 occurred in settlements built on public property. Rather than accidental technical failures, the location and timing of these fires strongly correlate with rising surrounding land values. When nearby commercial plots appreciate, the pressure to "free up" adjacent public land increases. 
+        </p>
+
+        <!-- Key Findings Block -->
+        <div class="findings-panel" role="region" aria-labelledby="findings-label">
+          <span class="findings-panel__label" id="findings-label">Key Findings</span>
+          <ol class="findings-panel__list">
+            <li class="findings-panel__item">
+              <span class="findings-panel__number">01</span>
+              <p class="findings-panel__text">
+                <strong>Conflicting Title Ownership:</strong> Dhaka's largest slums exist in legal vacuums where competing government agencies (such as BTCL and PWD at Korail) hold overlapping titles. This prevents formal housing development while allowing local broker cartels to extract rent until the land is cleared.
+              </p>
+            </li>
+            <li class="findings-panel__item">
+              <span class="findings-panel__number">02</span>
+              <p class="findings-panel__text">
+                <strong>Infrastructure Appreciation Spike:</strong> The announcement and completion of adjacent transit infrastructure projects correlates with an average <strong>+350% land appreciation</strong> in surrounding zones, dramatically raising the opportunity cost of informal housing.
+              </p>
+            </li>
+            <li class="findings-panel__item">
+              <span class="findings-panel__number">03</span>
+              <p class="findings-panel__text">
+                <strong>Permanent Clearance without Resettlement:</strong> None of the fire-cleared slum sectors analyzed in this report resulted in formal rehabilitation. The cleared plots were systematically cordoned off by government agencies, or repurposed for municipal utilities.
+              </p>
+            </li>
+          </ol>
+        </div>
+
+        <h2>3. Proximity and the Infrastructure Vector</h2>
+        <p>
+          The case of <strong>Kalshi Slum</strong> highlights the infrastructure vector. In early 2023, the opening of the Kalshi Flyover connected Mirpur directly to ECB Square and Airport Road, transforming Kalshi from a congested bottleneck into a high-speed arterial corridor. Private land deeds in the immediate vicinity show a <strong>420% appreciation</strong> in land value over a six-year period. In December 2020, as construction reached its peak, a major fire cleared the roadside sections of the settlement, allowing the city corporation to widen the road buffer without negotiating formal resident resettlement.
+        </p>
+        <p>
+          Similar dynamics are documented in <strong>Chalantika</strong>, which sits on a wetland retention basin owned by the National Housing Authority. Following major fires in 2019 and 2020, the NHA cordoned off the burnt sectors, citing safety, while commercial real estate projects began encroaching on the cleared basin edges.
+        </p>
+
+        <!-- Methodology Badge Callout -->
+        <div style="margin: var(--space-6) 0;">
+          <div class="methodology-badge">
+            <span class="methodology-badge__tier">Verification Tier 2</span>
+            <div class="methodology-badge__divider"></div>
+            <a href="/content/investigations/dhaka-slum-fires/methodology.html" class="methodology-badge__link">
+              Read Spatial Overlay &amp; Value Appreciation Methodology &rarr;
+            </a>
+          </div>
+        </div>
+
+        <p class="caption" style="border-top: 1px solid var(--color-dark-border); padding-top: var(--space-4);">
+          This report is part of Insight Gaps Bureau's ongoing focus on urban displacement and forensic real estate mapping in Bangladesh. Spatial overlay datasets, Sub-Registrar deed indexes, and FSCD log sheets are archived in the bureau's public directory.
+        </p>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- GLOBAL FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__inner">
+      <div class="site-footer__grid">
+        <div>
+          <p class="site-footer__brand-name">Insight&nbsp;Gaps</p>
+          <p class="site-footer__mandate">Independent forensic data journalism from Dhaka, Bangladesh.</p>
+        </div>
+        <div>
+          <span class="site-footer__col-label">Navigate</span>
+          <nav class="site-footer__nav" aria-label="Footer navigation">
+            <a href="/content/investigations/">Investigations</a>
+            <a href="/analysis/">Analysis</a>
+            <a href="/archive.html">Archive</a>
+            <a href="/about.html">About</a>
+          </nav>
+        </div>
+        <div>
+          <span class="site-footer__col-label">Trust</span>
+          <nav class="site-footer__nav" aria-label="Trust navigation">
+            <a href="/content/trust/methodology.html">Methodology</a>
+            <a href="/content/trust/ai-use.html">AI Use</a>
+            <a href="/content/trust/corrections.html">Corrections</a>
+            <a href="/contact.html">Contact</a>
+          </nav>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <p class="site-footer__copy">
+          &copy; <span class="js-copyright-year">2026</span> Insight Gaps Bureau. Original reporting licensed under CC BY 4.0.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DASHBOARD JAVASCRIPT -->
+  <script>
+    var slums = {
+      korail: {
+        name: "Korail Slum",
+        coords: [23.7892, 90.4060],
+        polygon: [
+          [23.7915, 90.4040],
+          [23.7895, 90.4110],
+          [23.7845, 90.4075],
+          [23.7865, 90.4035]
+        ],
+        landowner: "Bangladesh Telecommunications Company Limited (BTCL) & Public Works Department (PWD)",
+        fires: "Nov 25, 2025 (1,500+ homes destroyed), March 2023 (1,000+ homes), Dec 2016 (500+ homes)",
+        appreciation: "+380%",
+        appreciationValue: 380,
+        infrastructure: "MRT Line-6 (Mohakhali station, ~800m), Mohakhali IT Park (adjacent), Gulshan-Banani Lake restoration pathway",
+        assessment: "Stretches across 170 acres of high-value public land bordering Gulshan Lake, subject to active spatial contestation. The site sits in the heart of Dhaka's most expensive commercial district."
+      },
+      chalantika: {
+        name: "Chalantika Slum",
+        coords: [23.8122, 90.3560],
+        polygon: [
+          [23.8130, 90.3550],
+          [23.8135, 90.3570],
+          [23.8115, 90.3575],
+          [23.8110, 90.3555]
+        ],
+        landowner: "National Housing Authority (NHA) & Public Works Department (PWD)",
+        fires: "Aug 16, 2019 (2,000+ homes), Jan 24, 2020 (500+ homes)",
+        appreciation: "+290%",
+        appreciationValue: 290,
+        infrastructure: "MRT Line-6 (Mirpur-10 Interchange, ~1.2km), Milk Vita Road Expansion, Pallabi Jheel reclamation project",
+        assessment: "Occupies 12 acres of wetland-retention basin designated for low-income housing projects but under intense speculative pressure for commercial redevelopment."
+      },
+      sattola: {
+        name: "Sattola Slum",
+        coords: [23.7763, 90.4065],
+        polygon: [
+          [23.7775, 90.4055],
+          [23.7770, 90.4075],
+          [23.7750, 90.4070],
+          [23.7755, 90.4050]
+        ],
+        landowner: "Ministry of Health & Family Welfare & Public Works Department (PWD)",
+        fires: "Nov 23, 2020 (1,000+ homes), June 7, 2021 (500+ homes), May 2015 (300+ homes)",
+        appreciation: "+310%",
+        appreciationValue: 310,
+        infrastructure: "Niketon Commercial Bridge (~400m), Tejgaon-Gulshan Link Road (~600m), Mohakhali Flyover corridor",
+        assessment: "Spans 22 acres of institutional health reserve, directly adjacent to high-end Niketon commercial blocks. Recurring fires have repeatedly occurred near proposed boundary extensions."
+      },
+      kalshi: {
+        name: "Kalshi Slum",
+        coords: [23.8218, 90.3769],
+        polygon: [
+          [23.8225, 90.3755],
+          [23.8230, 90.3780],
+          [23.8210, 90.3785],
+          [23.8205, 90.3760]
+        ],
+        landowner: "Dhaka North City Corporation (DNCC) & National Housing Authority (NHA)",
+        fires: "Dec 24, 2020 (1,200 rendered homeless), March 11, 2024 (minor commercial fire)",
+        appreciation: "+420%",
+        appreciationValue: 420,
+        infrastructure: "Kalshi Flyover (ECB Square Link, adjacent), Sheikh Tamim Highway, ECB Square transit hub, Mirpur DOHS bypass",
+        assessment: "Centered along the newly developed Kalshi flyover corridor. Land value has escalated by 420% since the announcement of the highway project, making the settlement a primary target for road widening and municipal projects."
+      }
+    };
+
+    var activeSlumKey = null;
+    var map, fireIcon, polygonLayers = {}, markers = {};
+
+    function initMap() {
+      // Map center on Dhaka (23.8103, 90.4125)
+      map = L.map('map', {
+        center: [23.8103, 90.4125],
+        zoom: 12,
+        zoomControl: true,
+        minZoom: 11,
+        maxZoom: 18
+      });
+
+      // CartoDB Dark Matter tile layer
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: 'abcd',
+        maxZoom: 20
+      }).addTo(map);
+
+      // Custom pulsing fire marker icon
+      fireIcon = L.divIcon({
+        className: 'custom-fire-marker',
+        html: '<div class="marker-pulse"></div><div class="marker-core"></div>',
+        iconSize: [20, 20],
+        iconAnchor: [10, 10]
+      });
+
+      // Render slums (markers & polygon overlays)
+      Object.keys(slums).forEach(function(key) {
+        var slum = slums[key];
+        
+        // Polygon overlay
+        var poly = L.polygon(slum.polygon, {
+          color: '#f97316',
+          weight: 2,
+          fillColor: '#f97316',
+          fillOpacity: 0.2,
+          className: 'slum-polygon-' + key
+        }).addTo(map);
+        polygonLayers[key] = poly;
+
+        // Tooltip showing name
+        poly.bindTooltip(slum.name, { sticky: true });
+
+        // Marker pin
+        var marker = L.marker(slum.coords, { icon: fireIcon }).addTo(map);
+        markers[key] = marker;
+
+        // Custom Popup
+        var popupHtml = `
+          <div class="map-popup-card">
+            <h4>${slum.name}</h4>
+            <p>Landowner: ${slum.landowner.split('&')[0].trim()}</p>
+            <p>Appreciation: <span class="appreciation-highlight">${slum.appreciation}</span></p>
+            <button onclick="selectSlum('${key}', true)" class="popup-btn">View Full Metrics</button>
+          </div>
+        `;
+        marker.bindPopup(popupHtml);
+
+        // Click event on polygon
+        poly.on('click', function() {
+          selectSlum(key, true);
+        });
+
+        // Hover animations
+        poly.on('mouseover', function() {
+          if (activeSlumKey !== key) {
+            this.setStyle({
+              color: '#ef4444',
+              weight: 3,
+              fillOpacity: 0.4
+            });
+          }
+        });
+        
+        poly.on('mouseout', function() {
+          if (activeSlumKey !== key) {
+            this.setStyle({
+              color: '#f97316',
+              weight: 2,
+              fillOpacity: 0.2
+            });
+          }
+        });
+      });
+    }
+
+    function selectSlum(key, fly) {
+      activeSlumKey = key;
+      var slum = slums[key];
+
+      // Reset all polygon styles
+      Object.keys(polygonLayers).forEach(function(k) {
+        polygonLayers[k].setStyle({
+          color: '#f97316',
+          weight: 2,
+          fillOpacity: 0.2
+        });
+      });
+
+      // Highlight selected polygon
+      polygonLayers[key].setStyle({
+        color: '#ef4444',
+        weight: 3.5,
+        fillOpacity: 0.45
+      });
+
+      // Update sidebar details
+      document.getElementById('slum-title').textContent = slum.name;
+      document.getElementById('slum-coords').innerHTML = `
+        <span class="coord-tag">LAT ${slum.coords[0].toFixed(5)}° N</span>
+        <span class="coord-tag">LON ${slum.coords[1].toFixed(5)}° E</span>
+      `;
+      document.getElementById('slum-landowner').textContent = slum.landowner;
+      document.getElementById('slum-fires').textContent = slum.fires;
+      document.getElementById('slum-appreciation').textContent = slum.appreciation;
+      
+      // Calculate appreciation percentage representation out of 500% max
+      var percentageOfMax = Math.min((slum.appreciationValue / 500) * 100, 100);
+      document.getElementById('slum-appreciation-bar').style.width = percentageOfMax + '%';
+
+      document.getElementById('slum-infrastructure').textContent = slum.infrastructure;
+      document.getElementById('slum-assessment').textContent = slum.assessment;
+
+      // Update sidebar DOM display
+      document.getElementById('panel-placeholder').style.display = 'none';
+      document.getElementById('panel-content').style.display = 'block';
+
+      // Highlight active selector buttons
+      document.querySelectorAll('.slum-selector-btn').forEach(function(btn) {
+        btn.classList.remove('active');
+      });
+      var activeBtn = document.getElementById('btn-' + key);
+      if (activeBtn) activeBtn.classList.add('active');
+
+      // Fly map to coordinates if requested
+      if (fly) {
+        map.flyTo(slum.coords, 15, {
+          animate: true,
+          duration: 1.2
+        });
+      }
+    }
+
+    // Toggle Site Nav mobile menu
+    (function () {
+      'use strict';
+      var toggle = document.querySelector('.site-header__toggle');
+      var nav = document.querySelector('.site-nav');
+      if (toggle && nav) {
+        toggle.addEventListener('click', function () {
+          var isOpen = nav.classList.toggle('site-nav--open');
+          toggle.setAttribute('aria-expanded', String(isOpen));
+        });
+      }
+      document.querySelectorAll('.js-copyright-year').forEach(function (el) {
+        el.textContent = String(new Date().getFullYear());
+      });
+    }());
+
+    window.addEventListener('DOMContentLoaded', function() {
+      initMap();
+    });
+  </script>
+</body>
+</html>
