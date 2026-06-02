@@ -58,21 +58,89 @@
 </head>
 <body>
 
-<div class="series-nav">
-  <div class="sn-left">
-    <a href="/">Insight Gaps</a>
-    <span style="color:rgba(100,95,120,.5)">›</span>
-    <a href="/content/investigations/the-impunity-machine/">BD-INV-002</a>
-    <span style="color:rgba(100,95,120,.5)">›</span>
-    <span style="color:#c9a84c">Methodology</span>
-  </div>
-  <div class="sn-right">
-    <a href="/content/investigations/the-impunity-machine/" class="sn-btn">Full Report</a>
-    <a href="/content/investigations/the-impunity-machine/tracker.html" class="sn-btn">◉ Tracker</a>
-    <a href="/content/investigations/the-impunity-machine/methodology.html" class="sn-btn active">Methodology</a>
-    <a href="/data/BD-INV-002_Master_Evidence_File.xlsx" class="sn-btn">Evidence Files</a>
+<!-- AI Disclosure Bar -->
+<div class="ai-disclosure-bar" role="note" aria-label="AI use disclosure">
+  <div class="ai-disclosure-bar__inner">
+    <p class="ai-disclosure-bar__text">
+      AI tools were used in producing this report.
+      <a href="/content/trust/ai-use.html">View AI use disclosure &rarr;</a>
+    </p>
   </div>
 </div>
+
+<a href="#main-content" class="skip-link">Skip to content</a>
+
+<header class="site-header" role="banner">
+  <div class="site-header__inner">
+
+    <a href="/" class="site-header__logo" aria-label="Insight Gaps Bureau — Home">
+      Insight&nbsp;Gaps
+    </a>
+
+    <button class="site-header__toggle"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+            aria-controls="primary-nav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="site-nav" id="primary-nav" aria-label="Primary navigation">
+      <a href="/content/investigations/" class="site-nav__link site-nav__link--active" aria-current="page">Investigations</a>
+      <a href="/analysis/"               class="site-nav__link">Analysis</a>
+      <a href="/archive.html"            class="site-nav__link">Archive</a>
+      <a href="/about.html"              class="site-nav__link">About</a>
+      <a href="/content/trust/methodology.html" class="site-nav__link">Trust</a>
+    </nav>
+
+  </div>
+</header>
+
+<script>
+(function () {
+  'use strict';
+  var toggle = document.querySelector('.site-header__toggle');
+  var nav    = document.querySelector('.site-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function () {
+      var isOpen = nav.classList.toggle('site-nav--open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    document.addEventListener('click', function (e) {
+      if (!toggle.contains(e.target) && !nav.contains(e.target)) {
+        nav.classList.remove('site-nav--open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('site-nav--open')) {
+        nav.classList.remove('site-nav--open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.focus();
+      }
+    });
+  }
+}());
+</script>
+
+<nav class="sub-nav">
+  <div class="sub-nav__inner">
+    <div class="sub-nav__brand">BD-INV-002</div>
+    <div class="sub-nav__scenes">
+      <a class="sub-nav__link" href="/content/investigations/the-impunity-machine/">Visual Story</a>
+      <a class="sub-nav__link" href="/content/investigations/the-impunity-machine/detailed.html">Detailed Report</a>
+      <a class="sub-nav__link" href="/content/investigations/the-impunity-machine/tracker.html">◉ Tracker</a>
+      <a class="sub-nav__link active" href="/content/investigations/the-impunity-machine/methodology.html">Methodology</a>
+    </div>
+    <div class="sub-nav__actions">
+      <button class="theme-toggle-btn" aria-label="Toggle theme" title="Toggle theme">
+        <span class="theme-icon">◑</span>
+      </button>
+      <a class="sub-nav__btn sub-nav__btn--hot" href="/content/investigations/the-impunity-machine/#closing">Findings &darr;</a>
+    </div>
+  </div>
+</nav>
 
 <div class="meth-hero">
   <div class="wrap">
@@ -255,6 +323,57 @@
   </div>
 
 </div>
+
+<!-- Global Footer -->
+<footer class="site-footer" role="contentinfo">
+  <div class="site-footer__inner">
+    <div class="site-footer__grid">
+      <div>
+        <p class="site-footer__brand-name">Insight&nbsp;Gaps</p>
+        <p class="site-footer__mandate">
+          Independent forensic data journalism from Dhaka, Bangladesh.
+        </p>
+      </div>
+      <div>
+        <span class="site-footer__col-label">Navigate</span>
+        <nav class="site-footer__nav" aria-label="Footer navigation">
+          <a href="/content/investigations/">Investigations</a>
+          <a href="/analysis/">Analysis</a>
+          <a href="/archive.html">Archive</a>
+          <a href="/about.html">About</a>
+        </nav>
+      </div>
+      <div>
+        <span class="site-footer__col-label">Trust</span>
+        <nav class="site-footer__nav" aria-label="Trust navigation">
+          <a href="/content/trust/methodology.html">Methodology</a>
+          <a href="/content/trust/ai-use.html">AI Use</a>
+          <a href="/content/trust/corrections.html">Corrections</a>
+          <a href="/contact.html">Contact</a>
+        </nav>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <p class="site-footer__copy">
+        &copy; <span class="js-copyright-year">2026</span> Insight Gaps Bureau.
+        Original reporting licensed under
+        <a href="https://creativecommons.org/licenses/by/4.0/"
+           target="_blank"
+           rel="noopener noreferrer">CC&nbsp;BY&nbsp;4.0</a>
+        unless otherwise noted. Deployed on Vercel.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  document.querySelectorAll('.js-copyright-year').forEach(function (el) {
+    el.textContent = String(new Date().getFullYear());
+  });
+}());
+</script>
 
 </body>
 </html>
