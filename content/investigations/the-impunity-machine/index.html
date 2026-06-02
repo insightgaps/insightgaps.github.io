@@ -461,27 +461,25 @@ a{color:var(--gold);text-decoration:none}
      HERO
 ════════════════════════════════════════════ -->
 <a href="#hero" class="skip-link" style="position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden">Skip to report</a>
-<section id="hero">
+<section id="hero" data-claim-id="BD-INV-002-C001">
   <div class="bg-img"></div>
   <div class="bg-overlay"></div>
   <div class="hero-eyebrow">BD-INV-002 &middot; Bangladesh &middot; March 2026 &middot; Active Investigation</div>
-  <div class="hero-prob">1 in 4,650</div>
-  <div class="hero-prob-sub">Probability a rape in Bangladesh results in punishment</div>
-  <div class="hero-statements">
-    <div class="hs" id="hs1">Three numbers define this system.</div>
-    <div class="hs big" id="hs2"><strong>310 convictions.</strong></div>
-    <div class="hs" id="hs3">In twenty-three years of crisis centres.</div>
-    <div class="hs big" id="hs4">For <strong>66,711 women</strong> who came forward.</div>
-  </div>
-  <h1 class="hero-title" id="htitle">The<br><em>Impunity</em><br>Machine</h1>
+  <h1 class="hero-title" id="htitle" style="margin-top: 1.5rem;">The<br><em>Impunity</em><br>Machine</h1>
   <div class="hero-sub-title" id="hsub">A Visual Data Investigation &middot; Bangladesh Rape Justice Crisis</div>
+  <div class="hero-statements" style="margin-top: 3rem;">
+    <div class="hs" id="hs1">Three observed findings define this system:</div>
+    <div class="hs big" id="hs2"><strong>0.46%</strong> crisis-to-conviction attrition &middot; 310 of 66,711</div>
+    <div class="hs big" id="hs3"><strong>92%</strong> forensic DNA backlog &middot; 1,204 of 1,304</div>
+    <div class="hs big" id="hs4"><strong>2,349 days</strong> average verdict wait time</div>
+  </div>
   <div class="scroll-dn"><span>Scroll to investigate</span>
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
   </div>
 </section>
 
 <!-- ═══ INVESTIGATION CONTEXT BLOCK ═══ -->
-<section class="context-block">
+<section class="context-block" data-claim-id="BD-INV-002-C001">
   <div class="context-inner">
     <span class="context-eyebrow">BD-INV-002 · Investigation Context</span>
     <h2 class="context-title">The Impunity Machine</h2>
@@ -514,54 +512,136 @@ a{color:var(--gold);text-decoration:none}
       <a href="/content/investigations/the-impunity-machine/methodology.html" class="btn-ctx btn-ctx-outline">Methodology &amp; Standards &#8594;</a>
       <a href="/content/investigations/the-impunity-machine/tracker.html" class="btn-ctx btn-ctx-outline">&#9711; Live Tracker &#8594;</a>
     </div>
+
+    <!-- ═══ SYSTEM FLOW CARD ═══ -->
+    <div class="system-flow-card" style="margin-top: 3.5rem; background: var(--ink3); border: 1px solid var(--border); padding: 2rem; border-radius: 4px;">
+      <span style="font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 1.5rem; text-align: center;">The Institutional Machine: Case &amp; Evidence Flow</span>
+      
+      <div style="width: 100%; max-width: 580px; margin: 0 auto;">
+        <svg viewBox="0 0 580 160" style="width: 100%; height: auto; display: block; overflow: visible;">
+          <!-- Markers -->
+          <defs>
+            <marker id="flow-arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--muted)"/>
+            </marker>
+            <marker id="flow-arrow-red" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--blood)"/>
+            </marker>
+          </defs>
+          
+          <!-- Nodes -->
+          <!-- OCC -->
+          <rect x="10" y="10" width="130" height="50" rx="2" fill="var(--ink)" stroke="var(--border)" stroke-width="1"/>
+          <text x="75" y="32" font-family="var(--mono)" font-size="11" font-weight="700" fill="var(--text)" text-anchor="middle">OCC</text>
+          <text x="75" y="45" font-family="var(--sans)" font-size="7.5" fill="var(--muted)" text-anchor="middle">Intake &amp; DNA Collection</text>
+          
+          <!-- NFDPL -->
+          <rect x="225" y="10" width="130" height="50" rx="2" fill="var(--ink)" stroke="var(--blood)" stroke-width="1.5"/>
+          <text x="290" y="32" font-family="var(--mono)" font-size="11" font-weight="700" fill="var(--text)" text-anchor="middle">NFDPL</text>
+          <text x="290" y="45" font-family="var(--mono)" font-size="7.5" font-weight="700" fill="var(--bloodl)" text-anchor="middle">92% DNA Backlog</text>
+          
+          <!-- Tribunal -->
+          <rect x="440" y="10" width="130" height="50" rx="2" fill="var(--ink)" stroke="var(--border)" stroke-width="1"/>
+          <text x="505" y="32" font-family="var(--mono)" font-size="10" font-weight="700" fill="var(--text)" text-anchor="middle">TRIBUNAL</text>
+          <text x="505" y="45" font-family="var(--sans)" font-size="7.5" fill="var(--muted)" text-anchor="middle">Court Trial &amp; Verdict</text>
+          
+          <!-- PHQ -->
+          <rect x="440" y="100" width="130" height="50" rx="2" fill="var(--ink)" stroke="var(--border)" stroke-width="1"/>
+          <text x="505" y="122" font-family="var(--mono)" font-size="11" font-weight="700" fill="var(--text)" text-anchor="middle">PHQ</text>
+          <text x="505" y="135" font-family="var(--sans)" font-size="7.5" fill="var(--muted)" text-anchor="middle">Investigation &amp; Charge</text>
+          
+          <!-- Flow Lines -->
+          <!-- OCC -> NFDPL -->
+          <line x1="140" y1="35" x2="225" y2="35" stroke="var(--border)" stroke-width="1.5" marker-end="url(#flow-arrow)"/>
+          <text x="182.5" y="27" font-family="var(--sans)" font-size="7" fill="var(--muted)" text-anchor="middle">DNA samples</text>
+          
+          <!-- NFDPL -> Tribunal -->
+          <line x1="355" y1="35" x2="440" y2="35" stroke="var(--blood)" stroke-width="2" marker-end="url(#flow-arrow-red)"/>
+          <text x="397" y="28" font-family="var(--sans)" font-size="7" fill="var(--bloodl)" text-anchor="middle" font-weight="700">Evidentiary delay</text>
+          
+          <!-- PHQ -> Tribunal -->
+          <line x1="505" y1="100" x2="505" y2="60" stroke="var(--border)" stroke-width="1.5" marker-end="url(#flow-arrow)"/>
+          <text x="515" y="84" font-family="var(--sans)" font-size="7" fill="var(--muted)" text-anchor="start">Charge sheet</text>
+          
+          <!-- OCC -> PHQ -->
+          <path d="M 75 60 Q 75 125 440 125" fill="none" stroke="var(--border)" stroke-dasharray="3,3" stroke-width="1" marker-end="url(#flow-arrow)"/>
+          <text x="180" y="118" font-family="var(--sans)" font-size="7" fill="var(--muted)">Police referral &amp; case registration</text>
+        </svg>
+      </div>
+      
+      <p style="font-size: 0.8rem; color: var(--muted); line-height: 1.6; text-align: center; margin-top: 1.5rem; max-width: 580px; margin-left: auto; margin-right: auto;">
+        The machine relies on strict institutional handoffs. DNA evidence collected at regional <strong>One-Stop Crisis Centres (OCC)</strong> must be processed at the central <strong>National Forensic DNA Profiling Laboratory (NFDPL)</strong> before being delivered to the <strong>Specialized Tribunal</strong>. A parallel track runs through local police under <strong>Police Headquarters (PHQ)</strong> to submit charge sheets. If any link delays, the trial stalls.
+      </p>
+    </div>
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════════
      KEY NUMBERS
 ════════════════════════════════════════════ -->
-<section id="key-numbers" style="background:var(--ink2);border-bottom:1px solid var(--border)">
-  <div style="max-width:1100px;margin:0 auto;padding:3.5rem 2rem 4rem">
-    <div style="font-family:var(--mono);font-size:0.575rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted2);text-align:center;margin-bottom:1.5rem">Key Numbers &middot; BD-INV-002 &middot; The Impunity Machine</div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)">
-      <div style="background:#fff;padding:2rem 1.4rem;text-align:center">
-        <div style="font-family:var(--mono);font-size:clamp(2.5rem,5vw,3.5rem);font-weight:700;color:var(--blood);line-height:1;letter-spacing:-.04em">0.46%</div>
-        <div style="font-family:var(--mono);font-size:0.575rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:.6rem;line-height:1.65">Conviction rate<br>23-yr OCC programme</div>
-        <div style="font-family:var(--mono);font-size:0.47rem;color:var(--muted2);margin-top:.5rem;line-height:1.6">310 of 66,711 &middot; Daily Star 2024 &middot; CONFIRMED</div>
+<section id="key-numbers" style="background:var(--ink2);border-bottom:1px solid var(--border)" data-claim-id="BD-INV-002-C001">
+  <div style="max-width:960px;margin:0 auto;padding:4rem 2rem">
+    
+    <!-- ═══ SYSTEM FAILURE SUMMARY CARD ═══ -->
+    <div class="system-failure-card" style="background:var(--ink3); border:2px solid var(--blood); padding:2.5rem 2rem; margin-bottom:3.5rem; position:relative; box-shadow: 0 8px 30px rgba(185,28,28,0.06); border-radius:4px;">
+      <div style="position:absolute; top:-12px; left:20px; background:var(--blood); color:#fff; font-family:var(--mono); font-size:0.55rem; letter-spacing:0.18em; text-transform:uppercase; padding:0.25rem 0.75rem; border-radius:2px; font-weight:700;">System Failure Audit</div>
+      
+      <h3 style="font-family:var(--display); font-size:1.4rem; font-weight:700; margin-bottom:1.8rem; color:var(--text); letter-spacing:0.05em; text-transform:uppercase;">SYSTEM FAILURE REPORT CARD</h3>
+      
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:2rem;">
+        <!-- Metric 1: DNA Backlog -->
+        <div style="border-left:3px solid var(--blood); padding-left:1.2rem;">
+          <div style="font-family:var(--mono); font-size:3rem; font-weight:700; color:var(--bloodl); line-height:1;" data-claim-id="BD-INV-002-C003">92%</div>
+          <div style="font-family:var(--mono); font-size:0.65rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--text); margin-top:0.4rem; font-weight:700;">DNA Backlog</div>
+          <p style="font-size:0.8rem; color:var(--muted); margin-top:0.3rem; line-height:1.5;">1,204 of 1,304 biological samples received in 2025 remain unprocessed at the NFDPL as of September 2025.</p>
+        </div>
+        <!-- Metric 2: Trial Delay -->
+        <div style="border-left:3px solid var(--gold); padding-left:1.2rem;">
+          <div style="font-family:var(--mono); font-size:3rem; font-weight:700; color:var(--gold); line-height:1;" data-claim-id="BD-INV-002-C004">2,349</div>
+          <div style="font-family:var(--mono); font-size:0.65rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--text); margin-top:0.4rem; font-weight:700;">Days to Verdict</div>
+          <p style="font-size:0.8rem; color:var(--muted); margin-top:0.3rem; line-height:1.5;">Average resolution time for WCRPA trials, spanning investigation delay, charge framing, and trial delay.</p>
+        </div>
+        <!-- Metric 3: Backlog Growth -->
+        <div style="border-left:3px solid var(--amber); padding-left:1.2rem;">
+          <div style="font-family:var(--mono); font-size:3rem; font-weight:700; color:var(--amber); line-height:1;" data-claim-id="BD-INV-002-C002">11,896</div>
+          <div style="font-family:var(--mono); font-size:0.65rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--text); margin-top:0.4rem; font-weight:700;">New Cases Added to Backlog</div>
+          <p style="font-size:0.8rem; color:var(--muted); margin-top:0.3rem; line-height:1.5;">In 2024, new court filings (17,544) outpaced disposals (5,648) by 3.1x, adding nearly 12,000 cases to the queue.</p>
+        </div>
       </div>
-      <div style="background:var(--ink2);padding:2rem 1.4rem;text-align:center;border-left:1px solid var(--border)">
-        <div style="font-family:var(--mono);font-size:clamp(1.7rem,3.2vw,2.5rem);font-weight:700;color:var(--bloodl);line-height:1;letter-spacing:-.04em">1 in 4,650</div>
-        <div style="font-family:var(--mono);font-size:0.575rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:.6rem;line-height:1.65">Probability a rape<br>results in punishment</div>
-        <div style="font-family:var(--mono);font-size:0.47rem;color:var(--muted2);margin-top:.5rem;line-height:1.6">Compound model &middot; IG-MODEL &middot; PROBABLE</div>
-      </div>
-      <div style="background:var(--ink2);padding:2rem 1.4rem;text-align:center;border-left:1px solid var(--border)">
-        <div style="font-family:var(--mono);font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--amberl);line-height:1;letter-spacing:-.04em">~150,000</div>
-        <div style="font-family:var(--mono);font-size:0.575rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:.6rem;line-height:1.65">Cases pending<br>March 2025</div>
-        <div style="font-family:var(--mono);font-size:0.47rem;color:var(--muted2);margin-top:.5rem;line-height:1.6">PHQ via SHARE-Net + DS &middot; S-63, S-64 &middot; CONFIRMED</div>
-      </div>
-      <div style="background:var(--ink2);padding:2rem 1.4rem;text-align:center;border-top:1px solid var(--border)">
-        <div style="font-family:var(--mono);font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--gold);line-height:1;letter-spacing:-.04em">2,349</div>
-        <div style="font-family:var(--mono);font-size:0.575rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:.6rem;line-height:1.65">Days average<br>wait for verdict</div>
-        <div style="font-family:var(--mono);font-size:0.47rem;color:var(--muted2);margin-top:.5rem;line-height:1.6">BRAC/Agile 2022 &middot; 16 districts &middot; 385 cases &middot; CONFIRMED</div>
-      </div>
-      <div style="background:var(--ink2);padding:2rem 1.4rem;text-align:center;border-top:1px solid var(--border);border-left:1px solid var(--border)">
-        <div style="font-family:var(--mono);font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--bloodl);line-height:1;letter-spacing:-.04em">92%</div>
-        <div style="font-family:var(--mono);font-size:0.575rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:.6rem;line-height:1.65">DNA samples<br>unprocessed 2025</div>
-        <div style="font-family:var(--mono);font-size:0.47rem;color:var(--muted2);margin-top:.5rem;line-height:1.6">1,204 of 1,304 &middot; NFDPL Sep 2025 &middot; S-66 &middot; CONFIRMED</div>
-      </div>
-      <div style="background:var(--ink2);padding:2rem 1.4rem;text-align:center;border-top:1px solid var(--border);border-left:1px solid var(--border)">
-        <div style="font-family:var(--mono);font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--gold);line-height:1;letter-spacing:-.04em">50 of 64</div>
-        <div style="font-family:var(--mono);font-size:0.575rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:.6rem;line-height:1.65">Districts with<br>no full OCC</div>
-        <div style="font-family:var(--mono);font-size:0.47rem;color:var(--muted2);margin-top:.5rem;line-height:1.6">GoB UNSG Submission May 2024 &middot; S-09 &middot; CONFIRMED</div>
+      
+      <div style="margin-top:2.2rem; padding-top:1.2rem; border-top:1px dashed var(--border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+        <span style="font-family:var(--mono); font-size:0.5rem; color:var(--muted2); text-transform:uppercase; letter-spacing:0.08em;">BD-INV-002 &middot; Sourced from MoWCA Lab Reports, BRAC Longitudinal Study, &amp; PHQ Statistics</span>
+        <span style="font-family:var(--mono); font-size:0.52rem; color:var(--bloodl); font-weight:700; border:1px solid rgba(220,38,38,0.3); padding:0.15rem 0.4rem; border-radius:2px; text-transform:uppercase; letter-spacing:0.05em;">Verification: Confirmed Tiers</span>
       </div>
     </div>
+
+    <!-- Additional Metrics Grid -->
+    <div style="font-family:var(--mono);font-size:0.575rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted2);text-align:center;margin-bottom:1.5rem">Additional Metrics &middot; The Impunity Machine</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:1px;background:var(--border);border:1px solid var(--border)">
+      <div style="background:var(--ink3);padding:2rem 1.4rem;text-align:center">
+        <div style="font-family:var(--mono);font-size:clamp(2.5rem,5vw,3.5rem);font-weight:700;color:var(--bloodl);line-height:1;letter-spacing:-.04em" data-claim-id="BD-INV-002-C001">0.46%</div>
+        <div style="font-family:var(--mono);font-size:0.575rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text2);margin-top:.6rem;line-height:1.65">Crisis-to-Conviction Attrition</div>
+        <div style="font-family:var(--mono);font-size:0.47rem;color:var(--muted);margin-top:.5rem;line-height:1.6">310 convictions from 66,711 OCC visitors over 23 years</div>
+      </div>
+      <div style="background:var(--ink3);padding:2rem 1.4rem;text-align:center">
+        <div style="font-family:var(--mono);font-size:clamp(2.3rem,4.5vw,3rem);font-weight:700;color:var(--amberl);line-height:1;letter-spacing:-.04em" data-claim-id="BD-INV-002-C002">~150,000</div>
+        <div style="font-family:var(--mono);font-size:0.575rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text2);margin-top:.6rem;line-height:1.65">Total Pending Cases</div>
+        <div style="font-family:var(--mono);font-size:0.47rem;color:var(--muted);margin-top:.5rem;line-height:1.6">As of March 2025 specialized tribunal registry &middot; S-63, S-64</div>
+      </div>
+      <div style="background:var(--ink3);padding:2rem 1.4rem;text-align:center">
+        <div style="font-family:var(--mono);font-size:clamp(2.3rem,4.5vw,3rem);font-weight:700;color:var(--gold);line-height:1;letter-spacing:-.04em">50 of 64</div>
+        <div style="font-family:var(--mono);font-size:0.575rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text2);margin-top:.6rem;line-height:1.65">Districts with No Full OCC</div>
+        <div style="font-family:var(--mono);font-size:0.47rem;color:var(--muted);margin-top:.5rem;line-height:1.6">GoB Submission to UN Secretary General (May 2024) &middot; S-09</div>
+      </div>
+    </div>
+    
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════════
      HER STORY — PANEL 01: WHO SHE IS
 ════════════════════════════════════════════ -->
-<section class="her-story" style="background:var(--ink2)">
+<section class="her-story" style="background:var(--ink2)" data-claim-id="BD-INV-002-C001">
   <div class="her-story-inner">
     <div class="her-story-tag">Her Story</div>
     <h4>
@@ -578,7 +658,7 @@ a{color:var(--gold);text-decoration:none}
 <!-- ═══════════════════════════════════════════
      S1: THE FUNNEL
 ════════════════════════════════════════════ -->
-<section id="s1" class="scene">
+<section id="s1" class="scene" data-claim-id="BD-INV-002-C001">
   <div class="scene-title">
     <div class="eyebrow">Scene 01 &middot; The Attrition</div>
     <h2>Watch 10,000 Women Disappear</h2>
@@ -586,10 +666,13 @@ a{color:var(--gold);text-decoration:none}
   </div>
   <div class="scroll-scene" style="margin-top:2rem">
     <div class="viz-sticky">
-      <div style="position:relative">
+      <div style="position:relative; padding-bottom: 3.5rem;">
         <canvas id="dotCanvas" style="display:block;max-width:100%;max-height:90vh"></canvas>
-        <div style="position:absolute;bottom:-2rem;left:0;right:0;text-align:center;font-family:var(--mono);font-size:.52rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase">
+        <div style="position:absolute;bottom:1.5rem;left:0;right:0;text-align:center;font-family:var(--mono);font-size:.52rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase">
           <span id="dot-count">10,000</span> <span id="dot-status">women &#8212; all assaults</span>
+        </div>
+        <div class="chart-caption" style="position:absolute;bottom:-1.5rem;left:0;right:0;text-align:center;font-family:var(--sans);font-size:0.75rem;color:var(--muted);line-height:1.4;max-width:320px;margin:0 auto;" data-claim-id="BD-INV-002-C001">
+          Attrition across the justice pathway from survivor contact to conviction.
         </div>
       </div>
     </div>
@@ -642,7 +725,7 @@ a{color:var(--gold);text-decoration:none}
 <!-- ═══════════════════════════════════════════
      HER STORY — PANEL 02: THE CALCULATION
 ════════════════════════════════════════════ -->
-<section class="her-story" style="background:var(--ink)">
+<section class="her-story" style="background:var(--ink)" data-claim-id="BD-INV-002-C001">
   <div class="her-story-inner">
     <div class="her-story-tag">Her Story</div>
     <h4>
@@ -659,7 +742,7 @@ a{color:var(--gold);text-decoration:none}
 <!-- ═══════════════════════════════════════════
      S2: TWO CLOCKS
 ════════════════════════════════════════════ -->
-<section id="s2" class="full-scene dark">
+<section id="s2" class="full-scene dark" data-claim-id="BD-INV-002-C004">
   <div class="scene-title" style="position:relative;z-index:2">
     <div class="eyebrow">Scene 02 &middot; The Two Verdicts</div>
     <h2>The System Moved Fast Once</h2>
@@ -703,12 +786,58 @@ a{color:var(--gold);text-decoration:none}
     <p style="font-family:var(--display);font-style:italic;font-size:clamp(1rem,2vw,1.3rem);color:var(--amberl);line-height:1.7">In the time it took the system to move through a normal rape case &#8212; <strong style="font-style:normal;color:var(--text)">Runa Akhter had already served 6 months of her sentence</strong> for filing one.</p>
     <div style="font-family:var(--mono);font-size:.46rem;color:var(--muted2);margin-top:.8rem;line-height:1.8">56 days &middot; &#167;17 conviction &middot; Arrested Feb 16, sentenced Apr 13 2023 &middot; Prothom Alo (S-14) &middot; <span class="ok">CONFIRMED</span></div>
   </div>
+  
+  <div class="chart-caption" style="font-family:var(--sans); font-size:0.75rem; color:var(--muted); margin-top:1.5rem; text-align:center; position:relative; z-index:2;" data-claim-id="BD-INV-002-C004">
+    Comparison of justice system speeds: 56 days to convict a survivor under Section 17 vs. 2,349 days average to reach a verdict in a rape trial.
+  </div>
+
+  <!-- ═══ "WHERE TIME IS LOST" PANEL ═══ -->
+  <div class="time-lost-panel" style="max-width: 720px; width: 100%; margin: 3.5rem auto 0; background: var(--ink3); border: 1px solid var(--border); padding: 2.5rem 2rem; border-radius: 4px; position: relative; z-index: 2; text-align: left;">
+    <h3 style="font-family: var(--display); font-size: 1.15rem; font-weight: 700; color: var(--text); margin-bottom: 2rem; text-align: center; text-transform: uppercase; letter-spacing: 0.05em;">Where Time is Lost: 2,349-Day Delay Breakdown</h3>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+      <!-- Investigation -->
+      <div style="background: var(--ink); border: 1px solid var(--border); padding: 1.25rem; border-radius: 4px; text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <div style="font-family: var(--mono); font-size: 2.5rem; font-weight: 700; color: var(--bloodl); line-height: 1.1;" data-claim-id="BD-INV-002-C004">193</div>
+          <div style="font-family: var(--mono); font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-top: 0.2rem; font-weight: 700;">Days</div>
+          <span style="font-family: var(--sans); font-size: 0.85rem; font-weight: 700; color: var(--text); display: block; margin-top: 0.8rem;">Police Investigation</span>
+        </div>
+        <p style="font-size: 0.75rem; color: var(--muted); margin-top: 0.5rem; line-height: 1.45;">Gathering evidence, collecting DNA profiles, and filing the initial charge sheet.</p>
+      </div>
+      
+      <!-- Charge Framing -->
+      <div style="background: var(--ink); border: 1px solid var(--border); padding: 1.25rem; border-radius: 4px; text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <div style="font-family: var(--mono); font-size: 2.5rem; font-weight: 700; color: var(--amber); line-height: 1.1;" data-claim-id="BD-INV-002-C004">700</div>
+          <div style="font-family: var(--mono); font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-top: 0.2rem; font-weight: 700;">Days</div>
+          <span style="font-family: var(--sans); font-size: 0.85rem; font-weight: 700; color: var(--text); display: block; margin-top: 0.8rem;">Charge Framing</span>
+        </div>
+        <p style="font-size: 0.75rem; color: var(--muted); margin-top: 0.5rem; line-height: 1.45;">Procedural court appearances, scheduling conflicts, and official indictment framing.</p>
+      </div>
+      
+      <!-- Trial Delay -->
+      <div style="background: var(--ink); border: 1px solid var(--border); padding: 1.25rem; border-radius: 4px; text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <div style="font-family: var(--mono); font-size: 2.5rem; font-weight: 700; color: var(--gold); line-height: 1.1;" data-claim-id="BD-INV-002-C004">1,456</div>
+          <div style="font-family: var(--mono); font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-top: 0.2rem; font-weight: 700;">Days</div>
+          <span style="font-family: var(--sans); font-size: 0.85rem; font-weight: 700; color: var(--text); display: block; margin-top: 0.8rem;">Tribunal Trial Delay</span>
+        </div>
+        <p style="font-size: 0.75rem; color: var(--muted); margin-top: 0.5rem; line-height: 1.45;">Witness summon delays, cross-examinations, judge transfers, and verdict delivery.</p>
+      </div>
+    </div>
+    
+    <div style="font-family: var(--mono); font-size: 0.55rem; color: var(--muted2); line-height: 1.6; border-top: 1px dashed var(--border); padding-top: 1rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+      <span>Total Average: 2,349 Days (6.4 Years)</span>
+      <span>Source: BRAC Longitudinal Study (2022)</span>
+    </div>
+  </div>
 </section>
 
 <!-- ═══════════════════════════════════════════
      HER STORY — PANEL 03: THE DECISION
 ════════════════════════════════════════════ -->
-<section class="her-story" style="background:var(--ink2)">
+<section class="her-story" style="background:var(--ink2)" data-claim-id="BD-INV-002-C001">
   <div class="her-story-inner">
     <div class="her-story-tag">Her Story</div>
     <h4>
@@ -725,7 +854,7 @@ a{color:var(--gold);text-decoration:none}
 <!-- ═══════════════════════════════════════════
      SINV: THE INVERSION
 ════════════════════════════════════════════ -->
-<section id="sinv" class="scene">
+<section id="sinv" class="scene" data-claim-id="BD-INV-002-C005">
   <div class="scene-title">
     <div class="eyebrow">Scene 03 &middot; The Inversion</div>
     <h2>The State Moved For the Woman Who Reported. Against Her.</h2>
@@ -799,7 +928,7 @@ a{color:var(--gold);text-decoration:none}
 <!-- ═══════════════════════════════════════════
      HER STORY — PANEL 04: WHAT SHE HEARD
 ════════════════════════════════════════════ -->
-<section class="her-story" style="background:var(--ink)">
+<section class="her-story" style="background:var(--ink)" data-claim-id="BD-INV-002-C001">
   <div class="her-story-inner">
     <div class="her-story-tag">Her Story</div>
     <h4>
@@ -816,7 +945,7 @@ a{color:var(--gold);text-decoration:none}
 <!-- ═══════════════════════════════════════════
      S3: THE RACE
 ════════════════════════════════════════════ -->
-<section id="s3" class="scene dark scene-bg">
+<section id="s3" class="scene dark scene-bg" data-claim-id="BD-INV-002-C006">
   <div class="sbg" style="background:radial-gradient(circle at 50% 30%, rgba(185,28,28,.18), rgba(13,13,24,.92) 62%);opacity:.18;background-position:center center"></div>
   <div class="sbg-overlay" style="background:rgba(13,13,24,.9)"></div>
   <div class="scene-title">
@@ -908,6 +1037,9 @@ a{color:var(--gold);text-decoration:none}
           <div class="leg-item"><div class="leg-dot" style="background:var(--gold)"></div>Cases Disposed</div>
           <div class="leg-item"><div class="leg-dot" style="background:rgba(196,30,58,.25)"></div>Growing Backlog</div>
         </div>
+        <div class="chart-caption" style="font-family:var(--sans); font-size:0.75rem; color:var(--muted); margin-top:1rem; line-height:1.45;" data-claim-id="BD-INV-002-C002">
+          Court filing rates outpace disposal speed by 3.1x, adding 11,896 cases to the specialized tribunal backlog annually.
+        </div>
         <div style="font-family:var(--mono);font-size:.42rem;color:var(--muted2);margin-top:.6rem;line-height:1.6;border-top:1px solid var(--border);padding-top:.6rem">PHQ via Kaler Kantho 2019&#8211;2020 &middot; PHQ via TBS 2023 &middot; PHQ via Daily Star 2024 &middot; Anti-Rape Platform 2024 * Note: The 2024 filing surge (17,544 cases) reflects a change in reporting aggregation where national police headquarters database logs were integrated with the Ministry of Women and Children Affairs (MoWCA) crisis centre logs, rather than representing solely OCC-registered cases.</div>
       </div>
     </div>
@@ -944,7 +1076,7 @@ a{color:var(--gold);text-decoration:none}
 <!-- ═══════════════════════════════════════════
      HER STORY — PANEL 05: COUNTING
 ════════════════════════════════════════════ -->
-<section class="her-story" style="background:var(--ink2)">
+<section class="her-story" style="background:var(--ink2)" data-claim-id="BD-INV-002-C001">
   <div class="her-story-inner">
     <div class="her-story-tag">Her Story</div>
     <h4>
@@ -961,7 +1093,7 @@ a{color:var(--gold);text-decoration:none}
 <!-- ═══════════════════════════════════════════
      S5: THE MAP
 ════════════════════════════════════════════ -->
-<section id="s5" class="scene">
+<section id="s5" class="scene" data-claim-id="BD-INV-002-C003">
   <div class="scene-title">
     <div class="eyebrow">Scene 06 &middot; The Geography</div>
     <h2>In a Room of Ten Women in Barishal, Eight Have Experienced Violence</h2>
@@ -1011,6 +1143,9 @@ a{color:var(--gold);text-decoration:none}
           <div style="display:flex;align-items:center;gap:.3rem;font-family:var(--mono);font-size:.4rem;color:var(--muted)"><div style="width:9px;height:9px;background:rgba(82,183,136,.5)"></div>&lt;74%</div>
           <div style="display:flex;align-items:center;gap:.3rem;font-family:var(--mono);font-size:.4rem;color:var(--muted)"><div style="width:9px;height:9px;border-radius:50%;background:var(--amber)"></div>Full OCC</div>
         </div>
+        <div class="chart-caption" style="font-family:var(--sans); font-size:0.75rem; color:var(--muted); margin-top:1.2rem; line-height:1.45;">
+          Geographic distribution of violence exposure and the institutional footprint of Bangladesh's One-Stop Crisis Centre network.
+        </div>
       </div>
     </div>
     <div class="steps-col">
@@ -1051,7 +1186,7 @@ a{color:var(--gold);text-decoration:none}
 <!-- ═══════════════════════════════════════════
      HER STORY — PANEL 06: HER DISTRICT
 ════════════════════════════════════════════ -->
-<section class="her-story" style="background:var(--ink)">
+<section class="her-story" style="background:var(--ink)" data-claim-id="BD-INV-002-C001">
   <div class="her-story-inner">
     <div class="her-story-tag">Her Story</div>
     <h4>
@@ -1068,7 +1203,7 @@ a{color:var(--gold);text-decoration:none}
 <!-- ═══════════════════════════════════════════
      SDNA: THE EVIDENCE WINDOW
 ════════════════════════════════════════════ -->
-<section id="sdna" class="full-scene">
+<section id="sdna" class="full-scene" data-claim-id="BD-INV-002-C003">
   <div class="scene-title">
     <div class="eyebrow">Scene 07 &middot; The Evidence Window</div>
     <h2>Evidence Doesn&#8217;t Wait for the System</h2>
@@ -1134,6 +1269,9 @@ a{color:var(--gold);text-decoration:none}
           <span style="color:var(--greenl)">&#9646; COMPLETE</span><span></span><span style="color:var(--bloodl)">drops sharply within hours &#8594;</span><span></span><span style="color:rgba(139,20,40,.45)">&#9646; PARTIAL</span>
         </div>
       </div>
+      <div class="chart-caption" style="font-family:var(--sans); font-size:0.75rem; color:var(--muted); margin-top:2rem; margin-bottom:2rem; line-height:1.45;">
+        Degradation curves of critical biological, testimonial, and medical evidence relative to the 72-hour legal collection window.
+      </div>
     </div>
     <div class="fsub-grid">
       <div class="fsub">
@@ -1154,7 +1292,7 @@ a{color:var(--gold);text-decoration:none}
 <!-- ═══════════════════════════════════════════
      HER STORY — PANEL 07: THE HOSPITAL DOOR
 ════════════════════════════════════════════ -->
-<section class="her-story" style="background:var(--ink2)">
+<section class="her-story" style="background:var(--ink2)" data-claim-id="BD-INV-002-C001">
   <div class="her-story-inner">
     <div class="her-story-tag">Her Story</div>
     <h4>
@@ -1172,7 +1310,7 @@ a{color:var(--gold);text-decoration:none}
 <!-- ═══════════════════════════════════════════
      S6: DETERRENCE
 ════════════════════════════════════════════ -->
-<section id="s6" class="scene">
+<section id="s6" class="scene" data-claim-id="BD-INV-002-C006">
   <div class="scene-title">
     <div class="eyebrow">Scene 08 &middot; The Paradox</div>
     <h2>Maximum Severity. Near-Zero Certainty.</h2>
@@ -1182,7 +1320,10 @@ a{color:var(--gold);text-decoration:none}
     <div class="viz-sticky">
       <div style="width:100%;max-width:620px">
         <canvas id="scatterCanvas" height="380" style="width:100%"></canvas>
-        <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);margin-top:.6rem;line-height:1.6">Nagin 2013 &middot; D&#246;lling 2009 &middot; Abramovaite 2022 &middot; NPA 2023/24 &middot; CPS 2024 &middot; NCRB 2022 &middot; OCC 2024</div>
+        <div class="chart-caption" style="font-family:var(--sans); font-size:0.75rem; color:var(--muted); margin-top:1rem; line-height:1.45;" data-claim-id="BD-INV-002-C006">
+          Cross-national comparison demonstrating that maximum penalty severity (death penalty) does not correlate with rape conviction rates.
+        </div>
+        <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);margin-top:.6rem;line-height:1.6;border-top:1px solid var(--border);padding-top:.6rem">Nagin 2013 &middot; D&#246;lling 2009 &middot; Abramovaite 2022 &middot; NPA 2023/24 &middot; CPS 2024 &middot; NCRB 2022 &middot; OCC 2024</div>
       </div>
     </div>
     <div class="steps-col">
@@ -1213,11 +1354,14 @@ a{color:var(--gold);text-decoration:none}
 <!-- ═══════════════════════════════════════════
      S7: THE VOIDS
 ════════════════════════════════════════════ -->
-<section id="s7" class="full-scene">
+<section id="s7" class="full-scene" data-claim-id="BD-INV-002-C002">
   <div class="scene-title">
     <div class="eyebrow">Scene 09 &middot; The Voids</div>
     <h2>What the Government Holds and Does Not Publish</h2>
     <p>Ten datasets. Ten black holes. Each one a point where the system hides its own failure from scrutiny.</p>
+    <div class="chart-caption" style="font-family:var(--sans); font-size:0.75rem; color:var(--muted); margin-top:1rem; line-height:1.45;">
+      Inventory of ten critical justice datasets that are collected by government agencies but withheld from public disclosure.
+    </div>
   </div>
   <div class="void-grid" id="voidGrid">
     <div class="void-card" id="void-0"><div class="void-gapid">GA-001</div><div class="void-circle"><div class="void-core"></div><div class="void-inner"></div></div><div class="void-lbl">Annual conviction rates<br>by tribunal &middot; by district</div><div class="void-why">Would confirm whether the 2020 death penalty worsened conviction rates. PHQ holds it. 25 years of data. Never published.</div></div>
@@ -1240,7 +1384,7 @@ a{color:var(--gold);text-decoration:none}
 <!-- ═══════════════════════════════════════════
      HER STORY — PANEL 08: WHAT NOW
 ════════════════════════════════════════════ -->
-<section class="her-story" style="background:var(--ink2)">
+<section class="her-story" style="background:var(--ink2)" data-claim-id="BD-INV-002-C001">
   <div class="her-story-inner">
     <div class="her-story-tag">Her Story</div>
     <h4>
@@ -1258,7 +1402,7 @@ a{color:var(--gold);text-decoration:none}
 <!-- ═══════════════════════════════════════════
      TIMELINE
 ════════════════════════════════════════════ -->
-<section id="s-timeline" style="background:var(--ink);border-top:1px solid var(--border);padding:5rem 2rem">
+<section id="s-timeline" style="background:var(--ink);border-top:1px solid var(--border);padding:5rem 2rem" data-claim-id="BD-INV-002-C001">
   <div style="max-width:780px;margin:0 auto">
     <div style="font-family:var(--mono);font-size:0.575rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);margin-bottom:.8rem">Legislative Timeline &middot; 2000&ndash;2026</div>
     <h2 style="font-family:var(--display);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;letter-spacing:-.02em;margin-bottom:.7rem">25 Years. Zero Official Conviction Data Published.</h2>
@@ -1331,9 +1475,39 @@ a{color:var(--gold);text-decoration:none}
 </section>
 
 <!-- ═══════════════════════════════════════════
+     HOW TO READ THIS REPORT BOX
+════════════════════════════════════════════ -->
+<section style="background:var(--ink); border-top:1px solid var(--border); padding:3.5rem 2rem 0;">
+  <div style="max-width:780px; margin:0 auto; background:var(--ink3); border:1.5px solid var(--gold); padding:2rem; border-radius:4px; position:relative;">
+    <div style="position:absolute; top:-12px; left:20px; background:var(--gold); color:#000; font-family:var(--mono); font-size:0.55rem; letter-spacing:0.18em; text-transform:uppercase; padding:0.25rem 0.75rem; border-radius:2px; font-weight:700;">Reading Guide</div>
+    <h3 style="font-family:var(--display); font-size:1.15rem; font-weight:700; margin-bottom:1.5rem; color:var(--text); text-transform:uppercase; letter-spacing:0.05em;">HOW TO READ THIS REPORT</h3>
+    
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:2rem; text-align:left;">
+      <div>
+        <span style="font-family:var(--mono); font-size:0.65rem; text-transform:uppercase; color:var(--gold); font-weight:700; display:block; margin-bottom:0.6rem;">Observed Data</span>
+        <ul style="font-size:0.8rem; color:var(--text2); line-height:1.6; list-style-type:none; padding-left:0; margin:0;">
+          <li style="margin-bottom: 0.4rem;">✓ <strong>92%</strong> DNA backlog</li>
+          <li style="margin-bottom: 0.4rem;">✓ <strong>2,349-day</strong> delay</li>
+          <li style="margin-bottom: 0.4rem;">✓ <strong>11,896</strong> annual backlog growth</li>
+        </ul>
+      </div>
+      <div>
+        <span style="font-family:var(--mono); font-size:0.65rem; text-transform:uppercase; color:var(--amber); font-weight:700; display:block; margin-bottom:0.6rem;">Model-Based Estimate</span>
+        <ul style="font-size:0.8rem; color:var(--text2); line-height:1.6; list-style-type:none; padding-left:0; margin:0;">
+          <li style="margin-bottom: 0.4rem;">△ <strong>1 in 4,650</strong> probability model</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px dashed var(--border); font-family: var(--sans); font-size: 0.8rem; color: var(--muted); text-align: center;">
+      See methodology for assumptions and limitations.
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
      HOW WE DID THIS
 ════════════════════════════════════════════ -->
-<section id="how-we-did-this" style="background:var(--ink2);border-top:1px solid var(--border);padding:5rem 2rem">
+<section id="how-we-did-this" style="background:var(--ink2);border-top:1px solid var(--border);padding:5rem 2rem" data-claim-id="BD-INV-002-C007">
   <div style="max-width:780px;margin:0 auto">
     <div style="font-family:var(--mono);font-size:0.575rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);margin-bottom:.8rem">Transparency &middot; BD-INV-002</div>
     <h2 style="font-family:var(--display);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;letter-spacing:-.02em;margin-bottom:2rem">How This Investigation Was Built</h2>
@@ -1371,7 +1545,7 @@ a{color:var(--gold);text-decoration:none}
 <!-- ═══════════════════════════════════════════
      CLOSING
 ════════════════════════════════════════════ -->
-<section id="closing">
+<section id="closing" data-claim-id="BD-INV-002-C001">
   <div class="closing-v">The machine is<br><em>documented.</em></div>
   <p class="closing-sub">Every link in the chain of impunity is named, sourced, and evidence-tiered. 91 named sources. All claims carry CONFIRMED / PROBABLE / ALLEGED tier labels. The reform pathway exists.</p>
   <div class="closing-stmt">
