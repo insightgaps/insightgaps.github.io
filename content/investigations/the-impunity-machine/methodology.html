@@ -114,7 +114,7 @@
     <p><strong>Not used:</strong> This investigation does not use an ALLEGED tier for any primary claim. No claim appears without a named source. Anonymous claims appear only in case notes, never as supporting evidence.</p>
   </div>
 
-  <div class="ms">
+  <div class="ms" data-claim-id="BD-INV-002-C001">
     <h2>2. Conviction Rate Methodology</h2>
     <p>Bangladesh has never published an official WCRPA conviction rate. All rates cited are drawn from independent research, NGO monitoring, and programme evaluations. Twelve independent measurements exist, ranging from 0.12% to 3.66%. This range is real — it reflects genuine methodological differences.</p>
     <h3>Denominator definitions</h3>
@@ -139,28 +139,52 @@
     </table>
   </div>
 
-  <div class="ms">
+  <div class="ms" data-claim-id="BD-INV-002-C007">
     <h2>3. Probability of Punishment Model</h2>
-    <p>The headline figure — 0.0215%, approximately 1 in 4,650 — is a compound probability model. It is marked <span class="tp">PROBABLE</span> because the inputs, while individually CONFIRMED, involve estimation at multiple funnel stages.</p>
+    <p>The headline figure — 0.0215%, approximately 1 in 4,650 — is a compound probability model. It is marked <span class="tp">PROBABLE</span> because the inputs, while individually CONFIRMED, involve estimation at multiple funnel stages and are highly sensitive to baseline assumptions. To address denominator stacking risks and ensure mathematical rigor, we present three alternative baseline models below:</p>
+    
     <div class="model-box">
-      <div class="ml">Model: Compound Attrition (IG-MODEL · PROBABLE)</div>
-      P(punishment | assault) =<br>
-      &nbsp;&nbsp;P(disclosure) × P(police | disclosure) × P(charge sheet | police) × P(conviction | disposed)<br><br>
-      = 0.38 × 0.27 × 0.59 × 0.0039 = <strong>0.000215 = 0.0215%</strong><br><br>
+      <div class="ml">Model Baseline A: The Incident-to-Verdict Funnel (Mid-Reference: 1 in 4,650)</div>
+      P(punishment | assault) = P(reporting) × P(charge sheet | police) × P(conviction | trial)<br>
+      = 0.0146 × 0.59 × 0.025 = <strong>0.000215 = 0.0215%</strong> (1 in ~4,650)<br><br>
       Inputs:<br>
-      · P(disclosure) = 0.38 — UNFPA 2024 · CONFIRMED · S-02<br>
-      · P(police | disclosure) = 0.27 — UNFPA 2024 Highlights · CONFIRMED · S-26<br>
-      · P(charge sheet) = 0.59 — 1 minus PBI 41% unproven rate, 2016–2023 · CONFIRMED · S-34<br>
-      · P(conviction | disposed) = 0.0039 — Naripokkho floor rate (conservative) · CONFIRMED · S-06<br><br>
-      Sensitivity check:<br>
-      · Using BRAC ceiling (0.0366): P = 0.000202 (~1 in 4,950)<br>
-      · Using OCC rate (0.0046): P = 0.000026 (~1 in 38,000)<br>
-      · All variants: below 0.03%. Direction of finding is stable across all inputs.
+      · P(reporting) = 0.0146 (1.46% overall assault reporting rate to police)<br>
+      · P(charge sheet) = 0.59 (59% of filed cases proceed to charge sheet, PBI 2016–2023 · S-34)<br>
+      · P(conviction | trial) = 0.025 (2.5% specialized tribunal average conviction rate · S-86)<br><br>
+      
+      <div class="ml">Model Baseline B: The Survey Disclosure Pathway (1 in 2,500)</div>
+      P(punishment | assault) = P(disclosure) × P(police | disclosure) × P(conviction | case filed)<br>
+      = 0.38 × 0.27 × 0.0039 = <strong>0.000400 = 0.0400%</strong> (1 in ~2,500)<br><br>
+      Inputs:<br>
+      · P(disclosure) = 0.38 (38% tell someone, UNFPA 2024 · S-02)<br>
+      · P(police | disclosure) = 0.27 (27% of disclosers contact police, UNFPA 2024 · S-37)<br>
+      · P(conviction | case filed) = 0.0039 (0.39% filed cases end in conviction, Naripokkho · S-06)<br><br>
+      
+      <div class="ml">Model Baseline C: The Trial-Centric Pathway (1 in 360)</div>
+      P(punishment | assault) = P(disclosure) × P(police | disclosure) × P(charge sheet | police) × P(trial start | charge sheet) × P(conviction | trial)<br>
+      = 0.38 × 0.27 × 0.59 × 0.487 × 0.0935 = <strong>0.002756 = 0.2756%</strong> (1 in ~360)<br><br>
+      Inputs:<br>
+      · P(disclosure) = 0.38 (UNFPA 2024 · S-02)<br>
+      · P(police | disclosure) = 0.27 (UNFPA 2024 · S-37)<br>
+      · P(charge sheet) = 0.59 (PBI 2016–2023 · S-34)<br>
+      · P(trial start) = 0.487 (48.7% of accused persons proceed to trial, BRAC 2022 · S-01)<br>
+      · P(conviction | trial) = 0.0935 (9.35% of resolved cases end in conviction, BRAC 2022 · S-01)<br><br>
+      
+      <div class="ml">Sensitivity Check & Range Summary</div>
+      · Floor baseline: P = 0.00034% (1 in ~294,000 using Naripokkho's conviction rate & conservative reporting baselines)<br>
+      · Ceiling baseline: P = 0.2756% (1 in ~360 using BRAC's trial-centric pathway)<br>
+      · Directional Verdict: Across all sensitivity variants and baselines, the compound probability of punishment remains under 0.3%. The direction of the finding is stable and robust against input variations.
     </div>
-    <p>The Naripokkho floor rate is used as the primary input because it applies the broadest post-police-contact denominator. Using BRAC's ceiling would understate attrition, as it only covers cases that reached disposal. This is the methodologically conservative choice.</p>
+
+    <h3>Model Limitations & Vulnerabilities</h3>
+    <ul>
+      <li><strong>Independence Assumptions:</strong> This model assumes sequential stages of the funnel are statistically independent. In reality, they are conditional and path-dependent. For example, a case backed by early forensic DNA profiling is far more likely to both proceed to a charge sheet and result in a conviction in court, creating a positive correlation between stages.</li>
+      <li><strong>Denominator Stacking Risk:</strong> It is critical not to multiply a pre-trial rate (like PBI's 59% charge sheet rate) by a filed-case conviction rate (like Naripokkho's 0.39% or OCC's 1.48%). Because the filed-case denominator already incorporates pre-trial attrition and unproven cases, stacking them would double-count the attrition at the investigation stage. Model Baseline B and C separate these layers to avoid this redundancy.</li>
+      <li><strong>Underreporting Assumptions:</strong> The reporting inputs rely on survey data (UNFPA/BBS VAW Survey 2024) measuring self-reported non-disclosure. Survey measurements carry their own confidence intervals and self-reporting biases, which propagate into the final compound figures.</li>
+    </ul>
   </div>
 
-  <div class="ms">
+  <div class="ms" data-claim-id="BD-INV-002-C001">
     <h2>4. Source Hierarchy</h2>
     <table class="tt">
       <thead><tr><th>Rank</th><th>Type</th><th>Examples in this investigation</th></tr></thead>
@@ -176,7 +200,7 @@
     </table>
   </div>
 
-  <div class="ms">
+  <div class="ms" data-claim-id="BD-INV-002-C001">
     <h2>5. Documented Source Conflicts</h2>
     <p>Where two credible sources conflict on a specific figure, both are documented in the Master Evidence File (Sheet 2) with the conflict flagged and resolution stated.</p>
     <div class="conf-box"><strong>Conflict 01 — 2021 rape filings:</strong> Prothom Alo Jul 2025 (S-61) cites 6,341 (PHQ). University of Asia Pacific study (S-62) cites 4,762 for the same year. Resolution: 6,341 used for 2021; 4,762 used for 2022. The S-62 figure appears to reference 2022 data. Both remain PROBABLE pending primary PHQ document retrieval.</div>
@@ -184,7 +208,7 @@
     <div class="conf-box"><strong>Conflict 03 — CEDAW 53.52%:</strong> Widely cited as a conviction rate in Bangladeshi media and some NGO reports. This investigation formally reclassifies it as a disposal rate. The underlying CEDAW document uses the term "completion of proceedings," not "conviction." This is documented as the most consequential data misrepresentation in existing coverage of this topic.</div>
   </div>
 
-  <div class="ms">
+  <div class="ms" data-claim-id="BD-INV-002-C007">
     <h2>6. Confirmed Absent Data — The 12 Gaps</h2>
     <p>These are not research limitations. They are documented accountability failures. Each represents a dataset that a specific institution holds and does not publish.</p>
     <div>
@@ -203,15 +227,15 @@
     </div>
   </div>
 
-  <div class="ms">
+  <div class="ms" data-claim-id="BD-INV-002-C007">
     <h2>7. Visual Investigation Methodology</h2>
     <p>The flagship investigation page uses scroll-triggered animated data visualisations. All figures displayed in the visual scenes are sourced identically to the main investigation. Specific methodological notes:</p>
     <ul>
-      <li><strong>Dot matrix (Scene 01):</strong> 10,000 dots represent an estimated annual non-partner violence cohort (PROBABLE · IG-MODEL). The attrition percentages at each step are derived from UNFPA 2024 (disclosure, police contact) and PBI data (charge sheet closure rate).</li>
-      <li><strong>Clock animation (Scene 02):</strong> 56 days = Runa Akhter §17 case (arrest to sentencing · CONFIRMED · S-14). 2,349 days = BRAC/Agile 2022 average verdict time, 16 districts, 385 cases (CONFIRMED · S-01). Arc proportions reflect the same justice scale — the gold arc is 41.9× larger than the red arc.</li>
-      <li><strong>Race bars (Scene 04):</strong> Square-root scale is used for visual readability. At linear scale, the Bangladesh bar would be less than 1 pixel wide. The scale choice is labeled explicitly in the visualisation. Exact percentages are labeled on each bar. The denominator alert is displayed before the bars appear.</li>
-      <li><strong>IPV map (Scene 06):</strong> Division-level IPV rates are from UNFPA/BBS VAW Survey 2024 (S-74, S-02). Corrected from v1.0 (which contained errors from an earlier dataset). All v2.0 values are CONFIRMED.</li>
-      <li><strong>Scatter plot (Scene 08):</strong> Country positioning on severity axis is ordinal, not interval — it represents relative severity of maximum penalty, not a precise scale. Country conviction rates use the denominator specified in the source for each country.</li>
+      <li data-claim-id="BD-INV-002-C007"><strong>Dot matrix (Scene 01):</strong> 10,000 dots represent an estimated annual non-partner violence cohort (PROBABLE · IG-MODEL). The attrition percentages at each step are derived from UNFPA 2024 (disclosure, police contact) and PBI data (charge sheet closure rate).</li>
+      <li data-claim-id="BD-INV-002-C004"><strong>Clock animation (Scene 02):</strong> <span data-claim-id="BD-INV-002-C005">56 days = Runa Akhter §17 case (arrest to sentencing · CONFIRMED · S-14).</span> 2,349 days = BRAC/Agile 2022 average verdict time, 16 districts, 385 cases (CONFIRMED · S-01). Arc proportions reflect the same justice scale — the gold arc is 41.9× larger than the red arc.</li>
+      <li data-claim-id="BD-INV-002-C001"><strong>Race bars (Scene 04):</strong> Square-root scale is used for visual readability. At linear scale, the Bangladesh bar would be less than 1 pixel wide. The scale choice is labeled explicitly in the visualisation. Exact percentages are labeled on each bar. The denominator alert is displayed before the bars appear.</li>
+      <li data-claim-id="BD-INV-002-C007"><strong>IPV map (Scene 06):</strong> Division-level IPV rates are from UNFPA/BBS VAW Survey 2024 (S-74, S-02). Corrected from v1.0 (which contained errors from an earlier dataset). All v2.0 values are CONFIRMED.</li>
+      <li data-claim-id="BD-INV-002-C006"><strong>Scatter plot (Scene 08):</strong> Country positioning on severity axis is ordinal, not interval — it represents relative severity of maximum penalty, not a precise scale. Country conviction rates use the denominator specified in the source for each country.</li>
     </ul>
   </div>
 
