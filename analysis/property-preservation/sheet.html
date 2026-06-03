@@ -2,578 +2,307 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Interactive Workbook & Dashboard — Insight Gaps Bureau</title>
-  <meta name="description" content="Interactive Looker Studio dashboard and Google Sheets workbook for US property preservation operations. Open-access formulas and analytical models.">
-
-  <meta property="og:type"        content="article">
-  <meta property="og:title"       content="Property Preservation: Interactive Workbook & Dashboard">
-  <meta property="og:description" content="Interactive analytical tools and spreadsheet models for property preservation operations.">
-  <meta property="og:url"         content="https://insightgaps.com/analysis/property-preservation/sheet.html">
-  <meta property="og:image"       content="/assets/img/og-default.jpg">
-
-  <link rel="canonical" href="https://insightgaps.com/analysis/property-preservation/sheet.html">
-
+  <title>Live Workbook & Dashboard | Insight Gaps</title>
+  <meta name="description" content="Live analytical workbook and interactive Looker Studio dashboard for property preservation operational intelligence — Insight Gaps Bureau.">
+  <link rel="canonical" href="https://insightgaps.com/analysis/property-preservation/sheet">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="stylesheet" href="/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <link rel="stylesheet" href="/assets/css/components.css">
-  <link rel="stylesheet" href="/assets/css/analysis-report.css">
-  <link rel="stylesheet" href="/assets/css/analysis-components.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4PYE0MEK12"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-4PYE0MEK12');</script>
 
   <style>
-    /* Browser Mockup Embed styles adapted to global design tokens */
-    .embed-section {
-      margin-bottom: var(--space-7);
+    :root {
+      --bg:      #f7f6f2;
+      --bg2:     #f0efe9;
+      --surface: #ffffff;
+      --ink:     #141418;
+      --ink2:    #3a3a42;
+      --muted:   #8a8899;
+      --faint:   #c0bfc8;
+      --accent:  #1e3a5f;
+      --accent2: rgba(30,58,95,.07);
+      --mark:    #b8860b;
+      --div:     #e6e4de;
+      --serif:   'Playfair Display', Georgia, serif;
+      --sans:    'DM Sans', system-ui, sans-serif;
+      --mono:    'JetBrains Mono', monospace;
+      --max:     1080px;
+      --pad:     clamp(1.25rem, 4vw, 2rem);
+      --nav-bg:     rgba(6,6,14,.97);
+      --nav-gold:   #c9a84c;
+      --nav-ash:    #7a7590;
+      --nav-border: #1e1e32;
     }
-    
-    .embed-chrome {
-      border: var(--border-width) solid var(--color-border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      background: var(--color-surface);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-weight: 300; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    nav.sitenav {
+      position: sticky; top: 0; z-index: 900;
+      background: var(--nav-bg); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--nav-border);
+      padding: 0 var(--pad); height: 52px;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
     }
-    
+    .nav-brand { font-family: var(--mono); font-size: .56rem; color: var(--nav-gold); letter-spacing: .18em; text-transform: uppercase; }
+    .nav-links { display: flex; gap: .4rem; align-items: center; }
+    .nl { font-family: var(--mono); font-size: .46rem; color: var(--nav-ash); border: 1px solid transparent; padding: .22rem .65rem; letter-spacing: .08em; text-transform: uppercase; transition: all .2s; }
+    .nl:hover { color: var(--nav-gold); border-color: var(--nav-gold); }
+    .nl.active { color: var(--nav-gold); border-color: rgba(201,168,76,.3); }
+    .nl.hot { color: #d4cec5; border: 1px solid rgba(196,30,58,.4); }
+    .nl.hot:hover { color: #e84060; border-color: #e84060; }
+    @media(max-width:600px) { .nav-links .nl:not(.hot) { display: none; } }
+
+    /* ── LAYOUT ── */
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad) 100px; }
+
+    /* ── BREADCRUMB ── */
+    .crumb {
+      padding: .9rem 0; border-bottom: 1px solid var(--div);
+      font-family: var(--mono); font-size: .46rem;
+      letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .crumb a { color: var(--muted); transition: color .2s; }
+    .crumb a:hover { color: var(--accent); }
+    .crumb span { color: var(--faint); }
+
+    /* ── PAGE HEADER ── */
+    .page-hdr { padding: 4rem 0 3rem; border-bottom: 1px solid var(--div); }
+    .page-kicker { font-family: var(--mono); font-size: .5rem; letter-spacing: .22em; text-transform: uppercase; color: var(--mark); margin-bottom: 1.2rem; }
+    .page-title { font-family: var(--serif); font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 900; line-height: 1.06; letter-spacing: -.025em; color: var(--ink); margin-bottom: 1rem; }
+    .page-sub { font-size: .95rem; font-weight: 300; line-height: 1.75; color: var(--ink2); max-width: 52ch; margin-bottom: 1.6rem; }
+    .meta-row { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .meta-item { font-family: var(--mono); font-size: .46rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+    .meta-item strong { color: var(--ink2); font-weight: 500; }
+
+    /* ── REPORT SUBNAV ── */
+    nav.report-nav {
+      display: flex; overflow-x: auto;
+      border-bottom: 1px solid var(--div); margin-bottom: 3rem;
+    }
+    .rnl {
+      font-family: var(--mono); font-size: .46rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none;
+      padding: .85rem 1.2rem;
+      border-bottom: 2px solid transparent; margin-bottom: -1px;
+      transition: color .15s, border-color .15s; white-space: nowrap;
+    }
+    .rnl:hover { color: var(--ink2); }
+    .rnl.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 500; }
+
+    /* ── SECTION HEADER ── */
+    .sec-hdr { margin-bottom: 1.6rem; padding-bottom: .9rem; border-bottom: 1px solid var(--div); }
+    .sec-label { font-family: var(--mono); font-size: .46rem; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); margin-bottom: .4rem; }
+    .sec-title { font-family: var(--serif); font-size: 1.45rem; font-weight: 700; color: var(--ink); letter-spacing: -.02em; }
+    .sec-desc { font-size: .85rem; font-weight: 300; color: var(--ink2); line-height: 1.7; margin-top: .5rem; max-width: 60ch; }
+
+    /* ── ACCESS BAR ── */
+    .access-bar {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; flex-wrap: wrap;
+      background: var(--accent2);
+      border: 1px solid rgba(30,58,95,.14);
+      border-left: 3px solid var(--accent);
+      padding: 1.1rem 1.4rem; margin-bottom: 1.2rem;
+    }
+    .access-bar-text { display: flex; flex-direction: column; gap: 4px; }
+    .access-bar-label { font-family: var(--mono); font-size: .46rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+    .access-bar-note { font-size: .82rem; font-weight: 300; color: var(--ink2); }
+    .access-bar-note strong { font-weight: 500; color: var(--ink); }
+
+    .btn-open {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--mono); font-size: .48rem;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: .7rem 1.4rem;
+      background: var(--accent); color: #fff;
+      border: 1.5px solid var(--accent);
+      transition: all .2s; white-space: nowrap; flex-shrink: 0;
+    }
+    .btn-open:hover { background: transparent; color: var(--accent); }
+    .btn-open svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+    /* ── FORMULA TIP ── */
+    .formula-tip {
+      display: flex; align-items: flex-start; gap: .75rem;
+      background: rgba(184,134,11,.04);
+      border: 1px solid rgba(184,134,11,.15);
+      padding: .9rem 1.1rem; margin-bottom: 3rem;
+    }
+    .formula-tip-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+    .formula-tip p { font-size: .82rem; font-weight: 300; color: var(--ink2); line-height: 1.65; }
+    .formula-tip p strong { font-weight: 500; color: var(--ink); }
+    .formula-tip code { font-family: var(--mono); font-size: .72rem; background: rgba(0,0,0,.05); padding: 1px 5px; }
+
+    /* ── EMBED CHROME ── */
+    .embed-section { margin-bottom: 4rem; }
+    .embed-chrome { border: 1px solid var(--div); overflow: hidden; }
     .embed-bar {
-      background: var(--color-surface-alt);
-      border-bottom: var(--border-width) solid var(--color-border);
-      padding: var(--space-3) var(--space-4);
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
+      background: var(--bg2); border-bottom: 1px solid var(--div);
+      padding: .6rem 1rem;
+      display: flex; align-items: center; gap: .75rem;
     }
-    
-    .embed-dots {
-      display: flex;
-      gap: 6px;
-    }
-    
-    .embed-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-    }
-    
-    .embed-dot.r { background: #E54B4B; }
-    .embed-dot.y { background: #E2B235; }
-    .embed-dot.g { background: #2ECC71; }
-    
-    .embed-bar-url {
-      font-family: var(--font-mono);
-      font-size: var(--type-label);
-      color: var(--color-text-muted);
-      letter-spacing: var(--tracking-normal);
-      flex: 1;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      background: var(--color-surface);
-      padding: 4px 12px;
-      border-radius: var(--radius-sm);
-      border: var(--border-width) solid var(--color-border);
-    }
-    
+    .embed-dots { display: flex; gap: 5px; }
+    .embed-dot { width: 9px; height: 9px; border-radius: 50%; }
+    .embed-dot.r { background: #f47171; opacity: .6; }
+    .embed-dot.y { background: #fbbf24; opacity: .6; }
+    .embed-dot.g { background: #4ade80; opacity: .6; }
+    .embed-bar-url { font-family: var(--mono); font-size: .48rem; color: var(--faint); letter-spacing: .04em; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .embed-bar-pill {
-      font-family: var(--font-mono);
-      font-size: var(--type-label);
-      letter-spacing: var(--tracking-wide);
-      text-transform: uppercase;
-      padding: var(--space-1) var(--space-2);
-      border: var(--border-width) solid var(--color-border);
-      border-radius: var(--radius-sm);
-      color: var(--color-accent);
-      flex-shrink: 0;
+      font-family: var(--mono); font-size: .44rem; letter-spacing: .12em; text-transform: uppercase;
+      padding: .22rem .65rem; border: 1px solid rgba(30,58,95,.2); color: var(--accent); flex-shrink: 0;
     }
-    
-    .embed-bar-pill.live {
-      border-color: rgba(26, 107, 60, 0.2);
-      color: var(--color-status-published);
-      background: rgba(26, 107, 60, 0.04);
-    }
-    
-    .embed-bar-pill.live::before {
-      content: '● ';
-      font-size: 8px;
-      vertical-align: middle;
-      margin-right: 4px;
-    }
-    
-    iframe.embed-frame {
-      width: 100%;
-      border: none;
-      display: block;
-      background: #FFFFFF;
-    }
+    .embed-bar-pill.live { border-color: rgba(22,101,52,.25); color: #166534; }
+    .embed-bar-pill.live::before { content: '● '; font-size: .38rem; }
+    iframe.embed-frame { width: 100%; border: none; display: block; background: #fff; }
 
-    /* Excel Action bar callout */
-    .access-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--space-4);
-      margin-bottom: var(--space-7);
+    /* ── BACK FOOTER ── */
+    .back-footer {
+      margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--div);
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
     }
-    
-    @media (max-width: 768px) {
-      .access-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .access-card {
-      background: var(--color-surface);
-      border: var(--border-width) solid var(--color-border);
-      border-top: var(--border-width-strong) solid var(--color-border-strong);
-      border-radius: var(--radius-lg);
-      padding: var(--space-5);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: var(--space-4);
-      transition: border-color var(--transition-fast);
-    }
-    
-    .access-card:hover {
-      border-color: var(--color-border-strong);
-    }
-    
-    .access-card--excel {
-      border-top-color: var(--color-status-published);
-    }
-    
-    .access-card--sheets {
-      border-top-color: var(--color-accent);
-    }
-
-    .access-card__header {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-1);
-    }
-
-    .access-card__tag {
-      font-family: var(--font-mono);
-      font-size: var(--type-label);
-      letter-spacing: var(--tracking-wide);
-      text-transform: uppercase;
-    }
-    
-    .access-card--excel .access-card__tag { color: var(--color-status-published); }
-    .access-card--sheets .access-card__tag { color: var(--color-accent); }
-
-    .access-card__title {
-      font-family: var(--font-headline);
-      font-size: var(--type-h3);
-      font-weight: 600;
-      color: var(--color-text-primary);
-    }
-
-    .access-card__desc {
-      font-family: var(--font-body);
-      font-size: var(--type-body-sm);
-      color: var(--color-text-secondary);
-      line-height: var(--leading-body);
-    }
-
-    .access-card__action {
-      align-self: flex-start;
-      margin-top: auto;
-    }
-
-    /* System formulas grid */
-    .formula-section {
-      background: var(--color-surface-alt);
-      border: var(--border-width) solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: var(--space-6);
-      margin-bottom: var(--space-7);
-    }
-    
-    .formula-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-4);
-      margin-top: var(--space-5);
-    }
-    
-    @media (max-width: 900px) {
-      .formula-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .formula-card {
-      background: var(--color-surface);
-      border: var(--border-width) solid var(--color-border);
-      border-radius: var(--radius-md);
-      padding: var(--space-4);
-    }
-
-    .formula-card__title {
-      font-family: var(--font-headline);
-      font-size: var(--type-body-sm);
-      font-weight: 600;
-      margin-bottom: var(--space-2);
-      color: var(--color-text-primary);
-    }
-
-    .formula-card__code {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      display: block;
-      background: var(--color-surface-alt);
-      padding: var(--space-2) var(--space-3);
-      border-radius: var(--radius-sm);
-      border: var(--border-width) solid var(--color-border);
-      color: var(--color-text-primary);
-      margin-bottom: var(--space-3);
-      overflow-x: auto;
-    }
-
-    .formula-card__desc {
-      font-family: var(--font-body);
-      font-size: var(--type-label);
-      color: var(--color-text-secondary);
-      line-height: var(--leading-body);
-    }
+    .back-footer a { font-family: var(--mono); font-size: .46rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); transition: color .2s; }
+    .back-footer a:hover { color: var(--accent); }
+    .back-footer-copy { font-family: var(--mono); font-size: .44rem; letter-spacing: .1em; color: var(--faint); }
   </style>
-
-  <!-- Theme handling -->
-  <script>
-    (function(){var t=localStorage.getItem('ig-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();
-  </script>
 </head>
 <body>
 
-  <!-- AI DISCLOSURE BAR -->
-  <div class="ai-disclosure-bar" role="note" aria-label="AI use disclosure">
-    <div class="ai-disclosure-bar__inner">
-      <p class="ai-disclosure-bar__text">
-        AI tools were used in producing this report.
-        <a href="/content/trust/ai-use.html">View AI use disclosure &rarr;</a>
-      </p>
-    </div>
+<nav class="sitenav">
+  <a class="nav-brand" href="/">INSIGHT GAPS</a>
+  <div class="nav-links">
+    <a class="nl" href="/investigations/">Investigations</a>
+    <a class="nl active" href="/analysis/">Analysis</a>
+    <a class="nl" href="/data/">Data</a>
+    <a class="nl" href="/methods/">Methods</a>
+    <a class="nl" href="/about/">About</a>
+    <a class="nl hot" href="/investigations/national/lead-belt/">BD-INV-003 →</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="crumb">
+    <a href="/">Home</a><span>/</span>
+    <a href="/analysis/">Analysis</a><span>/</span>
+    <a href="/analysis/property-preservation/">Property Preservation</a><span>/</span>
+    Live Workbook
   </div>
 
-  <a href="#main-content" class="skip-link">Skip to content</a>
-
-  <!-- GLOBAL HEADER -->
-  <header class="site-header" role="banner">
-    <div class="site-header__inner">
-      <a href="/" class="site-header__logo" aria-label="Insight Gaps Bureau — Home">
-        Insight&nbsp;Gaps
-      </a>
-      <button class="site-header__toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="site-nav" id="primary-nav" aria-label="Primary navigation">
-        <a href="/content/investigations/" class="site-nav__link">Investigations</a>
-        <a href="/analysis/"               class="site-nav__link site-nav__link--active" aria-current="page">Analysis</a>
-        <a href="/archive.html"            class="site-nav__link">Archive</a>
-        <a href="/about.html"              class="site-nav__link">About</a>
-        <a href="/content/trust/methodology.html" class="site-nav__link">Trust</a>
-      </nav>
+  <header class="page-hdr">
+    <div class="page-kicker">Analytical Workbook · Property Preservation</div>
+    <h1 class="page-title">Live Workbook &amp; Dashboard</h1>
+    <p class="page-sub">The Excel workbook and Looker Studio dashboard behind the operational intelligence system. Open the workbook to inspect every formula. Use the dashboard to filter and explore the data interactively.</p>
+    <div class="meta-row">
+      <div class="meta-item">Tool <strong>Excel / Google Sheets</strong></div>
+      <div class="meta-item">Dashboard <strong>Looker Studio</strong></div>
+      <div class="meta-item">Domain <strong>Property Preservation</strong></div>
+      <div class="meta-item">Records <strong>329 Work Orders</strong></div>
     </div>
   </header>
 
-  <!-- MAIN REPORT -->
-  <main id="main-content" class="analysis-report">
+  <nav class="report-nav" aria-label="Report navigation">
+    <a href="financial-health.html" class="rnl">Financial Health</a>
+    <a href="leakage-breakdown.html" class="rnl">Leakage Breakdown</a>
+    <a href="work-order-breakdown.html" class="rnl">Work Order Risk</a>
+    <a href="sheet.html" class="rnl active">Live Workbook</a>
+  </nav>
 
-    <!-- 1. HERO -->
-    <div class="analysis-report__header">
-      <div class="analysis-report__header-inner">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/analysis/">Analysis</a>
-          <span class="breadcrumb__sep" aria-hidden="true">&rsaquo;</span>
-          <a href="/analysis/property-preservation/index.html">Property Preservation</a>
-          <span class="breadcrumb__sep" aria-hidden="true">&rsaquo;</span>
-          <span>Workbook &amp; Dashboard</span>
-        </nav>
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- SECTION 1 — GOOGLE SHEETS                          -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <div class="sec-hdr">
+    <div class="sec-label">01 · Live Workbook</div>
+    <div class="sec-title">Google Sheets — Analytical Workbook</div>
+    <div class="sec-desc">The full workbook is embedded below for preview. To inspect any formula, open it in Google Sheets — click any cell and the formula bar shows the exact formula used.</div>
+  </div>
 
-        <span class="analysis-report__tag">Analytical Tool</span>
-        <h1 class="analysis-report__title">Interactive Workbook<br>&amp; Dashboard</h1>
-        
-        <div class="analysis-report__meta">
-          <time class="analysis-report__date">1 January 2025</time>
-          <span class="confidence-badge">Confidence: High</span>
-        </div>
-
-        <div class="analysis-report__metadata-list">
-          <div class="analysis-report__metadata-item">Database: <span>Excel (268 WOs)</span></div>
-          <div class="analysis-report__metadata-item">Dashboard: <span>Looker Studio</span></div>
-          <div class="analysis-report__metadata-item">Audit Metrics: <span>Margins, Aging, Leakage</span></div>
-        </div>
-
+  <!-- Open button + tip -->
+  <div class="access-bar">
+    <div class="access-bar-text">
+      <div class="access-bar-label">Formula Access</div>
+      <div class="access-bar-note">
+        <strong>Click any cell</strong> in the open workbook to see its formula in the formula bar — income ratio, leakage attribution, aging buckets, SUMIFS, and all decision logic.
       </div>
     </div>
+    <a class="btn-open"
+       href="https://docs.google.com/spreadsheets/d/1izK0Gr6DhRr3N_AgsnRNj35Yyf7NDB6r4fHzzHRMymY/edit?usp=sharing"
+       target="_blank" rel="noopener">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+      Open in Google Sheets
+    </a>
+  </div>
 
-    <!-- Sticky Local Navigation -->
-    <div class="sticky-subnav-wrapper">
-      <div class="sticky-subnav-inner">
-        <nav class="rsn" aria-label="Report navigation">
-          <a href="financial-health.html" class="snl">Financial Health</a>
-          <a href="leakage-breakdown.html" class="snl">Leakage Breakdown</a>
-          <a href="work-order-breakdown.html" class="snl">Work Order Breakdown</a>
-          <a href="sheet.html" class="snl active" aria-current="page">Workbook &amp; Dashboard</a>
-        </nav>
+  <div class="formula-tip">
+    <div class="formula-tip-icon">💡</div>
+    <p>In the open workbook, navigate to the <strong>CALC_</strong> or <strong>OUT_</strong> tabs and click any cell. The formula bar at the top shows the full formula — including <code>SUMIFS</code>, nested <code>IF</code> logic, and <code>IFERROR</code> wrappers used throughout the system.</p>
+  </div>
+
+  <div class="embed-section">
+    <div class="embed-chrome">
+      <div class="embed-bar">
+        <div class="embed-dots">
+          <div class="embed-dot r"></div>
+          <div class="embed-dot y"></div>
+          <div class="embed-dot g"></div>
+        </div>
+        <div class="embed-bar-url">docs.google.com/spreadsheets · Property Preservation Operational Intelligence v1.0</div>
+        <div class="embed-bar-pill live">Live Preview</div>
       </div>
+      <iframe
+        class="embed-frame"
+        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ88JZfoqWMmjEiiinmnAbedNcOih_J5xyW5a63RmEQIriv2DDWBpalGwLDg6_wU4Emg0bjbQ_bHqSM/pubhtml?widget=true&amp;headers=false"
+        style="height: 860px;">
+      </iframe>
     </div>
+  </div>
 
-    <!-- 2. REPORT BODY -->
-    <div class="analysis-report__body-wrap">
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- SECTION 2 — LOOKER STUDIO                          -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <div class="sec-hdr">
+    <div class="sec-label">02 · Live Dashboard</div>
+    <div class="sec-title">Looker Studio — Interactive Dashboard</div>
+    <div class="sec-desc">Interactive operational dashboard built on this workbook. Filter by client, contractor, and date range — all charts update dynamically. Use the controls inside the report to explore the data.</div>
+  </div>
 
-      <!-- Executive Summary Box -->
-      <section class="analysis-summary-box" aria-label="Executive summary">
-        <span class="analysis-summary-box__label">Tool Overview</span>
-        <div class="analysis-summary-box__grid">
-          
-          <div class="analysis-summary-box__item">
-            <span class="analysis-summary-box__item-title">Interactive Dashboard</span>
-            <p class="analysis-summary-box__item-content">
-              Enables real-time operational filtering by client, vendor, ZIP, and service category to track leakage causes and receivable collection aging dynamically.
-            </p>
-          </div>
-
-          <div class="analysis-summary-box__item">
-            <span class="analysis-summary-box__item-title">Analytical Spreadsheet</span>
-            <p class="analysis-summary-box__item-content">
-              The underlying spreadsheet contains raw calculations, date verification formulas, and client validation portal audit fields to expose working capital compression.
-            </p>
-          </div>
-
-          <div class="analysis-summary-box__item">
-            <span class="analysis-summary-box__item-title">Value for Operators</span>
-            <p class="analysis-summary-box__item-content">
-              Small to mid-sized property preservation businesses can duplicate this model to build automatic cash-flow visibility and control underperforming contractors.
-            </p>
-          </div>
-
-          <div class="analysis-summary-box__item">
-            <span class="analysis-summary-box__item-title">Methodology Focus</span>
-            <p class="analysis-summary-box__item-content">
-              This toolkit bridges raw accounting ledgers and visual management, converting historical records into immediate actionable decisions on rate pricing.
-            </p>
-          </div>
-
+  <div class="embed-section">
+    <div class="embed-chrome">
+      <div class="embed-bar">
+        <div class="embed-dots">
+          <div class="embed-dot r"></div>
+          <div class="embed-dot y"></div>
+          <div class="embed-dot g"></div>
         </div>
-      </section>
-
-      <!-- Excel/Google Sheets Action Cards -->
-      <section class="access-grid" aria-label="Access Options">
-        
-        <div class="access-card access-card--excel">
-          <div class="access-card__header">
-            <span class="access-card__tag">Download File</span>
-            <h3 class="access-card__title">Excel Master Database</h3>
-          </div>
-          <p class="access-card__desc">
-            Download the fully structured raw Excel workbook (v1.0) containing all 268 work order records, contractor invoices, received checks, and validation logs.
-          </p>
-          <a class="btn btn--primary access-card__action" href="/data/PP-ANA-001_PropertyPreservation_MasterDataset.xlsx" download>
-            Download Dataset (Excel)
-          </a>
-        </div>
-
-        <div class="access-card access-card--sheets">
-          <div class="access-card__header">
-            <span class="access-card__tag">Google Sheets</span>
-            <h3 class="access-card__title">Interactive Template</h3>
-          </div>
-          <p class="access-card__desc">
-            Open the live Google Sheets template in read-only mode to audit cell formulas, VLOOKUP checks, SUMIFS aggregations, and receivables aging calculations.
-          </p>
-          <a class="btn btn--ghost access-card__action" href="https://docs.google.com/spreadsheets/d/1izK0Gr6DhRr3N_AgsnRNj35Yyf7NDB6r4fHzzHRMymY/edit?usp=sharing" target="_blank" rel="noopener">
-            Open Google Sheets &rarr;
-          </a>
-        </div>
-
-      </section>
-
-      <!-- SECTION 1: LOOKER STUDIO DASHBOARD -->
-      <section class="embed-section" aria-labelledby="dashboard-title">
-        <div class="finding-block__header" style="margin-bottom: var(--space-4);">
-          <span class="finding-block__number">Interactive Dashboard</span>
-          <h2 id="dashboard-title" class="finding-block__headline">Looker Studio Operational Intelligence Console</h2>
-        </div>
-        <p class="analysis-summary-box__item-content" style="margin-bottom: var(--space-5); font-family: var(--font-body); font-size: var(--type-body-sm);">
-          Explore the interactive operational console. Use the dropdown filters at the top to slice the metrics by client (MCS, Service Link, MSI, Five Brothers, Safeguard), specific contractors, or regional ZIP codes. All charts and KPIs adjust automatically.
-        </p>
-        
-        <div class="embed-chrome">
-          <div class="embed-bar">
-            <div class="embed-dots">
-              <div class="embed-dot r"></div>
-              <div class="embed-dot y"></div>
-              <div class="embed-dot g"></div>
-            </div>
-            <div class="embed-bar-url">lookerstudio.google.com/reporting/057ac69b-747a-4264-8b69-111c38f211bf</div>
-            <div class="embed-bar-pill live">Interactive Console</div>
-          </div>
-          <iframe
-            class="embed-frame"
-            src="https://datastudio.google.com/embed/reporting/057ac69b-747a-4264-8b69-111c38f211bf"
-            style="height: 980px;"
-            allowfullscreen
-            sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
-          </iframe>
-        </div>
-      </section>
-
-      <!-- SECTION 2: GOOGLE SHEETS WORKBOOK -->
-      <section class="embed-section" aria-labelledby="sheets-title" style="margin-top: var(--space-8);">
-        <div class="finding-block__header" style="margin-bottom: var(--space-4);">
-          <span class="finding-block__number">Analytical Workbook</span>
-          <h2 id="sheets-title" class="finding-block__headline">Embedded Google Sheets Calculation Engine</h2>
-        </div>
-        <p class="analysis-summary-box__item-content" style="margin-bottom: var(--space-5); font-family: var(--font-body); font-size: var(--type-body-sm);">
-          Preview the workbook tabs below. Navigate between the sheets using the bottom tab bar. You can hover and click individual cells to inspect formula bars, data validation patterns, and structural accounting mappings.
-        </p>
-
-        <div class="embed-chrome">
-          <div class="embed-bar">
-            <div class="embed-dots">
-              <div class="embed-dot r"></div>
-              <div class="embed-dot y"></div>
-              <div class="embed-dot g"></div>
-            </div>
-            <div class="embed-bar-url">docs.google.com/spreadsheets/d/1izK0Gr6...</div>
-            <div class="embed-bar-pill live">Live Spreadsheet</div>
-          </div>
-          <iframe
-            class="embed-frame"
-            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ88JZfoqWMmjEiiinmnAbedNcOih_J5xyW5a63RmEQIriv2DDWBpalGwLDg6_wU4Emg0bjbQ_bHqSM/pubhtml?widget=true&amp;headers=false"
-            style="height: 800px;">
-          </iframe>
-        </div>
-      </section>
-
-      <!-- SECTION 3: KEY FORMULAS PREVIEW -->
-      <section class="formula-section" aria-labelledby="formulas-title">
-        <span class="analysis-methodology-box__label">Core Logic</span>
-        <h2 id="formulas-title" class="finding-block__headline" style="margin-bottom: var(--space-3); font-size: var(--type-h3);">Spreadsheet Calculation Mappings</h2>
-        <p class="analysis-methodology-box__text">
-          The workbook uses standardized logic blocks to audit invoices and isolate underperforming assets. These formulas form the backbone of the operational auditing system:
-        </p>
-        
-        <div class="formula-grid">
-          
-          <div class="formula-card">
-            <h3 class="formula-card__title">Margin Erosion %</h3>
-            <code class="formula-card__code">=IFERROR((Expected_Cost - Actual_Paid) / Expected_Cost, 0)</code>
-            <p class="formula-card__desc">
-              Measures direct margin loss by comparing the contractor payout terms against the actual payments issued, helping spot cost overruns.
-            </p>
-          </div>
-
-          <div class="formula-card">
-            <h3 class="formula-card__title">Receivables Aging</h3>
-            <code class="formula-card__code">=IF(Paid_Status="Paid", 0, TODAY() - Invoice_Date)</code>
-            <p class="formula-card__desc">
-              Calculates the duration cash remains uncollected since the invoice date, automatically routing days past due into 61–90 and 90+ buckets.
-            </p>
-          </div>
-
-          <div class="formula-card">
-            <h3 class="formula-card__title">Income Efficiency</h3>
-            <code class="formula-card__code">=SUMIFS(Received_Amt, Client, A2) / SUMIFS(Contractor_Cost, Client, A2)</code>
-            <p class="formula-card__desc">
-              Ranks clients by their capital multiplier, dividing total cash collected by contractor expenses incurred to ensure a ratio above 1.0×.
-            </p>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- Next Diagnostic Callout -->
-      <a href="financial-health.html" class="next-diagnostic-card">
-        <div class="next-diagnostic-card__content">
-          <span class="next-diagnostic-card__label">Next Diagnostic</span>
-          <h3 class="next-diagnostic-card__title">Financial Health: The Cash Chain</h3>
-          <p class="next-diagnostic-card__desc">Forensic cash chain analysis auditing cash conversion efficiency, receivables aging risk, and client-level margin offsets.</p>
-        </div>
-        <div class="next-diagnostic-card__arrow" aria-hidden="true">&rarr;</div>
-      </a>
-
-      <!-- Methodology -->
-      <section class="analysis-methodology-box" aria-label="Methodology">
-        <span class="analysis-methodology-box__label">Methodology &amp; Tool Setup</span>
-        <p class="analysis-methodology-box__text">
-          <strong>Data Connection:</strong> The Looker Studio dashboard relies on the Google Sheets workbook as a live data source. By adding new work orders to the bottom of the master sheet, all KPI cards and charts refresh instantly.
-        </p>
-        <p class="analysis-methodology-box__text">
-          <strong>Anonymization:</strong> All addresses, contractor names, and pricing structures have been masked to preserve business confidentiality while maintaining the exact proportional margins.
-        </p>
-      </section>
-
-    </div>
-  </main>
-
-  <!-- GLOBAL FOOTER -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="site-footer__inner">
-      <div class="site-footer__grid">
-        <div>
-          <p class="site-footer__brand-name">Insight&nbsp;Gaps</p>
-          <p class="site-footer__mandate">Independent forensic data journalism from Dhaka, Bangladesh.</p>
-        </div>
-        <div>
-          <span class="site-footer__col-label">Navigate</span>
-          <nav class="site-footer__nav" aria-label="Footer navigation">
-            <a href="/content/investigations/">Investigations</a>
-            <a href="/analysis/">Analysis</a>
-            <a href="/archive.html">Archive</a>
-            <a href="/about.html">About</a>
-          </nav>
-        </div>
-        <div>
-          <span class="site-footer__col-label">Trust</span>
-          <nav class="site-footer__nav" aria-label="Trust navigation">
-            <a href="/content/trust/methodology.html">Methodology</a>
-            <a href="/content/trust/ai-use.html">AI Use</a>
-            <a href="/content/trust/corrections.html">Corrections</a>
-            <a href="/contact.html">Contact</a>
-          </nav>
-        </div>
+        <div class="embed-bar-url">lookerstudio.google.com · Property Preservation Operational Intelligence</div>
+        <div class="embed-bar-pill live">Interactive</div>
       </div>
-      <div class="site-footer__bottom">
-        <p class="site-footer__copy">
-          &copy; <span class="js-copyright-year">2025</span> Insight Gaps Bureau. Original reporting licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC&nbsp;BY&nbsp;4.0</a>. Deployed on Vercel.
-        </p>
-      </div>
+      <iframe
+        class="embed-frame"
+        src="https://datastudio.google.com/embed/reporting/057ac69b-747a-4264-8b69-111c38f211bf"
+        style="height: 980px;"
+        allowfullscreen
+        sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+      </iframe>
     </div>
-  </footer>
+  </div>
 
-  <script>
-  (function () {
-    'use strict';
-    var toggle = document.querySelector('.site-header__toggle');
-    var nav    = document.querySelector('.site-nav');
-    if (toggle && nav) {
-      toggle.addEventListener('click', function () {
-        var isOpen = nav.classList.toggle('site-nav--open');
-        toggle.setAttribute('aria-expanded', String(isOpen));
-      });
-      document.addEventListener('click', function (e) {
-        if (!toggle.contains(e.target) && !nav.contains(e.target)) {
-          nav.classList.remove('site-nav--open');
-          toggle.setAttribute('aria-expanded', 'false');
-        }
-      });
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && nav.classList.contains('site-nav--open')) {
-          nav.classList.remove('site-nav--open');
-          toggle.setAttribute('aria-expanded', 'false');
-          toggle.focus();
-        }
-      });
-    }
-    var yr = String(new Date().getFullYear());
-    document.querySelectorAll('.js-copyright-year').forEach(function (el) { el.textContent = yr; });
-  }());
-  </script>
+  <div class="back-footer">
+    <a href="/analysis/property-preservation/">← Property Preservation Overview</a>
+    <a href="/analysis/">← All Analysis</a>
+    <div class="back-footer-copy">Insight Gaps Bureau · © 2026</div>
+  </div>
 
+</div>
 </body>
 </html>

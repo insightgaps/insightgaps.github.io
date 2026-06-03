@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /analysis/property-preservation/
 
-Sitemap: https://insightgaps.com/sitemap.xml
+User-agent: Googlebot
+Allow: /
+Disallow: /analysis/property-preservation/

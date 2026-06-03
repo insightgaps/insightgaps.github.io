@@ -1,0 +1,67 @@
+<style>
+.site-header{background:var(--nav-bg,rgba(255,255,255,.97));border-bottom:1px solid var(--nav-border,#e2ddd8);position:sticky;top:0;z-index:900;backdrop-filter:blur(16px)}
+.header-inner{max-width:1280px;margin:0 auto;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;gap:1rem}
+.nav-brand{font-family:'JetBrains Mono','Courier New',monospace;font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold,#8a6914);text-decoration:none}
+.nav-brand:hover{color:var(--gold-bright,#a07a20)}
+.main-nav{display:flex;gap:.2rem;height:100%;align-items:center}
+.nav-item{height:100%;display:flex;align-items:center;position:relative}
+.nav-link{font-family:'JetBrains Mono','Courier New',monospace;font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-secondary,#6b6b6b);padding:.22rem .7rem;height:100%;display:flex;align-items:center;text-decoration:none;border:1px solid transparent;transition:all .2s;white-space:nowrap}
+.nav-link:hover,.nav-link.active{color:var(--text-primary,#1a1a1a);border-color:var(--border,#e2ddd8)}
+.nav-ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;flex-shrink:0;padding:6px}
+.nav-ham span{display:block;width:20px;height:2px;background:var(--text-muted,#6b6b6b);border-radius:0;transition:all .25s}
+.nav-ham.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.nav-ham.open span:nth-child(2){opacity:0}
+.nav-ham.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-drawer{display:none;position:fixed;top:52px;left:0;right:0;background:var(--nav-bg,rgba(255,255,255,.99));border-bottom:1px solid var(--nav-border,#e2ddd8);padding:1.2rem 1.5rem;z-index:890}
+.nav-drawer.open{display:block}
+.nav-drawer a{display:block;font-family:'JetBrains Mono','Courier New',monospace;font-size:.8rem;color:var(--text-muted,#6b6b6b);letter-spacing:.08em;text-transform:uppercase;padding:.65rem 0;border-bottom:1px solid var(--nav-border,#e2ddd8);transition:color .2s;text-decoration:none}
+.nav-drawer a:hover{color:var(--gold,#8a6914)}
+.nav-drawer a:last-child{border-bottom:none}
+@media(max-width:760px){.main-nav{display:none}.nav-ham{display:flex}}
+</style>
+
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <a href="/" class="nav-brand" aria-label="Insight Gaps — Home">Insight Gaps</a>
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+      <div class="nav-item"><a href="/" class="nav-link">Home</a></div>
+      <div class="nav-item"><a href="/investigations/" class="nav-link">Investigations</a></div>
+      <div class="nav-item"><a href="/about/" class="nav-link">About</a></div>
+      <div class="nav-item"><a href="/methods/" class="nav-link">Methods</a></div>
+      <div class="nav-item"><a href="/data/" class="nav-link">Data</a></div>
+    </nav>
+    <button class="theme-toggle-btn" aria-label="Switch to dark theme" title="Toggle theme" style="background:none;border:none;cursor:pointer;font-size:.9rem;padding:4px 8px;color:inherit;opacity:.7;flex-shrink:0"><span class="theme-icon">●</span></button>
+    <button class="nav-ham" id="sharedNavHam" aria-label="Open navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="nav-drawer" id="sharedNavDrawer" role="navigation" aria-label="Mobile navigation">
+  <a href="/">Home</a>
+  <a href="/investigations/">Investigations</a>
+  <a href="/about/">About</a>
+  <a href="/methods/">Methods</a>
+  <a href="/data/">Data</a>
+</div>
+
+<script>
+(function(){
+  var ham=document.getElementById('sharedNavHam');
+  var drawer=document.getElementById('sharedNavDrawer');
+  if(!ham||!drawer)return;
+  ham.addEventListener('click',function(){
+    var open=drawer.classList.toggle('open');
+    ham.classList.toggle('open',open);
+    ham.setAttribute('aria-expanded',String(open));
+  });
+  document.addEventListener('click',function(e){
+    if(!ham.contains(e.target)&&!drawer.contains(e.target)){
+      drawer.classList.remove('open');ham.classList.remove('open');
+      ham.setAttribute('aria-expanded','false');
+    }
+  });
+})();
+</script>
+
+<script src="/theme-toggle.js"></script>
