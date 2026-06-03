@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Insight Gaps Bureau — Forensic Data Journalism from Dhaka</title>
+  <meta name="description" content="Independent forensic data journalism from Dhaka, Bangladesh. Investigations into contamination, institutional failure, and accountability gaps.">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="Insight Gaps Bureau">
+  <meta property="og:description" content="Independent forensic data journalism from Dhaka, Bangladesh.">
+  <meta property="og:url"         content="https://insightgaps.com/">
+  <meta property="og:image"       content="/assets/img/og-default.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Insight Gaps Bureau">
+  <meta name="twitter:description" content="Independent forensic data journalism from Dhaka, Bangladesh.">
+  <meta name="twitter:image"       content="/assets/img/og-default.jpg">
+
+  <link rel="canonical" href="https://insightgaps.com/">
+
+  <!-- Font preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+
+  <!-- ============================================================
+       HOME-SPECIFIC LAYOUT STYLES
+       These page-level layout rules are scoped to index.html only.
+       Note: extract to assets/css/home.css if the build sequence
+       is ever extended with a dedicated homepage stylesheet step.
+       All values reference design tokens — nothing hardcoded.
+       ============================================================ -->
+  <style>
+
+    /* ---- Hero ---- */
+    .home__hero {
+      padding:       var(--space-9) 0 var(--space-8);
+      border-bottom: var(--border-width) solid var(--color-border);
+    }
+
+    .home__hero-inner {
+      max-width:             var(--grid-max);
+      margin:                0 auto;
+      padding:               0 var(--grid-padding);
+      display:               grid;
+      grid-template-columns: 1fr 1fr;
+      gap:                   var(--space-8);
+      align-items:           center;
+    }
+
+    /* Left: mandate + featured investigation */
+    .home__mandate {
+      font-family:    var(--font-headline);
+      font-size:      var(--type-display);
+      font-weight:    700;
+      line-height:    var(--leading-tight);
+      letter-spacing: var(--tracking-tight);
+      color:          var(--color-text-primary);
+      margin-bottom:  var(--space-7);
+    }
+
+    .home__featured-pre {
+      font-family:    var(--font-mono);
+      font-size:      var(--type-label);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color:          var(--color-text-muted);
+      display:        block;
+      margin-bottom:  var(--space-4);
+    }
+
+    /* JS populates #js-featured-investigation with these elements */
+    .home__featured-title {
+      font-family:   var(--font-headline);
+      font-size:     var(--type-h2);
+      font-weight:   600;
+      line-height:   var(--leading-tight);
+      color:         var(--color-text-primary);
+      margin-bottom: var(--space-3);
+    }
+
+    .home__featured-dek {
+      font-family:   var(--font-body);
+      font-size:     var(--type-body);
+      font-style:    italic;
+      line-height:   var(--leading-body);
+      color:         var(--color-text-secondary);
+      margin-bottom: var(--space-4);
+    }
+
+    .home__featured-meta {
+      display:     flex;
+      align-items: center;
+      gap:         var(--space-3);
+      flex-wrap:   wrap;
+      margin-top:  var(--space-3);
+    }
+
+    .home__featured-date {
+      font-family:    var(--font-mono);
+      font-size:      var(--type-label);
+      color:          var(--color-text-muted);
+      letter-spacing: var(--tracking-wide);
+    }
+
+    .home__featured-link {
+      display:          inline-block;
+      margin-top:       var(--space-5);
+      font-family:      var(--font-mono);
+      font-size:        var(--type-label);
+      letter-spacing:   var(--tracking-wide);
+      color:            var(--color-accent);
+      text-decoration:  underline;
+      text-underline-offset: 2px;
+      transition:       color var(--transition-fast);
+    }
+
+    .home__featured-link:hover {
+      color: var(--color-accent-hover);
+    }
+
+    /* Right: featured investigation image */
+    .home__hero-image {
+      width:         100%;
+      aspect-ratio:  16 / 10;
+      border-radius: var(--radius-md);
+      overflow:      hidden;
+      border:        var(--border-width) solid var(--color-border);
+      background-color: var(--color-surface-alt);
+    }
+
+    .home__hero-image img {
+      width:      100%;
+      height:     100%;
+      object-fit: cover;
+      display:    block;
+    }
+
+    /* Empty / loading state — shown until JS hydrates containers */
+    .home__empty-state {
+      font-family: var(--font-body);
+      font-size:   var(--type-body-sm);
+      color:       var(--color-text-muted);
+      font-style:  italic;
+      padding:     var(--space-7) 0;
+      text-align:  center;
+    }
+
+    /* ---- Metrics wrapper ---- */
+    .home__metrics-wrap {
+      max-width: var(--grid-max);
+      margin:    0 auto;
+      padding:   0 var(--grid-padding);
+    }
+
+    /* ---- Investigation and analysis sections ---- */
+    .home__investigations,
+    .home__analysis {
+      max-width: var(--grid-max);
+      margin:    0 auto;
+      padding:   var(--space-9) var(--grid-padding) 0;
+    }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 1024px) {
+      .home__hero-inner {
+        gap: var(--space-6);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .home__hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      /* Image moves below text on mobile and is de-emphasised */
+      .home__hero-image {
+        aspect-ratio: 16 / 7;
+        order:        -1; /* show image above mandate on mobile */
+      }
+
+      .home__mandate {
+        font-size: var(--type-h1);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .home__hero-image {
+        display: none; /* content-first on smallest screens */
+      }
+
+      .home__mandate {
+        font-size: 1.75rem;
+      }
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <!-- ============================================================
+       AI DISCLOSURE BAR
+       components/ai-disclosure-bar.html — paste here
+       ============================================================ -->
+  <div class="ai-disclosure-bar" role="note" aria-label="AI use disclosure">
+    <div class="ai-disclosure-bar__inner">
+      <p class="ai-disclosure-bar__text">
+        AI tools were used in producing this report.
+        <a href="/content/trust/ai-use.html">View AI use disclosure &rarr;</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       GLOBAL HEADER
+       components/header.html — paste here
+       ============================================================ -->
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+
+      <a href="/" class="site-header__logo" aria-label="Insight Gaps Bureau — Home">
+        Insight&nbsp;Gaps
+      </a>
+
+      <button class="site-header__toggle"
+              aria-label="Toggle navigation"
+              aria-expanded="false"
+              aria-controls="primary-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="primary-nav" aria-label="Primary navigation">
+        <a href="/content/investigations/" class="site-nav__link site-nav__link--active" aria-current="page">Investigations</a>
+        <a href="/analysis/"               class="site-nav__link">Analysis</a>
+        <a href="/archive.html"            class="site-nav__link">Archive</a>
+        <a href="/about.html"              class="site-nav__link">About</a>
+        <a href="/content/trust/methodology.html" class="site-nav__link">Trust</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- ============================================================
+       MAIN CONTENT
+       ============================================================ -->
+  <main id="main-content" class="home">
+
+
+    <!-- ----------------------------------------------------------
+         HERO
+         Left:  Bureau mandate statement + featured investigation
+         Right: Featured investigation og_image
+         ---------------------------------------------------------- -->
+    <section class="home__hero" aria-label="Bureau introduction">
+      <div class="home__hero-inner">
+
+        <!-- Left column -->
+        <div class="home__hero-content">
+
+          <h1 class="home__mandate">
+            Independent forensic data journalism from Dhaka.
+          </h1>
+
+          <span class="home__featured-pre">Latest investigation</span>
+
+          <!-- JS injects: status badge, title, dek, date, read link -->
+          <div id="js-featured-investigation" aria-live="polite">
+            <noscript>
+              <p class="home__empty-state">
+                JavaScript is required to load investigations.
+              </p>
+            </noscript>
+          </div>
+
+        </div>
+
+        <!-- Right column: featured investigation image -->
+        <!-- JS injects an <img> into this container -->
+        <div class="home__hero-image"
+             id="js-featured-image"
+             aria-hidden="true">
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ----------------------------------------------------------
+         METRICS COUNTER BLOCK
+         Numbers populated from investigations.json + analysis.json
+         ---------------------------------------------------------- -->
+    <div class="home__metrics-wrap">
+      <div class="metrics-block" aria-label="Bureau statistics">
+
+        <div class="metrics-block__item">
+          <span class="metrics-block__number"
+                id="js-count-investigations"
+                aria-label="Total investigations">
+            &mdash;
+          </span>
+          <span class="metrics-block__label">Total Investigations</span>
+        </div>
+
+        <div class="metrics-block__item">
+          <span class="metrics-block__number"
+                id="js-count-sources"
+                aria-label="Total primary sources">
+            &mdash;
+          </span>
+          <span class="metrics-block__label">Total Primary Sources</span>
+        </div>
+
+        <div class="metrics-block__item">
+          <span class="metrics-block__number"
+                id="js-count-corrections"
+                aria-label="Corrections on record">
+            &mdash;
+          </span>
+          <span class="metrics-block__label">Corrections on Record</span>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- ----------------------------------------------------------
+         LATEST INVESTIGATIONS
+         JS renders three most recent published investigations.
+         ---------------------------------------------------------- -->
+    <section class="home__investigations" aria-labelledby="label-investigations">
+
+      <p class="section-label" id="label-investigations">Latest Investigations</p>
+
+      <!-- JS renders .inv-card elements into this grid -->
+      <div class="card-grid--three"
+           id="js-investigation-cards"
+           aria-live="polite">
+        <noscript>
+          <p class="home__empty-state">
+            JavaScript is required to load investigation cards.
+          </p>
+        </noscript>
+      </div>
+
+      <a href="/archive.html" class="view-all-link">
+        View all investigations &rarr;
+      </a>
+
+    </section>
+
+
+    <!-- ----------------------------------------------------------
+         ANALYSIS DOMAINS
+         JS renders all active domains from analysis.json.
+         ---------------------------------------------------------- -->
+    <section class="home__analysis" aria-labelledby="label-analysis">
+
+      <p class="section-label" id="label-analysis">Analysis Domains</p>
+
+      <!-- JS renders .analysis-card elements into this grid -->
+      <div class="card-grid--two"
+           id="js-analysis-cards"
+           aria-live="polite">
+        <noscript>
+          <p class="home__empty-state">
+            JavaScript is required to load analysis domains.
+          </p>
+        </noscript>
+      </div>
+
+      <a href="/analysis/" class="view-all-link">
+        View all analysis &rarr;
+      </a>
+
+    </section>
+
+
+    <!-- ----------------------------------------------------------
+         TRUST SURFACE STRIP
+         Static block. Three trust signal links above the footer.
+         ---------------------------------------------------------- -->
+    <div class="trust-strip" aria-label="Trust and transparency">
+      <div class="trust-strip__inner">
+
+        <div class="trust-strip__item">
+          <span class="trust-strip__label">Methodology</span>
+          <p class="trust-strip__desc">
+            Every investigation discloses its verification tier, data sources,
+            and analytical approach before publication.
+          </p>
+          <a href="/content/trust/methodology.html" class="trust-strip__link">
+            Read our methodology &rarr;
+          </a>
+        </div>
+
+        <div class="trust-strip__item">
+          <span class="trust-strip__label">AI Use</span>
+          <p class="trust-strip__desc">
+            AI tools assist with research and production. All editorial decisions
+            and final verification remain human-owned.
+          </p>
+          <a href="/content/trust/ai-use.html" class="trust-strip__link">
+            View AI disclosure &rarr;
+          </a>
+        </div>
+
+        <div class="trust-strip__item">
+          <span class="trust-strip__label">Corrections</span>
+          <p class="trust-strip__desc">
+            Errors are corrected promptly and logged permanently. The corrections
+            record is never edited or deleted.
+          </p>
+          <a href="/content/trust/corrections.html" class="trust-strip__link">
+            View corrections log &rarr;
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+
+  </main>
+
+
+  <!-- ============================================================
+       GLOBAL FOOTER
+       components/footer.html — paste here
+       ============================================================ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__inner">
+
+      <div class="site-footer__grid">
+
+        <div>
+          <p class="site-footer__brand-name">Insight&nbsp;Gaps</p>
+          <p class="site-footer__mandate">
+            Independent forensic data journalism from Dhaka, Bangladesh.
+          </p>
+        </div>
+
+        <div>
+          <span class="site-footer__col-label">Navigate</span>
+          <nav class="site-footer__nav" aria-label="Footer navigation">
+            <a href="/content/investigations/">Investigations</a>
+            <a href="/analysis/">Analysis</a>
+            <a href="/archive.html">Archive</a>
+            <a href="/about.html">About</a>
+          </nav>
+        </div>
+
+        <div>
+          <span class="site-footer__col-label">Trust</span>
+          <nav class="site-footer__nav" aria-label="Trust navigation">
+            <a href="/content/trust/methodology.html">Methodology</a>
+            <a href="/content/trust/ai-use.html">AI Use</a>
+            <a href="/content/trust/corrections.html">Corrections</a>
+            <a href="/contact.html">Contact</a>
+          </nav>
+        </div>
+
+      </div>
+
+      <div class="site-footer__bottom">
+        <p class="site-footer__copy">
+          &copy; <span class="js-copyright-year">2025</span> Insight Gaps Bureau.
+          Original reporting licensed under
+          <a href="https://creativecommons.org/licenses/by/4.0/"
+             target="_blank"
+             rel="noopener noreferrer">CC&nbsp;BY&nbsp;4.0</a>
+          unless otherwise noted. Deployed on Vercel.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+       SCRIPTS
+       ============================================================ -->
+
+  <!-- Header: mobile nav + active link -->
+  <script>
+  (function () {
+    'use strict';
+
+    var toggle = document.querySelector('.site-header__toggle');
+    var nav    = document.querySelector('.site-nav');
+
+    if (toggle && nav) {
+      toggle.addEventListener('click', function () {
+        var isOpen = nav.classList.toggle('site-nav--open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!toggle.contains(e.target) && !nav.contains(e.target)) {
+          nav.classList.remove('site-nav--open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && nav.classList.contains('site-nav--open')) {
+          nav.classList.remove('site-nav--open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.focus();
+        }
+      });
+    }
+
+    /* Active nav link */
+    var path  = window.location.pathname;
+    var links = document.querySelectorAll('.site-nav__link');
+    links.forEach(function (link) {
+      var href = link.getAttribute('href');
+      link.classList.remove('site-nav__link--active');
+      link.removeAttribute('aria-current');
+      if (
+        href === path ||
+        (href !== '/' && href.length > 1 && path.startsWith(href))
+      ) {
+        link.classList.add('site-nav__link--active');
+        link.setAttribute('aria-current', 'page');
+      }
+    });
+
+    /* Copyright year */
+    var yr  = String(new Date().getFullYear());
+    var els = document.querySelectorAll('.js-copyright-year');
+    els.forEach(function (el) { el.textContent = yr; });
+
+  }());
+  </script>
+
+  <!-- Data loader — renders cards, metrics, and featured investigation -->
+  <!-- Built at Step 15 of the build sequence -->
+  <script src="/assets/js/data-loader.js" defer></script>
+
+</body>
+</html>
