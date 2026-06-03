@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Insight Gaps Bureau</title>
+  <meta name="description" content="Submit a tip or get in touch with Insight Gaps Bureau. Secure tip submission and general contact information.">
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="Contact — Insight Gaps Bureau">
+  <meta property="og:description" content="Submit a tip or get in touch with Insight Gaps Bureau.">
+  <meta property="og:url"         content="https://insightgaps.com/contact.html">
+  <meta property="og:image"       content="/assets/img/og-default.jpg">
+  <link rel="canonical" href="https://insightgaps.com/contact.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <style>
+
+    .contact-page {
+      width:          100%;
+      padding-bottom: var(--space-9);
+    }
+
+    .contact-page__header {
+      padding:       var(--space-8) 0 var(--space-7);
+      border-bottom: var(--border-width) solid var(--color-border);
+      margin-bottom: var(--space-7);
+    }
+
+    .contact-page__header-inner {
+      max-width: var(--grid-content);
+      margin:    0 auto;
+      padding:   0 var(--grid-padding);
+    }
+
+    .contact-page__title {
+      font-family:    var(--font-headline);
+      font-size:      var(--type-h1);
+      font-weight:    700;
+      line-height:    var(--leading-tight);
+      letter-spacing: var(--tracking-tight);
+      color:          var(--color-text-primary);
+      margin-bottom:  var(--space-4);
+    }
+
+    .contact-page__intro {
+      font-family: var(--font-body);
+      font-size:   var(--type-body);
+      line-height: var(--leading-body);
+      color:       var(--color-text-secondary);
+      font-style:  italic;
+    }
+
+    .contact-page__body {
+      max-width: var(--grid-content);
+      margin:    0 auto;
+      padding:   0 var(--grid-padding);
+    }
+
+    .contact-page__body h2 {
+      font-family:    var(--font-headline);
+      font-size:      var(--type-h2);
+      font-weight:    600;
+      line-height:    var(--leading-tight);
+      color:          var(--color-text-primary);
+      margin-top:     var(--space-8);
+      margin-bottom:  var(--space-4);
+      padding-top:    var(--space-7);
+      border-top:     var(--border-width) solid var(--color-border);
+    }
+
+    .contact-page__body p {
+      font-family:   var(--font-body);
+      font-size:     var(--type-body);
+      line-height:   var(--leading-body);
+      color:         var(--color-text-primary);
+      margin-bottom: var(--space-4);
+    }
+
+    /* OPSEC notice */
+    .opsec-notice {
+      background-color: var(--color-accent-subtle);
+      border:           var(--border-width) solid var(--color-accent-border);
+      border-radius:    var(--radius-md);
+      padding:          var(--space-5) var(--space-6);
+      margin-bottom:    var(--space-6);
+    }
+
+    .opsec-notice__label {
+      font-family:    var(--font-mono);
+      font-size:      var(--type-label);
+      font-weight:    700;
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color:          var(--color-accent-dark);
+      display:        block;
+      margin-bottom:  var(--space-3);
+    }
+
+    .opsec-notice__text {
+      font-family:   var(--font-body);
+      font-size:     var(--type-body-sm);
+      line-height:   var(--leading-body);
+      color:         var(--color-text-primary);
+      margin-bottom: var(--space-2);
+    }
+
+    .opsec-notice__text:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Tip form */
+    .tip-form {
+      margin-top: var(--space-6);
+    }
+
+    .form-field {
+      margin-bottom: var(--space-5);
+    }
+
+    .form-field label {
+      display:        block;
+      font-family:    var(--font-mono);
+      font-size:      var(--type-label);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color:          var(--color-text-secondary);
+      margin-bottom:  var(--space-2);
+    }
+
+    .form-field__optional {
+      font-family:    var(--font-mono);
+      font-size:      var(--type-label);
+      letter-spacing: 0;
+      text-transform: none;
+      color:          var(--color-text-muted);
+      margin-left:    var(--space-2);
+    }
+
+    .form-field input,
+    .form-field textarea {
+      display:          block;
+      width:            100%;
+      background-color: var(--color-surface);
+      border:           var(--border-width) solid var(--color-border-strong);
+      border-radius:    var(--radius-md);
+      padding:          var(--space-3) var(--space-4);
+      font-family:      var(--font-body);
+      font-size:        var(--type-body);
+      color:            var(--color-text-primary);
+      line-height:      var(--leading-body);
+      transition:       border-color var(--transition-fast);
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus {
+      outline:       none;
+      border-color:  var(--color-accent);
+      box-shadow:    0 0 0 3px var(--color-accent-subtle);
+    }
+
+    .form-field textarea {
+      resize:     vertical;
+      min-height: 10rem;
+    }
+
+    .form-submit {
+      margin-top: var(--space-5);
+    }
+
+    /* General contact block */
+    .general-contact {
+      background-color: var(--color-surface);
+      border:           var(--border-width) solid var(--color-border);
+      border-radius:    var(--radius-md);
+      padding:          var(--space-5) var(--space-6);
+      margin-top:       var(--space-6);
+    }
+
+    .general-contact__label {
+      font-family:    var(--font-mono);
+      font-size:      var(--type-label);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color:          var(--color-text-muted);
+      display:        block;
+      margin-bottom:  var(--space-3);
+    }
+
+    .general-contact__email {
+      font-family:    var(--font-headline);
+      font-size:      var(--type-h3);
+      font-weight:    600;
+      color:          var(--color-accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .general-contact__email:hover {
+      color: var(--color-accent-hover);
+    }
+
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+      <a href="/" class="site-header__logo" aria-label="Insight Gaps Bureau — Home">Insight&nbsp;Gaps</a>
+      <button class="site-header__toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="primary-nav" aria-label="Primary navigation">
+        <a href="/content/investigations/" class="site-nav__link">Investigations</a>
+        <a href="/analysis/"               class="site-nav__link">Analysis</a>
+        <a href="/archive.html"            class="site-nav__link">Archive</a>
+        <a href="/about.html"              class="site-nav__link">About</a>
+        <a href="/content/trust/methodology.html" class="site-nav__link">Trust</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="contact-page">
+
+    <div class="contact-page__header">
+      <div class="contact-page__header-inner">
+        <h1 class="contact-page__title">Contact</h1>
+        <p class="contact-page__intro">
+          Submit a tip, share a document, or get in touch.
+          Source identity is never stored alongside investigation files.
+        </p>
+      </div>
+    </div>
+
+    <div class="contact-page__body">
+
+      <h2>Submit a tip</h2>
+
+      <p>
+        If you have information about environmental violations, institutional
+        failures, or data that should be public but isn't — this bureau wants
+        to hear from you. Tips can be anonymous. You are not required to
+        identify yourself.
+      </p>
+
+      <div class="opsec-notice" role="note" aria-label="Operational security notice">
+        <span class="opsec-notice__label">What you should know before submitting</span>
+        <p class="opsec-notice__text">
+          This form is handled by Formspree. Your submission is sent directly
+          to the editor's email. It is not stored in a database accessible
+          to third parties.
+        </p>
+        <p class="opsec-notice__text">
+          Your identity — if provided — is never stored in the same system
+          as the investigation files. Source identities are replaced with
+          role descriptors in all working documents.
+        </p>
+        <p class="opsec-notice__text">
+          If your situation requires stronger operational security, contact
+          via encrypted email before submitting sensitive documents.
+        </p>
+      </div>
+
+      <!-- ============================================================
+           TIP SUBMISSION FORM
+           Action URL: replace YOUR_FORMSPREE_ID with your Formspree
+           endpoint ID before deploying, e.g.:
+           action="https://formspree.io/f/abcdefgh"
+           ============================================================ -->
+      <form class="tip-form"
+            action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+            method="POST"
+            aria-label="Tip submission form">
+
+        <div class="form-field">
+          <label for="contact-name">
+            Name <span class="form-field__optional">(optional)</span>
+          </label>
+          <input type="text"
+                 id="contact-name"
+                 name="name"
+                 autocomplete="name"
+                 placeholder="You may leave this blank">
+        </div>
+
+        <div class="form-field">
+          <label for="contact-email">
+            Email <span class="form-field__optional">(optional — only if you want a reply)</span>
+          </label>
+          <input type="email"
+                 id="contact-email"
+                 name="email"
+                 autocomplete="email"
+                 placeholder="Your email address">
+        </div>
+
+        <div class="form-field">
+          <label for="contact-message">
+            Message <span aria-hidden="true">*</span>
+          </label>
+          <textarea id="contact-message"
+                    name="message"
+                    required
+                    aria-required="true"
+                    placeholder="Describe what you know, what documents you have, or what you have witnessed. As much or as little as you are comfortable sharing."></textarea>
+        </div>
+
+        <!-- Honeypot field — spam prevention, hidden from humans -->
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" aria-hidden="true">
+
+        <!-- Redirect after submission -->
+        <input type="hidden" name="_next" value="https://insightgaps.com/contact.html?sent=true">
+
+        <div class="form-submit">
+          <button type="submit" class="btn btn--primary">
+            Send message &rarr;
+          </button>
+        </div>
+
+      </form>
+
+      <h2>General contact</h2>
+
+      <p>
+        For direct correspondence — media inquiries, corrections, or
+        partnership questions — use the email address below.
+      </p>
+
+      <div class="general-contact">
+        <span class="general-contact__label">Email</span>
+        <!-- Replace with actual bureau email address -->
+        <a class="general-contact__email"
+           href="mailto:editor@insightgaps.com">
+          editor@insightgaps.com
+        </a>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__inner">
+      <div class="site-footer__grid">
+        <div>
+          <p class="site-footer__brand-name">Insight&nbsp;Gaps</p>
+          <p class="site-footer__mandate">Independent forensic data journalism from Dhaka, Bangladesh.</p>
+        </div>
+        <div>
+          <span class="site-footer__col-label">Navigate</span>
+          <nav class="site-footer__nav" aria-label="Footer navigation">
+            <a href="/content/investigations/">Investigations</a>
+            <a href="/analysis/">Analysis</a>
+            <a href="/archive.html">Archive</a>
+            <a href="/about.html">About</a>
+          </nav>
+        </div>
+        <div>
+          <span class="site-footer__col-label">Trust</span>
+          <nav class="site-footer__nav" aria-label="Trust navigation">
+            <a href="/content/trust/methodology.html">Methodology</a>
+            <a href="/content/trust/ai-use.html">AI Use</a>
+            <a href="/content/trust/corrections.html">Corrections</a>
+            <a href="/contact.html">Contact</a>
+          </nav>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <p class="site-footer__copy">
+          &copy; <span class="js-copyright-year">2025</span> Insight Gaps Bureau.
+          Original reporting licensed under
+          <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC&nbsp;BY&nbsp;4.0</a>
+          unless otherwise noted. Deployed on Vercel.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    'use strict';
+    var toggle = document.querySelector('.site-header__toggle');
+    var nav    = document.querySelector('.site-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', function () {
+        var isOpen = nav.classList.toggle('site-nav--open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+      document.addEventListener('click', function (e) {
+        if (!toggle.contains(e.target) && !nav.contains(e.target)) {
+          nav.classList.remove('site-nav--open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && nav.classList.contains('site-nav--open')) {
+          nav.classList.remove('site-nav--open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.focus();
+        }
+      });
+    }
+    var path = window.location.pathname;
+    document.querySelectorAll('.site-nav__link').forEach(function (link) {
+      var href = link.getAttribute('href');
+      if (href === path || (href !== '/' && href.length > 1 && path.startsWith(href))) {
+        link.classList.add('site-nav__link--active');
+        link.setAttribute('aria-current', 'page');
+      }
+    });
+    var yr = String(new Date().getFullYear());
+    document.querySelectorAll('.js-copyright-year').forEach(function (el) { el.textContent = yr; });
+
+    /* Submission confirmation — show message if ?sent=true in URL */
+    if (window.location.search.indexOf('sent=true') !== -1) {
+      var form = document.querySelector('.tip-form');
+      if (form) {
+        var confirm = document.createElement('p');
+        confirm.style.cssText = [
+          'font-family:var(--font-body)',
+          'font-size:var(--type-body)',
+          'color:var(--color-status-published)',
+          'padding:var(--space-5) var(--space-6)',
+          'background-color:var(--color-surface)',
+          'border:var(--border-width) solid var(--color-border)',
+          'border-left:4px solid var(--color-status-published)',
+          'border-radius:0 var(--radius-md) var(--radius-md) 0',
+          'margin-top:var(--space-5)'
+        ].join(';');
+        confirm.textContent = 'Your message has been sent. The editor will be in touch if a reply is needed.';
+        form.replaceWith(confirm);
+      }
+    }
+  }());
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!-- ============================================================
+     INSIGHT GAPS — ARCHIVE CARD BLUEPRINTS
+     templates/archive-card.html — v1.0
+     Used as a reference/blueprint for rendering cards in JS.
+     ============================================================ -->
+
+<!-- OPTION A: Investigation Card (.inv-card) -->
+<article class="inv-card">
+  <div class="inv-card__header">
+    <!-- SLOT: status_badge — status badge component -->
+    <!-- SLOT: topic_tag — first tag only -->
+  </div>
+  <h3 class="inv-card__title"><!-- SLOT: title --></h3>
+  <p class="inv-card__summary"><!-- SLOT: summary --></p>
+  <div class="inv-card__footer">
+    <span class="inv-card__id">
+      <!-- SLOT: id -->
+      <!-- SLOT: correction_dot — <span class="inv-card__correction-dot" aria-hidden="true"></span> -->
+    </span>
+    <time class="inv-card__date"><!-- SLOT: date --></time>
+  </div>
+  <a class="inv-card__link" href="<!-- SLOT: url -->">
+    <span class="sr-only">Read <!-- SLOT: title --></span>
+  </a>
+</article>
+
+<!-- OPTION B: Analysis Domain Card (.analysis-card) -->
+<article class="analysis-card">
+  <h3 class="analysis-card__title"><!-- SLOT: title --></h3>
+  <p class="analysis-card__description"><!-- SLOT: summary --></p>
+  <div class="analysis-card__footer">
+    <span class="analysis-card__count"><!-- SLOT: count --> reports</span>
+    <time class="analysis-card__date">Last updated <!-- SLOT: date --></time>
+  </div>
+  <a class="analysis-card__link" href="<!-- SLOT: url -->">
+    <span class="sr-only">Read <!-- SLOT: title --></span>
+  </a>
+</article>

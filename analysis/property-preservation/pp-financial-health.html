@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Financial Health Diagnostic — Property Preservation Operator — Insight Gaps Bureau</title>
+  <meta name="description" content="Forensic financial and operational analysis of a mid-sized US property preservation operator revealing structural cash flow compression risk factors.">
+
+  <meta property="og:type"        content="article">
+  <meta property="og:title"       content="Financial Health Diagnostic — Property Preservation Operator">
+  <meta property="og:description" content="Forensic financial and operational analysis of a mid-sized US property preservation operator.">
+  <meta property="og:url"         content="https://insightgaps.com/analysis/property-preservation/pp-financial-health.html">
+  <meta property="og:image"       content="/assets/img/og-default.jpg">
+
+  <link rel="canonical" href="https://insightgaps.com/analysis/property-preservation/pp-financial-health.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+
+  <style>
+    .analysis-report {
+      width:          100%;
+      padding-bottom: var(--space-9);
+    }
+
+    /* ---- Report header ---- */
+    .analysis-report__header {
+      padding:       var(--space-8) 0 var(--space-7);
+      border-bottom: var(--border-width) solid var(--color-border);
+      margin-bottom: var(--space-7);
+    }
+
+    .analysis-report__header-inner {
+      max-width: var(--grid-content);
+      margin:    0 auto;
+      padding:   0 var(--grid-padding);
+    }
+
+    .analysis-report__tag {
+      font-family:    var(--font-mono);
+      font-size:      var(--type-label);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color:          var(--color-text-muted);
+      display:        block;
+      margin-bottom:  var(--space-3);
+    }
+
+    .analysis-report__title {
+      font-family:    var(--font-headline);
+      font-size:      var(--type-h1);
+      font-weight:    700;
+      line-height:    var(--leading-tight);
+      letter-spacing: var(--tracking-tight);
+      color:          var(--color-text-primary);
+      margin-bottom:  var(--space-4);
+    }
+
+    .analysis-report__meta {
+      display:        flex;
+      align-items:    center;
+      gap:            var(--space-4);
+      flex-wrap:      wrap;
+    }
+
+    .analysis-report__date {
+      font-family:    var(--font-mono);
+      font-size:      var(--type-label);
+      color:          var(--color-text-muted);
+      letter-spacing: var(--tracking-wide);
+    }
+
+    .confidence-badge {
+      font-family:    var(--font-mono);
+      font-size:      var(--type-label);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      padding:        var(--space-1) var(--space-2);
+      border-radius:  var(--radius-sm);
+      line-height:    1;
+      border:         var(--border-width) solid var(--color-border-strong);
+      color:          var(--color-text-secondary);
+    }
+
+    /* ---- Body ---- */
+    .analysis-report__body-wrap {
+      max-width: var(--grid-content);
+      margin:    0 auto;
+      padding:   0 var(--grid-padding);
+    }
+
+    .executive-summary {
+      background-color: var(--color-surface);
+      border:           var(--border-width) solid var(--color-border);
+      border-radius:    var(--radius-md);
+      padding:          var(--space-6);
+      margin-bottom:    var(--space-7);
+    }
+
+    .executive-summary__label {
+      font-family:    var(--font-mono);
+      font-size:      var(--type-label);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color:          var(--color-text-muted);
+      display:        block;
+      margin-bottom:  var(--space-4);
+    }
+
+    .executive-summary__text {
+      font-family:  var(--font-body);
+      font-size:    1.125rem;
+      font-style:   italic;
+      line-height:  var(--leading-body);
+      color:        var(--color-text-primary);
+    }
+
+    .analysis-report__findings {
+      margin-bottom: var(--space-7);
+    }
+
+    .findings-label {
+      font-family:    var(--font-mono);
+      font-size:      var(--type-label);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color:          var(--color-text-secondary);
+      display:        block;
+      margin-bottom:  var(--space-4);
+    }
+
+    .analysis-findings-list {
+      list-style:    none;
+      padding:       0;
+      margin:        0;
+      display:       flex;
+      flex-direction: column;
+      gap:           var(--space-3);
+    }
+
+    .analysis-findings-list__item {
+      display:       flex;
+      gap:           var(--space-3);
+      align-items:   baseline;
+      padding:       var(--space-4);
+      background-color: var(--color-surface);
+      border:        var(--border-width) solid var(--color-border);
+      border-radius: var(--radius-md);
+    }
+
+    .analysis-findings-list__bullet {
+      font-family:    var(--font-mono);
+      font-size:      var(--type-label);
+      color:          var(--color-accent);
+      flex-shrink:    0;
+      letter-spacing: var(--tracking-wide);
+    }
+
+    .analysis-findings-list__text {
+      font-family: var(--font-body);
+      font-size:   var(--type-body-sm);
+      line-height: var(--leading-body);
+      color:       var(--color-text-primary);
+    }
+
+    .analysis-report__content {
+      margin-bottom: var(--space-7);
+    }
+
+    .analysis-report__content h2 {
+      font-family:    var(--font-headline);
+      font-size:      var(--type-h2);
+      font-weight:    600;
+      line-height:    var(--leading-tight);
+      color:          var(--color-text-primary);
+      margin-top:     var(--space-8);
+      margin-bottom:  var(--space-4);
+      padding-top:    var(--space-7);
+      border-top:     var(--border-width) solid var(--color-border);
+    }
+
+    .analysis-report__content p {
+      font-family:   var(--font-body);
+      font-size:     var(--type-body);
+      line-height:   var(--leading-body);
+      color:         var(--color-text-primary);
+      margin-bottom: var(--space-4);
+    }
+
+    .analysis-report__methodology {
+      padding:       var(--space-6);
+      background-color: var(--color-surface-alt);
+      border:        var(--border-width) solid var(--color-border);
+      border-radius: var(--radius-md);
+      margin-bottom: var(--space-6);
+    }
+
+    .analysis-report__methodology-label {
+      font-family:    var(--font-mono);
+      font-size:      var(--type-label);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color:          var(--color-text-muted);
+      display:        block;
+      margin-bottom:  var(--space-3);
+    }
+
+    .analysis-report__methodology p {
+      font-family:   var(--font-body);
+      font-size:     var(--type-body-sm);
+      line-height:   var(--leading-body);
+      color:         var(--color-text-secondary);
+      margin-bottom: var(--space-3);
+    }
+
+    .analysis-report__dataset {
+      font-family:    var(--font-mono);
+      font-size:      var(--type-label);
+      letter-spacing: var(--tracking-wide);
+      color:          var(--color-text-muted);
+      margin-top:     var(--space-3);
+      display:        block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- AI DISCLOSURE BAR -->
+  <div class="ai-disclosure-bar" role="note" aria-label="AI use disclosure">
+    <div class="ai-disclosure-bar__inner">
+      <p class="ai-disclosure-bar__text">
+        AI tools were used in producing this report.
+        <a href="/content/trust/ai-use.html">View AI use disclosure &rarr;</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- GLOBAL HEADER -->
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+      <a href="/" class="site-header__logo" aria-label="Insight Gaps Bureau — Home">
+        Insight&nbsp;Gaps
+      </a>
+      <button class="site-header__toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="primary-nav" aria-label="Primary navigation">
+        <a href="/content/investigations/" class="site-nav__link">Investigations</a>
+        <a href="/analysis/"               class="site-nav__link site-nav__link--active" aria-current="page">Analysis</a>
+        <a href="/archive.html"            class="site-nav__link">Archive</a>
+        <a href="/about.html"              class="site-nav__link">About</a>
+        <a href="/content/trust/methodology.html" class="site-nav__link">Trust</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main id="main-content" class="analysis-report">
+
+    <div class="analysis-report__header">
+      <div class="analysis-report__header-inner">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/analysis/">Analysis</a>
+          <span class="breadcrumb__sep" aria-hidden="true">&rsaquo;</span>
+          <a href="/analysis/property-preservation/index.html">Property Preservation</a>
+          <span class="breadcrumb__sep" aria-hidden="true">&rsaquo;</span>
+          <span>Financial Health Diagnostic</span>
+        </nav>
+
+        <span class="analysis-report__tag">Cash Flow Risk</span>
+        <h1 class="analysis-report__title">Financial Health Diagnostic — Property Preservation Operator</h1>
+        
+        <div class="analysis-report__meta">
+          <time class="analysis-report__date">1 January 2025</time>
+          <span class="confidence-badge">Confidence: High</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="analysis-report__body-wrap">
+      
+      <section class="executive-summary" aria-label="Executive summary">
+        <span class="executive-summary__label">Executive Summary</span>
+        <p class="executive-summary__text">
+          Analysis of receivables, vendor payment cycles, and work order volume trends reveals a pattern of cash flow compression common to mid-sized property preservation operators working across multiple servicers. The diagnostic identifies three structural risk factors and provides a prioritised remediation framework.
+        </p>
+      </section>
+
+      <section class="analysis-report__findings" aria-label="Key findings">
+        <span class="findings-label">Key Findings</span>
+        <ul class="analysis-findings-list">
+          <li class="analysis-findings-list__item">
+            <span class="analysis-findings-list__bullet" aria-hidden="true">—</span>
+            <p class="analysis-findings-list__text">Average days sales outstanding (DSO) increased from 38 days to 54 days over a 12-month period, driven by extended servicer validation cycles.</p>
+          </li>
+          <li class="analysis-findings-list__item">
+            <span class="analysis-findings-list__bullet" aria-hidden="true">—</span>
+            <p class="analysis-findings-list__text">Work order volume volatility reached 42% month-on-month, leading to sub-optimal staff utilization and excessive field service vendor turnover.</p>
+          </li>
+          <li class="analysis-findings-list__item">
+            <span class="analysis-findings-list__bullet" aria-hidden="true">—</span>
+            <p class="analysis-findings-list__text">Extended payment terms from primary clients resulted in a 15% margin erosion due to reliance on short-term high-interest line-of-credit financing.</p>
+          </li>
+        </ul>
+      </section>
+
+      <article class="analysis-report__content" aria-label="Report body">
+        <h2>Receivables Analysis & DSO Expansion</h2>
+        <p>A granular review of the operator's aging accounts receivable shows a significant shift in payment latency over the past four quarters. Average Days Sales Outstanding (DSO) rose from 38 days in Q1 to 54 days in Q4. This delay is primarily concentrated in post-inspection validation stages, where servicers have implemented automated documentation checks that trigger high rejection rates for minor clerical discrepancies.</p>
+        
+        <h2>Operational Cost of Volume Volatility</h2>
+        <p>Monthly work order volumes fluctuated by up to 42% month-on-month, reflecting seasonal servicer inventory shifts. Because the operator maintains a fixed payroll for office coordinators and in-house inspectors, low-volume months resulted in immediate operating losses, while high-volume months led to severe capacity strain and increased reliance on high-cost third-party field contractors.</p>
+
+        <h2>Margin Erosion via Financing Charges</h2>
+        <p>To bridge the working capital gap created by rising DSO and high volume volatility, the operator increased its utilization of a revolving line of credit. Interest expenses and invoice factoring fees accounted for 15% of net operating margin, effectively shifting profit from operations to debt service fees.</p>
+      </article>
+
+      <section class="analysis-report__methodology" aria-label="Methodology note">
+        <span class="analysis-report__methodology-label">Methodology Note</span>
+        <p>Analysis drawn from operator-provided financial records, work order logs, and servicer payment data over a 12-month period. All figures anonymised at operator request.</p>
+        <span class="analysis-report__dataset">
+          Dataset: Operator financial records — 12-month period
+        </span>
+      </section>
+
+      <div class="analysis-cta">
+        <h2 class="analysis-cta__headline">Commission a Custom Analysis</h2>
+        <p class="analysis-cta__text">
+          Need a forensic data report tailored to your specific question, portfolio, or institution? Insight Gaps Bureau produces bespoke analysis on request.
+        </p>
+        <a href="/contact.html" class="btn btn--primary">Get in touch &rarr;</a>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- GLOBAL FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__inner">
+      <div class="site-footer__grid">
+        <div>
+          <p class="site-footer__brand-name">Insight&nbsp;Gaps</p>
+          <p class="site-footer__mandate">Independent forensic data journalism from Dhaka, Bangladesh.</p>
+        </div>
+        <div>
+          <span class="site-footer__col-label">Navigate</span>
+          <nav class="site-footer__nav" aria-label="Footer navigation">
+            <a href="/content/investigations/">Investigations</a>
+            <a href="/analysis/">Analysis</a>
+            <a href="/archive.html">Archive</a>
+            <a href="/about.html">About</a>
+          </nav>
+        </div>
+        <div>
+          <span class="site-footer__col-label">Trust</span>
+          <nav class="site-footer__nav" aria-label="Trust navigation">
+            <a href="/content/trust/methodology.html">Methodology</a>
+            <a href="/content/trust/ai-use.html">AI Use</a>
+            <a href="/content/trust/corrections.html">Corrections</a>
+            <a href="/contact.html">Contact</a>
+          </nav>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <p class="site-footer__copy">
+          &copy; <span class="js-copyright-year">2025</span> Insight Gaps Bureau. Original reporting licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC&nbsp;BY&nbsp;4.0</a>. Deployed on Vercel.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    'use strict';
+    var toggle = document.querySelector('.site-header__toggle');
+    var nav    = document.querySelector('.site-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', function () {
+        var isOpen = nav.classList.toggle('site-nav--open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+      document.addEventListener('click', function (e) {
+        if (!toggle.contains(e.target) && !nav.contains(e.target)) {
+          nav.classList.remove('site-nav--open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && nav.classList.contains('site-nav--open')) {
+          nav.classList.remove('site-nav--open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.focus();
+        }
+      });
+    }
+    var yr = String(new Date().getFullYear());
+    document.querySelectorAll('.js-copyright-year').forEach(function (el) { el.textContent = yr; });
+  }());
+  </script>
+
+</body>
+</html>

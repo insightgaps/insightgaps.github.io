@@ -1,0 +1,50 @@
+[
+  {
+    "id": "BD-INV-003",
+    "title": "The Lead Belt",
+    "dek": "44 contaminated sites each have a school within 500 metres — placing an estimated 58,000 students near extreme soil lead levels with zero permanent closures on public record.",
+    "slug": "the-lead-belt",
+    "date_published": "2025-01-01",
+    "date_revised": null,
+    "status": "developing",
+    "investigation_type": "Tier 2 — Data-Driven Investigation",
+    "topic_tags": ["lead contamination", "public health", "education", "environment", "Dhaka"],
+    "summary": "44 contaminated sites sit within 500 metres of a school each, exposing an estimated 58,000 students to extreme soil lead levels. Zero sites have been permanently closed.",
+    "key_findings": [
+      "44 contaminated sites identified each have at least one school within a 500-metre radius, placing an estimated 58,000 students in close proximity to sites with extreme soil lead levels.",
+      "Zero permanent site closures appear on public record despite documented contamination levels consistent with the icddr,b and Stanford 2025 study findings.",
+      "Three sites have been independently verified as active through satellite imagery analysis, confirming ongoing contamination risk at the time of publication."
+    ],
+    "source_count": 0,
+    "methodology_link": "/content/investigations/BD-INV-003/methodology/methodology.md",
+    "has_correction": false,
+    "correction_notes": [],
+    "og_image_path": "/content/investigations/BD-INV-003/assets/og-the-lead-belt.jpg",
+    "related_items": [],
+    "rtl_status": "RTI requests filed with DoE and DIFE — responses pending"
+  },
+  {
+    "id": "BD-INV-002",
+    "title": "The Impunity Machine",
+    "dek": "A data-driven investigation into the institutional mechanisms that allow environmental and labour violations to persist without consequence.",
+    "slug": "the-impunity-machine",
+    "date_published": "2025-01-01",
+    "date_revised": null,
+    "status": "published",
+    "investigation_type": "Tier 1 — Document-Heavy Investigation",
+    "topic_tags": ["impunity", "institutional accountability", "environment", "labour", "Bangladesh"],
+    "summary": "A forensic examination of the institutional mechanisms that allow documented environmental and labour violations to persist without prosecution or penalty.",
+    "key_findings": [
+      "Institutional inspections of environmental violations occurred on average 14 months after the initial public report, permitting ongoing contamination.",
+      "Less than 3% of documented labour safety violations resulted in financial penalties, with zero criminal prosecutions on record.",
+      "Over 70% of factories violating local pollution limits retained their green category status due to self-reporting exemptions."
+    ],
+    "source_count": 12,
+    "methodology_link": "/content/investigations/BD-INV-002/methodology/methodology.md",
+    "has_correction": false,
+    "correction_notes": [],
+    "og_image_path": "/content/investigations/BD-INV-002/assets/og-the-impunity-machine.jpg",
+    "related_items": ["BD-INV-003"],
+    "rtl_status": null
+  }
+]

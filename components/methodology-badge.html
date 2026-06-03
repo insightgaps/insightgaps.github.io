@@ -1,0 +1,24 @@
+<!-- ============================================================
+     INSIGHT GAPS — METHODOLOGY BADGE
+     components/methodology-badge.html — v1.0
+     Mandatory on every investigation page.
+     Appears after the hero (and after correction banner if present).
+
+     BUILD INSTRUCTION:
+     Replace the SLOT comment with the investigation_type value
+     from investigations.json.
+     Example values:
+       Tier 1 — Document-Heavy Investigation
+       Tier 2 — Data-Driven Investigation
+       Tier 3 — Source-Driven Investigation
+     ============================================================ -->
+
+<div class="methodology-badge">
+  <span class="methodology-badge__tier">
+    <!-- SLOT: investigation_type — paste tier label here, e.g. "Tier 2 — Data-Driven Investigation" -->
+  </span>
+  <span class="methodology-badge__divider" aria-hidden="true"></span>
+  <a href="/content/trust/methodology.html" class="methodology-badge__link">
+    Full Methodology →
+  </a>
+</div>

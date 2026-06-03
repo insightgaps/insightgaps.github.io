@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SLOT: page_title — format: "[Report Title] — Insight Gaps Bureau" -->
+  <title><!-- SLOT: page_title --></title>
+
+  <!-- SLOT: meta_description -->
+  <meta name="description" content="<!-- SLOT: meta_description -->">
+
+  <meta property="og:type"        content="article">
+  <!-- SLOT: og_title -->
+  <meta property="og:title"       content="<!-- SLOT: og_title -->">
+  <!-- SLOT: og_description -->
+  <meta property="og:description" content="<!-- SLOT: og_description -->">
+  <!-- SLOT: og_url — e.g. https://insightgaps.com/analysis/property-preservation/report-name.html -->
+  <meta property="og:url"         content="<!-- SLOT: og_url -->">
+  <!-- SLOT: og_image — path to preview image, or og-default.jpg -->
+  <meta property="og:image"       content="<!-- SLOT: og_image -->">
+
+  <!-- SLOT: canonical -->
+  <link rel="canonical" href="<!-- SLOT: canonical -->">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+
+  <!-- ============================================================
+       ANALYSIS REPORT PAGE STYLES
+       Business-reader layout. More white space, larger executive
+       summary, amber for links and CTAs only.
+       All values reference design tokens — nothing hardcoded.
+       ============================================================ -->
+  <style>
+
+    .analysis-report {
+      width:          100%;
+      padding-bottom: var(--space-9);
+    }
+
+    /* ---- Report header ---- */
+    .analysis-report__header {
+      padding:       var(--space-8) 0 var(--space-7);
+      border-bottom: var(--border-width) solid var(--color-border);
+      margin-bottom: var(--space-7);
+    }
+
+    .analysis-report__header-inner {
+      max-width: var(--grid-content);
+      margin:    0 auto;
+      padding:   0 var(--grid-padding);
+    }
+
+    /* Tag label */
+    .analysis-report__tag {
+      font-family:    var(--font-mono);
+      font-size:      var(--type-label);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color:          var(--color-text-muted);
+      display:        block;
+      margin-bottom:  var(--space-3);
+    }
+
+    .analysis-report__title {
+      font-family:    var(--font-headline);
+      font-size:      var(--type-h1);
+      font-weight:    700;
+      line-height:    var(--leading-tight);
+      letter-spacing: var(--tracking-tight);
+      color:          var(--color-text-primary);
+      margin-bottom:  var(--space-4);
+    }
+
+    /* Meta row: date + optional confidence badge */
+    .analysis-report__meta {
+      display:        flex;
+      align-items:    center;
+      gap:            var(--space-4);
+      flex-wrap:      wrap;
+    }
+
+    .analysis-report__date {
+      font-family:    var(--font-mono);
+      font-size:      var(--type-label);
+      color:          var(--color-text-muted);
+      letter-spacing: var(--tracking-wide);
+    }
+
+    /* Confidence level badge — optional */
+    .confidence-badge {
+      font-family:    var(--font-mono);
+      font-size:      var(--type-label);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      padding:        var(--space-1) var(--space-2);
+      border-radius:  var(--radius-sm);
+      line-height:    1;
+      border:         var(--border-width) solid var(--color-border-strong);
+      color:          var(--color-text-secondary);
+    }
+
+    /* ---- Body ---- */
+    .analysis-report__body-wrap {
+      max-width: var(--grid-content);
+      margin:    0 auto;
+      padding:   0 var(--grid-padding);
+    }
+
+    /* ---- Executive summary block
+         Slightly enlarged type for scannability (18px vs 17px body).
+         ---- */
+    .executive-summary {
+      background-color: var(--color-surface);
+      border:           var(--border-width) solid var(--color-border);
+      border-radius:    var(--radius-md);
+      padding:          var(--space-6);
+      margin-bottom:    var(--space-7);
+    }
+
+    .executive-summary__label {
+      font-family:    var(--font-mono);
+      font-size:      var(--type-label);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color:          var(--color-text-muted);
+      display:        block;
+      margin-bottom:  var(--space-4);
+    }
+
+    /* 18px — one step above standard body — for scannability */
+    .executive-summary__text {
+      font-family:  var(--font-body);
+      font-size:    1.125rem;
+      font-style:   italic;
+      line-height:  var(--leading-body);
+      color:        var(--color-text-primary);
+    }
+
+    /* ---- Key findings section ---- */
+    .analysis-report__findings {
+      margin-bottom: var(--space-7);
+    }
+
+    .findings-label {
+      font-family:    var(--font-mono);
+      font-size:      var(--type-label);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color:          var(--color-text-secondary);
+      display:        block;
+      margin-bottom:  var(--space-4);
+    }
+
+    /* Analysis findings list — simpler than investigation findings panel */
+    .analysis-findings-list {
+      list-style:    none;
+      padding:       0;
+      margin:        0;
+      display:       flex;
+      flex-direction: column;
+      gap:           var(--space-3);
+    }
+
+    .analysis-findings-list__item {
+      display:       flex;
+      gap:           var(--space-3);
+      align-items:   baseline;
+      padding:       var(--space-4);
+      background-color: var(--color-surface);
+      border:        var(--border-width) solid var(--color-border);
+      border-radius: var(--radius-md);
+    }
+
+    .analysis-findings-list__bullet {
+      font-family:    var(--font-mono);
+      font-size:      var(--type-label);
+      color:          var(--color-accent);
+      flex-shrink:    0;
+      letter-spacing: var(--tracking-wide);
+    }
+
+    .analysis-findings-list__text {
+      font-family: var(--font-body);
+      font-size:   var(--type-body-sm);
+      line-height: var(--leading-body);
+      color:       var(--color-text-primary);
+    }
+
+    /* ---- Body content — data sections, charts, analysis ---- */
+    .analysis-report__content {
+      margin-bottom: var(--space-7);
+    }
+
+    .analysis-report__content h2 {
+      font-family:    var(--font-headline);
+      font-size:      var(--type-h2);
+      font-weight:    600;
+      line-height:    var(--leading-tight);
+      color:          var(--color-text-primary);
+      margin-top:     var(--space-8);
+      margin-bottom:  var(--space-4);
+      padding-top:    var(--space-7);
+      border-top:     var(--border-width) solid var(--color-border);
+    }
+
+    .analysis-report__content h3 {
+      font-family:    var(--font-headline);
+      font-size:      var(--type-h3);
+      font-weight:    600;
+      color:          var(--color-text-primary);
+      margin-top:     var(--space-6);
+      margin-bottom:  var(--space-3);
+    }
+
+    .analysis-report__content p {
+      font-family:   var(--font-body);
+      font-size:     var(--type-body);
+      line-height:   var(--leading-body);
+      color:         var(--color-text-primary);
+      margin-bottom: var(--space-4);
+    }
+
+    /* Wide visual block — charts, dashboards, tables */
+    .analysis-report__wide {
+      max-width: var(--grid-wide);
+      margin:    var(--space-7) auto;
+      padding:   0 var(--grid-padding);
+    }
+
+    /* ---- Methodology note ---- */
+    .analysis-report__methodology {
+      padding:       var(--space-6);
+      background-color: var(--color-surface-alt);
+      border:        var(--border-width) solid var(--color-border);
+      border-radius: var(--radius-md);
+      margin-bottom: var(--space-6);
+    }
+
+    .analysis-report__methodology-label {
+      font-family:    var(--font-mono);
+      font-size:      var(--type-label);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color:          var(--color-text-muted);
+      display:        block;
+      margin-bottom:  var(--space-3);
+    }
+
+    .analysis-report__methodology p {
+      font-family:   var(--font-body);
+      font-size:     var(--type-body-sm);
+      line-height:   var(--leading-body);
+      color:         var(--color-text-secondary);
+      margin-bottom: var(--space-3);
+    }
+
+    .analysis-report__methodology p:last-child {
+      margin-bottom: 0;
+    }
+
+    .analysis-report__dataset {
+      font-family:    var(--font-mono);
+      font-size:      var(--type-label);
+      letter-spacing: var(--tracking-wide);
+      color:          var(--color-text-muted);
+      margin-top:     var(--space-3);
+      display:        block;
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <!-- ============================================================
+       AI DISCLOSURE BAR
+       components/ai-disclosure-bar.html
+       ============================================================ -->
+  <div class="ai-disclosure-bar" role="note" aria-label="AI use disclosure">
+    <div class="ai-disclosure-bar__inner">
+      <p class="ai-disclosure-bar__text">
+        AI tools were used in producing this report.
+        <a href="/content/trust/ai-use.html">View AI use disclosure &rarr;</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       GLOBAL HEADER
+       components/header.html
+       ============================================================ -->
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+      <a href="/" class="site-header__logo" aria-label="Insight Gaps Bureau — Home">
+        Insight&nbsp;Gaps
+      </a>
+      <button class="site-header__toggle"
+              aria-label="Toggle navigation"
+              aria-expanded="false"
+              aria-controls="primary-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="primary-nav" aria-label="Primary navigation">
+        <a href="/content/investigations/" class="site-nav__link">Investigations</a>
+        <a href="/analysis/"               class="site-nav__link">Analysis</a>
+        <a href="/archive.html"            class="site-nav__link">Archive</a>
+        <a href="/about.html"              class="site-nav__link">About</a>
+        <a href="/content/trust/methodology.html" class="site-nav__link">Trust</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ============================================================
+       MAIN CONTENT
+       ============================================================ -->
+  <main id="main-content" class="analysis-report">
+
+    <!-- ----------------------------------------------------------
+         REPORT HEADER
+         ---------------------------------------------------------- -->
+    <div class="analysis-report__header">
+      <div class="analysis-report__header-inner">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/analysis/">Analysis</a>
+          <span class="breadcrumb__sep" aria-hidden="true">&rsaquo;</span>
+          <!-- SLOT: domain_title — link to domain page -->
+          <a href="<!-- SLOT: domain_url -->"><!-- SLOT: domain_title --></a>
+          <span class="breadcrumb__sep" aria-hidden="true">&rsaquo;</span>
+          <!-- SLOT: report_title_short — abbreviated if needed for breadcrumb -->
+          <span><!-- SLOT: report_title_short --></span>
+        </nav>
+
+        <!-- SLOT: tag — e.g. "Cash Flow Risk" -->
+        <span class="analysis-report__tag"><!-- SLOT: tag --></span>
+
+        <!-- SLOT: title — full report title -->
+        <h1 class="analysis-report__title"><!-- SLOT: title --></h1>
+
+        <div class="analysis-report__meta">
+          <!-- SLOT: date — human-readable, e.g. "January 2025" -->
+          <time class="analysis-report__date"><!-- SLOT: date --></time>
+
+          <!-- SLOT: confidence_level — paste the block below ONLY if confidence_level is populated.
+               Remove this comment block entirely if not used.
+               Available values: High | Medium | Indicative
+               ────────────────────────────────────────────────────────────────
+          <span class="confidence-badge">Confidence: SLOT: confidence_level</span>
+               ──────────────────────────────────────────────────────────────── -->
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- ----------------------------------------------------------
+         BODY — executive summary + findings + content + methodology
+         ---------------------------------------------------------- -->
+    <div class="analysis-report__body-wrap">
+
+      <!-- Executive summary — slightly larger type for scannability -->
+      <section class="executive-summary" aria-label="Executive summary">
+        <span class="executive-summary__label">Executive Summary</span>
+        <!-- SLOT: executive_summary — two to four sentences, high scannability,
+             short sentences, no jargon -->
+        <p class="executive-summary__text"><!-- SLOT: executive_summary --></p>
+      </section>
+
+      <!-- Key findings — three to five items -->
+      <section class="analysis-report__findings" aria-label="Key findings">
+        <span class="findings-label">Key Findings</span>
+
+        <!--
+          SLOT: key_findings
+          Copy the list item below for each finding (3–5 items).
+          Each finding is a complete sentence, not a fragment.
+
+          <ul class="analysis-findings-list">
+            <li class="analysis-findings-list__item">
+              <span class="analysis-findings-list__bullet" aria-hidden="true">—</span>
+              <p class="analysis-findings-list__text">Finding sentence here.</p>
+            </li>
+          </ul>
+        -->
+
+        <ul class="analysis-findings-list">
+
+          <!-- SLOT: key_findings — paste finding items here -->
+
+        </ul>
+      </section>
+
+      <!-- Body content — data sections, charts, analysis -->
+      <article class="analysis-report__content" aria-label="Report body">
+
+        <!--
+          SLOT: body_content
+          Prose, data sections, visual blocks.
+
+          Wide visual block (charts, dashboards):
+          Use .analysis-report__wide wrapper in place of .analysis-report__body-wrap
+          for elements that need the 960px wide track.
+        -->
+
+      </article>
+
+      <!-- Methodology note -->
+      <section class="analysis-report__methodology" aria-label="Methodology note">
+        <span class="analysis-report__methodology-label">Methodology Note</span>
+
+        <!--
+          SLOT: methodology_note — two to four sentences covering:
+          - Data sources used
+          - Analytical approach
+          - Any relevant limitations or caveats
+        -->
+
+        <!-- SLOT: dataset_reference — paste the line below ONLY if dataset_reference is populated.
+             Remove if not used.
+             ─────────────────────────────────────────────────────────────────
+        <span class="analysis-report__dataset">
+          Dataset: SLOT: dataset_reference
+        </span>
+             ───────────────────────────────────────────────────────────────── -->
+
+      </section>
+
+      <!-- Analysis CTA — always present, contact_cta defaults to true -->
+      <div class="analysis-cta">
+        <h2 class="analysis-cta__headline">Commission a Custom Analysis</h2>
+        <p class="analysis-cta__text">
+          Need a forensic data report tailored to your specific question, portfolio,
+          or institution? Insight Gaps Bureau produces bespoke analysis on request.
+        </p>
+        <a href="/contact.html" class="btn btn--primary">
+          Get in touch &rarr;
+        </a>
+      </div>
+
+    </div>
+
+
+  </main>
+
+
+  <!-- ============================================================
+       GLOBAL FOOTER
+       components/footer.html
+       ============================================================ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__inner">
+
+      <div class="site-footer__grid">
+        <div>
+          <p class="site-footer__brand-name">Insight&nbsp;Gaps</p>
+          <p class="site-footer__mandate">
+            Independent forensic data journalism from Dhaka, Bangladesh.
+          </p>
+        </div>
+        <div>
+          <span class="site-footer__col-label">Navigate</span>
+          <nav class="site-footer__nav" aria-label="Footer navigation">
+            <a href="/content/investigations/">Investigations</a>
+            <a href="/analysis/">Analysis</a>
+            <a href="/archive.html">Archive</a>
+            <a href="/about.html">About</a>
+          </nav>
+        </div>
+        <div>
+          <span class="site-footer__col-label">Trust</span>
+          <nav class="site-footer__nav" aria-label="Trust navigation">
+            <a href="/content/trust/methodology.html">Methodology</a>
+            <a href="/content/trust/ai-use.html">AI Use</a>
+            <a href="/content/trust/corrections.html">Corrections</a>
+            <a href="/contact.html">Contact</a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p class="site-footer__copy">
+          &copy; <span class="js-copyright-year">2025</span> Insight Gaps Bureau.
+          Original reporting licensed under
+          <a href="https://creativecommons.org/licenses/by/4.0/"
+             target="_blank"
+             rel="noopener noreferrer">CC&nbsp;BY&nbsp;4.0</a>
+          unless otherwise noted. Deployed on Vercel.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <script>
+  (function () {
+    'use strict';
+
+    var toggle = document.querySelector('.site-header__toggle');
+    var nav    = document.querySelector('.site-nav');
+
+    if (toggle && nav) {
+      toggle.addEventListener('click', function () {
+        var isOpen = nav.classList.toggle('site-nav--open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+      document.addEventListener('click', function (e) {
+        if (!toggle.contains(e.target) && !nav.contains(e.target)) {
+          nav.classList.remove('site-nav--open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && nav.classList.contains('site-nav--open')) {
+          nav.classList.remove('site-nav--open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.focus();
+        }
+      });
+    }
+
+    var path  = window.location.pathname;
+    var links = document.querySelectorAll('.site-nav__link');
+    links.forEach(function (link) {
+      var href = link.getAttribute('href');
+      if (
+        href === path ||
+        (href !== '/' && href.length > 1 && path.startsWith(href))
+      ) {
+        link.classList.add('site-nav__link--active');
+        link.setAttribute('aria-current', 'page');
+      }
+    });
+
+    var yr = String(new Date().getFullYear());
+    document.querySelectorAll('.js-copyright-year').forEach(function (el) {
+      el.textContent = yr;
+    });
+
+  }());
+  </script>
+
+</body>
+</html>

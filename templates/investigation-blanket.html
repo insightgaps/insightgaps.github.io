@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SLOT: page_title — format: "[Investigation Title] — Insight Gaps Bureau" -->
+  <title><!-- SLOT: title --> — Insight Gaps Bureau</title>
+  <meta name="description" content="<!-- SLOT: dek -->">
+
+  <meta property="og:type"        content="article">
+  <meta property="og:title"       content="<!-- SLOT: title --> — Insight Gaps Bureau">
+  <meta property="og:description" content="<!-- SLOT: dek -->">
+  <meta property="og:url"         content="https://insightgaps.com/content/investigations/<!-- SLOT: slug -->/index.html">
+  <!-- SLOT: og_image_path — 1200x630 share image -->
+  <meta property="og:image"       content="<!-- SLOT: og_image_path -->">
+
+  <!-- SLOT: canonical_url -->
+  <link rel="canonical" href="https://insightgaps.com/content/investigations/<!-- SLOT: slug -->/index.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/investigation.css">
+</head>
+<body>
+
+  <!-- AI DISCLOSURE BAR — mandatory on all investigation pages -->
+  <div class="ai-disclosure-bar" role="note" aria-label="AI use disclosure">
+    <div class="ai-disclosure-bar__inner">
+      <p class="ai-disclosure-bar__text">
+        AI tools were used in producing this report.
+        <a href="/content/trust/ai-use.html">View AI use disclosure &rarr;</a>
+      </p>
+    </div>
+  </div>
+
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <!-- GLOBAL HEADER -->
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+      <a href="/" class="site-header__logo" aria-label="Insight Gaps Bureau — Home">Insight&nbsp;Gaps</a>
+      <button class="site-header__toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="primary-nav" aria-label="Primary navigation">
+        <a href="/content/investigations/" class="site-nav__link">Investigations</a>
+        <a href="/analysis/"               class="site-nav__link">Analysis</a>
+        <a href="/archive.html"            class="site-nav__link">Archive</a>
+        <a href="/about.html"              class="site-nav__link">About</a>
+        <a href="/content/trust/methodology.html" class="site-nav__link">Trust</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <main id="main-content" class="investigation">
+
+    <!-- ===========================================================
+         INVESTIGATION HERO
+         =========================================================== -->
+    <section class="investigation__hero">
+      <div class="investigation__hero-inner">
+
+        <div class="investigation__hero-badges">
+          <!-- SLOT: status — paste status badge component here.
+               Values: published | corrected | developing | terminated | archived
+               Example: <span class="status-badge status-badge--published">Published</span> -->
+
+          <!-- SLOT: investigation_type — paste tier badge here.
+               Values: Tier 1 — Document-Heavy | Tier 2 — Data-Driven | Tier 3 — Source-Driven
+               Example: <span class="tier-badge">Tier 2 — Data-Driven Investigation</span> -->
+        </div>
+
+        <!-- SLOT: title -->
+        <h1 class="investigation__title"><!-- SLOT: title --></h1>
+
+        <!-- SLOT: dek -->
+        <p class="investigation__dek"><!-- SLOT: dek --></p>
+
+        <div class="investigation__meta">
+          <span class="investigation__byline">Insight Gaps Bureau</span>
+          <span class="investigation__meta-divider" aria-hidden="true">·</span>
+          <!-- SLOT: date_published — ISO in datetime, human in text
+               Example: <time datetime="2025-06-01">1 June 2025</time> -->
+          <time class="investigation__date" datetime="<!-- SLOT: date_published_iso -->">
+            <!-- SLOT: date_published_display -->
+          </time>
+
+          <!-- SLOT: date_revised — remove this block entirely if date_revised is not populated -->
+          <span class="investigation__meta-divider" aria-hidden="true">·</span>
+          <span class="investigation__revised">
+            Updated: <time datetime="<!-- SLOT: date_revised_iso -->"><!-- SLOT: date_revised_display --></time>
+          </span>
+          <!-- END SLOT: date_revised -->
+
+          <!-- SLOT: id — case ID, right-aligned in Space Mono -->
+          <span class="investigation__id"><!-- SLOT: id --></span>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ===========================================================
+         CORRECTION BANNER
+         Paste components/correction-banner.html here ONLY if
+         has_correction is true in investigations.json.
+         Remove this comment block entirely if has_correction is false.
+         =========================================================== -->
+    <!-- SLOT: correction_banner — conditional -->
+
+
+    <!-- ===========================================================
+         METHODOLOGY BADGE — mandatory
+         Paste components/methodology-badge.html here.
+         Replace the tier SLOT with the investigation_type value.
+         =========================================================== -->
+    <!-- SLOT: methodology_badge -->
+
+
+    <!-- ===========================================================
+         KEY FINDINGS PANEL
+         Exactly three findings pulled from handoff.md.
+         Never written fresh at build time.
+         =========================================================== -->
+    <section class="investigation__findings" aria-labelledby="findings-label">
+      <div class="investigation__findings-inner">
+
+        <span class="investigation__findings-label" id="findings-label">Key Findings</span>
+
+        <ol class="investigation__findings-list">
+
+          <!-- SLOT: finding_01 — from handoff.md, complete sentence -->
+          <li class="investigation__finding">
+            <span class="investigation__finding-number" aria-hidden="true">01</span>
+            <p class="investigation__finding-text"><!-- SLOT: finding_01 --></p>
+          </li>
+
+          <!-- SLOT: finding_02 — from handoff.md, complete sentence -->
+          <li class="investigation__finding">
+            <span class="investigation__finding-number" aria-hidden="true">02</span>
+            <p class="investigation__finding-text"><!-- SLOT: finding_02 --></p>
+          </li>
+
+          <!-- SLOT: finding_03 — from handoff.md, complete sentence -->
+          <li class="investigation__finding">
+            <span class="investigation__finding-number" aria-hidden="true">03</span>
+            <p class="investigation__finding-text"><!-- SLOT: finding_03 --></p>
+          </li>
+
+        </ol>
+
+      </div>
+    </section>
+
+
+    <!-- ===========================================================
+         INVESTIGATION BODY
+         All prose, visual blocks, data tables, and section
+         dividers go inside this article element.
+
+         PROSE: default width — constrained to --grid-content.
+         VISUALS / TABLES: add class="visual-block visual-block--wide"
+           to break out to --grid-wide width.
+
+         SECTION STRUCTURE EXAMPLE:
+           <section class="inv-section">
+             <h2 class="inv-section__heading">Section Title</h2>
+             <p>Prose paragraph...</p>
+             <div class="visual-block visual-block--wide">
+               SVG / chart / map goes here
+             </div>
+           </section>
+           <hr class="divider">
+         =========================================================== -->
+    <article class="investigation__body" id="investigation-body">
+
+      <!-- SLOT: body_content — all investigation prose and visuals -->
+
+    </article>
+
+
+    <!-- ===========================================================
+         PRIMARY SOURCES
+         source_count must match the actual number of items
+         in the source list below. Verify before publication.
+         =========================================================== -->
+    <section class="investigation__sources" aria-labelledby="sources-label">
+      <div class="investigation__sources-inner">
+
+        <div class="investigation__sources-header">
+          <span class="investigation__sources-label" id="sources-label">Primary Sources</span>
+          <!-- SLOT: source_count — integer matching list below -->
+          <span class="investigation__sources-count">
+            <!-- SLOT: source_count --> sources
+          </span>
+        </div>
+
+        <ol class="investigation__sources-list">
+          <!-- SLOT: source_list — one <li> per source, numbered automatically by CSS.
+               Format each item as:
+               <li class="investigation__source">
+                 Author / Organisation. <em>Document title.</em> Date. [Type: RTI / Dataset / Report / Field observation]
+               </li>
+          -->
+        </ol>
+
+      </div>
+    </section>
+
+
+    <!-- ===========================================================
+         METHODOLOGY SECTION
+         Content from investigation-specific methodology.md.
+         Always links back to the global methodology page.
+         =========================================================== -->
+    <section class="investigation__methodology" aria-labelledby="methodology-label">
+      <div class="investigation__methodology-inner">
+
+        <span class="investigation__methodology-label" id="methodology-label">Methodology</span>
+
+        <!-- SLOT: methodology_content — from methodology/methodology.md for this investigation -->
+
+        <p class="investigation__methodology-link-line">
+          For the bureau's full verification standards, data handling rules,
+          and AI use policy, see the
+          <a href="/content/trust/methodology.html">global methodology page</a>.
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- ===========================================================
+         RELATED INVESTIGATIONS
+         Render this section ONLY if related_items array is populated
+         in investigations.json. Remove entirely if empty.
+         Maximum three cards.
+         =========================================================== -->
+    <!-- SLOT: related_investigations — conditional
+    <section class="investigation__related" aria-labelledby="related-label">
+      <div class="investigation__related-inner">
+        <span class="investigation__related-label" id="related-label">Related Investigations</span>
+        <div class="card-grid card-grid--three">
+          SLOT: related_cards — up to three investigation cards
+        </div>
+      </div>
+    </section>
+    -->
+
+  </main>
+
+
+  <!-- GLOBAL FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__inner">
+      <div class="site-footer__grid">
+        <div>
+          <p class="site-footer__brand-name">Insight&nbsp;Gaps</p>
+          <p class="site-footer__mandate">Independent forensic data journalism from Dhaka, Bangladesh.</p>
+        </div>
+        <div>
+          <span class="site-footer__col-label">Navigate</span>
+          <nav class="site-footer__nav" aria-label="Footer navigation">
+            <a href="/content/investigations/">Investigations</a>
+            <a href="/analysis/">Analysis</a>
+            <a href="/archive.html">Archive</a>
+            <a href="/about.html">About</a>
+          </nav>
+        </div>
+        <div>
+          <span class="site-footer__col-label">Trust</span>
+          <nav class="site-footer__nav" aria-label="Trust navigation">
+            <a href="/content/trust/methodology.html">Methodology</a>
+            <a href="/content/trust/ai-use.html">AI Use</a>
+            <a href="/content/trust/corrections.html">Corrections</a>
+            <a href="/contact.html">Contact</a>
+          </nav>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <p class="site-footer__copy">
+          &copy; <span class="js-copyright-year">2025</span> Insight Gaps Bureau.
+          Original reporting licensed under
+          <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC&nbsp;BY&nbsp;4.0</a>
+          unless otherwise noted. Deployed on Vercel.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+  (function () {
+    'use strict';
+    var toggle = document.querySelector('.site-header__toggle');
+    var nav    = document.querySelector('.site-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', function () {
+        var isOpen = nav.classList.toggle('site-nav--open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+      document.addEventListener('click', function (e) {
+        if (!toggle.contains(e.target) && !nav.contains(e.target)) {
+          nav.classList.remove('site-nav--open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && nav.classList.contains('site-nav--open')) {
+          nav.classList.remove('site-nav--open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.focus();
+        }
+      });
+    }
+    var path = window.location.pathname;
+    document.querySelectorAll('.site-nav__link').forEach(function (link) {
+      var href = link.getAttribute('href');
+      if (href === path || (href !== '/' && href.length > 1 && path.startsWith(href))) {
+        link.classList.add('site-nav__link--active');
+        link.setAttribute('aria-current', 'page');
+      }
+    });
+    var yr = String(new Date().getFullYear());
+    document.querySelectorAll('.js-copyright-year').forEach(function (el) { el.textContent = yr; });
+  }());
+  </script>
+
+</body>
+</html>

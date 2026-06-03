@@ -1,0 +1,33 @@
+{
+  "domains": [
+    {
+      "domain_id": "property-preservation",
+      "domain_title": "Property Preservation",
+      "domain_slug": "property-preservation",
+      "description": "Forensic financial and operational analysis for property preservation businesses in the United States. Covers cash flow risk, vendor performance, compliance exposure, and portfolio health. Designed for operators, investors, and portfolio reviewers who need data-backed insight, not summaries.",
+      "audience": "Business operators, investors, portfolio reviewers",
+      "report_count": 1,
+      "last_updated": "2025-01-01",
+      "reports": [
+        {
+          "report_id": "pp-financial-health",
+          "title": "Financial Health Diagnostic — Property Preservation Operator",
+          "tag": "Cash Flow Risk",
+          "date": "2025-01-01",
+          "executive_summary": "Analysis of receivables, vendor payment cycles, and work order volume trends reveals a pattern of cash flow compression common to mid-sized property preservation operators working across multiple servicers. The diagnostic identifies three structural risk factors and provides a prioritised remediation framework.",
+          "key_findings": [
+            "Average days sales outstanding (DSO) increased from 38 days to 54 days over a 12-month period, driven by extended servicer validation cycles.",
+            "Work order volume volatility reached 42% month-on-month, leading to sub-optimal staff utilization and excessive field service vendor turnover.",
+            "Extended payment terms from primary clients resulted in a 15% margin erosion due to reliance on short-term high-interest line-of-credit financing."
+          ],
+          "methodology_note": "Analysis drawn from operator-provided financial records, work order logs, and servicer payment data over a 12-month period. All figures anonymised at operator request.",
+          "dataset_reference": "Operator financial records — 12-month period",
+          "confidence_level": "High",
+          "visuals": [],
+          "preview_image": "/analysis/property-preservation/assets/pp-financial-health-preview.jpg",
+          "contact_cta": true
+        }
+      ]
+    }
+  ]
+}

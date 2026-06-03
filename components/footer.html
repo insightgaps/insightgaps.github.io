@@ -1,0 +1,67 @@
+<!-- ============================================================
+     INSIGHT GAPS — GLOBAL FOOTER
+     components/footer.html — v1.0
+     Paste into every page. Appears on all pages without exception.
+     To update: edit this file, then re-paste into all pages.
+     ============================================================ -->
+
+<footer class="site-footer" role="contentinfo">
+  <div class="site-footer__inner">
+
+    <div class="site-footer__grid">
+
+      <!-- Left: Bureau identity -->
+      <div>
+        <p class="site-footer__brand-name">Insight&nbsp;Gaps</p>
+        <p class="site-footer__mandate">
+          Independent forensic data journalism from Dhaka, Bangladesh.
+        </p>
+      </div>
+
+      <!-- Centre: Navigation -->
+      <div>
+        <span class="site-footer__col-label">Navigate</span>
+        <nav class="site-footer__nav" aria-label="Footer navigation">
+          <a href="/content/investigations/">Investigations</a>
+          <a href="/analysis/">Analysis</a>
+          <a href="/archive.html">Archive</a>
+          <a href="/about.html">About</a>
+        </nav>
+      </div>
+
+      <!-- Right: Trust -->
+      <div>
+        <span class="site-footer__col-label">Trust</span>
+        <nav class="site-footer__nav" aria-label="Trust navigation">
+          <a href="/content/trust/methodology.html">Methodology</a>
+          <a href="/content/trust/ai-use.html">AI Use</a>
+          <a href="/content/trust/corrections.html">Corrections</a>
+          <a href="/contact.html">Contact</a>
+        </nav>
+      </div>
+
+    </div>
+
+    <div class="site-footer__bottom">
+      <p class="site-footer__copy">
+        &copy; <span class="js-copyright-year">2025</span> Insight Gaps Bureau.
+        Original reporting licensed under
+        <a href="https://creativecommons.org/licenses/by/4.0/"
+           target="_blank"
+           rel="noopener noreferrer">CC&nbsp;BY&nbsp;4.0</a>
+        unless otherwise noted. Deployed on Vercel.
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  /* Auto-update copyright year */
+  var yr  = String(new Date().getFullYear());
+  var els = document.querySelectorAll('.js-copyright-year');
+  els.forEach(function (el) { el.textContent = yr; });
+}());
+</script>

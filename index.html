@@ -3,660 +3,553 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Insight Gaps — Forensic Data Journalism, Bangladesh</title>
-  <meta name="description" content="Insight Gaps is an independent forensic data journalism bureau in Dhaka, Bangladesh. Primary sources. Open datasets. Verified methodology.">
-  <meta property="og:title" content="Insight Gaps — Forensic Data Journalism, Bangladesh">
-  <meta property="og:description" content="44 lead-contaminated sites near 145 schools. 59 metres. 0 permanent closures. We investigate what institutions choose not to count.">
-  <meta property="og:image" content="https://insightgaps.com/investigations/national/images/lead-belt/hero.webp">
-  <meta property="og:url" content="https://insightgaps.com">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="/favicon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4PYE0MEK12"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-4PYE0MEK12');</script>
+  <title>Insight Gaps Bureau — Forensic Data Journalism from Dhaka</title>
+  <meta name="description" content="Independent forensic data journalism from Dhaka, Bangladesh. Investigations into contamination, institutional failure, and accountability gaps.">
 
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="Insight Gaps Bureau">
+  <meta property="og:description" content="Independent forensic data journalism from Dhaka, Bangladesh.">
+  <meta property="og:url"         content="https://insightgaps.com/">
+  <meta property="og:image"       content="/assets/img/og-default.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Insight Gaps Bureau">
+  <meta name="twitter:description" content="Independent forensic data journalism from Dhaka, Bangladesh.">
+  <meta name="twitter:image"       content="/assets/img/og-default.jpg">
+
+  <link rel="canonical" href="https://insightgaps.com/">
+
+  <!-- Font preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+
+  <!-- ============================================================
+       HOME-SPECIFIC LAYOUT STYLES
+       These page-level layout rules are scoped to index.html only.
+       Note: extract to assets/css/home.css if the build sequence
+       is ever extended with a dedicated homepage stylesheet step.
+       All values reference design tokens — nothing hardcoded.
+       ============================================================ -->
   <style>
-    /* ─── TOKENS ──────────────────────────────────────── */
-    :root {
-      --bg:     #f8f7f4;
-      --bg2:    #f0ede8;
-      --bg3:    #e8e4de;
-      --ink:    #111111;
-      --ink2:   #3d3d3d;
-      --ink3:   #6b6b6b;
-      --ink4:   #9b9b9b;
-      --red:    #c41e3a;
-      --redl:   rgba(196,30,58,0.08);
-      --gold:   #8a6914;
-      --teal:   #1a7a50;
-      --rule:   #e2ddd8;
-      --rule2:  #d0cbc4;
-      --serif:  'Playfair Display', Georgia, serif;
-      --sans:   'Inter', system-ui, -apple-system, sans-serif;
-      --mono:   'JetBrains Mono', 'Courier New', monospace;
-    }
-    html[data-theme="dark"] {
-      --bg:    #0a0a0f;
-      --bg2:   #0f0f16;
-      --bg3:   #131320;
-      --ink:   #ddd8ce;
-      --ink2:  #a8a49a;
-      --ink3:  #5a5870;
-      --ink4:  #2e2c3c;
-      --red:   #c41e3a;
-      --redl:  rgba(196,30,58,0.12);
-      --gold:  #c9a84c;
-      --teal:  #30c880;
-      --rule:  #1e1e32;
-      --rule2: #2a2a40;
+
+    /* ---- Hero ---- */
+    .home__hero {
+      padding:       var(--space-9) 0 var(--space-8);
+      border-bottom: var(--border-width) solid var(--color-border);
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--sans);
-      background: var(--bg);
-      color: var(--ink);
-      font-size: 16px;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
+    .home__hero-inner {
+      max-width:             var(--grid-max);
+      margin:                0 auto;
+      padding:               0 var(--grid-padding);
+      display:               grid;
+      grid-template-columns: 1fr 1fr;
+      gap:                   var(--space-8);
+      align-items:           center;
     }
-    a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
 
-    /* ─── NAV ──────────────────────────────────────────── */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      height: 56px;
-      background: var(--bg);
-      border-bottom: 1px solid var(--rule);
-      z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 2rem;
+    /* Left: mandate + featured investigation */
+    .home__mandate {
+      font-family:    var(--font-headline);
+      font-size:      var(--type-display);
+      font-weight:    700;
+      line-height:    var(--leading-tight);
+      letter-spacing: var(--tracking-tight);
+      color:          var(--color-text-primary);
+      margin-bottom:  var(--space-7);
     }
-    .nav-logo { font-family: var(--serif); font-weight: 700; font-size: 1.1rem; color: var(--ink); }
-    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
-    .nav-links a { font-family: var(--sans); font-size: 0.8rem; color: var(--ink3); transition: color 0.2s; }
-    .nav-links a:hover { color: var(--ink); }
-    .nav-right { display: flex; align-items: center; gap: 0.5rem; }
-    .theme-toggle-btn {
-      background: none; border: 1px solid var(--rule); cursor: pointer;
-      font-size: 0.75rem; padding: 4px 10px; color: var(--ink3);
-      font-family: var(--mono); display: flex; align-items: center; gap: 4px;
-      transition: border-color 0.2s, color 0.2s; border-radius: 2px;
-    }
-    .theme-toggle-btn:hover { border-color: var(--rule2); color: var(--ink); }
 
-    /* ─── HERO ─────────────────────────────────────────── */
-    .hero {
-      margin-top: 56px;
-      padding: 5rem 2rem 0;
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: calc(56px + 4rem);
+    .home__featured-pre {
+      font-family:    var(--font-mono);
+      font-size:      var(--type-label);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color:          var(--color-text-muted);
+      display:        block;
+      margin-bottom:  var(--space-4);
     }
-    .hero-label {
-      font-family: var(--mono); font-size: 0.65rem; color: var(--red);
-      text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 1.5rem;
-    }
-    .hero-headline {
-      font-family: var(--serif); font-size: clamp(2.8rem, 5vw, 4.5rem);
-      font-weight: 900; color: var(--ink); line-height: 1.0;
-      letter-spacing: -0.02em; max-width: 800px; margin-bottom: 1.5rem;
-    }
-    .hero-sub {
-      font-family: var(--sans); font-size: 1rem; color: var(--ink2);
-      max-width: 520px; line-height: 1.65; margin-bottom: 2.5rem;
-    }
-    .hero-ctas { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 3.5rem; }
-    .btn-primary {
-      display: inline-block; background: var(--red); color: #fff;
-      font-family: var(--sans); font-size: 0.85rem; font-weight: 500;
-      padding: 0.65rem 1.25rem; border: none; cursor: pointer; transition: opacity 0.2s;
-    }
-    .btn-primary:hover { opacity: 0.88; }
-    .btn-secondary {
-      display: inline-block; background: transparent; color: var(--ink);
-      font-family: var(--sans); font-size: 0.85rem; font-weight: 500;
-      padding: 0.65rem 1.25rem; border: 1px solid var(--rule2); cursor: pointer;
-      transition: color 0.2s, border-color 0.2s;
-    }
-    .btn-secondary:hover { color: var(--ink2); border-color: var(--ink3); }
 
-    /* ─── EVIDENCE STRIP ──────────────────────────────── */
-    .evidence-strip {
-      border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
-      padding: 1.5rem 0;
-      display: grid; grid-template-columns: 1fr 1fr 1fr;
-      max-width: 1200px;
+    /* JS populates #js-featured-investigation with these elements */
+    .home__featured-title {
+      font-family:   var(--font-headline);
+      font-size:     var(--type-h2);
+      font-weight:   600;
+      line-height:   var(--leading-tight);
+      color:         var(--color-text-primary);
+      margin-bottom: var(--space-3);
     }
-    .evidence-item { padding: 0 2rem; }
-    .evidence-item:not(:last-child) { border-right: 1px solid var(--rule); }
-    .evidence-item:first-child { padding-left: 0; }
-    .evidence-number {
-      font-family: var(--serif); font-size: 2.5rem; font-weight: 700;
-      color: var(--red); line-height: 1; margin-bottom: 0.3rem;
-    }
-    .evidence-label {
-      font-family: var(--mono); font-size: 0.6rem; text-transform: uppercase;
-      letter-spacing: 0.08em; color: var(--ink3); margin-bottom: 0.2rem;
-    }
-    .evidence-source { font-family: var(--mono); font-size: 0.5rem; color: var(--ink4); letter-spacing: 0.04em; }
 
-    /* ─── FEATURED ─────────────────────────────────────── */
-    .featured { background: var(--bg2); padding: 5rem 2rem; margin-top: 4rem; }
-    .featured-inner {
-      max-width: 1200px; margin: 0 auto;
-      display: grid; grid-template-columns: 60% 40%; gap: 3rem; align-items: start;
+    .home__featured-dek {
+      font-family:   var(--font-body);
+      font-size:     var(--type-body);
+      font-style:    italic;
+      line-height:   var(--leading-body);
+      color:         var(--color-text-secondary);
+      margin-bottom: var(--space-4);
     }
-    .section-label {
-      font-family: var(--mono); font-size: 0.62rem; color: var(--red);
-      text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.6rem;
-    }
-    .featured-title {
-      font-family: var(--serif); font-size: clamp(2.2rem, 3.5vw, 3rem);
-      font-weight: 900; color: var(--ink); line-height: 1.05; margin-bottom: 1.2rem; letter-spacing: -0.02em;
-    }
-    .featured-body {
-      font-family: var(--sans); font-size: 0.9rem; color: var(--ink2);
-      line-height: 1.75; margin-bottom: 1.6rem; max-width: 560px;
-    }
-    .featured-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
-    .btn-sm { font-family: var(--sans); font-size: 0.8rem; font-weight: 500; padding: 0.55rem 1rem; cursor: pointer; transition: opacity 0.2s; }
-    .btn-sm-primary { background: var(--red); color: #fff; border: none; }
-    .btn-sm-primary:hover { opacity: 0.88; }
-    .btn-sm-outline { background: transparent; color: var(--ink); border: 1px solid var(--rule2); }
-    .btn-sm-outline:hover { border-color: var(--ink3); }
 
-    /* Stats panel */
-    .stat-row { padding: 1.1rem 0; border-bottom: 1px solid var(--rule); }
-    .stat-row:first-child { border-top: 1px solid var(--rule); }
-    .stat-number {
-      font-family: var(--serif); font-size: clamp(1.8rem, 2.5vw, 2.4rem);
-      color: var(--red); line-height: 1; margin-bottom: 0.25rem;
+    .home__featured-meta {
+      display:     flex;
+      align-items: center;
+      gap:         var(--space-3);
+      flex-wrap:   wrap;
+      margin-top:  var(--space-3);
     }
-    .stat-number.gold { color: var(--gold); }
-    .stat-number.teal { color: var(--teal); }
-    .stat-label { font-family: var(--mono); font-size: 0.52rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink3); margin-bottom: 0.2rem; }
-    .stat-source { font-family: var(--mono); font-size: 0.42rem; color: var(--ink4); letter-spacing: 0.04em; }
 
-    /* Image placeholder */
-    .img-wrap {
-      width: 100%; margin-bottom: 1rem; overflow: hidden;
-      background: var(--bg3);
-      background-image: radial-gradient(var(--rule2) 1px, transparent 1px);
-      background-size: 16px 16px;
+    .home__featured-date {
+      font-family:    var(--font-mono);
+      font-size:      var(--type-label);
+      color:          var(--color-text-muted);
+      letter-spacing: var(--tracking-wide);
     }
-    .img-wrap img { width: 100%; height: 240px; object-fit: cover; }
 
-    /* ─── DIVISION CARDS ───────────────────────────────── */
-    .divisions { padding: 5rem 2rem; background: var(--bg); }
-    .divisions-inner { max-width: 1200px; margin: 0 auto; }
-    .section-heading {
-      font-family: var(--serif); font-size: clamp(1.6rem, 2.5vw, 2rem);
-      font-weight: 700; color: var(--ink); margin-bottom: 2.5rem; letter-spacing: -0.01em;
+    .home__featured-link {
+      display:          inline-block;
+      margin-top:       var(--space-5);
+      font-family:      var(--font-mono);
+      font-size:        var(--type-label);
+      letter-spacing:   var(--tracking-wide);
+      color:            var(--color-accent);
+      text-decoration:  underline;
+      text-underline-offset: 2px;
+      transition:       color var(--transition-fast);
     }
-    .division-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-    .division-card {
-      border: 1px solid var(--rule); padding: 2rem;
-      display: flex; flex-direction: column; gap: 1rem;
-      transition: border-color 0.2s;
-    }
-    .division-card:hover { border-color: var(--rule2); }
-    .division-card.investigations { border-top: 3px solid var(--red); }
-    .division-card.analysis { border-top: 3px solid var(--gold); }
-    .division-name {
-      font-family: var(--serif); font-size: 1.4rem; font-weight: 700; color: var(--ink);
-    }
-    .division-body {
-      font-family: var(--sans); font-size: 0.875rem; color: var(--ink2); line-height: 1.7; flex: 1;
-    }
-    .division-link {
-      font-family: var(--mono); font-size: 0.65rem; text-transform: uppercase;
-      letter-spacing: 0.08em; color: var(--red); transition: opacity 0.2s;
-    }
-    .division-link:hover { opacity: 0.7; }
-    .division-card.analysis .division-link { color: var(--gold); }
 
-    /* ─── INVESTIGATIONS GRID ──────────────────────────── */
-    .inv-section { padding: 5rem 2rem; background: var(--bg2); }
-    .inv-section-inner { max-width: 1200px; margin: 0 auto; }
-    .inv-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem;
+    .home__featured-link:hover {
+      color: var(--color-accent-hover);
     }
-    .inv-card { border: 1px solid var(--rule); background: var(--bg); display: flex; flex-direction: column; }
-    .inv-card-img { background: var(--bg3); background-image: radial-gradient(var(--rule2) 1px, transparent 1px); background-size: 12px 12px; height: 140px; overflow: hidden; }
-    .inv-card-img img { width: 100%; height: 100%; object-fit: cover; }
-    .inv-card-body { padding: 1.2rem; flex: 1; display: flex; flex-direction: column; gap: 0.6rem; }
-    .inv-card-meta { display: flex; gap: 0.75rem; align-items: center; }
-    .inv-id { font-family: var(--mono); font-size: 0.55rem; color: var(--red); text-transform: uppercase; letter-spacing: 0.06em; }
-    .inv-date { font-family: var(--mono); font-size: 0.5rem; color: var(--ink4); }
-    .inv-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 700; color: var(--ink); line-height: 1.25; }
-    .inv-summary { font-family: var(--sans); font-size: 0.8rem; color: var(--ink2); line-height: 1.6; flex: 1; }
-    .inv-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: auto; padding-top: 0.5rem; }
-    .section-footer { text-align: center; }
-    .section-footer a { font-family: var(--mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink3); border-bottom: 1px solid var(--rule2); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
-    .section-footer a:hover { color: var(--ink); border-color: var(--ink3); }
 
-    /* ─── METHODS TEASER ──────────────────────────────── */
-    .methods-teaser { padding: 5rem 2rem; background: var(--bg); }
-    .methods-teaser-inner { max-width: 1200px; margin: 0 auto; }
-    .methods-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
-    .methods-col-title {
-      font-family: var(--mono); font-size: 0.6rem; text-transform: uppercase;
-      letter-spacing: 0.08em; color: var(--ink3); margin-bottom: 1rem;
+    /* Right: featured investigation image */
+    .home__hero-image {
+      width:         100%;
+      aspect-ratio:  16 / 10;
+      border-radius: var(--radius-md);
+      overflow:      hidden;
+      border:        var(--border-width) solid var(--color-border);
+      background-color: var(--color-surface-alt);
     }
-    .tier-row { display: flex; gap: 0.75rem; padding: 0.6rem 0; border-bottom: 1px solid var(--rule); align-items: flex-start; }
-    .tier-row:first-of-type { border-top: 1px solid var(--rule); }
-    .tier-badge { font-family: var(--mono); font-size: 0.5rem; text-transform: uppercase; letter-spacing: 0.07em; padding: 0.22rem 0.5rem; white-space: nowrap; flex-shrink: 0; margin-top: 0.1rem; }
-    .tier-confirmed { background: var(--red); color: #fff; }
-    .tier-probable  { color: var(--gold); border: 1px solid var(--gold); }
-    .tier-alleged   { color: var(--ink3); border: 1px solid var(--rule2); }
-    .tier-unverified { color: var(--ink4); border: 1px solid var(--rule); }
-    .tier-text { font-family: var(--sans); font-size: 0.82rem; color: var(--ink2); line-height: 1.6; }
-    .rule-item { padding: 0.85rem 0; border-bottom: 1px solid var(--rule); font-family: var(--sans); font-size: 0.85rem; color: var(--ink2); line-height: 1.65; }
-    .rule-item:first-of-type { border-top: 1px solid var(--rule); }
-    .rule-item a { color: var(--red); }
-    .rule-item a:hover { text-decoration: underline; }
-    .rti-row { display: flex; flex-wrap: wrap; gap: 1rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
-    .rti-item { font-family: var(--mono); font-size: 0.56rem; color: var(--ink3); display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
-    .rti-id { color: var(--red); font-weight: 700; }
-    .rti-badge-pending { color: var(--gold); border: 1px solid var(--gold); padding: 0.15rem 0.4rem; }
-    .rti-badge-partial { color: var(--teal); border: 1px solid var(--teal); padding: 0.15rem 0.4rem; }
-    .rti-badge-received { background: var(--teal); color: #fff; padding: 0.15rem 0.4rem; }
-    .methods-more { margin-top: 2rem; }
-    .methods-more a { font-family: var(--mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink3); border-bottom: 1px solid var(--rule2); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
-    .methods-more a:hover { color: var(--ink); border-color: var(--ink3); }
 
-    /* ─── DATA ACCESS ──────────────────────────────────── */
-    .data-access { background: var(--bg2); padding: 5rem 2rem; }
-    .data-access-inner { max-width: 1200px; margin: 0 auto; }
-    .data-sub { font-family: var(--sans); font-size: 0.875rem; color: var(--ink3); margin-bottom: 2.5rem; max-width: 580px; }
-    .download-row {
-      display: flex; align-items: center; padding: 1rem 1.2rem;
-      border: 1px solid var(--rule); margin-bottom: 0.5rem;
-      transition: background 0.2s, border-color 0.2s; gap: 1.2rem;
+    .home__hero-image img {
+      width:      100%;
+      height:     100%;
+      object-fit: cover;
+      display:    block;
     }
-    .download-row:hover { background: var(--bg3); border-color: var(--rule2); }
-    .download-arrow { font-size: 1.1rem; color: var(--red); flex-shrink: 0; }
-    .download-info { flex: 1; }
-    .download-name { font-family: var(--sans); font-weight: 600; font-size: 0.9rem; color: var(--ink); margin-bottom: 0.2rem; }
-    .download-meta { font-family: var(--mono); font-size: 0.52rem; color: var(--ink3); letter-spacing: 0.04em; }
-    .nav-tiles { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
-    .nav-tile { font-family: var(--sans); font-size: 0.85rem; color: var(--ink); border: 1px solid var(--rule); padding: 0.7rem 1.2rem; transition: color 0.2s, border-color 0.2s; }
-    .nav-tile:hover { color: var(--red); border-color: var(--red); }
 
-    /* ─── FOOTER ───────────────────────────────────────── */
-    .footer { background: var(--ink); color: rgba(255,255,255,0.75); padding: 4rem 2rem 0; }
-    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; }
-    .footer-brand { font-family: var(--serif); font-size: 1.2rem; color: #fff; font-weight: 700; margin-bottom: 0.6rem; }
-    .footer-tagline { font-family: var(--sans); font-size: 0.8rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
-    .footer-email { font-family: var(--mono); font-size: 0.65rem; color: rgba(255,255,255,0.5); margin-top: 0.6rem; }
-    .footer-col-title { font-family: var(--mono); font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); margin-bottom: 1rem; }
-    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
-    .footer-links a { font-family: var(--sans); font-size: 0.82rem; color: rgba(255,255,255,0.65); transition: color 0.2s; }
-    .footer-links a:hover { color: #fff; }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding: 1.2rem 0; display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
-    .footer-bottom-text { font-family: var(--mono); font-size: 0.5rem; color: rgba(255,255,255,0.4); letter-spacing: 0.04em; }
+    /* Empty / loading state — shown until JS hydrates containers */
+    .home__empty-state {
+      font-family: var(--font-body);
+      font-size:   var(--type-body-sm);
+      color:       var(--color-text-muted);
+      font-style:  italic;
+      padding:     var(--space-7) 0;
+      text-align:  center;
+    }
 
-    /* ─── RESPONSIVE ───────────────────────────────────── */
-    @media (max-width: 900px) {
-      .featured-inner { grid-template-columns: 1fr; }
-      .division-grid { grid-template-columns: 1fr; }
-      .inv-grid { grid-template-columns: 1fr; }
-      .methods-cols { grid-template-columns: 1fr; gap: 2.5rem; }
-      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
-      .evidence-strip { grid-template-columns: 1fr; }
-      .evidence-item { padding: 1rem 0; border-right: none !important; border-bottom: 1px solid var(--rule); }
-      .evidence-item:last-child { border-bottom: none; }
+    /* ---- Metrics wrapper ---- */
+    .home__metrics-wrap {
+      max-width: var(--grid-max);
+      margin:    0 auto;
+      padding:   0 var(--grid-padding);
     }
-    @media (max-width: 600px) {
-      .nav { padding: 0 1.2rem; }
-      .nav-links { gap: 1rem; }
-      .nav-links a { font-size: 0.72rem; }
-      .hero { padding: 3rem 1.2rem 0; }
-      .featured, .divisions, .inv-section, .methods-teaser, .data-access { padding: 3rem 1.2rem; }
-      .footer { padding: 3rem 1.2rem 0; }
+
+    /* ---- Investigation and analysis sections ---- */
+    .home__investigations,
+    .home__analysis {
+      max-width: var(--grid-max);
+      margin:    0 auto;
+      padding:   var(--space-9) var(--grid-padding) 0;
     }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 1024px) {
+      .home__hero-inner {
+        gap: var(--space-6);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .home__hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      /* Image moves below text on mobile and is de-emphasised */
+      .home__hero-image {
+        aspect-ratio: 16 / 7;
+        order:        -1; /* show image above mandate on mobile */
+      }
+
+      .home__mandate {
+        font-size: var(--type-h1);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .home__hero-image {
+        display: none; /* content-first on smallest screens */
+      }
+
+      .home__mandate {
+        font-size: 1.75rem;
+      }
+    }
+
   </style>
 
-  <script>(function(){var t=localStorage.getItem('ig-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();</script>
-  <script src="/theme-toggle.js"></script>
 </head>
 <body>
 
-  <!-- ══════════════════════════════════════
-       NAV
-  ══════════════════════════════════════ -->
-  <nav class="nav" role="navigation" aria-label="Primary navigation">
-    <a href="/" class="nav-logo">Insight Gaps</a>
-    <ul class="nav-links">
-      <li><a href="/investigations/">Investigations</a></li>
-      <li><a href="/analysis/">Analysis</a></li>
-      <li><a href="/methods/">Methods</a></li>
-      <li><a href="/data/">Data</a></li>
-      <li><a href="/about/">About</a></li>
-    </ul>
-    <div class="nav-right">
-      <button class="theme-toggle-btn" aria-label="Switch to dark theme" title="Toggle theme">
-        <span class="theme-icon">◗</span>
-        <span class="theme-label">Dark</span>
+  <!-- ============================================================
+       AI DISCLOSURE BAR
+       components/ai-disclosure-bar.html — paste here
+       ============================================================ -->
+  <div class="ai-disclosure-bar" role="note" aria-label="AI use disclosure">
+    <div class="ai-disclosure-bar__inner">
+      <p class="ai-disclosure-bar__text">
+        AI tools were used in producing this report.
+        <a href="/content/trust/ai-use.html">View AI use disclosure &rarr;</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       GLOBAL HEADER
+       components/header.html — paste here
+       ============================================================ -->
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+
+      <a href="/" class="site-header__logo" aria-label="Insight Gaps Bureau — Home">
+        Insight&nbsp;Gaps
+      </a>
+
+      <button class="site-header__toggle"
+              aria-label="Toggle navigation"
+              aria-expanded="false"
+              aria-controls="primary-nav">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
-    </div>
-  </nav>
 
-  <!-- ══════════════════════════════════════
-       HERO
-  ══════════════════════════════════════ -->
-  <section style="margin-top: 56px; background: var(--bg);">
-    <div class="hero" style="margin-top: 0; padding-top: 5rem;">
-      <p class="hero-label">Forensic Data Journalism · Dhaka, Bangladesh</p>
-      <h1 class="hero-headline">We investigate what<br>institutions choose<br>not to count.</h1>
-      <p class="hero-sub">Independent. Primary sources. Every dataset published. Every methodology documented.</p>
-      <div class="hero-ctas">
-        <a href="/investigations/" class="btn-primary">Investigations →</a>
-        <a href="/analysis/" class="btn-secondary">Operational Analysis →</a>
-      </div>
-      <div class="evidence-strip">
-        <div class="evidence-item">
-          <div class="evidence-number">59m</div>
-          <div class="evidence-label">School to factory</div>
-          <div class="evidence-source">Kamrangir Char, Dhaka</div>
-        </div>
-        <div class="evidence-item">
-          <div class="evidence-number">0</div>
-          <div class="evidence-label">Permanent closures</div>
-          <div class="evidence-source">22 years · Lead Belt</div>
-        </div>
-        <div class="evidence-item">
-          <div class="evidence-number">0.46%</div>
-          <div class="evidence-label">Conviction rate</div>
-          <div class="evidence-source">23 years · BD-INV-002</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════
-       FEATURED INVESTIGATION
-  ══════════════════════════════════════ -->
-  <section class="featured" aria-labelledby="featured-title">
-    <div class="featured-inner">
-
-      <div>
-        <p class="section-label">Featured Investigation · BD-INV-003</p>
-        <h2 class="featured-title" id="featured-title">The Lead Belt</h2>
-        <p class="featured-body">44 unregulated lead battery recycling sites operate within 500 metres of 145 schools across Bangladesh. The nearest contaminated site is 59 metres from a primary school in Kamrangir Char, Dhaka. Soil lead at that site measures 330,000 ppm — 825 times the safe limit. The Department of Environment has documented this contamination since 2016. Zero facilities permanently closed.</p>
-        <div class="featured-actions">
-          <a href="/investigations/national/lead-belt/visual.html" class="btn-sm btn-sm-primary">▶ Visual Investigation</a>
-          <a href="/investigations/national/lead-belt/" class="btn-sm btn-sm-outline">Overview &amp; Data</a>
-        </div>
-      </div>
-
-      <div>
-        <div class="img-wrap">
-          <img src="/investigations/national/images/lead-belt/hero.webp"
-               alt="School children walking past a lead battery recycling site in Kamrangir Char, Dhaka"
-               loading="eager"
-               onerror="this.style.display='none'">
-        </div>
-        <div class="stats-panel">
-          <div class="stat-row">
-            <div class="stat-number">~39,875</div>
-            <div class="stat-label">Students within 500m of contaminated sites</div>
-            <div class="stat-source">Source: DoE site registry, BANBEIS, 2024</div>
-          </div>
-          <div class="stat-row">
-            <div class="stat-number">1,702×</div>
-            <div class="stat-label">Max soil lead above US EPA safe standard</div>
-            <div class="stat-source">Site BD-1144, Gazipur · DoE lab analysis 2023</div>
-          </div>
-          <div class="stat-row">
-            <div class="stat-number teal">38%</div>
-            <div class="stat-label">Children nationally with dangerous blood lead</div>
-            <div class="stat-source">UNICEF MICS 2025</div>
-          </div>
-          <div class="stat-row">
-            <div class="stat-number gold">$28.63B</div>
-            <div class="stat-label">Annual economic cost of lead poisoning</div>
-            <div class="stat-source">IHME / Blacksmith Institute, 2023</div>
-          </div>
-          <div class="stat-row">
-            <div class="stat-number">0</div>
-            <div class="stat-label">Permanent ULAB closures on public record, 2003–2026</div>
-            <div class="stat-source">DoE enforcement registry, RTI filed Feb 2026</div>
-          </div>
-        </div>
-      </div>
+      <nav class="site-nav" id="primary-nav" aria-label="Primary navigation">
+        <a href="/content/investigations/" class="site-nav__link site-nav__link--active" aria-current="page">Investigations</a>
+        <a href="/analysis/"               class="site-nav__link">Analysis</a>
+        <a href="/archive.html"            class="site-nav__link">Archive</a>
+        <a href="/about.html"              class="site-nav__link">About</a>
+        <a href="/content/trust/methodology.html" class="site-nav__link">Trust</a>
+      </nav>
 
     </div>
-  </section>
+  </header>
 
-  <!-- ══════════════════════════════════════
-       DIVISION CARDS
-  ══════════════════════════════════════ -->
-  <section class="divisions" aria-labelledby="divisions-heading">
-    <div class="divisions-inner">
-      <h2 class="section-heading" id="divisions-heading">Two divisions. One methodology.</h2>
-      <div class="division-grid">
+  <!-- ============================================================
+       MAIN CONTENT
+       ============================================================ -->
+  <main id="main-content" class="home">
 
-        <a href="/investigations/" class="division-card investigations">
-          <p class="section-label">Investigations</p>
-          <p class="division-name">Forensic Data Journalism</p>
-          <p class="division-body">Public-interest investigations built on primary sources, open datasets, and reproducible methodology. Covering environmental contamination, institutional accountability, and systemic failure.</p>
-          <span class="division-link">View all investigations →</span>
-        </a>
 
-        <a href="/analysis/" class="division-card analysis">
-          <p class="section-label" style="color: var(--gold);">Analysis</p>
-          <p class="division-name">Operational Intelligence</p>
-          <p class="division-body">Workflow visibility, KPI systems, and reporting architecture for complex service environments. Property preservation, vendor performance, and operational risk — structured for decision-making.</p>
-          <span class="division-link">View analysis work →</span>
-        </a>
+    <!-- ----------------------------------------------------------
+         HERO
+         Left:  Bureau mandate statement + featured investigation
+         Right: Featured investigation og_image
+         ---------------------------------------------------------- -->
+    <section class="home__hero" aria-label="Bureau introduction">
+      <div class="home__hero-inner">
+
+        <!-- Left column -->
+        <div class="home__hero-content">
+
+          <p class="home__mandate">
+            Independent forensic data journalism from Dhaka.
+          </p>
+
+          <span class="home__featured-pre">Latest investigation</span>
+
+          <!-- JS injects: status badge, title, dek, date, read link -->
+          <div id="js-featured-investigation" aria-live="polite">
+            <noscript>
+              <p class="home__empty-state">
+                JavaScript is required to load investigations.
+              </p>
+            </noscript>
+          </div>
+
+        </div>
+
+        <!-- Right column: featured investigation image -->
+        <!-- JS injects an <img> into this container -->
+        <div class="home__hero-image"
+             id="js-featured-image"
+             aria-hidden="true">
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ----------------------------------------------------------
+         METRICS COUNTER BLOCK
+         Numbers populated from investigations.json + analysis.json
+         ---------------------------------------------------------- -->
+    <div class="home__metrics-wrap">
+      <div class="metrics-block" aria-label="Bureau statistics">
+
+        <div class="metrics-block__item">
+          <span class="metrics-block__number"
+                id="js-count-investigations"
+                aria-label="Total investigations">
+            &mdash;
+          </span>
+          <span class="metrics-block__label">Total Investigations</span>
+        </div>
+
+        <div class="metrics-block__item">
+          <span class="metrics-block__number"
+                id="js-count-sources"
+                aria-label="Total primary sources">
+            &mdash;
+          </span>
+          <span class="metrics-block__label">Total Primary Sources</span>
+        </div>
+
+        <div class="metrics-block__item">
+          <span class="metrics-block__number"
+                id="js-count-corrections"
+                aria-label="Corrections on record">
+            &mdash;
+          </span>
+          <span class="metrics-block__label">Corrections on Record</span>
+        </div>
 
       </div>
     </div>
-  </section>
 
-  <!-- ══════════════════════════════════════
-       INVESTIGATIONS GRID (3 max)
-  ══════════════════════════════════════ -->
-  <section class="inv-section" aria-labelledby="inv-grid-heading">
-    <div class="inv-section-inner">
-      <h2 class="section-heading" id="inv-grid-heading">Recent Investigations</h2>
-      <div class="inv-grid">
 
-        <article class="inv-card">
-          <div class="inv-card-img">
-            <img src="/investigations/national/images/lead-belt/hero.webp" alt="The Lead Belt" loading="lazy" onerror="this.parentElement.style.display='none'">
-          </div>
-          <div class="inv-card-body">
-            <div class="inv-card-meta">
-              <span class="inv-id">BD-INV-003</span>
-              <span class="inv-date">March 2026</span>
-            </div>
-            <h3 class="inv-title">The Lead Belt</h3>
-            <p class="inv-summary">44 unregulated lead recycling sites within 500m of 145 schools. Soil lead at the closest site is 825 times the safe limit. Zero permanent closures.</p>
-            <div class="inv-actions">
-              <a href="/investigations/national/lead-belt/visual.html" class="btn-sm btn-sm-primary">▶ Visual</a>
-              <a href="/investigations/national/lead-belt/" class="btn-sm btn-sm-outline">Report →</a>
-            </div>
-          </div>
-        </article>
+    <!-- ----------------------------------------------------------
+         LATEST INVESTIGATIONS
+         JS renders three most recent published investigations.
+         ---------------------------------------------------------- -->
+    <section class="home__investigations" aria-labelledby="label-investigations">
 
-        <article class="inv-card">
-          <div class="inv-card-img">
-            <img src="/investigations/national/images/impunity-machine/hero.webp" alt="The Impunity Machine" loading="lazy" onerror="this.parentElement.style.display='none'">
-          </div>
-          <div class="inv-card-body">
-            <div class="inv-card-meta">
-              <span class="inv-id">BD-INV-002</span>
-              <span class="inv-date">January 2026</span>
-            </div>
-            <h3 class="inv-title">The Impunity Machine</h3>
-            <p class="inv-summary">A forensic audit of rape case outcomes across Bangladesh's criminal justice system. 0.46% conviction rate over 23 years. Over 400,000 cases. The data behind the failure.</p>
-            <div class="inv-actions">
-              <a href="/investigations/national/impunity-machine/" class="btn-sm btn-sm-primary">Full Report →</a>
-              <a href="/investigations/national/impunity-machine/tracker.html" class="btn-sm btn-sm-outline">Live Tracker</a>
-            </div>
-          </div>
-        </article>
+      <p class="section-label" id="label-investigations">Latest Investigations</p>
 
-        <article class="inv-card">
-          <div class="inv-card-img">
-            <img src="/investigations/international/images/war-tax/hero.webp" alt="The Hidden Tax of War" loading="lazy" onerror="this.parentElement.style.display='none'">
-          </div>
-          <div class="inv-card-body">
-            <div class="inv-card-meta">
-              <span class="inv-id">INT-INV-001</span>
-              <span class="inv-date">November 2025</span>
-            </div>
-            <h3 class="inv-title">The Hidden Tax of War</h3>
-            <p class="inv-summary">International economic analysis of conflict cost transmission — how armed conflict becomes an economic burden distributed across non-combatant populations.</p>
-            <div class="inv-actions">
-              <a href="/investigations/international/war-tax/" class="btn-sm btn-sm-primary">Full Report →</a>
-            </div>
-          </div>
-        </article>
-
+      <!-- JS renders .inv-card elements into this grid -->
+      <div class="card-grid--three"
+           id="js-investigation-cards"
+           aria-live="polite">
+        <noscript>
+          <p class="home__empty-state">
+            JavaScript is required to load investigation cards.
+          </p>
+        </noscript>
       </div>
-      <div class="section-footer">
-        <a href="/investigations/">View all investigations →</a>
+
+      <a href="/archive.html" class="view-all-link">
+        View all investigations &rarr;
+      </a>
+
+    </section>
+
+
+    <!-- ----------------------------------------------------------
+         ANALYSIS DOMAINS
+         JS renders all active domains from analysis.json.
+         ---------------------------------------------------------- -->
+    <section class="home__analysis" aria-labelledby="label-analysis">
+
+      <p class="section-label" id="label-analysis">Analysis Domains</p>
+
+      <!-- JS renders .analysis-card elements into this grid -->
+      <div class="card-grid--two"
+           id="js-analysis-cards"
+           aria-live="polite">
+        <noscript>
+          <p class="home__empty-state">
+            JavaScript is required to load analysis domains.
+          </p>
+        </noscript>
+      </div>
+
+      <a href="/analysis/" class="view-all-link">
+        View all analysis &rarr;
+      </a>
+
+    </section>
+
+
+    <!-- ----------------------------------------------------------
+         TRUST SURFACE STRIP
+         Static block. Three trust signal links above the footer.
+         ---------------------------------------------------------- -->
+    <div class="trust-strip" aria-label="Trust and transparency">
+      <div class="trust-strip__inner">
+
+        <div class="trust-strip__item">
+          <span class="trust-strip__label">Methodology</span>
+          <p class="trust-strip__desc">
+            Every investigation discloses its verification tier, data sources,
+            and analytical approach before publication.
+          </p>
+          <a href="/content/trust/methodology.html" class="trust-strip__link">
+            Read our methodology &rarr;
+          </a>
+        </div>
+
+        <div class="trust-strip__item">
+          <span class="trust-strip__label">AI Use</span>
+          <p class="trust-strip__desc">
+            AI tools assist with research and production. All editorial decisions
+            and final verification remain human-owned.
+          </p>
+          <a href="/content/trust/ai-use.html" class="trust-strip__link">
+            View AI disclosure &rarr;
+          </a>
+        </div>
+
+        <div class="trust-strip__item">
+          <span class="trust-strip__label">Corrections</span>
+          <p class="trust-strip__desc">
+            Errors are corrected promptly and logged permanently. The corrections
+            record is never edited or deleted.
+          </p>
+          <a href="/content/trust/corrections.html" class="trust-strip__link">
+            View corrections log &rarr;
+          </a>
+        </div>
+
       </div>
     </div>
-  </section>
 
-  <!-- ══════════════════════════════════════
-       METHODS TEASER
-  ══════════════════════════════════════ -->
-  <section class="methods-teaser" aria-labelledby="methods-heading">
-    <div class="methods-teaser-inner">
-      <h2 class="section-heading" id="methods-heading">How We Work</h2>
-      <div class="methods-cols">
+
+  </main>
+
+
+  <!-- ============================================================
+       GLOBAL FOOTER
+       components/footer.html — paste here
+       ============================================================ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__inner">
+
+      <div class="site-footer__grid">
 
         <div>
-          <p class="methods-col-title">// Evidence Tiers</p>
-          <div class="tier-row">
-            <span class="tier-badge tier-confirmed">Confirmed</span>
-            <span class="tier-text">Verified through two or more independent primary sources. Laboratory results, official records, or government documentation.</span>
-          </div>
-          <div class="tier-row">
-            <span class="tier-badge tier-probable">Probable</span>
-            <span class="tier-text">Supported by primary sources with minor gaps. High confidence. Explicit uncertainty noted.</span>
-          </div>
-          <div class="tier-row">
-            <span class="tier-badge tier-alleged">Alleged</span>
-            <span class="tier-text">Single source or secondhand documentation. Published for public interest; not independently verified.</span>
-          </div>
-          <div class="tier-row">
-            <span class="tier-badge tier-unverified">Unverified</span>
-            <span class="tier-text">Reported claim without primary documentation. Included for context only.</span>
-          </div>
+          <p class="site-footer__brand-name">Insight&nbsp;Gaps</p>
+          <p class="site-footer__mandate">
+            Independent forensic data journalism from Dhaka, Bangladesh.
+          </p>
         </div>
 
         <div>
-          <p class="methods-col-title">// Our Rules</p>
-          <div class="rule-item">Every statistic is tied to a named source or primary document. If the data shows something surprising, we dig harder — not faster.</div>
-          <div class="rule-item">We undercount, not overcount. If the real figure is worse, our direction holds. Corrections are permanent, visible, and dated.</div>
-          <div class="rule-item">Official denial is data, not a rebuttal. We publish both. We do not accept advertising or funding that shapes coverage.</div>
-          <div class="rule-item">The full dataset is always available for inspection. <a href="/data/">Findings must be reproducible →</a></div>
-          <div class="rti-row">
-            <div class="rti-item">
-              <span class="rti-id">BD-RTI-006</span>
-              <span>DoE enforcement registry</span>
-              <span>Filed Feb 2026</span>
-              <span class="rti-badge-pending">Pending</span>
-            </div>
-            <div class="rti-item">
-              <span class="rti-id">BD-RTI-005</span>
-              <span>BNPC conviction records</span>
-              <span>Filed Jan 2026</span>
-              <span class="rti-badge-partial">Received (partial)</span>
-            </div>
-            <div class="rti-item">
-              <span class="rti-id">BD-RTI-004</span>
-              <span>BRTA fatal crash data</span>
-              <span>Filed Dec 2025</span>
-              <span class="rti-badge-received">Received</span>
-            </div>
-          </div>
-          <div class="methods-more"><a href="/methods/">Full methodology →</a></div>
+          <span class="site-footer__col-label">Navigate</span>
+          <nav class="site-footer__nav" aria-label="Footer navigation">
+            <a href="/content/investigations/">Investigations</a>
+            <a href="/analysis/">Analysis</a>
+            <a href="/archive.html">Archive</a>
+            <a href="/about.html">About</a>
+          </nav>
+        </div>
+
+        <div>
+          <span class="site-footer__col-label">Trust</span>
+          <nav class="site-footer__nav" aria-label="Trust navigation">
+            <a href="/content/trust/methodology.html">Methodology</a>
+            <a href="/content/trust/ai-use.html">AI Use</a>
+            <a href="/content/trust/corrections.html">Corrections</a>
+            <a href="/contact.html">Contact</a>
+          </nav>
         </div>
 
       </div>
-    </div>
-  </section>
 
-  <!-- ══════════════════════════════════════
-       DATA ACCESS
-  ══════════════════════════════════════ -->
-  <section class="data-access" aria-labelledby="data-heading">
-    <div class="data-access-inner">
-      <h2 class="section-heading" id="data-heading">Open Data</h2>
-      <p class="data-sub">All datasets published under Creative Commons BY-NC 4.0. Cite freely. Reproduce with attribution. Do not commercialise.</p>
-
-      <a href="/data/BD-INV-003_LeadBelt_MasterDataset_v5.xlsx" class="download-row">
-        <span class="download-arrow">↓</span>
-        <div class="download-info">
-          <p class="download-name">Lead Belt Master Dataset</p>
-          <p class="download-meta">BD-INV-003 · XLSX · March 2026 · /data/BD-INV-003_LeadBelt_MasterDataset_v5.xlsx</p>
-        </div>
-      </a>
-
-      <a href="/data/BD-INV-002_Master_Evidence_File.xlsx" class="download-row">
-        <span class="download-arrow">↓</span>
-        <div class="download-info">
-          <p class="download-name">Impunity Machine Evidence File</p>
-          <p class="download-meta">BD-INV-002 · XLSX · March 2026 · /data/BD-INV-002_Master_Evidence_File.xlsx</p>
-        </div>
-      </a>
-
-      <div class="nav-tiles">
-        <a href="/investigations/" class="nav-tile">All investigations →</a>
-        <a href="/methods/" class="nav-tile">Methods &amp; Standards →</a>
-        <a href="/about/" class="nav-tile">About the bureau →</a>
+      <div class="site-footer__bottom">
+        <p class="site-footer__copy">
+          &copy; <span class="js-copyright-year">2025</span> Insight Gaps Bureau.
+          Original reporting licensed under
+          <a href="https://creativecommons.org/licenses/by/4.0/"
+             target="_blank"
+             rel="noopener noreferrer">CC&nbsp;BY&nbsp;4.0</a>
+          unless otherwise noted. Deployed on Vercel.
+        </p>
       </div>
-    </div>
-  </section>
 
-  <!-- ══════════════════════════════════════
-       FOOTER
-  ══════════════════════════════════════ -->
-  <footer class="footer" role="contentinfo">
-    <div class="footer-inner">
-      <div>
-        <p class="footer-brand">Insight Gaps</p>
-        <p class="footer-tagline">Forensic data journalism from Bangladesh.<br>CC BY-NC 4.0 — cite freely, don't commercialise.</p>
-        <p class="footer-email">insightgaps@proton.me</p>
-      </div>
-      <div>
-        <p class="footer-col-title">Investigations</p>
-        <ul class="footer-links">
-          <li><a href="/investigations/">All Investigations</a></li>
-          <li><a href="/investigations/national/lead-belt/visual.html">The Lead Belt</a></li>
-          <li><a href="/investigations/national/impunity-machine/">The Impunity Machine</a></li>
-          <li><a href="/investigations/national/impunity-machine/tracker.html">Live Tracker</a></li>
-          <li><a href="/data/">Data Downloads</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="footer-col-title">Platform</p>
-        <ul class="footer-links">
-          <li><a href="/analysis/">Analysis</a></li>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/methods/">Methods</a></li>
-          <li><a href="mailto:insightgaps@proton.me">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span class="footer-bottom-text">© 2026 Insight Gaps Bureau · Dhaka, Bangladesh · Non-partisan · Independent</span>
-      <span class="footer-bottom-text">insightgaps.com</span>
     </div>
   </footer>
+
+
+  <!-- ============================================================
+       SCRIPTS
+       ============================================================ -->
+
+  <!-- Header: mobile nav + active link -->
+  <script>
+  (function () {
+    'use strict';
+
+    var toggle = document.querySelector('.site-header__toggle');
+    var nav    = document.querySelector('.site-nav');
+
+    if (toggle && nav) {
+      toggle.addEventListener('click', function () {
+        var isOpen = nav.classList.toggle('site-nav--open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!toggle.contains(e.target) && !nav.contains(e.target)) {
+          nav.classList.remove('site-nav--open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && nav.classList.contains('site-nav--open')) {
+          nav.classList.remove('site-nav--open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.focus();
+        }
+      });
+    }
+
+    /* Active nav link */
+    var path  = window.location.pathname;
+    var links = document.querySelectorAll('.site-nav__link');
+    links.forEach(function (link) {
+      var href = link.getAttribute('href');
+      link.classList.remove('site-nav__link--active');
+      link.removeAttribute('aria-current');
+      if (
+        href === path ||
+        (href !== '/' && href.length > 1 && path.startsWith(href))
+      ) {
+        link.classList.add('site-nav__link--active');
+        link.setAttribute('aria-current', 'page');
+      }
+    });
+
+    /* Copyright year */
+    var yr  = String(new Date().getFullYear());
+    var els = document.querySelectorAll('.js-copyright-year');
+    els.forEach(function (el) { el.textContent = yr; });
+
+  }());
+  </script>
+
+  <!-- Data loader — renders cards, metrics, and featured investigation -->
+  <!-- Built at Step 15 of the build sequence -->
+  <script src="/assets/js/data-loader.js" defer></script>
 
 </body>
 </html>
