@@ -1,2 +1,6 @@
 *.png
 scratch/
+data/*.xlsx
+data/*.csv
+data/*.geojson
+data/blood_routes_accidents.json
