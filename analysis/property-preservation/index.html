@@ -3,360 +3,139 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Property Preservation Analysis — Insight Gaps Bureau</title>
-  <meta name="description" content="Forensic financial and operational analysis for US property preservation businesses. Covers cash flow risk, vendor performance, compliance exposure, and portfolio health.">
-
-  <meta property="og:type"        content="website">
-  <meta property="og:title"       content="Property Preservation Analysis — Insight Gaps Bureau">
-  <meta property="og:description" content="Forensic financial and operational analysis for US property preservation businesses.">
-  <meta property="og:url"         content="https://insightgaps.com/analysis/property-preservation/">
-  <meta property="og:image"       content="/assets/img/og-default.jpg">
-
-  <link rel="canonical" href="https://insightgaps.com/analysis/property-preservation/">
+  <title>EPCS Property Preservation Intelligence OS — Insight Gaps Bureau</title>
+  <meta name="description" content="Operational dashboard tracking work order performance, margin leakage, and ZIP coverage for property preservation.">
+  
   <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://insightgaps.com/analysis/property-preservation/">
 
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <link rel="stylesheet" href="/assets/css/components.css">
+  <!-- Chart.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 
-  <style>
-    .analysis-domain {
-      width:          100%;
-      padding-bottom: var(--space-9);
-    }
-
-    /* ---- Domain header ---- */
-    .analysis-domain__header {
-      padding:       var(--space-8) 0 var(--space-7);
-      border-bottom: var(--border-width) solid var(--color-border);
-      margin-bottom: var(--space-7);
-    }
-
-    .analysis-domain__header-inner {
-      max-width: var(--grid-content);
-      margin:    0 auto;
-      padding:   0 var(--grid-padding);
-    }
-
-    .analysis-domain__title {
-      font-family:    var(--font-headline);
-      font-size:      var(--type-h1);
-      font-weight:    700;
-      line-height:    var(--leading-tight);
-      letter-spacing: var(--tracking-tight);
-      color:          var(--color-text-primary);
-      margin-bottom:  var(--space-3);
-    }
-
-    .analysis-domain__audience {
-      font-family:    var(--font-mono);
-      font-size:      var(--type-label);
-      letter-spacing: var(--tracking-wide);
-      text-transform: uppercase;
-      color:          var(--color-text-muted);
-      display:        block;
-      margin-bottom:  var(--space-4);
-    }
-
-    .analysis-domain__description {
-      font-family:   var(--font-body);
-      font-size:     var(--type-body);
-      line-height:   var(--leading-body);
-      color:         var(--color-text-secondary);
-      margin-bottom: var(--space-5);
-    }
-
-    .analysis-domain__meta {
-      display:        flex;
-      align-items:    center;
-      gap:            var(--space-4);
-      font-family:    var(--font-mono);
-      font-size:      var(--type-label);
-      letter-spacing: var(--tracking-wide);
-      color:          var(--color-text-muted);
-      flex-wrap:      wrap;
-    }
-
-    .analysis-domain__meta-sep {
-      color: var(--color-border-strong);
-    }
-
-    /* ---- Reports grid body ---- */
-    .analysis-domain__body {
-      max-width: var(--grid-wide);
-      margin:    0 auto;
-      padding:   0 var(--grid-padding);
-    }
-
-    /* ---- Report card ---- */
-    .report-card {
-      position:         relative;
-      background-color: var(--color-surface);
-      border:           var(--border-width) solid var(--color-border);
-      border-top:       var(--border-width-strong) solid var(--color-border-strong);
-      padding:          var(--space-5);
-      border-radius:    var(--radius-md);
-      transition:       border-top-color var(--transition-fast),
-                        border-color var(--transition-fast);
-      display:          flex;
-      flex-direction:   column;
-      gap:              var(--space-3);
-    }
-
-    .report-card:hover {
-      border-top-color: var(--color-accent);
-      border-color:     var(--color-border-strong);
-    }
-
-    .report-card__tag {
-      font-family:    var(--font-mono);
-      font-size:      var(--type-label);
-      letter-spacing: var(--tracking-wide);
-      text-transform: uppercase;
-      color:          var(--color-text-muted);
-    }
-
-    .report-card__title {
-      font-family: var(--font-headline);
-      font-size:   var(--type-h3);
-      font-weight: 600;
-      color:       var(--color-text-primary);
-      line-height: var(--leading-tight);
-    }
-
-    .report-card__summary {
-      font-family: var(--font-body);
-      font-size:   var(--type-body-sm);
-      color:       var(--color-text-secondary);
-      line-height: var(--leading-body);
-      flex-grow:   1;
-    }
-
-    .report-card__footer {
-      display:     flex;
-      align-items: center;
-      justify-content: space-between;
-      gap:         var(--space-2);
-      padding-top: var(--space-3);
-      border-top:  var(--border-width) solid var(--color-border);
-      margin-top:  auto;
-    }
-
-    .report-card__date {
-      font-family:    var(--font-mono);
-      font-size:      var(--type-label);
-      color:          var(--color-text-muted);
-      letter-spacing: var(--tracking-wide);
-    }
-
-    .report-card__read {
-      font-family:    var(--font-mono);
-      font-size:      var(--type-label);
-      color:          var(--color-accent);
-      letter-spacing: var(--tracking-wide);
-      text-decoration: none;
-    }
-
-    .report-card__link {
-      position: absolute;
-      inset:    0;
-    }
-
-    .commission-note {
-      font-family:   var(--font-body);
-      font-size:     var(--type-body-sm);
-      color:         var(--color-text-muted);
-      margin-top:    calc(-1 * var(--space-3));
-      margin-bottom: var(--space-5);
-    }
-  </style>
+  <!-- Global Stylesheet -->
+  <link rel="stylesheet" href="os-assets/os-shell.css">
+  <link rel="stylesheet" href="os-assets/os-views.css">
 </head>
 <body>
 
-  <!-- GLOBAL HEADER -->
-  <a href="#main-content" class="skip-link">Skip to content</a>
+  <div class="os-shell">
+    
+    <!-- Sidebar -->
+    <aside class="os-sidebar">
+      
+      <!-- Logo block -->
+      <div class="os-sidebar__logo-block">
+        <div class="os-sidebar__logo-badge">EP</div>
+        <div class="os-sidebar__brand">
+          <span class="os-sidebar__brand-name">Property Preservation</span>
+          <span class="os-sidebar__brand-sub">INTELLIGENCE OS</span>
+        </div>
+      </div>
 
-  <header class="site-header" role="banner">
-    <div class="site-header__inner">
-      <a href="/" class="site-header__logo" aria-label="Insight Gaps Bureau — Home">
-        Insight&nbsp;Gaps
-      </a>
-      <button class="site-header__toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="site-nav" id="primary-nav" aria-label="Primary navigation">
-        <a href="/content/investigations/" class="site-nav__link">Investigations</a>
-        <a href="/analysis/"               class="site-nav__link site-nav__link--active" aria-current="page">Analysis</a>
-        <a href="/archive.html"            class="site-nav__link">Archive</a>
-        <a href="/about.html"              class="site-nav__link">About</a>
-        <a href="/content/trust/methodology.html" class="site-nav__link">Trust</a>
+      <!-- Navigation items -->
+      <nav class="os-nav">
+        <a class="os-nav__item active" data-view="pulse">
+          <span class="os-nav__icon">⚡</span>
+          <span class="os-nav__label">Morning Pulse</span>
+        </a>
+        <a class="os-nav__item" data-view="financial">
+          <span class="os-nav__icon">💰</span>
+          <span class="os-nav__label">Financials</span>
+        </a>
+        <a class="os-nav__item" data-view="leakage">
+          <span class="os-nav__icon">🔍</span>
+          <span class="os-nav__label">Leakage Breakdown</span>
+        </a>
+        <a class="os-nav__item" data-view="workorders">
+          <span class="os-nav__icon">📋</span>
+          <span class="os-nav__label">Work Orders</span>
+          <span class="os-nav__badge" id="badge-workorders">0</span>
+        </a>
+        <a class="os-nav__item" data-view="contractors">
+          <span class="os-nav__icon">👷</span>
+          <span class="os-nav__label">Contractors</span>
+        </a>
+        <a class="os-nav__item" data-view="communications">
+          <span class="os-nav__icon">💬</span>
+          <span class="os-nav__label">Communications</span>
+          <span class="os-nav__badge" id="badge-comms">0</span>
+        </a>
+        <a class="os-nav__item" data-view="zip">
+          <span class="os-nav__icon">🗺️</span>
+          <span class="os-nav__label">ZIP Intelligence</span>
+        </a>
+        <a class="os-nav__item" data-view="workbook">
+          <span class="os-nav__icon">📊</span>
+          <span class="os-nav__label">Workbook</span>
+        </a>
       </nav>
-    </div>
-  </header>
 
-  <!-- MAIN CONTENT -->
-  <main id="main-content" class="analysis-domain">
-
-    <div class="analysis-domain__header">
-      <div class="analysis-domain__header-inner">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/analysis/">Analysis</a>
-          <span class="breadcrumb__sep" aria-hidden="true">&rsaquo;</span>
-          <span>Property Preservation</span>
-        </nav>
-
-        <h1 class="analysis-domain__title">Property Preservation</h1>
-        <span class="analysis-domain__audience">Business operators, investors, portfolio reviewers</span>
-        <p class="analysis-domain__description">
-          Forensic financial and operational analysis for property preservation businesses in the United States. Covers cash flow risk, vendor performance, compliance exposure, and portfolio health. Designed for operators, investors, and portfolio reviewers who need data-backed insight, not summaries.
-        </p>
-
-        <div class="analysis-domain__meta">
-          <span>4 reports</span>
-          <span class="analysis-domain__meta-sep" aria-hidden="true">&middot;</span>
-          <span>Last updated June 2026</span>
-        </div>
+      <!-- Sidebar footer -->
+      <div class="os-sidebar__footer">
+        <span class="os-sidebar__data-tag">Real data · Demo instance</span>
+        <span class="os-sidebar__period">Nov 2025 – Jun 2026</span>
+        <a href="https://insightgaps.com" class="os-sidebar__site-link">← insightgaps.com</a>
       </div>
-    </div>
 
-    <div class="analysis-domain__body">
-      <div class="card-grid--two" aria-label="Reports in this domain">
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="os-content">
+      
+      <!-- Content Header (Filter Bar) -->
+      <header class="os-filter-bar">
+        <div class="os-filter-bar__left">
+          <h1 class="os-filter-bar__view-title" id="current-view-title">Morning Pulse</h1>
+        </div>
         
-        <article class="report-card">
-          <span class="report-card__tag">Cash Flow Risk</span>
-          <h2 class="report-card__title">Financial Health: The Cash Chain</h2>
-          <p class="report-card__summary">Analysis of receivables, vendor payment cycles, and work order volume trends reveals a pattern of cash flow compression common to mid-sized property preservation operators.</p>
-          <div class="report-card__footer">
-            <time class="report-card__date" datetime="2026-01-01">1 January 2026</time>
-            <span class="report-card__read" aria-hidden="true">Read report &rarr;</span>
-          </div>
-          <a class="report-card__link" href="/analysis/property-preservation/financial-health.html">
-            <span class="sr-only">Read Financial Health: The Cash Chain</span>
-          </a>
-        </article>
-
-        <article class="report-card">
-          <span class="report-card__tag">Margin Erosion</span>
-          <h2 class="report-card__title">Leakage Breakdown: Structural Autopsy</h2>
-          <p class="report-card__summary">Forensic audit of margin erosion mapping $24,048 in total leakage by vendor, cause, and client. Isolates contractor cost overruns as the dominant loss category.</p>
-          <div class="report-card__footer">
-            <time class="report-card__date" datetime="2026-01-01">1 January 2026</time>
-            <span class="report-card__read" aria-hidden="true">Read report &rarr;</span>
-          </div>
-          <a class="report-card__link" href="/analysis/property-preservation/leakage-breakdown.html">
-            <span class="sr-only">Read Leakage Breakdown: Structural Autopsy</span>
-          </a>
-        </article>
-
-        <article class="report-card">
-          <span class="report-card__tag">Portfolio Risk</span>
-          <h2 class="report-card__title">Work Order Breakdown: The Risk Matrix</h2>
-          <p class="report-card__summary">Quantitative review ranking 13 service categories by leakage and income efficiency. Exposes high-volume loss-making activities.</p>
-          <div class="report-card__footer">
-            <time class="report-card__date" datetime="2026-01-01">1 January 2026</time>
-            <span class="report-card__read" aria-hidden="true">Read report &rarr;</span>
-          </div>
-          <a class="report-card__link" href="/analysis/property-preservation/work-order-breakdown.html">
-            <span class="sr-only">Read Work Order Breakdown: The Risk Matrix</span>
-          </a>
-        </article>
-
-        <article class="report-card">
-          <span class="report-card__tag">Analytical Tool</span>
-          <h2 class="report-card__title">Interactive Workbook &amp; Dashboard</h2>
-          <p class="report-card__summary">Interactive Looker Studio dashboard and Google Sheets workbook built directly on 268 forensic work order records to automate tracking of margin erosion, aging receivables, and contractor efficiency.</p>
-          <div class="report-card__footer">
-            <time class="report-card__date" datetime="2026-01-01">1 January 2026</time>
-            <span class="report-card__read" aria-hidden="true">Open tool &rarr;</span>
-          </div>
-          <a class="report-card__link" href="/analysis/property-preservation/sheet.html">
-            <span class="sr-only">Open Interactive Workbook &amp; Dashboard</span>
-          </a>
-        </article>
-
-      </div>
-    </div>
-
-    <!-- COMMISSION CTA -->
-    <div class="analysis-domain__body" style="margin-top: var(--space-8);">
-      <div class="analysis-cta">
-        <h2 class="analysis-cta__headline">Commission a Custom Analysis</h2>
-        <p class="analysis-cta__text">
-          Need a forensic data report tailored to your specific question, portfolio, or institution? Insight Gaps Bureau produces bespoke analysis on request.
-        </p>
-        <p class="commission-note">Typical turnaround: 5–10 business days. Response within 24 hours.</p>
-        <a href="/contact.html" class="btn btn--primary">Get in touch &rarr;</a>
-      </div>
-    </div>
-
-  </main>
-
-  <!-- GLOBAL FOOTER -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="site-footer__inner">
-      <div class="site-footer__grid">
-        <div>
-          <p class="site-footer__brand-name">Insight&nbsp;Gaps</p>
-          <p class="site-footer__mandate">Independent forensic data journalism from Dhaka, Bangladesh.</p>
+        <div class="os-filter-bar__controls">
+          <select class="os-filter" id="filter-month">
+            <option value="all">All Period</option>
+            <option value="2025-11">Nov 2025</option>
+            <option value="2025-12">Dec 2025</option>
+            <option value="2026-01">Jan 2026</option>
+            <option value="2026-02">Feb 2026</option>
+            <option value="2026-03">Mar 2026</option>
+            <option value="2026-04">Apr 2026</option>
+            <option value="2026-05">May 2026</option>
+            <option value="2026-06">Jun 2026</option>
+          </select>
+          
+          <select class="os-filter" id="filter-client">
+            <option value="all">All Clients</option>
+            <option value="MCS">MCS</option>
+            <option value="ServiceLink">ServiceLink</option>
+            <option value="FiveBrothers">Five Brothers</option>
+            <option value="MSI">MSI</option>
+            <option value="Safeguard">Safeguard</option>
+            <option value="ZVN">ZVN</option>
+          </select>
+          
+          <select class="os-filter" id="filter-contractor">
+            <option value="all">All Contractors</option>
+            <!-- Dynamically populated -->
+          </select>
+          
+          <button class="os-filter-reset" id="filter-reset">Clear ×</button>
         </div>
-        <div>
-          <span class="site-footer__col-label">Navigate</span>
-          <nav class="site-footer__nav" aria-label="Footer navigation">
-            <a href="/content/investigations/">Investigations</a>
-            <a href="/analysis/">Analysis</a>
-            <a href="/archive.html">Archive</a>
-            <a href="/about.html">About</a>
-          </nav>
-        </div>
-        <div>
-          <span class="site-footer__col-label">Trust</span>
-          <nav class="site-footer__nav" aria-label="Trust navigation">
-            <a href="/content/trust/methodology.html">Methodology</a>
-            <a href="/content/trust/ai-use.html">AI Use</a>
-            <a href="/content/trust/corrections.html">Corrections</a>
-            <a href="/contact.html">Contact</a>
-          </nav>
-        </div>
-      </div>
-      <div class="site-footer__bottom">
-        <p class="site-footer__copy">
-          &copy; <span class="js-copyright-year">2025</span> Insight Gaps Bureau. Original reporting licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC&nbsp;BY&nbsp;4.0</a>. Deployed on Vercel.
-        </p>
-      </div>
-    </div>
-  </footer>
+      </header>
 
-  <script>
-  (function () {
-    'use strict';
-    var toggle = document.querySelector('.site-header__toggle');
-    var nav    = document.querySelector('.site-nav');
-    if (toggle && nav) {
-      toggle.addEventListener('click', function () {
-        var isOpen = nav.classList.toggle('site-nav--open');
-        toggle.setAttribute('aria-expanded', String(isOpen));
-      });
-      document.addEventListener('click', function (e) {
-        if (!toggle.contains(e.target) && !nav.contains(e.target)) {
-          nav.classList.remove('site-nav--open');
-          toggle.setAttribute('aria-expanded', 'false');
-        }
-      });
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && nav.classList.contains('site-nav--open')) {
-          nav.classList.remove('site-nav--open');
-          toggle.setAttribute('aria-expanded', 'false');
-          toggle.focus();
-        }
-      });
-    }
-    var yr = String(new Date().getFullYear());
-    document.querySelectorAll('.js-copyright-year').forEach(function (el) { el.textContent = yr; });
-  }());
-  </script>
+      <!-- Sub-view content loaded here -->
+      <div class="os-view-container" id="view-container">
+        <!-- Loaded via AJAX -->
+      </div>
 
+    </main>
+
+  </div>
+
+  <!-- Data and Shell Scripts -->
+  <script src="data/epcs_data.js"></script>
+  <script src="os-assets/os-nav.js"></script>
 </body>
 </html>

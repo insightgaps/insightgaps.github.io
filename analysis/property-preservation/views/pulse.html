@@ -1,0 +1,229 @@
+<div class="os-view-body">
+  <!-- KPI Grid -->
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-card__label">Active Work Orders</div>
+      <div class="kpi-card__value" id="kpi-active-wos">0</div>
+      <div class="kpi-card__sub">Awaiting closure / review</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-card__label">SLA Risk Index</div>
+      <div class="kpi-card__value kpi-card__value--amber" id="kpi-sla-risk">0</div>
+      <div class="kpi-card__sub">Overdue or high risk score</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-card__label">Outstanding Receivables</div>
+      <div class="kpi-card__value kpi-card__value--red" id="kpi-receivables">$0.00</div>
+      <div class="kpi-card__sub">Outstanding invoice value</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-card__label">Loss to Leakage</div>
+      <div class="kpi-card__value kpi-card__value--red" id="kpi-leakage">$0.00</div>
+      <div class="kpi-card__sub">Total client + vendor erosion</div>
+    </div>
+  </div>
+
+  <!-- Active Alerts Section -->
+  <div class="view-section">
+    <div class="view-section__title">Active Operational Alerts</div>
+    <div id="alerts-container">
+      <!-- Generated dynamically -->
+    </div>
+  </div>
+
+  <!-- Priority Items Table -->
+  <div class="view-section">
+    <div class="view-section__title">High-Risk Active Work Orders</div>
+    <div class="os-table-wrapper">
+      <table class="os-table">
+        <thead>
+          <tr>
+            <th>WO Number</th>
+            <th>Client</th>
+            <th>Service Type</th>
+            <th>Contractor</th>
+            <th>Due Date</th>
+            <th class="num">Risk Score</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="priority-wos-body">
+          <!-- Populated dynamically -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      function renderPulse() {
+        if (!window.EPCS_DATA) return;
+        var data = window.EPCS_DATA;
+        var filters = window.EPCS_FILTERS || { month: 'all', client: 'all', contractor: 'all' };
+
+        // Helper to match filter conditions
+        function matchFilters(wo) {
+          if (filters.month !== 'all') {
+            if (!wo.due_date || !wo.due_date.startsWith(filters.month)) return false;
+          }
+          if (filters.client !== 'all' && wo.client !== filters.client) return false;
+          if (filters.contractor !== 'all' && wo.contractor !== filters.contractor) return false;
+          return true;
+        }
+
+        // Filter datasets
+        var filteredWOs = data.work_orders.filter(matchFilters);
+        var filteredFin = data.financial_records.filter(function (f) {
+          // Find matching work order to apply geographic/month filters
+          var wo = data.work_orders.find(function (w) { return w.wo_number === f.wo_number; });
+          return wo ? matchFilters(wo) : false;
+        });
+
+        // Compute KPIs
+        var activeWOs = filteredWOs.filter(function (w) { return w.status === 'Assigned' || w.status === 'Submitted'; }).length;
+        var slaRisk = filteredWOs.filter(function (w) { return (w.status !== 'Closed' && w.risk_score >= 50); }).length;
+        
+        var outstandingReceivables = filteredFin.reduce(function (acc, f) {
+          // If payment received_date is null/None in financial record
+          if (!f.received_date) {
+            return acc + f.invoice_amount;
+          }
+          return acc;
+        }, 0);
+
+        var totalLeakage = filteredFin.reduce(function (acc, f) {
+          return acc + (f.total_leakage || 0);
+        }, 0);
+
+        // Update DOM elements
+        document.getElementById('kpi-active-wos').textContent = activeWOs;
+        document.getElementById('kpi-sla-risk').textContent = slaRisk;
+        document.getElementById('kpi-receivables').textContent = '$' + outstandingReceivables.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        document.getElementById('kpi-leakage').textContent = '$' + totalLeakage.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+        // Generate Alert Cards
+        var alertsContainer = document.getElementById('alerts-container');
+        alertsContainer.innerHTML = '';
+        var alertsCount = 0;
+
+        // Alert 1: Insurance Expiry Alert
+        var expiredContractors = data.contractors.filter(function (c) {
+          var exp = new Date(c.insurance_expiry);
+          var today = new Date('2026-06-07');
+          return exp <= today && c.active;
+        });
+        
+        // Filter by contractor if filter applied
+        if (filters.contractor !== 'all') {
+          expiredContractors = expiredContractors.filter(function (c) { return c.name === filters.contractor; });
+        }
+
+        expiredContractors.forEach(function (c) {
+          alertsCount++;
+          var card = document.createElement('div');
+          card.className = 'alert-card alert-card--red';
+          card.innerHTML = `
+            <span class="alert-card__icon">⚠️</span>
+            <div>
+              <div class="alert-card__title">Insurance Expired: ${c.name} (${c.company})</div>
+              <div class="alert-card__desc">Insurance expired on ${c.insurance_expiry}. Halt all assignments to avoid liability exposure.</div>
+            </div>
+          `;
+          alertsContainer.appendChild(card);
+        });
+
+        // Alert 2: ServiceLink aging receivables
+        if (filters.client === 'all' || filters.client === 'ServiceLink') {
+          var slFin = filteredFin.filter(function (f) { return f.client === 'ServiceLink' && !f.received_date; });
+          var slOustanding = slFin.reduce(function (acc, f) { return acc + f.invoice_amount; }, 0);
+          if (slOustanding > 10000) {
+            alertsCount++;
+            var card = document.createElement('div');
+            card.className = 'alert-card alert-card--red';
+            card.innerHTML = `
+              <span class="alert-card__icon">💰</span>
+              <div>
+                <div class="alert-card__title">High Collections Risk: ServiceLink Outstanding Balance</div>
+                <div class="alert-card__desc">ServiceLink has $${slOustanding.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} outstanding past 90 days. Risk of capital compression.</div>
+              </div>
+            `;
+            alertsContainer.appendChild(card);
+          }
+        }
+
+        // Alert 3: Submitted WO backlog older than 30 days
+        var oldSubmitted = filteredWOs.filter(function (w) {
+          if (w.status === 'Submitted' && w.completion_date) {
+            var comp = new Date(w.completion_date);
+            var today = new Date('2026-06-07');
+            var diff = (today - comp) / (1000 * 60 * 60 * 24);
+            return diff > 30;
+          }
+          return false;
+        });
+
+        if (oldSubmitted.length > 0) {
+          alertsCount++;
+          var card = document.createElement('div');
+          card.className = 'alert-card alert-card--amber';
+          card.innerHTML = `
+            <span class="alert-card__icon">⏳</span>
+            <div>
+              <div class="alert-card__title">Awaiting Client Approval Backlog</div>
+              <div class="alert-card__desc">${oldSubmitted.length} work orders submitted over 30 days ago remain unapproved. Escalation recommended.</div>
+            </div>
+          `;
+          alertsContainer.appendChild(card);
+        }
+
+        if (alertsCount === 0) {
+          alertsContainer.innerHTML = '<div style="color:var(--os-green);font-size:12px;font-family:Space Mono,monospace;padding:8px 0;">⚡ All systems operational. Zero critical alerts.</div>';
+        }
+
+        // Populate High-Risk Active Work Orders Table
+        var tableBody = document.getElementById('priority-wos-body');
+        tableBody.innerHTML = '';
+
+        var highRiskWOs = filteredWOs
+          .filter(function (w) { return w.status !== 'Closed' && w.risk_score > 0; })
+          .sort(function (a, b) { return b.risk_score - a.risk_score; })
+          .slice(0, 10);
+
+        if (highRiskWOs.length === 0) {
+          tableBody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:#8C8985;padding:20px;">No active high-risk work orders found.</td></tr>';
+        } else {
+          highRiskWOs.forEach(function (w) {
+            var tr = document.createElement('tr');
+            var statusPill = w.status === 'Submitted' ? 'pill--blue' : 'pill--amber';
+            tr.innerHTML = `
+              <td><strong>${w.wo_number}</strong></td>
+              <td>${w.client}</td>
+              <td>${w.order_type}</td>
+              <td>${w.contractor}</td>
+              <td>${w.due_date}</td>
+              <td class="num" style="color: ${w.risk_score >= 70 ? 'var(--os-red)' : 'var(--os-accent)'}; font-weight:bold;">${w.risk_score}</td>
+              <td><span class="pill ${statusPill}">${w.status}</span></td>
+            `;
+            tableBody.appendChild(tr);
+          });
+        }
+      }
+
+      // Event listeners
+      window.addEventListener('epcs:view-loaded', function (e) {
+        if (e.detail.view === 'pulse') renderPulse();
+      });
+
+      window.addEventListener('epcs:filter-change', function () {
+        // Only render if the pulse view is currently loaded in container
+        var activeItem = document.querySelector('.os-nav__item.active');
+        if (activeItem && activeItem.dataset.view === 'pulse') {
+          renderPulse();
+        }
+      });
+
+    })();
+  </script>
+</div>

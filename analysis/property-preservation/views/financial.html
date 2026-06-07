@@ -1,0 +1,270 @@
+<div class="os-view-body">
+  <!-- KPI Grid -->
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-card__label">Total Invoiced</div>
+      <div class="kpi-card__value" id="fin-invoiced">$0.00</div>
+      <div class="kpi-card__sub" id="fin-invoice-count">0 work orders</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-card__label">Cash Collected</div>
+      <div class="kpi-card__value kpi-card__value--green" id="fin-collected">$0.00</div>
+      <div class="kpi-card__sub" id="fin-collected-pct">0.0% conversion</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-card__label">Expected Margin</div>
+      <div class="kpi-card__value kpi-card__value--amber" id="fin-expected-margin">$0.00</div>
+      <div class="kpi-card__sub" id="fin-expected-margin-pct">0.0% projected</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-card__label">Realized Margin</div>
+      <div class="kpi-card__value kpi-card__value--green" id="fin-realized-margin">$0.00</div>
+      <div class="kpi-card__sub" id="fin-realized-margin-pct">0.0% margin rate</div>
+    </div>
+  </div>
+
+  <!-- Charts Section -->
+  <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px;" class="kpi-grid">
+    <div class="view-section">
+      <div class="view-section__title">Revenue Breakdown</div>
+      <div class="chart-wrap" style="height: 250px;">
+        <canvas id="revBreakdownChart"></canvas>
+      </div>
+    </div>
+    <div class="view-section">
+      <div class="view-section__title">Client Margin Efficiency</div>
+      <div class="chart-wrap" style="height: 250px;">
+        <canvas id="clientEfficiencyChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Aging Receivables Table -->
+  <div class="view-section">
+    <div class="view-section__title">Aging Accounts Receivable Ledger</div>
+    <div class="os-table-wrapper">
+      <table class="os-table">
+        <thead>
+          <tr>
+            <th>Client Name</th>
+            <th class="num">Invoiced</th>
+            <th class="num">Collected</th>
+            <th class="num">Outstanding</th>
+            <th class="num">Leakage Loss</th>
+            <th class="num">Avg Payment Days</th>
+            <th>Account Status</th>
+          </tr>
+        </thead>
+        <tbody id="aging-ledger-body">
+          <!-- Populated dynamically -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      // Keep references to charts to destroy them on reload
+      var revChart = null;
+      var clientChart = null;
+
+      function renderFinancial() {
+        if (!window.EPCS_DATA) return;
+        var data = window.EPCS_DATA;
+        var filters = window.EPCS_FILTERS || { month: 'all', client: 'all', contractor: 'all' };
+
+        // Helper to match filter conditions
+        function matchFilters(wo) {
+          if (filters.month !== 'all') {
+            if (!wo.due_date || !wo.due_date.startsWith(filters.month)) return false;
+          }
+          if (filters.client !== 'all' && wo.client !== filters.client) return false;
+          if (filters.contractor !== 'all' && wo.contractor !== filters.contractor) return false;
+          return true;
+        }
+
+        // Filter financial records
+        var filteredFin = data.financial_records.filter(function (f) {
+          var wo = data.work_orders.find(function (w) { return w.wo_number === f.wo_number; });
+          return wo ? matchFilters(wo) : false;
+        });
+
+        // Calculations
+        var totalInvoiced = filteredFin.reduce(function (acc, f) { return acc + f.invoice_amount; }, 0);
+        var totalCollected = filteredFin.reduce(function (acc, f) { return acc + f.received_amount; }, 0);
+        var totalExpectedContractor = filteredFin.reduce(function (acc, f) { return acc + f.expected_contractor; }, 0);
+        var totalPaidContractor = filteredFin.reduce(function (acc, f) { return acc + f.paid_to_contractor; }, 0);
+        var totalLeakage = filteredFin.reduce(function (acc, f) { return acc + (f.total_leakage || 0); }, 0);
+        
+        var expectedMargin = totalInvoiced - totalExpectedContractor;
+        var realizedMargin = totalCollected - totalPaidContractor;
+
+        var collectedPct = totalInvoiced > 0 ? (totalCollected / totalInvoiced * 100) : 0;
+        var expectedMarginPct = totalInvoiced > 0 ? (expectedMargin / totalInvoiced * 100) : 0;
+        var realizedMarginPct = totalCollected > 0 ? (realizedMargin / totalCollected * 100) : 0;
+
+        // Update KPIs
+        document.getElementById('fin-invoiced').textContent = '$' + totalInvoiced.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        document.getElementById('fin-invoice-count').textContent = filteredFin.length + ' work orders';
+        document.getElementById('fin-collected').textContent = '$' + totalCollected.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        document.getElementById('fin-collected-pct').textContent = collectedPct.toFixed(1) + '% conversion';
+        document.getElementById('fin-expected-margin').textContent = '$' + expectedMargin.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        document.getElementById('fin-expected-margin-pct').textContent = expectedMarginPct.toFixed(1) + '% projected';
+        document.getElementById('fin-realized-margin').textContent = '$' + realizedMargin.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        document.getElementById('fin-realized-margin-pct').textContent = realizedMarginPct.toFixed(1) + '% margin rate';
+
+        // Render Aging Ledger Table
+        var ledgerBody = document.getElementById('aging-ledger-body');
+        ledgerBody.innerHTML = '';
+
+        // Group by client
+        var clientsGroup = {};
+        data.clients.forEach(function (c) {
+          clientsGroup[c.client_name] = {
+            invoiced: 0,
+            collected: 0,
+            outstanding: 0,
+            leakage: 0,
+            terms: c.payment_terms,
+            avg_days: c.payment_days_avg,
+            health: c.account_health
+          };
+        });
+
+        filteredFin.forEach(function (f) {
+          var c = clientsGroup[f.client];
+          if (c) {
+            c.invoiced += f.invoice_amount;
+            c.collected += f.received_amount;
+            c.outstanding += (!f.received_date ? f.invoice_amount : 0);
+            c.leakage += (f.total_leakage || 0);
+          }
+        });
+
+        Object.keys(clientsGroup).forEach(function (name) {
+          var c = clientsGroup[name];
+          if (filters.client !== 'all' && filters.client !== name) return;
+          if (c.invoiced === 0 && filters.contractor !== 'all') return; // hide clients with no matching records
+
+          var tr = document.createElement('tr');
+          var healthClass = c.health === 'Green' ? 'pill--green' : (c.health === 'Yellow' ? 'pill--amber' : 'pill--red');
+          tr.innerHTML = `
+            <td><strong>${name}</strong> <span style="font-size:10px;color:#8C8985;">(${c.terms})</span></td>
+            <td class="num">$${c.invoiced.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+            <td class="num">$${c.collected.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+            <td class="num">$${c.outstanding.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+            <td class="num">$${c.leakage.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+            <td class="num">${c.avg_days} days</td>
+            <td><span class="pill ${healthClass}">${c.health}</span></td>
+          `;
+          ledgerBody.appendChild(tr);
+        });
+
+        // CHARTS
+        if (revChart) revChart.destroy();
+        if (clientChart) clientChart.destroy();
+
+        var outstandingTotal = totalInvoiced - totalCollected - totalLeakage;
+        if (outstandingTotal < 0) outstandingTotal = 0;
+
+        // 1. Revenue Donut Chart
+        var ctx1 = document.getElementById('revBreakdownChart').getContext('2d');
+        revChart = new Chart(ctx1, {
+          type: 'doughnut',
+          data: {
+            labels: ['Collected', 'Outstanding', 'Leakage Loss'],
+            datasets: [{
+              data: [
+                parseFloat(totalCollected.toFixed(2)),
+                parseFloat(outstandingTotal.toFixed(2)),
+                parseFloat(totalLeakage.toFixed(2))
+              ],
+              backgroundColor: ['#1A6B3C', '#C17D11', '#DC2626'],
+              borderColor: '#FFFFFF',
+              borderWidth: 2
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'bottom',
+                labels: {
+                  boxWidth: 12,
+                  font: { family: 'Space Mono', size: 10 }
+                }
+              }
+            }
+          }
+        });
+
+        // 2. Client margin bar chart
+        var clientNames = [];
+        var clientCollections = [];
+        var clientCosts = [];
+        var clientErosions = [];
+
+        Object.keys(clientsGroup).forEach(function (name) {
+          var c = clientsGroup[name];
+          if (c.invoiced > 0) {
+            clientNames.push(name);
+            clientCollections.push(parseFloat(c.collected.toFixed(2)));
+            clientCosts.push(parseFloat((c.invoiced - c.collected).toFixed(2))); // outstanding
+            clientErosions.push(parseFloat(c.leakage.toFixed(2)));
+          }
+        });
+
+        var ctx2 = document.getElementById('clientEfficiencyChart').getContext('2d');
+        clientChart = new Chart(ctx2, {
+          type: 'bar',
+          data: {
+            labels: clientNames,
+            datasets: [
+              { label: 'Collected', data: clientCollections, backgroundColor: '#1A6B3C' },
+              { label: 'Outstanding', data: clientCosts, backgroundColor: '#C17D11' },
+              { label: 'Leakage Loss', data: clientErosions, backgroundColor: '#DC2626' }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'bottom',
+                labels: {
+                  boxWidth: 12,
+                  font: { family: 'Space Mono', size: 10 }
+                }
+              }
+            },
+            scales: {
+              x: { grid: { display: false } },
+              y: {
+                grid: { color: 'rgba(26,25,23,0.06)' },
+                ticks: {
+                  callback: function (value) { return '$' + value.toLocaleString(); }
+                }
+              }
+            }
+          }
+        });
+      }
+
+      // Event listeners
+      window.addEventListener('epcs:view-loaded', function (e) {
+        if (e.detail.view === 'financial') renderFinancial();
+      });
+
+      window.addEventListener('epcs:filter-change', function () {
+        var activeItem = document.querySelector('.os-nav__item.active');
+        if (activeItem && activeItem.dataset.view === 'financial') {
+          renderFinancial();
+        }
+      });
+
+    })();
+  </script>
+</div>

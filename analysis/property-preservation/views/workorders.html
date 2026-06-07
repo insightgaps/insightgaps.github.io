@@ -1,0 +1,201 @@
+<div class="os-view-body">
+  <!-- KPI Grid -->
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-card__label">Total Orders</div>
+      <div class="kpi-card__value" id="wo-total">0</div>
+      <div class="kpi-card__sub">Across selected period</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-card__label">Closed / Reconciled</div>
+      <div class="kpi-card__value kpi-card__value--green" id="wo-closed">0</div>
+      <div class="kpi-card__sub" id="wo-closed-pct">0% of total</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-card__label">Submitted / QC Review</div>
+      <div class="kpi-card__value kpi-card__value--blue" id="wo-submitted">0</div>
+      <div class="kpi-card__sub" id="wo-submitted-pct">0% of total</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-card__label">Assigned / Open</div>
+      <div class="kpi-card__value kpi-card__value--amber" id="wo-assigned">0</div>
+      <div class="kpi-card__sub" id="wo-assigned-pct">0% of total</div>
+    </div>
+  </div>
+
+  <!-- Search & Sub-filters -->
+  <div class="view-section" style="padding-bottom: 12px; margin-bottom: 16px;">
+    <div class="search-controls">
+      <input type="text" class="os-search-input" id="wo-search" placeholder="🔍 Search by WO#, address, city, contractor, or client...">
+      <select class="os-filter" id="wo-status-filter" style="min-width: 150px;">
+        <option value="all">All Statuses</option>
+        <option value="Closed">Closed</option>
+        <option value="Submitted">Submitted</option>
+        <option value="Assigned">Assigned</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Work Orders Table -->
+  <div class="view-section">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #E2E0DC;">
+      <div class="view-section__title" style="margin-bottom: 0; padding-bottom: 0; border-bottom: none;">Work Order Ledger</div>
+      <div style="font-family: 'Space Mono', monospace; font-size: 11px; color: #8C8985;" id="wo-table-count">Showing 0 of 0 work orders</div>
+    </div>
+    
+    <div class="os-table-wrapper" style="max-height: 500px; overflow-y: auto;">
+      <table class="os-table">
+        <thead style="position: sticky; top: 0; background: #fff; z-index: 1;">
+          <tr>
+            <th>WO Number</th>
+            <th>Client</th>
+            <th>Service Type</th>
+            <th>Contractor</th>
+            <th>Property Address</th>
+            <th>Due Date</th>
+            <th>Completion Date</th>
+            <th class="num">Risk Score</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="wo-ledger-body">
+          <!-- Populated dynamically -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var currentStatusFilter = 'all';
+      var searchVal = '';
+
+      function renderWorkOrders() {
+        if (!window.EPCS_DATA) return;
+        var data = window.EPCS_DATA;
+        var filters = window.EPCS_FILTERS || { month: 'all', client: 'all', contractor: 'all' };
+
+        // Helper to match filter conditions
+        function matchFilters(wo) {
+          if (filters.month !== 'all') {
+            if (!wo.due_date || !wo.due_date.startsWith(filters.month)) return false;
+          }
+          if (filters.client !== 'all' && wo.client !== filters.client) return false;
+          if (filters.contractor !== 'all' && wo.contractor !== filters.contractor) return false;
+          return true;
+        }
+
+        // Apply primary shell filters
+        var filteredWOs = data.work_orders.filter(matchFilters);
+
+        // Calculate KPIs based on shell filters
+        var total = filteredWOs.length;
+        var closed = filteredWOs.filter(function (w) { return w.status === 'Closed'; }).length;
+        var submitted = filteredWOs.filter(function (w) { return w.status === 'Submitted'; }).length;
+        var assigned = filteredWOs.filter(function (w) { return w.status === 'Assigned'; }).length;
+
+        document.getElementById('wo-total').textContent = total;
+        document.getElementById('wo-closed').textContent = closed;
+        document.getElementById('wo-closed-pct').textContent = total > 0 ? ((closed / total * 100).toFixed(0) + '% of total') : '0%';
+        document.getElementById('wo-submitted').textContent = submitted;
+        document.getElementById('wo-submitted-pct').textContent = total > 0 ? ((submitted / total * 100).toFixed(0) + '% of total') : '0%';
+        document.getElementById('wo-assigned').textContent = assigned;
+        document.getElementById('wo-assigned-pct').textContent = total > 0 ? ((assigned / total * 100).toFixed(0) + '% of total') : '0%';
+
+        // Apply sub-filters: status and search string
+        var finalWOs = filteredWOs.filter(function (w) {
+          if (currentStatusFilter !== 'all' && w.status !== currentStatusFilter) return false;
+          
+          if (searchVal.trim() !== '') {
+            var q = searchVal.toLowerCase();
+            var woNum = w.wo_number.toLowerCase();
+            var client = w.client.toLowerCase();
+            var type = w.order_type.toLowerCase();
+            var contractor = w.contractor.toLowerCase();
+            var addr = w.address.toLowerCase();
+            var city = w.city.toLowerCase();
+            var state = w.state.toLowerCase();
+            var zip = w.zip.toLowerCase();
+            
+            var match = woNum.includes(q) || client.includes(q) || type.includes(q) || contractor.includes(q) ||
+                        addr.includes(q) || city.includes(q) || state.includes(q) || zip.includes(q);
+            return match;
+          }
+          return true;
+        });
+
+        // Update count tag
+        document.getElementById('wo-table-count').textContent = 'Showing ' + finalWOs.length + ' of ' + total + ' work orders';
+
+        // Render Table Body
+        var body = document.getElementById('wo-ledger-body');
+        body.innerHTML = '';
+
+        if (finalWOs.length === 0) {
+          body.innerHTML = '<tr><td colspan="9" style="text-align:center;color:#8C8985;padding:30px;">No matching work orders found.</td></tr>';
+          return;
+        }
+
+        finalWOs.forEach(function (w) {
+          var tr = document.createElement('tr');
+          var pillClass = 'pill--gray';
+          if (w.status === 'Closed') pillClass = 'pill--green';
+          else if (w.status === 'Submitted') pillClass = 'pill--blue';
+          else if (w.status === 'Assigned') pillClass = 'pill--amber';
+
+          tr.innerHTML = `
+            <td><strong>${w.wo_number}</strong></td>
+            <td>${w.client}</td>
+            <td>${w.order_type}</td>
+            <td>${w.contractor}</td>
+            <td>${w.address}, ${w.city}, ${w.state} ${w.zip}</td>
+            <td>${w.due_date}</td>
+            <td>${w.completion_date || '\u2014'}</td>
+            <td class="num" style="color: ${w.risk_score >= 70 ? 'var(--os-red)' : (w.risk_score >= 15 ? 'var(--os-accent)' : 'var(--os-text-muted)')}; font-weight:bold;">${w.risk_score}</td>
+            <td><span class="pill ${pillClass}">${w.status}</span></td>
+          `;
+          body.appendChild(tr);
+        });
+      }
+
+      // Local filter change event
+      var statusSelect = document.getElementById('wo-status-filter');
+      if (statusSelect) {
+        statusSelect.addEventListener('change', function () {
+          currentStatusFilter = this.value;
+          renderWorkOrders();
+        });
+      }
+
+      var searchInput = document.getElementById('wo-search');
+      if (searchInput) {
+        searchInput.addEventListener('input', function () {
+          searchVal = this.value;
+          renderWorkOrders();
+        });
+      }
+
+      // Event listeners for shell
+      window.addEventListener('epcs:view-loaded', function (e) {
+        if (e.detail.view === 'workorders') {
+          // Reset local filters on tab change
+          currentStatusFilter = 'all';
+          searchVal = '';
+          if (statusSelect) statusSelect.value = 'all';
+          if (searchInput) searchInput.value = '';
+          renderWorkOrders();
+        }
+      });
+
+      window.addEventListener('epcs:filter-change', function () {
+        var activeItem = document.querySelector('.os-nav__item.active');
+        if (activeItem && activeItem.dataset.view === 'workorders') {
+          renderWorkOrders();
+        }
+      });
+
+    })();
+  </script>
+</div>

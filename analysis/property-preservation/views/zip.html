@@ -1,0 +1,231 @@
+<div class="os-view-body">
+  <!-- KPI Grid -->
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-card__label">Active ZIP Codes</div>
+      <div class="kpi-card__value" id="zip-total">0</div>
+      <div class="kpi-card__sub">Geographic clusters covered</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-card__label">Active Network Size</div>
+      <div class="kpi-card__value kpi-card__value--green" id="zip-contractors">0</div>
+      <div class="kpi-card__sub">Unique active contractors</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-card__label">Coverage Index</div>
+      <div class="kpi-card__value kpi-card__value--amber" id="zip-coverage">0%</div>
+      <div class="kpi-card__sub">Capacity compliance index</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-card__label">Leakage at Risk</div>
+      <div class="kpi-card__value kpi-card__value--red" id="zip-leakage">$0.00</div>
+      <div class="kpi-card__sub">Total leakage in selected zones</div>
+    </div>
+  </div>
+
+  <!-- ZIP Intelligence Table -->
+  <div class="view-section">
+    <div class="view-section__title">ZIP Code Operational and Financial Intelligence</div>
+    <div class="os-table-wrapper">
+      <table class="os-table">
+        <thead>
+          <tr>
+            <th>ZIP Code / Location</th>
+            <th class="num">Open WOs</th>
+            <th class="num">Completed (30d)</th>
+            <th class="num">Invoiced Revenue</th>
+            <th class="num">Payout Cost</th>
+            <th class="num">Margin</th>
+            <th class="num">Margin %</th>
+            <th class="num">Contractors</th>
+            <th class="num">Coverage Index</th>
+            <th class="num">Total Leakage</th>
+          </tr>
+        </thead>
+        <tbody id="zip-ledger-body">
+          <!-- Populated dynamically -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      function renderZip() {
+        if (!window.EPCS_DATA) return;
+        var data = window.EPCS_DATA;
+        var filters = window.EPCS_FILTERS || { month: 'all', client: 'all', contractor: 'all' };
+
+        // Helper to match filter conditions for work orders
+        function matchFilters(wo) {
+          if (filters.month !== 'all') {
+            if (!wo.due_date || !wo.due_date.startsWith(filters.month)) return false;
+          }
+          if (filters.client !== 'all' && wo.client !== filters.client) return false;
+          if (filters.contractor !== 'all' && wo.contractor !== filters.contractor) return false;
+          return true;
+        }
+
+        // Apply primary shell filters
+        var filteredWOs = data.work_orders.filter(matchFilters);
+        var filteredFin = data.financial_records.filter(function (f) {
+          var wo = data.work_orders.find(function (w) { return w.wo_number === f.wo_number; });
+          return wo ? matchFilters(wo) : false;
+        });
+
+        // Group by ZIP code
+        var zipGroup = {};
+        
+        // Initialize with default coordinate details
+        data.zip_intelligence.forEach(function (z) {
+          zipGroup[z.zip] = {
+            zip: z.zip,
+            city: z.city,
+            state: z.state,
+            open_wos: 0,
+            completed_30d: 0,
+            revenue: 0.0,
+            cost: 0.0,
+            received: 0.0,
+            contractorsSet: new Set(),
+            leakage: 0.0
+          };
+        });
+
+        // Populate metrics from work orders
+        filteredWOs.forEach(function (w) {
+          var z = zipGroup[w.zip];
+          if (!z) return;
+
+          z.contractorsSet.add(w.contractor);
+
+          if (w.status === 'Submitted' || w.status === 'Assigned') {
+            z.open_wos++;
+          }
+          
+          if (w.status === 'Closed' && w.completion_date) {
+            var comp = new Date(w.completion_date);
+            var today = new Date('2026-06-07');
+            // Check if within 30 days
+            var diff = (today - comp) / (1000 * 60 * 60 * 24);
+            if (diff >= 0 && diff <= 30) {
+              z.completed_30d++;
+            }
+          }
+        });
+
+        // Populate financials
+        filteredFin.forEach(function (f) {
+          // Find matching work order to get ZIP
+          var wo = data.work_orders.find(function (w) { return w.wo_number === f.wo_number; });
+          if (!wo) return;
+          var z = zipGroup[wo.zip];
+          if (!z) return;
+
+          z.revenue += f.invoice_amount;
+          z.cost += f.paid_to_contractor;
+          z.received += f.received_amount;
+          z.leakage += (f.total_leakage || 0);
+        });
+
+        // Convert to list and calculate metrics
+        var zipList = [];
+        var totalCoverageScore = 0;
+        var uniqueActiveContractors = new Set();
+        var totalLeakageRisk = 0;
+
+        Object.keys(zipGroup).forEach(function (zipCode) {
+          var z = zipGroup[zipCode];
+          
+          // Skip zip if filters exist and there is no activity in this zip
+          if (z.revenue === 0 && z.open_wos === 0 && filters.contractor !== 'all') return;
+          if (z.revenue === 0 && z.open_wos === 0 && filters.client !== 'all') return;
+          if (z.revenue === 0 && z.open_wos === 0 && filters.month !== 'all') return;
+
+          var margin = z.revenue - z.cost;
+          var marginPct = z.revenue > 0 ? (margin / z.revenue * 100) : 0.0;
+          
+          var contractorsCount = z.contractorsSet.size;
+          // Coverage score: 3 contractors = 100%
+          var coverageScore = Math.min(100, Math.round(contractorsCount / 3 * 100));
+
+          totalCoverageScore += coverageScore;
+          z.contractorsSet.forEach(function (c) { uniqueActiveContractors.add(c); });
+          totalLeakageRisk += z.leakage;
+
+          zipList.push({
+            zip: z.zip,
+            city: z.city,
+            state: z.state,
+            open_wos: z.open_wos,
+            completed_30d: z.completed_30d,
+            revenue: z.revenue,
+            cost: z.cost,
+            margin: margin,
+            margin_pct: marginPct,
+            contractors: contractorsCount,
+            coverage_score: coverageScore,
+            leakage: z.leakage
+          });
+        });
+
+        // Update KPIs
+        var activeZips = zipList.length;
+        var avgCoverage = activeZips > 0 ? Math.round(totalCoverageScore / activeZips) : 0;
+
+        document.getElementById('zip-total').textContent = activeZips;
+        document.getElementById('zip-contractors').textContent = uniqueActiveContractors.size;
+        document.getElementById('zip-coverage').textContent = avgCoverage + '%';
+        document.getElementById('zip-leakage').textContent = '$' + totalLeakageRisk.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+        // Render Table Body
+        var body = document.getElementById('zip-ledger-body');
+        body.innerHTML = '';
+
+        if (zipList.length === 0) {
+          body.innerHTML = '<tr><td colspan="10" style="text-align:center;color:#8C8985;padding:30px;">No ZIP code records found.</td></tr>';
+          return;
+        }
+
+        zipList.forEach(function (z) {
+          var tr = document.createElement('tr');
+          
+          var marginColor = z.margin_pct < 20 ? 'color: var(--os-red);' : (z.margin_pct < 35 ? 'color: var(--os-accent);' : 'color: var(--os-green);');
+          var coveragePill = z.coverage_score >= 80 ? 'pill--green' : (z.coverage_score >= 50 ? 'pill--amber' : 'pill--red');
+
+          tr.innerHTML = `
+            <td>
+              <strong>${z.zip}</strong><br>
+              <span style="font-size:10px;color:#8C8985;">${z.city}, ${z.state}</span>
+            </td>
+            <td class="num">${z.open_wos}</td>
+            <td class="num">${z.completed_30d}</td>
+            <td class="num">$${z.revenue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+            <td class="num">$${z.cost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+            <td class="num" style="font-weight:600;">$${z.margin.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+            <td class="num" style="font-weight:600; ${marginColor}">${z.margin_pct.toFixed(1)}%</td>
+            <td class="num">${z.contractors}</td>
+            <td class="num"><span class="pill ${coveragePill}" style="font-size:9.5px;">${z.coverage_score}%</span></td>
+            <td class="num" style="color: ${z.leakage > 0 ? 'var(--os-red)' : 'var(--os-text-muted)'}; font-weight:600;">$${z.leakage.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+          `;
+          body.appendChild(tr);
+        });
+      }
+
+      // Event listeners
+      window.addEventListener('epcs:view-loaded', function (e) {
+        if (e.detail.view === 'zip') renderZip();
+      });
+
+      window.addEventListener('epcs:filter-change', function () {
+        var activeItem = document.querySelector('.os-nav__item.active');
+        if (activeItem && activeItem.dataset.view === 'zip') {
+          renderZip();
+        }
+      });
+
+    })();
+  </script>
+</div>

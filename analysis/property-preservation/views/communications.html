@@ -1,0 +1,262 @@
+<div class="os-view-body">
+  <!-- KPI Grid -->
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-card__label">Total Messages</div>
+      <div class="kpi-card__value" id="comm-total">0</div>
+      <div class="kpi-card__sub">SMS & Email logs</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-card__label">Inbound Traffic</div>
+      <div class="kpi-card__value kpi-card__value--green" id="comm-inbound">0</div>
+      <div class="kpi-card__sub">From contractors / clients</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-card__label">Outbound Traffic</div>
+      <div class="kpi-card__value kpi-card__value--blue" id="comm-outbound">0</div>
+      <div class="kpi-card__sub">Dispatched from office</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-card__label">Awaiting Reply</div>
+      <div class="kpi-card__value kpi-card__value--red" id="comm-action">0</div>
+      <div class="kpi-card__sub">Actionable inbound threads</div>
+    </div>
+  </div>
+
+  <!-- Filters section -->
+  <div class="view-section" style="padding-bottom: 12px; margin-bottom: 16px;">
+    <div class="search-controls">
+      <input type="text" class="os-search-input" id="comm-search" placeholder="🔍 Search messages by text, WO#, or contractor name...">
+      
+      <select class="os-filter" id="comm-channel-filter">
+        <option value="all">All Channels</option>
+        <option value="SMS">SMS Only</option>
+        <option value="Email">Email Only</option>
+      </select>
+      
+      <select class="os-filter" id="comm-label-filter">
+        <option value="all">All AI Labels</option>
+        <option value="Assignment">Assignment</option>
+        <option value="Acceptance">Acceptance</option>
+        <option value="Budget_Request">Budget Request</option>
+        <option value="Approval">Approval</option>
+        <option value="Completion">Completion</option>
+        <option value="QC_Issue">QC Issue</option>
+        <option value="Payment">Payment</option>
+      </select>
+
+      <select class="os-filter" id="comm-priority-filter">
+        <option value="all">All Priorities</option>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Messages List -->
+  <div class="view-section">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #E2E0DC;">
+      <div class="view-section__title" style="margin-bottom: 0; padding-bottom: 0; border-bottom: none;">Communications Feed</div>
+      <div style="font-family: 'Space Mono', monospace; font-size: 11px; color: #8C8985;" id="comm-feed-count">Showing 0 of 0 messages</div>
+    </div>
+    
+    <div id="comm-feed-list" style="max-height: 600px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; padding: 4px;">
+      <!-- Populated dynamically -->
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var currentChannelFilter = 'all';
+      var currentLabelFilter = 'all';
+      var currentPriorityFilter = 'all';
+      var searchVal = '';
+
+      function renderCommunications() {
+        if (!window.EPCS_DATA) return;
+        var data = window.EPCS_DATA;
+        var filters = window.EPCS_FILTERS || { month: 'all', client: 'all', contractor: 'all' };
+
+        // Helper to match filter conditions for work orders
+        function matchFilters(wo) {
+          if (filters.month !== 'all') {
+            if (!wo.due_date || !wo.due_date.startsWith(filters.month)) return false;
+          }
+          if (filters.client !== 'all' && wo.client !== filters.client) return false;
+          if (filters.contractor !== 'all' && wo.contractor !== filters.contractor) return false;
+          return true;
+        }
+
+        // Apply primary shell filters
+        var filteredComms = data.communications.filter(function (c) {
+          var wo = data.work_orders.find(function (w) { return w.wo_number === c.wo_number; });
+          return wo ? matchFilters(wo) : false;
+        });
+
+        // Compute KPIs based on primary filters
+        var total = filteredComms.length;
+        var inbound = filteredComms.filter(function (c) { return c.direction === 'Inbound'; }).length;
+        var outbound = filteredComms.filter(function (c) { return c.direction === 'Outbound'; }).length;
+        var needsAction = filteredComms.filter(function (c) { return c.needs_reply; }).length;
+
+        document.getElementById('comm-total').textContent = total;
+        document.getElementById('comm-inbound').textContent = inbound;
+        document.getElementById('comm-outbound').textContent = outbound;
+        document.getElementById('comm-action').textContent = needsAction;
+
+        // Apply local sub-filters
+        var finalComms = filteredComms.filter(function (c) {
+          if (currentChannelFilter !== 'all' && c.channel !== currentChannelFilter) return false;
+          if (currentLabelFilter !== 'all' && c.ai_label !== currentLabelFilter) return false;
+          if (currentPriorityFilter !== 'all' && c.priority !== currentPriorityFilter) return false;
+          
+          if (searchVal.trim() !== '') {
+            var q = searchVal.toLowerCase();
+            var text = (c.message_text || '').toLowerCase();
+            var contractor = (c.contractor || '').toLowerCase();
+            var wo = (c.wo_number || '').toLowerCase();
+            
+            return text.includes(q) || contractor.includes(q) || wo.includes(q);
+          }
+          return true;
+        });
+
+        // Update count tag
+        document.getElementById('comm-feed-count').textContent = 'Showing ' + finalComms.length + ' of ' + total + ' messages';
+
+        // Render Feed List
+        var list = document.getElementById('comm-feed-list');
+        list.innerHTML = '';
+
+        if (finalComms.length === 0) {
+          list.innerHTML = '<div style="text-align:center;color:#8C8985;padding:40px;font-family:Space Mono,monospace;font-size:12px;">No matching messages found.</div>';
+          return;
+        }
+
+        finalComms.forEach(function (c) {
+          var card = document.createElement('div');
+          
+          // Style card wrapper based on direction and action requirements
+          var borderStyle = 'border-left: 3px solid #E2E0DC;';
+          var highlightClass = '';
+          if (c.needs_reply) {
+            borderStyle = 'border-left: 3px solid var(--os-red);';
+            highlightClass = 'background-color: #FEF2F2;';
+          } else if (c.direction === 'Outbound') {
+            borderStyle = 'border-left: 3px solid var(--os-blue);';
+          } else {
+            borderStyle = 'border-left: 3px solid var(--os-green);';
+          }
+
+          var channelIcon = c.channel === 'Email' ? '✉️' : '💬';
+          var priorityPill = c.priority === 'High' ? 'pill--red' : (c.priority === 'Medium' ? 'pill--amber' : 'pill--gray');
+          
+          var labelPill = 'pill--gray';
+          if (c.ai_label === 'Payment') labelPill = 'pill--green';
+          else if (c.ai_label === 'Budget_Request') labelPill = 'pill--amber';
+          else if (c.ai_label === 'QC_Issue' || c.ai_label === 'QC_Failure') labelPill = 'pill--red';
+          else if (c.ai_label === 'Acceptance' || c.ai_label === 'Completion') labelPill = 'pill--blue';
+
+          var sentimentEmoji = c.sentiment === 'Positive' ? '🟢' : (c.sentiment === 'Concerned' ? '🔴' : '⚪');
+
+          // Build headers
+          var titleText = c.channel === 'Email' ? `<strong>${c.subject}</strong>` : `SMS Conversation with <strong>${c.contractor}</strong>`;
+          var fromToText = c.direction === 'Inbound' ? `From: ${c.from_address} &rarr; To: Office` : `From: Office &rarr; To: ${c.to_address}`;
+          
+          // Timestamp formatting
+          var dateObj = new Date(c.timestamp);
+          var formattedTime = dateObj.toLocaleString();
+
+          card.innerHTML = `
+            <div style="background:#fff; border:1px solid #E2E0DC; border-radius:8px; padding:12px; display:flex; flex-direction:column; gap:6px; ${borderStyle} ${highlightClass}">
+              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+                <div style="font-size:12.5px; color:#1A1917;">
+                  <span style="margin-right:6px;">${channelIcon}</span> ${titleText}
+                  <span style="font-family:Space Mono,monospace;font-size:11px;background:#F0EEE8;padding:2px 6px;border-radius:4px;margin-left:8px;">WO# ${c.wo_number}</span>
+                </div>
+                <div style="font-size:11px; color:#8C8985; font-family:Space Mono,monospace;">
+                  ${formattedTime}
+                </div>
+              </div>
+              
+              <div style="font-size:11px; color:#8C8985;">
+                ${fromToText}
+              </div>
+              
+              <div style="font-size:12.5px; color:#1A1917; padding:8px 0; border-top:1px solid #F0EEE8; border-bottom:1px solid #F0EEE8; white-space: pre-wrap;">${c.message_text}</div>
+              
+              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; padding-top:4px;">
+                <div style="display:flex; gap:6px; align-items:center;">
+                  <span class="pill ${labelPill}" style="font-size:9.5px;">Label: ${c.ai_label}</span>
+                  <span class="pill ${priorityPill}" style="font-size:9.5px;">Priority: ${c.priority}</span>
+                  <span style="font-size:11px; margin-left:6px;" title="Sentiment: ${c.sentiment}">Sentiment: ${sentimentEmoji}</span>
+                </div>
+                ${c.needs_reply ? `<span class="pill pill--red" style="font-size:9.5px; animation: none;">⚠️ Needs Reply</span>` : ''}
+              </div>
+            </div>
+          `;
+          list.appendChild(card);
+        });
+      }
+
+      // Hook local controls
+      var chanFilter = document.getElementById('comm-channel-filter');
+      if (chanFilter) {
+        chanFilter.addEventListener('change', function () {
+          currentChannelFilter = this.value;
+          renderCommunications();
+        });
+      }
+
+      var lblFilter = document.getElementById('comm-label-filter');
+      if (lblFilter) {
+        lblFilter.addEventListener('change', function () {
+          currentLabelFilter = this.value;
+          renderCommunications();
+        });
+      }
+
+      var priFilter = document.getElementById('comm-priority-filter');
+      if (priFilter) {
+        priFilter.addEventListener('change', function () {
+          currentPriorityFilter = this.value;
+          renderCommunications();
+        });
+      }
+
+      var searchInput = document.getElementById('comm-search');
+      if (searchInput) {
+        searchInput.addEventListener('input', function () {
+          searchVal = this.value;
+          renderCommunications();
+        });
+      }
+
+      // Event listeners for shell
+      window.addEventListener('epcs:view-loaded', function (e) {
+        if (e.detail.view === 'communications') {
+          currentChannelFilter = 'all';
+          currentLabelFilter = 'all';
+          currentPriorityFilter = 'all';
+          searchVal = '';
+          if (chanFilter) chanFilter.value = 'all';
+          if (lblFilter) lblFilter.value = 'all';
+          if (priFilter) priFilter.value = 'all';
+          if (searchInput) searchInput.value = '';
+          renderCommunications();
+        }
+      });
+
+      window.addEventListener('epcs:filter-change', function () {
+        var activeItem = document.querySelector('.os-nav__item.active');
+        if (activeItem && activeItem.dataset.view === 'communications') {
+          renderCommunications();
+        }
+      });
+
+    })();
+  </script>
+</div>
