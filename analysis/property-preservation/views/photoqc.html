@@ -1,0 +1,384 @@
+<div class="os-view-body">
+  <div class="qc-container">
+    
+    <!-- KPI cards for Photo QC statistics -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-card__label">QC Audits Run</div>
+        <div class="kpi-card__value" id="qc-stat-total">142</div>
+        <div class="kpi-card__sub">Total scans this period</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-card__label">First-Pass Rate</div>
+        <div class="kpi-card__value kpi-card__value--green" id="qc-stat-rate">81.4%</div>
+        <div class="kpi-card__sub">Passes on first upload</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-card__label">Missing Photo Rejections</div>
+        <div class="kpi-card__value kpi-card__value--red" id="qc-stat-failed">26</div>
+        <div class="kpi-card__sub">Flagged by PPW API scan</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-card__label">SLA Penalties Avoided</div>
+        <div class="kpi-card__value kpi-card__value--blue" id="qc-stat-savings">$3,120</div>
+        <div class="kpi-card__sub">Saved from client deductions</div>
+      </div>
+    </div>
+
+    <!-- Main Workspace: Upload Simulator & Checklist -->
+    <div class="qc-header-grid">
+      
+      <!-- Left: Interactive Upload Control -->
+      <div class="view-section" style="margin-bottom:0;">
+        <div class="view-section__title">PPW API Photo QC Upload Simulator</div>
+        
+        <div style="display:flex; gap:16px; margin-bottom:16px; flex-wrap:wrap;">
+          <div style="flex:1; min-width:180px;">
+            <label class="bid-form__label" style="margin-bottom:6px;">Select Contractor</label>
+            <select class="bid-form__select" id="qc-select-contractor">
+              <!-- Dynamically populated -->
+            </select>
+          </div>
+          <div style="flex:1; min-width:180px;">
+            <label class="bid-form__label" style="margin-bottom:6px;">Select Service Type</label>
+            <select class="bid-form__select" id="qc-select-service">
+              <option value="Grass Cut">Grass Cut</option>
+              <option value="Grass Recut">Grass Recut</option>
+              <option value="Winterization">Winterization</option>
+              <option value="Initial Secure">Initial Secure</option>
+              <option value="Board Up">Board Up</option>
+              <option value="Maid Service">Maid Service</option>
+              <option value="Debris Removal">Debris Removal</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="qc-uploader" id="qc-drop-zone">
+          <div class="qc-uploader__icon">📤</div>
+          <div class="qc-uploader__title">Click or Drag Contractor Photos Here</div>
+          <div class="qc-uploader__desc">Simulate PPW photo upload for automated API validation</div>
+        </div>
+
+        <!-- Start Notification Toast / Scan Alert -->
+        <div id="qc-toast" class="alert-card alert-card--amber" style="display:none; margin-top:16px; animation: pulse 1.5s infinite alternate;">
+          <span class="alert-card__icon">📡</span>
+          <div>
+            <div class="alert-card__title" id="qc-toast-title">Upload Started</div>
+            <div class="alert-card__desc" id="qc-toast-desc">API handoff initiated...</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Real-time scan tracker -->
+      <div class="qc-progress-panel">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:var(--os-text-primary); margin-bottom:12px;">Live Audit Progress</div>
+        <div id="qc-progress-status" style="font-family:'Space Mono',monospace; font-size:11.5px; color:var(--os-text-muted);">Awaiting contractor upload...</div>
+        
+        <div class="qc-progress-bar-container">
+          <div class="qc-progress-bar" id="qc-bar"></div>
+        </div>
+        
+        <div style="margin-top:12px; display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:12px; color:var(--os-text-secondary);">QC Result:</span>
+          <span class="pill pill--gray" id="qc-badge">STANDBY</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Scanning Results Matrix Section -->
+    <div class="view-section" id="qc-results-section" style="display:none;">
+      <div class="view-section__title" style="margin-bottom:8px; display:flex; justify-content:space-between; align-items:center;">
+        <span>Required Photo Matrix Verification</span>
+        <span class="pill pill--red" id="qc-missing-alert" style="display:none;">0 Missing Photos Flagged</span>
+      </div>
+      <div style="font-size:12px; color:var(--os-text-muted); margin-bottom:16px;" id="qc-results-meta">Select service and run simulation to populate matrix.</div>
+      
+      <!-- Required photo list grid -->
+      <div class="qc-matrix-grid" id="qc-matrix-container">
+        <!-- Generated dynamically -->
+      </div>
+    </div>
+
+    <!-- Historical QC Audits Table -->
+    <div class="view-section">
+      <div class="view-section__title">Recent Automated QC Scans</div>
+      <div class="os-table-wrapper">
+        <table class="os-table">
+          <thead>
+            <tr>
+              <th>Timestamp</th>
+              <th>Contractor</th>
+              <th>Service Type</th>
+              <th class="num">Photos Checked</th>
+              <th>Status</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody id="qc-history-body">
+            <tr>
+              <td><strong>2026-06-07 11:20:41</strong></td>
+              <td>Midwest Builders</td>
+              <td>Winterization</td>
+              <td class="num">4 / 4</td>
+              <td><span class="pill pill--green">PASS</span></td>
+              <td>All required photos present. Lockbox verified.</td>
+            </tr>
+            <tr>
+              <td><strong>2026-06-07 09:45:12</strong></td>
+              <td>Mitchell Outdoor</td>
+              <td>Grass Cut</td>
+              <td class="num">3 / 4</td>
+              <td><span class="pill pill--red">FAIL</span></td>
+              <td>Missing: Street View photo.</td>
+            </tr>
+            <tr>
+              <td><strong>2026-06-06 16:30:55</strong></td>
+              <td>Coastal Maintain</td>
+              <td>Maid Service</td>
+              <td class="num">4 / 4</td>
+              <td><span class="pill pill--green">PASS</span></td>
+              <td>Kitchen, Bathroom, Living, Exterior verified.</td>
+            </tr>
+            <tr>
+              <td><strong>2026-06-06 14:15:33</strong></td>
+              <td>Texas Haulers</td>
+              <td>Debris Removal</td>
+              <td class="num">2 / 4</td>
+              <td><span class="pill pill--red">FAIL</span></td>
+              <td>Missing: Truck Load, After Removal.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      const PHOTO_MATRIX = {
+        'Grass Cut': ['Before - Full Front', 'Before - Side', 'After - Full Front', 'Street View'],
+        'Grass Recut': ['Before', 'After', 'Street View'],
+        'Winterization': ['HVAC Unit', 'Water Heater', 'Exterior Front', 'Interior Main'],
+        'Initial Secure': ['Front Door', 'Back Door', 'All Windows', 'Lock Close-up', 'Exterior Full'],
+        'Board Up': ['Before Each Window', 'After Boards', 'Nail Detail', 'Exterior Full'],
+        'Maid Service': ['Kitchen Before/After', 'Bathroom Before/After', 'Living Area', 'Exterior'],
+        'Debris Removal': ['Before Debris', 'After Removal', 'Truck Load', 'Property Front'],
+      };
+
+      var activeUploadTimer = null;
+
+      function initPhotoQCPerspective() {
+        if (!window.EPCS_DATA) return;
+        var data = window.EPCS_DATA;
+
+        // Populate contractors list in uploader dropdown
+        var contractorDropdown = document.getElementById('qc-select-contractor');
+        if (contractorDropdown) {
+          contractorDropdown.innerHTML = '';
+          data.contractors.forEach(function (c) {
+            var opt = document.createElement('option');
+            opt.value = c.name;
+            opt.textContent = c.name;
+            contractorDropdown.appendChild(opt);
+          });
+        }
+
+        // Setup click listener for uploader zone
+        var dropZone = document.getElementById('qc-drop-zone');
+        if (dropZone) {
+          dropZone.addEventListener('click', function () {
+            startPhotoUploadSimulation();
+          });
+        }
+      }
+
+      function startPhotoUploadSimulation() {
+        if (activeUploadTimer) return; // Prevent multiple runs
+
+        var contractor = document.getElementById('qc-select-contractor').value;
+        var serviceType = document.getElementById('qc-select-service').value;
+        var requiredList = PHOTO_MATRIX[serviceType];
+
+        var toast = document.getElementById('qc-toast');
+        var toastTitle = document.getElementById('qc-toast-title');
+        var toastDesc = document.getElementById('qc-toast-desc');
+        var statusLabel = document.getElementById('qc-progress-status');
+        var progressBar = document.getElementById('qc-bar');
+        var badge = document.getElementById('qc-badge');
+
+        // Reset UI states
+        progressBar.style.width = '0%';
+        badge.className = 'pill pill--gray';
+        badge.textContent = 'SCANNING';
+        document.getElementById('qc-results-section').style.display = 'none';
+
+        // Trigger start alert notification
+        toast.style.display = 'flex';
+        toast.className = 'alert-card alert-card--amber';
+        toastTitle.innerHTML = `🚀 Upload Started for ${contractor}`;
+        toastDesc.innerHTML = `Contractor initiated photo upload via PPW API. Initializing scan for <strong>${requiredList.length}</strong> required photos for service <strong>"${serviceType}"</strong>.`;
+
+        statusLabel.innerHTML = 'Connecting to PPW API endpoint...';
+
+        var progress = 0;
+        activeUploadTimer = setInterval(function () {
+          progress += 5;
+          progressBar.style.width = progress + '%';
+
+          if (progress === 20) {
+            statusLabel.innerHTML = 'Receiving image binaries... (1.2MB/sec)';
+          } else if (progress === 40) {
+            statusLabel.innerHTML = 'Running automated object scanning & labeling...';
+          } else if (progress === 60) {
+            statusLabel.innerHTML = 'Verifying coordinate metadata & timestamp checks...';
+          } else if (progress === 80) {
+            statusLabel.innerHTML = 'Cross-referencing photos against service type checklist...';
+          }
+
+          if (progress >= 100) {
+            clearInterval(activeUploadTimer);
+            activeUploadTimer = null;
+            completePhotoQCScan(contractor, serviceType, requiredList);
+          }
+        }, 120);
+      }
+
+      function completePhotoQCScan(contractor, serviceType, requiredList) {
+        var toast = document.getElementById('qc-toast');
+        var toastTitle = document.getElementById('qc-toast-title');
+        var toastDesc = document.getElementById('qc-toast-desc');
+        var statusLabel = document.getElementById('qc-progress-status');
+        var badge = document.getElementById('qc-badge');
+        var missingAlert = document.getElementById('qc-missing-alert');
+
+        statusLabel.innerHTML = 'Scan complete. Audit records generated.';
+
+        // Decide random photo success rate (60% to 90%)
+        // To make it fun, we randomly decide if 1 photo is missing or if all are there.
+        var isSuccess = Math.random() > 0.4; // 60% chance of success
+        var matchedIndices = [];
+        var missingList = [];
+
+        requiredList.forEach(function (photo, idx) {
+          if (isSuccess) {
+            matchedIndices.push(idx);
+          } else {
+            // Randomly drop 1 or 2 photos
+            if (idx === requiredList.length - 1 || (idx === requiredList.length - 2 && Math.random() > 0.5)) {
+              missingList.push(photo);
+            } else {
+              matchedIndices.push(idx);
+            }
+          }
+        });
+
+        // If no photo was dropped despite setting isSuccess to false, make sure at least 1 is missing
+        if (!isSuccess && missingList.length === 0) {
+          var droppedIdx = requiredList.length - 1;
+          missingList.push(requiredList[droppedIdx]);
+          matchedIndices = matchedIndices.filter(function(i) { return i !== droppedIdx; });
+        }
+
+        // Render Matrix Results Grid
+        var matrixContainer = document.getElementById('qc-matrix-container');
+        matrixContainer.innerHTML = '';
+
+        requiredList.forEach(function (photoName, idx) {
+          var item = document.createElement('div');
+          item.className = 'qc-photo-card';
+
+          var isMatched = matchedIndices.includes(idx);
+          var placeholderClass = isMatched ? 'success' : 'failed';
+          var statusPill = isMatched ? 'pill--green' : 'pill--red';
+          var statusText = isMatched ? 'VERIFIED' : 'MISSING';
+          var placeholderHtml = isMatched 
+            ? `📸 <span style="margin-top:8px; font-weight:600;">Checklist Verified</span><span style="font-size:10px; opacity:0.8; margin-top:2px;">Metadata: GPS & Time OK</span>`
+            : `❌ <span style="margin-top:8px; font-weight:600; color:var(--os-red);">Not Uploaded</span><span style="font-size:10px; color:var(--os-red); opacity:0.8; margin-top:2px;">Checklist unmet</span>`;
+
+          item.innerHTML = `
+            <div class="qc-photo-placeholder ${placeholderClass}">
+              ${placeholderHtml}
+            </div>
+            <div class="qc-photo-card__label">
+              <span>${photoName}</span>
+              <span class="pill ${statusPill} qc-photo-card__status">${statusText}</span>
+            </div>
+          `;
+          matrixContainer.appendChild(item);
+        });
+
+        // Show Results Section
+        document.getElementById('qc-results-section').style.display = 'block';
+        document.getElementById('qc-results-meta').innerHTML = `Verified <strong>${matchedIndices.length}</strong> of <strong>${requiredList.length}</strong> required photos for contractor <strong>"${contractor}"</strong> on <strong>"${serviceType}"</strong>.`;
+
+        // Update Notification Toast & Right progress panel
+        if (missingList.length === 0) {
+          // PASS
+          toast.className = 'alert-card alert-card--green';
+          toastTitle.innerHTML = `✅ QC PASS — ${contractor}`;
+          toastDesc.innerHTML = `All <strong>${requiredList.length}</strong> required photos for <strong>"${serviceType}"</strong> successfully verified. PPW API package generated.`;
+          
+          badge.className = 'pill pill--green';
+          badge.textContent = 'PASS';
+          missingAlert.style.display = 'none';
+        } else {
+          // FAIL
+          toast.className = 'alert-card alert-card--red';
+          toastTitle.innerHTML = `⚠️ QC FAILURE — Missing Required Photos`;
+          toastDesc.innerHTML = `Automated scan detected <strong>${missingList.length}</strong> missing required photos: <strong>"${missingList.join(', ')}"</strong>. Contractor notified immediately to retake.`;
+          
+          badge.className = 'pill pill--red';
+          badge.textContent = 'REJECTED';
+          
+          missingAlert.style.display = 'inline-block';
+          missingAlert.textContent = missingList.length + ' Missing Photos Flagged';
+        }
+
+        // Add to historical audits table
+        var historyBody = document.getElementById('qc-history-body');
+        var now = new Date();
+        var timeStr = now.getFullYear() + '-' + 
+                      String(now.getMonth() + 1).padStart(2, '0') + '-' + 
+                      String(now.getDate()).padStart(2, '0') + ' ' + 
+                      String(now.getHours()).padStart(2, '0') + ':' + 
+                      String(now.getMinutes()).padStart(2, '0') + ':' + 
+                      String(now.getSeconds()).padStart(2, '0');
+
+        var tr = document.createElement('tr');
+        var statusBadge = missingList.length === 0 ? '<span class="pill pill--green">PASS</span>' : '<span class="pill pill--red">FAIL</span>';
+        var detailsText = missingList.length === 0 
+          ? 'All required photos present.' 
+          : 'Missing: ' + missingList.join(', ') + '.';
+
+        tr.innerHTML = `
+          <td><strong>${timeStr}</strong></td>
+          <td>${contractor}</td>
+          <td>${serviceType}</td>
+          <td class="num">${matchedIndices.length} / ${requiredList.length}</td>
+          <td>${statusBadge}</td>
+          <td>${detailsText}</td>
+        `;
+        // Insert at top of table
+        historyBody.insertBefore(tr, historyBody.firstChild);
+      }
+
+      // Hook view loaded event
+      window.addEventListener('epcs:view-loaded', function (e) {
+        if (e.detail.view === 'photoqc') {
+          activeUploadTimer = null;
+          document.getElementById('qc-toast').style.display = 'none';
+          document.getElementById('qc-bar').style.width = '0%';
+          document.getElementById('qc-badge').className = 'pill pill--gray';
+          document.getElementById('qc-badge').textContent = 'STANDBY';
+          document.getElementById('qc-results-section').style.display = 'none';
+          initPhotoQCPerspective();
+        }
+      });
+
+    })();
+  </script>
+</div>

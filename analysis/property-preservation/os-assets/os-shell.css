@@ -1,8 +1,8 @@
 :root {
-  --os-sidebar-bg:       #0E1117;
-  --os-sidebar-border:   #1E2433;
-  --os-sidebar-text:     #9CA3AF;
-  --os-sidebar-text-hi:  #F3F4F6;
+  --os-sidebar-bg:       #1C2B3A;
+  --os-sidebar-border:   #243447;
+  --os-sidebar-text:     #94A3B8;
+  --os-sidebar-text-hi:  #F1F5F9;
   --os-nav-active-bg:    rgba(193, 125, 17, 0.12);
   --os-nav-active-text:  #C17D11;
   --os-nav-active-border:#C17D11;

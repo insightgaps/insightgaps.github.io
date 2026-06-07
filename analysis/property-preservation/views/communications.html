@@ -1,87 +1,80 @@
 <div class="os-view-body">
+  <!-- Top channel tabs -->
+  <div class="channel-tabs" id="comm-channel-tabs">
+    <div class="channel-tab active" data-channel="all">All Channels</div>
+    <div class="channel-tab" data-channel="SMS">💬 SMS Only</div>
+    <div class="channel-tab" data-channel="Email">✉️ Email Only</div>
+  </div>
+
   <!-- KPI Grid -->
   <div class="kpi-grid">
     <div class="kpi-card">
+      <div class="kpi-card__label">Total Threads</div>
+      <div class="kpi-card__value" id="comm-total-threads">0</div>
+      <div class="kpi-card__sub">Grouped by Work Order</div>
+    </div>
+    <div class="kpi-card">
       <div class="kpi-card__label">Total Messages</div>
-      <div class="kpi-card__value" id="comm-total">0</div>
+      <div class="kpi-card__value kpi-card__value--blue" id="comm-total-messages">0</div>
       <div class="kpi-card__sub">SMS & Email logs</div>
     </div>
     <div class="kpi-card">
-      <div class="kpi-card__label">Inbound Traffic</div>
-      <div class="kpi-card__value kpi-card__value--green" id="comm-inbound">0</div>
-      <div class="kpi-card__sub">From contractors / clients</div>
+      <div class="kpi-card__label">Pending Action</div>
+      <div class="kpi-card__value kpi-card__value--red" id="comm-needs-action">0</div>
+      <div class="kpi-card__sub">Needs reply / decision</div>
     </div>
     <div class="kpi-card">
-      <div class="kpi-card__label">Outbound Traffic</div>
-      <div class="kpi-card__value kpi-card__value--blue" id="comm-outbound">0</div>
-      <div class="kpi-card__sub">Dispatched from office</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-card__label">Awaiting Reply</div>
-      <div class="kpi-card__value kpi-card__value--red" id="comm-action">0</div>
-      <div class="kpi-card__sub">Actionable inbound threads</div>
+      <div class="kpi-card__label">High Priority</div>
+      <div class="kpi-card__value kpi-card__value--amber" id="comm-high-priority">0</div>
+      <div class="kpi-card__sub font-weight-bold">Escalated alerts</div>
     </div>
   </div>
 
-  <!-- Filters section -->
-  <div class="view-section" style="padding-bottom: 12px; margin-bottom: 16px;">
-    <div class="search-controls">
-      <input type="text" class="os-search-input" id="comm-search" placeholder="🔍 Search messages by text, WO#, or contractor name...">
-      
-      <select class="os-filter" id="comm-channel-filter">
-        <option value="all">All Channels</option>
-        <option value="SMS">SMS Only</option>
-        <option value="Email">Email Only</option>
-      </select>
-      
-      <select class="os-filter" id="comm-label-filter">
-        <option value="all">All AI Labels</option>
-        <option value="Assignment">Assignment</option>
-        <option value="Acceptance">Acceptance</option>
-        <option value="Budget_Request">Budget Request</option>
-        <option value="Approval">Approval</option>
-        <option value="Completion">Completion</option>
-        <option value="QC_Issue">QC Issue</option>
-        <option value="Payment">Payment</option>
-      </select>
-
-      <select class="os-filter" id="comm-priority-filter">
-        <option value="all">All Priorities</option>
-        <option value="High">High</option>
-        <option value="Medium">Medium</option>
-        <option value="Low">Low</option>
-      </select>
-    </div>
-  </div>
-
-  <!-- Messages List -->
-  <div class="view-section">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #E2E0DC;">
-      <div class="view-section__title" style="margin-bottom: 0; padding-bottom: 0; border-bottom: none;">Communications Feed</div>
-      <div style="font-family: 'Space Mono', monospace; font-size: 11px; color: #8C8985;" id="comm-feed-count">Showing 0 of 0 messages</div>
-    </div>
+  <!-- Main Side-by-Side Comm Layout -->
+  <div class="comm-layout">
     
-    <div id="comm-feed-list" style="max-height: 600px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; padding: 4px;">
-      <!-- Populated dynamically -->
+    <!-- Left List of Threads -->
+    <div class="comm-threads">
+      <div class="comm-threads__search-box">
+        <input type="text" class="os-search-input" id="thread-search" placeholder="🔍 Search WO#, contractor..." style="margin-bottom:0;">
+        <select class="os-filter" id="thread-priority-filter" style="width: 100px;">
+          <option value="all">All Pri</option>
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
+        </select>
+      </div>
+      <div class="comm-threads__list" id="thread-list-container">
+        <!-- Populated dynamically -->
+      </div>
     </div>
+
+    <!-- Right Thread Detail View -->
+    <div class="comm-detail" id="thread-detail-container">
+      <div class="comm-detail__empty">
+        <div style="font-size: 32px;">💬</div>
+        <div>Select a conversation from the left to view AI summary and message logs</div>
+      </div>
+    </div>
+
   </div>
 
   <script>
     (function () {
       'use strict';
 
-      var currentChannelFilter = 'all';
-      var currentLabelFilter = 'all';
-      var currentPriorityFilter = 'all';
-      var searchVal = '';
+      var currentChannel = 'all';
+      var currentPriority = 'all';
+      var searchQuery = '';
+      var selectedWoNumber = null;
 
-      function renderCommunications() {
+      function renderCommsLayout() {
         if (!window.EPCS_DATA) return;
         var data = window.EPCS_DATA;
         var filters = window.EPCS_FILTERS || { month: 'all', client: 'all', contractor: 'all' };
 
-        // Helper to match filter conditions for work orders
-        function matchFilters(wo) {
+        // Helper to match filter conditions
+        function matchGlobalFilters(wo) {
           if (filters.month !== 'all') {
             if (!wo.due_date || !wo.due_date.startsWith(filters.month)) return false;
           }
@@ -90,170 +83,372 @@
           return true;
         }
 
-        // Apply primary shell filters
+        // 1. Filter message list based on global filter and current channel tab
         var filteredComms = data.communications.filter(function (c) {
           var wo = data.work_orders.find(function (w) { return w.wo_number === c.wo_number; });
-          return wo ? matchFilters(wo) : false;
+          if (!wo || !matchGlobalFilters(wo)) return false;
+          
+          if (currentChannel !== 'all' && c.channel !== currentChannel) return false;
+          return true;
         });
 
-        // Compute KPIs based on primary filters
-        var total = filteredComms.length;
-        var inbound = filteredComms.filter(function (c) { return c.direction === 'Inbound'; }).length;
-        var outbound = filteredComms.filter(function (c) { return c.direction === 'Outbound'; }).length;
-        var needsAction = filteredComms.filter(function (c) { return c.needs_reply; }).length;
+        // 2. Group into threads by WO Number
+        var threadsMap = {};
+        filteredComms.forEach(function (c) {
+          if (!threadsMap[c.wo_number]) {
+            threadsMap[c.wo_number] = {
+              wo_number: c.wo_number,
+              messages: [],
+              contractor: c.contractor || 'Unknown',
+              needs_reply: false,
+              max_priority: 'Low',
+              latest_timestamp: c.timestamp
+            };
+          }
+          threadsMap[c.wo_number].messages.push(c);
+          if (c.needs_reply) {
+            threadsMap[c.wo_number].needs_reply = true;
+          }
+          if (c.priority === 'High') {
+            threadsMap[c.wo_number].max_priority = 'High';
+          } else if (c.priority === 'Medium' && threadsMap[c.wo_number].max_priority !== 'High') {
+            threadsMap[c.wo_number].max_priority = 'Medium';
+          }
+          if (new Date(c.timestamp) > new Date(threadsMap[c.wo_number].latest_timestamp)) {
+            threadsMap[c.wo_number].latest_timestamp = c.timestamp;
+            threadsMap[c.wo_number].contractor = c.contractor || threadsMap[c.wo_number].contractor;
+          }
+        });
 
-        document.getElementById('comm-total').textContent = total;
-        document.getElementById('comm-inbound').textContent = inbound;
-        document.getElementById('comm-outbound').textContent = outbound;
-        document.getElementById('comm-action').textContent = needsAction;
+        var threads = Object.values(threadsMap);
 
-        // Apply local sub-filters
-        var finalComms = filteredComms.filter(function (c) {
-          if (currentChannelFilter !== 'all' && c.channel !== currentChannelFilter) return false;
-          if (currentLabelFilter !== 'all' && c.ai_label !== currentLabelFilter) return false;
-          if (currentPriorityFilter !== 'all' && c.priority !== currentPriorityFilter) return false;
+        // Sort messages in each thread chronologically
+        threads.forEach(function (t) {
+          t.messages.sort(function (a, b) {
+            return new Date(a.timestamp) - new Date(b.timestamp);
+          });
+        });
+
+        // Sort threads by latest message timestamp descending
+        threads.sort(function (a, b) {
+          return new Date(b.latest_timestamp) - new Date(a.latest_timestamp);
+        });
+
+        // Filter threads locally by search and local priority dropdown
+        var finalThreads = threads.filter(function (t) {
+          if (currentPriority !== 'all' && t.max_priority !== currentPriority) return false;
           
-          if (searchVal.trim() !== '') {
-            var q = searchVal.toLowerCase();
-            var text = (c.message_text || '').toLowerCase();
-            var contractor = (c.contractor || '').toLowerCase();
-            var wo = (c.wo_number || '').toLowerCase();
-            
-            return text.includes(q) || contractor.includes(q) || wo.includes(q);
+          if (searchQuery.trim() !== '') {
+            var q = searchQuery.toLowerCase();
+            var woMatch = t.wo_number.toLowerCase().includes(q);
+            var contractorMatch = t.contractor.toLowerCase().includes(q);
+            var msgMatch = t.messages.some(function (m) {
+              return (m.message_text || '').toLowerCase().includes(q) || (m.subject || '').toLowerCase().includes(q);
+            });
+            return woMatch || contractorMatch || msgMatch;
           }
           return true;
         });
 
-        // Update count tag
-        document.getElementById('comm-feed-count').textContent = 'Showing ' + finalComms.length + ' of ' + total + ' messages';
+        // Update KPIs
+        var totalMessages = filteredComms.length;
+        var needsActionCount = threads.filter(function (t) { return t.needs_reply; }).length;
+        var highPriorityCount = threads.filter(function (t) { return t.max_priority === 'High'; }).length;
 
-        // Render Feed List
-        var list = document.getElementById('comm-feed-list');
-        list.innerHTML = '';
+        document.getElementById('comm-total-threads').textContent = threads.length;
+        document.getElementById('comm-total-messages').textContent = totalMessages;
+        document.getElementById('comm-needs-action').textContent = needsActionCount;
+        document.getElementById('comm-high-priority').textContent = highPriorityCount;
 
-        if (finalComms.length === 0) {
-          list.innerHTML = '<div style="text-align:center;color:#8C8985;padding:40px;font-family:Space Mono,monospace;font-size:12px;">No matching messages found.</div>';
+        // Render thread items on the left
+        var listContainer = document.getElementById('thread-list-container');
+        listContainer.innerHTML = '';
+
+        if (finalThreads.length === 0) {
+          listContainer.innerHTML = '<div style="text-align:center;color:#8C8985;padding:20px;font-family:Space Mono,monospace;font-size:11px;">No threads found.</div>';
+        } else {
+          finalThreads.forEach(function (t) {
+            var latestMsg = t.messages[t.messages.length - 1];
+            var previewText = latestMsg ? latestMsg.message_text : '';
+            var timeString = latestMsg ? new Date(latestMsg.timestamp).toLocaleDateString() : '';
+            var activeClass = (selectedWoNumber === t.wo_number) ? 'active' : '';
+
+            var item = document.createElement('div');
+            item.className = 'thread-item ' + activeClass;
+            item.dataset.wo = t.wo_number;
+
+            var badgeHtml = '';
+            if (t.needs_reply) {
+              badgeHtml += '<span class="pill pill--red" style="padding:1px 6px; font-size:9px; margin-right:4px;">Reply Required</span>';
+            }
+            if (t.max_priority === 'High') {
+              badgeHtml += '<span class="pill pill--red" style="padding:1px 6px; font-size:9px;">High</span>';
+            } else if (t.max_priority === 'Medium') {
+              badgeHtml += '<span class="pill pill--amber" style="padding:1px 6px; font-size:9px;">Medium</span>';
+            }
+
+            item.innerHTML = `
+              <div class="thread-item__header">
+                <span class="thread-item__wo">WO# ${t.wo_number}</span>
+                <span class="thread-item__time">${timeString}</span>
+              </div>
+              <div class="thread-item__body">${previewText}</div>
+              <div class="thread-item__meta">
+                <span class="thread-item__contractor">👷 ${t.contractor}</span>
+                <div style="display:flex; gap:2px;">${badgeHtml}</div>
+              </div>
+            `;
+
+            item.addEventListener('click', function () {
+              selectedWoNumber = t.wo_number;
+              // Re-render to update active highlight
+              renderCommsLayout();
+            });
+
+            listContainer.appendChild(item);
+          });
+        }
+
+        // Render Right Thread Detail View
+        var detailContainer = document.getElementById('thread-detail-container');
+        if (!selectedWoNumber) {
+          detailContainer.innerHTML = `
+            <div class="comm-detail__empty">
+              <div style="font-size: 32px;">💬</div>
+              <div>Select a conversation from the left to view AI summary and message logs</div>
+            </div>
+          `;
           return;
         }
 
-        finalComms.forEach(function (c) {
-          var card = document.createElement('div');
-          
-          // Style card wrapper based on direction and action requirements
-          var borderStyle = 'border-left: 3px solid #E2E0DC;';
-          var highlightClass = '';
-          if (c.needs_reply) {
-            borderStyle = 'border-left: 3px solid var(--os-red);';
-            highlightClass = 'background-color: #FEF2F2;';
-          } else if (c.direction === 'Outbound') {
-            borderStyle = 'border-left: 3px solid var(--os-blue);';
-          } else {
-            borderStyle = 'border-left: 3px solid var(--os-green);';
-          }
+        // Find the active thread
+        var activeThread = threads.find(function (t) { return t.wo_number === selectedWoNumber; });
+        if (!activeThread) {
+          // If active thread is no longer available under current filter
+          selectedWoNumber = null;
+          detailContainer.innerHTML = `
+            <div class="comm-detail__empty">
+              <div style="font-size: 32px;">💬</div>
+              <div>Select a conversation from the left to view AI summary and message logs</div>
+            </div>
+          `;
+          return;
+        }
 
-          var channelIcon = c.channel === 'Email' ? '✉️' : '💬';
-          var priorityPill = c.priority === 'High' ? 'pill--red' : (c.priority === 'Medium' ? 'pill--amber' : 'pill--gray');
-          
-          var labelPill = 'pill--gray';
-          if (c.ai_label === 'Payment') labelPill = 'pill--green';
-          else if (c.ai_label === 'Budget_Request') labelPill = 'pill--amber';
-          else if (c.ai_label === 'QC_Issue' || c.ai_label === 'QC_Failure') labelPill = 'pill--red';
-          else if (c.ai_label === 'Acceptance' || c.ai_label === 'Completion') labelPill = 'pill--blue';
+        // Get WO details
+        var matchingWO = data.work_orders.find(function (w) { return w.wo_number === activeThread.wo_number; }) || {};
 
-          var sentimentEmoji = c.sentiment === 'Positive' ? '🟢' : (c.sentiment === 'Concerned' ? '🔴' : '⚪');
+        // Generate dynamic AI Summary & Action Items
+        var aiSummary = generateAISummary(activeThread, matchingWO);
 
-          // Build headers
-          var titleText = c.channel === 'Email' ? `<strong>${c.subject}</strong>` : `SMS Conversation with <strong>${c.contractor}</strong>`;
-          var fromToText = c.direction === 'Inbound' ? `From: ${c.from_address} &rarr; To: Office` : `From: Office &rarr; To: ${c.to_address}`;
-          
-          // Timestamp formatting
-          var dateObj = new Date(c.timestamp);
-          var formattedTime = dateObj.toLocaleString();
+        // Header HTML
+        var detailHeaderHtml = `
+          <div class="comm-detail__header">
+            <div>
+              <div class="comm-detail__title">WO# ${activeThread.wo_number} — ${matchingWO.order_type || 'Preservation'}</div>
+              <div class="comm-detail__sub">Client: <strong>${matchingWO.client || 'Unknown'}</strong> | Contractor: <strong>${activeThread.contractor}</strong> | Status: <strong>${matchingWO.status || 'Active'}</strong></div>
+            </div>
+            <div>
+              <a href="#" class="pill pill--blue" id="btn-view-wo-detail" style="text-decoration:none;">View Work Order</a>
+            </div>
+          </div>
+        `;
 
-          card.innerHTML = `
-            <div style="background:#fff; border:1px solid #E2E0DC; border-radius:8px; padding:12px; display:flex; flex-direction:column; gap:6px; ${borderStyle} ${highlightClass}">
-              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
-                <div style="font-size:12.5px; color:#1A1917;">
-                  <span style="margin-right:6px;">${channelIcon}</span> ${titleText}
-                  <span style="font-family:Space Mono,monospace;font-size:11px;background:#F0EEE8;padding:2px 6px;border-radius:4px;margin-left:8px;">WO# ${c.wo_number}</span>
-                </div>
-                <div style="font-size:11px; color:#8C8985; font-family:Space Mono,monospace;">
-                  ${formattedTime}
-                </div>
+        // Render messages
+        var messageFeedHtml = '';
+        activeThread.messages.forEach(function (m) {
+          var bubbleType = m.direction === 'Inbound' ? 'message-bubble--inbound' : 'message-bubble--outbound';
+          var channelLabel = m.channel === 'Email' ? '✉️ Email' : '💬 SMS';
+          var sentimentIcon = m.sentiment === 'Positive' ? '🟢' : (m.sentiment === 'Concerned' ? '🔴' : '⚪');
+          var replyBadge = (m.needs_reply && m.direction === 'Inbound') ? '<span class="pill pill--red" style="font-size:9px; padding:1px 5px; margin-left:6px;">Needs Reply</span>' : '';
+
+          var headerMeta = m.channel === 'Email' 
+            ? `<strong>Subject: ${m.subject || 'No Subject'}</strong><br/>From: ${m.from_address} &rarr; To: ${m.to_address}`
+            : `SMS Log — ${m.direction === 'Inbound' ? 'From Contractor' : 'From Office'}`;
+
+          messageFeedHtml += `
+            <div class="message-bubble ${bubbleType}">
+              <div style="font-size: 10px; color: var(--os-text-muted); margin-bottom: 6px; padding-bottom: 4px; border-bottom: 1px dashed #F0EEE8;">
+                <span style="font-weight:600;">${channelLabel}</span> | ${headerMeta} ${replyBadge}
               </div>
-              
-              <div style="font-size:11px; color:#8C8985;">
-                ${fromToText}
-              </div>
-              
-              <div style="font-size:12.5px; color:#1A1917; padding:8px 0; border-top:1px solid #F0EEE8; border-bottom:1px solid #F0EEE8; white-space: pre-wrap;">${c.message_text}</div>
-              
-              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; padding-top:4px;">
-                <div style="display:flex; gap:6px; align-items:center;">
-                  <span class="pill ${labelPill}" style="font-size:9.5px;">Label: ${c.ai_label}</span>
-                  <span class="pill ${priorityPill}" style="font-size:9.5px;">Priority: ${c.priority}</span>
-                  <span style="font-size:11px; margin-left:6px;" title="Sentiment: ${c.sentiment}">Sentiment: ${sentimentEmoji}</span>
-                </div>
-                ${c.needs_reply ? `<span class="pill pill--red" style="font-size:9.5px; animation: none;">⚠️ Needs Reply</span>` : ''}
+              <div style="white-space: pre-wrap;">${m.message_text}</div>
+              <div class="message-bubble__time">
+                ${new Date(m.timestamp).toLocaleString()} ${sentimentIcon}
               </div>
             </div>
           `;
-          list.appendChild(card);
         });
+
+        // Combined detail container layout
+        detailContainer.innerHTML = `
+          ${detailHeaderHtml}
+          <div class="comm-detail__content">
+            <!-- AI Summary Box -->
+            <div class="thread-summary-box">
+              <div class="thread-summary-box__title">
+                🤖 AI Copilot Summary & Conversation Audit
+              </div>
+              <div style="line-height: 1.4;">
+                ${aiSummary.text}
+              </div>
+              <div class="thread-summary-box__actions">
+                <strong>Required Action:</strong> ${aiSummary.action}
+              </div>
+            </div>
+
+            <!-- Messages List -->
+            <div style="display:flex; flex-direction:column; gap:16px; margin-top:10px;">
+              <div style="font-family:'Space Grotesk',sans-serif; font-size:12px; font-weight:600; color:var(--os-text-secondary); text-transform:uppercase; letter-spacing:0.04em;">Message Log</div>
+              ${messageFeedHtml}
+            </div>
+          </div>
+        `;
+
+        // Add action to button
+        var btnViewWO = document.getElementById('btn-view-wo-detail');
+        if (btnViewWO) {
+          btnViewWO.addEventListener('click', function (e) {
+            e.preventDefault();
+            // Switch to work orders view
+            window.EPCS_FILTERS.month = 'all';
+            window.EPCS_FILTERS.client = 'all';
+            window.EPCS_FILTERS.contractor = 'all';
+            
+            // Trigger load via sidebar nav
+            var woNavItem = document.querySelector('.os-nav__item[data-view="workorders"]');
+            if (woNavItem) {
+              // Pre-fill search in work orders or filter by WO number
+              // For simplicity, we trigger filter click
+              woNavItem.click();
+              // After loading workorders, search it
+              setTimeout(function() {
+                var woSearchInput = document.getElementById('wo-search');
+                if (woSearchInput) {
+                  woSearchInput.value = activeThread.wo_number;
+                  woSearchInput.dispatchEvent(new Event('input'));
+                }
+              }, 100);
+            }
+          });
+        }
       }
 
-      // Hook local controls
-      var chanFilter = document.getElementById('comm-channel-filter');
-      if (chanFilter) {
-        chanFilter.addEventListener('change', function () {
-          currentChannelFilter = this.value;
-          renderCommunications();
+      // Dynamic AI summary generator
+      function generateAISummary(thread, wo) {
+        var contractor = thread.contractor;
+        var woNum = thread.wo_number;
+        var serviceType = wo.order_type || 'Preservation Services';
+        var client = wo.client || 'Client';
+
+        // Check labels and text of messages
+        var hasQCIssue = false;
+        var hasBudgetRequest = false;
+        var hasDelay = false;
+        var hasCompletion = false;
+        var isApproved = false;
+        var issuesList = [];
+
+        thread.messages.forEach(function (m) {
+          var label = m.ai_label || '';
+          var txt = (m.message_text || '').toLowerCase();
+          
+          if (label === 'QC_Issue' || label === 'QC_Failure' || txt.includes('photo') || txt.includes('reject') || txt.includes('failed')) {
+            hasQCIssue = true;
+          }
+          if (label === 'Budget_Request' || txt.includes('bid') || txt.includes('markup') || txt.includes('additional') || txt.includes('$')) {
+            hasBudgetRequest = true;
+          }
+          if (txt.includes('delay') || txt.includes('late') || txt.includes('extension') || txt.includes('tomorrow')) {
+            hasDelay = true;
+          }
+          if (label === 'Completion' || txt.includes('completed') || txt.includes('finished') || txt.includes('done')) {
+            hasCompletion = true;
+          }
+          if (label === 'Approval' || txt.includes('approved') || txt.includes('go ahead')) {
+            isApproved = true;
+          }
         });
+
+        var summaryText = "";
+        var actionText = "";
+
+        if (hasQCIssue) {
+          summaryText = "This thread concerns a <strong>Quality Control issue</strong> for the <strong>" + serviceType + "</strong>. The office has flagged missing or blurry photos. Contractor " + contractor + " was notified to retake street views and secure locks to prevent invoice deductions.";
+          actionText = "Review incoming contractor photos in the Photo QC panel. Ensure lock close-up photos verify correct lockbox code before submitting to " + client + ".";
+        } else if (hasBudgetRequest) {
+          summaryText = "Contractor " + contractor + " is requesting a <strong>budget markup</strong> for the <strong>" + serviceType + "</strong> due to out-of-scope work encountered on-site. The contractor reports extra trash bags/yard debris and is requesting approval for additional costs.";
+          actionText = "Verify bid rules against the PPW Allowable Pricing Schedule in the Bid Generator. Negotiate with " + client + " for markup approval before confirming vendor payout.";
+        } else if (hasDelay) {
+          summaryText = "Contractor reports a <strong>scheduling delay</strong> for <strong>" + serviceType + "</strong>. Factors cited include adverse weather conditions and delayed access codes to the property. Revised completion timeframe is pending.";
+          actionText = "Update the work order SLA countdown. If necessary, request an extension in the client portal to avoid late submission penalties.";
+        } else if (hasCompletion) {
+          summaryText = "Contractor " + contractor + " reports <strong>successful completion</strong> of all line items for <strong>" + serviceType + "</strong> and has uploaded photos. Invoice is prepared for submission to " + client + ".";
+          actionText = "Run automated Photo QC check to verify street and after-photos. If satisfactory, compile invoice and submit to " + client + " for approval.";
+        } else {
+          summaryText = "Standard communication history regarding the assignment and dispatch details for the <strong>" + serviceType + "</strong>. Timeline and instructions have been exchanged.";
+          actionText = "None. Monitor thread for contractor updates or check-ins.";
+        }
+
+        return {
+          text: summaryText,
+          action: actionText
+        };
       }
 
-      var lblFilter = document.getElementById('comm-label-filter');
-      if (lblFilter) {
-        lblFilter.addEventListener('change', function () {
-          currentLabelFilter = this.value;
-          renderCommunications();
-        });
-      }
-
-      var priFilter = document.getElementById('comm-priority-filter');
-      if (priFilter) {
-        priFilter.addEventListener('change', function () {
-          currentPriorityFilter = this.value;
-          renderCommunications();
-        });
-      }
-
-      var searchInput = document.getElementById('comm-search');
+      // Setup Event Listeners for local filters
+      var searchInput = document.getElementById('thread-search');
       if (searchInput) {
         searchInput.addEventListener('input', function () {
-          searchVal = this.value;
-          renderCommunications();
+          searchQuery = this.value;
+          renderCommsLayout();
         });
       }
 
-      // Event listeners for shell
+      var priorityFilter = document.getElementById('thread-priority-filter');
+      if (priorityFilter) {
+        priorityFilter.addEventListener('change', function () {
+          currentPriority = this.value;
+          renderCommsLayout();
+        });
+      }
+
+      var channelTabs = document.getElementById('comm-channel-tabs');
+      if (channelTabs) {
+        channelTabs.querySelectorAll('.channel-tab').forEach(function (tab) {
+          tab.addEventListener('click', function () {
+            channelTabs.querySelectorAll('.channel-tab').forEach(function (t) { t.classList.remove('active'); });
+            this.classList.add('active');
+            currentChannel = this.dataset.channel;
+            selectedWoNumber = null; // Reset selection on channel switch
+            renderCommsLayout();
+          });
+        });
+      }
+
+      // Shell Event Hooks
       window.addEventListener('epcs:view-loaded', function (e) {
         if (e.detail.view === 'communications') {
-          currentChannelFilter = 'all';
-          currentLabelFilter = 'all';
-          currentPriorityFilter = 'all';
-          searchVal = '';
-          if (chanFilter) chanFilter.value = 'all';
-          if (lblFilter) lblFilter.value = 'all';
-          if (priFilter) priFilter.value = 'all';
+          currentChannel = 'all';
+          currentPriority = 'all';
+          searchQuery = '';
+          selectedWoNumber = null;
+          
           if (searchInput) searchInput.value = '';
-          renderCommunications();
+          if (priorityFilter) priorityFilter.value = 'all';
+          if (channelTabs) {
+            channelTabs.querySelectorAll('.channel-tab').forEach(function (t) { t.classList.remove('active'); });
+            var allTab = channelTabs.querySelector('[data-channel="all"]');
+            if (allTab) allTab.classList.add('active');
+          }
+
+          renderCommsLayout();
         }
       });
 
       window.addEventListener('epcs:filter-change', function () {
         var activeItem = document.querySelector('.os-nav__item.active');
         if (activeItem && activeItem.dataset.view === 'communications') {
-          renderCommunications();
+          renderCommsLayout();
         }
       });
 

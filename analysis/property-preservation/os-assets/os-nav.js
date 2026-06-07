@@ -10,6 +10,8 @@
     communications: { title: 'Communications',    file: 'views/communications.html' },
     zip:            { title: 'ZIP Intelligence',  file: 'views/zip.html' },
     workbook:       { title: 'Workbook',          file: 'views/workbook.html' },
+    photoqc:        { title: 'Photo QC',          file: 'views/photoqc.html' },
+    bidgenerator:   { title: 'Bid Generator',     file: 'views/bidgenerator.html' },
   };
 
   // Global filter state
@@ -115,6 +117,10 @@
     var badgeComms = document.getElementById('badge-comms');
     if (badgeComms) {
       badgeComms.textContent = data.meta.total_comms;
+    }
+    var badgeQC = document.getElementById('badge-qc');
+    if (badgeQC) {
+      badgeQC.textContent = '3';
     }
     
     // 3. Load default view (pulse)

@@ -1,0 +1,377 @@
+<div class="os-view-body">
+  <div class="bid-grid">
+    
+    <!-- Left: Bid Parameters Form -->
+    <div class="bid-form-panel">
+      <div class="view-section__title" style="border-bottom:none; margin-bottom:8px;">Bid Parameter Sheet</div>
+      <div style="font-size:12px; color:var(--os-text-muted); margin-bottom:20px;">Compute client pricing & contractor payouts based on PPW allowable regulations.</div>
+
+      <div class="bid-form__group">
+        <label class="bid-form__label">Select Service Type</label>
+        <select class="bid-form__select" id="bid-service-type">
+          <option value="Grass Cut">Grass Cut (Mowing)</option>
+          <option value="Grass Recut">Grass Recut (Maintenance)</option>
+          <option value="Winterization">Winterization (HVAC / Water)</option>
+          <option value="Initial Secure">Initial Secure (Rekey / Boarding)</option>
+          <option value="Board Up">Board Up (Plywood)</option>
+          <option value="Maid Service">Maid Service (Janitorial)</option>
+          <option value="Debris Removal">Debris Removal (Trash-out)</option>
+        </select>
+      </div>
+
+      <div class="bid-form__group">
+        <label class="bid-form__label">Select Contractor</label>
+        <select class="bid-form__select" id="bid-contractor">
+          <!-- Dynamically populated -->
+        </select>
+      </div>
+
+      <div class="bid-form__group">
+        <label class="bid-form__label">State of Property</label>
+        <select class="bid-form__select" id="bid-state">
+          <option value="FL">Florida (FL)</option>
+          <option value="TX">Texas (TX)</option>
+          <option value="OH">Ohio (OH)</option>
+          <option value="IN">Indiana (IN)</option>
+          <option value="TN">Tennessee (TN)</option>
+          <option value="MI">Michigan (MI)</option>
+        </select>
+      </div>
+
+      <!-- Contextual parameters (Grass Cut) -->
+      <div id="param-grass-cut" class="param-group">
+        <div class="bid-form__group">
+          <label class="bid-form__label">Lot Size (Sq Footage)</label>
+          <input type="number" class="bid-form__input" id="bid-lot-size" value="7500" placeholder="e.g. 8500">
+        </div>
+      </div>
+
+      <!-- Contextual parameters (Initial Secure) -->
+      <div id="param-secure" class="param-group" style="display:none;">
+        <div class="bid-form__group">
+          <label class="bid-form__label">Number of Doors to Secure</label>
+          <input type="number" class="bid-form__input" id="bid-doors" value="2" min="1">
+        </div>
+      </div>
+
+      <!-- Contextual parameters (Board Up) -->
+      <div id="param-board" class="param-group" style="display:none;">
+        <div class="bid-form__group">
+          <label class="bid-form__label">Number of Windows to Board</label>
+          <input type="number" class="bid-form__input" id="bid-windows" value="4" min="1">
+        </div>
+      </div>
+
+      <!-- Contextual parameters (Maid Service) -->
+      <div id="param-maid" class="param-group" style="display:none;">
+        <div class="bid-form__group">
+          <label class="bid-form__label">Interior Size (Sq Footage)</label>
+          <input type="number" class="bid-form__input" id="bid-interior-size" value="1800" placeholder="e.g. 1400">
+        </div>
+      </div>
+
+      <!-- Contextual parameters (Debris Removal) -->
+      <div id="param-debris" class="param-group" style="display:none;">
+        <div class="bid-form__group">
+          <label class="bid-form__label">Cubic Yards of Debris</label>
+          <input type="number" class="bid-form__input" id="bid-debris-yards" value="5" min="1">
+        </div>
+      </div>
+
+      <button class="bid-submit-btn" id="btn-generate-bid">Run Bid Calculations</button>
+    </div>
+
+    <!-- Right: Calculation Output Sheet -->
+    <div class="bid-output-panel">
+      <div class="view-section__title" style="border-bottom:none; margin-bottom:12px;">Automated Bid Proposal Summary</div>
+      
+      <!-- Summaries -->
+      <div class="bid-summary-cards">
+        <div class="bid-summary-card">
+          <div class="bid-summary-card__label">PPW Allowable</div>
+          <div class="bid-summary-card__value" id="out-allowable">$0.00</div>
+        </div>
+        <div class="bid-summary-card" style="border-color:var(--os-blue); background:#EFF6FF;">
+          <div class="bid-summary-card__label" style="color:#2563AB;">Client Bid</div>
+          <div class="bid-summary-card__value" id="out-client" style="color:#2563AB;">$0.00</div>
+        </div>
+        <div class="bid-summary-card" style="border-color:var(--os-green); background:#F0FDF4;">
+          <div class="bid-summary-card__label" style="color:#1A6B3C;">Contractor Pay</div>
+          <div class="bid-summary-card__value" id="out-contractor" style="color:#1A6B3C;">$0.00</div>
+        </div>
+      </div>
+
+      <!-- Detailed Breakdown -->
+      <div style="flex:1; border:1px solid #E2E0DC; border-radius:8px; padding:16px; background:#FAF9F6; margin-bottom:16px;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:12.5px; font-weight:600; color:#1A1917; margin-bottom:12px; border-bottom:1px solid #E2E0DC; padding-bottom:6px;">Line Item Calculations</div>
+        <div id="bid-line-items" style="display:flex; flex-direction:column; gap:4px;">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+      <!-- Net profit margins & audit check list -->
+      <div style="border:1px solid #E2E0DC; border-radius:8px; padding:12px; background:#fff; font-size:12px;">
+        <div style="display:flex; justify-content:space-between; margin-bottom:8px; font-family:'Space Mono',monospace;">
+          <span>Net Profit Margin:</span>
+          <strong id="out-margin" style="color:var(--os-green); font-size:13px;">$0.00 (0.00%)</strong>
+        </div>
+        
+        <div style="display:flex; flex-direction:column; gap:6px; margin-top:8px; padding-top:8px; border-top:1px dashed #E2E0DC;">
+          <div style="display:flex; align-items:center; gap:6px; color:#1A6B3C;">
+            <span>✓</span> <span>State multiplier applied correctly</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:6px; color:#1A6B3C;" id="check-tier">
+            <span>✓</span> <span>Contractor Tier pay multiplier configured (0.72)</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:6px; color:#1A6B3C;" id="check-margin">
+            <span>✓</span> <span>Target margin of 28% satisfied</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      // Rules database
+      const BID_RULES = {
+        'Grass Cut': { base: [30, 55], over8k: [55, 90], stateAdj: {FL:1.1, TX:1.05, OH:0.95, IN:0.92} },
+        'Grass Recut': { base: [25, 45], stateAdj: {FL:1.1, TX:1.05, OH:0.95, IN:0.92} },
+        'Winterization': { base: [60, 120] },
+        'Initial Secure': { base: [65, 125], perEntry: 15 },
+        'Board Up': { base: 20, perWindow: 35 },
+        'Maid Service': { baseUnder1500: 75, over1500: 150 },
+        'Debris Removal': { base: [85, 200], perYard: 30 },
+      };
+
+      function initBidGenerator() {
+        if (!window.EPCS_DATA) return;
+        var data = window.EPCS_DATA;
+
+        // Populate contractors dropdown
+        var contractorDropdown = document.getElementById('bid-contractor');
+        if (contractorDropdown) {
+          contractorDropdown.innerHTML = '';
+          data.contractors.forEach(function (c) {
+            var opt = document.createElement('option');
+            opt.value = c.name;
+            opt.textContent = c.name + ' (Tier ' + c.tier + ')';
+            contractorDropdown.appendChild(opt);
+          });
+        }
+
+        // Add event listeners for dynamic parameter form rendering
+        var serviceDropdown = document.getElementById('bid-service-type');
+        if (serviceDropdown) {
+          serviceDropdown.addEventListener('change', function () {
+            // Hide all parameter groups
+            document.querySelectorAll('.param-group').forEach(function (g) {
+              g.style.display = 'none';
+            });
+            // Show selected parameter group
+            var val = this.value;
+            if (val === 'Grass Cut' || val === 'Grass Recut') {
+              document.getElementById('param-grass-cut').style.display = 'block';
+            } else if (val === 'Initial Secure') {
+              document.getElementById('param-secure').style.display = 'block';
+            } else if (val === 'Board Up') {
+              document.getElementById('param-board').style.display = 'block';
+            } else if (val === 'Maid Service') {
+              document.getElementById('param-maid').style.display = 'block';
+            } else if (val === 'Debris Removal') {
+              document.getElementById('param-debris').style.display = 'block';
+            }
+            
+            calculateBidProposal();
+          });
+        }
+
+        // Re-calculate automatically on form changes
+        ['bid-contractor', 'bid-state', 'bid-lot-size', 'bid-doors', 'bid-windows', 'bid-interior-size', 'bid-debris-yards'].forEach(function (id) {
+          var el = document.getElementById(id);
+          if (el) {
+            el.addEventListener('input', calculateBidProposal);
+            el.addEventListener('change', calculateBidProposal);
+          }
+        });
+
+        var btnGen = document.getElementById('btn-generate-bid');
+        if (btnGen) {
+          btnGen.addEventListener('click', function (e) {
+            e.preventDefault();
+            calculateBidProposal();
+          });
+        }
+
+        // Run default calculation
+        calculateBidProposal();
+      }
+
+      function calculateBidProposal() {
+        if (!window.EPCS_DATA) return;
+        var data = window.EPCS_DATA;
+
+        var serviceType = document.getElementById('bid-service-type').value;
+        var contractorName = document.getElementById('bid-contractor').value;
+        var state = document.getElementById('bid-state').value;
+
+        // Find contractor tier
+        var contractorObj = data.contractors.find(function (c) { return c.name === contractorName; }) || { tier: 2 };
+        var tier = contractorObj.tier || 2;
+        var payRate = (tier === 1) ? 0.72 : 0.65;
+
+        // Set tier text check
+        document.getElementById('check-tier').innerHTML = `<span>✓</span> <span>Contractor Tier ${tier} multiplier applied (${payRate})</span>`;
+
+        var clientAllowable = 0;
+        var details = [];
+
+        // Calculation logic
+        if (serviceType === 'Grass Cut') {
+          var lotSize = parseFloat(document.getElementById('bid-lot-size').value) || 0;
+          var basePrice = (lotSize > 8000) ? 75 : 45;
+          details.push({ name: 'Base Grass Cut (Lot Size: ' + lotSize.toLocaleString() + ' sq ft)', calc: '$' + basePrice.toFixed(2) });
+
+          // State Adjustment
+          var stateAdj = BID_RULES['Grass Cut'].stateAdj[state] || 1.0;
+          clientAllowable = basePrice * stateAdj;
+          if (stateAdj !== 1.0) {
+            details.push({ name: 'State Adjustment (' + state + ') Multiplier', calc: '× ' + stateAdj + ' (' + (stateAdj > 1.0 ? '+' : '-') + Math.round(Math.abs(stateAdj - 1.0) * 100) + '%)' });
+          }
+        } 
+        else if (serviceType === 'Grass Recut') {
+          var lotSize = parseFloat(document.getElementById('bid-lot-size').value) || 0;
+          var basePrice = (lotSize > 8000) ? 65 : 35;
+          details.push({ name: 'Base Grass Recut (Lot Size: ' + lotSize.toLocaleString() + ' sq ft)', calc: '$' + basePrice.toFixed(2) });
+
+          var stateAdj = BID_RULES['Grass Recut'].stateAdj[state] || 1.0;
+          clientAllowable = basePrice * stateAdj;
+          if (stateAdj !== 1.0) {
+            details.push({ name: 'State Adjustment (' + state + ') Multiplier', calc: '× ' + stateAdj + ' (' + (stateAdj > 1.0 ? '+' : '-') + Math.round(Math.abs(stateAdj - 1.0) * 100) + '%)' });
+          }
+        }
+        else if (serviceType === 'Winterization') {
+          clientAllowable = 110; // Default flat rate
+          details.push({ name: 'Flat Rate Winterization Fee', calc: '$110.00' });
+        }
+        else if (serviceType === 'Initial Secure') {
+          var doors = parseInt(document.getElementById('bid-doors').value) || 1;
+          var basePrice = 85;
+          var extraDoorsPrice = Math.max(0, doors - 1) * 15;
+          clientAllowable = basePrice + extraDoorsPrice;
+
+          details.push({ name: 'Initial Secure Base (1 Door)', calc: '$' + basePrice.toFixed(2) });
+          if (doors > 1) {
+            details.push({ name: 'Extra secured doors (' + (doors - 1) + ' additional)', calc: '+' + (doors - 1) + ' × $15.00 ($' + extraDoorsPrice.toFixed(2) + ')' });
+          }
+        }
+        else if (serviceType === 'Board Up') {
+          var windows = parseInt(document.getElementById('bid-windows').value) || 1;
+          var basePrice = 20;
+          var windowsPrice = windows * 35;
+          clientAllowable = basePrice + windowsPrice;
+
+          details.push({ name: 'Boarding Fee Base (Service Trip)', calc: '$' + basePrice.toFixed(2) });
+          details.push({ name: 'Windows Boarded (' + windows + ' units)', calc: '+' + windows + ' × $35.00 ($' + windowsPrice.toFixed(2) + ')' });
+        }
+        else if (serviceType === 'Maid Service') {
+          var interiorSize = parseFloat(document.getElementById('bid-interior-size').value) || 0;
+          clientAllowable = (interiorSize >= 1500) ? 150 : 85;
+          details.push({ name: 'Maid Janitorial Fee (Interior: ' + interiorSize.toLocaleString() + ' sq ft)', calc: '$' + clientAllowable.toFixed(2) });
+        }
+        else if (serviceType === 'Debris Removal') {
+          var yards = parseInt(document.getElementById('bid-debris-yards').value) || 1;
+          var basePrice = 95;
+          var extraYardsPrice = yards * 32;
+          clientAllowable = basePrice + extraYardsPrice;
+
+          details.push({ name: 'Debris Service Entry Base', calc: '$' + basePrice.toFixed(2) });
+          details.push({ name: 'Trash-out volume (' + yards + ' cubic yards)', calc: '+' + yards + ' × $32.00 ($' + extraYardsPrice.toFixed(2) + ')' });
+        }
+
+        // client allowable sum
+        var clientBid = clientAllowable;
+
+        // contractor payout = client allowable * payRate
+        var contractorPay = clientBid * payRate;
+
+        // net margin = clientBid - contractorPay
+        var netMargin = clientBid - contractorPay;
+        var marginPct = clientBid > 0 ? (netMargin / clientBid) * 100 : 0;
+
+        // Update UI Text values
+        document.getElementById('out-allowable').textContent = '$' + clientAllowable.toFixed(2);
+        document.getElementById('out-client').textContent = '$' + clientBid.toFixed(2);
+        document.getElementById('out-contractor').textContent = '$' + contractorPay.toFixed(2);
+
+        var marginEl = document.getElementById('out-margin');
+        marginEl.textContent = '$' + netMargin.toFixed(2) + ' (' + marginPct.toFixed(1) + '%)';
+        
+        var checkMargin = document.getElementById('check-margin');
+        var targetMargin = 28.0;
+
+        if (marginPct >= targetMargin) {
+          marginEl.style.color = 'var(--os-green)';
+          checkMargin.style.color = '#1A6B3C';
+          checkMargin.innerHTML = `<span>✓</span> <span>Target margin of 28% satisfied (${marginPct.toFixed(1)}% achieved)</span>`;
+        } else {
+          marginEl.style.color = 'var(--os-red)';
+          checkMargin.style.color = 'var(--os-red)';
+          checkMargin.innerHTML = `<span>❌</span> <span>Target margin of 28% unmet (${marginPct.toFixed(1)}% achieved)</span>`;
+        }
+
+        // Render line items list
+        var linesContainer = document.getElementById('bid-line-items');
+        linesContainer.innerHTML = '';
+
+        details.forEach(function (d) {
+          var div = document.createElement('div');
+          div.className = 'bid-line-item';
+          div.innerHTML = `
+            <div>
+              <div class="bid-line-item__name">${d.name}</div>
+            </div>
+            <div class="bid-line-item__calc">${d.calc}</div>
+          `;
+          linesContainer.appendChild(div);
+        });
+
+        // Add client final line item
+        var finalDiv = document.createElement('div');
+        finalDiv.className = 'bid-line-item';
+        finalDiv.style = 'border-top: 1px solid #E2E0DC; font-weight:700; margin-top:8px; padding-top:8px;';
+        finalDiv.innerHTML = `
+          <div>
+            <div class="bid-line-item__name">Total Estimated Client Invoice</div>
+          </div>
+          <div style="font-family:Space Mono,monospace;">$${clientBid.toFixed(2)}</div>
+        `;
+        linesContainer.appendChild(finalDiv);
+
+        // Add contractor final line item
+        var contractorDiv = document.createElement('div');
+        contractorDiv.className = 'bid-line-item';
+        contractorDiv.style = 'font-weight:600; color:var(--os-green);';
+        contractorDiv.innerHTML = `
+          <div>
+            <div class="bid-line-item__name">Contractor Invoice Payout (${Math.round(payRate * 100)}%)</div>
+          </div>
+          <div style="font-family:Space Mono,monospace;">$${contractorPay.toFixed(2)}</div>
+        `;
+        linesContainer.appendChild(contractorDiv);
+      }
+
+      // Hook view loaded event
+      window.addEventListener('epcs:view-loaded', function (e) {
+        if (e.detail.view === 'bidgenerator') {
+          initBidGenerator();
+        }
+      });
+
+    })();
+  </script>
+</div>

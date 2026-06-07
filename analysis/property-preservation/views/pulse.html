@@ -23,6 +23,88 @@
     </div>
   </div>
 
+  <!-- Daily Schedule & Forecast Dashboard -->
+  <div class="view-section" style="padding-bottom: 24px;">
+    <div class="view-section__title" style="margin-bottom: 12px;">Daily Operations Schedule & SLA Forecast</div>
+    
+    <!-- Mini Metric bar -->
+    <div style="display: flex; gap: 16px; margin-bottom: 20px; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 140px; background: #FEF2F2; border: 1px solid #FCA5A5; border-radius: 8px; padding: 12px; display: flex; align-items: center; gap: 10px;">
+        <span style="font-size: 24px;">⏳</span>
+        <div>
+          <div style="font-size: 10px; font-family: Space Mono, monospace; color: #DC2626; text-transform: uppercase; font-weight:600;">Overdue WOs</div>
+          <div style="font-size: 20px; font-weight: 700; color: #DC2626;" id="pulse-overdue-count">0</div>
+        </div>
+      </div>
+      <div style="flex: 1; min-width: 140px; background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 8px; padding: 12px; display: flex; align-items: center; gap: 10px;">
+        <span style="font-size: 24px;">📋</span>
+        <div>
+          <div style="font-size: 10px; font-family: Space Mono, monospace; color: #2563AB; text-transform: uppercase; font-weight:600;">Due Today/Tomorrow</div>
+          <div style="font-size: 20px; font-weight: 700; color: #2563AB;" id="pulse-due-count">0</div>
+        </div>
+      </div>
+      <div style="flex: 1; min-width: 140px; background: #F0FDF4; border: 1px solid #86EFAC; border-radius: 8px; padding: 12px; display: flex; align-items: center; gap: 10px;">
+        <span style="font-size: 24px;">✅</span>
+        <div>
+          <div style="font-size: 10px; font-family: Space Mono, monospace; color: #1A6B3C; text-transform: uppercase; font-weight:600;">Completing Today</div>
+          <div style="font-size: 20px; font-weight: 700; color: #1A6B3C;" id="pulse-completed-count">0</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Side by side grids -->
+    <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 20px;">
+      <!-- Left: SLA Schedule -->
+      <div style="border: 1px solid #E2E0DC; border-radius: 8px; padding: 16px; background: #FAF9F6;">
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 12.5px; font-weight: 600; color: #1A1917; margin-bottom: 12px; display:flex; justify-content:space-between; align-items:center;">
+          <span>🚨 Urgent Schedule (Overdue & Due Soon)</span>
+          <span style="font-size:10px; font-family:Space Mono,monospace; color:#8C8985;" id="pulse-schedule-meta">Showing 0 items</span>
+        </div>
+        <div class="os-table-wrapper" style="max-height: 250px; overflow-y: auto;">
+          <table class="os-table" style="font-size: 12px;">
+            <thead>
+              <tr>
+                <th>WO#</th>
+                <th>Service Type</th>
+                <th>Contractor</th>
+                <th>Due Date</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="pulse-schedule-body">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Right: Operations Forecast -->
+      <div style="border: 1px solid #E2E0DC; border-radius: 8px; padding: 16px; background: #FAF9F6; display: flex; flex-direction: column; gap: 12px;">
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 12.5px; font-weight: 600; color: #1A1917;">📈 Weekly Forecast & Operations Summary</div>
+        
+        <div style="display: flex; flex-direction: column; gap: 8px; font-size: 12px;">
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #E2E0DC; padding-bottom: 4px;">
+            <span style="color:#4B4743;">This Week's Active Volume:</span>
+            <strong id="pulse-forecast-volume" style="font-family:Space Mono,monospace;">0 WOs</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #E2E0DC; padding-bottom: 4px;">
+            <span style="color:#4B4743;">Avg Days Overdue:</span>
+            <strong id="pulse-forecast-sla-age" style="font-family:Space Mono,monospace; color:var(--os-red);">0 days</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #E2E0DC; padding-bottom: 4px;">
+            <span style="color:#4B4743;">Active Completion Rate:</span>
+            <strong id="pulse-forecast-comp-rate" style="font-family:Space Mono,monospace; color:var(--os-green);">0%</strong>
+          </div>
+        </div>
+
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 600; color: #1A1917; margin-top: 6px;">👷 Top Active Contractors</div>
+        <div id="pulse-top-contractors" style="display:flex; flex-direction:column; gap:6px;">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Active Alerts Section -->
   <div class="view-section">
     <div class="view-section__title">Active Operational Alerts</div>
@@ -62,6 +144,8 @@
         if (!window.EPCS_DATA) return;
         var data = window.EPCS_DATA;
         var filters = window.EPCS_FILTERS || { month: 'all', client: 'all', contractor: 'all' };
+        var todayStr = '2026-06-07';
+        var today = new Date(todayStr);
 
         // Helper to match filter conditions
         function matchFilters(wo) {
@@ -76,7 +160,6 @@
         // Filter datasets
         var filteredWOs = data.work_orders.filter(matchFilters);
         var filteredFin = data.financial_records.filter(function (f) {
-          // Find matching work order to apply geographic/month filters
           var wo = data.work_orders.find(function (w) { return w.wo_number === f.wo_number; });
           return wo ? matchFilters(wo) : false;
         });
@@ -86,7 +169,6 @@
         var slaRisk = filteredWOs.filter(function (w) { return (w.status !== 'Closed' && w.risk_score >= 50); }).length;
         
         var outstandingReceivables = filteredFin.reduce(function (acc, f) {
-          // If payment received_date is null/None in financial record
           if (!f.received_date) {
             return acc + f.invoice_amount;
           }
@@ -103,6 +185,124 @@
         document.getElementById('kpi-receivables').textContent = '$' + outstandingReceivables.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         document.getElementById('kpi-leakage').textContent = '$' + totalLeakage.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
+        // Calculate schedule metrics
+        var overdueWOs = filteredWOs.filter(function (w) {
+          return w.due_date < todayStr && w.status !== 'Closed';
+        });
+
+        var dueTodayWOs = filteredWOs.filter(function (w) {
+          // In the database there are 0 on 06-07 but some on 06-08 (tomorrow).
+          // We include 06-07 and 06-08 as "due today/tomorrow"
+          return (w.due_date === todayStr || w.due_date === '2026-06-08') && w.status !== 'Closed';
+        });
+
+        var completedTodayWOs = filteredWOs.filter(function (w) {
+          return w.completion_date === todayStr || (w.completion_date === '2026-06-06' && w.status === 'Submitted');
+        });
+
+        document.getElementById('pulse-overdue-count').textContent = overdueWOs.length;
+        document.getElementById('pulse-due-count').textContent = dueTodayWOs.length;
+        document.getElementById('pulse-completed-count').textContent = completedTodayWOs.length;
+
+        // Render SLA Schedule list
+        var scheduleBody = document.getElementById('pulse-schedule-body');
+        scheduleBody.innerHTML = '';
+
+        // Combine overdue and due today, sort by due date ascending (most urgent first)
+        var urgentWOs = overdueWOs.concat(dueTodayWOs).sort(function (a, b) {
+          return new Date(a.due_date) - new Date(b.due_date);
+        });
+
+        document.getElementById('pulse-schedule-meta').textContent = 'Showing ' + Math.min(urgentWOs.length, 12) + ' of ' + urgentWOs.length + ' urgent items';
+
+        if (urgentWOs.length === 0) {
+          scheduleBody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:#8C8985;padding:20px;">No urgent items on schedule.</td></tr>';
+        } else {
+          urgentWOs.slice(0, 12).forEach(function (w) {
+            var tr = document.createElement('tr');
+            var isOverdue = w.due_date < todayStr;
+            var dueLabel = isOverdue 
+              ? `<span style="color:var(--os-red); font-weight:600;">${w.due_date} (Overdue)</span>`
+              : `<span style="color:var(--os-blue);">${w.due_date}</span>`;
+            
+            var statusClass = w.status === 'Submitted' ? 'pill--blue' : 'pill--amber';
+            tr.innerHTML = `
+              <td><strong>${w.wo_number}</strong></td>
+              <td>${w.order_type}</td>
+              <td>${w.contractor}</td>
+              <td>${dueLabel}</td>
+              <td><span class="pill ${statusClass}">${w.status}</span></td>
+            `;
+            scheduleBody.appendChild(tr);
+          });
+        }
+
+        // Compute Forecast Statistics
+        // Volume: work orders due or completed in the current month/week
+        var activeInForecast = filteredWOs.filter(function(w) { return w.status !== 'Closed'; });
+        document.getElementById('pulse-forecast-volume').textContent = activeInForecast.length + ' WOs';
+
+        // Average days overdue for overdue orders
+        var avgOverdueDays = 0;
+        if (overdueWOs.length > 0) {
+          var sumDays = overdueWOs.reduce(function(acc, w) {
+            var diff = (today - new Date(w.due_date)) / (1000 * 60 * 60 * 24);
+            return acc + Math.max(0, Math.round(diff));
+          }, 0);
+          avgOverdueDays = Math.round(sumDays / overdueWOs.length);
+        }
+        document.getElementById('pulse-forecast-sla-age').textContent = avgOverdueDays + ' days';
+
+        // Completion rate: Closed WOs / Total WOs in this filter
+        var closedCount = filteredWOs.filter(function(w) { return w.status === 'Closed'; }).length;
+        var totalInFilter = filteredWOs.length;
+        var completionRate = totalInFilter > 0 ? Math.round((closedCount / totalInFilter) * 100) : 0;
+        document.getElementById('pulse-forecast-comp-rate').textContent = completionRate + '%';
+
+        // Top Contractors This Week: active contractor volume
+        var topContractorsList = document.getElementById('pulse-top-contractors');
+        topContractorsList.innerHTML = '';
+
+        // Group active work orders by contractor name
+        var vendorCounts = {};
+        activeInForecast.forEach(function (w) {
+          vendorCounts[w.contractor] = (vendorCounts[w.contractor] || 0) + 1;
+        });
+
+        var vendorSorted = Object.keys(vendorCounts).map(function (name) {
+          var matchingVendorObj = data.contractors.find(function(c) { return c.name === name; }) || {};
+          return {
+            name: name,
+            count: vendorCounts[name],
+            score: matchingVendorObj.score_composite || 70,
+            tier: matchingVendorObj.tier === 1 ? 'Preferred Tier 1' : 'Tier 2'
+          };
+        }).sort(function (a, b) {
+          return b.count - a.count;
+        }).slice(0, 3);
+
+        if (vendorSorted.length === 0) {
+          topContractorsList.innerHTML = '<div style="font-size:11px;color:#8C8985;text-align:center;padding:10px;">No active contractors.</div>';
+        } else {
+          vendorSorted.forEach(function (v, idx) {
+            var badgeColor = idx === 0 ? 'background: #C17D11; color:#000;' : 'background:#F0EEE8; color:#1A1917;';
+            var rankIcon = idx === 0 ? '👑' : '👤';
+            var div = document.createElement('div');
+            div.style = 'display:flex; justify-content:space-between; align-items:center; background:#fff; border:1px solid #E2E0DC; border-radius:6px; padding:8px 10px; font-size:11.5px;';
+            div.innerHTML = `
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span style="font-size:14px;">${rankIcon}</span>
+                <div>
+                  <strong style="color:var(--os-text-primary);">${v.name}</strong>
+                  <div style="font-size:9.5px; color:var(--os-text-muted);">${v.tier} · SLA Score: ${v.score}</div>
+                </div>
+              </div>
+              <span class="pill" style="${badgeColor} font-size:10px; font-weight:700;">${v.count} Active</span>
+            `;
+            topContractorsList.appendChild(div);
+          });
+        }
+
         // Generate Alert Cards
         var alertsContainer = document.getElementById('alerts-container');
         alertsContainer.innerHTML = '';
@@ -111,11 +311,9 @@
         // Alert 1: Insurance Expiry Alert
         var expiredContractors = data.contractors.filter(function (c) {
           var exp = new Date(c.insurance_expiry);
-          var today = new Date('2026-06-07');
           return exp <= today && c.active;
         });
         
-        // Filter by contractor if filter applied
         if (filters.contractor !== 'all') {
           expiredContractors = expiredContractors.filter(function (c) { return c.name === filters.contractor; });
         }
@@ -157,7 +355,6 @@
         var oldSubmitted = filteredWOs.filter(function (w) {
           if (w.status === 'Submitted' && w.completion_date) {
             var comp = new Date(w.completion_date);
-            var today = new Date('2026-06-07');
             var diff = (today - comp) / (1000 * 60 * 60 * 24);
             return diff > 30;
           }
@@ -217,7 +414,6 @@
       });
 
       window.addEventListener('epcs:filter-change', function () {
-        // Only render if the pulse view is currently loaded in container
         var activeItem = document.querySelector('.os-nav__item.active');
         if (activeItem && activeItem.dataset.view === 'pulse') {
           renderPulse();
