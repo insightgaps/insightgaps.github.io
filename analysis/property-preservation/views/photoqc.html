@@ -33,13 +33,19 @@
         <div class="view-section__title">PPW API Photo QC Upload Simulator</div>
         
         <div style="display:flex; gap:16px; margin-bottom:16px; flex-wrap:wrap;">
-          <div style="flex:1; min-width:180px;">
+          <div style="flex:1; min-width:140px;">
             <label class="bid-form__label" style="margin-bottom:6px;">Select Contractor</label>
             <select class="bid-form__select" id="qc-select-contractor">
               <!-- Dynamically populated -->
             </select>
           </div>
-          <div style="flex:1; min-width:180px;">
+          <div style="flex:1; min-width:140px;">
+            <label class="bid-form__label" style="margin-bottom:6px;">Work Order Number</label>
+            <select class="bid-form__select" id="qc-select-wo">
+              <!-- Dynamically populated based on contractor -->
+            </select>
+          </div>
+          <div style="flex:1; min-width:140px;">
             <label class="bid-form__label" style="margin-bottom:6px;">Select Service Type</label>
             <select class="bid-form__select" id="qc-select-service">
               <option value="Grass Cut">Grass Cut</option>
@@ -108,6 +114,7 @@
           <thead>
             <tr>
               <th>Timestamp</th>
+              <th>WO Number</th>
               <th>Contractor</th>
               <th>Service Type</th>
               <th class="num">Photos Checked</th>
@@ -118,6 +125,7 @@
           <tbody id="qc-history-body">
             <tr>
               <td><strong>2026-06-07 11:20:41</strong></td>
+              <td><strong>20260384</strong></td>
               <td>Midwest Builders</td>
               <td>Winterization</td>
               <td class="num">4 / 4</td>
@@ -126,6 +134,7 @@
             </tr>
             <tr>
               <td><strong>2026-06-07 09:45:12</strong></td>
+              <td><strong>20260401</strong></td>
               <td>Mitchell Outdoor</td>
               <td>Grass Cut</td>
               <td class="num">3 / 4</td>
@@ -134,6 +143,7 @@
             </tr>
             <tr>
               <td><strong>2026-06-06 16:30:55</strong></td>
+              <td><strong>20260412</strong></td>
               <td>Coastal Maintain</td>
               <td>Maid Service</td>
               <td class="num">4 / 4</td>
@@ -142,6 +152,7 @@
             </tr>
             <tr>
               <td><strong>2026-06-06 14:15:33</strong></td>
+              <td><strong>20260433</strong></td>
               <td>Texas Haulers</td>
               <td>Debris Removal</td>
               <td class="num">2 / 4</td>
@@ -177,6 +188,8 @@
 
         // Populate contractors list in uploader dropdown
         var contractorDropdown = document.getElementById('qc-select-contractor');
+        var woDropdown = document.getElementById('qc-select-wo');
+
         if (contractorDropdown) {
           contractorDropdown.innerHTML = '';
           data.contractors.forEach(function (c) {
@@ -185,12 +198,42 @@
             opt.textContent = c.name;
             contractorDropdown.appendChild(opt);
           });
+
+          // Change handler to populate WOs based on contractor selection
+          contractorDropdown.addEventListener('change', populateWorkOrdersDropdown);
+          populateWorkOrdersDropdown();
+        }
+
+        function populateWorkOrdersDropdown() {
+          if (!woDropdown) return;
+          woDropdown.innerHTML = '';
+          var selectedContractor = contractorDropdown.value;
+          
+          // Filter work orders that belong to this contractor and are not closed
+          var contractorWOs = data.work_orders.filter(function (w) {
+            return w.contractor === selectedContractor && w.status !== 'Closed';
+          });
+
+          // Fallback to any open work orders if none for this contractor
+          if (contractorWOs.length === 0) {
+            contractorWOs = data.work_orders.filter(function (w) { return w.status !== 'Closed'; }).slice(0, 10);
+          }
+
+          contractorWOs.forEach(function (w) {
+            var opt = document.createElement('option');
+            opt.value = w.wo_number;
+            opt.textContent = 'WO# ' + w.wo_number + ' (' + w.order_type.substring(0, 15) + ')';
+            woDropdown.appendChild(opt);
+          });
         }
 
         // Setup click listener for uploader zone
         var dropZone = document.getElementById('qc-drop-zone');
         if (dropZone) {
-          dropZone.addEventListener('click', function () {
+          // Clone to remove previous event listeners
+          var newDropZone = dropZone.cloneNode(true);
+          dropZone.parentNode.replaceChild(newDropZone, dropZone);
+          newDropZone.addEventListener('click', function () {
             startPhotoUploadSimulation();
           });
         }
@@ -200,6 +243,7 @@
         if (activeUploadTimer) return; // Prevent multiple runs
 
         var contractor = document.getElementById('qc-select-contractor').value;
+        var woNumber = document.getElementById('qc-select-wo').value || 'Unknown';
         var serviceType = document.getElementById('qc-select-service').value;
         var requiredList = PHOTO_MATRIX[serviceType];
 
@@ -219,8 +263,8 @@
         // Trigger start alert notification
         toast.style.display = 'flex';
         toast.className = 'alert-card alert-card--amber';
-        toastTitle.innerHTML = `🚀 Upload Started for ${contractor}`;
-        toastDesc.innerHTML = `Contractor initiated photo upload via PPW API. Initializing scan for <strong>${requiredList.length}</strong> required photos for service <strong>"${serviceType}"</strong>.`;
+        toastTitle.innerHTML = `🚀 Upload Started — WO# ${woNumber}`;
+        toastDesc.innerHTML = `Contractor <strong>${contractor}</strong> initiated photo upload for Work Order <strong>#${woNumber}</strong> via PPW API. Initializing scan for <strong>${requiredList.length}</strong> required photos...`;
 
         statusLabel.innerHTML = 'Connecting to PPW API endpoint...';
 
@@ -230,24 +274,24 @@
           progressBar.style.width = progress + '%';
 
           if (progress === 20) {
-            statusLabel.innerHTML = 'Receiving image binaries... (1.2MB/sec)';
+            statusLabel.innerHTML = 'Receiving image binaries...';
           } else if (progress === 40) {
             statusLabel.innerHTML = 'Running automated object scanning & labeling...';
           } else if (progress === 60) {
             statusLabel.innerHTML = 'Verifying coordinate metadata & timestamp checks...';
           } else if (progress === 80) {
-            statusLabel.innerHTML = 'Cross-referencing photos against service type checklist...';
+            statusLabel.innerHTML = 'Cross-referencing photos against service checklist...';
           }
 
           if (progress >= 100) {
             clearInterval(activeUploadTimer);
             activeUploadTimer = null;
-            completePhotoQCScan(contractor, serviceType, requiredList);
+            completePhotoQCScan(contractor, woNumber, serviceType, requiredList);
           }
         }, 120);
       }
 
-      function completePhotoQCScan(contractor, serviceType, requiredList) {
+      function completePhotoQCScan(contractor, woNumber, serviceType, requiredList) {
         var toast = document.getElementById('qc-toast');
         var toastTitle = document.getElementById('qc-toast-title');
         var toastDesc = document.getElementById('qc-toast-desc');
@@ -257,8 +301,6 @@
 
         statusLabel.innerHTML = 'Scan complete. Audit records generated.';
 
-        // Decide random photo success rate (60% to 90%)
-        // To make it fun, we randomly decide if 1 photo is missing or if all are there.
         var isSuccess = Math.random() > 0.4; // 60% chance of success
         var matchedIndices = [];
         var missingList = [];
@@ -267,7 +309,6 @@
           if (isSuccess) {
             matchedIndices.push(idx);
           } else {
-            // Randomly drop 1 or 2 photos
             if (idx === requiredList.length - 1 || (idx === requiredList.length - 2 && Math.random() > 0.5)) {
               missingList.push(photo);
             } else {
@@ -276,7 +317,6 @@
           }
         });
 
-        // If no photo was dropped despite setting isSuccess to false, make sure at least 1 is missing
         if (!isSuccess && missingList.length === 0) {
           var droppedIdx = requiredList.length - 1;
           missingList.push(requiredList[droppedIdx]);
@@ -313,23 +353,21 @@
 
         // Show Results Section
         document.getElementById('qc-results-section').style.display = 'block';
-        document.getElementById('qc-results-meta').innerHTML = `Verified <strong>${matchedIndices.length}</strong> of <strong>${requiredList.length}</strong> required photos for contractor <strong>"${contractor}"</strong> on <strong>"${serviceType}"</strong>.`;
+        document.getElementById('qc-results-meta').innerHTML = `Verified <strong>${matchedIndices.length}</strong> of <strong>${requiredList.length}</strong> required photos for contractor <strong>"${contractor}"</strong> on WO# <strong>${woNumber}</strong> (${serviceType}).`;
 
         // Update Notification Toast & Right progress panel
         if (missingList.length === 0) {
-          // PASS
           toast.className = 'alert-card alert-card--green';
-          toastTitle.innerHTML = `✅ QC PASS — ${contractor}`;
-          toastDesc.innerHTML = `All <strong>${requiredList.length}</strong> required photos for <strong>"${serviceType}"</strong> successfully verified. PPW API package generated.`;
+          toastTitle.innerHTML = `✅ QC PASS — WO# ${woNumber}`;
+          toastDesc.innerHTML = `All <strong>${requiredList.length}</strong> required photos for <strong>"${serviceType}"</strong> successfully verified for Contractor <strong>${contractor}</strong>. PPW API package generated.`;
           
           badge.className = 'pill pill--green';
           badge.textContent = 'PASS';
           missingAlert.style.display = 'none';
         } else {
-          // FAIL
           toast.className = 'alert-card alert-card--red';
-          toastTitle.innerHTML = `⚠️ QC FAILURE — Missing Required Photos`;
-          toastDesc.innerHTML = `Automated scan detected <strong>${missingList.length}</strong> missing required photos: <strong>"${missingList.join(', ')}"</strong>. Contractor notified immediately to retake.`;
+          toastTitle.innerHTML = `⚠️ QC FAILURE — WO# ${woNumber}`;
+          toastDesc.innerHTML = `Automated scan detected <strong>${missingList.length}</strong> missing required photos: <strong>"${missingList.join(', ')}"</strong>. Contractor <strong>${contractor}</strong> notified.`;
           
           badge.className = 'pill pill--red';
           badge.textContent = 'REJECTED';
@@ -356,13 +394,13 @@
 
         tr.innerHTML = `
           <td><strong>${timeStr}</strong></td>
+          <td><strong>${woNumber}</strong></td>
           <td>${contractor}</td>
           <td>${serviceType}</td>
           <td class="num">${matchedIndices.length} / ${requiredList.length}</td>
           <td>${statusBadge}</td>
           <td>${detailsText}</td>
         `;
-        // Insert at top of table
         historyBody.insertBefore(tr, historyBody.firstChild);
       }
 

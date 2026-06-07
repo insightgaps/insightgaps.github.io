@@ -29,10 +29,20 @@
       <input type="text" class="os-search-input" id="wo-search" placeholder="🔍 Search by WO#, address, city, contractor, or client...">
       <select class="os-filter" id="wo-status-filter" style="min-width: 150px;">
         <option value="all">All Statuses</option>
+        <option value="Unassigned">Unassigned WOs</option>
         <option value="Closed">Closed</option>
         <option value="Submitted">Submitted</option>
         <option value="Assigned">Assigned</option>
       </select>
+    </div>
+  </div>
+
+  <!-- Dispatch Success Alert Toast -->
+  <div id="wo-toast" class="alert-card alert-card--green" style="display:none; margin-bottom: 16px;">
+    <span class="alert-card__icon">📢</span>
+    <div>
+      <div class="alert-card__title" id="wo-toast-title">Contractor Dispatched</div>
+      <div class="alert-card__desc" id="wo-toast-desc">Work order has been successfully dispatched.</div>
     </div>
   </div>
 
@@ -65,17 +75,62 @@
     </div>
   </div>
 
+  <!-- Dispatch Assignment Modal Overlay -->
+  <div id="assign-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000; justify-content:center; align-items:center;">
+    <div style="background:#fff; border-radius:10px; padding:24px; max-width:520px; width:90%; box-shadow:0 10px 25px rgba(0,0,0,0.15); position:relative;">
+      <span id="close-assign-modal" style="position:absolute; top:16px; right:20px; font-size:24px; cursor:pointer; color:#8C8985;">&times;</span>
+      <h3 style="font-family:'Space Grotesk',sans-serif; margin-bottom:4px; font-size:16px; color:#1A1917;" id="assign-modal-title">Dispatch Work Order</h3>
+      <div style="font-size:12px; color:#4B4743; margin-bottom:20px;" id="assign-modal-subtitle">WO details...</div>
+      
+      <!-- List of matching network contractors -->
+      <div style="margin-bottom:18px;">
+        <div style="font-size:10.5px; font-family:'Space Mono',monospace; color:#8C8985; text-transform:uppercase; margin-bottom:8px; letter-spacing:0.04em;">Matching Active Contractors in ZIP</div>
+        <div id="assign-match-list" style="display:flex; flex-direction:column; gap:8px; max-height:180px; overflow-y:auto; padding:4px;">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+      <!-- Hire new contractor section -->
+      <div style="border-top:1px dashed #E2E0DC; padding-top:16px; margin-top:16px;">
+        <div style="font-size:10.5px; font-family:'Space Mono',monospace; color:#8C8985; text-transform:uppercase; margin-bottom:8px; letter-spacing:0.04em;">Or Onboard & Hire New Contractor</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
+          <input type="text" class="os-search-input" id="hire-name" placeholder="Contractor Full Name" style="font-size:12px; flex:1; padding:6px 10px; height:auto; box-sizing:border-box;">
+          <input type="text" class="os-search-input" id="hire-company" placeholder="Company Name" style="font-size:12px; flex:1; padding:6px 10px; height:auto; box-sizing:border-box;">
+        </div>
+        <div style="display:flex; gap:8px;">
+          <input type="text" class="os-search-input" id="hire-phone" placeholder="Phone Number" style="font-size:12px; flex:1; padding:6px 10px; height:auto; box-sizing:border-box;">
+          <button class="bid-submit-btn" id="btn-hire-assign" style="margin-top:0; padding:6px 16px; font-size:12px; width:auto; flex-shrink:0;">Hire & Dispatch</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     (function () {
       'use strict';
 
       var currentStatusFilter = 'all';
       var searchVal = '';
+      var activeAssignWoNum = null;
 
       function renderWorkOrders() {
         if (!window.EPCS_DATA) return;
         var data = window.EPCS_DATA;
         var filters = window.EPCS_FILTERS || { month: 'all', client: 'all', contractor: 'all' };
+
+        // 1. Runtime injection of unassigned work orders (Nov 2025 - Jun 2026)
+        // Set the first 5 "Assigned" status work orders to contractor "Unassigned" for demonstration
+        var unassignedCount = data.work_orders.filter(function (w) { return w.contractor === 'Unassigned'; }).length;
+        if (unassignedCount === 0) {
+          var count = 0;
+          for (var i = 0; i < data.work_orders.length; i++) {
+            if (data.work_orders[i].status === 'Assigned' && count < 5) {
+              data.work_orders[i].contractor = 'Unassigned';
+              data.work_orders[i].risk_score = 90; // High risk since it has no contractor
+              count++;
+            }
+          }
+        }
 
         // Helper to match filter conditions
         function matchFilters(wo) {
@@ -83,7 +138,15 @@
             if (!wo.due_date || !wo.due_date.startsWith(filters.month)) return false;
           }
           if (filters.client !== 'all' && wo.client !== filters.client) return false;
-          if (filters.contractor !== 'all' && wo.contractor !== filters.contractor) return false;
+          
+          // Contractor filter
+          if (filters.contractor !== 'all') {
+            if (filters.contractor === 'Unassigned') {
+              if (wo.contractor !== 'Unassigned') return false;
+            } else {
+              if (wo.contractor !== filters.contractor) return false;
+            }
+          }
           return true;
         }
 
@@ -106,7 +169,13 @@
 
         // Apply sub-filters: status and search string
         var finalWOs = filteredWOs.filter(function (w) {
-          if (currentStatusFilter !== 'all' && w.status !== currentStatusFilter) return false;
+          if (currentStatusFilter !== 'all') {
+            if (currentStatusFilter === 'Unassigned') {
+              if (w.contractor !== 'Unassigned') return false;
+            } else {
+              if (w.status !== currentStatusFilter) return false;
+            }
+          }
           
           if (searchVal.trim() !== '') {
             var q = searchVal.toLowerCase();
@@ -140,16 +209,24 @@
 
         finalWOs.forEach(function (w) {
           var tr = document.createElement('tr');
+          
           var pillClass = 'pill--gray';
           if (w.status === 'Closed') pillClass = 'pill--green';
           else if (w.status === 'Submitted') pillClass = 'pill--blue';
-          else if (w.status === 'Assigned') pillClass = 'pill--amber';
+          else if (w.status === 'Assigned') {
+            pillClass = w.contractor === 'Unassigned' ? 'pill--red' : 'pill--amber';
+          }
+
+          var contractorCell = w.contractor;
+          if (w.contractor === 'Unassigned') {
+            contractorCell = `<button class="pill pill--red btn-assign-trigger" data-wo="${w.wo_number}" style="border:none; cursor:pointer; font-weight:bold; font-family:inherit;">⚠️ Assign Contractor</button>`;
+          }
 
           tr.innerHTML = `
             <td><strong>${w.wo_number}</strong></td>
             <td>${w.client}</td>
             <td>${w.order_type}</td>
-            <td>${w.contractor}</td>
+            <td>${contractorCell}</td>
             <td>${w.address}, ${w.city}, ${w.state} ${w.zip}</td>
             <td>${w.due_date}</td>
             <td>${w.completion_date || '\u2014'}</td>
@@ -157,6 +234,166 @@
             <td><span class="pill ${pillClass}">${w.status}</span></td>
           `;
           body.appendChild(tr);
+        });
+
+        // Attach click listeners to all assign buttons
+        document.querySelectorAll('.btn-assign-trigger').forEach(function (btn) {
+          btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            openDispatchModal(this.dataset.wo);
+          });
+        });
+      }
+
+      // Open dispatch modal
+      function openDispatchModal(woNumber) {
+        if (!window.EPCS_DATA) return;
+        var data = window.EPCS_DATA;
+
+        activeAssignWoNum = woNumber;
+        var wo = data.work_orders.find(function (w) { return w.wo_number === woNumber; });
+        if (!wo) return;
+
+        // Set text details
+        document.getElementById('assign-modal-title').textContent = `Dispatch Work Order: WO# ${wo.wo_number}`;
+        document.getElementById('assign-modal-subtitle').innerHTML = `Service: <strong>${wo.order_type}</strong> | Location: <strong>${wo.address}, ${wo.city}, ${wo.state} ${wo.zip}</strong> | Client: <strong>${wo.client}</strong>`;
+
+        // Search matching contractors (by zip and skill)
+        var matchList = document.getElementById('assign-match-list');
+        matchList.innerHTML = '';
+
+        var matches = data.contractors.filter(function (c) {
+          // Check ZIP coverage
+          var coversZip = c.coverage_zips.includes(wo.zip);
+          // Check skill sets (case-insensitive partial match)
+          var hasSkill = c.skills.some(function (s) {
+            return s.toLowerCase().includes(wo.order_type.toLowerCase()) || wo.order_type.toLowerCase().includes(s.toLowerCase());
+          });
+          return coversZip && hasSkill && c.active;
+        });
+
+        if (matches.length === 0) {
+          matchList.innerHTML = '<div style="font-size:12px; color:var(--os-red); padding:10px 0;">No active network contractors cover this ZIP code (' + wo.zip + ') with ' + wo.order_type + ' skills. Please onboard/hire a contractor below.</div>';
+        } else {
+          matches.forEach(function (c) {
+            var div = document.createElement('div');
+            div.style = 'display:flex; justify-content:space-between; align-items:center; background:#FAFAF8; border:1px solid #E2E0DC; border-radius:6px; padding:10px;';
+            div.innerHTML = `
+              <div>
+                <strong style="color:var(--os-text-primary); font-size:12.5px;">${c.name}</strong>
+                <div style="font-size:9.5px; color:var(--os-text-muted);">SLA: ${c.score_composite} | Tier ${c.tier} | Coverage ZIPs: ${c.coverage_zips.length}</div>
+              </div>
+              <button class="bid-submit-btn btn-assign-confirm" data-contractor="${c.name}" style="margin-top:0; padding:4px 10px; font-size:11.5px; width:auto;">Assign</button>
+            `;
+            matchList.appendChild(div);
+          });
+
+          // Attach listeners to Assign buttons
+          document.querySelectorAll('.btn-assign-confirm').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+              assignContractorToWO(this.dataset.contractor);
+            });
+          });
+        }
+
+        // Show Modal
+        document.getElementById('assign-modal').style.display = 'flex';
+      }
+
+      function assignContractorToWO(contractorName) {
+        if (!window.EPCS_DATA || !activeAssignWoNum) return;
+        var data = window.EPCS_DATA;
+
+        var wo = data.work_orders.find(function (w) { return w.wo_number === activeAssignWoNum; });
+        if (wo) {
+          wo.contractor = contractorName;
+          wo.risk_score = 10; // Reset risk score because contractor is now assigned!
+          
+          // Close modal
+          document.getElementById('assign-modal').style.display = 'none';
+
+          // Show Toast notification
+          var toast = document.getElementById('wo-toast');
+          var toastTitle = document.getElementById('wo-toast-title');
+          var toastDesc = document.getElementById('wo-toast-desc');
+          
+          if (toast) {
+            toast.style.display = 'flex';
+            toastTitle.textContent = `📢 WO# ${activeAssignWoNum} Dispatched`;
+            toastDesc.innerHTML = `Work order successfully assigned to contractor <strong>"${contractorName}"</strong>. Contractor notified via system SMS.`;
+            
+            // Auto hide toast after 5 seconds
+            setTimeout(function() {
+              toast.style.display = 'none';
+            }, 5000);
+          }
+
+          activeAssignWoNum = null;
+          renderWorkOrders();
+        }
+      }
+
+      // Close modal
+      var closeModal = document.getElementById('close-assign-modal');
+      if (closeModal) {
+        closeModal.addEventListener('click', function () {
+          document.getElementById('assign-modal').style.display = 'none';
+          activeAssignWoNum = null;
+        });
+      }
+
+      // Onboard and Hire new contractor
+      var btnHire = document.getElementById('btn-hire-assign');
+      if (btnHire) {
+        btnHire.addEventListener('click', function (e) {
+          e.preventDefault();
+          if (!window.EPCS_DATA || !activeAssignWoNum) return;
+          var data = window.EPCS_DATA;
+
+          var name = document.getElementById('hire-name').value.trim();
+          var company = document.getElementById('hire-company').value.trim();
+          var phone = document.getElementById('hire-phone').value.trim();
+
+          if (name === '' || phone === '') {
+            alert('Please provide contractor name and phone number.');
+            return;
+          }
+
+          var wo = data.work_orders.find(function (w) { return w.wo_number === activeAssignWoNum; });
+          if (!wo) return;
+
+          // Add new contractor to data network
+          var newContractor = {
+            name: name,
+            company: company || (name + ' Maintenance'),
+            phone: phone,
+            state: wo.state,
+            coverage_zips: [wo.zip],
+            skills: [wo.order_type],
+            insurance_expiry: '2027-06-01',
+            w9_status: 'Received',
+            tier: 2,
+            score_composite: 80,
+            active: true
+          };
+          data.contractors.push(newContractor);
+
+          // Clear form fields
+          document.getElementById('hire-name').value = '';
+          document.getElementById('hire-company').value = '';
+          document.getElementById('hire-phone').value = '';
+
+          // Assign new contractor
+          assignContractorToWO(name);
+
+          // Update contractor filter option in main shell
+          var contractorSelect = document.getElementById('filter-contractor');
+          if (contractorSelect) {
+            var opt = document.createElement('option');
+            opt.value = name;
+            opt.textContent = name;
+            contractorSelect.appendChild(opt);
+          }
         });
       }
 
@@ -180,9 +417,9 @@
       // Event listeners for shell
       window.addEventListener('epcs:view-loaded', function (e) {
         if (e.detail.view === 'workorders') {
-          // Reset local filters on tab change
           currentStatusFilter = 'all';
           searchVal = '';
+          activeAssignWoNum = null;
           if (statusSelect) statusSelect.value = 'all';
           if (searchInput) searchInput.value = '';
           renderWorkOrders();

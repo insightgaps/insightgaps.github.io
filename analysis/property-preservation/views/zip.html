@@ -23,9 +23,134 @@
     </div>
   </div>
 
+  <!-- USA Geographic Choropleth Map Dashboard -->
+  <div class="view-section" style="margin-bottom: 20px; padding-bottom: 24px;">
+    <div class="view-section__title" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+      <span>🗺️ US State Coverage & Volume Map</span>
+      <span style="font-size:11px; font-family:'Space Mono',monospace; color:var(--os-text-muted);" id="map-filter-indicator">All States (Click node to filter)</span>
+    </div>
+    
+    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px; align-items: center;">
+      
+      <!-- Left: Interactive SVG Cartogram Map -->
+      <div style="background:#fff; border:1px solid #E2E0DC; border-radius:8px; padding:16px; display:flex; justify-content:center; align-items:center;">
+        <svg viewBox="0 0 620 340" width="100%" height="300" style="max-width: 600px;">
+          <!-- Stylized USA boundary projection guide -->
+          <path d="M 40,70 L 140,70 L 260,80 L 390,70 L 510,50 L 540,65 L 560,30 L 590,30 L 595,70 L 550,110 L 500,120 L 480,210 L 470,260 L 450,300 L 430,320 L 390,260 L 240,285 L 180,270 L 120,215 L 45,150 Z" 
+                fill="none" stroke="#F1F5F9" stroke-width="3" stroke-dasharray="6 4" />
+          
+          <!-- State nodes connections (lines) -->
+          <line x1="50" y1="60" x2="100" y2="60" stroke="#E2E8F0" stroke-width="1" />
+          <line x1="100" y1="60" x2="150" y2="60" stroke="#E2E8F0" stroke-width="1" />
+          <line x1="150" y1="60" x2="200" y2="60" stroke="#E2E8F0" stroke-width="1" />
+          <line x1="200" y1="60" x2="250" y2="60" stroke="#E2E8F0" stroke-width="1" />
+          <line x1="250" y1="60" x2="300" y2="60" stroke="#E2E8F0" stroke-width="1" />
+          <line x1="300" y1="60" x2="360" y2="80" stroke="#E2E8F0" stroke-width="1" />
+          <line x1="360" y1="80" x2="460" y2="80" stroke="#E2E8F0" stroke-width="1" />
+          <line x1="460" y1="80" x2="570" y2="40" stroke="#E2E8F0" stroke-width="1" />
+          
+          <line x1="170" y1="270" x2="330" y2="210" stroke="#E2E8F0" stroke-width="1.5" />
+          <line x1="330" y1="210" x2="340" y2="160" stroke="#E2E8F0" stroke-width="1.5" />
+          <line x1="340" y1="160" x2="350" y2="110" stroke="#E2E8F0" stroke-width="1.5" />
+          <line x1="350" y1="110" x2="400" y2="110" stroke="#E2E8F0" stroke-width="1.5" />
+          <line x1="340" y1="160" x2="400" y2="110" stroke="#E2E8F0" stroke-width="1.5" />
+          <line x1="330" y1="210" x2="400" y2="250" stroke="#E2E8F0" stroke-width="1.5" />
+          <line x1="400" y1="250" x2="430" y2="300" stroke="#E2E8F0" stroke-width="1.5" />
+          
+          <!-- Inactive Reference States (Grey circles for visual map anchor) -->
+          <g fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1">
+            <circle cx="50" cy="60" r="14" id="node-WA" style="cursor:help;" />
+            <text x="50" y="64" font-size="9" text-anchor="middle" fill="#94A3B8" font-family="monospace">WA</text>
+            
+            <circle cx="45" cy="110" r="14" id="node-OR" style="cursor:help;" />
+            <text x="45" y="114" font-size="9" text-anchor="middle" fill="#94A3B8" font-family="monospace">OR</text>
+            
+            <circle cx="40" cy="160" r="14" id="node-CA" style="cursor:help;" />
+            <text x="40" y="164" font-size="9" text-anchor="middle" fill="#94A3B8" font-family="monospace">CA</text>
+            
+            <circle cx="100" cy="60" r="14" id="node-ID" style="cursor:help;" />
+            <text x="100" y="64" font-size="9" text-anchor="middle" fill="#94A3B8" font-family="monospace">ID</text>
+            
+            <circle cx="150" cy="60" r="14" id="node-MT" style="cursor:help;" />
+            <text x="150" y="64" font-size="9" text-anchor="middle" fill="#94A3B8" font-family="monospace">MT</text>
+            
+            <circle cx="200" cy="60" r="14" id="node-ND" style="cursor:help;" />
+            <text x="200" y="64" font-size="9" text-anchor="middle" fill="#94A3B8" font-family="monospace">ND</text>
+            
+            <circle cx="250" cy="60" r="14" id="node-MN" style="cursor:help;" />
+            <text x="250" y="64" font-size="9" text-anchor="middle" fill="#94A3B8" font-family="monospace">MN</text>
+            
+            <circle cx="300" cy="60" r="14" id="node-WI" style="cursor:help;" />
+            <text x="300" y="64" font-size="9" text-anchor="middle" fill="#94A3B8" font-family="monospace">WI</text>
+            
+            <circle cx="360" cy="80" r="14" id="node-MI" style="cursor:help;" />
+            <text x="360" y="84" font-size="9" text-anchor="middle" fill="#94A3B8" font-family="monospace">MI</text>
+            
+            <circle cx="460" cy="80" r="14" id="node-NY" style="cursor:help;" />
+            <text x="460" y="84" font-size="9" text-anchor="middle" fill="#94A3B8" font-family="monospace">NY</text>
+            
+            <circle cx="570" cy="40" r="14" id="node-ME" style="cursor:help;" />
+            <text x="570" y="44" font-size="9" text-anchor="middle" fill="#94A3B8" font-family="monospace">ME</text>
+          </g>
+
+          <!-- Active States (Interactive choropleth nodes) -->
+          <!-- Colors mapped to active work orders volume (FL > OH > IN > TX > TN > KY > GA) -->
+          <!-- FL: Deep Gold (#C17D11), OH: Gold, IN: Light Gold, TX: Pale Gold, TN/KY/GA: Yellow-grey -->
+          <g style="cursor: pointer; stroke-width: 1.5;">
+            <!-- Texas (TX) -->
+            <circle cx="170" cy="270" r="18" id="node-TX" stroke="#B45309" fill="#FDE68A" />
+            <text x="170" y="274" font-size="9.5" text-anchor="middle" font-weight="bold" fill="#78350F" font-family="monospace">TX</text>
+            
+            <!-- Indiana (IN) -->
+            <circle cx="350" cy="110" r="18" id="node-IN" stroke="#D97706" fill="#FCD34D" />
+            <text x="350" y="114" font-size="9.5" text-anchor="middle" font-weight="bold" fill="#78350F" font-family="monospace">IN</text>
+            
+            <!-- Ohio (OH) -->
+            <circle cx="400" cy="110" r="18" id="node-OH" stroke="#B45309" fill="#F59E0B" />
+            <text x="400" y="114" font-size="9.5" text-anchor="middle" font-weight="bold" fill="#78350F" font-family="monospace">OH</text>
+            
+            <!-- Kentucky (KY) -->
+            <circle cx="340" cy="160" r="18" id="node-KY" stroke="#D97706" fill="#FEF3C7" />
+            <text x="340" y="164" font-size="9.5" text-anchor="middle" font-weight="bold" fill="#78350F" font-family="monospace">KY</text>
+            
+            <!-- Tennessee (TN) -->
+            <circle cx="330" cy="210" r="18" id="node-TN" stroke="#D97706" fill="#FEF3C7" />
+            <text x="330" y="214" font-size="9.5" text-anchor="middle" font-weight="bold" fill="#78350F" font-family="monospace">TN</text>
+            
+            <!-- Georgia (GA) -->
+            <circle cx="400" cy="250" r="18" id="node-GA" stroke="#D97706" fill="#FFFBEB" />
+            <text x="400" y="254" font-size="9.5" text-anchor="middle" font-weight="bold" fill="#78350F" font-family="monospace">GA</text>
+            
+            <!-- Florida (FL) -->
+            <circle cx="430" cy="300" r="21" id="node-FL" stroke="#92400E" fill="#C17D11" />
+            <text x="430" y="304" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#FFFFFF" font-family="monospace">FL</text>
+          </g>
+        </svg>
+      </div>
+      
+      <!-- Right: Interactive State Tooltip panel -->
+      <div style="border: 1px solid #E2E0DC; border-radius: 8px; padding: 18px; background:#FAF9F6; height: 100%; display: flex; flex-direction: column; justify-content: center;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:12px; font-weight:600; color:#8C8985; text-transform:uppercase; margin-bottom:8px;">State Target Review</div>
+        <div id="map-tooltip-content">
+          <div style="font-size:24px; font-weight:bold; color:var(--os-text-primary); margin-bottom:6px;">Florida (FL)</div>
+          <div style="font-size:12px; color:#4B4743; margin-bottom:12px; font-family:'Space Mono',monospace;">Active WOs: <strong>168</strong></div>
+          <div style="display:flex; flex-direction:column; gap:6px; font-size:11.5px; border-top:1px dashed #E2E0DC; padding-top:8px;">
+            <div style="display:flex; justify-content:space-between;"><span>Active Contractors:</span><strong>6</strong></div>
+            <div style="display:flex; justify-content:space-between;"><span>Average Margin:</span><strong style="color:var(--os-green);">38.4%</strong></div>
+            <div style="display:flex; justify-content:space-between;"><span>Loss to Leakage:</span><strong style="color:var(--os-red);">$2,110.80</strong></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <!-- ZIP Intelligence Table -->
   <div class="view-section">
-    <div class="view-section__title">ZIP Code Operational and Financial Intelligence</div>
+    <div class="view-section__title" style="display:flex; justify-content:space-between; align-items:center;">
+      <span>ZIP Code Operational and Financial Intelligence</span>
+      <button class="os-filter-reset" id="map-clear-filter" style="display:none; font-size:10px; font-weight:600; padding:2px 8px;">Clear State Filter ×</button>
+    </div>
     <div class="os-table-wrapper">
       <table class="os-table">
         <thead>
@@ -53,6 +178,19 @@
     (function () {
       'use strict';
 
+      var selectedStateFilter = 'all';
+
+      // State static metrics for map hover/tooltip
+      const STATE_METRICS = {
+        FL: { name: 'Florida', wos: 168, contractors: 6, margin: '38.4%', leakage: '$2,110.80' },
+        OH: { name: 'Ohio', wos: 104, contractors: 5, margin: '35.6%', leakage: '$1,890.40' },
+        IN: { name: 'Indiana', wos: 88, contractors: 4, margin: '32.1%', leakage: '$1,220.30' },
+        TX: { name: 'Texas', wos: 50, contractors: 3, margin: '28.8%', leakage: '$980.50' },
+        TN: { name: 'Tennessee', wos: 27, contractors: 3, margin: '34.2%', leakage: '$550.20' },
+        KY: { name: 'Kentucky', wos: 22, contractors: 2, margin: '31.9%', leakage: '$410.80' },
+        GA: { name: 'Georgia', wos: 21, contractors: 2, margin: '33.5%', leakage: '$380.00' }
+      };
+
       function renderZip() {
         if (!window.EPCS_DATA) return;
         var data = window.EPCS_DATA;
@@ -65,6 +203,9 @@
           }
           if (filters.client !== 'all' && wo.client !== filters.client) return false;
           if (filters.contractor !== 'all' && wo.contractor !== filters.contractor) return false;
+          
+          // Map state filter
+          if (selectedStateFilter !== 'all' && wo.state !== selectedStateFilter) return false;
           return true;
         }
 
@@ -78,7 +219,6 @@
         // Group by ZIP code
         var zipGroup = {};
         
-        // Initialize with default coordinate details
         data.zip_intelligence.forEach(function (z) {
           zipGroup[z.zip] = {
             zip: z.zip,
@@ -108,7 +248,6 @@
           if (w.status === 'Closed' && w.completion_date) {
             var comp = new Date(w.completion_date);
             var today = new Date('2026-06-07');
-            // Check if within 30 days
             var diff = (today - comp) / (1000 * 60 * 60 * 24);
             if (diff >= 0 && diff <= 30) {
               z.completed_30d++;
@@ -118,7 +257,6 @@
 
         // Populate financials
         filteredFin.forEach(function (f) {
-          // Find matching work order to get ZIP
           var wo = data.work_orders.find(function (w) { return w.wo_number === f.wo_number; });
           if (!wo) return;
           var z = zipGroup[wo.zip];
@@ -130,7 +268,7 @@
           z.leakage += (f.total_leakage || 0);
         });
 
-        // Convert to list and calculate metrics
+        // Convert to list
         var zipList = [];
         var totalCoverageScore = 0;
         var uniqueActiveContractors = new Set();
@@ -139,7 +277,9 @@
         Object.keys(zipGroup).forEach(function (zipCode) {
           var z = zipGroup[zipCode];
           
-          // Skip zip if filters exist and there is no activity in this zip
+          // Map local active state filter
+          if (selectedStateFilter !== 'all' && z.state !== selectedStateFilter) return;
+
           if (z.revenue === 0 && z.open_wos === 0 && filters.contractor !== 'all') return;
           if (z.revenue === 0 && z.open_wos === 0 && filters.client !== 'all') return;
           if (z.revenue === 0 && z.open_wos === 0 && filters.month !== 'all') return;
@@ -148,7 +288,6 @@
           var marginPct = z.revenue > 0 ? (margin / z.revenue * 100) : 0.0;
           
           var contractorsCount = z.contractorsSet.size;
-          // Coverage score: 3 contractors = 100%
           var coverageScore = Math.min(100, Math.round(contractorsCount / 3 * 100));
 
           totalCoverageScore += coverageScore;
@@ -185,7 +324,7 @@
         body.innerHTML = '';
 
         if (zipList.length === 0) {
-          body.innerHTML = '<tr><td colspan="10" style="text-align:center;color:#8C8985;padding:30px;">No ZIP code records found.</td></tr>';
+          body.innerHTML = '<tr><td colspan="10" style="text-align:center;color:#8C8985;padding:30px;">No ZIP code records found for state selection.</td></tr>';
           return;
         }
 
@@ -212,11 +351,114 @@
           `;
           body.appendChild(tr);
         });
+
+        // Set Clear Filter button status
+        var clearBtn = document.getElementById('map-clear-filter');
+        var mapIndicator = document.getElementById('map-filter-indicator');
+        
+        if (selectedStateFilter !== 'all') {
+          if (clearBtn) clearBtn.style.display = 'inline-block';
+          if (mapIndicator) mapIndicator.innerHTML = `Filtered State: <strong>${selectedStateFilter}</strong>`;
+        } else {
+          if (clearBtn) clearBtn.style.display = 'none';
+          if (mapIndicator) mapIndicator.innerHTML = 'All States (Click node to filter)';
+        }
       }
 
-      // Event listeners
+      // Initialize Map Tooltips & Selection
+      function initCoverageMap() {
+        var tooltipPanel = document.getElementById('map-tooltip-content');
+        var activeStateCodes = ['FL', 'OH', 'IN', 'TX', 'TN', 'KY', 'GA'];
+
+        activeStateCodes.forEach(function (code) {
+          var el = document.getElementById('node-' + code);
+          if (!el) return;
+
+          // Mouseenter - show tooltip details on right
+          el.addEventListener('mouseenter', function () {
+            var metrics = STATE_METRICS[code];
+            if (!metrics || !tooltipPanel) return;
+
+            // highlight node border
+            el.setAttribute('stroke-width', '3');
+
+            tooltipPanel.innerHTML = `
+              <div style="font-size:24px; font-weight:bold; color:var(--os-text-primary); margin-bottom:6px;">${metrics.name} (${code})</div>
+              <div style="font-size:12px; color:#4B4743; margin-bottom:12px; font-family:'Space Mono',monospace;">Active WOs: <strong>${metrics.wos}</strong></div>
+              <div style="display:flex; flex-direction:column; gap:6px; font-size:11.5px; border-top:1px dashed #E2E0DC; padding-top:8px;">
+                <div style="display:flex; justify-content:space-between;"><span>Active Contractors:</span><strong>${metrics.contractors}</strong></div>
+                <div style="display:flex; justify-content:space-between;"><span>Average Margin:</span><strong style="color:var(--os-green);">${metrics.margin}</strong></div>
+                <div style="display:flex; justify-content:space-between;"><span>Loss to Leakage:</span><strong style="color:var(--os-red);">${metrics.leakage}</strong></div>
+              </div>
+            `;
+          });
+
+          // Mouseleave - reset node border
+          el.addEventListener('mouseleave', function () {
+            el.setAttribute('stroke-width', code === 'FL' ? '2' : '1.5');
+          });
+
+          // Click - Filter ZIP code ledger
+          el.addEventListener('click', function () {
+            // Remove active style from all nodes
+            activeStateCodes.forEach(function (st) {
+              var n = document.getElementById('node-' + st);
+              if (n) n.setAttribute('fill-opacity', '1');
+            });
+
+            if (selectedStateFilter === code) {
+              selectedStateFilter = 'all';
+            } else {
+              selectedStateFilter = code;
+              // Dim other nodes
+              activeStateCodes.forEach(function (st) {
+                var n = document.getElementById('node-' + st);
+                if (n && st !== code) n.setAttribute('fill-opacity', '0.45');
+              });
+            }
+
+            renderZip();
+          });
+        });
+
+        // Inactive states mouseenter details
+        ['WA', 'OR', 'CA', 'ID', 'MT', 'ND', 'MN', 'WI', 'MI', 'NY', 'ME'].forEach(function(code) {
+          var el = document.getElementById('node-' + code);
+          if (!el) return;
+          el.addEventListener('mouseenter', function () {
+            if (tooltipPanel) {
+              tooltipPanel.innerHTML = `
+                <div style="font-size:20px; font-weight:bold; color:#8C8985; margin-bottom:6px;">State: ${code}</div>
+                <div style="font-size:12.5px; color:#8C8985; font-style:italic;">No active operations inside this state during the selected period.</div>
+              `;
+            }
+          });
+        });
+
+        // Clear filter hook
+        var clearBtn = document.getElementById('map-clear-filter');
+        if (clearBtn) {
+          clearBtn.addEventListener('click', function () {
+            selectedStateFilter = 'all';
+            activeStateCodes.forEach(function (st) {
+              var n = document.getElementById('node-' + st);
+              if (n) {
+                n.setAttribute('fill-opacity', '1');
+                n.setAttribute('stroke-width', st === 'FL' ? '2' : '1.5');
+              }
+            });
+            renderZip();
+          });
+        }
+      }
+
+      // Event listeners for SPA shell
       window.addEventListener('epcs:view-loaded', function (e) {
-        if (e.detail.view === 'zip') renderZip();
+        if (e.detail.view === 'zip') {
+          selectedStateFilter = 'all';
+          initCoverageMap();
+          renderZip();
+        }
       });
 
       window.addEventListener('epcs:filter-change', function () {

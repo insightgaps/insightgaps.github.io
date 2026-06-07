@@ -133,6 +133,43 @@
 
   </div>
 
+  <!-- Auto-Bid Property Audit Monitor -->
+  <div class="view-section" style="margin-top: 24px;">
+    <div class="view-section__title" style="display:flex; justify-content:space-between; align-items:center;">
+      <span>🤖 AI Auto-Bid Property Audit Monitor (Recheck Bids)</span>
+      <button class="os-filter-reset" id="btn-run-autobid" style="background:var(--os-accent); color:#000; font-weight:600; padding:6px 12px; border:none; border-radius:6px; cursor:pointer;">🔍 Run Automated Property Audit</button>
+    </div>
+    <div style="font-size:12.5px; color:var(--os-text-secondary); margin-bottom:16px;">
+      Cross-references historically approved bids for each unique property address. Automatically detects new, undocumented hazards (e.g. damage discovered during routine mowing) and pre-emptively generates bids.
+    </div>
+
+    <!-- Alert Banner -->
+    <div id="autobid-alert" class="alert-card alert-card--red" style="display:none; margin-bottom:16px; animation: pulse 1.5s infinite alternate;">
+      <span class="alert-card__icon">🚨</span>
+      <div>
+        <div class="alert-card__title" id="autobid-alert-title">New Property Damages Flagged</div>
+        <div class="alert-card__desc" id="autobid-alert-desc">Audit complete. Generated recommended bids.</div>
+      </div>
+    </div>
+
+    <div class="os-table-wrapper">
+      <table class="os-table" style="font-size:12px;">
+        <thead>
+          <tr>
+            <th>Property Address</th>
+            <th>Approved Property History</th>
+            <th>Latest Job Update</th>
+            <th>Audit Status</th>
+            <th>Recommended Action / Auto-Bid Output</th>
+          </tr>
+        </thead>
+        <tbody id="autobid-table-body">
+          <!-- Populated dynamically -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
   <script>
     (function () {
       'use strict';
@@ -147,6 +184,37 @@
         'Maid Service': { baseUnder1500: 75, over1500: 150 },
         'Debris Removal': { base: [85, 200], perYard: 30 },
       };
+
+      // Simulated property history records (tracking per property, not just WO)
+      var propertiesHistory = [
+        {
+          address: '124 Oak Street, Orlando, FL',
+          history: ['Initial Secure on 2026-05-10: $85.00', 'Yard Debris bid approved on 2026-05-10: $120.00'],
+          latest_update: 'Mowing in progress. Contractor uploaded photo of damaged back fence (broken panels).',
+          checked: false,
+          status: 'Pending Recheck',
+          action: 'Run recheck query...',
+          auto_bid: null
+        },
+        {
+          address: '789 Pine Road, Houston, TX',
+          history: ['Initial Secure on 2026-04-12: $95.00', 'HVAC repair bid approved on 2026-05-15: $450.00'],
+          latest_update: 'Winterization in progress. Contractor reports heating unit non-functional.',
+          checked: false,
+          status: 'Pending Recheck',
+          action: 'Run recheck query...',
+          auto_bid: null
+        },
+        {
+          address: '456 Maple Lane, Indianapolis, IN',
+          history: ['Initial Secure on 2026-05-01: $85.00'],
+          latest_update: 'Maid service completed. Debris discovered in crawlspace (approx 4 cubic yards).',
+          checked: false,
+          status: 'Pending Recheck',
+          action: 'Run recheck query...',
+          auto_bid: null
+        }
+      ];
 
       function initBidGenerator() {
         if (!window.EPCS_DATA) return;
@@ -167,12 +235,13 @@
         // Add event listeners for dynamic parameter form rendering
         var serviceDropdown = document.getElementById('bid-service-type');
         if (serviceDropdown) {
-          serviceDropdown.addEventListener('change', function () {
-            // Hide all parameter groups
+          // Clone to remove old listeners
+          var newServiceDropdown = serviceDropdown.cloneNode(true);
+          serviceDropdown.parentNode.replaceChild(newServiceDropdown, serviceDropdown);
+          newServiceDropdown.addEventListener('change', function () {
             document.querySelectorAll('.param-group').forEach(function (g) {
               g.style.display = 'none';
             });
-            // Show selected parameter group
             var val = this.value;
             if (val === 'Grass Cut' || val === 'Grass Recut') {
               document.getElementById('param-grass-cut').style.display = 'block';
@@ -209,6 +278,98 @@
 
         // Run default calculation
         calculateBidProposal();
+
+        // Initialize Property Audit Monitor
+        renderPropertyAuditTable();
+
+        var btnAudit = document.getElementById('btn-run-autobid');
+        if (btnAudit) {
+          btnAudit.addEventListener('click', function () {
+            runAutomatedPropertyAudit();
+          });
+        }
+      }
+
+      function renderPropertyAuditTable() {
+        var tbody = document.getElementById('autobid-table-body');
+        if (!tbody) return;
+        tbody.innerHTML = '';
+
+        propertiesHistory.forEach(function (p, idx) {
+          var tr = document.createElement('tr');
+          
+          var historyHtml = '<ul style="margin:0; padding-left:14px; font-size:11px; color:#4B4743;">';
+          p.history.forEach(function(h) {
+            historyHtml += `<li>${h}</li>`;
+          });
+          historyHtml += '</ul>';
+
+          var statusPill = 'pill--gray';
+          if (p.status === 'NEW ISSUE FLAG') statusPill = 'pill--red';
+          else if (p.status === 'DUPLICATE PREVENTED') statusPill = 'pill--green';
+          else if (p.status === 'Running Audit...') statusPill = 'pill--amber';
+
+          tr.innerHTML = `
+            <td><strong>${p.address}</strong></td>
+            <td>${historyHtml}</td>
+            <td style="color:#1A1917;">${p.latest_update}</td>
+            <td><span class="pill ${statusPill}">${p.status}</span></td>
+            <td id="autobid-action-${idx}" style="font-size:11.5px; font-family:'Space Mono', monospace;">
+              ${p.action}
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      function runAutomatedPropertyAudit() {
+        var btn = document.getElementById('btn-run-autobid');
+        btn.disabled = true;
+        btn.textContent = 'Auditing...';
+
+        propertiesHistory.forEach(function(p) {
+          p.status = 'Running Audit...';
+          p.action = 'Scanning ledger...';
+        });
+        renderPropertyAuditTable();
+
+        // Simulate audit checks in 1 second
+        setTimeout(function() {
+          // Property 0: 124 Oak St (New Fence Damage)
+          propertiesHistory[0].status = 'NEW ISSUE FLAG';
+          propertiesHistory[0].action = `<span style="color:var(--os-red); font-weight:600;">Generated Auto-Bid</span><br/>
+            Type: Board Up (Plywood)<br/>
+            Client Bid: <strong>$176.00</strong> (Allowable: $20 base + 4 boards × $35 × 1.1 FL)<br/>
+            Contractor Pay: <strong>$114.40</strong> (Tier 2)`;
+
+          // Property 1: 789 Pine Road (HVAC issue reported, but already bid in history!)
+          propertiesHistory[1].status = 'DUPLICATE PREVENTED';
+          propertiesHistory[1].action = `<span style="color:var(--os-green);">Skip - Bid Approved</span><br/>
+            HVAC Repair bid already exists ($450.00 approved on 2026-05-15)`;
+
+          // Property 2: 456 Maple Lane (New crawlspace debris)
+          propertiesHistory[2].status = 'NEW ISSUE FLAG';
+          propertiesHistory[2].action = `<span style="color:var(--os-red); font-weight:600;">Generated Auto-Bid</span><br/>
+            Type: Debris (4 yards)<br/>
+            Client Bid: <strong>$205.16</strong> (Allowable: $95 base + 4 yards × $32 × 0.92 IN)<br/>
+            Contractor Pay: <strong>$133.35</strong> (Tier 2)`;
+
+          renderPropertyAuditTable();
+
+          // Show alert notification
+          var alertBanner = document.getElementById('autobid-alert');
+          var alertTitle = document.getElementById('autobid-alert-title');
+          var alertDesc = document.getElementById('autobid-alert-desc');
+          
+          if (alertBanner) {
+            alertBanner.style.display = 'flex';
+            alertTitle.textContent = '🚨 Auto-Bid Alert: New Property Damages Detected';
+            alertDesc.innerHTML = 'Automated property-history audit flagged <strong>2 new undocumented hazards</strong> (124 Oak St: Damaged Fence, 456 Maple Ln: Crawlspace Debris). Generated auto-bids totaling <strong>$381.16</strong> for client review.';
+          }
+
+          btn.disabled = false;
+          btn.textContent = 'Run Automated Property Audit';
+        }, 1200);
       }
 
       function calculateBidProposal() {
@@ -225,7 +386,10 @@
         var payRate = (tier === 1) ? 0.72 : 0.65;
 
         // Set tier text check
-        document.getElementById('check-tier').innerHTML = `<span>✓</span> <span>Contractor Tier ${tier} multiplier applied (${payRate})</span>`;
+        var checkTier = document.getElementById('check-tier');
+        if (checkTier) {
+          checkTier.innerHTML = `<span>✓</span> <span>Contractor Tier ${tier} multiplier applied (${payRate})</span>`;
+        }
 
         var clientAllowable = 0;
         var details = [];
@@ -304,28 +468,37 @@
         var marginPct = clientBid > 0 ? (netMargin / clientBid) * 100 : 0;
 
         // Update UI Text values
-        document.getElementById('out-allowable').textContent = '$' + clientAllowable.toFixed(2);
-        document.getElementById('out-client').textContent = '$' + clientBid.toFixed(2);
-        document.getElementById('out-contractor').textContent = '$' + contractorPay.toFixed(2);
+        var outAllowable = document.getElementById('out-allowable');
+        var outClient = document.getElementById('out-client');
+        var outContractor = document.getElementById('out-contractor');
+        
+        if (outAllowable) outAllowable.textContent = '$' + clientAllowable.toFixed(2);
+        if (outClient) outClient.textContent = '$' + clientBid.toFixed(2);
+        if (outContractor) outContractor.textContent = '$' + contractorPay.toFixed(2);
 
         var marginEl = document.getElementById('out-margin');
-        marginEl.textContent = '$' + netMargin.toFixed(2) + ' (' + marginPct.toFixed(1) + '%)';
+        if (marginEl) {
+          marginEl.textContent = '$' + netMargin.toFixed(2) + ' (' + marginPct.toFixed(1) + '%)';
+        }
         
         var checkMargin = document.getElementById('check-margin');
         var targetMargin = 28.0;
 
-        if (marginPct >= targetMargin) {
-          marginEl.style.color = 'var(--os-green)';
-          checkMargin.style.color = '#1A6B3C';
-          checkMargin.innerHTML = `<span>✓</span> <span>Target margin of 28% satisfied (${marginPct.toFixed(1)}% achieved)</span>`;
-        } else {
-          marginEl.style.color = 'var(--os-red)';
-          checkMargin.style.color = 'var(--os-red)';
-          checkMargin.innerHTML = `<span>❌</span> <span>Target margin of 28% unmet (${marginPct.toFixed(1)}% achieved)</span>`;
+        if (checkMargin && marginEl) {
+          if (marginPct >= targetMargin) {
+            marginEl.style.color = 'var(--os-green)';
+            checkMargin.style.color = '#1A6B3C';
+            checkMargin.innerHTML = `<span>✓</span> <span>Target margin of 28% satisfied (${marginPct.toFixed(1)}% achieved)</span>`;
+          } else {
+            marginEl.style.color = 'var(--os-red)';
+            checkMargin.style.color = 'var(--os-red)';
+            checkMargin.innerHTML = `<span>❌</span> <span>Target margin of 28% unmet (${marginPct.toFixed(1)}% achieved)</span>`;
+          }
         }
 
         // Render line items list
         var linesContainer = document.getElementById('bid-line-items');
+        if (!linesContainer) return;
         linesContainer.innerHTML = '';
 
         details.forEach(function (d) {

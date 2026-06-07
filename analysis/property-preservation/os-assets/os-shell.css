@@ -1,9 +1,9 @@
 :root {
-  --os-sidebar-bg:       #1C2B3A;
-  --os-sidebar-border:   #243447;
-  --os-sidebar-text:     #94A3B8;
-  --os-sidebar-text-hi:  #F1F5F9;
-  --os-nav-active-bg:    rgba(193, 125, 17, 0.12);
+  --os-sidebar-bg:       #F8FAFC;
+  --os-sidebar-border:   #E2E8F0;
+  --os-sidebar-text:     #475569;
+  --os-sidebar-text-hi:  #0F172A;
+  --os-nav-active-bg:    #E2E8F0;
   --os-nav-active-text:  #C17D11;
   --os-nav-active-border:#C17D11;
   --os-badge-bg:         #C17D11;
@@ -129,7 +129,7 @@ html, body {
 }
 
 .os-nav__item:hover {
-  background: rgba(255,255,255,0.05);
+  background: rgba(0,0,0,0.04);
   color: var(--os-sidebar-text-hi);
 }
 
