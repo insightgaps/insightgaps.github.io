@@ -112,12 +112,18 @@
     var imageTarget = document.getElementById('js-featured-image');
     if (!target) return;
 
-    var published = state.investigations
-      .filter(function (inv) { return inv.status === 'published'; })
-      .sort(function (a, b) {
-        return new Date(b.date_published || 0) - new Date(a.date_published || 0);
-      });
-    var inv = published[0] || state.investigations[0];
+    var inv = state.investigations.find(function (item) {
+      return item.slug === 'the-impunity-machine';
+    });
+
+    if (!inv) {
+      var published = state.investigations
+        .filter(function (inv) { return inv.status === 'published'; })
+        .sort(function (a, b) {
+          return new Date(b.date_published || 0) - new Date(a.date_published || 0);
+        });
+      inv = published[0] || state.investigations[0];
+    }
 
     if (!inv) {
       target.innerHTML = '<p class="home__empty-state">No investigations published yet.</p>';
@@ -146,8 +152,14 @@
   function renderHomeCards() {
     var invTarget = document.getElementById('js-investigation-cards');
     if (invTarget) {
+      var isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html';
       var items = state.investigations
-        .filter(function (inv) { return inv.status === 'published' || inv.status === 'developing'; })
+        .filter(function (inv) {
+          if (isHomePage && inv.slug === 'dhaka-slum-fires') {
+            return false;
+          }
+          return inv.status === 'published' || inv.status === 'developing';
+        })
         .slice(0, 3);
       invTarget.innerHTML = items.length
         ? items.map(buildInvestigationCard).join('\n')
