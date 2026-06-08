@@ -31,6 +31,22 @@
     </div>
   </div>
 
+  <!-- New Bar Charts Section -->
+  <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px;">
+    <div class="view-section" style="padding: 24px;">
+      <div style="text-align: center; font-weight: 700; font-size: 16px; margin-bottom: 20px;">Paid to Contractor Over Month</div>
+      <div class="chart-wrap" style="height: 200px;">
+        <canvas id="paidContractorBarChart"></canvas>
+      </div>
+    </div>
+    <div class="view-section" style="padding: 24px;">
+      <div style="text-align: center; font-weight: 700; font-size: 16px; margin-bottom: 20px;">Payment Received Amount Over Month</div>
+      <div class="chart-wrap" style="height: 200px;">
+        <canvas id="paymentReceivedBarChart"></canvas>
+      </div>
+    </div>
+  </div>
+
   <!-- Charts Section -->
   <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px;" class="kpi-grid">
     <div class="view-section">
@@ -86,6 +102,8 @@
       var revChart = null;
       var clientChart = null;
       var cashflowChart = null;
+      var paidBarChart = null;
+      var receivedBarChart = null;
 
       function renderFinancial() {
         if (!window.EPCS_DATA) return;
@@ -254,6 +272,8 @@
         // CHARTS
         if (revChart) revChart.destroy();
         if (clientChart) clientChart.destroy();
+        if (paidBarChart) paidBarChart.destroy();
+        if (receivedBarChart) receivedBarChart.destroy();
 
         var outstandingTotal = totalInvoiced - totalCollected - totalLeakage;
         if (outstandingTotal < 0) outstandingTotal = 0;
@@ -436,6 +456,85 @@
                   color: '#8C8985',
                   font: { family: 'Space Mono', size: 10 },
                   callback: function (value) { return '$' + (value/1000) + 'K'; }
+                }
+              }
+            }
+          }
+        });
+
+        // ---------------------------------------------------------
+        // New Bar Charts (Synced with Cash Flow Trend Data)
+        // ---------------------------------------------------------
+        var ctxPaid = document.getElementById('paidContractorBarChart').getContext('2d');
+        paidBarChart = new Chart(ctxPaid, {
+          type: 'bar',
+          data: {
+            labels: monthLabels,
+            datasets: [{
+              label: 'Paid to Contractor',
+              data: paidData,
+              backgroundColor: '#0A2342'
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'top',
+                align: 'start',
+                labels: { boxWidth: 32, font: { family: 'Inter', size: 11 }, color: '#1A1917' }
+              }
+            },
+            scales: {
+              x: { grid: { display: false }, ticks: { maxTicksLimit: 8, maxRotation: 0, font: { family: 'Inter', size: 11 } } },
+              y: {
+                grid: { color: 'rgba(26,25,23,0.06)' },
+                beginAtZero: true,
+                ticks: {
+                  font: { family: 'Inter', size: 11 },
+                  callback: function (value) {
+                    if (value === 0) return '0';
+                    return (value/1000) + 'K';
+                  }
+                }
+              }
+            }
+          }
+        });
+
+        var ctxRec = document.getElementById('paymentReceivedBarChart').getContext('2d');
+        receivedBarChart = new Chart(ctxRec, {
+          type: 'bar',
+          data: {
+            labels: monthLabels,
+            datasets: [{
+              label: 'Payment Received Amount',
+              data: receivedData,
+              backgroundColor: '#008B8B'
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'top',
+                align: 'start',
+                labels: { boxWidth: 32, font: { family: 'Inter', size: 11 }, color: '#1A1917' }
+              }
+            },
+            scales: {
+              x: { grid: { display: false }, ticks: { maxTicksLimit: 8, maxRotation: 0, font: { family: 'Inter', size: 11 } } },
+              y: {
+                grid: { color: 'rgba(26,25,23,0.06)' },
+                beginAtZero: true,
+                ticks: {
+                  font: { family: 'Inter', size: 11 },
+                  callback: function (value) {
+                    if (value === 0) return '0';
+                    return (value/1000) + 'K';
+                  }
                 }
               }
             }

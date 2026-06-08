@@ -149,8 +149,8 @@
       badgeQC.textContent = '3';
     }
     
-    // 3. Load default view (pulse)
-    loadView('pulse');
+    // 3. Load default view (financial)
+    loadView('financial');
   };
 
   // Wait for DOM to execute initialization if needed, or index.html can call it

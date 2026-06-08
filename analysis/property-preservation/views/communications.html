@@ -2,31 +2,32 @@
   <!-- Top channel tabs -->
   <div class="channel-tabs" id="comm-channel-tabs">
     <div class="channel-tab active" data-channel="all">All Channels</div>
-    <div class="channel-tab" data-channel="SMS">SMS Only</div>
-    <div class="channel-tab" data-channel="Email">Email Only</div>
+    <div class="channel-tab" data-channel="SMS">SMS</div>
+    <div class="channel-tab" data-channel="Email">Email</div>
+    <div class="channel-tab" data-channel="Slack">Slack</div>
   </div>
 
   <!-- KPI Grid -->
   <div class="kpi-grid">
     <div class="kpi-card">
-      <div class="kpi-card__label">Total Threads</div>
-      <div class="kpi-card__value" id="comm-total-threads">0</div>
-      <div class="kpi-card__sub">Grouped by Work Order</div>
+      <div class="kpi-card__label">Action Required</div>
+      <div class="kpi-card__value kpi-card__value--red" id="comm-action-required">0</div>
+      <div class="kpi-card__sub">Total escalations</div>
     </div>
     <div class="kpi-card">
-      <div class="kpi-card__label">Total Messages</div>
-      <div class="kpi-card__value kpi-card__value--blue" id="comm-total-messages">0</div>
-      <div class="kpi-card__sub">SMS & Email logs</div>
+      <div class="kpi-card__label">Budget Requests</div>
+      <div class="kpi-card__value kpi-card__value--amber" id="comm-budget-requests">0</div>
+      <div class="kpi-card__sub">Needs your approval</div>
     </div>
     <div class="kpi-card">
-      <div class="kpi-card__label">Pending Action</div>
-      <div class="kpi-card__value kpi-card__value--red" id="comm-needs-action">0</div>
-      <div class="kpi-card__sub">Needs reply / decision</div>
+      <div class="kpi-card__label">QC Rejections</div>
+      <div class="kpi-card__value kpi-card__value--red" id="comm-qc-issues">0</div>
+      <div class="kpi-card__sub">Photos missing / failed</div>
     </div>
     <div class="kpi-card">
-      <div class="kpi-card__label">High Priority</div>
-      <div class="kpi-card__value kpi-card__value--amber" id="comm-high-priority">0</div>
-      <div class="kpi-card__sub font-weight-bold">Escalated alerts</div>
+      <div class="kpi-card__label">Routine / Handled</div>
+      <div class="kpi-card__value kpi-card__value--green" id="comm-routine">0</div>
+      <div class="kpi-card__sub">Automated / No action</div>
     </div>
   </div>
 
@@ -92,7 +93,7 @@
           return true;
         });
 
-        // 2. Group into threads by WO Number
+        // 2. Group into threads by WO Number and detect AI labels
         var threadsMap = {};
         filteredComms.forEach(function (c) {
           if (!threadsMap[c.wo_number]) {
@@ -100,20 +101,26 @@
               wo_number: c.wo_number,
               messages: [],
               contractor: c.contractor || 'Unknown',
-              needs_reply: false,
-              max_priority: 'Low',
+              qc_issue: false,
+              budget_request: false,
+              routine: true, // Will turn false if exceptions found
               latest_timestamp: c.timestamp
             };
           }
           threadsMap[c.wo_number].messages.push(c);
-          if (c.needs_reply) {
-            threadsMap[c.wo_number].needs_reply = true;
+          
+          var lbl = c.ai_label || '';
+          var txt = (c.message_text || '').toLowerCase();
+          
+          if (lbl === 'QC_Issue' || lbl === 'QC_Failure' || txt.includes('reject') || txt.includes('failed')) {
+            threadsMap[c.wo_number].qc_issue = true;
+            threadsMap[c.wo_number].routine = false;
           }
-          if (c.priority === 'High') {
-            threadsMap[c.wo_number].max_priority = 'High';
-          } else if (c.priority === 'Medium' && threadsMap[c.wo_number].max_priority !== 'High') {
-            threadsMap[c.wo_number].max_priority = 'Medium';
+          if (lbl === 'Budget_Request' || txt.includes('markup') || txt.includes('additional') || txt.includes('$')) {
+            threadsMap[c.wo_number].budget_request = true;
+            threadsMap[c.wo_number].routine = false;
           }
+
           if (new Date(c.timestamp) > new Date(threadsMap[c.wo_number].latest_timestamp)) {
             threadsMap[c.wo_number].latest_timestamp = c.timestamp;
             threadsMap[c.wo_number].contractor = c.contractor || threadsMap[c.wo_number].contractor;
@@ -134,10 +141,8 @@
           return new Date(b.latest_timestamp) - new Date(a.latest_timestamp);
         });
 
-        // Filter threads locally by search and local priority dropdown
+        // Filter threads locally by UI tab and search
         var finalThreads = threads.filter(function (t) {
-          if (currentPriority !== 'all' && t.max_priority !== currentPriority) return false;
-          
           if (searchQuery.trim() !== '') {
             var q = searchQuery.toLowerCase();
             var woMatch = t.wo_number.toLowerCase().includes(q);
@@ -150,15 +155,16 @@
           return true;
         });
 
-        // Update KPIs
-        var totalMessages = filteredComms.length;
-        var needsActionCount = threads.filter(function (t) { return t.needs_reply; }).length;
-        var highPriorityCount = threads.filter(function (t) { return t.max_priority === 'High'; }).length;
+        // Update KPIs based on AI Labels
+        var budgetCount = threads.filter(function (t) { return t.budget_request; }).length;
+        var qcCount = threads.filter(function (t) { return t.qc_issue; }).length;
+        var routineCount = threads.filter(function (t) { return t.routine; }).length;
+        var actionCount = budgetCount + qcCount;
 
-        document.getElementById('comm-total-threads').textContent = threads.length;
-        document.getElementById('comm-total-messages').textContent = totalMessages;
-        document.getElementById('comm-needs-action').textContent = needsActionCount;
-        document.getElementById('comm-high-priority').textContent = highPriorityCount;
+        document.getElementById('comm-action-required').textContent = actionCount;
+        document.getElementById('comm-budget-requests').textContent = budgetCount;
+        document.getElementById('comm-qc-issues').textContent = qcCount;
+        document.getElementById('comm-routine').textContent = routineCount;
 
         // Render thread items on the left
         var listContainer = document.getElementById('thread-list-container');
@@ -178,13 +184,14 @@
             item.dataset.wo = t.wo_number;
 
             var badgeHtml = '';
-            if (t.needs_reply) {
-              badgeHtml += '<span class="pill pill--red" style="padding:1px 6px; font-size:9px; margin-right:4px;">Reply Required</span>';
+            if (t.qc_issue) {
+              badgeHtml += '<span class="pill pill--red" style="padding:1px 6px; font-size:9px; margin-right:4px; font-weight:700;">QC ISSUE</span>';
             }
-            if (t.max_priority === 'High') {
-              badgeHtml += '<span class="pill pill--red" style="padding:1px 6px; font-size:9px;">High</span>';
-            } else if (t.max_priority === 'Medium') {
-              badgeHtml += '<span class="pill pill--amber" style="padding:1px 6px; font-size:9px;">Medium</span>';
+            if (t.budget_request) {
+              badgeHtml += '<span class="pill pill--amber" style="padding:1px 6px; font-size:9px; font-weight:700;">BUDGET REQ</span>';
+            }
+            if (t.routine && badgeHtml === '') {
+              badgeHtml += '<span class="pill pill--gray" style="padding:1px 6px; font-size:9px;">Routine</span>';
             }
 
             item.innerHTML = `
@@ -425,15 +432,23 @@
         });
       }
 
-      // Shell Event Hooks
       window.addEventListener('epcs:view-loaded', function (e) {
         if (e.detail.view === 'communications') {
           currentChannel = 'all';
           currentPriority = 'all';
-          searchQuery = '';
-          selectedWoNumber = null;
           
-          if (searchInput) searchInput.value = '';
+          // Check for deep link from Morning Pulse SMS alerts
+          if (window.EPCS_FILTERS && window.EPCS_FILTERS.comm_search) {
+             searchQuery = window.EPCS_FILTERS.comm_search;
+             selectedWoNumber = window.EPCS_FILTERS.comm_search; // Auto-select the specific thread!
+             if (searchInput) searchInput.value = searchQuery;
+             delete window.EPCS_FILTERS.comm_search; // Consume the filter
+          } else {
+             searchQuery = '';
+             selectedWoNumber = null;
+             if (searchInput) searchInput.value = '';
+          }
+          
           if (priorityFilter) priorityFilter.value = 'all';
           if (channelTabs) {
             channelTabs.querySelectorAll('.channel-tab').forEach(function (t) { t.classList.remove('active'); });

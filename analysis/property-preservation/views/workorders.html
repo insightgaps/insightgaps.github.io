@@ -155,6 +155,12 @@
         // Apply primary shell filters
         var filteredWOs = data.work_orders.filter(matchFilters);
 
+        // Calculate KPIs based on shell filters
+        var total = filteredWOs.length;
+        var closed = filteredWOs.filter(function (w) { return w.status === 'Closed'; }).length;
+        var submitted = filteredWOs.filter(function (w) { return w.status === 'Submitted'; }).length;
+        var assigned = filteredWOs.filter(function (w) { return w.status === 'Assigned'; }).length;
+
         // Apply sub-filters: status and search string and deep link filters
         var finalWOs = filteredWOs.filter(function (w) {
           

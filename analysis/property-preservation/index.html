@@ -52,10 +52,45 @@
       <!-- Navigation -->
       <nav class="os-nav" aria-label="Primary navigation">
 
+        <span class="os-nav__section-label">Finance &amp; Analytics</span>
+
+        <!-- Financials — trend arrow -->
+        <a class="os-nav__item active" data-view="financial" role="button" tabindex="0">
+          <span class="os-nav__icon" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="2,12 6,8 9,10 14,4"/>
+              <polyline points="11,4 14,4 14,7"/>
+            </svg>
+          </span>
+          <span class="os-nav__label">Financials</span>
+        </a>
+
+        <!-- Leakage Breakdown — funnel -->
+        <a class="os-nav__item" data-view="leakage" role="button" tabindex="0">
+          <span class="os-nav__icon" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h12L9 9v5H7V9L2 3z"/>
+            </svg>
+          </span>
+          <span class="os-nav__label">Leakage Analysis</span>
+        </a>
+
+        <!-- ZIP Intelligence — map pin -->
+        <a class="os-nav__item" data-view="zip" role="button" tabindex="0">
+          <span class="os-nav__icon" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 1.5C5.5 1.5 3.5 3.5 3.5 6c0 3.5 4.5 8.5 4.5 8.5S12.5 9.5 12.5 6c0-2.5-2-4.5-4.5-4.5z"/>
+              <circle cx="8" cy="6" r="1.5"/>
+            </svg>
+          </span>
+          <span class="os-nav__label">ZIP Intelligence</span>
+        </a>
+
+
         <span class="os-nav__section-label">Operations</span>
 
         <!-- Morning Pulse — activity waveform -->
-        <a class="os-nav__item active" data-view="pulse" role="button" tabindex="0">
+        <a class="os-nav__item" data-view="pulse" role="button" tabindex="0">
           <span class="os-nav__icon" aria-hidden="true">
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="1,9 4,9 6,4 8,12 10,7 12,9 15,9"/>
@@ -113,41 +148,6 @@
           <span class="os-nav__badge" id="badge-comms">0</span>
         </a>
 
-        <span class="os-nav__section-label">Finance &amp; Analytics</span>
-
-        <!-- Financials — trend arrow -->
-        <a class="os-nav__item" data-view="financial" role="button" tabindex="0">
-          <span class="os-nav__icon" aria-hidden="true">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="2,12 6,8 9,10 14,4"/>
-              <polyline points="11,4 14,4 14,7"/>
-            </svg>
-          </span>
-          <span class="os-nav__label">Financials</span>
-        </a>
-
-        <!-- Leakage Breakdown — funnel -->
-        <a class="os-nav__item" data-view="leakage" role="button" tabindex="0">
-          <span class="os-nav__icon" aria-hidden="true">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M2 3h12L9 9v5H7V9L2 3z"/>
-            </svg>
-          </span>
-          <span class="os-nav__label">Leakage Analysis</span>
-        </a>
-
-        <!-- ZIP Intelligence — map pin -->
-        <a class="os-nav__item" data-view="zip" role="button" tabindex="0">
-          <span class="os-nav__icon" aria-hidden="true">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M8 1.5C5.5 1.5 3.5 3.5 3.5 6c0 3.5 4.5 8.5 4.5 8.5S12.5 9.5 12.5 6c0-2.5-2-4.5-4.5-4.5z"/>
-              <circle cx="8" cy="6" r="1.5"/>
-            </svg>
-          </span>
-          <span class="os-nav__label">ZIP Intelligence</span>
-        </a>
-
-
         <span class="os-nav__section-label">Tools</span>
 
         <!-- Bid Generator — document with plus -->
@@ -189,7 +189,7 @@
       <!-- Filter Bar -->
       <header class="os-filter-bar">
         <div class="os-filter-bar__left">
-          <h1 class="os-filter-bar__view-title" id="current-view-title">Morning Pulse</h1>
+          <h1 class="os-filter-bar__view-title" id="current-view-title">Financials</h1>
         </div>
 
         <div class="os-filter-bar__controls">
