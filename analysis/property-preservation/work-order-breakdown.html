@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Work Order Breakdown: The Risk Matrix — Insight Gaps Bureau</title>
+  <meta name="description" content="Operational audit of work order performance in property preservation. Ranks 13 service types by leakage and income efficiency.">
+
+  <meta property="og:type"        content="article">
+  <meta property="og:title"       content="Work Order Breakdown: The Risk Matrix">
+  <meta property="og:description" content="Forensic work order analysis of property preservation operations.">
+  <meta property="og:url"         content="https://insightgaps.com/analysis/property-preservation/work-order-breakdown.html">
+  <meta property="og:image"       content="/assets/img/og-default.jpg">
+
+  <link rel="canonical" href="https://insightgaps.com/analysis/property-preservation/work-order-breakdown.html">
+  <meta name="robots" content="index, follow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/analysis-report.css">
+  <link rel="stylesheet" href="/assets/css/analysis-components.css">
+
+  <!-- Chart.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/3.0.1/chartjs-plugin-annotation.min.js"></script>
+
+  <!-- Theme handling -->
+  <script>
+    (function(){var t=localStorage.getItem('ig-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();
+  </script>
+</head>
+<body>
+
+  <!-- AI DISCLOSURE BAR -->
+  <div class="ai-disclosure-bar" role="note" aria-label="AI use disclosure">
+    <div class="ai-disclosure-bar__inner">
+      <p class="ai-disclosure-bar__text">
+        AI tools were used in producing this report.
+        <a href="/content/trust/ai-use.html">View AI use disclosure &rarr;</a>
+      </p>
+    </div>
+  </div>
+
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <!-- GLOBAL HEADER -->
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+      <a href="/" class="site-header__logo" aria-label="Insight Gaps Bureau — Home">
+        Insight&nbsp;Gaps
+      </a>
+      <button class="site-header__toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="primary-nav" aria-label="Primary navigation">
+        <a href="/content/investigations/" class="site-nav__link">Investigations</a>
+        <a href="/analysis/"               class="site-nav__link site-nav__link--active" aria-current="page">Analysis</a>
+        <a href="/archive.html"            class="site-nav__link">Archive</a>
+        <a href="/about.html"              class="site-nav__link">About</a>
+        <a href="/content/trust/methodology.html" class="site-nav__link">Trust</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN REPORT -->
+  <main id="main-content" class="analysis-report">
+
+    <!-- 1. HERO -->
+    <div class="analysis-report__header">
+      <div class="analysis-report__header-inner">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/analysis/">Analysis</a>
+          <span class="breadcrumb__sep" aria-hidden="true">&rsaquo;</span>
+          <a href="/analysis/property-preservation/index.html">Property Preservation</a>
+          <span class="breadcrumb__sep" aria-hidden="true">&rsaquo;</span>
+          <span>Work Order Breakdown</span>
+        </nav>
+
+        <span class="analysis-report__tag">Portfolio Risk</span>
+        <h1 class="analysis-report__title">Work Order Breakdown:<br>The Risk Matrix</h1>
+        
+        <div class="analysis-report__meta">
+          <time class="analysis-report__date">1 January 2026</time>
+          <span class="confidence-badge">Confidence: High</span>
+        </div>
+
+        <div class="analysis-report__metadata-list">
+          <div class="analysis-report__metadata-item">Order Types: <span>13</span></div>
+          <div class="analysis-report__metadata-item">Highest Leakage: <span>44.4% (Initial Secure)</span></div>
+          <div class="analysis-report__metadata-item">Best Income Ratio: <span>2.17× (Initial Grass Cut)</span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Sticky Local Navigation -->
+    <div class="sticky-subnav-wrapper">
+      <div class="sticky-subnav-inner">
+        <nav class="rsn" aria-label="Report navigation">
+          <a href="financial-health.html" class="snl">Financial Health</a>
+          <a href="leakage-breakdown.html" class="snl">Leakage Breakdown</a>
+          <a href="work-order-breakdown.html" class="snl active" aria-current="page">Work Order Breakdown</a>
+          <a href="sheet.html" class="snl">Workbook &amp; Dashboard</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- 2. REPORT BODY -->
+    <div class="analysis-report__body-wrap">
+
+      <!-- Section 1 — Executive Summary Box -->
+      <section class="analysis-summary-box" aria-label="Executive summary">
+        <span class="analysis-summary-box__label">Executive Summary</span>
+        <div class="analysis-summary-box__grid">
+          
+          <div class="analysis-summary-box__item">
+            <span class="analysis-summary-box__item-title">Question</span>
+            <p class="analysis-summary-box__item-content">
+              Which service lines generate positive operating margins, and which destroy value?
+            </p>
+          </div>
+
+          <div class="analysis-summary-box__item">
+            <span class="analysis-summary-box__item-title">Finding</span>
+            <p class="analysis-summary-box__item-content">
+              Initial Grass Cut yields the highest returns (2.17× ratio), while high-volume Grass Recuts (0.71×) operate at a structural loss.
+            </p>
+          </div>
+
+          <div class="analysis-summary-box__item">
+            <span class="analysis-summary-box__item-title">Impact</span>
+            <p class="analysis-summary-box__item-content">
+              High-volume deficit lines generate a combined $2.3K loss, directly consuming margins generated by Bid Approvals (1.83×).
+            </p>
+          </div>
+
+          <div class="analysis-summary-box__item">
+            <span class="analysis-summary-box__item-title">Action</span>
+            <p class="analysis-summary-box__item-content">
+              Immediately reprice or halt Grass Recuts and Snow Removal, scale Initial Grass Cuts, and protect the Bid Approval margin engine.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Section 2 — Key Findings Framework -->
+      
+      <!-- Key Finding 1 -->
+      <section class="finding-block">
+        <div class="finding-block__header">
+          <span class="finding-block__number">Finding 01</span>
+          <h3 class="finding-block__headline">Highest Leakage Services: Initial secure work suffers from extreme validation friction.</h3>
+        </div>
+        <div class="finding-block__layout">
+          <div class="finding-block__visual">
+            <div style="height:250px;"><canvas id="leakageRateChart"></canvas></div>
+          </div>
+          <div class="finding-block__analysis">
+            <div class="analysis-evidence-callout">
+              <span class="analysis-evidence-callout__label">Evidence</span>
+              <p class="analysis-evidence-callout__text">
+                Initial Secure carries a 44.4% leakage rate ($1.9K lost on 14 work orders), followed by Initial Grass Cuts at 32.8% and Snow Removal at 28.0%.
+              </p>
+            </div>
+            <div class="analysis-implication-box">
+              <span class="analysis-implication-box__label">Operational Implication</span>
+              <p class="analysis-implication-box__text">
+                Despite high headline margins, initial property secures suffer from heavy client-side rejection due to strict photo validation guidelines. Compliance checks must be reinforced at the field dispatch level.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Key Finding 2 -->
+      <section class="finding-block">
+        <div class="finding-block__header">
+          <span class="finding-block__number">Finding 02</span>
+          <h3 class="finding-block__headline">Value Destroyers: Five core service types operate below the danger threshold.</h3>
+        </div>
+        <div class="finding-block__layout">
+          <div class="finding-block__visual">
+            <div style="height:250px;"><canvas id="incomeRatioChart"></canvas></div>
+          </div>
+          <div class="finding-block__analysis">
+            <div class="analysis-evidence-callout">
+              <span class="analysis-evidence-callout__label">Evidence</span>
+              <p class="analysis-evidence-callout__text">
+                Initial Grass Cuts (2.17×), Bid Approvals (1.83×), Initial Secures (1.19×), and Bid Requests (1.14×) generate healthy margins. Conversely, Snow Removal (0.66×), Grass Recuts (0.71×), and Allowable Approvals (0.44×) represent absolute operational deficits.
+              </p>
+            </div>
+            <div class="analysis-implication-box">
+              <span class="analysis-implication-box__label">Operational Implication</span>
+              <p class="analysis-implication-box__text">
+                A ratio below 1.0× means the business pays contractors more than clients reimburse, ignoring company overhead. Continuing these services without renegotiating rates acts as a direct capital drain.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Key Finding 3 -->
+      <section class="finding-block">
+        <div class="finding-block__header">
+          <span class="finding-block__number">Finding 03</span>
+          <h3 class="finding-block__headline">Strategic Imbalance: The highest-volume service line generates systemic losses.</h3>
+        </div>
+        <div class="finding-block__layout">
+          <div class="finding-block__visual">
+            <div class="dt-container">
+              <table class="dt-table">
+                <thead>
+                  <tr>
+                    <th>Order Type</th>
+                    <th class="num">WOs</th>
+                    <th class="num">Ratio</th>
+                    <th class="num">Leakage %</th>
+                    <th class="num">Loss</th>
+                    <th>Decision</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Grass Recut</td>
+                    <td class="num">138</td>
+                    <td class="num text-red">0.71</td>
+                    <td class="num">16.2%</td>
+                    <td class="num text-red">$1,839</td>
+                    <td><span class="decision-pill decision-pill--stop">Stop / Reprice</span></td>
+                  </tr>
+                  <tr>
+                    <td>Maid Service</td>
+                    <td class="num">33</td>
+                    <td class="num text-red">0.98</td>
+                    <td class="num">14.9%</td>
+                    <td class="num">$302</td>
+                    <td><span class="decision-pill decision-pill--stop">Stop / Reprice</span></td>
+                  </tr>
+                  <tr>
+                    <td>Initial Secure</td>
+                    <td class="num">14</td>
+                    <td class="num text-green">1.19</td>
+                    <td class="num text-red">44.4%</td>
+                    <td class="num">$120</td>
+                    <td><span class="decision-pill decision-pill--monitor">Monitor</span></td>
+                  </tr>
+                  <tr>
+                    <td>Winterization</td>
+                    <td class="num">11</td>
+                    <td class="num text-red">0.98</td>
+                    <td class="num">3.2%</td>
+                    <td class="num">$105</td>
+                    <td><span class="decision-pill decision-pill--stop">Stop / Reprice</span></td>
+                  </tr>
+                  <tr>
+                    <td>Snow Removal</td>
+                    <td class="num">5</td>
+                    <td class="num text-red">0.66</td>
+                    <td class="num text-red">28.0%</td>
+                    <td class="num">$79</td>
+                    <td><span class="decision-pill decision-pill--stop">Stop / Reprice</span></td>
+                  </tr>
+                  <tr>
+                    <td>Bid Approval</td>
+                    <td class="num">38</td>
+                    <td class="num text-green">1.83</td>
+                    <td class="num">21.1%</td>
+                    <td class="num text-green">$0</td>
+                    <td><span class="decision-pill decision-pill--scale">Scale</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div style="height:140px; margin-top: var(--space-4);"><canvas id="woCountChart"></canvas></div>
+          </div>
+          <div class="finding-block__analysis">
+            <div class="analysis-evidence-callout">
+              <span class="analysis-evidence-callout__label">Evidence</span>
+              <p class="analysis-evidence-callout__text">
+                Grass Recuts represent 138 work orders (51% of total portfolio) but operate at a 0.71× ratio, creating a $1,839 loss. The entire operation is subsidized by Bid Approvals (38 orders, 1.83× ratio).
+              </p>
+            </div>
+            <div class="analysis-implication-box">
+              <span class="analysis-implication-box__label">Operational Implication</span>
+              <p class="analysis-implication-box__text">
+                Operational focus is inverted: the highest-volume service is destroying cash. Volume scale must be restricted in Grass Recuts while pushing resources into Bid Approvals and Initial Grass Cuts.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Risk scatter quadrant -->
+      <section class="finding-block">
+        <div class="finding-block__header">
+          <span class="finding-block__number">Risk Quadrant</span>
+          <h3 class="finding-block__headline">Risk Matrix: Mapping leakage rate against income efficiency.</h3>
+        </div>
+        <div class="finding-block__layout">
+          <div class="finding-block__visual">
+            <div style="height:280px;"><canvas id="riskScatter"></canvas></div>
+          </div>
+          <div class="finding-block__analysis">
+            <div class="analysis-evidence-callout">
+              <span class="analysis-evidence-callout__label">Evidence</span>
+              <p class="analysis-evidence-callout__text">
+                Mapping all 13 categories reveals key risk groups. High-leakage, high-ratio items (Initial secure) require quality check reviews, while low-leakage, low-ratio items (Winterization, Grass Recuts) require immediate pricing adjustments.
+              </p>
+            </div>
+            <div class="analysis-implication-box">
+              <span class="analysis-implication-box__label">Operational Implication</span>
+              <p class="analysis-implication-box__text">
+                This matrix guides portfolio management. High-volume categories in the bottom-left quadrant represent severe operational leaks and must be repriced or decommissioned.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3 — Recommended Service Portfolio Decisions -->
+      <section class="analysis-recommendation-box">
+        <span class="analysis-recommendation-box__label">Service Portfolio Recommendations</span>
+        <ul class="analysis-recommendation-list">
+          <li class="analysis-recommendation-list__item">
+            <span class="analysis-recommendation-list__icon" style="color:#166534;">Scale</span>
+            <p class="analysis-recommendation-list__text">
+              <strong>Initial Grass Cut & Bid Approval:</strong> Scale these categories immediately. They generate positive working capital and drive overall business profitability.
+            </p>
+          </li>
+          <li class="analysis-recommendation-list__item">
+            <span class="analysis-recommendation-list__icon" style="color:var(--color-accent);">Monitor</span>
+            <p class="analysis-recommendation-list__text">
+              <strong>Initial Secure, Bid Request, Secure:</strong> Monitor closely. These service lines are profitable but carry elevated leakage rates due to photo documentation issues.
+            </p>
+          </li>
+          <li class="analysis-recommendation-list__item">
+            <span class="analysis-recommendation-list__icon" style="color:#DC2626;">Reprice</span>
+            <p class="analysis-recommendation-list__text">
+              <strong>Grass Recut, Maid Service, Snow Removal, Allowable Approval:</strong> Enforce rate increases on clients or renegotiate contractor fees. If pricing cannot be adjusted, stop performing these services.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Next Diagnostic Callout -->
+      <a href="sheet.html" class="next-diagnostic-card">
+        <div class="next-diagnostic-card__content">
+          <span class="next-diagnostic-card__label">Next Diagnostic</span>
+          <h3 class="next-diagnostic-card__title">Workbook &amp; Dashboard</h3>
+          <p class="next-diagnostic-card__desc">Interactive financial simulator and detailed data workbook containing the complete 268 work order audit logs.</p>
+        </div>
+        <div class="next-diagnostic-card__arrow" aria-hidden="true">&rarr;</div>
+      </a>
+
+      <!-- Section 4 — Methodology -->
+      <section class="analysis-methodology-box" aria-label="Methodology">
+        <span class="analysis-methodology-box__label">Methodology</span>
+        <p class="analysis-methodology-box__text">
+          <strong>Dataset:</strong> Based on 268 work order records spanning May to December 2025. Data source includes invoicing ledgers and client validation portals.
+        </p>
+        <p class="analysis-methodology-box__text">
+          <strong>Calculation Logic:</strong> Income Ratio represents (Client Payments Received) &divide; (Contractor Cost). Leakage Rate represents (Total Leakage) &divide; (Invoiced Amount).
+        </p>
+        <p class="analysis-methodology-box__text">
+          <strong>Limitations:</strong> Calculations are volume-weighted and assume fixed operational overhead holds constant across all order categories.
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- GLOBAL FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__inner">
+      <div class="site-footer__grid">
+        <div>
+          <p class="site-footer__brand-name">Insight&nbsp;Gaps</p>
+          <p class="site-footer__mandate">Independent forensic data journalism from Dhaka, Bangladesh.</p>
+        </div>
+        <div>
+          <span class="site-footer__col-label">Navigate</span>
+          <nav class="site-footer__nav" aria-label="Footer navigation">
+            <a href="/content/investigations/">Investigations</a>
+            <a href="/analysis/">Analysis</a>
+            <a href="/archive.html">Archive</a>
+            <a href="/about.html">About</a>
+          </nav>
+        </div>
+        <div>
+          <span class="site-footer__col-label">Trust</span>
+          <nav class="site-footer__nav" aria-label="Trust navigation">
+            <a href="/content/trust/methodology.html">Methodology</a>
+            <a href="/content/trust/ai-use.html">AI Use</a>
+            <a href="/content/trust/corrections.html">Corrections</a>
+            <a href="/contact.html">Contact</a>
+          </nav>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <p class="site-footer__copy">
+          &copy; <span class="js-copyright-year">2025</span> Insight Gaps Bureau. Original reporting licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC&nbsp;BY&nbsp;4.0</a>. Deployed on Vercel.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    'use strict';
+    var toggle = document.querySelector('.site-header__toggle');
+    var nav    = document.querySelector('.site-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', function () {
+        var isOpen = nav.classList.toggle('site-nav--open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+      document.addEventListener('click', function (e) {
+        if (!toggle.contains(e.target) && !nav.contains(e.target)) {
+          nav.classList.remove('site-nav--open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && nav.classList.contains('site-nav--open')) {
+          nav.classList.remove('site-nav--open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.focus();
+        }
+      });
+    }
+    var yr = String(new Date().getFullYear());
+    document.querySelectorAll('.js-copyright-year').forEach(function (el) { el.textContent = yr; });
+  }());
+  </script>
+
+  <!-- Charts -->
+  <script>
+  (function(){
+    if (!window.Chart) return;
+    const F = 'Space Grotesk, sans-serif', M = 'Space Mono, monospace';
+    Chart.defaults.color = 'rgba(26,25,23,0.6)';
+    Chart.defaults.font.family = F;
+    Chart.defaults.font.size = 11;
+    Chart.defaults.plugins.legend.labels.boxWidth = 10;
+    Chart.defaults.plugins.legend.labels.padding = 14;
+
+    const grid = () => ({ color: 'rgba(26,25,23,0.06)', drawBorder: false });
+    const tip = () => ({
+      backgroundColor: '#fff', borderColor: '#E2E0DC', borderWidth: 1,
+      titleColor: 'rgba(26,25,23,0.8)', bodyColor: 'rgba(26,25,23,0.6)',
+      titleFont: { family: M, size: 10 }, bodyFont: { family: M, size: 10 }, padding: 10
+    });
+
+    // Income ratio chart
+    const ratioData = [
+      {label:'Initial Grass Cut',val:2.17},{label:'Bid Approval',val:1.83},{label:'Initial Secure',val:1.19},
+      {label:'Bid Request',val:1.14},{label:'Secure',val:1.02},{label:'Maid Service',val:0.98},
+      {label:'Winterization',val:0.98},{label:'Grass Recut',val:0.71},{label:'Snow Removal',val:0.66},{label:'Allowable Appr.',val:0.44}
+    ];
+    ratioData.sort((a,b)=>a.val-b.val);
+
+    new Chart(document.getElementById('incomeRatioChart'), {
+      type: 'bar',
+      data: {
+        labels: ratioData.map(d=>d.label),
+        datasets: [{
+          label: 'Income Ratio',
+          data: ratioData.map(d=>d.val),
+          backgroundColor: ratioData.map(d=>d.val>=1?'#1A6B3C':'#DC2626'),
+          borderRadius: 3
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true, maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: { ...tip(), callbacks: { label: c => ' Income Ratio: '+c.parsed.x?.toFixed(2)+'×' } },
+          annotation: {
+            annotations: {
+              line1: { type: 'line', xMin: 1, xMax: 1, borderColor: 'rgba(220,38,38,0.4)', borderWidth: 1.5, borderDash: [4,4] }
+            }
+          }
+        },
+        scales: {
+          x: { grid: grid(), min: 0, max: 2.5, ticks: { callback: v => v.toFixed(1)+'×', font: { family: M, size: 9 } } },
+          y: { grid: grid(), ticks: { font: { family: M, size: 9 } } }
+        }
+      }
+    });
+
+    // Leakage rate chart
+    const lrData = [
+      {t:'Initial Secure',r:44.4},{t:'Initial Grass Cut',r:32.8},{t:'Snow Removal',r:28.0},
+      {t:'Bid Approval',r:21.1},{t:'Secure',r:16.7},{t:'Grass Recut',r:16.2},
+      {t:'Maid Service',r:14.9},{t:'Allowable Appr.',r:11.5},{t:'Winterization',r:3.2},{t:'Bid Request',r:1.2}
+    ].sort((a,b)=>b.r-a.r);
+
+    new Chart(document.getElementById('leakageRateChart'), {
+      type: 'bar',
+      data: {
+        labels: lrData.map(d=>d.t),
+        datasets: [{
+          label: 'Leakage Rate %',
+          data: lrData.map(d=>d.r),
+          backgroundColor: lrData.map(d=>d.r>30?'#DC2626':d.r>15?'#C17D11':'#8a8899'),
+          borderRadius: 3
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false }, tooltip: { ...tip(), callbacks: { label: c => ' Leakage Rate: '+c.parsed.y?.toFixed(1)+'%' } } },
+        scales: {
+          x: { grid: grid(), ticks: { font: { family: M, size: 8 } } },
+          y: { grid: grid(), ticks: { callback: v => v+'%', font: { family: M, size: 9 } } }
+        }
+      }
+    });
+
+    // WO Count donut chart
+    new Chart(document.getElementById('woCountChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Grass Recut','Maid Service','Bid Approval','Bid Request','Winterization','Initial Secure','Other'],
+        datasets: [{
+          data: [138, 33, 38, 11, 11, 14, 23],
+          backgroundColor: ['#DC2626', '#8a8899', '#1A6B3C', '#2563AB', '#C17D11', '#8a8899', '#C17D11'],
+          borderColor: '#FFFFFF', borderWidth: 3, hoverOffset: 5
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false, cutout: '58%',
+        plugins: {
+          legend: { position: 'bottom' },
+          tooltip: { ...tip(), callbacks: { label: c => ' ' + c.label + ': ' + c.parsed + ' WOs' } }
+        }
+      }
+    });
+
+    // Risk scatter plot
+    const scatterPoints = [
+      {x:1.19,y:44.4,r:14,label:'Initial Secure',color:'#C17D11'},
+      {x:2.17,y:32.8,r:2,label:'Initial Grass Cut',color:'#1A6B3C'},
+      {x:0.66,y:28.0,r:5,label:'Snow Removal',color:'#DC2626'},
+      {x:1.83,y:21.1,r:38,label:'Bid Approval',color:'#1A6B3C'},
+      {x:1.02,y:16.7,r:4,label:'Secure',color:'#2563AB'},
+      {x:0.71,y:16.2,r:138,label:'Grass Recut',color:'#DC2626'},
+      {x:0.98,y:14.9,r:33,label:'Maid Service',color:'#DC2626'},
+      {x:0.44,y:11.5,r:6,label:'Allowable Appr.',color:'#DC2626'},
+      {x:0.98,y:3.2,r:11,label:'Winterization',color:'#DC2626'},
+      {x:1.14,y:1.2,r:11,label:'Bid Request',color:'#1A6B3C'},
+    ];
+
+    new Chart(document.getElementById('riskScatter'), {
+      type: 'bubble',
+      data: {
+        datasets: scatterPoints.map(p => ({
+          label: p.label,
+          data: [{ x: p.x, y: p.y, r: Math.max(5, Math.sqrt(p.r) * 2.5) }],
+          backgroundColor: (function(h){var r=parseInt(h.slice(1,3),16),g=parseInt(h.slice(3,5),16),b=parseInt(h.slice(5,7),16);return 'rgba('+r+','+g+','+b+',0.5)';})(p.color),
+          borderColor: p.color,
+          borderWidth: 1.5
+        }))
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: { ...tip(), callbacks: {
+            label: c => {
+              const p = scatterPoints[c.datasetIndex];
+              return ' ' + p.label + ' | Ratio: ' + c.parsed.x?.toFixed(2) + '× | Leakage: ' + c.parsed.y?.toFixed(1) + '% | WOs: ' + p.r;
+            }
+          } }
+        },
+        scales: {
+          x: { grid: grid(), title: { display: true, text: 'Income Ratio →', color: 'rgba(26,25,23,0.4)', font: { family: M, size: 9 } }, min: 0, max: 2.5, ticks: { callback: v => v.toFixed(1)+'×', font: { family: M, size: 9 } } },
+          y: { grid: grid(), title: { display: true, text: 'Leakage Rate % →', color: 'rgba(26,25,23,0.4)', font: { family: M, size: 9 } }, min: 0, max: 50, ticks: { callback: v => v+'%', font: { family: M, size: 9 } } }
+        }
+      }
+    });
+
+  })();
+  </script>
+
+</body>
+</html>
