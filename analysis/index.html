@@ -3,148 +3,126 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EPCS Property Preservation Intelligence OS — Insight Gaps Bureau</title>
-  <meta name="description" content="Operational dashboard tracking work order performance, margin leakage, and ZIP coverage for property preservation.">
-  
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://insightgaps.com/analysis/property-preservation/">
+  <title>Analysis - Insight Gaps Bureau</title>
+  <link rel="canonical" href="https://insightgaps.com/analysis/">
+  <meta name="description" content="Commercial analysis, operational intelligence, and performance dashboards by Insight Gaps Bureau.">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <style>
+    .investigations-index {
+      padding-bottom: var(--space-9);
+    }
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    .investigations-index__header {
+      padding: var(--space-8) 0 var(--space-7);
+      border-bottom: var(--border-width) solid var(--color-border);
+      margin-bottom: var(--space-7);
+    }
 
-  <!-- Chart.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    .investigations-index__inner {
+      max-width: var(--grid-max);
+      margin: 0 auto;
+      padding: 0 var(--grid-padding);
+    }
 
-  <!-- Global Stylesheet -->
-  <link rel="stylesheet" href="os-assets/os-shell.css">
-  <link rel="stylesheet" href="os-assets/os-views.css">
+    .investigations-index__title {
+      margin-bottom: var(--space-3);
+    }
+
+    .investigations-index__dek {
+      max-width: var(--grid-content);
+      color: var(--color-text-secondary);
+    }
+  </style>
 </head>
 <body>
 
-  <div class="os-shell">
-    
-    <!-- Sidebar -->
-    <aside class="os-sidebar">
-      
-      <!-- Logo block -->
-      <div class="os-sidebar__logo-block">
-        <div class="os-sidebar__logo-badge">EP</div>
-        <div class="os-sidebar__brand">
-          <span class="os-sidebar__brand-name">Property Preservation</span>
-          <span class="os-sidebar__brand-sub">INTELLIGENCE OS</span>
-        </div>
-      </div>
-
-      <!-- Navigation items -->
-      <nav class="os-nav">
-        <a class="os-nav__item active" data-view="pulse">
-          <span class="os-nav__icon">⚡</span>
-          <span class="os-nav__label">Morning Pulse</span>
-        </a>
-        <a class="os-nav__item" data-view="financial">
-          <span class="os-nav__icon">💰</span>
-          <span class="os-nav__label">Financials</span>
-        </a>
-        <a class="os-nav__item" data-view="leakage">
-          <span class="os-nav__icon">🔍</span>
-          <span class="os-nav__label">Leakage Breakdown</span>
-        </a>
-        <a class="os-nav__item" data-view="workorders">
-          <span class="os-nav__icon">📋</span>
-          <span class="os-nav__label">Work Orders</span>
-          <span class="os-nav__badge" id="badge-workorders">0</span>
-        </a>
-        <a class="os-nav__item" data-view="contractors">
-          <span class="os-nav__icon">👷</span>
-          <span class="os-nav__label">Contractors</span>
-        </a>
-        <a class="os-nav__item" data-view="communications">
-          <span class="os-nav__icon">💬</span>
-          <span class="os-nav__label">Communications</span>
-          <span class="os-nav__badge" id="badge-comms">0</span>
-        </a>
-        <a class="os-nav__item" data-view="zip">
-          <span class="os-nav__icon">🗺️</span>
-          <span class="os-nav__label">ZIP Intelligence</span>
-        </a>
-        <a class="os-nav__item" data-view="photoqc">
-          <span class="os-nav__icon">📷</span>
-          <span class="os-nav__label">Photo QC</span>
-          <span class="os-nav__badge" id="badge-qc">0</span>
-        </a>
-        <a class="os-nav__item" data-view="bidgenerator">
-          <span class="os-nav__icon">💡</span>
-          <span class="os-nav__label">Bid Generator</span>
-        </a>
-        <a class="os-nav__item" data-view="workbook">
-          <span class="os-nav__icon">📊</span>
-          <span class="os-nav__label">Workbook</span>
-        </a>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+      <a href="/" class="site-header__logo" aria-label="Insight Gaps Bureau - Home">Insight&nbsp;Gaps</a>
+      <button class="site-header__toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="primary-nav" aria-label="Primary navigation">
+        <a href="/content/investigations/" class="site-nav__link">Investigations</a>
+        <a href="/analysis/" class="site-nav__link site-nav__link--active" aria-current="page">Analysis</a>
+        <a href="/archive.html" class="site-nav__link">Archive</a>
+        <a href="/about.html" class="site-nav__link">About</a>
+        <a href="/content/trust/methodology.html" class="site-nav__link">Trust</a>
       </nav>
+    </div>
+  </header>
 
-      <!-- Sidebar footer -->
-      <div class="os-sidebar__footer">
-        <span class="os-sidebar__data-tag">Real data · Demo instance</span>
-        <span class="os-sidebar__period">Nov 2025 – Jun 2026</span>
-        <a href="https://insightgaps.com" class="os-sidebar__site-link">← insightgaps.com</a>
+  <main id="main-content" class="investigations-index">
+    <section class="investigations-index__header">
+      <div class="investigations-index__inner">
+        <p class="section-label">Analysis</p>
+        <h1 class="investigations-index__title">Analysis</h1>
+        <p class="investigations-index__dek">
+          Commercial dashboards, operational intelligence systems, and KPI frameworks designed to identify leakage and optimize performance.
+        </p>
       </div>
+    </section>
 
-    </aside>
-
-    <!-- Main Content Area -->
-    <main class="os-content">
-      
-      <!-- Content Header (Filter Bar) -->
-      <header class="os-filter-bar">
-        <div class="os-filter-bar__left">
-          <h1 class="os-filter-bar__view-title" id="current-view-title">Morning Pulse</h1>
-        </div>
-        
-        <div class="os-filter-bar__controls">
-          <select class="os-filter" id="filter-month">
-            <option value="all">All Period</option>
-            <option value="2025-11">Nov 2025</option>
-            <option value="2025-12">Dec 2025</option>
-            <option value="2026-01">Jan 2026</option>
-            <option value="2026-02">Feb 2026</option>
-            <option value="2026-03">Mar 2026</option>
-            <option value="2026-04">Apr 2026</option>
-            <option value="2026-05">May 2026</option>
-            <option value="2026-06">Jun 2026</option>
-          </select>
-          
-          <select class="os-filter" id="filter-client">
-            <option value="all">All Clients</option>
-            <option value="MCS">MCS</option>
-            <option value="ServiceLink">ServiceLink</option>
-            <option value="FiveBrothers">Five Brothers</option>
-            <option value="MSI">MSI</option>
-            <option value="Safeguard">Safeguard</option>
-            <option value="ZVN">ZVN</option>
-          </select>
-          
-          <select class="os-filter" id="filter-contractor">
-            <option value="all">All Contractors</option>
-            <!-- Dynamically populated -->
-          </select>
-          
-          <button class="os-filter-reset" id="filter-reset">Clear ×</button>
-        </div>
-      </header>
-
-      <!-- Sub-view content loaded here -->
-      <div class="os-view-container" id="view-container">
-        <!-- Loaded via AJAX -->
+    <section class="investigations-index__inner" aria-labelledby="investigation-list-label">
+      <p class="section-label" id="investigation-list-label">All analysis domains</p>
+      <div class="card-grid--three" id="js-analysis-cards" aria-live="polite">
+        <p class="home__empty-state">Loading analysis domains...</p>
       </div>
+    </section>
+  </main>
 
-    </main>
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__inner">
+      <div class="site-footer__grid">
+        <div>
+          <p class="site-footer__brand-name">Insight&nbsp;Gaps</p>
+          <p class="site-footer__mandate">Independent forensic data journalism from Dhaka, Bangladesh.</p>
+        </div>
+        <div>
+          <span class="site-footer__col-label">Navigate</span>
+          <nav class="site-footer__nav" aria-label="Footer navigation">
+            <a href="/content/investigations/">Investigations</a>
+            <a href="/analysis/">Analysis</a>
+            <a href="/archive.html">Archive</a>
+            <a href="/about.html">About</a>
+          </nav>
+        </div>
+        <div>
+          <span class="site-footer__col-label">Trust</span>
+          <nav class="site-footer__nav" aria-label="Trust navigation">
+            <a href="/content/trust/methodology.html">Methodology</a>
+            <a href="/content/trust/ai-use.html">AI Use</a>
+            <a href="/content/trust/corrections.html">Corrections</a>
+            <a href="/contact.html">Contact</a>
+          </nav>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <p class="site-footer__copy">
+          &copy; <span class="js-copyright-year">2025</span> Insight Gaps Bureau.
+        </p>
+      </div>
+    </div>
+  </footer>
 
-  </div>
-
-  <!-- Data and Shell Scripts -->
-  <script src="data/epcs_data.js"></script>
-  <script src="os-assets/os-nav.js"></script>
+  <script>
+  (function () {
+    'use strict';
+    var toggle = document.querySelector('.site-header__toggle');
+    var nav = document.querySelector('.site-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', function () {
+        var isOpen = nav.classList.toggle('site-nav--open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+    }
+    document.querySelectorAll('.js-copyright-year').forEach(function (el) {
+      el.textContent = String(new Date().getFullYear());
+    });
+  }());
+  </script>
+  <script src="/assets/js/data-loader.js" defer></script>
 </body>
 </html>
