@@ -93,11 +93,17 @@
   function buildAnalysisCard(domain) {
     var count = Number(domain.report_count || (domain.reports || []).length || 0);
     var label = count === 1 ? '1 report' : count + ' reports';
+    var img = domain.og_image_path
+      ? '  <div class="analysis-card__image-wrap"><img class="analysis-card__image" src="' + esc(domain.og_image_path) + '" alt="' + esc(domain.domain_title || domain.name) + '"></div>'
+      : '';
 
     return [
       '<article class="analysis-card" data-type="analysis" data-status="published">',
-      '  <h3 class="analysis-card__title">' + esc(domain.domain_title || domain.name) + '</h3>',
-      '  <p class="analysis-card__description">' + esc(domain.description || domain.summary) + '</p>',
+      img,
+      '  <div class="analysis-card__content">',
+      '    <h3 class="analysis-card__title">' + esc(domain.domain_title || domain.name) + '</h3>',
+      '    <p class="analysis-card__description">' + esc(domain.description || domain.summary) + '</p>',
+      '  </div>',
       '  <footer class="analysis-card__footer">',
       '    <span class="analysis-card__count">' + esc(label) + '</span>',
       '    <time class="analysis-card__date" datetime="' + esc(domain.last_updated) + '">' + esc(formatDate(domain.last_updated)) + '</time>',
