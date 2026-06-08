@@ -204,6 +204,14 @@
   width: 100%;
 }
 
+/* Map Layout */
+.map-layout-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
 /* Search bar styling */
 .search-controls {
   display: flex;
@@ -752,6 +760,11 @@
     grid-template-columns: 1fr;
   }
   .bid-summary-cards {
+    grid-template-columns: 1fr;
+  }
+
+  /* Map View */
+  .map-layout-grid {
     grid-template-columns: 1fr;
   }
 }
