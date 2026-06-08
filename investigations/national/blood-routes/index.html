@@ -1597,10 +1597,10 @@ html[data-theme="dark"] .sub-nav {
       </div>
       <div class="step" data-scene="hour" data-step="1">
         <div class="step-num">Step 02 of 04</div>
-        <div class="stat">97.13%</div>
-        <h3>of all documented accidents happen between 10pm and 6am.</h3>
-        <p>Our audit of the 47,680-row master database reveals that **46,310 crashes occurred during the night hour void** (10 PM to 6 AM). Within the capital Dhaka, 41.56% of fatal crashes happen during these hours. The nationwide void reveals a systemic absence of nighttime traffic safety enforcement on long-distance highways.</p>
-        <div class="note">Master database analysis &middot; RSF Dhaka Annual Report 2025 &middot; <span class="ok">CONFIRMED</span></div>
+        <div class="stat">41.56%</div>
+        <h3>of fatal crashes in Dhaka happen between 10pm and 6am.</h3>
+        <p>Road Safety Foundation (RSF) data reveals that <strong>41.56% of fatal crashes in the capital occur during the night hour void</strong> (10 PM to 6 AM). The nationwide data reflects a similar systemic absence of nighttime traffic safety enforcement on long-distance highways, where heavy cargo vehicles operate without oversight.</p>
+        <div class="note">RSF Annual Report &middot; <span class="ok">CONFIRMED</span></div>
       </div>
       <div class="step" data-scene="hour" data-step="2">
         <div class="step-num">Step 03 of 04</div>
@@ -2111,8 +2111,7 @@ function drawClock(nightFrac,showPed,show24){
       const midAngle=nightStart+(4/24)*Math.PI*2;
       const tx=cx+Math.cos(midAngle)*(r*0.65);const ty=cy+Math.sin(midAngle)*(r*0.65);
       cctx.fillStyle="rgba(232,64,96,.9)";cctx.font="bold 9px JetBrains Mono,monospace";cctx.textAlign="center";cctx.textBaseline="middle";
-      cctx.fillText("97.13% National",tx,ty-5);cctx.font="7.5px JetBrains Mono,monospace";cctx.fillStyle="rgba(232,64,96,.7)";
-      cctx.fillText("(41.56% Dhaka)",tx,ty+5);
+      cctx.fillText("41.56% Dhaka",tx,ty-5);
     }
   }
   // center stats
