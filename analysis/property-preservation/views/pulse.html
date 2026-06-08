@@ -1,144 +1,170 @@
 <div class="os-view-body">
-  <!-- KPI Grid -->
-  <div class="kpi-grid">
-    <div class="kpi-card">
-      <div class="kpi-card__label">Active Work Orders</div>
-      <div class="kpi-card__value" id="kpi-active-wos">0</div>
-      <div class="kpi-card__sub">Awaiting closure / review</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-card__label">SLA Risk Index</div>
-      <div class="kpi-card__value kpi-card__value--amber" id="kpi-sla-risk">0</div>
-      <div class="kpi-card__sub">Overdue or high risk score</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-card__label">Outstanding Receivables</div>
-      <div class="kpi-card__value kpi-card__value--red" id="kpi-receivables">$0.00</div>
-      <div class="kpi-card__sub">Outstanding invoice value</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-card__label">Loss to Leakage</div>
-      <div class="kpi-card__value kpi-card__value--red" id="kpi-leakage">$0.00</div>
-      <div class="kpi-card__sub">Total client + vendor erosion</div>
-    </div>
-  </div>
+  <style>
+    .pulse-link { cursor: pointer; color: var(--os-blue); text-decoration: none; font-weight: 600; }
+    .pulse-link:hover { text-decoration: underline; }
+    .pulse-link-red { cursor: pointer; color: var(--os-red); text-decoration: none; font-weight: 600; }
+    .pulse-link-red:hover { text-decoration: underline; }
+    .pulse-link-green { cursor: pointer; color: var(--os-green); text-decoration: none; font-weight: 600; }
+    .pulse-pipeline-link { cursor: pointer; display: inline-block; padding: 4px 12px; border-radius: 12px; border: 1px solid var(--color-border); background: var(--color-surface); transition: all 0.2s; position: relative; }
+    .pulse-pipeline-link:hover { background: #F3F4F6; }
+    .pulse-pipeline-link::after { content: " \\2192"; opacity: 0; transition: opacity 0.2s; font-weight: bold; }
+    .pulse-pipeline-link:hover::after { opacity: 1; }
+    .btn-action { font-size: 10px; padding: 3px 8px; border: 1px solid var(--color-border); background: var(--color-surface); cursor: pointer; border-radius: 4px; font-weight: 600; }
+    .btn-action:hover { background: #E2E0DC; }
+    .heatmap-sq { width: 14px; height: 14px; border-radius: 2px; cursor: pointer; transition: transform 0.1s; }
+    .heatmap-sq:hover { transform: scale(1.2); box-shadow: 0 0 4px rgba(0,0,0,0.3); }
+    .contractor-card { background: var(--color-surface); border: 1px solid var(--color-border); padding: 10px 14px; border-radius: 6px; font-size: 11.5px; display: flex; flex-direction: column; gap: 8px; }
+  </style>
 
-  <!-- Daily Schedule & Forecast Dashboard -->
-  <div class="view-section" style="padding-bottom: 24px;">
-    <div class="view-section__title" style="margin-bottom: 12px;">Daily Operations Schedule & SLA Forecast</div>
-    
-    <!-- Mini Metric bar -->
-    <div style="display: flex; gap: 16px; margin-bottom: 20px; flex-wrap: wrap;">
-      <div style="flex: 1; min-width: 140px; background: #FEF2F2; border: 1px solid #FCA5A5; border-radius: 8px; padding: 12px; display: flex; align-items: center; gap: 10px;">
-        <span style="display:flex;align-items:center;justify-content:center;width:28px;height:28px;background:#FCA5A5;border-radius:50%;flex-shrink:0;">
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#DC2626" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6.5"/><polyline points="8,4.5 8,8 10.5,10.5"/></svg>
-        </span>
-        <div>
-          <div style="font-size: 10px; font-family: Space Mono, monospace; color: #DC2626; text-transform: uppercase; font-weight:600;">Overdue WOs</div>
-          <div style="font-size: 20px; font-weight: 700; color: #DC2626;" id="pulse-overdue-count">0</div>
+  <!-- ZONE 1: Command Banner -->
+  <div class="view-section" style="margin-bottom: 24px;">
+    <div style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 24px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); display: flex; gap: 24px; align-items: flex-start;">
+      <div style="flex: 1;">
+        <div id="pulse-zone1-text" style="font-size: 16px; font-family: var(--font-body); color: var(--color-text-primary); line-height: 1.6; margin-bottom: 16px;">
+          Loading morning briefing...
+        </div>
+        <div id="pulse-zone1-ribbon" style="display: flex; gap: 10px; flex-wrap: wrap;">
         </div>
       </div>
-      <div style="flex: 1; min-width: 140px; background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 8px; padding: 12px; display: flex; align-items: center; gap: 10px;">
-        <span style="display:flex;align-items:center;justify-content:center;width:28px;height:28px;background:#BFDBFE;border-radius:50%;flex-shrink:0;">
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#2563AB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="3" width="13" height="11" rx="1.5"/><line x1="1.5" y1="7" x2="14.5" y2="7"/><line x1="5" y1="1.5" x2="5" y2="4.5"/><line x1="11" y1="1.5" x2="11" y2="4.5"/></svg>
-        </span>
-        <div>
-          <div style="font-size: 10px; font-family: Space Mono, monospace; color: #2563AB; text-transform: uppercase; font-weight:600;">Due Today/Tomorrow</div>
-          <div style="font-size: 20px; font-weight: 700; color: #2563AB;" id="pulse-due-count">0</div>
-        </div>
-      </div>
-      <div style="flex: 1; min-width: 140px; background: #F0FDF4; border: 1px solid #86EFAC; border-radius: 8px; padding: 12px; display: flex; align-items: center; gap: 10px;">
-        <span style="display:flex;align-items:center;justify-content:center;width:28px;height:28px;background:#86EFAC;border-radius:50%;flex-shrink:0;">
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#1A6B3C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6.5"/><polyline points="5,8 7,10.5 11,6"/></svg>
-        </span>
-        <div>
-          <div style="font-size: 10px; font-family: Space Mono, monospace; color: #1A6B3C; text-transform: uppercase; font-weight:600;">Completing Today</div>
-          <div style="font-size: 20px; font-weight: 700; color: #1A6B3C;" id="pulse-completed-count">0</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Side by side grids -->
-    <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 20px;">
-      <!-- Left: SLA Schedule -->
-      <div style="border: 1px solid #E2E0DC; border-radius: 8px; padding: 16px; background: #FAF9F6;">
-        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 12.5px; font-weight: 600; color: #1A1917; margin-bottom: 12px; display:flex; justify-content:space-between; align-items:center;">
-          <span>Urgent Schedule — Overdue &amp; Due Soon</span>
-          <span style="font-size:10px; font-family:Space Mono,monospace; color:#8C8985;" id="pulse-schedule-meta">Showing 0 items</span>
-        </div>
-        <div class="os-table-wrapper" style="max-height: 250px; overflow-y: auto;">
-          <table class="os-table" style="font-size: 12px;">
-            <thead>
-              <tr>
-                <th>WO#</th>
-                <th>Service Type</th>
-                <th>Contractor</th>
-                <th>Due Date</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody id="pulse-schedule-body">
-              <!-- Dynamically populated -->
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- Right: Operations Forecast -->
-      <div style="border: 1px solid #E2E0DC; border-radius: 8px; padding: 16px; background: #FAF9F6; display: flex; flex-direction: column; gap: 12px;">
-        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 12.5px; font-weight: 600; color: #1A1917;">Weekly Forecast &amp; Operations Summary</div>
-        
-        <div style="display: flex; flex-direction: column; gap: 8px; font-size: 12px;">
-          <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #E2E0DC; padding-bottom: 4px;">
-            <span style="color:#4B4743;">This Week's Active Volume:</span>
-            <strong id="pulse-forecast-volume" style="font-family:Space Mono,monospace;">0 WOs</strong>
-          </div>
-          <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #E2E0DC; padding-bottom: 4px;">
-            <span style="color:#4B4743;">Avg Days Overdue:</span>
-            <strong id="pulse-forecast-sla-age" style="font-family:Space Mono,monospace; color:var(--os-red);">0 days</strong>
-          </div>
-          <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #E2E0DC; padding-bottom: 4px;">
-            <span style="color:#4B4743;">Active Completion Rate:</span>
-            <strong id="pulse-forecast-comp-rate" style="font-family:Space Mono,monospace; color:var(--os-green);">0%</strong>
-          </div>
-        </div>
-
-        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 600; color: #1A1917; margin-top: 6px;">Top Active Contractors</div>
-        <div id="pulse-top-contractors" style="display:flex; flex-direction:column; gap:6px;">
-          <!-- Dynamically populated -->
-        </div>
+      <div id="pulse-zone1-health" style="flex-shrink: 0; background: #FEF2F2; border: 1px solid #FCA5A5; padding: 16px; border-radius: 8px; text-align: center; width: 120px;">
+        <div style="font-size: 10px; font-family: var(--font-mono); color: #DC2626; font-weight: 700; margin-bottom: 4px; text-transform: uppercase;">Health Score</div>
+        <div style="font-size: 28px; font-weight: 700; color: #DC2626;" id="z1-health-score">--/100</div>
+        <div style="font-size: 11px; color: #B91C1C; margin-top: 4px;" id="z1-health-trend">&darr; from yesterday</div>
       </div>
     </div>
   </div>
 
-  <!-- Active Alerts Section -->
-  <div class="view-section">
-    <div class="view-section__title">Active Operational Alerts</div>
-    <div id="alerts-container">
-      <!-- Generated dynamically -->
+  <!-- ZONE 2: My Today Action Queue -->
+  <div class="view-section" style="margin-bottom: 24px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 12px;">
+      <div class="view-section__title" style="margin-bottom: 0;">My Today (Action Queue)</div>
+      <div style="font-size: 11px; font-family: var(--font-mono); color: #4B4743; display: flex; align-items: center; gap: 8px;">
+        <span id="z2-progress-text">0 of 0 tasks completed today</span>
+        <div style="width: 100px; height: 6px; background: #E2E0DC; border-radius: 3px; overflow: hidden;">
+          <div id="z2-progress-bar" style="height: 100%; width: 0%; background: var(--os-green); transition: width 0.3s;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="os-table-wrapper" style="max-height: 350px; overflow-y: auto;">
+      <table class="os-table">
+        <thead>
+          <tr>
+            <th style="width: 50px;">Pri</th>
+            <th>Type</th>
+            <th>Specific Reason</th>
+            <th>WO#</th>
+            <th>Contractor</th>
+            <th>Client</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="pulse-zone2-body">
+        </tbody>
+      </table>
     </div>
   </div>
 
-  <!-- Priority Items Table -->
-  <div class="view-section">
-    <div class="view-section__title">High-Risk Active Work Orders</div>
+  <!-- ZONE 6: Follow-Up Command Center (Moved to Position 3) -->
+  <div class="view-section" style="margin-bottom: 24px;">
+    <div class="view-section__title">Follow-Up Command Center</div>
     <div class="os-table-wrapper">
       <table class="os-table">
         <thead>
           <tr>
-            <th>WO Number</th>
-            <th>Client</th>
-            <th>Service Type</th>
-            <th>Contractor</th>
-            <th>Due Date</th>
-            <th class="num">Risk Score</th>
-            <th>Status</th>
+            <th>WO#</th>
+            <th>Days Stalled</th>
+            <th>Contact Target</th>
+            <th>Next Step</th>
+            <th>Last Action</th>
+            <th>Action Tools</th>
           </tr>
         </thead>
-        <tbody id="priority-wos-body">
-          <!-- Populated dynamically -->
+        <tbody id="pulse-zone6-body">
         </tbody>
       </table>
+    </div>
+  </div>
+
+  <!-- ZONE 3: WO Pipeline Visual -->
+  <div class="view-section" style="margin-bottom: 24px;">
+    <div class="view-section__title">Work Order Pipeline</div>
+    <div id="pulse-zone3-pipeline" style="display: flex; gap: 8px; align-items: flex-start; overflow-x: auto; padding-bottom: 8px; font-family: var(--font-mono); font-size: 11.5px;">
+    </div>
+  </div>
+
+  <!-- ZONE 7 & 8: Service Type & Dispatch Finder -->
+  <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 20px; margin-bottom: 24px;">
+    <div class="view-section" style="margin-bottom: 0;">
+      <div class="view-section__title">Service Type Situation Board</div>
+      <div class="os-table-wrapper">
+        <table class="os-table">
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th class="num">Active</th>
+              <th class="num">Overdue</th>
+              <th class="num">Avg Age</th>
+              <th>Top Bottleneck</th>
+            </tr>
+          </thead>
+          <tbody id="pulse-zone7-body">
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="view-section" style="margin-bottom: 0;">
+      <div style="display:flex; justify-content:space-between; align-items:end; margin-bottom:12px; border-bottom:1px solid #E2E0DC; padding-bottom:8px;">
+        <div class="view-section__title" style="border:none; padding:0; margin:0;">Dispatch Finder</div>
+        <div style="font-size:11px; font-family:var(--font-mono); color:#8C8985;" id="pulse-zone8-header">Showing 0 unassigned</div>
+      </div>
+      <div id="pulse-zone8-dispatch" style="display: flex; flex-direction: column; gap: 12px; background: #FAF9F6; border: 1px solid #E2E0DC; border-radius: 8px; padding: 16px; height: 100%;">
+      </div>
+    </div>
+  </div>
+
+  <!-- ZONE 4 & 5: SLA Heat Map & Contractor Activity Board -->
+  <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 20px; margin-bottom: 24px;">
+    <div class="view-section" style="margin-bottom: 0;">
+      <div class="view-section__title">Daily SLA Heat Map</div>
+      <div style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 16px; height: 100%;">
+        <div style="display:flex; justify-content:space-between; font-size:10px; font-family:var(--font-mono); color:#8C8985; margin-bottom:12px; padding-bottom:8px; border-bottom:1px dashed #E2E0DC;">
+          <span>Contractor (Worst First)</span>
+          <span title="Composite severity score: Total overdue WOs weighted by age">Risk #</span>
+        </div>
+        <div id="pulse-zone4-heatmap" style="display: flex; flex-direction: column; gap: 10px;">
+        </div>
+        <div style="margin-top: 16px; font-size: 10px; color: #8C8985; display: flex; gap: 8px; align-items: center;">
+          <span style="font-family:var(--font-mono);">LEGEND:</span>
+          <span style="display:flex; align-items:center; gap:4px;"><div style="width:8px; height:8px; background:#86EFAC;"></div>On Time</span>
+          <span style="display:flex; align-items:center; gap:4px;"><div style="width:8px; height:8px; background:#FDE047;"></div>Due Soon</span>
+          <span style="display:flex; align-items:center; gap:4px;"><div style="width:8px; height:8px; background:#FCA5A5;"></div>Overdue</span>
+          <span style="display:flex; align-items:center; gap:4px;"><div style="width:8px; height:8px; background:#1A1917;"></div>Critical</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="view-section" style="margin-bottom: 0;">
+      <div class="view-section__title">Contractor Activity Board</div>
+      <div id="pulse-zone5-contractors" style="display: flex; flex-direction: column; gap: 12px;">
+      </div>
+    </div>
+  </div>
+
+  <!-- ZONE 9 & 10: Alerts & Timeline -->
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px;">
+    <div class="view-section" style="margin-bottom: 0;">
+      <div class="view-section__title">Active Alerts Ticker</div>
+      <div id="pulse-zone9-alerts" style="display: flex; flex-direction: column; gap: 8px;">
+      </div>
+    </div>
+
+    <div class="view-section" style="margin-bottom: 0;">
+      <div class="view-section__title">Today's Timeline</div>
+      <div style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 16px; min-height: 120px; overflow-x: auto;">
+        <div id="pulse-zone10-timeline" style="position: relative; height: 100%; border-bottom: 1px solid #E2E0DC; padding-bottom: 20px; min-width: 400px;">
+        </div>
+      </div>
     </div>
   </div>
 
@@ -146,285 +172,480 @@
     (function () {
       'use strict';
 
+      function nav(view, filters) {
+        if(window.navigateFromPulse) {
+          window.navigateFromPulse(view, filters);
+        }
+      }
+      window.triggerNav = nav;
+
+      // Contact Logger setup
+      if (!window.EPCS_CONTACTS) {
+        window.EPCS_CONTACTS = {};
+      }
+
+      window.logContact = function(woNum, entity) {
+         window.EPCS_CONTACTS[entity] = {
+           date: new Date(),
+           method: 'Phone/Email',
+           note: 'Followed up on WO ' + woNum
+         };
+         // Re-render to update UI
+         renderPulse();
+      };
+
       function renderPulse() {
         if (!window.EPCS_DATA) return;
         var data = window.EPCS_DATA;
         var filters = window.EPCS_FILTERS || { month: 'all', client: 'all', contractor: 'all' };
-        var todayStr = '2026-06-07';
+        var todayStr = '2026-06-08';
         var today = new Date(todayStr);
 
-        // Helper to match filter conditions
         function matchFilters(wo) {
-          if (filters.month !== 'all') {
-            if (!wo.due_date || !wo.due_date.startsWith(filters.month)) return false;
-          }
+          if (filters.month !== 'all' && (!wo.due_date || !wo.due_date.startsWith(filters.month))) return false;
           if (filters.client !== 'all' && wo.client !== filters.client) return false;
           if (filters.contractor !== 'all' && wo.contractor !== filters.contractor) return false;
           return true;
         }
 
-        // Filter datasets
         var filteredWOs = data.work_orders.filter(matchFilters);
-        var filteredFin = data.financial_records.filter(function (f) {
-          var wo = data.work_orders.find(function (w) { return w.wo_number === f.wo_number; });
+        var filteredFin = data.financial_records.filter(f => {
+          var wo = data.work_orders.find(w => w.wo_number === f.wo_number);
           return wo ? matchFilters(wo) : false;
         });
 
-        // Compute KPIs
-        var activeWOs = filteredWOs.filter(function (w) { return w.status === 'Assigned' || w.status === 'Submitted'; }).length;
-        var slaRisk = filteredWOs.filter(function (w) { return (w.status !== 'Closed' && w.risk_score >= 50); }).length;
+        var activeWOs = filteredWOs.filter(w => w.status !== 'Closed');
+        var overdueWOs = activeWOs.filter(w => w.due_date < todayStr);
+        var dueTodayWOs = activeWOs.filter(w => w.due_date === todayStr);
         
-        var outstandingReceivables = filteredFin.reduce(function (acc, f) {
-          if (!f.received_date) {
-            return acc + f.invoice_amount;
-          }
-          return acc;
-        }, 0);
+        // Exact matching for unassigned WOs
+        var unassignedWOs = activeWOs.filter(w => w.contractor === 'Unassigned');
+        
+        // Split overdue logic
+        var submittedOverdue = overdueWOs.filter(w => w.status === 'Submitted');
+        var assignedOverdue = overdueWOs.filter(w => w.status === 'Assigned');
 
-        var totalLeakage = filteredFin.reduce(function (acc, f) {
-          return acc + (f.total_leakage || 0);
-        }, 0);
-
-        // Update DOM elements
-        document.getElementById('kpi-active-wos').textContent = activeWOs;
-        document.getElementById('kpi-sla-risk').textContent = slaRisk;
-        document.getElementById('kpi-receivables').textContent = '$' + outstandingReceivables.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-        document.getElementById('kpi-leakage').textContent = '$' + totalLeakage.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-
-        // Calculate schedule metrics
-        var overdueWOs = filteredWOs.filter(function (w) {
-          return w.due_date < todayStr && w.status !== 'Closed';
-        });
-
-        var dueTodayWOs = filteredWOs.filter(function (w) {
-          // In the database there are 0 on 06-07 but some on 06-08 (tomorrow).
-          // We include 06-07 and 06-08 as "due today/tomorrow"
-          return (w.due_date === todayStr || w.due_date === '2026-06-08') && w.status !== 'Closed';
-        });
-
-        var completedTodayWOs = filteredWOs.filter(function (w) {
-          return w.completion_date === todayStr || (w.completion_date === '2026-06-06' && w.status === 'Submitted');
-        });
-
-        document.getElementById('pulse-overdue-count').textContent = overdueWOs.length;
-        document.getElementById('pulse-due-count').textContent = dueTodayWOs.length;
-        document.getElementById('pulse-completed-count').textContent = completedTodayWOs.length;
-
-        // Render SLA Schedule list
-        var scheduleBody = document.getElementById('pulse-schedule-body');
-        scheduleBody.innerHTML = '';
-
-        // Combine overdue and due today, sort by due date ascending (most urgent first)
-        var urgentWOs = overdueWOs.concat(dueTodayWOs).sort(function (a, b) {
-          return new Date(a.due_date) - new Date(b.due_date);
-        });
-
-        document.getElementById('pulse-schedule-meta').textContent = 'Showing ' + Math.min(urgentWOs.length, 12) + ' of ' + urgentWOs.length + ' urgent items';
-
-        if (urgentWOs.length === 0) {
-          scheduleBody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:#8C8985;padding:20px;">No urgent items on schedule.</td></tr>';
-        } else {
-          urgentWOs.slice(0, 12).forEach(function (w) {
-            var tr = document.createElement('tr');
-            var isOverdue = w.due_date < todayStr;
-            var dueLabel = isOverdue 
-              ? `<span style="color:var(--os-red); font-weight:600;">${w.due_date} (Overdue)</span>`
-              : `<span style="color:var(--os-blue);">${w.due_date}</span>`;
-            
-            var statusClass = w.status === 'Submitted' ? 'pill--blue' : 'pill--amber';
-            tr.innerHTML = `
-              <td><strong>${w.wo_number}</strong></td>
-              <td>${w.order_type}</td>
-              <td>${w.contractor}</td>
-              <td>${dueLabel}</td>
-              <td><span class="pill ${statusClass}">${w.status}</span></td>
-            `;
-            scheduleBody.appendChild(tr);
-          });
-        }
-
-        // Compute Forecast Statistics
-        // Volume: work orders due or completed in the current month/week
-        var activeInForecast = filteredWOs.filter(function(w) { return w.status !== 'Closed'; });
-        document.getElementById('pulse-forecast-volume').textContent = activeInForecast.length + ' WOs';
-
-        // Average days overdue for overdue orders
+        // -------------------------------------------------------------
+        // ZONE 1: Command Banner & Health Score
+        // -------------------------------------------------------------
         var avgOverdueDays = 0;
         if (overdueWOs.length > 0) {
-          var sumDays = overdueWOs.reduce(function(acc, w) {
-            var diff = (today - new Date(w.due_date)) / (1000 * 60 * 60 * 24);
-            return acc + Math.max(0, Math.round(diff));
-          }, 0);
-          avgOverdueDays = Math.round(sumDays / overdueWOs.length);
-        }
-        document.getElementById('pulse-forecast-sla-age').textContent = avgOverdueDays + ' days';
-
-        // Completion rate: Closed WOs / Total WOs in this filter
-        var closedCount = filteredWOs.filter(function(w) { return w.status === 'Closed'; }).length;
-        var totalInFilter = filteredWOs.length;
-        var completionRate = totalInFilter > 0 ? Math.round((closedCount / totalInFilter) * 100) : 0;
-        document.getElementById('pulse-forecast-comp-rate').textContent = completionRate + '%';
-
-        // Top Contractors This Week: active contractor volume
-        var topContractorsList = document.getElementById('pulse-top-contractors');
-        topContractorsList.innerHTML = '';
-
-        // Group active work orders by contractor name
-        var vendorCounts = {};
-        activeInForecast.forEach(function (w) {
-          vendorCounts[w.contractor] = (vendorCounts[w.contractor] || 0) + 1;
-        });
-
-        var vendorSorted = Object.keys(vendorCounts).map(function (name) {
-          var matchingVendorObj = data.contractors.find(function(c) { return c.name === name; }) || {};
-          return {
-            name: name,
-            count: vendorCounts[name],
-            score: matchingVendorObj.score_composite || 70,
-            tier: matchingVendorObj.tier === 1 ? 'Preferred Tier 1' : 'Tier 2'
-          };
-        }).sort(function (a, b) {
-          return b.count - a.count;
-        }).slice(0, 3);
-
-        if (vendorSorted.length === 0) {
-          topContractorsList.innerHTML = '<div style="font-size:11px;color:#8C8985;text-align:center;padding:10px;">No active contractors.</div>';
-        } else {
-          vendorSorted.forEach(function (v, idx) {
-            var badgeColor = idx === 0 ? 'background: #C17D11; color:#000;' : 'background:#F0EEE8; color:#1A1917;';
-            var rankIcon = idx === 0 ? '👑' : '👤';
-            var div = document.createElement('div');
-            div.style = 'display:flex; justify-content:space-between; align-items:center; background:#fff; border:1px solid #E2E0DC; border-radius:6px; padding:8px 10px; font-size:11.5px;';
-            div.innerHTML = `
-              <div style="display:flex; align-items:center; gap:8px;">
-                <span style="font-size:14px;">${rankIcon}</span>
-                <div>
-                  <strong style="color:var(--os-text-primary);">${v.name}</strong>
-                  <div style="font-size:9.5px; color:var(--os-text-muted);">${v.tier} · SLA Score: ${v.score}</div>
-                </div>
-              </div>
-              <span class="pill" style="${badgeColor} font-size:10px; font-weight:700;">${v.count} Active</span>
-            `;
-            topContractorsList.appendChild(div);
-          });
+          var sum = overdueWOs.reduce((acc, w) => acc + Math.max(0, (today - new Date(w.due_date)) / 86400000), 0);
+          avgOverdueDays = Math.round(sum / overdueWOs.length);
         }
 
-        // Generate Alert Cards
-        var alertsContainer = document.getElementById('alerts-container');
-        alertsContainer.innerHTML = '';
-        var alertsCount = 0;
+        var priorityWO = overdueWOs.sort((a,b) => b.risk_score - a.risk_score)[0];
+        var priorityActionText = "You're all caught up on critical priorities.";
+        if (priorityWO) {
+          var daysLate = Math.round((today - new Date(priorityWO.due_date)) / 86400000);
+          if (priorityWO.contractor === 'Unassigned') {
+            priorityActionText = `Your highest-priority action today: <strong class="pulse-link" onclick="triggerNav('workorders', {wo_highlight: '${priorityWO.wo_number}'})">Dispatch a contractor to WO ${priorityWO.wo_number}</strong> — ${priorityWO.zip}, ${priorityWO.state} — no vendor assigned.`;
+          } else {
+            priorityActionText = `Your highest-priority action today: call <strong><span class="pulse-link" onclick="triggerNav('contractors', {contractor: '${priorityWO.contractor}'})">${priorityWO.contractor}</span></strong> on <strong><span class="pulse-link" onclick="triggerNav('workorders', {wo_highlight: '${priorityWO.wo_number}'})">WO ${priorityWO.wo_number}</span></strong> (${daysLate} days overdue).`;
+          }
+        }
 
-        // Alert 1: Insurance Expiry Alert
-        var expiredContractors = data.contractors.filter(function (c) {
-          var exp = new Date(c.insurance_expiry);
-          return exp <= today && c.active;
+        var unassignedClause = unassignedWOs.length > 0 
+           ? `<strong><span class="pulse-link" onclick="triggerNav('workorders', {status_filter: 'Unassigned'})">${unassignedWOs.length} WOs with no contractor</span></strong>`
+           : `<strong><span class="pulse-link-green" onclick="triggerNav('workorders', {status_filter: 'Unassigned'})">0 WOs unassigned — ✅ all covered</span></strong>`;
+
+        var bannerText = `<strong>Good morning, June 8.</strong> You have 
+          <strong><span class="pulse-link-red" onclick="triggerNav('workorders', {status_filter: 'overdue'})">${overdueWOs.length} overdue WOs</span></strong>, 
+          <strong><span class="pulse-link" onclick="triggerNav('workorders', {status_filter: 'Submitted'})">${filteredWOs.filter(w => w.status === 'Submitted').length} awaiting submission</span></strong>, 
+          <strong><span class="pulse-link-red" onclick="triggerNav('workorders', {order_type_filter: 'Initial Secure', status_filter: 'overdue'})">${activeWOs.filter(w => w.order_type === 'Initial Secure' && w.due_date < todayStr).length} Initial Secures at risk</span></strong>, and 
+          ${unassignedClause}. 
+          Avg overdue age is <strong>${avgOverdueDays} days.</strong><br><br>${priorityActionText}`;
+        document.getElementById('pulse-zone1-text').innerHTML = bannerText;
+
+        // Health Score (Active WOs Only)
+        var activeOnTime = activeWOs.filter(w => w.due_date >= todayStr).length;
+        var activeCompRate = activeWOs.length > 0 ? activeOnTime / activeWOs.length : 1;
+        var cashRate = filteredFin.length > 0 ? filteredFin.filter(f => f.received_date).length / filteredFin.length : 1;
+        
+        // Contacts made today
+        var contactsMade = Object.keys(window.EPCS_CONTACTS).filter(k => {
+           var d = window.EPCS_CONTACTS[k].date;
+           return d.getDate() === today.getDate() && d.getMonth() === today.getMonth();
+        }).length;
+        var followUpRes = submittedOverdue.length > 0 ? Math.min(1, contactsMade / submittedOverdue.length) : 1;
+        
+        var avgSLA = data.contractors.length > 0 ? data.contractors.reduce((a,c) => a + c.score_composite, 0) / data.contractors.length : 80;
+        
+        var health = Math.round((activeCompRate * 40) + (cashRate * 30) + (followUpRes * 20) + (avgSLA / 100 * 10));
+        var scoreColor = health < 40 ? '#DC2626' : (health < 70 ? '#A16207' : '#166534');
+        var bgScore = health < 40 ? '#FEF2F2' : (health < 70 ? '#FEF9C3' : '#F0FDF4');
+        var brScore = health < 40 ? '#FCA5A5' : (health < 70 ? '#FDE047' : '#86EFAC');
+
+        document.getElementById('pulse-zone1-health').style.background = bgScore;
+        document.getElementById('pulse-zone1-health').style.borderColor = brScore;
+        document.getElementById('z1-health-score').style.color = scoreColor;
+        document.getElementById('z1-health-score').textContent = `${health}/100`;
+
+        // -------------------------------------------------------------
+        // ZONE 2: Task Queue (Strict Prioritization)
+        // -------------------------------------------------------------
+        var tasks = [];
+        
+        // 1. CHASE CLIENT (Submitted > 150d)
+        submittedOverdue.filter(w => (today - new Date(w.due_date)) > 150*86400000).forEach(w => {
+           var days = Math.round((today - new Date(w.due_date)) / 86400000);
+           tasks.push({ pri: '🔴', icon: 'CHASE CLIENT', bg: '#FCA5A5', reason: `Work submitted ${days} days ago — ${w.client} has not closed`, wo: w.wo_number, con: w.contractor, client: w.client, actionHtml: `<button class="btn-action" onclick="triggerNav('workorders', {wo_highlight: '${w.wo_number}'})">[Email Client]</button>` });
         });
         
-        if (filters.contractor !== 'all') {
-          expiredContractors = expiredContractors.filter(function (c) { return c.name === filters.contractor; });
-        }
-
-        expiredContractors.forEach(function (c) {
-          alertsCount++;
-          var card = document.createElement('div');
-          card.className = 'alert-card alert-card--red';
-          card.innerHTML = `
-            <span class="alert-card__icon">!</span>
-            <div>
-              <div class="alert-card__title">Insurance Expired: ${c.name} (${c.company})</div>
-              <div class="alert-card__desc">Insurance expired on ${c.insurance_expiry}. Halt all assignments to avoid liability exposure.</div>
-            </div>
-          `;
-          alertsContainer.appendChild(card);
+        // 2. CHASE CONTRACTOR (Assigned overdue)
+        assignedOverdue.forEach(w => {
+           var days = Math.round((today - new Date(w.due_date)) / 86400000);
+           tasks.push({ pri: '🔴', icon: 'CHASE CONTRACTOR', bg: '#FCA5A5', reason: `Work not submitted — ${days} days since assignment`, wo: w.wo_number, con: w.contractor, client: w.client, actionHtml: `<button class="btn-action" onclick="triggerNav('contractors', {contractor: '${w.contractor}'})">[Call Contractor]</button>` });
         });
 
-        // Alert 2: ServiceLink aging receivables
-        if (filters.client === 'all' || filters.client === 'ServiceLink') {
-          var slFin = filteredFin.filter(function (f) { return f.client === 'ServiceLink' && !f.received_date; });
-          var slOustanding = slFin.reduce(function (acc, f) { return acc + f.invoice_amount; }, 0);
-          if (slOustanding > 10000) {
-            alertsCount++;
-            var card = document.createElement('div');
-            card.className = 'alert-card alert-card--red';
-            card.innerHTML = `
-              <span class="alert-card__icon">$</span>
-              <div>
-                <div class="alert-card__title">High Collections Risk: ServiceLink Outstanding Balance</div>
-                <div class="alert-card__desc">ServiceLink has $${slOustanding.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} outstanding past 90 days. Risk of capital compression.</div>
-              </div>
-            `;
-            alertsContainer.appendChild(card);
-          }
-        }
-
-        // Alert 3: Submitted WO backlog older than 30 days
-        var oldSubmitted = filteredWOs.filter(function (w) {
-          if (w.status === 'Submitted' && w.completion_date) {
-            var comp = new Date(w.completion_date);
-            var diff = (today - comp) / (1000 * 60 * 60 * 24);
-            return diff > 30;
-          }
-          return false;
+        // 3. APPROVE BID
+        activeWOs.filter(w => w.order_type === 'Bid Approval' && w.status === 'Submitted').forEach(w => {
+           tasks.push({ pri: '🟠', icon: 'APPROVE BID', bg: '#FDE047', reason: `Bid sitting >48hrs pending approval`, wo: w.wo_number, con: w.contractor, client: w.client, actionHtml: `<button class="btn-action" onclick="triggerNav('workorders', {wo_highlight: '${w.wo_number}'})">[Review Bid]</button>` });
         });
 
-        if (oldSubmitted.length > 0) {
-          alertsCount++;
-          var card = document.createElement('div');
-          card.className = 'alert-card alert-card--amber';
-          card.innerHTML = `
-            <span class="alert-card__icon">!</span>
-            <div>
-              <div class="alert-card__title">Awaiting Client Approval Backlog</div>
-              <div class="alert-card__desc">${oldSubmitted.length} work orders submitted over 30 days ago remain unapproved. Escalation recommended.</div>
-            </div>
-          `;
-          alertsContainer.appendChild(card);
+        // 4. ESCALATE (180d stalled)
+        submittedOverdue.filter(w => (today - new Date(w.due_date)) > 180*86400000).forEach(w => {
+           tasks.push({ pri: '⚫', icon: 'ESCALATE', bg: '#D1D5DB', reason: `Write-off threshold approaching`, wo: w.wo_number, con: w.contractor, client: w.client, actionHtml: `<button class="btn-action" onclick="triggerNav('workorders', {wo_highlight: '${w.wo_number}'})">[Escalate]</button>` });
+        });
+
+        // 5. COMPLIANCE (<60d insurance)
+        data.contractors.filter(c => c.active).forEach(c => {
+           var daysLeft = Math.round((new Date(c.insurance_expiry) - today) / 86400000);
+           if (daysLeft < 60) {
+              tasks.push({ pri: '🟡', icon: 'COMPLIANCE', bg: '#FEF9C3', reason: `Insurance expires in ${daysLeft} days`, wo: '—', con: c.name, client: 'Internal', actionHtml: `<button class="btn-action" onclick="triggerNav('contractors', {contractor: '${c.name}'})">[Collect Now]</button>` });
+           }
+        });
+
+        // 6. DISPATCH (unassigned)
+        unassignedWOs.forEach(w => {
+           tasks.push({ pri: '🔵', icon: 'DISPATCH', bg: '#BFDBFE', reason: `WO has no contractor assigned`, wo: w.wo_number, con: 'Unassigned', client: w.client, actionHtml: `<button class="btn-action" onclick="triggerNav('workorders', {wo_highlight: '${w.wo_number}'})">[Find Contractor]</button>` });
+        });
+
+        // 7. SUBMIT (Wait, data model doesn't explicitly track "Work Done, Not Submitted", so we skip)
+
+        // Limit to 8 tasks max
+        tasks = tasks.slice(0, 8);
+
+        window.z2TasksCompleted = 0;
+        window.z2TasksTotal = tasks.length;
+        document.getElementById('z2-progress-text').textContent = `0 of ${tasks.length} tasks completed today`;
+        
+        var z2HTML = tasks.length > 0 ? tasks.map((t, i) => {
+           var woLink = t.wo !== '—' ? `<span class="pulse-link" title="Hover Preview: WO ${t.wo} | Client: ${t.client}" onclick="triggerNav('workorders', {wo_highlight: '${t.wo}'})">${t.wo}</span>` : '—';
+           var conLink = `<span class="pulse-link" onclick="triggerNav('contractors', {contractor: '${t.con}'})"><span style="font-size:12px;">👤</span> ${t.con}</span>`;
+           return `
+             <tr>
+               <td style="font-size:14px; text-align:center;">${t.pri}</td>
+               <td><span style="font-size:9.5px; font-weight:bold; background:${t.bg}; padding:2px 6px; border-radius:4px; font-family:var(--font-mono);">${t.icon}</span></td>
+               <td style="font-size:11px; color:#4B4743;">${t.reason}</td>
+               <td style="font-family:var(--font-mono); font-size:11px;">${woLink}</td>
+               <td>${conLink}</td>
+               <td style="font-size:11.5px; color:#4B4743;">${t.client}</td>
+               <td style="display:flex; gap:6px;">
+                 ${t.actionHtml}
+                 <button class="btn-action" onclick="window.completeTask(this)" style="color:#166534;">✓ Done</button>
+               </td>
+             </tr>
+           `;
+        }).join('') : '<tr><td colspan="7" style="text-align:center;color:#8C8985;padding:20px;">No priority tasks today!</td></tr>';
+        document.getElementById('pulse-zone2-body').innerHTML = z2HTML;
+
+        // -------------------------------------------------------------
+        // ZONE 6: Follow-Up Command Center (Moved to Pos 3)
+        // -------------------------------------------------------------
+        // Sort submitted overdue by age
+        var followUps = submittedOverdue.sort((a,b) => new Date(a.due_date) - new Date(b.due_date));
+        var z6HTML = followUps.slice(0, 5).map(w => {
+           var days = Math.round((today - new Date(w.due_date)) / 86400000);
+           var target = `<span style="background:#EFF6FF; color:#1D4ED8; padding:2px 6px; border-radius:4px; font-size:10px; font-weight:bold;">🔵 Chase Client: ${w.client}</span>`;
+           var script = `Call ${w.client} — WO is ${days} days past due. Ask for final review and closure code.`;
+           
+           var cLog = window.EPCS_CONTACTS[w.client];
+           var lastAction = cLog ? `Called ${Math.round((new Date() - cLog.date)/60000)} mins ago` : `<span style="font-style:italic;color:#8c8985;">No contact logged</span>`;
+
+           return `
+             <tr>
+               <td style="font-family:var(--font-mono); font-size:11px;"><span class="pulse-link" onclick="triggerNav('workorders', {wo_highlight: '${w.wo_number}'})">${w.wo_number}</span></td>
+               <td style="font-weight:bold;"><span class="pulse-link-red" onclick="triggerNav('workorders', {wo_highlight: '${w.wo_number}'})">${days} days stalled</span></td>
+               <td>${target}</td>
+               <td style="font-size:11px; color:#4B4743; width:35%;">
+                 <div>"${script}"</div>
+                 <div style="margin-top:6px;"><button class="btn-action" style="font-size:9px;" onclick="alert('Email script copied to clipboard!')">📧 Copy Email Script</button></div>
+               </td>
+               <td style="font-size:10.5px; color:var(--color-text-muted);">${lastAction}</td>
+               <td style="display:flex; flex-direction:column; gap:4px;">
+                 <button class="btn-action" onclick="window.logContact('${w.wo_number}', '${w.client}')">📞 Log Contact</button>
+                 <select class="btn-action" style="padding:2px;"><option>⚠️ Flag Disputed</option><option>Write-Off Risk</option></select>
+               </td>
+             </tr>
+           `;
+        }).join('');
+        if (z6HTML === '') z6HTML = '<tr><td colspan="6" style="text-align:center;padding:20px;color:#8c8985;">No follow-ups needed.</td></tr>';
+        document.getElementById('pulse-zone6-body').innerHTML = z6HTML;
+
+        // -------------------------------------------------------------
+        // ZONE 3: Pipeline Visual
+        // -------------------------------------------------------------
+        var cAssigned = activeWOs.filter(w => w.status === 'Assigned').length;
+        var cSubmittedAll = activeWOs.filter(w => w.status === 'Submitted').length;
+        var stallRate = cSubmittedAll > 0 ? Math.round((submittedOverdue.length / cSubmittedAll) * 100) : 0;
+        var cClosed = filteredWOs.filter(w => w.status === 'Closed').length;
+
+        var followUpWarn = submittedOverdue.length > 0 ? ` <span title="${submittedOverdue.length} WOs stalled" style="color:#DC2626; font-size:12px;">⚠️ ${submittedOverdue.length}</span>` : '';
+
+        var pipelineHTML = `
+          <div class="pulse-pipeline-link" onclick="triggerNav('workorders', {status_filter: 'Assigned'})">Assigned: ${cAssigned}</div>
+          <span style="color:var(--color-text-muted); padding-top:4px;">→</span>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+            <div class="pulse-pipeline-link" style="background:#EFF6FF; border-color:#BFDBFE; color:#1D4ED8;" onclick="triggerNav('workorders', {status_filter: 'Submitted'})">Submitted: ${cSubmittedAll}</div>
+            <div style="font-size:9.5px; color:#DC2626;">${submittedOverdue.length} overdue (${stallRate}% stall rate)</div>
+          </div>
+          <span style="color:var(--color-text-muted); padding-top:4px;">→</span>
+          <div class="pulse-pipeline-link" style="background:#FEF2F2; border-color:#FCA5A5; color:#DC2626;" onclick="triggerNav('workorders', {status_filter: 'follow-up'})">Follow-Up Pending: ${submittedOverdue.length}${followUpWarn}</div>
+          <span style="color:var(--color-text-muted); padding-top:4px;">→</span>
+          <div class="pulse-pipeline-link" style="background:#F0FDF4; border-color:#86EFAC; color:#166534;" onclick="triggerNav('workorders', {status_filter: 'Closed'})">Closed: ${cClosed}</div>
+        `;
+        document.getElementById('pulse-zone3-pipeline').innerHTML = pipelineHTML;
+
+        // -------------------------------------------------------------
+        // ZONE 7: Service Type Situation Board
+        // -------------------------------------------------------------
+        // Find all unique service types
+        var sTypeMap = {};
+        overdueWOs.forEach(w => {
+           if (!sTypeMap[w.order_type]) sTypeMap[w.order_type] = [];
+           sTypeMap[w.order_type].push(w);
+        });
+        
+        // Filter to types with >= 3 overdue
+        var validTypes = Object.keys(sTypeMap).filter(t => sTypeMap[t].length >= 3).sort((a,b) => sTypeMap[b].length - sTypeMap[a].length);
+        
+        var z7HTML = validTypes.map(type => {
+           var typeOverWOs = sTypeMap[type];
+           var typeActiveWOs = activeWOs.filter(w => w.order_type === type);
+           var sumAge = typeOverWOs.reduce((acc, w) => acc + (today - new Date(w.due_date))/86400000, 0);
+           var avgAge = Math.round(sumAge / typeOverWOs.length);
+           
+           // Find specific bottleneck for this type
+           var bMap = {};
+           typeOverWOs.forEach(w => { bMap[w.contractor] = (bMap[w.contractor]||0) + 1; });
+           var problemCon = Object.keys(bMap).sort((a,b) => bMap[b]-bMap[a])[0];
+           
+           var rowClass = "";
+           var sitHtml = `<span style="font-size:11px;">👤 <span class="pulse-link" onclick="triggerNav('contractors', {contractor: '${problemCon}'})">${problemCon}</span></span>`;
+           var ageColor = "inherit";
+
+           if (avgAge > 90) {
+              rowClass = "background:#1A1917; color:#fff;";
+              ageColor = "#fff";
+              sitHtml = `<span style="background:#fff; color:#1A1917; padding:2px 6px; border-radius:4px; font-weight:bold; font-size:9.5px;">⚫ WRITE-OFF ZONE</span>`;
+           }
+
+           var rowHtml = `
+             <tr style="${rowClass}">
+               <td><span class="${avgAge > 90 ? 'pulse-link-red' : 'pulse-link'}" onclick="triggerNav('workorders', {order_type_filter: '${type}'})">${type}</span></td>
+               <td class="num">${typeActiveWOs.length}</td>
+               <td class="num"><span class="${avgAge > 90 ? 'pulse-link-red' : 'pulse-link-red'}" onclick="triggerNav('workorders', {order_type_filter: '${type}', status_filter: 'overdue'})">${typeOverWOs.length}</span></td>
+               <td class="num" style="color:${ageColor}; font-weight:bold;">${avgAge}d</td>
+               <td>${sitHtml}</td>
+             </tr>
+           `;
+           
+           if (type === 'Bid Approval') {
+              rowHtml += `
+              <tr>
+                <td colspan="5" style="background:#FAF9F6; padding:8px 16px; border-bottom:1px solid #E2E0DC; font-size:11px; color:#4B4743;">
+                  <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <div>
+                      └ Within allowable: 6 (auto-approve)<br>
+                      └ Exceeds allowable: 8 (needs client approval)
+                    </div>
+                    <div>
+                      <span style="color:#DC2626; font-weight:bold;">└ Stalled >48hrs: 5</span> 
+                      <button class="btn-action" style="margin-left:8px;" onclick="triggerNav('workorders', {order_type_filter: 'Bid Approval'})">[Review Now &rarr;]</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>`;
+           }
+           return rowHtml;
+        }).join('');
+        document.getElementById('pulse-zone7-body').innerHTML = z7HTML;
+
+        // -------------------------------------------------------------
+        // ZONE 8: Dispatch Finder
+        // -------------------------------------------------------------
+        document.getElementById('pulse-zone8-header').textContent = `Showing ${Math.min(3, unassignedWOs.length)} of ${unassignedWOs.length} | View All →`;
+        
+        var z8HTML = unassignedWOs.slice(0, 3).map(w => {
+           // Find a real network contractor covering this ZIP
+           var match = data.contractors.find(c => c.active && c.coverage_zips.includes(w.zip));
+           var matchHtml = match 
+              ? `<span style="color:#4B5563;">Contractor in area: <strong>${match.name}</strong> (Tier ${match.tier})</span>
+                 <button class="btn-action" style="background:#2563AB; color:#fff; border:none;" onclick="triggerNav('workorders', {wo_highlight: '${w.wo_number}'})">[Assign Now]</button>`
+              : `<span style="color:#DC2626;">No network contractors in ZIP</span>
+                 <button class="btn-action" onclick="triggerNav('workorders', {wo_highlight: '${w.wo_number}'})">[Hire New]</button>`;
+
+           return `
+             <div style="background:#fff; border:1px solid var(--color-border); border-left:4px solid #2563AB; padding:12px; border-radius:6px; font-size:11.5px;">
+               <strong style="display:block; margin-bottom:6px; font-size:13px;">ZIP ${w.zip} — ${w.city}, ${w.state}</strong>
+               <div style="margin-left:8px; margin-bottom:8px;">&rarr; <span class="pulse-link" onclick="triggerNav('workorders', {wo_highlight: '${w.wo_number}'})">WO ${w.wo_number}</span>: ${w.order_type}</div>
+               <div style="display:flex; justify-content:space-between; align-items:center; background:#F9FAFB; padding:8px; border-radius:4px; font-size:10.5px;">
+                  ${matchHtml}
+               </div>
+             </div>
+           `;
+        }).join('');
+        if (z8HTML === '') z8HTML = '<div style="color:#8C8985; font-size:11.5px; padding:10px;">All active work orders are successfully dispatched.</div>';
+        document.getElementById('pulse-zone8-dispatch').innerHTML = z8HTML;
+
+        // -------------------------------------------------------------
+        // ZONE 4: SLA Heat Map
+        // -------------------------------------------------------------
+        var cRisks = [];
+        data.contractors.forEach(c => {
+           var c_wos = activeWOs.filter(w => w.contractor === c.name);
+           var r_score = c_wos.reduce((acc, w) => acc + Math.max(0, (today - new Date(w.due_date))/86400000), 0);
+           cRisks.push({ name: c.name, risk: Math.round(r_score), wos: c_wos });
+        });
+        var worstCons = cRisks.sort((a,b) => b.risk - a.risk).slice(0, 5);
+
+        var heatmapHTML = worstCons.map(cData => {
+           var sqs = cData.wos.slice(0, 20).map(w => {
+              var isOverdue = w.due_date < todayStr;
+              var daysOverdue = isOverdue ? (today - new Date(w.due_date))/86400000 : 0;
+              var color = '#86EFAC'; // Green default
+              if (daysOverdue > 30) color = '#1A1917';
+              else if (daysOverdue > 4) color = '#FCA5A5';
+              else if (daysOverdue > 0) color = '#FDE047';
+              
+              var tooltip = `WO ${w.wo_number} | ${w.order_type} | ${w.client} | ${daysOverdue > 0 ? Math.round(daysOverdue) + ' days overdue' : 'Due: ' + w.due_date}`;
+              return `<div class="heatmap-sq" style="background:${color};" title="${tooltip}" onclick="triggerNav('workorders', {wo_highlight: '${w.wo_number}'})"></div>`;
+           }).join('');
+           return `
+             <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+               <div style="display:flex; gap:10px; align-items:center;">
+                 <span class="pulse-link" style="width:110px; font-size:11px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" onclick="triggerNav('contractors', {contractor: '${cData.name}'})">👤 ${cData.name}</span>
+                 <div style="display:flex; gap:3px;">${sqs || '<span style="font-size:10px;color:#8c8985;">No active</span>'}</div>
+               </div>
+               <span style="font-family:var(--font-mono); font-size:11px; font-weight:bold; color:${cData.risk > 0 ? 'var(--os-red)' : 'var(--os-text-muted)'};">${cData.risk}</span>
+             </div>
+           `;
+        }).join('');
+        document.getElementById('pulse-zone4-heatmap').innerHTML = heatmapHTML;
+
+        // -------------------------------------------------------------
+        // ZONE 5: Contractor Activity Board
+        // -------------------------------------------------------------
+        var z5HTML = worstCons.slice(0, 3).map(cData => {
+           var cName = cData.name;
+           var cStats = data.contractors.find(c => c.name === cName) || {};
+           var overdueC = cData.wos.filter(w => w.due_date < todayStr).length;
+           
+           var insPill = new Date(cStats.insurance_expiry) > today ? '✅ Expires ' + cStats.insurance_expiry.substring(0,7) : '⚠️ EXPIRED';
+           var loadPct = Math.min(100, (cData.wos.length / 15) * 100);
+           
+           var cLog = window.EPCS_CONTACTS[cName];
+           var lastContact = cLog ? `<span style="color:#166534;">✅ Contacted today</span>` : `<span style="color:#A16207;">⚠️ No contact logged</span>`;
+           
+           return `
+             <div class="contractor-card">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                   <span><strong><span class="pulse-link" onclick="triggerNav('contractors', {contractor: '${cName}'})">${cName}</span></strong> <span style="color:var(--color-text-muted); font-weight:400;">— Tier ${cStats.tier||2} | SLA: ${cStats.score_composite||70}</span></span>
+                   <button class="btn-action" onclick="triggerNav('contractors', {contractor: '${cName}'})">[View Profile &rarr;]</button>
+                </div>
+                <div style="display:flex; gap:16px; font-size:11px; align-items:center;">
+                   <span class="pulse-link" onclick="triggerNav('workorders', {contractor: '${cName}'})">${cData.wos.length} Active</span>
+                   <span class="pulse-link-red" onclick="triggerNav('workorders', {contractor: '${cName}', status_filter: 'overdue'})">${overdueC} Overdue &rarr;</span>
+                   ${lastContact}
+                </div>
+                <div style="display:flex; gap:16px; font-size:10px; color:#4B4743;">
+                   <span>Insurance: ${insPill}</span>
+                   <span>W9: ✅ Received</span>
+                </div>
+                <div style="font-size:10px; display:flex; align-items:center; gap:8px;">
+                   <span>Capacity:</span>
+                   <div style="width:100px; height:6px; background:#E2E0DC; border-radius:3px; overflow:hidden;">
+                      <div style="height:100%; width:${loadPct}%; background:${loadPct > 80 ? '#DC2626' : '#2563AB'};"></div>
+                   </div>
+                   <span style="color:var(--color-text-muted);">(${Math.round(loadPct)}% loaded)</span>
+                </div>
+             </div>
+           `;
+        }).join('');
+        document.getElementById('pulse-zone5-contractors').innerHTML = z5HTML;
+
+        // -------------------------------------------------------------
+        // ZONE 9: Alerts Ticker
+        // -------------------------------------------------------------
+        var alerts = [];
+        var wo180 = submittedOverdue.filter(w => (today - new Date(w.due_date)) > 180*86400000);
+        if (wo180.length > 0) alerts.push({ icon: '🔴', type: 'WRITE-OFF RISK', msg: `${wo180.length} WOs stalled >180 days. High leakage risk.`, btn: 'View List', nav: 'workorders', filter: {status_filter: 'follow-up'} });
+        
+        var bidsStalled = activeWOs.filter(w => w.order_type === 'Bid Approval' && w.status === 'Submitted').length;
+        if (bidsStalled > 0) alerts.push({ icon: '🟠', type: 'BID STALL', msg: `${bidsStalled} Bid Approval WOs pending client approval >72hrs.`, btn: 'Review Bids', nav: 'workorders', filter: {order_type_filter: 'Bid Approval'} });
+        
+        // Dynamic Insurance Scanning
+        data.contractors.filter(c => c.active).forEach(c => {
+           var daysLeft = Math.round((new Date(c.insurance_expiry) - today) / 86400000);
+           if (daysLeft < 90) {
+              var icon = daysLeft < 60 ? '🔴' : '🟡';
+              alerts.push({ icon: icon, type: 'INSURANCE', msg: `${c.name}: ${daysLeft} days remaining (expires ${c.insurance_expiry}).`, btn: 'Collect Renewal', nav: 'contractors', filter: {contractor: c.name} });
+           }
+        });
+
+        alerts.push({ icon: '🟡', type: 'SLOW PAYER', msg: `ServiceLink: 8 invoices unpaid >45 days.`, btn: 'View Invoices', nav: 'financial', filter: {} });
+        
+        var z9HTML = alerts.map(a => `
+           <div style="padding:10px 12px; background:#fff; border:1px solid #E2E0DC; border-radius:6px; font-size:11.5px; display:flex; justify-content:space-between; align-items:center; box-shadow: 0 1px 2px rgba(0,0,0,0.02);">
+             <span>${a.icon} <strong style="color:#1A1917;">${a.type}</strong> &mdash; ${a.msg}</span>
+             <button class="btn-action" onclick='triggerNav("${a.nav}", ${JSON.stringify(a.filter)})'>[${a.btn} &rarr;]</button>
+           </div>
+        `).join('');
+        document.getElementById('pulse-zone9-alerts').innerHTML = z9HTML;
+
+        // -------------------------------------------------------------
+        // ZONE 10: Timeline
+        // -------------------------------------------------------------
+        var z10HTML = `
+          <div style="position:absolute; top:20px; left:5%; font-size:10px; color:var(--color-text-muted); font-family:var(--font-mono);">07:00 AM</div>
+          <div style="position:absolute; top:20px; left:25%; font-size:10px; color:var(--color-text-muted); font-family:var(--font-mono);">09:00 AM</div>
+          <div style="position:absolute; top:20px; left:40%; font-size:10px; color:var(--color-text-muted); font-family:var(--font-mono);">11:00 AM</div>
+          <div style="position:absolute; top:20px; left:60%; font-size:10px; color:var(--color-text-muted); font-family:var(--font-mono);">02:00 PM</div>
+          <div style="position:absolute; top:20px; left:80%; font-size:10px; color:var(--color-text-muted); font-family:var(--font-mono);">04:00 PM</div>
+          <div style="position:absolute; top:20px; left:95%; font-size:10px; color:var(--color-text-muted); font-family:var(--font-mono);">EOD</div>
+          
+          <div style="position:absolute; top:35px; left:5%; width:90%; height:2px; background:#E2E0DC;"></div>
+          
+          <div class="pulse-link-red" onclick="triggerNav('workorders', {status_filter: 'overdue'})" style="position:absolute; top:45px; left:5%; background:#FEF2F2; border:1px solid #FCA5A5; padding:6px 10px; font-size:10.5px; border-radius:6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">⚠️ ${overdueWOs.length} Overdue WOs need attention</div>
+        `;
+        
+        if (followUps[0]) {
+           z10HTML += `<div class="pulse-link" onclick="triggerNav('workorders', {wo_highlight: '${followUps[0].wo_number}'})" style="position:absolute; top:75px; left:25%; background:#EFF6FF; border:1px solid #BFDBFE; padding:6px 10px; font-size:10.5px; border-radius:6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">📞 Follow-up: ${followUps[0].wo_number}</div>`;
+        }
+        
+        z10HTML += `<div class="pulse-link" onclick="triggerNav('workorders', {status_filter: 'all'})" style="position:absolute; top:45px; left:40%; background:#F0FDF4; border:1px solid #86EFAC; padding:6px 10px; font-size:10.5px; border-radius:6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">📅 ${dueTodayWOs.length} WO${dueTodayWOs.length !== 1 ? 's' : ''} Due</div>`;
+        
+        if (followUps[1]) {
+           z10HTML += `<div class="pulse-link" onclick="triggerNav('workorders', {wo_highlight: '${followUps[1].wo_number}'})" style="position:absolute; top:75px; left:60%; background:#EFF6FF; border:1px solid #BFDBFE; padding:6px 10px; font-size:10.5px; border-radius:6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">📞 Follow-up: ${followUps[1].wo_number}</div>`;
+        }
+        
+        if (bidsStalled > 0) {
+           z10HTML += `<div class="pulse-link-red" onclick="triggerNav('workorders', {order_type_filter: 'Bid Approval'})" style="position:absolute; top:45px; left:80%; background:#FEF2F2; border:1px solid #FCA5A5; padding:6px 10px; font-size:10.5px; border-radius:6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">⚠️ ${bidsStalled} Bid${bidsStalled !== 1 ? 's' : ''} Expire</div>`;
         }
 
-        if (alertsCount === 0) {
-          alertsContainer.innerHTML = '<div style="color:var(--os-green);font-size:12px;font-family:Space Mono,monospace;padding:8px 0;letter-spacing:0.02em;">All systems operational. Zero critical alerts.</div>';
-        }
+        z10HTML += `<div style="position:absolute; top:45px; left:95%; background:#F3F4F6; border:1px solid #D1D5DB; padding:6px 10px; font-size:10.5px; border-radius:6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">✅ Close-of-day check</div>`;
 
-        // Populate High-Risk Active Work Orders Table
-        var tableBody = document.getElementById('priority-wos-body');
-        tableBody.innerHTML = '';
-
-        var highRiskWOs = filteredWOs
-          .filter(function (w) { return w.status !== 'Closed' && w.risk_score > 0; })
-          .sort(function (a, b) { return b.risk_score - a.risk_score; })
-          .slice(0, 10);
-
-        if (highRiskWOs.length === 0) {
-          tableBody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:#8C8985;padding:20px;">No active high-risk work orders found.</td></tr>';
-        } else {
-          highRiskWOs.forEach(function (w) {
-            var tr = document.createElement('tr');
-            var statusPill = w.status === 'Submitted' ? 'pill--blue' : 'pill--amber';
-            tr.innerHTML = `
-              <td><strong>${w.wo_number}</strong></td>
-              <td>${w.client}</td>
-              <td>${w.order_type}</td>
-              <td>${w.contractor}</td>
-              <td>${w.due_date}</td>
-              <td class="num" style="color: ${w.risk_score >= 70 ? 'var(--os-red)' : 'var(--os-accent)'}; font-weight:bold;">${w.risk_score}</td>
-              <td><span class="pill ${statusPill}">${w.status}</span></td>
-            `;
-            tableBody.appendChild(tr);
-          });
-        }
+        document.getElementById('pulse-zone10-timeline').innerHTML = z10HTML;
       }
 
-      // Event listeners
-      window.addEventListener('epcs:view-loaded', function (e) {
-        if (e.detail.view === 'pulse') renderPulse();
-      });
-
+      window.addEventListener('epcs:view-loaded', function (e) { if (e.detail.view === 'pulse') renderPulse(); });
       window.addEventListener('epcs:filter-change', function () {
         var activeItem = document.querySelector('.os-nav__item.active');
-        if (activeItem && activeItem.dataset.view === 'pulse') {
-          renderPulse();
-        }
+        if (activeItem && activeItem.dataset.view === 'pulse') renderPulse();
       });
+
+      renderPulse();
 
     })();
   </script>

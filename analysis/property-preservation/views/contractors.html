@@ -1,4 +1,6 @@
 <div class="os-view-body">
+  <!-- Breadcrumb injected dynamically -->
+  <div id="con-breadcrumb-container" style="margin-bottom: 16px; display: none;"></div>
   <!-- KPI Grid -->
   <div class="kpi-grid">
     <div class="kpi-card">
@@ -166,6 +168,36 @@
         var tier1 = computedScores.filter(function (s) { return s.performance_tier === 1; }).length;
         var tier2 = computedScores.filter(function (s) { return s.performance_tier === 2; }).length;
         var tier3 = computedScores.filter(function (s) { return s.performance_tier === 3; }).length;
+
+        // Render Breadcrumb
+        var bcContainer = document.getElementById('con-breadcrumb-container');
+        if (filters.source === 'pulse') {
+           var filterStr = filters.contractor && filters.contractor !== 'all' ? 'Contractor: ' + filters.contractor : 'Custom Filter';
+           bcContainer.style.display = 'block';
+           bcContainer.innerHTML = `
+             <div style="background: #EFF6FF; border: 1px solid #BFDBFE; padding: 10px 16px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; font-size: 12px;">
+               <div>
+                 <a href="#" id="con-bc-back-btn" style="color: #2563AB; text-decoration: none; font-weight: 600; margin-right: 12px;">&larr; Morning Pulse</a>
+                 <span style="color: #1D4ED8;">Filtered from Morning Pulse: <strong>${filterStr}</strong></span>
+               </div>
+               <button id="con-bc-clear-btn" style="background: none; border: none; color: #DC2626; cursor: pointer; font-size: 11px; font-weight: bold;">[Clear Filter &times;]</button>
+             </div>
+           `;
+           
+           document.getElementById('con-bc-back-btn').addEventListener('click', function(e) {
+              e.preventDefault();
+              window.navigateFromPulse('pulse', { source: null, contractor: null });
+           });
+           
+           document.getElementById('con-bc-clear-btn').addEventListener('click', function(e) {
+              e.preventDefault();
+              window.EPCS_FILTERS.contractor = 'all';
+              window.EPCS_FILTERS.source = null;
+              renderContractors();
+           });
+        } else {
+           bcContainer.style.display = 'none';
+        }
 
         document.getElementById('con-total').textContent = totalCon;
         document.getElementById('con-tier-1').textContent = tier1;

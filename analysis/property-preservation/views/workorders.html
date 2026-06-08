@@ -1,4 +1,6 @@
 <div class="os-view-body">
+  <!-- Breadcrumb injected dynamically -->
+  <div id="wo-breadcrumb-container" style="margin-bottom: 16px; display: none;"></div>
   <!-- KPI Grid -->
   <div class="kpi-grid">
     <div class="kpi-card">
@@ -153,21 +155,93 @@
         // Apply primary shell filters
         var filteredWOs = data.work_orders.filter(matchFilters);
 
-        // Calculate KPIs based on shell filters
-        var total = filteredWOs.length;
-        var closed = filteredWOs.filter(function (w) { return w.status === 'Closed'; }).length;
-        var submitted = filteredWOs.filter(function (w) { return w.status === 'Submitted'; }).length;
-        var assigned = filteredWOs.filter(function (w) { return w.status === 'Assigned'; }).length;
+        // Apply sub-filters: status and search string and deep link filters
+        var finalWOs = filteredWOs.filter(function (w) {
+          
+          // Legacy status filter from UI dropdown
+          if (currentStatusFilter !== 'all') {
+            if (currentStatusFilter === 'Unassigned') {
+              if (w.contractor !== 'Unassigned') return false;
+            } else {
+              if (w.status !== currentStatusFilter) return false;
+            }
+          }
+          
+          // New Deep Filters from Pulse
+          if (filters.status_filter && filters.status_filter !== 'all') {
+             if (filters.status_filter === 'overdue') {
+                if (w.status === 'Closed' || w.due_date >= '2026-06-08') return false;
+             } else if (filters.status_filter === 'follow-up') {
+                // Submitted but stalled >30 days
+                if (w.status !== 'Submitted' || (new Date('2026-06-08') - new Date(w.due_date)) <= 30*24*60*60*1000) return false;
+             } else {
+                if (w.status !== filters.status_filter) return false;
+             }
+          }
+          if (filters.order_type_filter && filters.order_type_filter !== 'all') {
+             if (w.order_type !== filters.order_type_filter) return false;
+          }
+          if (filters.wo_highlight) {
+             if (w.wo_number !== filters.wo_highlight) return false;
+          }
+
+          if (searchVal.trim() !== '') {
+            var q = searchVal.toLowerCase();
+            var woNum = w.wo_number.toLowerCase();
+            var client = w.client.toLowerCase();
+            var type = w.order_type.toLowerCase();
+            var contractor = w.contractor.toLowerCase();
+            var addr = w.address.toLowerCase();
+            var city = w.city.toLowerCase();
+            var state = w.state.toLowerCase();
+            var zip = w.zip.toLowerCase();
+            
+            var match = woNum.includes(q) || client.includes(q) || type.includes(q) || contractor.includes(q) ||
+                        addr.includes(q) || city.includes(q) || state.includes(q) || zip.includes(q);
+            return match;
+          }
+          return true;
+        });
+
+        // Breadcrumb rendering
+        var bcContainer = document.getElementById('wo-breadcrumb-container');
+        if (filters.source === 'pulse') {
+           var filterTexts = [];
+           if (filters.status_filter) filterTexts.push('Status: ' + filters.status_filter);
+           if (filters.order_type_filter) filterTexts.push('Type: ' + filters.order_type_filter);
+           if (filters.wo_highlight) filterTexts.push('WO: ' + filters.wo_highlight);
+           if (filters.contractor && filters.contractor !== 'all') filterTexts.push('Contractor: ' + filters.contractor);
+           var filterStr = filterTexts.length > 0 ? filterTexts.join(', ') : 'Custom Filter';
+
+           bcContainer.style.display = 'block';
+           bcContainer.innerHTML = `
+             <div style="background: #EFF6FF; border: 1px solid #BFDBFE; padding: 10px 16px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; font-size: 12px;">
+               <div>
+                 <a href="#" id="bc-back-btn" style="color: #2563AB; text-decoration: none; font-weight: 600; margin-right: 12px;">&larr; Morning Pulse</a>
+                 <span style="color: #1D4ED8;">Filtered from Morning Pulse: <strong>${filterStr}</strong></span>
+               </div>
+               <button id="bc-clear-btn" style="background: none; border: none; color: #DC2626; cursor: pointer; font-size: 11px; font-weight: bold;">[Clear Filter &times;]</button>
+             </div>
+           `;
+           
+           document.getElementById('bc-back-btn').addEventListener('click', function(e) {
+              e.preventDefault();
+              window.navigateFromPulse('pulse', { source: null, status_filter: null, order_type_filter: null, wo_highlight: null });
+           });
+           
+           document.getElementById('bc-clear-btn').addEventListener('click', function(e) {
+              e.preventDefault();
+              window.EPCS_FILTERS.status_filter = null;
+              window.EPCS_FILTERS.order_type_filter = null;
+              window.EPCS_FILTERS.wo_highlight = null;
+              window.EPCS_FILTERS.source = null;
+              renderWorkOrders();
+           });
+        } else {
+           bcContainer.style.display = 'none';
+        }
 
         document.getElementById('wo-total').textContent = total;
-        document.getElementById('wo-closed').textContent = closed;
-        document.getElementById('wo-closed-pct').textContent = total > 0 ? ((closed / total * 100).toFixed(0) + '% of total') : '0%';
-        document.getElementById('wo-submitted').textContent = submitted;
-        document.getElementById('wo-submitted-pct').textContent = total > 0 ? ((submitted / total * 100).toFixed(0) + '% of total') : '0%';
-        document.getElementById('wo-assigned').textContent = assigned;
-        document.getElementById('wo-assigned-pct').textContent = total > 0 ? ((assigned / total * 100).toFixed(0) + '% of total') : '0%';
-
-        // Apply sub-filters: status and search string
         var finalWOs = filteredWOs.filter(function (w) {
           if (currentStatusFilter !== 'all') {
             if (currentStatusFilter === 'Unassigned') {

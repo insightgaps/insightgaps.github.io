@@ -63,6 +63,33 @@
     });
   });
 
+  // Global Navigation Bridge for deep linking
+  window.navigateFromPulse = function (viewKey, deepFilters) {
+    if (!VIEWS[viewKey]) return;
+    
+    // Ensure object exists
+    window.EPCS_FILTERS = window.EPCS_FILTERS || { month: 'all', client: 'all', contractor: 'all' };
+    
+    // Set breadcrumb source
+    window.EPCS_FILTERS.source = 'pulse';
+    
+    // Merge deep filters
+    if (deepFilters) {
+      for (var key in deepFilters) {
+        window.EPCS_FILTERS[key] = deepFilters[key];
+      }
+    }
+    
+    // Update active nav visual state
+    document.querySelectorAll('.os-nav__item').forEach(function (i) { i.classList.remove('active'); });
+    var activeItem = document.querySelector('.os-nav__item[data-view="' + viewKey + '"]');
+    if (activeItem) activeItem.classList.add('active');
+    
+    // Load view
+    document.getElementById('current-view-title').textContent = VIEWS[viewKey].title;
+    loadView(viewKey);
+  };
+
   // Filter controls
   ['filter-month', 'filter-client', 'filter-contractor'].forEach(function (id) {
     var el = document.getElementById(id);
