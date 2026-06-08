@@ -23,6 +23,14 @@
     </div>
   </div>
 
+  <!-- Cash Flow Trend Chart -->
+  <div class="view-section" style="margin-bottom: 24px;">
+    <div class="view-section__title">Cash Flow & Conversion Trend</div>
+    <div class="chart-wrap" style="height: 300px;">
+      <canvas id="cashflowTrendChart"></canvas>
+    </div>
+  </div>
+
   <!-- Charts Section -->
   <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px;" class="kpi-grid">
     <div class="view-section">
@@ -77,6 +85,7 @@
       // Keep references to charts to destroy them on reload
       var revChart = null;
       var clientChart = null;
+      var cashflowChart = null;
 
       function renderFinancial() {
         if (!window.EPCS_DATA) return;
@@ -324,6 +333,109 @@
                 grid: { color: 'rgba(26,25,23,0.06)' },
                 ticks: {
                   callback: function (value) { return '$' + value.toLocaleString(); }
+                }
+              }
+            }
+          }
+        });
+
+        // Cash Flow Trend Line Chart
+        var months = ['2025-11', '2025-12', '2026-01', '2026-02', '2026-03', '2026-04', '2026-05', '2026-06'];
+        var monthLabels = ['Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
+        
+        var receivableData = [0,0,0,0,0,0,0,0];
+        var receivedData = [0,0,0,0,0,0,0,0];
+        var paidData = [0,0,0,0,0,0,0,0];
+
+        filteredFin.forEach(function (f) {
+          if (f.invoice_date) {
+            var prefix = f.invoice_date.substring(0, 7);
+            var idx = months.indexOf(prefix);
+            if (idx !== -1) receivableData[idx] += f.invoice_amount;
+          }
+          if (f.received_date) {
+            var prefix = f.received_date.substring(0, 7);
+            var idx = months.indexOf(prefix);
+            if (idx !== -1) receivedData[idx] += f.received_amount;
+          }
+          if (f.paid_to_contractor_date) {
+            var prefix = f.paid_to_contractor_date.substring(0, 7);
+            var idx = months.indexOf(prefix);
+            if (idx !== -1) paidData[idx] += f.paid_to_contractor;
+          }
+        });
+
+        if (cashflowChart) cashflowChart.destroy();
+        var ctx3 = document.getElementById('cashflowTrendChart').getContext('2d');
+        cashflowChart = new Chart(ctx3, {
+          type: 'line',
+          data: {
+            labels: monthLabels,
+            datasets: [
+              {
+                label: 'Receivable',
+                data: receivableData,
+                borderColor: '#a3a3a3',
+                backgroundColor: 'transparent',
+                borderWidth: 2,
+                borderDash: [4, 4],
+                pointBackgroundColor: '#a3a3a3',
+                pointRadius: 3,
+                tension: 0.4
+              },
+              {
+                label: 'Received',
+                data: receivedData,
+                borderColor: '#c28a2a',
+                backgroundColor: 'rgba(194, 138, 42, 0.05)',
+                borderWidth: 2,
+                pointBackgroundColor: '#ffffff',
+                pointBorderColor: '#c28a2a',
+                pointBorderWidth: 2,
+                pointRadius: 4,
+                fill: true,
+                tension: 0.4
+              },
+              {
+                label: 'Paid to Contractor',
+                data: paidData,
+                borderColor: '#2563eb',
+                backgroundColor: 'transparent',
+                borderWidth: 2,
+                borderDash: [2, 2],
+                pointBackgroundColor: '#ffffff',
+                pointBorderColor: '#2563eb',
+                pointBorderWidth: 2,
+                pointRadius: 3,
+                tension: 0.4
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'top',
+                labels: {
+                  usePointStyle: false,
+                  boxWidth: 20,
+                  font: { family: 'Space Mono', size: 11 },
+                  color: '#8C8985'
+                }
+              }
+            },
+            scales: {
+              x: { 
+                grid: { display: false }, 
+                ticks: { color: '#8C8985', font: { family: 'Space Mono', size: 10 } } 
+              },
+              y: {
+                grid: { color: 'rgba(26,25,23,0.06)' },
+                ticks: {
+                  color: '#8C8985',
+                  font: { family: 'Space Mono', size: 10 },
+                  callback: function (value) { return '$' + (value/1000) + 'K'; }
                 }
               }
             }
