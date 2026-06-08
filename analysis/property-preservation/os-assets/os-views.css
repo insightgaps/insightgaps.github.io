@@ -725,3 +725,33 @@
   font-family: 'Space Mono', monospace;
   margin-top: 2px;
 }
+
+/* Mobile Responsiveness for Advanced Components */
+@media (max-width: 768px) {
+  /* Communications View */
+  .comm-layout {
+    flex-direction: column;
+    height: auto;
+  }
+  .comm-threads {
+    width: 100%;
+    min-width: 100%;
+    max-height: 350px;
+  }
+  .comm-detail {
+    min-height: 450px;
+  }
+
+  /* Photo QC View */
+  .qc-header-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Bid Generator View */
+  .bid-grid {
+    grid-template-columns: 1fr;
+  }
+  .bid-summary-cards {
+    grid-template-columns: 1fr;
+  }
+}
