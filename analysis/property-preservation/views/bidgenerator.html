@@ -136,8 +136,8 @@
   <!-- Auto-Bid Property Audit Monitor -->
   <div class="view-section" style="margin-top: 24px;">
     <div class="view-section__title" style="display:flex; justify-content:space-between; align-items:center;">
-      <span>🤖 AI Auto-Bid Property Audit Monitor (Recheck Bids)</span>
-      <button class="os-filter-reset" id="btn-run-autobid" style="background:var(--os-accent); color:#000; font-weight:600; padding:6px 12px; border:none; border-radius:6px; cursor:pointer;">🔍 Run Automated Property Audit</button>
+      <span>AI Auto-Bid Property Audit Monitor (Recheck Bids)</span>
+      <button class="os-filter-reset" id="btn-run-autobid" style="background:var(--os-accent); color:#000; font-weight:600; padding:6px 12px; border:none; border-radius:6px; cursor:pointer;">Run Automated Property Audit</button>
     </div>
     <div style="font-size:12.5px; color:var(--os-text-secondary); margin-bottom:16px;">
       Cross-references historically approved bids for each unique property address. Automatically detects new, undocumented hazards (e.g. damage discovered during routine mowing) and pre-emptively generates bids.
@@ -145,7 +145,7 @@
 
     <!-- Alert Banner -->
     <div id="autobid-alert" class="alert-card alert-card--red" style="display:none; margin-bottom:16px; animation: pulse 1.5s infinite alternate;">
-      <span class="alert-card__icon">🚨</span>
+      <span class="alert-card__icon">!</span>
       <div>
         <div class="alert-card__title" id="autobid-alert-title">New Property Damages Flagged</div>
         <div class="alert-card__desc" id="autobid-alert-desc">Audit complete. Generated recommended bids.</div>
@@ -363,7 +363,7 @@
           
           if (alertBanner) {
             alertBanner.style.display = 'flex';
-            alertTitle.textContent = '🚨 Auto-Bid Alert: New Property Damages Detected';
+            alertTitle.textContent = 'Auto-Bid Alert: New Property Damages Detected';
             alertDesc.innerHTML = 'Automated property-history audit flagged <strong>2 new undocumented hazards</strong> (124 Oak St: Damaged Fence, 456 Maple Ln: Crawlspace Debris). Generated auto-bids totaling <strong>$381.16</strong> for client review.';
           }
 

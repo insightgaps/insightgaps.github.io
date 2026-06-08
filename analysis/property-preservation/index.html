@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EPCS Property Preservation Intelligence OS — Insight Gaps Bureau</title>
-  <meta name="description" content="Operational dashboard tracking work order performance, margin leakage, and ZIP coverage for property preservation.">
-  
-  <meta name="robots" content="index, follow">
+  <title>Property Preservation Intelligence OS — Excellence Property Care Solutions</title>
+  <meta name="description" content="Operational intelligence for property preservation. Track margin integrity, work order risk, contractor performance, and ZIP coverage in one command view.">
+
+  <meta name="robots" content="noindex, nofollow">
   <link rel="canonical" href="https://insightgaps.com/analysis/property-preservation/">
 
   <!-- Fonts -->
@@ -17,6 +17,10 @@
   <!-- Chart.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 
+  <!-- Leaflet Map library -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
   <!-- Global Stylesheet -->
   <link rel="stylesheet" href="os-assets/os-shell.css">
   <link rel="stylesheet" href="os-assets/os-views.css">
@@ -24,86 +28,172 @@
 <body>
 
   <div class="os-shell">
-    
-    <!-- Sidebar -->
+
+    <!-- ── Sidebar ────────────────────────────────────────────── -->
     <aside class="os-sidebar">
-      
+
       <!-- Logo block -->
       <div class="os-sidebar__logo-block">
-        <div class="os-sidebar__logo-badge">EP</div>
+        <!-- Geometric 4-square mark representing data quadrants -->
+        <div class="os-sidebar__logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2"  y="2"  width="9" height="9" rx="1.5" fill="currentColor"/>
+            <rect x="13" y="2"  width="9" height="9" rx="1.5" fill="currentColor" opacity="0.4"/>
+            <rect x="2"  y="13" width="9" height="9" rx="1.5" fill="currentColor" opacity="0.4"/>
+            <rect x="13" y="13" width="9" height="9" rx="1.5" fill="currentColor"/>
+          </svg>
+        </div>
         <div class="os-sidebar__brand">
           <span class="os-sidebar__brand-name">Property Preservation</span>
-          <span class="os-sidebar__brand-sub">INTELLIGENCE OS</span>
+          <span class="os-sidebar__brand-sub">Intelligence OS</span>
         </div>
       </div>
 
-      <!-- Navigation items -->
-      <nav class="os-nav">
-        <a class="os-nav__item active" data-view="pulse">
-          <span class="os-nav__icon">⚡</span>
+      <!-- Navigation -->
+      <nav class="os-nav" aria-label="Primary navigation">
+
+        <span class="os-nav__section-label">Operations</span>
+
+        <!-- Morning Pulse — activity waveform -->
+        <a class="os-nav__item active" data-view="pulse" role="button" tabindex="0">
+          <span class="os-nav__icon" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="1,9 4,9 6,4 8,12 10,7 12,9 15,9"/>
+            </svg>
+          </span>
           <span class="os-nav__label">Morning Pulse</span>
         </a>
-        <a class="os-nav__item" data-view="financial">
-          <span class="os-nav__icon">💰</span>
-          <span class="os-nav__label">Financials</span>
-        </a>
-        <a class="os-nav__item" data-view="leakage">
-          <span class="os-nav__icon">🔍</span>
-          <span class="os-nav__label">Leakage Breakdown</span>
-        </a>
-        <a class="os-nav__item" data-view="workorders">
-          <span class="os-nav__icon">📋</span>
+
+        <!-- Work Orders — document with lines -->
+        <a class="os-nav__item" data-view="workorders" role="button" tabindex="0">
+          <span class="os-nav__icon" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="1" width="10" height="14" rx="1.5"/>
+              <line x1="5.5" y1="6"  x2="10.5" y2="6"/>
+              <line x1="5.5" y1="9"  x2="10.5" y2="9"/>
+              <line x1="5.5" y1="12" x2="8.5"  y2="12"/>
+            </svg>
+          </span>
           <span class="os-nav__label">Work Orders</span>
           <span class="os-nav__badge" id="badge-workorders">0</span>
         </a>
-        <a class="os-nav__item" data-view="contractors">
-          <span class="os-nav__icon">👷</span>
+
+        <!-- Contractors — person silhouette -->
+        <a class="os-nav__item" data-view="contractors" role="button" tabindex="0">
+          <span class="os-nav__icon" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="8" cy="5" r="3"/>
+              <path d="M2 14c0-3 2.5-5 6-5s6 2 6 5"/>
+            </svg>
+          </span>
           <span class="os-nav__label">Contractors</span>
         </a>
-        <a class="os-nav__item" data-view="communications">
-          <span class="os-nav__icon">💬</span>
-          <span class="os-nav__label">Communications</span>
-          <span class="os-nav__badge" id="badge-comms">0</span>
-        </a>
-        <a class="os-nav__item" data-view="zip">
-          <span class="os-nav__icon">🗺️</span>
-          <span class="os-nav__label">ZIP Intelligence</span>
-        </a>
-        <a class="os-nav__item" data-view="photoqc">
-          <span class="os-nav__icon">📷</span>
+
+        <!-- Photo QC — camera body -->
+        <a class="os-nav__item" data-view="photoqc" role="button" tabindex="0">
+          <span class="os-nav__icon" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="5" width="14" height="9" rx="1.5"/>
+              <circle cx="8" cy="9.5" r="2.5"/>
+              <path d="M5 5l1.5-2.5h3L11 5"/>
+            </svg>
+          </span>
           <span class="os-nav__label">Photo QC</span>
           <span class="os-nav__badge" id="badge-qc">0</span>
         </a>
-        <a class="os-nav__item" data-view="bidgenerator">
-          <span class="os-nav__icon">💡</span>
+
+        <!-- Communications — chat bubble -->
+        <a class="os-nav__item" data-view="communications" role="button" tabindex="0">
+          <span class="os-nav__icon" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h5l2 2 2-2h3a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z"/>
+            </svg>
+          </span>
+          <span class="os-nav__label">Communications</span>
+          <span class="os-nav__badge" id="badge-comms">0</span>
+        </a>
+
+        <span class="os-nav__section-label">Finance &amp; Analytics</span>
+
+        <!-- Financials — trend arrow -->
+        <a class="os-nav__item" data-view="financial" role="button" tabindex="0">
+          <span class="os-nav__icon" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="2,12 6,8 9,10 14,4"/>
+              <polyline points="11,4 14,4 14,7"/>
+            </svg>
+          </span>
+          <span class="os-nav__label">Financials</span>
+        </a>
+
+        <!-- Leakage Breakdown — funnel -->
+        <a class="os-nav__item" data-view="leakage" role="button" tabindex="0">
+          <span class="os-nav__icon" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h12L9 9v5H7V9L2 3z"/>
+            </svg>
+          </span>
+          <span class="os-nav__label">Leakage Analysis</span>
+        </a>
+
+        <!-- ZIP Intelligence — map pin -->
+        <a class="os-nav__item" data-view="zip" role="button" tabindex="0">
+          <span class="os-nav__icon" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 1.5C5.5 1.5 3.5 3.5 3.5 6c0 3.5 4.5 8.5 4.5 8.5S12.5 9.5 12.5 6c0-2.5-2-4.5-4.5-4.5z"/>
+              <circle cx="8" cy="6" r="1.5"/>
+            </svg>
+          </span>
+          <span class="os-nav__label">ZIP Intelligence</span>
+        </a>
+
+
+        <span class="os-nav__section-label">Tools</span>
+
+        <!-- Bid Generator — document with plus -->
+        <a class="os-nav__item" data-view="bidgenerator" role="button" tabindex="0">
+          <span class="os-nav__icon" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9.5 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6L9.5 2z"/>
+              <path d="M9.5 2v4h4"/>
+              <line x1="6" y1="9"  x2="10" y2="9"/>
+              <line x1="8" y1="7"  x2="8" y2="11"/>
+            </svg>
+          </span>
           <span class="os-nav__label">Bid Generator</span>
         </a>
-        <a class="os-nav__item" data-view="workbook">
-          <span class="os-nav__icon">📊</span>
-          <span class="os-nav__label">Workbook</span>
-        </a>
+
       </nav>
 
       <!-- Sidebar footer -->
       <div class="os-sidebar__footer">
-        <span class="os-sidebar__data-tag">Real data · Demo instance</span>
-        <span class="os-sidebar__period">Nov 2025 – Jun 2026</span>
-        <a href="https://insightgaps.com" class="os-sidebar__site-link">← insightgaps.com</a>
+        <div class="os-sidebar__footer-row">
+          <span class="os-demo-badge">DEMO</span>
+          <span class="os-sidebar__data-range">Nov 2025 – Jun 2026</span>
+        </div>
+        <span class="os-sidebar__data-note">Live dataset · Static instance</span>
+        <a href="https://insightgaps.com" class="os-sidebar__site-link" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="7,1 1,1 1,11 11,11 11,5"/>
+            <polyline points="5,7 11,1"/>
+          </svg>
+          insightgaps.com
+        </a>
       </div>
 
     </aside>
 
-    <!-- Main Content Area -->
+    <!-- ── Main Content Area ───────────────────────────────────── -->
     <main class="os-content">
-      
-      <!-- Content Header (Filter Bar) -->
+
+      <!-- Filter Bar -->
       <header class="os-filter-bar">
         <div class="os-filter-bar__left">
           <h1 class="os-filter-bar__view-title" id="current-view-title">Morning Pulse</h1>
         </div>
-        
+
         <div class="os-filter-bar__controls">
-          <select class="os-filter" id="filter-month">
+          <select class="os-filter" id="filter-month" aria-label="Filter by month">
             <option value="all">All Period</option>
             <option value="2025-11">Nov 2025</option>
             <option value="2025-12">Dec 2025</option>
@@ -114,8 +204,8 @@
             <option value="2026-05">May 2026</option>
             <option value="2026-06">Jun 2026</option>
           </select>
-          
-          <select class="os-filter" id="filter-client">
+
+          <select class="os-filter" id="filter-client" aria-label="Filter by client">
             <option value="all">All Clients</option>
             <option value="MCS">MCS</option>
             <option value="ServiceLink">ServiceLink</option>
@@ -124,26 +214,25 @@
             <option value="Safeguard">Safeguard</option>
             <option value="ZVN">ZVN</option>
           </select>
-          
-          <select class="os-filter" id="filter-contractor">
+
+          <select class="os-filter" id="filter-contractor" aria-label="Filter by contractor">
             <option value="all">All Contractors</option>
-            <!-- Dynamically populated -->
+            <!-- Dynamically populated by os-nav.js -->
           </select>
-          
-          <button class="os-filter-reset" id="filter-reset">Clear ×</button>
+
+          <button class="os-filter-reset" id="filter-reset" aria-label="Clear all filters">Clear</button>
         </div>
       </header>
 
-      <!-- Sub-view content loaded here -->
-      <div class="os-view-container" id="view-container">
-        <!-- Loaded via AJAX -->
+      <!-- View content loaded here by os-nav.js -->
+      <div class="os-view-container" id="view-container" role="main">
       </div>
 
     </main>
 
   </div>
 
-  <!-- Data and Shell Scripts -->
+  <!-- Data layer and shell logic -->
   <script src="data/epcs_data.js"></script>
   <script src="os-assets/os-nav.js"></script>
 </body>

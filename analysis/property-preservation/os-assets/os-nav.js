@@ -9,7 +9,6 @@
     contractors:    { title: 'Contractors',       file: 'views/contractors.html' },
     communications: { title: 'Communications',    file: 'views/communications.html' },
     zip:            { title: 'ZIP Intelligence',  file: 'views/zip.html' },
-    workbook:       { title: 'Workbook',          file: 'views/workbook.html' },
     photoqc:        { title: 'Photo QC',          file: 'views/photoqc.html' },
     bidgenerator:   { title: 'Bid Generator',     file: 'views/bidgenerator.html' },
   };

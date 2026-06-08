@@ -2,8 +2,8 @@
   <!-- Top channel tabs -->
   <div class="channel-tabs" id="comm-channel-tabs">
     <div class="channel-tab active" data-channel="all">All Channels</div>
-    <div class="channel-tab" data-channel="SMS">💬 SMS Only</div>
-    <div class="channel-tab" data-channel="Email">✉️ Email Only</div>
+    <div class="channel-tab" data-channel="SMS">SMS Only</div>
+    <div class="channel-tab" data-channel="Email">Email Only</div>
   </div>
 
   <!-- KPI Grid -->
@@ -36,7 +36,7 @@
     <!-- Left List of Threads -->
     <div class="comm-threads">
       <div class="comm-threads__search-box">
-        <input type="text" class="os-search-input" id="thread-search" placeholder="🔍 Search WO#, contractor..." style="margin-bottom:0;">
+        <input type="text" class="os-search-input" id="thread-search" placeholder="Search WO#, contractor..." style="margin-bottom:0;">
         <select class="os-filter" id="thread-priority-filter" style="width: 100px;">
           <option value="all">All Pri</option>
           <option value="High">High</option>
@@ -52,7 +52,7 @@
     <!-- Right Thread Detail View -->
     <div class="comm-detail" id="thread-detail-container">
       <div class="comm-detail__empty">
-        <div style="font-size: 32px;">💬</div>
+        <div style="font-size:24px;color:#CBD5E1;font-family:Space Mono,monospace;font-weight:700;">[ ]</div>
         <div>Select a conversation from the left to view AI summary and message logs</div>
       </div>
     </div>
@@ -194,7 +194,7 @@
               </div>
               <div class="thread-item__body">${previewText}</div>
               <div class="thread-item__meta">
-                <span class="thread-item__contractor">👷 ${t.contractor}</span>
+                <span class="thread-item__contractor">${t.contractor}</span>
                 <div style="display:flex; gap:2px;">${badgeHtml}</div>
               </div>
             `;
@@ -214,7 +214,7 @@
         if (!selectedWoNumber) {
           detailContainer.innerHTML = `
             <div class="comm-detail__empty">
-              <div style="font-size: 32px;">💬</div>
+              <div style="font-size:24px;color:#CBD5E1;font-family:Space Mono,monospace;font-weight:700;">[ ]</div>
               <div>Select a conversation from the left to view AI summary and message logs</div>
             </div>
           `;
@@ -228,7 +228,7 @@
           selectedWoNumber = null;
           detailContainer.innerHTML = `
             <div class="comm-detail__empty">
-              <div style="font-size: 32px;">💬</div>
+              <div style="font-size:24px;color:#CBD5E1;font-family:Space Mono,monospace;font-weight:700;">[ ]</div>
               <div>Select a conversation from the left to view AI summary and message logs</div>
             </div>
           `;
@@ -258,8 +258,8 @@
         var messageFeedHtml = '';
         activeThread.messages.forEach(function (m) {
           var bubbleType = m.direction === 'Inbound' ? 'message-bubble--inbound' : 'message-bubble--outbound';
-          var channelLabel = m.channel === 'Email' ? '✉️ Email' : '💬 SMS';
-          var sentimentIcon = m.sentiment === 'Positive' ? '🟢' : (m.sentiment === 'Concerned' ? '🔴' : '⚪');
+          var channelLabel = m.channel === 'Email' ? 'Email' : 'SMS';
+          var sentimentIcon = m.sentiment === 'Positive' ? '<span style="color:#1A6B3C;">●</span>' : (m.sentiment === 'Concerned' ? '<span style="color:#DC2626;">●</span>' : '<span style="color:#8C8985;">●</span>');
           var replyBadge = (m.needs_reply && m.direction === 'Inbound') ? '<span class="pill pill--red" style="font-size:9px; padding:1px 5px; margin-left:6px;">Needs Reply</span>' : '';
 
           var headerMeta = m.channel === 'Email' 
@@ -286,7 +286,7 @@
             <!-- AI Summary Box -->
             <div class="thread-summary-box">
               <div class="thread-summary-box__title">
-                🤖 AI Copilot Summary & Conversation Audit
+                AI Copilot Summary & Conversation Audit
               </div>
               <div style="line-height: 1.4;">
                 ${aiSummary.text}

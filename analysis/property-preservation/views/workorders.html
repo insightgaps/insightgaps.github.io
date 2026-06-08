@@ -26,7 +26,7 @@
   <!-- Search & Sub-filters -->
   <div class="view-section" style="padding-bottom: 12px; margin-bottom: 16px;">
     <div class="search-controls">
-      <input type="text" class="os-search-input" id="wo-search" placeholder="🔍 Search by WO#, address, city, contractor, or client...">
+      <input type="text" class="os-search-input" id="wo-search" placeholder="Search by WO#, address, city, contractor, or client...">
       <select class="os-filter" id="wo-status-filter" style="min-width: 150px;">
         <option value="all">All Statuses</option>
         <option value="Unassigned">Unassigned WOs</option>
@@ -39,7 +39,7 @@
 
   <!-- Dispatch Success Alert Toast -->
   <div id="wo-toast" class="alert-card alert-card--green" style="display:none; margin-bottom: 16px;">
-    <span class="alert-card__icon">📢</span>
+    <span class="alert-card__icon">&rarr;</span>
     <div>
       <div class="alert-card__title" id="wo-toast-title">Contractor Dispatched</div>
       <div class="alert-card__desc" id="wo-toast-desc">Work order has been successfully dispatched.</div>
@@ -219,7 +219,7 @@
 
           var contractorCell = w.contractor;
           if (w.contractor === 'Unassigned') {
-            contractorCell = `<button class="pill pill--red btn-assign-trigger" data-wo="${w.wo_number}" style="border:none; cursor:pointer; font-weight:bold; font-family:inherit;">⚠️ Assign Contractor</button>`;
+            contractorCell = `<button class="pill pill--red btn-assign-trigger" data-wo="${w.wo_number}" style="border:none; cursor:pointer; font-weight:bold; font-family:inherit;">Assign Contractor</button>`;
           }
 
           tr.innerHTML = `
@@ -319,7 +319,7 @@
           
           if (toast) {
             toast.style.display = 'flex';
-            toastTitle.textContent = `📢 WO# ${activeAssignWoNum} Dispatched`;
+            toastTitle.textContent = `WO# ${activeAssignWoNum} Dispatched`;
             toastDesc.innerHTML = `Work order successfully assigned to contractor <strong>"${contractorName}"</strong>. Contractor notified via system SMS.`;
             
             // Auto hide toast after 5 seconds

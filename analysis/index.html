@@ -3,215 +3,148 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EPCS Property Preservation Intelligence OS — Insight Gaps Bureau</title>
+  <meta name="description" content="Operational dashboard tracking work order performance, margin leakage, and ZIP coverage for property preservation.">
+  
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://insightgaps.com/analysis/property-preservation/">
 
-  <title>Analysis Domains — Insight Gaps Bureau</title>
-  <meta name="description" content="Forensic business analysis reports and portfolio domains by Insight Gaps Bureau.">
-
-  <!-- Open Graph -->
-  <meta property="og:type"        content="website">
-  <meta property="og:title"       content="Analysis Domains — Insight Gaps Bureau">
-  <meta property="og:description" content="Forensic business analysis reports and portfolio domains.">
-  <meta property="og:url"         content="https://insightgaps.com/analysis/">
-  <meta property="og:image"       content="/assets/img/og-default.jpg">
-
-  <link rel="canonical" href="https://insightgaps.com/analysis/">
-
-  <!-- Font preconnect -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <link rel="stylesheet" href="/assets/css/components.css">
+  <!-- Chart.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 
-  <style>
-    .analysis-page {
-      width:          100%;
-      padding-bottom: var(--space-9);
-    }
-
-    .analysis-page__header {
-      padding:       var(--space-8) 0 var(--space-7);
-      border-bottom: var(--border-width) solid var(--color-border);
-      margin-bottom: var(--space-7);
-    }
-
-    .analysis-page__header-inner {
-      max-width: var(--grid-max);
-      margin:    0 auto;
-      padding:   0 var(--grid-padding);
-    }
-
-    .analysis-page__title {
-      font-family:    var(--font-headline);
-      font-size:      var(--type-h1);
-      font-weight:    700;
-      line-height:    var(--leading-tight);
-      letter-spacing: var(--tracking-tight);
-      color:          var(--color-text-primary);
-      margin-bottom:  var(--space-3);
-    }
-
-    .analysis-page__subtitle {
-      font-family:    var(--font-mono);
-      font-size:      var(--type-label);
-      letter-spacing: var(--tracking-wide);
-      color:          var(--color-text-muted);
-    }
-
-    .analysis-page__body {
-      max-width: var(--grid-max);
-      margin:    0 auto;
-      padding:   0 var(--grid-padding);
-    }
-  </style>
+  <!-- Global Stylesheet -->
+  <link rel="stylesheet" href="os-assets/os-shell.css">
+  <link rel="stylesheet" href="os-assets/os-views.css">
 </head>
 <body>
 
-  <!-- AI DISCLOSURE BAR -->
-  <div class="ai-disclosure-bar" role="note" aria-label="AI use disclosure">
-    <div class="ai-disclosure-bar__inner">
-      <p class="ai-disclosure-bar__text">
-        AI tools were used in producing this report.
-        <a href="/content/trust/ai-use.html">View AI use disclosure &rarr;</a>
-      </p>
-    </div>
+  <div class="os-shell">
+    
+    <!-- Sidebar -->
+    <aside class="os-sidebar">
+      
+      <!-- Logo block -->
+      <div class="os-sidebar__logo-block">
+        <div class="os-sidebar__logo-badge">EP</div>
+        <div class="os-sidebar__brand">
+          <span class="os-sidebar__brand-name">Property Preservation</span>
+          <span class="os-sidebar__brand-sub">INTELLIGENCE OS</span>
+        </div>
+      </div>
+
+      <!-- Navigation items -->
+      <nav class="os-nav">
+        <a class="os-nav__item active" data-view="pulse">
+          <span class="os-nav__icon">⚡</span>
+          <span class="os-nav__label">Morning Pulse</span>
+        </a>
+        <a class="os-nav__item" data-view="financial">
+          <span class="os-nav__icon">💰</span>
+          <span class="os-nav__label">Financials</span>
+        </a>
+        <a class="os-nav__item" data-view="leakage">
+          <span class="os-nav__icon">🔍</span>
+          <span class="os-nav__label">Leakage Breakdown</span>
+        </a>
+        <a class="os-nav__item" data-view="workorders">
+          <span class="os-nav__icon">📋</span>
+          <span class="os-nav__label">Work Orders</span>
+          <span class="os-nav__badge" id="badge-workorders">0</span>
+        </a>
+        <a class="os-nav__item" data-view="contractors">
+          <span class="os-nav__icon">👷</span>
+          <span class="os-nav__label">Contractors</span>
+        </a>
+        <a class="os-nav__item" data-view="communications">
+          <span class="os-nav__icon">💬</span>
+          <span class="os-nav__label">Communications</span>
+          <span class="os-nav__badge" id="badge-comms">0</span>
+        </a>
+        <a class="os-nav__item" data-view="zip">
+          <span class="os-nav__icon">🗺️</span>
+          <span class="os-nav__label">ZIP Intelligence</span>
+        </a>
+        <a class="os-nav__item" data-view="photoqc">
+          <span class="os-nav__icon">📷</span>
+          <span class="os-nav__label">Photo QC</span>
+          <span class="os-nav__badge" id="badge-qc">0</span>
+        </a>
+        <a class="os-nav__item" data-view="bidgenerator">
+          <span class="os-nav__icon">💡</span>
+          <span class="os-nav__label">Bid Generator</span>
+        </a>
+        <a class="os-nav__item" data-view="workbook">
+          <span class="os-nav__icon">📊</span>
+          <span class="os-nav__label">Workbook</span>
+        </a>
+      </nav>
+
+      <!-- Sidebar footer -->
+      <div class="os-sidebar__footer">
+        <span class="os-sidebar__data-tag">Real data · Demo instance</span>
+        <span class="os-sidebar__period">Nov 2025 – Jun 2026</span>
+        <a href="https://insightgaps.com" class="os-sidebar__site-link">← insightgaps.com</a>
+      </div>
+
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="os-content">
+      
+      <!-- Content Header (Filter Bar) -->
+      <header class="os-filter-bar">
+        <div class="os-filter-bar__left">
+          <h1 class="os-filter-bar__view-title" id="current-view-title">Morning Pulse</h1>
+        </div>
+        
+        <div class="os-filter-bar__controls">
+          <select class="os-filter" id="filter-month">
+            <option value="all">All Period</option>
+            <option value="2025-11">Nov 2025</option>
+            <option value="2025-12">Dec 2025</option>
+            <option value="2026-01">Jan 2026</option>
+            <option value="2026-02">Feb 2026</option>
+            <option value="2026-03">Mar 2026</option>
+            <option value="2026-04">Apr 2026</option>
+            <option value="2026-05">May 2026</option>
+            <option value="2026-06">Jun 2026</option>
+          </select>
+          
+          <select class="os-filter" id="filter-client">
+            <option value="all">All Clients</option>
+            <option value="MCS">MCS</option>
+            <option value="ServiceLink">ServiceLink</option>
+            <option value="FiveBrothers">Five Brothers</option>
+            <option value="MSI">MSI</option>
+            <option value="Safeguard">Safeguard</option>
+            <option value="ZVN">ZVN</option>
+          </select>
+          
+          <select class="os-filter" id="filter-contractor">
+            <option value="all">All Contractors</option>
+            <!-- Dynamically populated -->
+          </select>
+          
+          <button class="os-filter-reset" id="filter-reset">Clear ×</button>
+        </div>
+      </header>
+
+      <!-- Sub-view content loaded here -->
+      <div class="os-view-container" id="view-container">
+        <!-- Loaded via AJAX -->
+      </div>
+
+    </main>
+
   </div>
 
-  <!-- GLOBAL HEADER -->
-  <a href="#main-content" class="skip-link">Skip to content</a>
-
-  <header class="site-header" role="banner">
-    <div class="site-header__inner">
-      <a href="/" class="site-header__logo" aria-label="Insight Gaps Bureau — Home">
-        Insight&nbsp;Gaps
-      </a>
-      <button class="site-header__toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="site-nav" id="primary-nav" aria-label="Primary navigation">
-        <a href="/content/investigations/" class="site-nav__link">Investigations</a>
-        <a href="/analysis/"               class="site-nav__link site-nav__link--active" aria-current="page">Analysis</a>
-        <a href="/archive.html"            class="site-nav__link">Archive</a>
-        <a href="/about.html"              class="site-nav__link">About</a>
-        <a href="/content/trust/methodology.html" class="site-nav__link">Trust</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- MAIN CONTENT -->
-  <main id="main-content" class="analysis-page">
-
-    <div class="analysis-page__header">
-      <div class="analysis-page__header-inner">
-        <h1 class="analysis-page__title">Analysis Domains</h1>
-        <p class="analysis-page__subtitle" id="js-analysis-subtitle">
-          Forensic business analysis portfolio and client commissions
-        </p>
-      </div>
-    </div>
-
-    <div class="analysis-page__body">
-      <!-- Renders active domains from analysis.json -->
-      <div class="card-grid--two" id="js-analysis-cards-grid" aria-live="polite">
-        <article class="analysis-card">
-          <h3 class="analysis-card__title">
-            <a href="/analysis/property-preservation/">Property Preservation</a>
-          </h3>
-          <p class="analysis-card__description">
-            Forensic financial and operational analysis for property preservation businesses in the United States. Covers cash flow risk, vendor performance, compliance exposure, and portfolio health. Designed for operators, investors, and portfolio reviewers who need data-backed insight, not summaries.
-          </p>
-          <div class="analysis-card__footer">
-            <span class="analysis-card__count">4 reports</span>
-            <time class="analysis-card__date" datetime="2025-01-01">1 January 2025</time>
-          </div>
-          <a class="analysis-card__link" href="/analysis/property-preservation/">
-            <span class="sr-only">Read Property Preservation</span>
-          </a>
-        </article>
-        <noscript>
-          <p class="home__empty-state">JavaScript is required to load analysis domains.</p>
-        </noscript>
-      </div>
-
-      <div class="analysis-cta">
-        <h2 class="analysis-cta__headline">Commission a Custom Analysis</h2>
-        <p class="analysis-cta__text">
-          Need a forensic data report tailored to your specific question, portfolio, or institution? Insight Gaps Bureau produces bespoke analysis on request.
-        </p>
-        <a href="/contact.html" class="btn btn--primary">Get in touch &rarr;</a>
-      </div>
-    </div>
-
-  </main>
-
-  <!-- GLOBAL FOOTER -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="site-footer__inner">
-      <div class="site-footer__grid">
-        <div>
-          <p class="site-footer__brand-name">Insight&nbsp;Gaps</p>
-          <p class="site-footer__mandate">Independent forensic data journalism from Dhaka, Bangladesh.</p>
-        </div>
-        <div>
-          <span class="site-footer__col-label">Navigate</span>
-          <nav class="site-footer__nav" aria-label="Footer navigation">
-            <a href="/content/investigations/">Investigations</a>
-            <a href="/analysis/">Analysis</a>
-            <a href="/archive.html">Archive</a>
-            <a href="/about.html">About</a>
-          </nav>
-        </div>
-        <div>
-          <span class="site-footer__col-label">Trust</span>
-          <nav class="site-footer__nav" aria-label="Trust navigation">
-            <a href="/content/trust/methodology.html">Methodology</a>
-            <a href="/content/trust/ai-use.html">AI Use</a>
-            <a href="/content/trust/corrections.html">Corrections</a>
-            <a href="/contact.html">Contact</a>
-          </nav>
-        </div>
-      </div>
-      <div class="site-footer__bottom">
-        <p class="site-footer__copy">
-          &copy; <span class="js-copyright-year">2025</span> Insight Gaps Bureau. Original reporting licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC&nbsp;BY&nbsp;4.0</a>. Deployed on Vercel.
-        </p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Header scripts -->
-  <script>
-  (function () {
-    'use strict';
-    var toggle = document.querySelector('.site-header__toggle');
-    var nav    = document.querySelector('.site-nav');
-    if (toggle && nav) {
-      toggle.addEventListener('click', function () {
-        var isOpen = nav.classList.toggle('site-nav--open');
-        toggle.setAttribute('aria-expanded', String(isOpen));
-      });
-      document.addEventListener('click', function (e) {
-        if (!toggle.contains(e.target) && !nav.contains(e.target)) {
-          nav.classList.remove('site-nav--open');
-          toggle.setAttribute('aria-expanded', 'false');
-        }
-      });
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && nav.classList.contains('site-nav--open')) {
-          nav.classList.remove('site-nav--open');
-          toggle.setAttribute('aria-expanded', 'false');
-          toggle.focus();
-        }
-      });
-    }
-    var yr = String(new Date().getFullYear());
-    document.querySelectorAll('.js-copyright-year').forEach(function (el) { el.textContent = yr; });
-  }());
-  </script>
-
-  <!-- Data loader -->
-  <script src="/assets/js/data-loader.js" defer></script>
-
+  <!-- Data and Shell Scripts -->
+  <script src="data/epcs_data.js"></script>
+  <script src="os-assets/os-nav.js"></script>
 </body>
 </html>

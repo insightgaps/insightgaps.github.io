@@ -60,14 +60,14 @@
         </div>
 
         <div class="qc-uploader" id="qc-drop-zone">
-          <div class="qc-uploader__icon">📤</div>
+          <div class="qc-uploader__icon"><svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 8px; color: var(--os-accent);"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
           <div class="qc-uploader__title">Click or Drag Contractor Photos Here</div>
           <div class="qc-uploader__desc">Simulate PPW photo upload for automated API validation</div>
         </div>
 
         <!-- Start Notification Toast / Scan Alert -->
         <div id="qc-toast" class="alert-card alert-card--amber" style="display:none; margin-top:16px; animation: pulse 1.5s infinite alternate;">
-          <span class="alert-card__icon">📡</span>
+          <span class="alert-card__icon">!</span>
           <div>
             <div class="alert-card__title" id="qc-toast-title">Upload Started</div>
             <div class="alert-card__desc" id="qc-toast-desc">API handoff initiated...</div>
@@ -263,7 +263,7 @@
         // Trigger start alert notification
         toast.style.display = 'flex';
         toast.className = 'alert-card alert-card--amber';
-        toastTitle.innerHTML = `🚀 Upload Started — WO# ${woNumber}`;
+        toastTitle.innerHTML = `Upload Started — WO# ${woNumber}`;
         toastDesc.innerHTML = `Contractor <strong>${contractor}</strong> initiated photo upload for Work Order <strong>#${woNumber}</strong> via PPW API. Initializing scan for <strong>${requiredList.length}</strong> required photos...`;
 
         statusLabel.innerHTML = 'Connecting to PPW API endpoint...';
@@ -336,8 +336,8 @@
           var statusPill = isMatched ? 'pill--green' : 'pill--red';
           var statusText = isMatched ? 'VERIFIED' : 'MISSING';
           var placeholderHtml = isMatched 
-            ? `📸 <span style="margin-top:8px; font-weight:600;">Checklist Verified</span><span style="font-size:10px; opacity:0.8; margin-top:2px;">Metadata: GPS & Time OK</span>`
-            : `❌ <span style="margin-top:8px; font-weight:600; color:var(--os-red);">Not Uploaded</span><span style="font-size:10px; color:var(--os-red); opacity:0.8; margin-top:2px;">Checklist unmet</span>`;
+            ? `<span style="margin-top:8px; font-weight:600; color:var(--os-green);">Checklist Verified</span><span style="font-size:10px; opacity:0.8; margin-top:2px;">Metadata: GPS & Time OK</span>`
+            : `<span style="margin-top:8px; font-weight:600; color:var(--os-red);">Not Uploaded</span><span style="font-size:10px; color:var(--os-red); opacity:0.8; margin-top:2px;">Checklist unmet</span>`;
 
           item.innerHTML = `
             <div class="qc-photo-placeholder ${placeholderClass}">
@@ -358,7 +358,7 @@
         // Update Notification Toast & Right progress panel
         if (missingList.length === 0) {
           toast.className = 'alert-card alert-card--green';
-          toastTitle.innerHTML = `✅ QC PASS — WO# ${woNumber}`;
+          toastTitle.innerHTML = `QC PASS — WO# ${woNumber}`;
           toastDesc.innerHTML = `All <strong>${requiredList.length}</strong> required photos for <strong>"${serviceType}"</strong> successfully verified for Contractor <strong>${contractor}</strong>. PPW API package generated.`;
           
           badge.className = 'pill pill--green';
@@ -366,7 +366,7 @@
           missingAlert.style.display = 'none';
         } else {
           toast.className = 'alert-card alert-card--red';
-          toastTitle.innerHTML = `⚠️ QC FAILURE — WO# ${woNumber}`;
+          toastTitle.innerHTML = `QC FAILURE — WO# ${woNumber}`;
           toastDesc.innerHTML = `Automated scan detected <strong>${missingList.length}</strong> missing required photos: <strong>"${missingList.join(', ')}"</strong>. Contractor <strong>${contractor}</strong> notified.`;
           
           badge.className = 'pill pill--red';
