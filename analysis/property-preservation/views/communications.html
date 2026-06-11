@@ -1,4 +1,216 @@
 <div class="os-view-body">
+  <style>
+    /* Tab Styling inside thread details */
+    .detail-tabs {
+      display: flex;
+      border-bottom: 2px solid #E2E0DC;
+      margin-bottom: 16px;
+      margin-top: 16px;
+      gap: 16px;
+    }
+    .detail-tab {
+      padding: 6px 4px 10px 4px;
+      cursor: pointer;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: #8C8985;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.2s ease;
+    }
+    .detail-tab:hover {
+      color: #1A1917;
+    }
+    .detail-tab.active {
+      color: #2563eb;
+      border-bottom: 2px solid #2563eb;
+    }
+
+    /* Metadata Card styling */
+    .audit-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .audit-meta-card {
+      background: #fff;
+      border: 1px solid #E2E0DC;
+      border-radius: 8px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .audit-meta-card__label {
+      font-size: 9px;
+      font-weight: 700;
+      color: #8C8985;
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+
+    /* Section Headings */
+    .audit-section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: #1A1917;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 16px 0 10px 0;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #E2E0DC;
+    }
+
+    /* Ledger Styling */
+    .audit-ledger-container {
+      background: #fff;
+      border: 1px solid #E2E0DC;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .audit-ledger-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid #E2E0DC;
+    }
+    .audit-ledger-col {
+      padding: 14px 16px;
+    }
+    .audit-ledger-col:first-child {
+      border-right: 1px solid #E2E0DC;
+    }
+    .audit-ledger-col__title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      color: #8C8985;
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
+    }
+    .audit-ledger-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #4B4743;
+      margin-bottom: 6px;
+    }
+    .audit-ledger-row.total {
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px dashed #E2E0DC;
+      font-weight: 700;
+      color: #1A1917;
+      font-size: 12.5px;
+    }
+    .audit-ledger-consolidated {
+      background: #FAFAF9;
+      padding: 12px 16px;
+    }
+
+    /* Timeline styling */
+    .audit-timeline-container {
+      position: relative;
+      padding-left: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 16px;
+    }
+    .audit-timeline-line {
+      position: absolute;
+      left: 9px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: #E2E0DC;
+    }
+    .audit-timeline-item {
+      position: relative;
+    }
+    .audit-timeline-dot {
+      position: absolute;
+      left: -24px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #fff;
+      border: 3px solid #CBD5E1;
+      z-index: 2;
+      transition: all 0.25s ease;
+    }
+    .audit-timeline-dot.done {
+      border-color: #10B981;
+      background: #10B981;
+    }
+    .audit-timeline-dot.active {
+      border-color: #F59E0B;
+      background: #fff;
+      box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.2);
+    }
+    .audit-timeline-dot.pending {
+      border-color: #CBD5E1;
+      background: #fff;
+    }
+    .audit-timeline-item__content {
+      background: #fff;
+      border: 1px solid #E2E0DC;
+      border-radius: 8px;
+      padding: 12px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .audit-timeline-item__header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #1A1917;
+    }
+    .audit-timeline-date {
+      font-family: 'Space Mono', monospace;
+      font-size: 10.5px;
+      color: #8C8985;
+    }
+    .audit-timeline-badges {
+      display: flex;
+      gap: 4px;
+    }
+    .badge {
+      font-size: 8.5px;
+      font-weight: 700;
+      font-family: 'Space Mono', monospace;
+      padding: 1px 5px;
+      border-radius: 4px;
+    }
+    .badge--ppw { background: #EFF6FF; color: #2563eb; }
+    .badge--slack { background: #FAF5FF; color: #8B5CF6; }
+    .badge--quo { background: #FEF3C7; color: #D97706; }
+    .badge--sms { background: #F3F4F6; color: #4B4743; }
+    .badge--qc { background: #ECFDF5; color: #059669; }
+    .badge--gmail { background: #FEF2F2; color: #DC2626; }
+    .badge--bank { background: #ECFDF5; color: #047857; }
+
+    .audit-timeline-desc {
+      font-size: 11px;
+      color: #4B4743;
+      line-height: 1.45;
+    }
+    .alert {
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+    }
+    .alert--warning { background: #FEF3C7; color: #92400E; border: 1px solid #FCD34D; }
+    .alert--danger { background: #FEE2E2; color: #991B1B; border: 1px solid #FCA5A5; }
+    .alert--success { background: #D1FAE5; color: #065F46; border: 1px solid #6EE7B7; }
+  </style>
+
   <!-- Top channel tabs -->
   <div class="channel-tabs" id="comm-channel-tabs">
     <div class="channel-tab active" data-channel="all">All Channels</div>
@@ -63,6 +275,25 @@
   <script>
     (function () {
       'use strict';
+
+      window.switchDetailTab = function (tabName) {
+        var auditTab = document.getElementById('tab-audit-hub');
+        var chatTab = document.getElementById('tab-live-chat');
+        var auditPanel = document.getElementById('detail-panel-audit');
+        var chatPanel = document.getElementById('detail-panel-chat');
+        
+        if (tabName === 'audit-hub') {
+          if (auditTab) auditTab.classList.add('active');
+          if (chatTab) chatTab.classList.remove('active');
+          if (auditPanel) auditPanel.style.display = 'flex';
+          if (chatPanel) chatPanel.style.display = 'none';
+        } else {
+          if (auditTab) auditTab.classList.remove('active');
+          if (chatTab) chatTab.classList.add('active');
+          if (auditPanel) auditPanel.style.display = 'none';
+          if (chatPanel) chatPanel.style.display = 'flex';
+        }
+      };
 
       var currentChannel = 'all';
       var currentPriority = 'all';
@@ -245,6 +476,20 @@
         // Get WO details
         var matchingWO = data.work_orders.find(function (w) { return w.wo_number === activeThread.wo_number; }) || {};
 
+        // Find matching contractor details
+        var contractorDetails = data.contractors.find(function (c) { 
+          return c.name === activeThread.contractor; 
+        }) || {};
+
+        // Find matching client details
+        var clientDetails = data.clients.find(function (c) { 
+          return c.client_name === matchingWO.client; 
+        }) || {};
+
+        // Find matching financial record
+        var fin = data.financial_records.find(function (f) { return f.wo_number === activeThread.wo_number; }) || {};
+        var realMarginVal = (fin.received_amount || 0) - (fin.paid_to_contractor || 0);
+
         // Generate dynamic AI Summary & Action Items
         var aiSummary = generateAISummary(activeThread, matchingWO);
 
@@ -264,14 +509,22 @@
         // Render messages
         var messageFeedHtml = '';
         activeThread.messages.forEach(function (m) {
-          var bubbleType = m.direction === 'Inbound' ? 'message-bubble--inbound' : 'message-bubble--outbound';
-          var channelLabel = m.channel === 'Email' ? 'Email' : 'SMS';
+          var bubbleType = 'message-bubble--outbound';
+          if (m.direction === 'Inbound') bubbleType = 'message-bubble--inbound';
+          if (m.direction === 'Internal') bubbleType = 'message-bubble--internal';
+
+          var channelLabel = m.channel; // 'Email', 'SMS', or 'Slack'
           var sentimentIcon = m.sentiment === 'Positive' ? '<span style="color:#1A6B3C;">●</span>' : (m.sentiment === 'Concerned' ? '<span style="color:#DC2626;">●</span>' : '<span style="color:#8C8985;">●</span>');
           var replyBadge = (m.needs_reply && m.direction === 'Inbound') ? '<span class="pill pill--red" style="font-size:9px; padding:1px 5px; margin-left:6px;">Needs Reply</span>' : '';
 
-          var headerMeta = m.channel === 'Email' 
-            ? `<strong>Subject: ${m.subject || 'No Subject'}</strong><br/>From: ${m.from_address} &rarr; To: ${m.to_address}`
-            : `SMS Log — ${m.direction === 'Inbound' ? 'From Contractor' : 'From Office'}`;
+          var headerMeta = '';
+          if (m.channel === 'Email') {
+            headerMeta = `<strong>Subject: ${m.subject || 'No Subject'}</strong><br/>From: ${m.from_address} &rarr; To: ${m.to_address}`;
+          } else if (m.channel === 'Slack') {
+            headerMeta = `<strong># Slack Internal</strong><br/>From: ${m.from_address} &rarr; ${m.to_address}`;
+          } else {
+            headerMeta = `SMS Log — ${m.direction === 'Inbound' ? 'From Contractor' : 'From Office'}`;
+          }
 
           messageFeedHtml += `
             <div class="message-bubble ${bubbleType}">
@@ -303,9 +556,246 @@
               </div>
             </div>
 
-            <!-- Messages List -->
-            <div style="display:flex; flex-direction:column; gap:16px; margin-top:10px;">
-              <div style="font-family:'Space Grotesk',sans-serif; font-size:12px; font-weight:600; color:var(--os-text-secondary); text-transform:uppercase; letter-spacing:0.04em;">Message Log</div>
+            <!-- Detail Tabs Toggle -->
+            <div class="detail-tabs">
+              <div class="detail-tab active" id="tab-audit-hub" onclick="window.switchDetailTab('audit-hub')">Audit Hub & Lifecycle</div>
+              <div class="detail-tab" id="tab-live-chat" onclick="window.switchDetailTab('live-chat')">Live Chat Logs (${activeThread.messages.length})</div>
+            </div>
+
+            <!-- Panel 1: Audit Hub -->
+            <div id="detail-panel-audit" style="display: flex; flex-direction: column; gap: 10px;">
+              <!-- Property & Partner Metadata Grid -->
+              <div class="audit-meta-grid">
+                <!-- Property Address -->
+                <div class="audit-meta-card">
+                  <div class="audit-meta-card__label">PROPERTY SITE</div>
+                  <div class="audit-meta-card__value" style="font-size:11.5px; font-weight:600; color:#1A1917; line-height:1.35;">
+                    📍 ${matchingWO.address || 'N/A'}<br/>
+                    ${matchingWO.city || ''}, ${matchingWO.state || ''} ${matchingWO.zip || ''}
+                  </div>
+                  <div class="audit-meta-card__sub" style="margin-top: 4px;">
+                    <a href="https://maps.google.com/?q=${encodeURIComponent((matchingWO.address || '') + ', ' + (matchingWO.city || '') + ', ' + (matchingWO.state || '') + ' ' + (matchingWO.zip || ''))}" target="_blank" style="color: #2563eb; text-decoration: none; font-size:10px; font-weight:600;">View Map →</a>
+                  </div>
+                </div>
+                
+                <!-- Client Profile -->
+                <div class="audit-meta-card">
+                  <div class="audit-meta-card__label">CLIENT PARTNER</div>
+                  <div class="audit-meta-card__value" style="font-size:13px; font-weight:700; color: #1a1917;">
+                    ${matchingWO.client || 'Unknown'}
+                  </div>
+                  <div style="display:flex; flex-wrap:wrap; gap:4px; margin-top:4px; font-size:9.5px;">
+                    <span style="background: #F3F4F6; padding: 2px 4px; border-radius: 4px;">SLA: ${clientDetails.sla_days || 5}d</span>
+                    <span style="background: #F3F4F6; padding: 2px 4px; border-radius: 4px;">Terms: ${clientDetails.payment_terms || 'Net-30'}</span>
+                    <span style="background: ${clientDetails.account_health === 'Green' ? '#D1FAE5; color: #065F46' : (clientDetails.account_health === 'Yellow' ? '#FEF3C7; color: #92400E' : '#FEE2E2; color: #991B1B')}; padding: 2px 4px; border-radius: 4px; font-weight:600;">Health: ${clientDetails.account_health || 'N/A'}</span>
+                  </div>
+                </div>
+
+                <!-- Contractor Profile -->
+                <div class="audit-meta-card">
+                  <div class="audit-meta-card__label">ASSIGNED CONTRACTOR</div>
+                  <div class="audit-meta-card__value" style="font-size:13px; font-weight:700; color: #1a1917;">
+                    ${activeThread.contractor}
+                  </div>
+                  <div style="font-size:10.5px; color:#4B4743; margin-top:2px;">Phone: <strong>${contractorDetails.phone ? '+' + contractorDetails.phone : 'N/A'}</strong></div>
+                  <div style="display:flex; gap:4px; margin-top:4px; font-size:9.5px;">
+                    <span style="background: #EFF6FF; color: #1e40af; padding: 2px 4px; border-radius: 4px; font-weight:600;">Tier ${contractorDetails.tier || 'N/A'}</span>
+                    <span style="background: #FAF5FF; color: #6b21a8; padding: 2px 4px; border-radius: 4px; font-weight:600;">Score: ${contractorDetails.score_composite || 'N/A'}%</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Detailed Financial Ledger -->
+              <div class="audit-section-title">Property Ledger & Financial Audit</div>
+              <div class="audit-ledger-container">
+                <div class="audit-ledger-grid">
+                  <!-- Client Side -->
+                  <div class="audit-ledger-col">
+                    <div class="audit-ledger-col__title">CLIENT ACCOUNTING</div>
+                    <div class="audit-ledger-row">
+                      <span>Invoiced Amount</span>
+                      <strong style="font-family: monospace;">$${fin.invoice_amount ? fin.invoice_amount.toFixed(2) : '0.00'}</strong>
+                    </div>
+                    <div class="audit-ledger-row">
+                      <span>Client Deductions</span>
+                      <span style="color: ${fin.client_leakage > 0 ? '#DC2626' : '#8c8985'}; font-family: monospace;">-$${fin.client_leakage ? fin.client_leakage.toFixed(2) : '0.00'}</span>
+                    </div>
+                    <div class="audit-ledger-row total">
+                      <span>Total Collected</span>
+                      <strong style="font-family: monospace; color: #166534;">$${fin.received_amount ? fin.received_amount.toFixed(2) : '0.00'}</strong>
+                    </div>
+                  </div>
+                  
+                  <!-- Contractor Side -->
+                  <div class="audit-ledger-col">
+                    <div class="audit-ledger-col__title">CONTRACTOR PAYMENTS</div>
+                    <div class="audit-ledger-row">
+                      <span>Base Expected Pay</span>
+                      <strong style="font-family: monospace;">$${fin.expected_contractor ? fin.expected_contractor.toFixed(2) : '0.00'}</strong>
+                    </div>
+                    <div class="audit-ledger-row">
+                      <span>Approved Markups</span>
+                      <span style="color: ${fin.vendor_leakage > 0 ? '#1e3a8a' : '#8c8985'}; font-family: monospace;">+$${fin.vendor_leakage ? fin.vendor_leakage.toFixed(2) : '0.00'}</span>
+                    </div>
+                    <div class="audit-ledger-row total">
+                      <span>Total Vendor Payout</span>
+                      <strong style="font-family: monospace; color: #2563eb;">$${fin.paid_to_contractor ? fin.paid_to_contractor.toFixed(2) : '0.00'}</strong>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Consolidated Ledger Row -->
+                <div class="audit-ledger-consolidated">
+                  <div style="display:flex; justify-content:space-between; align-items:center; width:100%;">
+                    <div>
+                      <div style="font-size:9px; color:#8C8985; font-weight:600;">REALIZED MARGIN</div>
+                      <strong style="font-size:15px; color: ${realMarginVal < 0 ? '#DC2626' : '#166534'}; font-family: monospace;">
+                        $${realMarginVal.toFixed(2)} (${((realMarginVal / (fin.invoice_amount || 1)) * 100).toFixed(1)}%)
+                      </strong>
+                    </div>
+                    <div style="text-align:right;">
+                      <div style="font-size:9px; color:#8C8985; font-weight:600;">OUTSTANDING (A/R)</div>
+                      <strong style="font-size:15px; color: ${(fin.invoice_amount - fin.received_amount) > 0 ? '#D97706' : '#8C8985'}; font-family: monospace;">
+                        $${(fin.invoice_amount - fin.received_amount).toFixed(2)}
+                      </strong>
+                    </div>
+                    <div style="text-align:right;">
+                      <div style="font-size:9px; color:#8C8985; font-weight:600;">TOTAL LEAKAGE</div>
+                      <strong style="font-size:15px; color: ${fin.total_leakage > 0 ? '#DC2626' : '#8c8985'}; font-family: monospace;">
+                        $${fin.total_leakage ? fin.total_leakage.toFixed(2) : '0.00'}
+                      </strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Integrated Lifecycle Timeline -->
+              <div class="audit-section-title">Combined Lifecycle Timeline (Assign to End)</div>
+              <div class="audit-timeline-container">
+                <div class="audit-timeline-line"></div>
+                
+                <!-- Step 1: Dispatch -->
+                <div class="audit-timeline-item">
+                  <div class="audit-timeline-dot done"></div>
+                  <div class="audit-timeline-item__content">
+                    <div class="audit-timeline-item__header">
+                      <strong style="color:#1A1917;">1. Work Order Dispatched & SLA Init</strong>
+                      <span class="audit-timeline-date">${matchingWO.assigned_date || 'N/A'}</span>
+                    </div>
+                    <div class="audit-timeline-badges">
+                      <span class="badge badge--ppw">PPW</span>
+                      <span class="badge badge--slack">SLACK</span>
+                    </div>
+                    <div class="audit-timeline-desc">
+                      Work order assigned to <strong>${activeThread.contractor}</strong>.
+                      Auto-notification alert broadcast to Slack channel <code>#dispatch-alerts</code>.
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Step 2: Pricing -->
+                <div class="audit-timeline-item">
+                  <div class="audit-timeline-dot done"></div>
+                  <div class="audit-timeline-item__content">
+                    <div class="audit-timeline-item__header">
+                      <strong style="color:#1A1917;">2. Pricing Verification & Bid Lock</strong>
+                      <span class="audit-timeline-date">${matchingWO.assigned_date || 'N/A'}</span>
+                    </div>
+                    <div class="audit-timeline-badges">
+                      <span class="badge badge--quo">QUO</span>
+                      <span class="badge badge--sms">SMS</span>
+                    </div>
+                    <div class="audit-timeline-desc">
+                      Base expected contractor pay set at <strong>$${fin.expected_contractor ? fin.expected_contractor.toFixed(2) : '0.00'}</strong>.
+                      ${fin.vendor_leakage > 0 ? `
+                        <div class="alert alert--warning" style="margin-top: 4px;">
+                          <strong>Markup Request Approved:</strong> $${fin.vendor_leakage.toFixed(2)} requested for additional out-of-scope yard work via SMS.
+                        </div>
+                      ` : 'Allowable pricing validated. Bid locked.'}
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Step 3: Execution -->
+                <div class="audit-timeline-item">
+                  <div class="audit-timeline-dot ${matchingWO.completion_date ? 'done' : 'active'}"></div>
+                  <div class="audit-timeline-item__content">
+                    <div class="audit-timeline-item__header">
+                      <strong style="color:#1A1917;">3. Work Execution & Photo QC Gate</strong>
+                      <span class="audit-timeline-date">${matchingWO.completion_date || 'In Progress'}</span>
+                    </div>
+                    <div class="audit-timeline-badges">
+                      <span class="badge badge--ppw">PPW</span>
+                      <span class="badge badge--qc">PHOTO QC</span>
+                    </div>
+                    <div class="audit-timeline-desc">
+                      ${matchingWO.completion_date ? `
+                        Work completed on-site. Photo evidence package uploaded and compiled in PPW.
+                        <div class="alert alert--${matchingWO.risk_score > 30 ? 'danger' : 'success'}" style="margin-top: 4px;">
+                          <strong>First-Pass QC Compliance:</strong> ${matchingWO.risk_score > 30 ? `FAILED (Risk Score: ${matchingWO.risk_score}) — Blurry street view and lockbox photos flagged.` : 'PASSED — Photos verify compliant work completion.'}
+                        </div>
+                      ` : 'Awaiting contractor completion upload. Dispatch SLA countdown active.'}
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Step 4: Invoicing -->
+                <div class="audit-timeline-item">
+                  <div class="audit-timeline-dot ${fin.invoice_date ? 'done' : 'pending'}"></div>
+                  <div class="audit-timeline-item__content">
+                    <div class="audit-timeline-item__header">
+                      <strong style="color:#1A1917;">4. Client Invoicing & Billing Loop</strong>
+                      <span class="audit-timeline-date">${fin.invoice_date || 'Awaiting Invoice'}</span>
+                    </div>
+                    <div class="audit-timeline-badges">
+                      <span class="badge badge--ppw">PPW</span>
+                      <span class="badge badge--gmail">GMAIL</span>
+                    </div>
+                    <div class="audit-timeline-desc">
+                      ${fin.invoice_date ? `
+                        Invoiced client <strong>${matchingWO.client}</strong> for <strong>$${fin.invoice_amount ? fin.invoice_amount.toFixed(2) : '0.00'}</strong> under payment terms <strong>${clientDetails.payment_terms || 'Net-30'}</strong>.
+                        Invoice generated and billing confirmation copy transmitted via Gmail to client desk.
+                      ` : 'Pending completion approval before generating invoice.'}
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Step 5: Settlement -->
+                <div class="audit-timeline-item">
+                  <div class="audit-timeline-dot ${fin.received_date ? 'done' : 'pending'}"></div>
+                  <div class="audit-timeline-item__content">
+                    <div class="audit-timeline-item__header">
+                      <strong style="color:#1A1917;">5. Settlement & Margin Realization</strong>
+                      <span class="audit-timeline-date">${fin.received_date || 'Pending Cash Receipt'}</span>
+                    </div>
+                    <div class="audit-timeline-badges">
+                      <span class="badge badge--gmail">GMAIL</span>
+                      <span class="badge badge--bank">BANK</span>
+                    </div>
+                    <div class="audit-timeline-desc">
+                      ${fin.received_date ? `
+                        Cash settlement confirmed. Total payment of <strong>$${fin.received_amount ? fin.received_amount.toFixed(2) : '0.00'}</strong> collected.
+                        Collections duration: <strong>${Math.round((new Date(fin.received_date) - new Date(fin.invoice_date)) / 86400000)} days</strong> (Client average is ${clientDetails.payment_days_avg || 30} days).
+                        ${fin.client_leakage > 0 ? `
+                          <div class="alert alert--danger" style="margin-top: 4px;">
+                            <strong>Deduction Notice:</strong> Client applied -$${fin.client_leakage.toFixed(2)} penalty details via Gmail due to photo QC gate fail.
+                          </div>
+                        ` : 'Margin fully realized without client deductions.'}
+                      ` : `
+                        Awaiting client cash settlement.
+                        ${fin.invoice_date ? `
+                          Outstanding balance: <strong>$${(fin.invoice_amount - fin.received_amount).toFixed(2)}</strong>.
+                          Aging duration: <strong>${Math.round((new Date() - new Date(fin.invoice_date)) / 86400000)} days in accounts receivable</strong>.
+                        ` : ''}
+                      `}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel 2: Live Chat Message Feed (Hidden by default) -->
+            <div id="detail-panel-chat" style="display: none; flex-direction: column; gap: 16px;">
               ${messageFeedHtml}
             </div>
           </div>
