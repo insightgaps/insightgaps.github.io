@@ -11,6 +11,7 @@
     zip:            { title: 'ZIP Intelligence',  file: 'views/zip.html' },
     photoqc:        { title: 'Photo QC',          file: 'views/photoqc.html' },
     bidgenerator:   { title: 'Bid Generator',     file: 'views/bidgenerator.html' },
+    consulting:     { title: 'Consulting Mode',   file: 'views/consulting.html' },
   };
 
   // Global filter state
@@ -19,6 +20,11 @@
   // View loader
   function loadView(viewKey) {
     var container = document.getElementById('view-container');
+    if (!VIEWS[viewKey]) {
+      console.error('Invalid view key: ' + viewKey);
+      container.innerHTML = '<div style="padding:40px;text-align:center;color:#DC2626;font-family:Space Mono,monospace;font-size:12px;">View configuration not found. Please clear cache and reload.</div>';
+      return;
+    }
     container.innerHTML = '<div style="padding:40px;text-align:center;color:#8C8985;font-family:Space Mono,monospace;font-size:12px;">Loading...</div>';
     
     fetch(VIEWS[viewKey].file + '?t=' + Date.now())
@@ -56,6 +62,10 @@
     item.addEventListener('click', function (e) {
       e.preventDefault();
       var viewKey = this.dataset.view;
+      if (!VIEWS[viewKey]) {
+        console.error('Invalid view key clicked: ' + viewKey);
+        return;
+      }
       loadView(viewKey);
       document.querySelectorAll('.os-nav__item').forEach(function (i) { i.classList.remove('active'); });
       this.classList.add('active');
