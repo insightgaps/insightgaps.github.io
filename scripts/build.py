@@ -237,21 +237,36 @@ def render_template_pages(env, site, pages_meta, investigations, domains, correc
         meta(pages_meta["home"], og_type="website",
              featured=featured, investigations=investigations,
              latest_investigations=latest, total_sources=total_sources,
-             domains=analysis_domains, active_nav=""),
+             domains=analysis_domains, active_nav="",
+             stats_notes=site.get("stats_notes", {})),
     )
 
-    # Listings
+    # Investigations index: cards + anchored findings + evidence panels per work
     inv_idx = pages_meta["investigations-index"]
+    m = env.get_template("macros.html").module
+    inv_sections = []
+    for i in published_sorted:
+        subpages = i.get("subpages") or {}
+        inv_sections.append(
+            f'<article class="index-work" id="work-{i["slug"]}">'
+            f'<h2 class="index-work__title"><a href="{i["url"]}">{i["title"]}</a></h2>'
+            f'<p class="index-work__dek">{i.get("dek") or ""}</p>'
+            + (f'<nav class="index-work__subpages" aria-label="Subpages">' + "".join(
+                f'<a href="{u}">{k}</a>' for k, u in subpages.items()) + "</nav>" if subpages else "")
+            + m.findings_list(i)
+            + m.evidence_panel(i)
+            + "</article>"
+        )
     inv_markup = (
         f'<div class="index-header"><h1 class="index-title">Investigations</h1></div>'
         f'<div class="card-grid--two">'
-        + "".join(
-            env.get_template("macros.html").module.inv_card(i) for i in published_sorted
-        )
+        + "".join(m.inv_card(i) for i in published_sorted)
         + "</div>"
+        + "".join(inv_sections)
     )
     out["investigations/index.html"] = env.get_template("listing.html").render(
         meta(inv_idx, section_markup=inv_markup, active_nav="/investigations/"))
+
 
     ana_idx = pages_meta["analysis-index"]
     ana_markup = (
@@ -312,9 +327,11 @@ def render_template_pages(env, site, pages_meta, investigations, domains, correc
     # Slum-fires (template page with extracted body)
     sf = pages_meta["slum-fires"]
     sf_body = (ROOT / "content" / "pages" / "slum-fires.body.html").read_text(encoding="utf-8")
+    sf_inv = next((i for i in investigations if i["slug"] == "dhaka-slum-fires"), {})
     out["investigations/dhaka-slum-fires/index.html"] = env.get_template("standard.html").render(
         meta(sf, body=sf_body, active_nav="/investigations/",
-             og_type="article"))
+             og_type="article",
+             head_extra=Markup('<script type="application/ld+json">' + article_jsonld(site, sf_inv) + "</script>")))
 
     return out
 
@@ -513,6 +530,22 @@ def org_jsonld(site) -> str:
     return json.dumps(data, ensure_ascii=False)
 
 
+def article_jsonld(site, inv) -> str:
+    data = {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": inv["title"],
+        "description": inv.get("dek") or inv.get("summary") or "",
+        "datePublished": inv.get("date_published"),
+        "author": {"@type": "Organization", "name": site["organization"], "url": site["canonical_base"] + "/"},
+        "publisher": {"@type": "Organization", "name": site["organization"], "url": site["canonical_base"] + "/"},
+        "mainEntityOfPage": site["canonical_base"] + inv["url"],
+    }
+    if inv.get("og_image_path"):
+        data["image"] = absolute(site["canonical_base"], inv["og_image_path"])
+    return json.dumps(data, ensure_ascii=False)
+
+
 def website_jsonld(site) -> str:
     data = {
         "@context": "https://schema.org",
@@ -573,6 +606,28 @@ def main() -> int:
         dst.write_text(html, encoding="utf-8")
 
     n_standalone = emit_standalone(site, warnings)
+
+    # NewsArticle JSON-LD injected into each investigation's report routes at
+    # the </title> boundary (surgical; legacy JSON-LD untouched). Covers the
+    # main report route plus declared subpages (methodology/tracker/detailed).
+    n_injected = 0
+    for inv in investigations:
+        if inv.get("status") not in ("published", "corrected"):
+            continue
+        routes = [inv["url"]] + list((inv.get("subpages") or {}).values())
+        for route in routes:
+            route_file = route.lstrip("/") + "index.html"
+            page_path = PUBLIC / route_file
+            if not page_path.exists():
+                continue
+            text = page_path.read_text(encoding="utf-8")
+            if "NewsArticle" in text:
+                continue  # already present (e.g., legacy markup) — never duplicate
+            block = '<script type="application/ld+json">' + article_jsonld(site, inv) + "</script>"
+            text = text.replace("</title>", "</title>\n  " + block, 1)
+            page_path.write_text(text, encoding="utf-8")
+            n_injected += 1
+    print(f"  NewsArticle JSON-LD injected on {n_injected} report pages")
 
     # Known-missing evidence downloads -> warnings (owner-held files)
     for missing in sorted(KNOWN_MISSING_DOWNLOADS):

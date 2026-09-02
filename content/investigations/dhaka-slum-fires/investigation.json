@@ -23,5 +23,9 @@
   "og_image_path": null,
   "og_image_note": "Dedicated infographic file absent from repository; bureau default OG image is used. Restore /assets/img/dhaka-slum-fires-infographic.png when the asset is recovered.",
   "related_items": ["BD-INV-001", "BD-INV-002"],
-  "rtl_status": null
+  "rtl_status": null,
+  "evidence_refs": [
+    { "path": "/data/slum_fires_data.json", "title": "Baseline site data (4 sites, fire history)", "status": "available", "note": "Powers the report's typed figures (appreciation, distances, density)." },
+    { "path": null, "title": "Underlying source documents (census logs, cadastral records, writ judgment, FSCD/BDRCS reports, sales records)", "status": "not-in-repository", "note": "Named in the claim ledger; no source artifacts are archived in any bureau repository. See the verification drawer on the report page." }
+  ]
 }
