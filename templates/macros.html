@@ -35,6 +35,24 @@
 </ol>
 {%- endmacro %}
 
+{% macro index_work(inv) -%}
+{#- Per-work section on the investigations index: title, dek, subpage nav,
+    anchored key findings, evidence-status panel. All from the manifest. -#}
+<article class="index-work" id="work-{{ inv.slug }}">
+  <h2 class="index-work__title"><a href="{{ inv.url }}">{{ inv.title }}</a></h2>
+  <p class="index-work__dek">{{ inv.dek or inv.summary }}</p>
+  {% if inv.subpages %}
+  <nav class="index-work__subpages" aria-label="Subpages">
+    {% for name, url in inv.subpages.items() %}
+    <a href="{{ url }}">{{ name }}</a>
+    {% endfor %}
+  </nav>
+  {% endif %}
+  {{ findings_list(inv) }}
+  {{ evidence_panel(inv) }}
+</article>
+{%- endmacro %}
+
 {% macro evidence_panel(inv) -%}
 {#- Evidence/status panel rendered from manifest evidence_refs (Phase 3).
     Statuses: available | private-held | not-in-repository. Data, not prose. -#}

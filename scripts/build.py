@@ -244,25 +244,13 @@ def render_template_pages(env, site, pages_meta, investigations, domains, correc
     # Investigations index: cards + anchored findings + evidence panels per work
     inv_idx = pages_meta["investigations-index"]
     m = env.get_template("macros.html").module
-    inv_sections = []
-    for i in published_sorted:
-        subpages = i.get("subpages") or {}
-        inv_sections.append(
-            f'<article class="index-work" id="work-{i["slug"]}">'
-            f'<h2 class="index-work__title"><a href="{i["url"]}">{i["title"]}</a></h2>'
-            f'<p class="index-work__dek">{i.get("dek") or ""}</p>'
-            + (f'<nav class="index-work__subpages" aria-label="Subpages">' + "".join(
-                f'<a href="{u}">{k}</a>' for k, u in subpages.items()) + "</nav>" if subpages else "")
-            + m.findings_list(i)
-            + m.evidence_panel(i)
-            + "</article>"
-        )
+    inv_sections = "".join(m.index_work(i) for i in published_sorted)
     inv_markup = (
-        f'<div class="index-header"><h1 class="index-title">Investigations</h1></div>'
-        f'<div class="card-grid--two">'
+        '<div class="index-header"><h1 class="index-title">Investigations</h1></div>'
+        '<div class="card-grid--two">'
         + "".join(m.inv_card(i) for i in published_sorted)
         + "</div>"
-        + "".join(inv_sections)
+        + str(inv_sections)
     )
     out["investigations/index.html"] = env.get_template("listing.html").render(
         meta(inv_idx, section_markup=inv_markup, active_nav="/investigations/"))
