@@ -1,0 +1,24 @@
+# Canonical redirect map — single source of truth.
+# Generated into public/_redirects (Cloudflare Pages format).
+# Host-level redirect (insightgaps.com -> www.insightgaps.com) is a Cloudflare
+# zone rule; see docs/runbook.md.
+
+[redirects]
+# Legacy root pages
+"/about.html"                = "/about/"
+"/archive.html"              = "/archive/"
+"/contact.html"              = "/contact/"
+
+# Legacy content tree
+"/content/investigations/"                     = "/investigations/"
+"/content/investigations/*"                    = "/investigations/:splat"
+"/content/trust/methodology.html"              = "/trust/methodology/"
+"/content/trust/ai-use.html"                   = "/trust/ai-use/"
+"/content/trust/corrections.html"              = "/trust/corrections/"
+
+# Legacy investigation path
+"/investigations/national/blood-routes/"       = "/investigations/blood-routes/"
+"/investigations/national/blood-routes/*"      = "/investigations/blood-routes/:splat"
+
+# Data repository page (JSON data files intentionally stay at /data/)
+"/data/"                                       = "/evidence/"

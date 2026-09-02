@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% from "macros.html" import status_badge, fmt_date, inv_card, analysis_card, corrections_metric %}
+
+{% block content %}
+
+    <!-- HERO: bureau mandate + featured investigation (pre-rendered at build) -->
+    <section class="home__hero" aria-label="Bureau introduction">
+      <div class="home__hero-inner">
+
+        <div class="home__hero-content">
+
+          <h1 class="home__mandate">
+            Independent forensic data journalism from Dhaka.
+          </h1>
+
+          <span class="home__featured-pre">Latest investigation</span>
+
+          <div id="featured-investigation">
+            <div class="home__featured-meta">{{ status_badge(featured.status) }}
+              <time class="home__featured-date" datetime="{{ featured.date_published }}">{{ fmt_date(featured.date_published) }}</time></div>
+            <h2 class="home__featured-title">{{ featured.title }}</h2>
+            <p class="home__featured-dek">{{ featured.dek or featured.summary }}</p>
+            <a class="home__featured-link" href="{{ featured.url }}">Read investigation &rarr;</a>
+          </div>
+
+        </div>
+
+        {% if featured.og_image_path %}
+        <div class="home__hero-image">
+          <img src="{{ featured.og_image_path }}" alt="Visual summary of {{ featured.title }}">
+        </div>
+        {% endif %}
+
+      </div>
+    </section>
+
+    <!-- METRICS (pre-rendered from manifests) -->
+    <div class="home__metrics-wrap">
+      <div class="metrics-block" aria-label="Bureau statistics">
+
+        <div class="metrics-block__item">
+          <span class="metrics-block__number" aria-label="Total investigations">{{ investigations|length }}</span>
+          <span class="metrics-block__label">Total Investigations</span>
+        </div>
+
+        <div class="metrics-block__item">
+          <span class="metrics-block__number" aria-label="Total primary sources">{{ total_sources }}</span>
+          <span class="metrics-block__label">Total Primary Sources</span>
+        </div>
+
+        {{ corrections_metric() }}
+
+      </div>
+    </div>
+
+    <!-- LATEST INVESTIGATIONS (pre-rendered; newest three) -->
+    <section class="home__investigations" aria-labelledby="label-investigations">
+
+      <p class="section-label" id="label-investigations">Latest Investigations</p>
+
+      <div class="card-grid--three">
+        {% for inv in latest_investigations %}
+        {{ inv_card(inv) }}
+        {% endfor %}
+      </div>
+
+      <a href="/archive/" class="view-all-link">
+        View all investigations &rarr;
+      </a>
+
+    </section>
+
+    <!-- ANALYSIS DOMAINS (pre-rendered) -->
+    <section class="home__analysis" aria-labelledby="label-analysis">
+
+      <p class="section-label" id="label-analysis">Analysis Domains</p>
+
+      <div class="card-grid--two">
+        {% for domain in domains %}
+        {{ analysis_card(domain) }}
+        {% endfor %}
+      </div>
+
+      <a href="/analysis/" class="view-all-link">
+        View all analysis &rarr;
+      </a>
+
+    </section>
+
+    <!-- TRUST SURFACE STRIP -->
+    <div class="trust-strip" aria-label="Trust and transparency">
+      <div class="trust-strip__inner">
+
+        <div class="trust-strip__item">
+          <span class="trust-strip__label">Methodology</span>
+          <p class="trust-strip__desc">
+            Every investigation discloses its verification tier, data sources,
+            and analytical approach before publication.
+          </p>
+          <a href="/trust/methodology/" class="trust-strip__link">
+            Read our methodology &rarr;
+          </a>
+        </div>
+
+        <div class="trust-strip__item">
+          <span class="trust-strip__label">AI Use</span>
+          <p class="trust-strip__desc">
+            AI tools assist with research and production. All editorial decisions
+            and final verification remain human-owned.
+          </p>
+          <a href="/trust/ai-use/" class="trust-strip__link">
+            View AI disclosure &rarr;
+          </a>
+        </div>
+
+        <div class="trust-strip__item">
+          <span class="trust-strip__label">Corrections</span>
+          <p class="trust-strip__desc">
+            Errors are corrected promptly and logged permanently. The corrections
+            record is never edited or deleted.
+          </p>
+          <a href="/trust/corrections/" class="trust-strip__link">
+            View corrections log &rarr;
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+{% endblock %}

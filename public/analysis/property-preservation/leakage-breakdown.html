@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Leakage Breakdown · Structural Autopsy · EPCS Intelligence · Insight Gaps</title>
+  <meta name="description" content="Detailed margin leakage audit for Excellence Property Care Solutions Inc. (EPCS Intelligence, Project OPS-001) mapping contractor overruns, photo compliance, and billing friction.">
+
+  <meta property="og:type"        content="article">
+  <meta property="og:title"       content="Leakage Breakdown · Structural Autopsy · EPCS Intelligence · Insight Gaps">
+  <meta property="og:description" content="Detailed margin leakage audit for Excellence Property Care Solutions Inc. (EPCS Intelligence, Project OPS-001) mapping contractor overruns, photo compliance, and billing friction.">
+  <meta property="og:url"         content="https://www.insightgaps.com/analysis/property-preservation/leakage-breakdown.html">
+  <meta property="og:image"       content="https://www.insightgaps.com/assets/img/og-default.jpg">
+
+  <link rel="canonical" href="https://www.insightgaps.com/analysis/property-preservation/leakage-breakdown.html">
+  <meta name="robots" content="index, follow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/analysis-report.css">
+  <link rel="stylesheet" href="/assets/css/analysis-components.css">
+
+  <!-- Chart.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+  <!-- Theme handling -->
+  <script>
+    (function(){var t=localStorage.getItem('ig-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();
+  </script>
+</head>
+<body>
+
+  <!-- AI DISCLOSURE BAR -->
+  <div class="ai-disclosure-bar" role="note" aria-label="AI use disclosure">
+    <div class="ai-disclosure-bar__inner">
+      <p class="ai-disclosure-bar__text">
+        AI tools were used in producing this report.
+        <a href="/trust/ai-use/">View AI use disclosure &rarr;</a>
+      </p>
+    </div>
+  </div>
+
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <!-- GLOBAL HEADER -->
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+      <a href="/" class="site-header__logo" aria-label="Insight Gaps Bureau — Home">
+        Insight&nbsp;Gaps
+      </a>
+      <button class="site-header__toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="primary-nav" aria-label="Primary navigation">
+        <a href="/investigations/" class="site-nav__link">Investigations</a>
+        <a href="/analysis/"               class="site-nav__link site-nav__link--active" aria-current="page">Analysis</a>
+        <a href="/archive/"            class="site-nav__link">Archive</a>
+        <a href="/about/"              class="site-nav__link">About</a>
+        <a href="/trust/methodology/" class="site-nav__link">Trust</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN REPORT -->
+  <main id="main-content" class="analysis-report">
+
+    <!-- 1. HERO -->
+    <div class="analysis-report__header">
+      <div class="analysis-report__header-inner">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/analysis/">Analysis</a>
+          <span class="breadcrumb__sep" aria-hidden="true">&rsaquo;</span>
+          <a href="/analysis/property-preservation/index.html">EPCS Intelligence</a>
+          <span class="breadcrumb__sep" aria-hidden="true">&rsaquo;</span>
+          <span>Leakage Breakdown</span>
+        </nav>
+
+        <span class="analysis-report__tag">Margin Erosion</span>
+        <h1 class="analysis-report__title">Leakage Breakdown:<br>Structural Autopsy</h1>
+        
+        <div class="analysis-report__meta">
+          <time class="analysis-report__date">1 January 2026</time>
+          <span class="confidence-badge">Confidence: High</span>
+        </div>
+
+        <div class="analysis-report__metadata-list">
+          <div class="analysis-report__metadata-item">Total Leakage: <span>$7,563</span></div>
+          <div class="analysis-report__metadata-item">Vendor-Caused: <span>$4,231</span></div>
+          <div class="analysis-report__metadata-item">Leakage WOs: <span>141</span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Sticky Local Navigation -->
+    <div class="sticky-subnav-wrapper">
+      <div class="sticky-subnav-inner">
+        <nav class="rsn" aria-label="Report navigation">
+          <a href="financial-health.html" class="snl">Financial Health</a>
+          <a href="leakage-breakdown.html" class="snl active" aria-current="page">Leakage Breakdown</a>
+          <a href="work-order-breakdown.html" class="snl">Work Order Breakdown</a>
+          <a href="sheet.html" class="snl">Workbook &amp; Dashboard</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- 2. REPORT BODY -->
+    <div class="analysis-report__body-wrap">
+
+      <!-- Section 1 — Executive Summary Box -->
+      <section class="analysis-summary-box" aria-label="Executive summary">
+        <span class="analysis-summary-box__label">Executive Summary</span>
+        <div class="analysis-summary-box__grid">
+          
+          <div class="analysis-summary-box__item">
+            <span class="analysis-summary-box__item-title">Question</span>
+            <p class="analysis-summary-box__item-content">
+              Where does operating margin disappear, and what causes the leakage in the work order cycle?
+            </p>
+          </div>
+
+          <div class="analysis-summary-box__item">
+            <span class="analysis-summary-box__item-title">Finding</span>
+            <p class="analysis-summary-box__item-content">
+              Vendor-caused overruns dominate all other categories, accounting for 43.6% ($3.3K) of total leakage, driven by billing discrepancies and contractor-side pricing friction.
+            </p>
+          </div>
+
+          <div class="analysis-summary-box__item">
+            <span class="analysis-summary-box__item-title">Impact</span>
+            <p class="analysis-summary-box__item-content">
+              A small cohort of contractors represents the majority of cost overrun exposure, which quietly drains 17.3% of the expected operating margin.
+            </p>
+          </div>
+
+          <div class="analysis-summary-box__item">
+            <span class="analysis-summary-box__item-title">Action</span>
+            <p class="analysis-summary-box__item-content">
+              Audit the high-loss Indianapolis IN market, place underperforming contractors on immediate review, and renegotiate terms with Midwest Builders.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Section 2 — Key Findings Framework -->
+      
+      <!-- Key Finding 1 -->
+      <section class="finding-block">
+        <div class="finding-block__header">
+          <span class="finding-block__number">Finding 01</span>
+          <h3 class="finding-block__headline">Vendor Failure Dominance: Contractor cost overruns are the primary source of profit erosion.</h3>
+        </div>
+        <div class="finding-block__layout">
+          <div class="finding-block__visual">
+            <div style="height:250px;"><canvas id="causePie"></canvas></div>
+          </div>
+          <div class="finding-block__analysis">
+            <div class="analysis-evidence-callout">
+              <span class="analysis-evidence-callout__label">Evidence</span>
+              <p class="analysis-evidence-callout__text">
+                Direct vendor overruns account for $3,301 (43.6%) of the total $7.6K leakage. In comparison, mixed leakage accounts for $2.0K (26.8%), documentation errors (insufficient photos) represent $1.9K (25.1%), and late submissions are minimal at $339 (4.5%).
+              </p>
+            </div>
+            <div class="analysis-implication-box">
+              <span class="analysis-implication-box__label">Operational Implication</span>
+              <p class="analysis-implication-box__text">
+                Profit loss is not primarily an administrative timing issue or a documentation issue. It is a direct vendor cost-containment failure, indicating that contract controls and estimate verification are weak.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Key Finding 2 -->
+      <section class="finding-block">
+        <div class="finding-block__header">
+          <span class="finding-block__number">Finding 02</span>
+          <h3 class="finding-block__headline">Client Concentration: MCS accounts for the vast majority of margin erosion.</h3>
+        </div>
+        <div class="finding-block__layout">
+          <div class="finding-block__visual">
+            <div style="height:250px;"><canvas id="clientLeakChart"></canvas></div>
+          </div>
+          <div class="finding-block__analysis">
+            <div class="analysis-evidence-callout">
+              <span class="analysis-evidence-callout__label">Evidence</span>
+              <p class="analysis-evidence-callout__text">
+                ServiceLink relationships generate the most leakage at $2.1K (28.1% of the platform total), followed by FiveBrothers at $1.9K (25.7%) and MCS at $1.4K (19.0%). These three relationships represent 72.8% of all leakage.
+              </p>
+            </div>
+            <div class="analysis-implication-box">
+              <span class="analysis-implication-box__label">Operational Implication</span>
+              <p class="analysis-implication-box__text">
+                High volumes with MCS and ServiceLink compound billing friction. Narrowing the collection validation pipeline and verifying estimates with MCS represents the single highest-value recovery lever.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Key Finding 3 -->
+      <section class="finding-block">
+        <div class="finding-block__header">
+          <span class="finding-block__number">Finding 03</span>
+          <h3 class="finding-block__headline">Contractor Risk: Disproportionately high leakage is concentrated in a tiny group of vendors.</h3>
+        </div>
+        <div class="finding-block__layout">
+          <div class="finding-block__visual">
+            <div class="dt-container">
+              <table class="dt-table">
+                <thead>
+                  <tr>
+                    <th>Contractor</th>
+                    <th class="num">WOs</th>
+                    <th class="num">Vendor Leak</th>
+                    <th class="num">Total Leak</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Lone Star Fix</td>
+                    <td class="num">35</td>
+                    <td class="num text-red">$683</td>
+                    <td class="num">$1,369</td>
+                    <td><span class="decision-pill decision-pill--stop">Immediate Review</span></td>
+                  </tr>
+                  <tr>
+                    <td>SecureOps LLC</td>
+                    <td class="num">51</td>
+                    <td class="num text-red">$926</td>
+                    <td class="num">$1,206</td>
+                    <td><span class="decision-pill decision-pill--stop">Immediate Review</span></td>
+                  </tr>
+                  <tr>
+                    <td>Apex Preservation</td>
+                    <td class="num">38</td>
+                    <td class="num text-red">$405</td>
+                    <td class="num">$1,127</td>
+                    <td><span class="decision-pill decision-pill--stop">Immediate Review</span></td>
+                  </tr>
+                  <tr>
+                    <td>Midwest Builders</td>
+                    <td class="num">50</td>
+                    <td class="num text-gold">$627</td>
+                    <td class="num">$1,073</td>
+                    <td><span class="decision-pill decision-pill--renegotiate">Renegotiate</span></td>
+                  </tr>
+                  <tr>
+                    <td>Elite Secure</td>
+                    <td class="num">27</td>
+                    <td class="num text-gold">$363</td>
+                    <td class="num">$811</td>
+                    <td><span class="decision-pill decision-pill--stop">Immediate Review</span></td>
+                  </tr>
+                  <tr>
+                    <td>Ohio Property</td>
+                    <td class="num">75</td>
+                    <td class="num text-gold">$564</td>
+                    <td class="num">$699</td>
+                    <td><span class="decision-pill decision-pill--renegotiate">Renegotiate</span></td>
+                  </tr>
+                  <tr>
+                    <td>GreenThumb Pros</td>
+                    <td class="num">32</td>
+                    <td class="num text-green">$62</td>
+                    <td class="num">$132</td>
+                    <td><span class="decision-pill decision-pill--scale">Preferred Vendor</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div style="height:140px; margin-top: var(--space-4);"><canvas id="vendorLeakChart"></canvas></div>
+          </div>
+          <div class="finding-block__analysis">
+            <div class="analysis-evidence-callout">
+              <span class="analysis-evidence-callout__label">Evidence</span>
+              <p class="analysis-evidence-callout__text">
+                SecureOps LLC, Lone Star Fix, and Ohio Property are responsible for the highest direct overruns ($926, $683, and $564). The work orders assigned to these three contractors carried $3.3K in total leakage downstream.
+              </p>
+            </div>
+            <div class="analysis-implication-box">
+              <span class="analysis-implication-box__label">Operational Implication</span>
+              <p class="analysis-implication-box__text">
+                Contractors with poor billing discipline also drive the highest rate of client-side validation failures due to incomplete photos or poor workmanship. They require immediate intervention.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Additional Dimension: Geography -->
+      <section class="finding-block">
+        <div class="finding-block__header">
+          <span class="finding-block__number">Additional Dimension</span>
+          <h3 class="finding-block__headline">Geography as Friction: Florida metro regions act as high-loss centers.</h3>
+        </div>
+        <div class="finding-block__layout">
+          <div class="finding-block__visual">
+            <div style="height:250px;"><canvas id="geoChart"></canvas></div>
+          </div>
+          <div class="finding-block__analysis">
+            <div class="analysis-evidence-callout">
+              <span class="analysis-evidence-callout__label">Evidence</span>
+              <p class="analysis-evidence-callout__text">
+                ZIP code 46202 (Indianapolis, IN) accounts for $19.8K in invoiced work and is the highest-volume cluster. Indianapolis 46201 ($14.9K) and Orlando 32801 ($13.3K) follow, whereas Midwest operations show a mixture of volume and moderate leakage.
+              </p>
+            </div>
+            <div class="analysis-implication-box">
+              <span class="analysis-implication-box__label">Operational Implication</span>
+              <p class="analysis-implication-box__text">
+                Florida's regional density creates heavy administrative and volume pressure, resulting in poorer photo documentation compliance and a higher rate of vendor overruns.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3 — Recommended Vendor Actions -->
+      <section class="analysis-recommendation-box">
+        <span class="analysis-recommendation-box__label">Recommended Vendor Actions</span>
+        <ul class="analysis-recommendation-list">
+          <li class="analysis-recommendation-list__item">
+            <span class="analysis-recommendation-list__icon" style="color:#DC2626;">Review</span>
+            <p class="analysis-recommendation-list__text">
+              <strong>Immediate Review:</strong> SecureOps LLC, Lone Star Fix, and Apex Preservation must be audited immediately. Freeze new work order dispatches to SecureOps LLC.
+            </p>
+          </li>
+          <li class="analysis-recommendation-list__item">
+            <span class="analysis-recommendation-list__icon" style="color:var(--color-accent);">Negotiate</span>
+            <p class="analysis-recommendation-list__text">
+              <strong>Renegotiate Terms:</strong> Midwest Builders has high volume ($1.0K+ total leakage) but moderate overruns. Enforce fixed-rate item pricing to cap overruns.
+            </p>
+          </li>
+          <li class="analysis-recommendation-list__item">
+            <span class="analysis-recommendation-list__icon" style="color:#166534;">Preferred</span>
+            <p class="analysis-recommendation-list__text">
+              <strong>Preferred Vendors:</strong> GreenThumb Pros, Coastal Maintain, Sunshine Cleaning, and Texas Haulers show high photo compliance and less than 2% overrun rates. Prioritize them for new dispatches.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Next Diagnostic Callout -->
+      <a href="work-order-breakdown.html" class="next-diagnostic-card">
+        <div class="next-diagnostic-card__content">
+          <span class="next-diagnostic-card__label">Next Diagnostic</span>
+          <h3 class="next-diagnostic-card__title">Work Order Breakdown: Performance Bottlenecks</h3>
+          <p class="next-diagnostic-card__desc">Examine cycle times, client validation delays, and photo compliance issues across the vendor roster.</p>
+        </div>
+        <div class="next-diagnostic-card__arrow" aria-hidden="true">&rarr;</div>
+      </a>
+
+      <!-- Section 4 — Methodology -->
+      <section class="analysis-methodology-box" aria-label="Methodology">
+        <span class="analysis-methodology-box__label">Methodology</span>
+        <p class="analysis-methodology-box__text">
+          <strong>Dataset:</strong> Built on 480 work order records spanning November 2025 to June 2026. Expected cost data is compared with actual payouts to isolate contractor overruns.
+        </p>
+        <p class="analysis-methodology-box__text">
+          <strong>Calculation Logic:</strong> Vendor Leakage = (Actual Paid to Contractor) &minus; (Expected Contractor Pay). Attributed Leakage represents all downstream uncollected revenue or write-offs on work orders completed by that contractor.
+        </p>
+        <p class="analysis-methodology-box__text">
+          <strong>Limitations:</strong> Regional classifications are mapped by ZIP code and do not account for local contractor travel or fuel surcharge exceptions.
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- GLOBAL FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__inner">
+      <div class="site-footer__grid">
+        <div>
+          <p class="site-footer__brand-name">Insight&nbsp;Gaps</p>
+          <p class="site-footer__mandate">Independent forensic data journalism from Dhaka, Bangladesh.</p>
+        </div>
+        <div>
+          <span class="site-footer__col-label">Navigate</span>
+          <nav class="site-footer__nav" aria-label="Footer navigation">
+            <a href="/investigations/">Investigations</a>
+            <a href="/analysis/">Analysis</a>
+            <a href="/archive/">Archive</a>
+            <a href="/about/">About</a>
+          </nav>
+        </div>
+        <div>
+          <span class="site-footer__col-label">Trust</span>
+          <nav class="site-footer__nav" aria-label="Trust navigation">
+            <a href="/trust/methodology/">Methodology</a>
+            <a href="/trust/ai-use/">AI Use</a>
+            <a href="/trust/corrections/">Corrections</a>
+            <a href="/contact/">Contact</a>
+          </nav>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <p class="site-footer__copy">
+          &copy; <span class="js-copyright-year">2025</span> Insight Gaps Bureau. Original reporting licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC&nbsp;BY&nbsp;4.0</a>. Deployed on Vercel.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    'use strict';
+    var toggle = document.querySelector('.site-header__toggle');
+    var nav    = document.querySelector('.site-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', function () {
+        var isOpen = nav.classList.toggle('site-nav--open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+      document.addEventListener('click', function (e) {
+        if (!toggle.contains(e.target) && !nav.contains(e.target)) {
+          nav.classList.remove('site-nav--open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && nav.classList.contains('site-nav--open')) {
+          nav.classList.remove('site-nav--open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.focus();
+        }
+      });
+    }
+    var yr = String(new Date().getFullYear());
+    document.querySelectorAll('.js-copyright-year').forEach(function (el) { el.textContent = yr; });
+  }());
+  </script>
+
+  <!-- Charts -->
+  <script>
+  (function(){
+    if (!window.Chart) return;
+    const F = 'Space Grotesk, sans-serif', M = 'Space Mono, monospace';
+    Chart.defaults.color = 'rgba(26,25,23,0.6)';
+    Chart.defaults.font.family = F;
+    Chart.defaults.font.size = 11;
+    Chart.defaults.plugins.legend.labels.boxWidth = 10;
+    Chart.defaults.plugins.legend.labels.padding = 14;
+
+    const grid = () => ({ color: 'rgba(26,25,23,0.06)', drawBorder: false });
+    const tip = () => ({
+      backgroundColor: '#fff', borderColor: '#E2E0DC', borderWidth: 1,
+      titleColor: 'rgba(26,25,23,0.8)', bodyColor: 'rgba(26,25,23,0.6)',
+      titleFont: { family: M, size: 10 }, bodyFont: { family: M, size: 10 }, padding: 10
+    });
+    const yfmt = v => '$' + (v >= 1000 ? (v / 1000).toFixed(1) + 'K' : v.toFixed(0));
+    const MO = ['May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+    // Cause Pie Chart
+    new Chart(document.getElementById('causePie'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Vendor Overrun', 'Mixed Leakage', 'Photos Insufficient', 'Late Submission'],
+        datasets: [{ data: [3301, 2024, 1898, 339], backgroundColor: ['#DC2626', '#8a8899', '#C17D11', '#2563AB'], borderColor: '#FFFFFF', borderWidth: 3, hoverOffset: 6 }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false, cutout: '62%',
+        plugins: {
+          legend: { position: 'bottom' },
+          tooltip: { ...tip(), callbacks: { label: c => ' ' + c.label + ': $' + c.parsed.toLocaleString() + ' (' + (c.parsed / 7563 * 100).toFixed(1) + '%)' } }
+        }
+      }
+    });
+
+    // Client Leakage Bar
+    new Chart(document.getElementById('clientLeakChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Service Link', 'Five Brothers', 'MCS', 'ZVN', 'MSI', 'Safeguard'],
+        datasets: [{
+          label: 'Total Leakage',
+          data: [2126, 1944, 1439, 833, 619, 602],
+          backgroundColor: ['#8a8899', '#C17D11', '#DC2626', '#2563AB', '#1A6B3C', '#2563AB'],
+          borderRadius: 3
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false }, tooltip: { ...tip(), callbacks: { label: c => ' Leakage: $' + c.parsed.x?.toLocaleString() } } },
+        scales: {
+          x: { grid: grid(), ticks: { callback: v => '$' + (v / 1000).toFixed(0) + 'K', font: { family: M, size: 9 } } },
+          y: { grid: grid(), ticks: { font: { family: M, size: 10 } } }
+        }
+      }
+    });
+
+    // Vendor Leakage Stacked Bar
+    new Chart(document.getElementById('vendorLeakChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Lone Star\nFix', 'SecureOps\nLLC', 'Apex\nPres', 'Midwest\nBuild', 'Elite\nSecure', 'Ohio\nProp', 'GreenThumb\nPros'],
+        datasets: [
+          { label: 'Vendor Overrun', data: [683, 926, 405, 627, 363, 564, 62], backgroundColor: '#DC2626', borderRadius: 2 },
+          { label: 'Mixed Leakage', data: [686, 280, 722, 446, 448, 135, 70], backgroundColor: '#8a8899', borderRadius: 2 }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { position: 'top' }, tooltip: { ...tip(), callbacks: { label: c => ' ' + c.dataset.label + ': $' + c.parsed.y?.toLocaleString() } } },
+        scales: { x: { stacked: true, grid: grid(), ticks: { font: { family: M, size: 9 } } }, y: { stacked: true, grid: grid(), ticks: { callback: yfmt, font: { family: M, size: 9 } } } }
+      }
+    });
+
+    // Geo Bar Chart
+    new Chart(document.getElementById('geoChart'), {
+      type: 'bar',
+      data: {
+        labels: ['46202\nIndy', '46201\nIndy', '32801\nOrland', '33601\nTampa', '33602\nTampa', '43202\nColumb', '77002\nHous', '45201\nCinci'],
+        datasets: [{
+          label: 'Invoiced Amount',
+          data: [19846, 14912, 13293, 10345, 10009, 8410, 7967, 7567],
+          backgroundColor: ['#DC2626', '#8a8899', '#C17D11', '#2563AB', '#1A6B3C', '#C17D11', '#8a8899', '#2563AB'],
+          borderRadius: 3
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false }, tooltip: { ...tip(), callbacks: { label: c => ' Invoiced: $' + c.parsed.y?.toLocaleString() } } },
+        scales: { x: { grid: grid(), ticks: { font: { family: M, size: 8 } } }, y: { grid: grid(), ticks: { callback: v => '$' + (v / 1000).toFixed(0) + 'K', font: { family: M, size: 9 } } } }
+      }
+    });
+
+  })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+# Insight Gaps Bureau — corrections log.
+# APPEND-ONLY. Never edit or delete an entry. Append new entries at the end.
+# Schema (one JSON object per line):
+#   {"id":"C-001","date":"YYYY-MM-DD","work":"<work slug or page path>",
+#    "summary":"<what was wrong>","amended":"<what changed>"}

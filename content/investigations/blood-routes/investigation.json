@@ -1,0 +1,26 @@
+{
+  "id": "BD-INV-001",
+  "title": "Blood Routes",
+  "dek": "351 people died in 15 days during the 2026 Eid-ul-Fitr rush. Bangladesh's roads kill at six times the official count. The joma incentive system, political shields, and four critical data voids make it structural — not accidental.",
+  "slug": "blood-routes",
+  "url": "/investigations/blood-routes/",
+  "page_kind": "standalone",
+  "date_published": "2026-05-26",
+  "date_revised": null,
+  "status": "published",
+  "investigation_type": "Tier 1 - Visual Data Investigation",
+  "topic_tags": ["road safety", "transport", "Eid", "structural accountability", "Bangladesh"],
+  "summary": "A scroll-driven visual investigation into nationwide road crash fatalities in Bangladesh: the Eid holiday surge, the joma economic machine that incentivises racing, the Phoenix rebrand pattern, and four data voids the government holds but refuses to publish.",
+  "key_findings": [
+    "During the 15-day Eid-ul-Fitr 2026 travel period, 351 people were killed — averaging 23 deaths per day during the holiday rush.",
+    "The WHO-modelled road death estimate (~31,578/year) is 5.8× higher than the BRTA official count (5,480) — a gap maintained by deliberate policy, not technical incapacity.",
+    "The joma (daily deposit) system forces bus drivers to race for passengers under a guaranteed-income model that protects owners and transfers all lethal risk to drivers and pedestrians, 47% of Dhaka victims."
+  ],
+  "source_count": 22,
+  "methodology_link": "/investigations/blood-routes/geo_verification_report.md",
+  "has_correction": false,
+  "correction_notes": [],
+  "og_image_path": "/assets/img/blood-routes-infographic.png",
+  "related_items": ["BD-INV-002"],
+  "rtl_status": null
+}

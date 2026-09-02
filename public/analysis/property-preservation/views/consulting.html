@@ -1,0 +1,581 @@
+<div class="os-view-body">
+  <style>
+    /* View-specific custom styles */
+    .consulting-controls-card {
+      background: #ffffff;
+      border: 1px solid #E2E0DC;
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .consulting-controls__left {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .consulting-controls__label {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: #8C8985;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .consulting-select {
+      background: #FAF9F6;
+      border: 1px solid #E2E0DC;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 12.5px;
+      color: #1A1917;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      outline: none;
+      min-width: 140px;
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+
+    .consulting-select:hover, .consulting-select:focus {
+      border-color: #C17D11;
+      background: #ffffff;
+    }
+
+    .consulting-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    .opportunity-card {
+      background: #ffffff;
+      border: 1px solid #E2E0DC;
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .opportunity-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(26, 25, 23, 0.05);
+      border-color: #C17D11;
+    }
+
+    .opportunity-card__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .opportunity-card__title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: #1A1917;
+      line-height: 1.3;
+      margin: 0;
+    }
+
+    /* Priority Badges */
+    .priority-badge {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 3px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .priority-badge--critical {
+      background: #FEE2E2;
+      color: #991B1B;
+      border: 1px solid #FCA5A5;
+    }
+
+    .priority-badge--high {
+      background: #FEF3C7;
+      color: #92400E;
+      border: 1px solid #FDE68A;
+    }
+
+    .priority-badge--medium {
+      background: #DBEAFE;
+      color: #1E40AF;
+      border: 1px solid #BFDBFE;
+    }
+
+    .priority-badge--low {
+      background: #F3F4F6;
+      color: #374151;
+      border: 1px solid #E5E7EB;
+    }
+
+    .opportunity-card__detail-block {
+      background: #FAF9F6;
+      border: 1px solid #F0EEE8;
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-bottom: 14px;
+      font-size: 12.5px;
+    }
+
+    .detail-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      text-transform: uppercase;
+      color: #8C8985;
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+    }
+
+    .detail-text {
+      color: #4B4743;
+      line-height: 1.4;
+    }
+
+    .detail-text strong {
+      color: #1A1917;
+    }
+
+    .detail-group {
+      margin-bottom: 10px;
+    }
+
+    .detail-group:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Financials grid in card */
+    .opportunity-card__fin-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      border-top: 1px solid #F0EEE8;
+      border-bottom: 1px solid #F0EEE8;
+      padding: 10px 0;
+      margin-bottom: 14px;
+    }
+
+    .fin-item {
+      text-align: center;
+    }
+
+    .fin-item__label {
+      font-family: 'Space Mono', monospace;
+      font-size: 8.5px;
+      text-transform: uppercase;
+      color: #8C8985;
+      margin-bottom: 2px;
+    }
+
+    .fin-item__value {
+      font-family: 'Space Mono', monospace;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #1A1917;
+    }
+
+    .fin-item__value--roi {
+      color: #1A6B3C;
+      background: #E8F5E9;
+      border-radius: 4px;
+      padding: 1px 4px;
+      display: inline-block;
+    }
+
+    .opportunity-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11.5px;
+    }
+
+    .owner-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #4B4743;
+    }
+
+    .owner-avatar {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #C17D11;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    /* Confidence score meter */
+    .confidence-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 90px;
+    }
+
+    .confidence-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Space Mono', monospace;
+      font-size: 8.5px;
+      color: #8C8985;
+    }
+
+    .confidence-bar-bg {
+      height: 4px;
+      background: #F0EEE8;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .confidence-bar-fill {
+      height: 100%;
+      background: #C17D11;
+      border-radius: 2px;
+      width: 0;
+      transition: width 0.3s ease;
+    }
+
+    .empty-state {
+      padding: 60px;
+      text-align: center;
+      border: 1px dashed #E2E0DC;
+      background: #ffffff;
+      border-radius: 10px;
+      color: #8C8985;
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+    }
+  </style>
+
+  <!-- KPI Grid -->
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-card__label">Total Opportunities</div>
+      <div class="kpi-card__value" id="c-kpi-total">0</div>
+      <div class="kpi-card__sub">Identified Initiatives</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-card__label">Total Estimated Cost</div>
+      <div class="kpi-card__value kpi-card__value--amber" id="c-kpi-cost">$0.00</div>
+      <div class="kpi-card__sub">Capital Requirement</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-card__label">Annualized Benefit</div>
+      <div class="kpi-card__value kpi-card__value--green" id="c-kpi-benefit">$0.00</div>
+      <div class="kpi-card__sub">Projected Run-Rate savings</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-card__label">Peak ROI Program</div>
+      <div class="kpi-card__value kpi-card__value--green" id="c-kpi-roi">0%</div>
+      <div class="kpi-card__sub" id="c-kpi-roi-title">Deploy Pre-QC</div>
+    </div>
+  </div>
+
+  <!-- Interactive Controls Bar -->
+  <div class="consulting-controls-card">
+    <div class="consulting-controls__left">
+      <div class="consulting-controls__group">
+        <span class="consulting-controls__label" style="margin-right: 8px;">Priority:</span>
+        <select class="consulting-select" id="c-filter-priority">
+          <option value="all">All Priorities</option>
+          <option value="Critical">Critical</option>
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
+        </select>
+      </div>
+
+      <div class="consulting-controls__group">
+        <span class="consulting-controls__label" style="margin-right: 8px;">Owner:</span>
+        <select class="consulting-select" id="c-filter-owner">
+          <option value="all">All Owners</option>
+          <!-- Populated dynamically -->
+        </select>
+      </div>
+    </div>
+
+    <div class="consulting-controls__right">
+      <span class="consulting-controls__label" style="margin-right: 8px;">Sort By:</span>
+      <select class="consulting-select" id="c-sort-by">
+        <option value="roi-desc">ROI (High to Low)</option>
+        <option value="cost-asc">Cost (Low to High)</option>
+        <option value="cost-desc">Cost (High to Low)</option>
+        <option value="benefit-desc">Benefit (High to Low)</option>
+        <option value="confidence-desc">Confidence (High to Low)</option>
+        <option value="title-asc">Title (A to Z)</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Opportunities Cards Grid -->
+  <div class="consulting-grid" id="c-opportunities-grid">
+    <!-- Populated dynamically -->
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var rawData = [];
+
+      function loadConsultingData() {
+        fetch('data/consulting_opportunities.json?t=' + Date.now())
+          .then(function (r) {
+            if (!r.ok) throw new Error('Data fetch failed');
+            return r.json();
+          })
+          .then(function (data) {
+            rawData = data;
+            
+            // 1. Populate dynamic filter selection for Owner
+            populateOwners(data);
+
+            // 2. Render KPIs & Cards
+            renderConsulting();
+          })
+          .catch(function (err) {
+            console.error('Error loading consulting data:', err);
+            var grid = document.getElementById('c-opportunities-grid');
+            if (grid) {
+              grid.innerHTML = '<div class="empty-state" style="color:var(--os-red); border-color:var(--os-red);">Failed to load consulting opportunities data.</div>';
+            }
+          });
+      }
+
+      function populateOwners(data) {
+        var ownerSelect = document.getElementById('c-filter-owner');
+        if (!ownerSelect) return;
+
+        // Clear existing except "All"
+        ownerSelect.innerHTML = '<option value="all">All Owners</option>';
+
+        // Extract unique owners
+        var owners = [];
+        data.forEach(function (item) {
+          if (item.implementation_owner && owners.indexOf(item.implementation_owner) === -1) {
+            owners.push(item.implementation_owner);
+          }
+        });
+        owners.sort();
+
+        owners.forEach(function (owner) {
+          var opt = document.createElement('option');
+          opt.value = owner;
+          opt.textContent = owner;
+          ownerSelect.appendChild(opt);
+        });
+      }
+
+      function parseRoi(roiStr) {
+        if (!roiStr) return 0;
+        return parseFloat(roiStr.replace('%', '')) || 0;
+      }
+
+      function getPriorityWeight(priority) {
+        switch (priority) {
+          case 'Critical': return 4;
+          case 'High': return 3;
+          case 'Medium': return 2;
+          case 'Low': return 1;
+          default: return 0;
+        }
+      }
+
+      function getOwnerInitials(name) {
+        if (!name) return '??';
+        var parts = name.split(' ');
+        if (parts.length >= 2) {
+          return (parts[0][0] + parts[1][0]).toUpperCase();
+        }
+        return name.substring(0, 2).toUpperCase();
+      }
+
+      function renderConsulting() {
+        if (!rawData || rawData.length === 0) return;
+
+        var priorityFilter = document.getElementById('c-filter-priority').value;
+        var ownerFilter = document.getElementById('c-filter-owner').value;
+        var sortBy = document.getElementById('c-sort-by').value;
+
+        // KPI aggregates (calculated from complete unfiltered dataset)
+        var totalCost = rawData.reduce(function (acc, item) { return acc + (item.estimated_cost || 0); }, 0);
+        var totalBenefit = rawData.reduce(function (acc, item) { return acc + (item.estimated_annual_benefit || 0); }, 0);
+        
+        // Find maximum ROI program
+        var maxRoiItem = null;
+        var maxRoiVal = -1;
+        rawData.forEach(function (item) {
+          var val = parseRoi(item.roi);
+          if (val > maxRoiVal) {
+            maxRoiVal = val;
+            maxRoiItem = item;
+          }
+        });
+
+        // Update KPIs
+        document.getElementById('c-kpi-total').textContent = rawData.length;
+        document.getElementById('c-kpi-cost').textContent = '$' + totalCost.toLocaleString(undefined, { maximumFractionDigits: 0 });
+        document.getElementById('c-kpi-benefit').textContent = '$' + totalBenefit.toLocaleString(undefined, { maximumFractionDigits: 0 });
+        
+        if (maxRoiItem) {
+          document.getElementById('c-kpi-roi').textContent = maxRoiItem.roi;
+          document.getElementById('c-kpi-roi-title').textContent = maxRoiItem.title;
+        }
+
+        // Apply filters
+        var filteredData = rawData.filter(function (item) {
+          if (priorityFilter !== 'all' && item.priority !== priorityFilter) return false;
+          if (ownerFilter !== 'all' && item.implementation_owner !== ownerFilter) return false;
+          return true;
+        });
+
+        // Apply sorting
+        filteredData.sort(function (a, b) {
+          if (sortBy === 'roi-desc') {
+            return parseRoi(b.roi) - parseRoi(a.roi);
+          } else if (sortBy === 'cost-asc') {
+            return (a.estimated_cost || 0) - (b.estimated_cost || 0);
+          } else if (sortBy === 'cost-desc') {
+            return (b.estimated_cost || 0) - (a.estimated_cost || 0);
+          } else if (sortBy === 'benefit-desc') {
+            return (b.estimated_annual_benefit || 0) - (a.estimated_annual_benefit || 0);
+          } else if (sortBy === 'confidence-desc') {
+            return (b.confidence || 0) - (a.confidence || 0);
+          } else if (sortBy === 'title-asc') {
+            return a.title.localeCompare(b.title);
+          }
+          return 0;
+        });
+
+        // Render grid cards
+        var grid = document.getElementById('c-opportunities-grid');
+        if (!grid) return;
+        grid.innerHTML = '';
+
+        if (filteredData.length === 0) {
+          grid.innerHTML = '<div class="empty-state" style="grid-column: 1 / -1;">No recommendations match the active filter criteria.</div>';
+          return;
+        }
+
+        filteredData.forEach(function (item) {
+          var card = document.createElement('div');
+          card.className = 'opportunity-card';
+
+          var pClass = 'priority-badge--low';
+          if (item.priority === 'Critical') pClass = 'priority-badge--critical';
+          else if (item.priority === 'High') pClass = 'priority-badge--high';
+          else if (item.priority === 'Medium') pClass = 'priority-badge--medium';
+
+          var confidencePct = Math.round((item.confidence || 0) * 100);
+
+          card.innerHTML = `
+            <div>
+              <div class="opportunity-card__header">
+                <h3 class="opportunity-card__title">${item.title}</h3>
+                <span class="priority-badge ${pClass}">${item.priority}</span>
+              </div>
+
+              <div class="opportunity-card__detail-block">
+                <div class="detail-group">
+                  <div class="detail-label">Problem &amp; Evidence</div>
+                  <div class="detail-text"><strong>${item.problem}</strong> ${item.evidence}</div>
+                </div>
+                <div class="detail-group" style="border-top: 1px dashed #E2E0DC; padding-top: 8px; margin-top: 8px;">
+                  <div class="detail-label">Root Cause</div>
+                  <div class="detail-text">${item.root_cause}</div>
+                </div>
+                <div class="detail-group" style="border-top: 1px dashed #E2E0DC; padding-top: 8px; margin-top: 8px;">
+                  <div class="detail-label">Recommended Solution</div>
+                  <div class="detail-text" style="color: #1A1917; font-weight: 500;">${item.recommended_solution}</div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="opportunity-card__fin-grid">
+                <div class="fin-item">
+                  <div class="fin-item__label">Estimated Cost</div>
+                  <div class="fin-item__value">$${(item.estimated_cost || 0).toLocaleString()}</div>
+                </div>
+                <div class="fin-item">
+                  <div class="fin-item__label">Annual Benefit</div>
+                  <div class="fin-item__value">$${(item.estimated_annual_benefit || 0).toLocaleString(undefined, { maximumFractionDigits: 0 })}</div>
+                </div>
+                <div class="fin-item">
+                  <div class="fin-item__label">ROI</div>
+                  <div class="fin-item__value"><span class="fin-item__value--roi">${item.roi}</span></div>
+                </div>
+              </div>
+
+              <div class="opportunity-card__footer">
+                <div class="owner-badge" title="Implementation Owner">
+                  <div class="owner-avatar">${getOwnerInitials(item.implementation_owner)}</div>
+                  <span>${item.implementation_owner}</span>
+                </div>
+
+                <div class="confidence-wrap">
+                  <div class="confidence-header">
+                    <span>CONFIDENCE</span>
+                    <span>${confidencePct}%</span>
+                  </div>
+                  <div class="confidence-bar-bg">
+                    <div class="confidence-bar-fill" style="width: ${confidencePct}%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+
+          grid.appendChild(card);
+        });
+      }
+
+      // Initialize
+      function initConsulting() {
+        loadConsultingData();
+
+        // Bind filter event listeners
+        ['c-filter-priority', 'c-filter-owner', 'c-sort-by'].forEach(function (id) {
+          var el = document.getElementById(id);
+          if (el) {
+            el.addEventListener('change', renderConsulting);
+          }
+        });
+      }
+
+      // Hook view loaded event
+      window.addEventListener('epcs:view-loaded', function (e) {
+        if (e.detail.view === 'consulting') {
+          initConsulting();
+        }
+      });
+
+    })();
+  </script>
+</div>

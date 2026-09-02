@@ -1,0 +1,48 @@
+{# Macros shared by templates. Markup mirrors legacy data-loader.js renderers exactly. #}
+
+{% macro status_badge(status) -%}
+<span class="status-badge status-badge--{{ status }}">{{ (status or 'archived')|replace('-',' ')|upper }}</span>
+{%- endmacro %}
+
+{% macro fmt_date(iso) -%}
+{%- if iso -%}{{ iso | date_format }}{%- endif -%}
+{%- endmacro %}
+
+{% macro inv_card(inv) -%}
+<article class="inv-card" data-type="investigation" data-status="{{ inv.status }}">
+  {% if inv.og_image_path %}<div class="inv-card__image-wrap"><img class="inv-card__image" src="{{ inv.og_image_path }}" alt="{{ inv.title }}"></div>{% endif %}
+  <div class="inv-card__header">
+    <span class="inv-card__tag">{{ inv.topic_tags[0] if inv.topic_tags else 'Investigation' }}</span>
+    {{ status_badge(inv.status) }}
+  </div>
+  <h3 class="inv-card__title">{{ inv.title }}</h3>
+  <p class="inv-card__summary">{{ inv.summary or inv.dek }}</p>
+  <footer class="inv-card__footer">
+    <span class="inv-card__id">{% if inv.has_correction %}<span class="inv-card__correction-dot" aria-label="Correction issued"></span>{% endif %}{{ inv.id }}</span>
+    <time class="inv-card__date" datetime="{{ inv.date_published }}">{{ fmt_date(inv.date_published) }}</time>
+  </footer>
+  <a class="inv-card__link" href="{{ inv.url }}" aria-label="Open {{ inv.title }}"></a>
+</article>
+{%- endmacro %}
+
+{% macro analysis_card(domain) -%}
+<article class="analysis-card" data-type="analysis" data-status="published">
+  {% if domain.og_image_path %}<div class="analysis-card__image-wrap"><img class="analysis-card__image" src="{{ domain.og_image_path }}" alt="{{ domain.domain_title }}"></div>{% endif %}
+  <div class="analysis-card__content">
+    <h3 class="analysis-card__title">{{ domain.domain_title }}</h3>
+    <p class="analysis-card__description">{{ domain.description }}</p>
+  </div>
+  <footer class="analysis-card__footer">
+    <span class="analysis-card__count">{{ domain.report_count }} report{{ '' if domain.report_count == 1 else 's' }}</span>
+    <time class="analysis-card__date" datetime="{{ domain.last_updated }}">{{ fmt_date(domain.last_updated) }}</time>
+  </footer>
+  <a class="analysis-card__link" href="/analysis/{{ domain.domain_slug }}/" aria-label="Open {{ domain.domain_title }}"></a>
+</article>
+{%- endmacro %}
+
+{% macro corrections_metric() -%}
+<a class="metrics-block__item metrics-block__item--link" href="/trust/corrections/">
+  <span class="metrics-block__number-label">On permanent record</span>
+  <span class="metrics-block__label">Corrections Policy &rarr;</span>
+</a>
+{%- endmacro %}

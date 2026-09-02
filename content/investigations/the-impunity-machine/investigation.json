@@ -1,0 +1,31 @@
+{
+  "id": "BD-INV-002",
+  "title": "The Impunity Machine",
+  "dek": "A visual data investigation into Bangladesh's rape justice crisis and the institutional machinery that turns reported violence into near-zero punishment.",
+  "slug": "the-impunity-machine",
+  "url": "/investigations/the-impunity-machine/",
+  "page_kind": "standalone",
+  "date_published": "2026-03-01",
+  "date_revised": null,
+  "status": "published",
+  "investigation_type": "Tier 1 - Visual Data Investigation",
+  "topic_tags": ["rape justice", "gender-based violence", "institutional accountability", "criminal justice", "Bangladesh"],
+  "summary": "A forensic visual investigation tracing Bangladesh's rape justice crisis across reporting attrition, conviction rates, court backlog, forensic capacity, and legal data voids.",
+  "key_findings": [
+    "Only 310 convictions were recorded from 66,711 women who came through One-Stop Crisis Centres over 23 years, a 0.46% conviction rate.",
+    "Bangladesh pairs maximum legal severity with near-zero certainty of punishment: death penalty expansion did not solve reporting attrition, backlog, evidence loss, or witness risk.",
+    "Critical justice infrastructure remains thin: 14 OCCs, two national DNA machines, major unprocessed sample backlogs, and no complete national registry for key rape-case outcomes."
+  ],
+  "source_count": 91,
+  "methodology_link": "/investigations/the-impunity-machine/methodology/",
+  "has_correction": false,
+  "correction_notes": [],
+  "og_image_path": "/assets/img/impunity-machine-infographic.png",
+  "related_items": ["BD-INV-003"],
+  "rtl_status": null,
+  "subpages": {
+    "detailed": "/investigations/the-impunity-machine/detailed/",
+    "methodology": "/investigations/the-impunity-machine/methodology/",
+    "tracker": "/investigations/the-impunity-machine/tracker/"
+  }
+}

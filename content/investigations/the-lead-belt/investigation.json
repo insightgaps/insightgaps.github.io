@@ -1,0 +1,26 @@
+{
+  "id": "BD-INV-003",
+  "title": "The Lead Belt",
+  "dek": "Bangladesh's lead poisoning crisis mapped: 294 contaminated sites, 145 schools within 500 metres, and soil lead readings up to 1,702 times the international safety standard.",
+  "slug": "the-lead-belt",
+  "url": "/investigations/the-lead-belt/",
+  "page_kind": "standalone",
+  "date_published": "2025-01-01",
+  "date_revised": null,
+  "status": "published",
+  "investigation_type": "Tier 2 - Visual Spatial Investigation",
+  "topic_tags": ["lead contamination", "public health", "education", "environment", "Bangladesh"],
+  "summary": "A forensic spatial investigation mapping contaminated lead sites, nearby schools, child exposure indicators, and state inaction across Bangladesh.",
+  "key_findings": [
+    "294 contaminated sites are mapped across Bangladesh using Pure Earth / University of Dhaka assessment data.",
+    "145 schools are identified within 500 metres of contaminated sites, with the closest school in the report sitting 59 metres from a lead-acid battery recycling site.",
+    "The highest soil lead reading in the report reaches 680,872 ppm, about 1,702 times the 400 ppm international residential safety threshold."
+  ],
+  "source_count": 7,
+  "methodology_link": "/investigations/the-lead-belt/methodology/",
+  "has_correction": false,
+  "correction_notes": [],
+  "og_image_path": "/assets/img/lead-belt-infographic.png",
+  "related_items": ["BD-INV-002"],
+  "rtl_status": null
+}

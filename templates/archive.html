@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% from "macros.html" import inv_card, analysis_card %}
+
+{% block content %}
+
+    <div class="archive__header">
+      <div>
+        <h1 class="archive__title">Archive</h1>
+        <p class="archive__subtitle" id="js-archive-subtitle">
+          {{ investigations|length }} investigations &middot; {{ domains|length }} analysis {{ 'domain' if domains|length == 1 else 'domains' }}
+        </p>
+      </div>
+    </div>
+
+    <div class="archive__body">
+
+      <div class="filter-bar" role="search" aria-label="Filter archive">
+
+        <span class="filter-bar__label">Filter</span>
+
+        <select id="filter-type" aria-label="Filter by content type">
+          <option value="all">All content</option>
+          <option value="investigation">Investigations</option>
+          <option value="analysis">Analysis</option>
+        </select>
+
+        <select id="filter-status" aria-label="Filter by status">
+          <option value="all">All statuses</option>
+          <option value="published">Published</option>
+          <option value="corrected">Corrected</option>
+          <option value="developing">Developing</option>
+          <option value="terminated">Terminated</option>
+          <option value="archived">Archived</option>
+        </select>
+
+        <select id="filter-tag" aria-label="Filter by topic">
+          <option value="all">All topics</option>
+          {% for tag in all_tags %}
+          <option value="{{ tag }}">{{ tag }}</option>
+          {% endfor %}
+        </select>
+
+        <select id="filter-sort" aria-label="Sort order">
+          <option value="newest">Date — newest first</option>
+          <option value="oldest">Date — oldest first</option>
+        </select>
+
+      </div>
+
+      <p class="archive__results-count" id="js-results-count" aria-live="polite">
+        {{ archive_items|length }} result{{ '' if archive_items|length == 1 else 's' }} shown
+      </p>
+
+      <!-- Pre-rendered default view (all items, newest first) — works without JS -->
+      <div class="card-grid--two archive__results" id="js-archive-results" aria-label="Archive results">
+        {%- for item in archive_items -%}
+        {%- if item.type == 'investigation' -%}{{ inv_card(item.data) }}{%- else -%}{{ analysis_card(item.data) }}{%- endif -%}
+        {%- endfor %}
+      </div>
+
+      <div class="archive__empty" id="js-archive-empty" hidden>
+        <p class="archive__empty-message">
+          No results match those filters.
+        </p>
+        <button class="archive__empty-reset" id="js-archive-reset" type="button">
+          Clear filters and show all &rarr;
+        </button>
+      </div>
+
+    </div>
+
+{% endblock %}
+
+{% block body_extra %}
+<!-- Filter enhancement: re-renders from embedded data; core archive works without JS -->
+<script type="application/json" id="archive-data">{{ archive_json }}</script>
+<script src="/assets/js/archive.js" defer></script>
+{% endblock %}

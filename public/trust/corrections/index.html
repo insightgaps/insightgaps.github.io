@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Corrections Log — Insight Gaps Bureau</title>
+  <meta name="description" content="Permanent timestamped record of every correction ever issued by Insight Gaps Bureau. Entries are never deleted — only appended.">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="Corrections Log — Insight Gaps Bureau">
+  <meta property="og:description" content="Permanent timestamped record of every correction ever issued by Insight Gaps Bureau.">
+  <meta property="og:url"         content="https://www.insightgaps.com/trust/corrections/">
+  <meta property="og:image"       content="https://www.insightgaps.com/assets/img/og-default.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Corrections Log — Insight Gaps Bureau">
+  <meta name="twitter:description" content="Permanent timestamped record of every correction ever issued by Insight Gaps Bureau.">
+  <meta name="twitter:image"       content="https://www.insightgaps.com/assets/img/og-default.jpg">
+
+  <link rel="canonical" href="https://www.insightgaps.com/trust/corrections/">
+
+  <!-- Font preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  
+  <link rel="stylesheet" href="/assets/css/pages/trust-corrections.css">
+  
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Insight Gaps Bureau", "url": "https://www.insightgaps.com/", "description": "Independent forensic data journalism from Dhaka, Bangladesh. Investigations into contamination, institutional failure, and accountability gaps.", "email": "insightgaps@gmail.com", "logo": "https://www.insightgaps.com/assets/img/og-default.jpg"}</script>
+</head>
+<body>
+
+  <!-- AI DISCLOSURE BAR -->
+  <div class="ai-disclosure-bar" role="note" aria-label="AI use disclosure">
+    <div class="ai-disclosure-bar__inner">
+      <p class="ai-disclosure-bar__text">
+        AI tools were used in producing this report.
+        <a href="/trust/ai-use/">View AI use disclosure &rarr;</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- GLOBAL HEADER -->
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+
+      <a href="/" class="site-header__logo" aria-label="Insight Gaps Bureau — Home">
+        Insight&nbsp;Gaps
+      </a>
+
+      <button class="site-header__toggle"
+              aria-label="Toggle navigation"
+              aria-expanded="false"
+              aria-controls="primary-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="primary-nav" aria-label="Primary navigation">
+        
+        <a href="/investigations/" class="site-nav__link">Investigations</a>
+        
+        <a href="/analysis/" class="site-nav__link">Analysis</a>
+        
+        <a href="/evidence/" class="site-nav__link">Evidence</a>
+        
+        <a href="/archive/" class="site-nav__link">Archive</a>
+        
+        <a href="/about/" class="site-nav__link">About</a>
+        
+        <a href="/trust/methodology/" class="site-nav__link">Trust</a>
+        
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main id="main-content" class="trust-page">
+    
+<!-- Page header -->
+    <div class="trust-page__header">
+      <div class="trust-page__header-inner">
+        <h1 class="trust-page__title">Corrections Log</h1>
+        <p class="trust-page__intro">
+          A permanent public record of every factual correction issued by
+          Insight Gaps Bureau. Entries are never deleted — only appended.
+          Speed of correction is a credibility signal, not a liability.
+        </p>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <article class="trust-page__body">
+
+      <!-- Policy statement -->
+      <div class="policy-block" role="note" aria-label="Corrections policy">
+        <span class="policy-block__label">Corrections policy</span>
+        <p class="policy-block__text">
+          When an error is identified in a published investigation, Insight Gaps
+          Bureau corrects the record as quickly as possible. The correction is noted
+          directly on the investigation page and added to this log with a timestamp.
+          Rows in this log are permanent — nothing is removed, suppressed, or
+          rewritten. The investigation's <code>status</code> field in the data index
+          is updated to <code>corrected</code> on the same day the correction is
+          published. Corrections are written and approved by the editor — no
+          correction notice is automated.
+        </p>
+      </div>
+
+      <h2>Corrections on record</h2>
+
+      <!-- ============================================================
+           CORRECTIONS TABLE
+           Add new rows at the TOP — most recent first.
+           Never delete a row.
+           To add a row, copy the <tr> block below and fill in:
+             - datetime attribute (ISO: YYYY-MM-DD)
+             - display date (e.g. 12 June 2025)
+             - investigation ID (e.g. BD-INV-003)
+             - error identified (what was wrong)
+             - correction executed (what was changed)
+           ============================================================ -->
+
+      <!--
+        NO CORRECTIONS EXIST YET — show empty state.
+        When the first correction is issued:
+          1. Remove the corrections-empty block below.
+          2. Uncomment the corrections-table-wrap block.
+          3. Add the correction row.
+          4. Update the has_correction field in investigations.json.
+          5. Update the Last updated date at the bottom of this page.
+      -->
+
+      <div class="corrections-empty" role="status" aria-label="Corrections status">
+        <span class="corrections-empty__label">No corrections issued</span>
+        <p class="corrections-empty__text">
+          No corrections have been issued. This notice will be replaced by the
+          corrections table when the first correction is published.
+        </p>
+      </div>
+
+      <!--
+      <div class="corrections-table-wrap">
+        <table class="corrections-table" aria-label="Corrections log">
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Investigation</th>
+              <th scope="col">Error Identified</th>
+              <th scope="col">Correction Executed</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            PASTE NEW ROWS HERE — most recent at top
+
+            <tr>
+              <td class="corrections-table__date">
+                <time datetime="YYYY-MM-DD">DD Month YYYY</time>
+              </td>
+              <td class="corrections-table__id">
+                <a href="/investigations/SLUG/index.html">INV-00X</a>
+              </td>
+              <td>Description of what was wrong — specific, factual, no evasion.</td>
+              <td>Description of what was changed — what the correct information is and where it now appears.</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+      -->
+
+      <p>
+        Corrections to the bureau's methodology or AI use policy are recorded on
+        the <a href="/trust/methodology/">methodology page</a> and
+        <a href="/trust/ai-use/">AI use page</a> respectively,
+        not in this log. This log covers factual corrections to published
+        investigation content only.
+      </p>
+
+    </article>
+
+    <!-- Last updated -->
+    <footer class="trust-page__updated" aria-label="Page metadata">
+      <p class="trust-page__updated-text">
+        Last updated: <time datetime="2025-01-01">January 2025</time>
+        &mdash; This page is updated the same day any correction is published.
+      </p>
+    </footer>
+
+
+  </main>
+
+  <!-- GLOBAL FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__inner">
+
+      <div class="site-footer__grid">
+
+        <div>
+          <p class="site-footer__brand-name">Insight&nbsp;Gaps</p>
+          <p class="site-footer__mandate">
+            Independent forensic data journalism from Dhaka, Bangladesh.
+          </p>
+        </div>
+
+        <div>
+          <span class="site-footer__col-label">Navigate</span>
+          <nav class="site-footer__nav" aria-label="Footer navigation">
+            
+            <a href="/investigations/">Investigations</a>
+            
+            <a href="/analysis/">Analysis</a>
+            
+            <a href="/evidence/">Evidence</a>
+            
+            <a href="/archive/">Archive</a>
+            
+            <a href="/about/">About</a>
+            
+            <a href="/contact/">Contact</a>
+            
+          </nav>
+        </div>
+
+        <div>
+          <span class="site-footer__col-label">Trust</span>
+          <nav class="site-footer__nav" aria-label="Trust navigation">
+            <a href="/trust/methodology/">Methodology</a>
+            <a href="/trust/ai-use/">AI Use</a>
+            <a href="/trust/corrections/">Corrections</a>
+            <a href="/contact/">Contact</a>
+          </nav>
+        </div>
+
+      </div>
+
+      <div class="site-footer__bottom">
+        <p class="site-footer__copy">
+          &copy; <span class="js-copyright-year">2026</span> Insight Gaps Bureau.
+          Original reporting licensed under
+          <a href="https://creativecommons.org/licenses/by/4.0/"
+             target="_blank"
+             rel="noopener noreferrer">CC&nbsp;BY&nbsp;4.0</a>
+          unless otherwise noted.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts: mobile nav toggle + copyright year (progressive enhancement only) -->
+  <script>
+  (function () {
+    'use strict';
+
+    var toggle = document.querySelector('.site-header__toggle');
+    var nav    = document.querySelector('.site-nav');
+
+    if (toggle && nav) {
+      toggle.addEventListener('click', function () {
+        var isOpen = nav.classList.toggle('site-nav--open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!toggle.contains(e.target) && !nav.contains(e.target)) {
+          nav.classList.remove('site-nav--open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && nav.classList.contains('site-nav--open')) {
+          nav.classList.remove('site-nav--open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.focus();
+        }
+      });
+    }
+
+    var yr  = String(new Date().getFullYear());
+    var els = document.querySelectorAll('.js-copyright-year');
+    els.forEach(function (el) { el.textContent = yr; });
+
+  }());
+  </script>
+
+  
+
+</body>
+</html>

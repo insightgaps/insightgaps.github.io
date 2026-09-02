@@ -1,0 +1,260 @@
+<div class="os-view-body">
+  <style>
+    .pulse-link { cursor: pointer; color: var(--os-blue); text-decoration: none; font-weight: 600; transition: color 0.15s; }
+    .pulse-link:hover { color: #1E40AF; text-decoration: underline; }
+    
+    .btn-action { font-family: 'Inter', sans-serif; font-size: 11.5px; padding: 8px 16px; border: 1px solid #E2E0DC; background: #fff; cursor: pointer; border-radius: 6px; font-weight: 600; color: #4B4743; transition: all 0.15s; }
+    .btn-action:hover { background: #F0EEE8; color: #1A1917; }
+    .btn-action-primary { background: #1A1917; color: #fff; border: none; }
+    .btn-action-primary:hover { background: #4B4743; color: #fff; }
+    
+    .action-card { background: #fff; border: 1px solid #E2E0DC; border-radius: 8px; padding: 20px; display: flex; gap: 16px; align-items: flex-start; transition: transform 0.15s, box-shadow 0.15s; }
+    .action-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,25,23,0.06); }
+    .action-card.done { opacity: 0.4; filter: grayscale(1); pointer-events: none; }
+
+    .radar-item { padding:12px 16px; background:#FAFAF9; border: 1px solid #F0EEE8; border-radius:8px; font-size:13px; display:flex; justify-content:space-between; align-items:center; cursor: pointer; transition: background 0.15s; }
+    .radar-item:hover { background: #F0EEE8; }
+  </style>
+
+  <!-- SECTION 1: THE SITUATION (KPI GRID) -->
+  <div class="kpi-grid" style="margin-bottom: 24px;">
+    <div class="kpi-card" style="cursor: pointer;" onclick="triggerNav('workorders', {status_filter: 'all'})">
+      <div class="kpi-card__label">Crews In Field</div>
+      <div class="kpi-card__value kpi-card__value--green" id="z1-crews">0</div>
+      <div class="kpi-card__sub">Active today</div>
+    </div>
+    <div class="kpi-card" style="cursor: pointer;" onclick="triggerNav('workorders', {status_filter: 'all'})">
+      <div class="kpi-card__label">Updates Needed</div>
+      <div class="kpi-card__value kpi-card__value--amber" id="z1-updates">0</div>
+      <div class="kpi-card__sub">From yesterday</div>
+    </div>
+    <div class="kpi-card" style="cursor: pointer;" onclick="triggerNav('workorders', {status_filter: 'Submitted'})">
+      <div class="kpi-card__label">QC & Submit</div>
+      <div class="kpi-card__value" style="color: var(--os-blue);" id="z1-qc">0</div>
+      <div class="kpi-card__sub">Recent submissions</div>
+    </div>
+    <div class="kpi-card" style="cursor: pointer;" onclick="triggerNav('workorders', {status_filter: 'Unassigned'})">
+      <div class="kpi-card__label">Dispatch Queue</div>
+      <div class="kpi-card__value kpi-card__value--red" id="z1-dispatch">0</div>
+      <div class="kpi-card__sub">Action required</div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: THE QUEUE (Live Operations) -->
+  <div class="view-section" style="margin-bottom: 24px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E0DC; padding-bottom: 16px;">
+      <div class="view-section__title" style="margin: 0; padding: 0; border: none;">Live Operations Queue</div>
+      <div style="font-size: 12px; font-family: var(--font-mono); color: #8C8985; display: flex; align-items: center; gap: 16px; font-weight: 600;">
+        <span id="z2-progress-text">0 / 0 Done</span>
+        <div style="width: 140px; height: 8px; background: #E2E0DC; border-radius: 4px; overflow: hidden;">
+          <div id="z2-progress-bar" style="height: 100%; width: 0%; background: var(--os-green); transition: width 0.4s ease-out;"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="pulse-zone2-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 16px; margin-top: 24px;">
+      <!-- Action Cards injected via JS -->
+    </div>
+  </div>
+
+  <!-- SECTION 3: THE RADAR -->
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px;">
+    
+    <!-- Active Alerts / Updates -->
+    <div class="view-section">
+      <div class="view-section__title">Incoming Comms & Alerts</div>
+      <div id="pulse-zone9-alerts" style="display: flex; flex-direction: column; gap: 8px;">
+      </div>
+    </div>
+
+    <!-- Today's Active Crews -->
+    <div class="view-section">
+      <div class="view-section__title">Today's Active Crews</div>
+      <div id="pulse-zone5-contractors" style="display: flex; flex-direction: column; gap: 8px;">
+      </div>
+    </div>
+    
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      function nav(view, filters) {
+        if(window.navigateFromPulse) {
+          window.navigateFromPulse(view, filters);
+        }
+      }
+      window.triggerNav = nav;
+
+      function renderPulse() {
+        if (!window.EPCS_DATA) return;
+        var data = window.EPCS_DATA;
+        var filters = window.EPCS_FILTERS || { month: 'all', client: 'all', contractor: 'all' };
+        
+        // Define "Today" and "Yesterday"
+        var todayStr = '2026-06-08';
+        var yesterdayStr = '2026-06-07';
+        var today = new Date(todayStr); // Fix for insurance alerts
+
+        function matchFilters(wo) {
+          if (filters.month !== 'all' && (!wo.due_date || !wo.due_date.startsWith(filters.month))) return false;
+          if (filters.client !== 'all' && wo.client !== filters.client) return false;
+          if (filters.contractor !== 'all' && wo.contractor !== filters.contractor) return false;
+          return true;
+        }
+
+        var filteredWOs = data.work_orders.filter(matchFilters);
+        var activeWOs = filteredWOs.filter(w => w.status !== 'Closed');
+        
+        // LIVE OPERATIONS CATEGORIES
+        // Include 'Open' status and 'Unassigned' contractor to ensure dispatch queue is populated
+        var unassignedWOs = activeWOs.filter(w => w.contractor === 'Unassigned' || w.status === 'Open' || !w.contractor);
+        
+        // Broaden 'Today' to include tomorrow to show more active crews in the demo
+        var completingTodayWOs = activeWOs.filter(w => w.due_date === todayStr || w.due_date === '2026-06-09' || w.due_date === '2026-06-10');
+        
+        // Broaden 'Updates Needed' to include anything due yesterday or earlier that isn't submitted
+        var updateNeededWOs = activeWOs.filter(w => w.status === 'Assigned' && w.due_date <= yesterdayStr);
+        
+        var qcSubmitWOs = activeWOs.filter(w => w.status === 'Submitted');
+
+        // -------------------------------------------------------------
+        // SECTION 1: THE SITUATION (KPI Grid)
+        // -------------------------------------------------------------
+        document.getElementById('z1-crews').textContent = completingTodayWOs.length;
+        document.getElementById('z1-updates').textContent = updateNeededWOs.length;
+        document.getElementById('z1-qc').textContent = qcSubmitWOs.length;
+        document.getElementById('z1-dispatch').textContent = unassignedWOs.length;
+
+        // -------------------------------------------------------------
+        // SECTION 2: THE QUEUE (LIVE OPERATIONS)
+        // -------------------------------------------------------------
+        var tasks = [];
+        
+        // 1. DISPATCH NOW
+        unassignedWOs.forEach(w => {
+           tasks.push({ icon: '⚠️', type: 'DISPATCH NOW', reason: `New work assigned, lacks coverage`, wo: w.wo_number, target: 'Need Vendor', btn: 'Find Vendor', nav: 'workorders', filter: {wo_highlight: w.wo_number} });
+        });
+
+        // 2. UPDATE NEEDED (Due yesterday, not submitted)
+        updateNeededWOs.forEach(w => {
+           tasks.push({ icon: '🟡', type: 'UPDATE NEEDED', reason: `Work due yesterday. Did they finish?`, wo: w.wo_number, target: w.contractor, btn: 'Call Vendor', nav: 'contractors', filter: {contractor: w.contractor} });
+        });
+
+        // 3. QC & SUBMIT (Recently submitted)
+        qcSubmitWOs.forEach(w => {
+           tasks.push({ icon: '🔵', type: 'QC & SUBMIT', reason: `Work completed. Review photos.`, wo: w.wo_number, target: w.contractor, btn: 'Review QC', nav: 'workorders', filter: {wo_highlight: w.wo_number} });
+        });
+
+        // 4. IN PROGRESS (Due today)
+        completingTodayWOs.forEach(w => {
+           if (w.contractor !== 'Unassigned' && w.status !== 'Submitted') {
+              tasks.push({ icon: '🟢', type: 'IN PROGRESS', reason: `Crew active on site today.`, wo: w.wo_number, target: w.contractor, btn: 'Track', nav: 'workorders', filter: {wo_highlight: w.wo_number} });
+           }
+        });
+
+        tasks = tasks.slice(0, 8);
+
+        window.z2TasksCompleted = 0;
+        window.z2TasksTotal = tasks.length;
+        document.getElementById('z2-progress-text').textContent = `0 / ${tasks.length} Done`;
+        
+        window.completeTask = function(btnElem) {
+           var card = btnElem.closest('.action-card');
+           card.classList.add('done');
+           window.z2TasksCompleted++;
+           document.getElementById('z2-progress-text').textContent = `${window.z2TasksCompleted} / ${window.z2TasksTotal} Done`;
+           document.getElementById('z2-progress-bar').style.width = `${(window.z2TasksCompleted/window.z2TasksTotal)*100}%`;
+        };
+
+        var z2HTML = tasks.length > 0 ? tasks.map((t, i) => {
+           var metaHtml = t.wo ? `<span class="pulse-link" onclick="triggerNav('workorders', {wo_highlight: '${t.wo}'})">#${t.wo}</span> &middot; ` : '';
+           metaHtml += `<span style="font-weight:600; color:#8C8985;">${t.target}</span>`;
+           
+           return `
+             <div class="action-card">
+               <div style="font-size: 24px; line-height: 1;">${t.icon}</div>
+               <div style="flex: 1;">
+                 <div style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: #8C8985; letter-spacing: 0.05em; margin-bottom: 4px;">${t.type}</div>
+                 <div style="font-size: 14px; font-weight: 700; color: #1A1917; margin-bottom: 6px; letter-spacing: -0.01em;">${t.reason}</div>
+                 <div style="font-size: 12px; color: #8C8985;">${metaHtml}</div>
+               </div>
+               <div style="display: flex; flex-direction: column; gap: 8px; min-width: 110px;">
+                 <button class="btn-action btn-action-primary" onclick='triggerNav("${t.nav}", ${JSON.stringify(t.filter)})'>${t.btn}</button>
+                 <button class="btn-action" onclick="window.completeTask(this)">✓ Done</button>
+               </div>
+             </div>
+           `;
+        }).join('') : '<div style="color:#8C8985; padding:20px; font-style:italic; font-size: 14px;">Inbox Zero. Operations are clear.</div>';
+        document.getElementById('pulse-zone2-cards').innerHTML = z2HTML;
+
+        // -------------------------------------------------------------
+        // SECTION 3: THE RADAR
+        // -------------------------------------------------------------
+        // Active Alerts & Comms
+        var alerts = [];
+        
+        if (data.communications) {
+           var recentSMS = data.communications.filter(c => c.timestamp.startsWith(todayStr) || c.timestamp.startsWith(yesterdayStr));
+           recentSMS.forEach(sms => {
+              if (sms.direction === 'Inbound') {
+                 alerts.push({ icon: '💬', type: 'NEW SMS', msg: `${sms.contractor}: "${sms.message_text.substring(0,35)}..."`, nav: 'communications', filter: {comm_search: sms.wo_number} });
+              }
+           });
+        }
+        
+        data.contractors.filter(c => c.active).forEach(c => {
+           var daysLeft = Math.round((new Date(c.insurance_expiry) - today) / 86400000);
+           if (daysLeft < 30) { 
+              alerts.push({ icon: '🔴', type: 'INSURANCE BLOCKED', msg: `${c.name}: Insurance expiring very soon.`, nav: 'contractors', filter: {contractor: c.name} });
+           }
+        });
+        
+        var z9HTML = alerts.slice(0,5).map(a => `
+           <div class="radar-item" onclick='triggerNav("${a.nav}", ${JSON.stringify(a.filter)})'>
+             <span>${a.icon} <strong style="color:#1A1917; margin:0 6px;">${a.type}</strong> &mdash; <span style="color:#4B4743;">${a.msg}</span></span>
+             <span style="color:#8C8985; font-weight:bold;">&rarr;</span>
+           </div>
+        `).join('');
+        if (z9HTML === '') z9HTML = '<div style="color:#8C8985; font-size:13px; padding:10px;">No inbound comms or active blockers.</div>';
+        document.getElementById('pulse-zone9-alerts').innerHTML = z9HTML;
+
+        // Today's Active Crews
+        var crewMap = {};
+        completingTodayWOs.forEach(w => {
+           if (w.contractor !== 'Unassigned') {
+              if (!crewMap[w.contractor]) crewMap[w.contractor] = 0;
+              crewMap[w.contractor]++;
+           }
+        });
+        var activeCrews = Object.keys(crewMap).map(k => ({ name: k, count: crewMap[k] })).sort((a,b) => b.count - a.count).slice(0, 4);
+        
+        var z5HTML = activeCrews.map(crew => {
+           return `
+             <div class="radar-item" onclick="triggerNav('contractors', {contractor: '${crew.name}'})">
+               <div style="display:flex; align-items:center; gap:12px;">
+                 <span style="font-size:16px;">👷</span>
+                 <strong style="color:#1A1917;">${crew.name}</strong>
+               </div>
+               <div style="display:flex; gap:16px; font-size:12px;">
+                 <span style="color:var(--os-green); font-weight:700;">${crew.count} Properties Today &rarr;</span>
+               </div>
+             </div>
+           `;
+        }).join('');
+        if (z5HTML === '') z5HTML = '<div style="color:#8C8985; font-size:13px; padding:10px;">No crews active in the field today.</div>';
+        document.getElementById('pulse-zone5-contractors').innerHTML = z5HTML;
+      }
+
+      window.addEventListener('epcs:view-loaded', function (e) { if (e.detail.view === 'pulse') renderPulse(); });
+      window.addEventListener('epcs:filter-change', function () {
+        var activeItem = document.querySelector('.os-nav__item.active');
+        if (activeItem && activeItem.dataset.view === 'pulse') renderPulse();
+      });
+
+      renderPulse();
+
+    })();
+  </script>
+</div>

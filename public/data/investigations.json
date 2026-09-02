@@ -1,0 +1,146 @@
+[
+  {
+    "id": "BD-INV-004",
+    "title": "Dhaka Slum Fires",
+    "dek": "How catastrophic 'accidental' fires bypass constitutional eviction protections to clear high-value urban transit corridors in Dhaka.",
+    "slug": "dhaka-slum-fires",
+    "url": "/investigations/dhaka-slum-fires/",
+    "page_kind": "template",
+    "date_published": "2026-05-28",
+    "date_revised": null,
+    "status": "published",
+    "investigation_type": "Tier 2 - Spatial Overlay Investigation",
+    "topic_tags": [
+      "slum fires",
+      "evictions",
+      "urban land",
+      "transit infrastructure",
+      "Dhaka",
+      "Bangladesh"
+    ],
+    "summary": "A forensic spatial overlay investigation tracing two decades of catastrophic informal settlement fires along high-value commercial and road transit corridors in Dhaka, showing how fire functions as a bypass for constitutional shelter rights.",
+    "key_findings": [
+      "Dhaka's rapid transport corridor expansion correlates directly with catastrophic fires in adjacent informal settlements, bypassing court-mandated eviction protections.",
+      "A 20-year multi-site baseline reveals that fires at Korail, Chalantika, Sattola, and Kalshi slums cleared valuable state-owned land for high-end flat projects, ICT villages, and flyover ramps.",
+      "At Kalshi slum, land value appreciation spiked +250% following the Tk 1,012 crore flyover opening, immediately preceding the May 2026 fire that cleared 1,200 structures."
+    ],
+    "source_count": 7,
+    "methodology_link": "/investigations/dhaka-slum-fires/#methodology",
+    "has_correction": false,
+    "correction_notes": [],
+    "og_image_path": null,
+    "og_image_note": "Dedicated infographic file absent from repository; bureau default OG image is used. Restore /assets/img/dhaka-slum-fires-infographic.png when the asset is recovered.",
+    "related_items": [
+      "BD-INV-001",
+      "BD-INV-002"
+    ],
+    "rtl_status": null
+  },
+  {
+    "id": "BD-INV-001",
+    "title": "Blood Routes",
+    "dek": "351 people died in 15 days during the 2026 Eid-ul-Fitr rush. Bangladesh's roads kill at six times the official count. The joma incentive system, political shields, and four critical data voids make it structural — not accidental.",
+    "slug": "blood-routes",
+    "url": "/investigations/blood-routes/",
+    "page_kind": "standalone",
+    "date_published": "2026-05-26",
+    "date_revised": null,
+    "status": "published",
+    "investigation_type": "Tier 1 - Visual Data Investigation",
+    "topic_tags": [
+      "road safety",
+      "transport",
+      "Eid",
+      "structural accountability",
+      "Bangladesh"
+    ],
+    "summary": "A scroll-driven visual investigation into nationwide road crash fatalities in Bangladesh: the Eid holiday surge, the joma economic machine that incentivises racing, the Phoenix rebrand pattern, and four data voids the government holds but refuses to publish.",
+    "key_findings": [
+      "During the 15-day Eid-ul-Fitr 2026 travel period, 351 people were killed — averaging 23 deaths per day during the holiday rush.",
+      "The WHO-modelled road death estimate (~31,578/year) is 5.8× higher than the BRTA official count (5,480) — a gap maintained by deliberate policy, not technical incapacity.",
+      "The joma (daily deposit) system forces bus drivers to race for passengers under a guaranteed-income model that protects owners and transfers all lethal risk to drivers and pedestrians, 47% of Dhaka victims."
+    ],
+    "source_count": 22,
+    "methodology_link": "/investigations/blood-routes/geo_verification_report.md",
+    "has_correction": false,
+    "correction_notes": [],
+    "og_image_path": "/assets/img/blood-routes-infographic.png",
+    "related_items": [
+      "BD-INV-002"
+    ],
+    "rtl_status": null
+  },
+  {
+    "id": "BD-INV-002",
+    "title": "The Impunity Machine",
+    "dek": "A visual data investigation into Bangladesh's rape justice crisis and the institutional machinery that turns reported violence into near-zero punishment.",
+    "slug": "the-impunity-machine",
+    "url": "/investigations/the-impunity-machine/",
+    "page_kind": "standalone",
+    "date_published": "2026-03-01",
+    "date_revised": null,
+    "status": "published",
+    "investigation_type": "Tier 1 - Visual Data Investigation",
+    "topic_tags": [
+      "rape justice",
+      "gender-based violence",
+      "institutional accountability",
+      "criminal justice",
+      "Bangladesh"
+    ],
+    "summary": "A forensic visual investigation tracing Bangladesh's rape justice crisis across reporting attrition, conviction rates, court backlog, forensic capacity, and legal data voids.",
+    "key_findings": [
+      "Only 310 convictions were recorded from 66,711 women who came through One-Stop Crisis Centres over 23 years, a 0.46% conviction rate.",
+      "Bangladesh pairs maximum legal severity with near-zero certainty of punishment: death penalty expansion did not solve reporting attrition, backlog, evidence loss, or witness risk.",
+      "Critical justice infrastructure remains thin: 14 OCCs, two national DNA machines, major unprocessed sample backlogs, and no complete national registry for key rape-case outcomes."
+    ],
+    "source_count": 91,
+    "methodology_link": "/investigations/the-impunity-machine/methodology/",
+    "has_correction": false,
+    "correction_notes": [],
+    "og_image_path": "/assets/img/impunity-machine-infographic.png",
+    "related_items": [
+      "BD-INV-003"
+    ],
+    "rtl_status": null,
+    "subpages": {
+      "detailed": "/investigations/the-impunity-machine/detailed/",
+      "methodology": "/investigations/the-impunity-machine/methodology/",
+      "tracker": "/investigations/the-impunity-machine/tracker/"
+    }
+  },
+  {
+    "id": "BD-INV-003",
+    "title": "The Lead Belt",
+    "dek": "Bangladesh's lead poisoning crisis mapped: 294 contaminated sites, 145 schools within 500 metres, and soil lead readings up to 1,702 times the international safety standard.",
+    "slug": "the-lead-belt",
+    "url": "/investigations/the-lead-belt/",
+    "page_kind": "standalone",
+    "date_published": "2025-01-01",
+    "date_revised": null,
+    "status": "published",
+    "investigation_type": "Tier 2 - Visual Spatial Investigation",
+    "topic_tags": [
+      "lead contamination",
+      "public health",
+      "education",
+      "environment",
+      "Bangladesh"
+    ],
+    "summary": "A forensic spatial investigation mapping contaminated lead sites, nearby schools, child exposure indicators, and state inaction across Bangladesh.",
+    "key_findings": [
+      "294 contaminated sites are mapped across Bangladesh using Pure Earth / University of Dhaka assessment data.",
+      "145 schools are identified within 500 metres of contaminated sites, with the closest school in the report sitting 59 metres from a lead-acid battery recycling site.",
+      "The highest soil lead reading in the report reaches 680,872 ppm, about 1,702 times the 400 ppm international residential safety threshold."
+    ],
+    "source_count": 7,
+    "methodology_link": "/investigations/the-lead-belt/methodology/",
+    "has_correction": false,
+    "correction_notes": [],
+    "og_image_path": "/assets/img/lead-belt-infographic.png",
+    "related_items": [
+      "BD-INV-002"
+    ],
+    "rtl_status": null
+  }
+]

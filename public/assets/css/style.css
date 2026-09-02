@@ -1,0 +1,493 @@
+/* ============================================================
+   INSIGHT GAPS BUREAU — GLOBAL DESIGN SYSTEM
+   style.css — v1.0
+   All CSS variables live here. Touch this first.
+   Every page and component reads from these tokens.
+   Never hardcode a color, size, or font anywhere else.
+   ============================================================ */
+
+
+/* ============================================================
+   FONT IMPORTS — Self-hosted via Google Fonts CDN fallback
+   Production: replace with /assets/fonts/ local files
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Lora:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap');
+
+
+/* ============================================================
+   DESIGN TOKENS — CSS CUSTOM PROPERTIES
+   ============================================================ */
+:root {
+
+  /* ----------------------------------------------------------
+     TYPOGRAPHY
+     ---------------------------------------------------------- */
+  --font-headline:   'Space Grotesk', sans-serif;
+  --font-body:       'Lora', Georgia, serif;
+  --font-mono:       'Space Mono', 'Courier New', monospace;
+
+  /* Type scale */
+  --type-display:    3rem;        /* 48px — homepage hero headline */
+  --type-h1:         2.25rem;     /* 36px — investigation & report titles */
+  --type-h2:         1.5rem;      /* 24px — section headings */
+  --type-h3:         1.125rem;    /* 18px — subsection headings, card titles */
+  --type-body:       1.0625rem;   /* 17px — all prose */
+  --type-body-sm:    0.9375rem;   /* 15px — captions, footnotes, source lines */
+  --type-label:      0.75rem;     /* 12px — status badges, case IDs, timestamps */
+  --type-data:       0.875rem;    /* 14px — data labels, metric counters */
+
+  /* Line height */
+  --leading-tight:   1.2;         /* headlines */
+  --leading-body:    1.75;        /* prose — comfortable long-form reading */
+  --leading-data:    1.4;         /* data labels, tables */
+
+  /* Letter spacing */
+  --tracking-tight:  -0.02em;    /* large headlines */
+  --tracking-normal:  0;
+  --tracking-wide:    0.08em;    /* uppercase labels */
+
+
+  /* ----------------------------------------------------------
+     COLOR PALETTE — BASE
+     ---------------------------------------------------------- */
+
+  /* Page surfaces */
+  --color-bg:            #F9F8F6;   /* warm white — page background */
+  --color-surface:       #FFFFFF;   /* cards, panels, elevated surfaces */
+  --color-surface-alt:   #F2F0EC;   /* trust pages, subtle panel variation */
+  --color-border:        #E2E0DC;   /* dividers, card borders, table rules */
+  --color-border-strong: #C8C4BC;   /* emphasis borders, active states */
+
+  /* Text */
+  --color-text-primary:   #1A1917;  /* all primary body text */
+  --color-text-secondary: #5C5954;  /* secondary labels, captions, metadata */
+  --color-text-muted:     #9C9891;  /* timestamps, placeholder text */
+  --color-text-inverse:   #F9F8F6;  /* text on dark backgrounds */
+
+
+  /* ----------------------------------------------------------
+     COLOR PALETTE — BUREAU ACCENT (AMBER)
+     Global identity color. Used on both tracks.
+     Investigations: prominent use.
+     Analysis: links and CTAs only.
+     ---------------------------------------------------------- */
+  --color-accent:         #C17D11;  /* primary amber — links, active states, highlights */
+  --color-accent-hover:   #A06A0E;  /* hover state */
+  --color-accent-subtle:  #FDF3E3;  /* light amber backgrounds — callout blocks */
+  --color-accent-border:  #E8C07A;  /* amber borders for callout blocks */
+  --color-accent-dark:    #7A4F0A;  /* dark amber — for text on amber backgrounds */
+
+
+  /* ----------------------------------------------------------
+     COLOR PALETTE — STATUS
+     ---------------------------------------------------------- */
+  --color-status-published:   #1A6B3C;
+  --color-status-corrected:   #C17D11;  /* same as accent */
+  --color-status-developing:  #2563AB;
+  --color-status-terminated:  #6B1A1A;
+  --color-status-archived:    #5C5954;
+
+
+  /* ----------------------------------------------------------
+     COLOR PALETTE — TRUST & ALERT SURFACES
+     ---------------------------------------------------------- */
+  --color-trust-bg:         #F2F0EC;  /* methodology, corrections, AI-use pages */
+  --color-correction-bg:    #FEF2F2;  /* correction banner background */
+  --color-correction-border:#FECACA;  /* correction banner border */
+  --color-correction-accent:#DC2626;  /* correction banner left border — red, distinct from amber */
+
+
+  /* ----------------------------------------------------------
+     COLOR PALETTE — FOOTER (DARK)
+     ---------------------------------------------------------- */
+  --color-footer-bg:      #1A1917;   /* matches --color-text-primary */
+  --color-footer-border:  #C17D11;   /* 3px amber top border */
+
+
+  /* ----------------------------------------------------------
+     SPACING SCALE — 4px base unit
+     ---------------------------------------------------------- */
+  --space-1:   0.25rem;   /*  4px */
+  --space-2:   0.5rem;    /*  8px */
+  --space-3:   0.75rem;   /* 12px */
+  --space-4:   1rem;      /* 16px */
+  --space-5:   1.5rem;    /* 24px */
+  --space-6:   2rem;      /* 32px */
+  --space-7:   3rem;      /* 48px */
+  --space-8:   4rem;      /* 64px */
+  --space-9:   6rem;      /* 96px */
+
+
+  /* ----------------------------------------------------------
+     GRID SYSTEM
+     ---------------------------------------------------------- */
+  --grid-max:      75rem;     /* 1200px — maximum page width */
+  --grid-content:  45rem;     /* 720px  — prose column */
+  --grid-wide:     60rem;     /* 960px  — charts, maps, data tables */
+  --grid-gutter:   1.5rem;    /* 24px   — column gutter */
+  --grid-padding:  1.5rem;    /* 24px   — page side padding */
+
+
+  /* ----------------------------------------------------------
+     BORDERS & RADIUS
+     ---------------------------------------------------------- */
+  --radius-sm:         2px;
+  --radius-md:         4px;
+  --radius-lg:         8px;
+  --border-width:      1px;
+  --border-width-strong: 2px;
+  --border-width-accent: 3px;
+
+
+  /* ----------------------------------------------------------
+     MOTION — minimal, purposeful
+     ---------------------------------------------------------- */
+  --transition-fast:   150ms ease;
+  --transition-base:   250ms ease;
+
+
+  /* ----------------------------------------------------------
+     Z-INDEX SCALE
+     ---------------------------------------------------------- */
+  --z-base:      0;
+  --z-raised:    10;
+  --z-header:    100;
+  --z-overlay:   200;
+
+}
+
+
+/* ============================================================
+   BREAKPOINTS — reference only, use in media queries
+   --bp-mobile:   480px
+   --bp-tablet:   768px
+   --bp-desktop:  1024px
+   --bp-wide:     1200px
+   ============================================================ */
+
+
+/* ============================================================
+   CSS RESET & BASE
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family:      var(--font-body);
+  font-size:        var(--type-body);
+  line-height:      var(--leading-body);
+  color:            var(--color-text-primary);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing:  antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, video, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color:           var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition:      color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  cursor:     pointer;
+  border:     none;
+  background: none;
+  font:       inherit;
+}
+
+input, textarea, select {
+  font: inherit;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* ============================================================
+   LAYOUT UTILITIES
+   ============================================================ */
+
+/* Page wrapper — constrains max width and centers content */
+.page-wrapper {
+  width:     100%;
+  max-width: var(--grid-max);
+  margin:    0 auto;
+  padding:   0 var(--grid-padding);
+}
+
+/* Content column — prose width */
+.content-col {
+  width:     100%;
+  max-width: var(--grid-content);
+  margin:    0 auto;
+}
+
+/* Wide column — charts, maps, tables */
+.wide-col {
+  width:     100%;
+  max-width: var(--grid-wide);
+  margin:    0 auto;
+}
+
+/* Full bleed — hero backgrounds, section fills */
+.full-bleed {
+  width:          100%;
+  margin-left:    calc(-1 * var(--grid-padding));
+  margin-right:   calc(-1 * var(--grid-padding));
+  padding-left:   var(--grid-padding);
+  padding-right:  var(--grid-padding);
+}
+
+
+/* ============================================================
+   TYPOGRAPHY — BASE ELEMENTS
+   ============================================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family:    var(--font-headline);
+  line-height:    var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color:          var(--color-text-primary);
+}
+
+h1 { font-size: var(--type-h1); font-weight: 700; }
+h2 { font-size: var(--type-h2); font-weight: 600; }
+h3 { font-size: var(--type-h3); font-weight: 600; }
+
+p {
+  font-family: var(--font-body);
+  font-size:   var(--type-body);
+  line-height: var(--leading-body);
+  color:       var(--color-text-primary);
+}
+
+p + p {
+  margin-top: var(--space-4);
+}
+
+/* Section label — UPPERCASE MONO — used before major content sections */
+.section-label {
+  font-family:    var(--font-mono);
+  font-size:      var(--type-label);
+  font-weight:    400;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color:          var(--color-text-secondary);
+  display:        block;
+  margin-bottom:  var(--space-5);
+}
+
+/* Dek — italic body under headline */
+.dek {
+  font-family: var(--font-body);
+  font-size:   var(--type-body);
+  font-style:  italic;
+  line-height: var(--leading-body);
+  color:       var(--color-text-secondary);
+}
+
+/* Caption — below visuals */
+.caption {
+  font-family: var(--font-body);
+  font-size:   var(--type-body-sm);
+  color:       var(--color-text-secondary);
+  margin-top:  var(--space-2);
+}
+
+/* Mono label — case IDs, timestamps, data labels */
+.mono-label {
+  font-family:    var(--font-mono);
+  font-size:      var(--type-label);
+  color:          var(--color-text-muted);
+  letter-spacing: var(--tracking-wide);
+}
+
+/* Data value — metric numbers */
+.data-value {
+  font-family:    var(--font-mono);
+  font-size:      var(--type-data);
+  color:          var(--color-text-primary);
+  line-height:    var(--leading-data);
+}
+
+
+/* ============================================================
+   SECTION DIVIDERS
+   ============================================================ */
+
+/* Standard light divider */
+.divider {
+  border: none;
+  border-top: var(--border-width) solid var(--color-border);
+  margin: var(--space-7) 0;
+}
+
+/* Accent divider — 48px wide amber bar */
+.divider--accent {
+  border: none;
+  width:        3rem;
+  height:       var(--border-width-strong);
+  background:   var(--color-accent);
+  margin:       var(--space-7) 0;
+}
+
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+.btn {
+  display:         inline-flex;
+  align-items:     center;
+  gap:             var(--space-2);
+  font-family:     var(--font-headline);
+  font-size:       var(--type-body-sm);
+  font-weight:     600;
+  line-height:     1;
+  padding:         var(--space-3) var(--space-5);
+  border-radius:   var(--radius-md);
+  text-decoration: none;
+  transition:      background-color var(--transition-fast),
+                   color var(--transition-fast),
+                   border-color var(--transition-fast);
+}
+
+/* Primary button — amber fill */
+.btn--primary {
+  background-color: var(--color-accent);
+  color:            var(--color-text-inverse);
+  border:           var(--border-width) solid var(--color-accent);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-accent-hover);
+  border-color:     var(--color-accent-hover);
+  color:            var(--color-text-inverse);
+}
+
+/* Ghost button — amber outline */
+.btn--ghost {
+  background-color: transparent;
+  color:            var(--color-accent);
+  border:           var(--border-width) solid var(--color-accent);
+}
+
+.btn--ghost:hover {
+  background-color: var(--color-accent);
+  color:            var(--color-text-inverse);
+}
+
+
+/* ============================================================
+   ACCESSIBILITY
+   ============================================================ */
+
+/* Screen reader only — visually hidden but accessible */
+.sr-only {
+  position:   absolute;
+  width:      1px;
+  height:     1px;
+  padding:    0;
+  margin:     -1px;
+  overflow:   hidden;
+  clip:       rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border:     0;
+}
+
+/* Focus visible — keyboard navigation */
+:focus-visible {
+  outline:        2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius:  var(--radius-sm);
+}
+
+/* Skip to content link */
+.skip-link {
+  position:   absolute;
+  top:        var(--space-2);
+  left:       var(--space-2);
+  z-index:    var(--z-overlay);
+  padding:    var(--space-2) var(--space-4);
+  background: var(--color-accent);
+  color:      var(--color-text-inverse);
+  font-family: var(--font-headline);
+  font-size:  var(--type-body-sm);
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transform:  translateY(-200%);
+  transition: transform var(--transition-fast);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+
+/* ============================================================
+   RESPONSIVE — MOBILE OVERRIDES
+   ============================================================ */
+
+@media (max-width: 768px) {
+  :root {
+    --type-display: 2rem;        /* 32px on mobile */
+    --type-h1:      1.75rem;     /* 28px on mobile */
+    --grid-padding: 1rem;        /* tighter side padding */
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --type-display: 1.75rem;
+    --type-h1:      1.5rem;
+  }
+}
+
+
+/* ============================================================
+   PRINT — basic print styles
+   ============================================================ */
+
+@media print {
+  body {
+    background: white;
+    color: black;
+    font-size: 12pt;
+  }
+
+  header, footer, nav, .ai-disclosure-bar {
+    display: none;
+  }
+
+  a::after {
+    content: ' (' attr(href) ')';
+    font-size: 10pt;
+    color: #666;
+  }
+}

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="{{ og_type or 'website' }}">
+  <meta property="og:title"       content="{{ og_title or title }}">
+  <meta property="og:description" content="{{ og_description or description }}">
+  <meta property="og:url"         content="{{ canonical }}">
+  <meta property="og:image"       content="{{ og_image }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="{{ og_title or title }}">
+  <meta name="twitter:description" content="{{ og_description or description }}">
+  <meta name="twitter:image"       content="{{ og_image }}">
+
+  <link rel="canonical" href="{{ canonical }}">
+
+  <!-- Font preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  {% for css in page_css %}
+  <link rel="stylesheet" href="{{ css }}">
+  {% endfor %}
+
+  {{ head_extra }}
+</head>
+<body>
+
+  <!-- AI DISCLOSURE BAR -->
+  <div class="ai-disclosure-bar" role="note" aria-label="AI use disclosure">
+    <div class="ai-disclosure-bar__inner">
+      <p class="ai-disclosure-bar__text">
+        AI tools were used in producing this report.
+        <a href="/trust/ai-use/">View AI use disclosure &rarr;</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- GLOBAL HEADER -->
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+
+      <a href="/" class="site-header__logo" aria-label="Insight Gaps Bureau — Home">
+        Insight&nbsp;Gaps
+      </a>
+
+      <button class="site-header__toggle"
+              aria-label="Toggle navigation"
+              aria-expanded="false"
+              aria-controls="primary-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="primary-nav" aria-label="Primary navigation">
+        {% for item in nav %}
+        <a href="{{ item.href }}" class="site-nav__link{% if item.href == active_nav %} site-nav__link--active{% endif %}"{% if item.href == active_nav %} aria-current="page"{% endif %}>{{ item.label }}</a>
+        {% endfor %}
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main id="main-content" class="{{ main_class }}">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- GLOBAL FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__inner">
+
+      <div class="site-footer__grid">
+
+        <div>
+          <p class="site-footer__brand-name">Insight&nbsp;Gaps</p>
+          <p class="site-footer__mandate">
+            Independent forensic data journalism from Dhaka, Bangladesh.
+          </p>
+        </div>
+
+        <div>
+          <span class="site-footer__col-label">Navigate</span>
+          <nav class="site-footer__nav" aria-label="Footer navigation">
+            {% for item in footer_nav %}
+            <a href="{{ item.href }}">{{ item.label }}</a>
+            {% endfor %}
+          </nav>
+        </div>
+
+        <div>
+          <span class="site-footer__col-label">Trust</span>
+          <nav class="site-footer__nav" aria-label="Trust navigation">
+            <a href="/trust/methodology/">Methodology</a>
+            <a href="/trust/ai-use/">AI Use</a>
+            <a href="/trust/corrections/">Corrections</a>
+            <a href="/contact/">Contact</a>
+          </nav>
+        </div>
+
+      </div>
+
+      <div class="site-footer__bottom">
+        <p class="site-footer__copy">
+          &copy; <span class="js-copyright-year">2026</span> Insight Gaps Bureau.
+          Original reporting licensed under
+          <a href="https://creativecommons.org/licenses/by/4.0/"
+             target="_blank"
+             rel="noopener noreferrer">CC&nbsp;BY&nbsp;4.0</a>
+          unless otherwise noted.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts: mobile nav toggle + copyright year (progressive enhancement only) -->
+  <script>
+  (function () {
+    'use strict';
+
+    var toggle = document.querySelector('.site-header__toggle');
+    var nav    = document.querySelector('.site-nav');
+
+    if (toggle && nav) {
+      toggle.addEventListener('click', function () {
+        var isOpen = nav.classList.toggle('site-nav--open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!toggle.contains(e.target) && !nav.contains(e.target)) {
+          nav.classList.remove('site-nav--open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && nav.classList.contains('site-nav--open')) {
+          nav.classList.remove('site-nav--open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.focus();
+        }
+      });
+    }
+
+    var yr  = String(new Date().getFullYear());
+    var els = document.querySelectorAll('.js-copyright-year');
+    els.forEach(function (el) { el.textContent = yr; });
+
+  }());
+  </script>
+
+  {% block body_extra %}{% endblock %}
+
+</body>
+</html>

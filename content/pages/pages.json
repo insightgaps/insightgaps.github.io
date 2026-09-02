@@ -1,0 +1,146 @@
+{
+  "home": {
+    "route": "/",
+    "title": "Insight Gaps Bureau — Forensic Data Journalism from Dhaka",
+    "description": "Independent forensic data journalism from Dhaka, Bangladesh. Investigations into contamination, institutional failure, and accountability gaps.",
+    "og_title": "Insight Gaps Bureau",
+    "og_description": "Independent forensic data journalism from Dhaka, Bangladesh.",
+    "og_image": "/assets/img/og-default.jpg",
+    "css": [
+      "/assets/css/home.css"
+    ]
+  },
+  "about": {
+    "route": "/about/",
+    "title": "About the Bureau — Insight Gaps Bureau",
+    "description": "Insight Gaps Bureau is an independent forensic data journalism organization and operational intelligence practice based in Dhaka, Bangladesh, producing accountability investigations and public-interest data audits.",
+    "og_title": "About — Insight Gaps Bureau",
+    "og_description": "Independent forensic data journalism and operational intelligence from Dhaka, Bangladesh. Built to verify facts and expose systemic gaps.",
+    "og_image": "/assets/img/og-default.jpg",
+    "main_class": "about-page",
+    "css": [
+      "/assets/css/pages/about.css"
+    ]
+  },
+  "contact": {
+    "route": "/contact/",
+    "title": "Contact — Insight Gaps Bureau",
+    "description": "Submit a tip or get in touch with Insight Gaps Bureau. Secure tip submission and general contact information.",
+    "og_title": "Contact — Insight Gaps Bureau",
+    "og_description": "Submit a tip or get in touch with Insight Gaps Bureau.",
+    "og_image": "/assets/img/og-default.jpg",
+    "main_class": "contact-page",
+    "css": [
+      "/assets/css/pages/contact.css"
+    ]
+  },
+  "404": {
+    "route": "/404.html",
+    "title": "Page Not Found — Insight Gaps Bureau",
+    "description": "The page you are looking for does not exist.",
+    "og_title": "Page Not Found — Insight Gaps Bureau",
+    "og_description": "The page you are looking for does not exist.",
+    "og_image": "/assets/img/og-default.jpg",
+    "main_class": "error-page",
+    "no_chrome": false,
+    "css": [
+      "/assets/css/pages/404.css"
+    ]
+  },
+  "evidence": {
+    "route": "/evidence/",
+    "title": "Data Repository — Insight Gaps Bureau",
+    "description": "Public evidence packages, datasets, and source documentation for Insight Gaps Bureau investigations.",
+    "og_title": "Data Repository — Insight Gaps Bureau",
+    "og_description": "Public evidence packages, datasets, and source documentation for Insight Gaps Bureau investigations.",
+    "og_image": "/assets/img/og-default.jpg",
+    "main_class": "data-page",
+    "css": [
+      "/assets/css/pages/evidence.css"
+    ]
+  },
+  "trust-methodology": {
+    "route": "/trust/methodology/",
+    "title": "Methodology — Insight Gaps Bureau",
+    "description": "How Insight Gaps Bureau verifies data, sources, and claims before publication. Verification tiers, data handling rules, and editorial standards.",
+    "og_title": "Methodology — Insight Gaps Bureau",
+    "og_description": "How Insight Gaps Bureau verifies data, sources, and claims before publication.",
+    "og_image": "/assets/img/og-default.jpg",
+    "main_class": "trust-page",
+    "css": [
+      "/assets/css/pages/trust-methodology.css"
+    ]
+  },
+  "trust-ai-use": {
+    "route": "/trust/ai-use/",
+    "title": "AI Use Disclosure — Insight Gaps Bureau",
+    "description": "Full transparency ledger of AI tool use in Insight Gaps Bureau operations — which tools, what roles, and what they are prohibited from owning.",
+    "og_title": "AI Use Disclosure — Insight Gaps Bureau",
+    "og_description": "Full transparency ledger of AI tool use in Insight Gaps Bureau operations.",
+    "og_image": "/assets/img/og-default.jpg",
+    "main_class": "trust-page",
+    "css": [
+      "/assets/css/pages/trust-ai-use.css"
+    ]
+  },
+  "trust-corrections": {
+    "route": "/trust/corrections/",
+    "title": "Corrections Log — Insight Gaps Bureau",
+    "description": "Permanent timestamped record of every correction ever issued by Insight Gaps Bureau. Entries are never deleted — only appended.",
+    "og_title": "Corrections Log — Insight Gaps Bureau",
+    "og_description": "Permanent timestamped record of every correction ever issued by Insight Gaps Bureau.",
+    "og_image": "/assets/img/og-default.jpg",
+    "main_class": "trust-page",
+    "css": [
+      "/assets/css/pages/trust-corrections.css"
+    ]
+  },
+  "investigations-index": {
+    "route": "/investigations/",
+    "title": "Investigations — Insight Gaps Bureau",
+    "description": "Published and developing investigations from Insight Gaps Bureau.",
+    "og_title": "Investigations — Insight Gaps Bureau",
+    "og_description": "Published and developing investigations from Insight Gaps Bureau.",
+    "og_image": "/assets/img/og-default.jpg",
+    "main_class": "investigations-index",
+    "css": [
+      "/assets/css/pages/listing.css"
+    ]
+  },
+  "analysis-index": {
+    "route": "/analysis/",
+    "title": "Analysis — Insight Gaps Bureau",
+    "description": "Commercial analysis, operational intelligence, and performance dashboards by Insight Gaps Bureau.",
+    "og_title": "Analysis — Insight Gaps Bureau",
+    "og_description": "Commercial analysis, operational intelligence, and performance dashboards by Insight Gaps Bureau.",
+    "og_image": "/assets/img/og-default.jpg",
+    "main_class": "investigations-index",
+    "css": [
+      "/assets/css/pages/listing.css"
+    ]
+  },
+  "archive": {
+    "route": "/archive/",
+    "title": "Archive — Insight Gaps Bureau",
+    "description": "Complete index of all investigations and analysis reports published by Insight Gaps Bureau.",
+    "og_title": "Archive — Insight Gaps Bureau",
+    "og_description": "Complete index of all investigations and analysis reports published by Insight Gaps Bureau.",
+    "og_image": "/assets/img/og-default.jpg",
+    "main_class": "archive",
+    "css": [
+      "/assets/css/pages/archive.css"
+    ]
+  },
+  "slum-fires": {
+    "route": "/investigations/dhaka-slum-fires/",
+    "title": "Dhaka Slum Fires · Land Transformation & Eviction Bypass · Insight Gaps",
+    "description": "A spatial forensic overlay investigation tracing how catastrophic fires bypass constitutional eviction protections to clear high-value infrastructure corridors in Dhaka.",
+    "og_title": "Dhaka Slum Fires · Land Transformation & Eviction Bypass · Insight Gaps",
+    "og_description": "A spatial forensic overlay investigation tracing how catastrophic fires bypass constitutional eviction protections to clear high-value infrastructure corridors in Dhaka.",
+    "og_image": "/assets/img/og-default.jpg",
+    "main_class": "investigation",
+    "css": [
+      "/assets/css/pages/slum-fires.css"
+    ]
+  }
+}

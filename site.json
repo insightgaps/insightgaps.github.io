@@ -1,0 +1,35 @@
+{
+  "organization": "Insight Gaps Bureau",
+  "site_name": "Insight Gaps",
+  "canonical_base": "https://www.insightgaps.com",
+  "tagline": "Independent forensic data journalism from Dhaka.",
+  "description": "Independent forensic data journalism from Dhaka, Bangladesh. Investigations into contamination, institutional failure, and accountability gaps.",
+  "license": {
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "contact_email": "insightgaps@gmail.com",
+  "language": "en",
+  "trust_links": {
+    "methodology": "/trust/methodology/",
+    "ai_use": "/trust/ai-use/",
+    "corrections": "/trust/corrections/"
+  },
+  "nav": [
+    { "label": "Investigations", "href": "/investigations/" },
+    { "label": "Analysis", "href": "/analysis/" },
+    { "label": "Evidence", "href": "/evidence/" },
+    { "label": "Archive", "href": "/archive/" },
+    { "label": "About", "href": "/about/" },
+    { "label": "Trust", "href": "/trust/methodology/" }
+  ],
+  "footer_nav": [
+    { "label": "Investigations", "href": "/investigations/" },
+    { "label": "Analysis", "href": "/analysis/" },
+    { "label": "Evidence", "href": "/evidence/" },
+    { "label": "Archive", "href": "/archive/" },
+    { "label": "About", "href": "/about/" },
+    { "label": "Contact", "href": "/contact/" }
+  ],
+  "hosting_note": "Static site deployed via Cloudflare Pages. No runtime infrastructure."
+}

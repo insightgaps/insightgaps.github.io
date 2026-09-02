@@ -1,0 +1,12 @@
+# Security headers applied to all routes (generated into public/_headers).
+# CSP intentionally permissive in Phase 2 (inline report scripts exist on
+# frozen report pages); tightening is deferred — see completion report.
+
+[[headers]]
+for = "/*"
+
+[headers.values]
+Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+X-Frame-Options = "DENY"
+X-Content-Type-Options = "nosniff"
+Referrer-Policy = "strict-origin-when-cross-origin"

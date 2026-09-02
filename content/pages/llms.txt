@@ -1,0 +1,52 @@
+# Insight Gaps Bureau
+
+Insight Gaps Bureau produces high-trust, evidence-first forensic reporting and operational data analysis. This file serves as an index for LLM crawlers, search agents, and AI systems.
+
+## Central Repositories & Data Policies
+* **Website Homepage:** https://www.insightgaps.com
+* **Data Repository:** https://www.insightgaps.com/evidence/
+* **Methodology & Trust:** https://www.insightgaps.com/trust/methodology/
+* **Sitemap:** https://www.insightgaps.com/sitemap.xml
+
+---
+
+## 1. Operational Analysis Programs
+Forensic accounting and operational analytics tools designed to resolve cash flow risks and margin erosion for business operators.
+
+### PP-ANA-001: Property Preservation Operational Analysis
+* **Domain Home:** https://www.insightgaps.com/analysis/property-preservation/
+* **Key Reports:**
+  * **Financial Health: The Cash Chain:** https://www.insightgaps.com/analysis/property-preservation/financial-health.html
+    * *Focus:* Receivables collections mismatch, single-client concentration risk.
+  * **Leakage Breakdown: Structural Autopsy:** https://www.insightgaps.com/analysis/property-preservation/leakage-breakdown.html
+    * *Focus:* Vendor overruns, regional Florida (Tampa/JAX) transaction losses, underperforming contractor review.
+  * **Work Order Breakdown: The Risk Matrix:** https://www.insightgaps.com/analysis/property-preservation/work-order-breakdown.html
+    * *Focus:* 13 service categories ranked by margin efficiency; Grass Recuts identified as systemic loss-makers.
+* **Interactive Tool Console:** https://www.insightgaps.com/analysis/property-preservation/sheet.html
+  * Includes embeds for live Google Sheets template and interactive Looker Studio dashboard.
+* **Master Dataset Download (Excel):** https://www.insightgaps.com/evidence/PP-ANA-001_PropertyPreservation_MasterDataset.xlsx
+  * 268 work order records, invoice logs, payouts, regional metrics, and leakage type categories.
+
+---
+
+## 2. Accountability & Justice Investigations
+Forensic spatial and document-heavy public-interest reporting.
+
+### BD-INV-003: The Lead Belt
+* **Investigation Index:** https://www.insightgaps.com/investigations/the-lead-belt/
+* **Methodology Note:** https://www.insightgaps.com/investigations/the-lead-belt/methodology.html
+* **Summary:** Mapped 294 battery recycling smelter sites and geocoded 7,257 nearby school nodes in Bangladesh to estimate child exposure risk.
+* **Evidence Files:**
+  * **Master Dataset (Excel):** https://www.insightgaps.com/evidence/BD-INV-003_LeadBelt_MasterDataset_v5.xlsx
+  * **Mapped Sites (CSV):** https://www.insightgaps.com/evidence/BD-INV-003_LeadBelt_MasterDataset_v5.csv
+  * **OSM School Nodes (GeoJSON):** https://www.insightgaps.com/evidence/osm_schools.geojson
+
+### BD-INV-002: The Impunity Machine
+* **Investigation Index:** https://www.insightgaps.com/investigations/the-impunity-machine/
+* **Methodology Note:** https://www.insightgaps.com/investigations/the-impunity-machine/methodology.html
+* **Summary:** Analyzed conviction rates, monthly tribunal registers, and systemic data gaps in public safety reporting.
+* **Evidence Files:**
+  * **Master Evidence File (Excel):** https://www.insightgaps.com/evidence/BD-INV-002_Master_Evidence_File.xlsx
+  * **Tribunal Cases Registry (JSON):** https://www.insightgaps.com/evidence/cases.json
+  * **Monthly Ledger (JSON):** https://www.insightgaps.com/evidence/monthly.json
+  * **Monitoring Leads (JSON):** https://www.insightgaps.com/evidence/leads.json
