@@ -442,6 +442,15 @@
   border-bottom-right-radius: 2px;
 }
 
+.message-bubble--internal {
+  align-self: center;
+  background: #F3F4F6;
+  border: 1px solid #E5E7EB;
+  color: #111827;
+  border-radius: 8px;
+  width: 90%;
+}
+
 .message-bubble__time {
   font-family: 'Space Mono', monospace;
   font-size: 10px;
