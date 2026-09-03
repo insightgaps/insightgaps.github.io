@@ -1,0 +1,202 @@
+[
+  {
+    "id": "BD-INV-001",
+    "title": "Blood Routes",
+    "dek": "351 people died in 15 days during the 2026 Eid-ul-Fitr rush. Bangladesh's roads kill at six times the official count. The joma incentive system, political shields, and four critical data voids make it structural — not accidental.",
+    "slug": "blood-routes",
+    "url": "/investigations/blood-routes/",
+    "page_kind": "standalone",
+    "date_published": "2026-05-26",
+    "date_revised": "2026-06-08",
+    "status": "published",
+    "investigation_type": "Tier 1 - Visual Data Investigation",
+    "topic_tags": [
+      "road safety",
+      "transport",
+      "Eid",
+      "structural accountability",
+      "Bangladesh"
+    ],
+    "summary": "A scroll-driven visual investigation into nationwide road crash fatalities in Bangladesh: the Eid holiday surge, the joma economic machine that incentivises racing, the Phoenix rebrand pattern, and four data voids the government holds but refuses to publish.",
+    "key_findings": [
+      "During the 15-day Eid-ul-Fitr 2026 travel period, 351 people were killed — averaging 23 deaths per day during the holiday rush.",
+      "The WHO-modelled road death estimate (~31,578/year) is 5.8× higher than the BRTA official count (5,480) — a gap maintained by deliberate policy, not technical incapacity.",
+      "The joma (daily deposit) system forces bus drivers to race for passengers under a guaranteed-income model that protects owners and transfers all lethal risk to drivers and pedestrians, 47% of Dhaka victims."
+    ],
+    "source_count": 22,
+    "methodology_link": "/investigations/blood-routes/geo_verification_report.md",
+    "methodology_link_note": "Geographic coordinate verification report for the map dataset (generated 2026-06-03): 1,607 coordinates checked, 794 verified, 813 flagged POTENTIAL MISLABEL. The report has no separate methodology page; the bureau methodology standard is at /trust/methodology/.",
+    "has_correction": true,
+    "correction_notes": [],
+    "og_image_path": "/assets/img/blood-routes-infographic.png",
+    "related_items": [
+      "BD-INV-002"
+    ],
+    "rtl_status": null,
+    "evidence_refs": [
+      {
+        "path": "/data/blood_routes_accidents.json",
+        "title": "Cleaned accident dataset (2,331 records, 2022–2024)",
+        "status": "available",
+        "note": "Powers the report map; covers 2022–2024 only — the Eid-2026 headline period is outside this dataset's range."
+      },
+      {
+        "path": "/data/bangladesh.geojson",
+        "title": "Division boundaries (GeoJSON)",
+        "status": "available",
+        "note": "Map layer."
+      },
+      {
+        "path": "/evidence/",
+        "title": "Fatality incident records 2015–2024",
+        "status": "private-held",
+        "note": "Held by the bureau; publication pending editorial decision."
+      }
+    ],
+    "source_profile": {
+      "manifest_count": 22,
+      "note": "The manifest count is self-attested; the report names ~20+ external sources without publishing the list."
+    }
+  },
+  {
+    "id": "BD-INV-002",
+    "title": "The Impunity Machine",
+    "dek": "A visual data investigation into Bangladesh's rape justice crisis and the institutional machinery that turns reported violence into near-zero punishment.",
+    "slug": "the-impunity-machine",
+    "url": "/investigations/the-impunity-machine/",
+    "page_kind": "standalone",
+    "date_published": "2026-03-01",
+    "date_revised": null,
+    "status": "published",
+    "investigation_type": "Tier 1 - Visual Data Investigation",
+    "topic_tags": [
+      "rape justice",
+      "gender-based violence",
+      "institutional accountability",
+      "criminal justice",
+      "Bangladesh"
+    ],
+    "summary": "A forensic visual investigation tracing Bangladesh's rape justice crisis across reporting attrition, conviction rates, court backlog, forensic capacity, and legal data voids.",
+    "key_findings": [
+      "Only 310 convictions were recorded from 66,711 women who came through One-Stop Crisis Centres over 23 years, a 0.46% conviction rate.",
+      "Bangladesh pairs maximum legal severity with near-zero certainty of punishment: death penalty expansion did not solve reporting attrition, backlog, evidence loss, or witness risk.",
+      "Critical justice infrastructure remains thin: 14 OCCs, two national DNA machines, major unprocessed sample backlogs, and no complete national registry for key rape-case outcomes."
+    ],
+    "source_count": 91,
+    "methodology_link": "/investigations/the-impunity-machine/methodology/",
+    "has_correction": false,
+    "correction_notes": [],
+    "og_image_path": "/assets/img/impunity-machine-infographic.png",
+    "related_items": [
+      "BD-INV-003"
+    ],
+    "rtl_status": null,
+    "subpages": {
+      "detailed": "/investigations/the-impunity-machine/detailed/",
+      "methodology": "/investigations/the-impunity-machine/methodology/",
+      "tracker": "/investigations/the-impunity-machine/tracker/"
+    },
+    "evidence_refs": [
+      {
+        "path": "/data/cases.json",
+        "title": "Case records",
+        "status": "available",
+        "note": "Powers the detailed report and tracker."
+      },
+      {
+        "path": "/data/leads.json",
+        "title": "Lead records",
+        "status": "available",
+        "note": "Powers the detailed report."
+      },
+      {
+        "path": "/data/monthly.json",
+        "title": "Monthly series",
+        "status": "available",
+        "note": "Powers the detailed report."
+      },
+      {
+        "path": "/data/BD-INV-002_Master_Evidence_File.xlsx",
+        "title": "Master evidence file (9 sheets, incl. source registry)",
+        "status": "private-held",
+        "note": "Held in the bureau archive; publication pending editorial decision."
+      }
+    ],
+    "source_profile": {
+      "manifest_count": 91,
+      "note": "The archived source registry (BD-INV-002 master evidence file) contains 65 entries (54 CONFIRMED, 11 PROBABLE). The 91 figure is under owner review (decision D-9).",
+      "registry": {
+        "total": 65,
+        "confirmed": 54,
+        "probable": 11
+      }
+    }
+  },
+  {
+    "id": "BD-INV-003",
+    "title": "The Lead Belt",
+    "dek": "Bangladesh's lead poisoning crisis mapped: 294 contaminated sites, 145 schools within 500 metres, and soil lead readings up to 1,702 times the international safety standard.",
+    "slug": "the-lead-belt",
+    "url": "/investigations/the-lead-belt/",
+    "page_kind": "standalone",
+    "date_published": "2025-01-01",
+    "date_revised": null,
+    "status": "published",
+    "investigation_type": "Tier 2 - Visual Spatial Investigation",
+    "topic_tags": [
+      "lead contamination",
+      "public health",
+      "education",
+      "environment",
+      "Bangladesh"
+    ],
+    "summary": "A forensic spatial investigation mapping contaminated lead sites, nearby schools, child exposure indicators, and state inaction across Bangladesh.",
+    "key_findings": [
+      "294 contaminated sites are mapped across Bangladesh using Pure Earth / University of Dhaka assessment data.",
+      "145 schools are identified within 500 metres of contaminated sites, with the closest school in the report sitting 59 metres from a lead-acid battery recycling site.",
+      "The highest soil lead reading in the report reaches 680,872 ppm, about 1,702 times the 400 ppm international residential safety threshold."
+    ],
+    "source_count": 7,
+    "methodology_link": "/investigations/the-lead-belt/methodology/",
+    "has_correction": false,
+    "correction_notes": [],
+    "og_image_path": "/assets/img/lead-belt-infographic.png",
+    "related_items": [
+      "BD-INV-002"
+    ],
+    "rtl_status": null,
+    "subpages": {
+      "methodology": "/investigations/the-lead-belt/methodology/"
+    },
+    "evidence_refs": [
+      {
+        "path": "/methods/analyze.py",
+        "title": "Spatial replication script",
+        "status": "available",
+        "note": "Published; note a divergent copy exists in the bureau's OS repository."
+      },
+      {
+        "path": "/data/BD-INV-003_LeadBelt_MasterDataset_v5.xlsx",
+        "title": "Lead Belt master dataset v5 (Excel)",
+        "status": "not-in-repository",
+        "note": "Referenced by the report's downloads panel; the file is not in the website repository. Restoration is pending an owner decision."
+      },
+      {
+        "path": "/data/BD-INV-003_LeadBelt_MasterDataset_v5.csv",
+        "title": "Lead Belt master dataset v5 (CSV)",
+        "status": "not-in-repository",
+        "note": "Referenced by the report's downloads panel; the file is not in the website repository. Restoration is pending an owner decision."
+      },
+      {
+        "path": "/data/osm_schools.geojson",
+        "title": "OSM schools snapshot (9,846 nodes)",
+        "status": "private-held",
+        "note": "Archived in the bureau's OS repository; publication pending editorial decision."
+      }
+    ],
+    "source_profile": {
+      "manifest_count": 7,
+      "note": "The footer lists 7 named sources; the bureau's internal evidence inventory catalogs 14 source entities."
+    }
+  }
+]
