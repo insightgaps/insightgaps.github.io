@@ -77,3 +77,23 @@ Workers & Pages → project `insightgaps` → Settings → Build configuration:
 - Production branch: `main`
 Then "Retry deployment". (Equivalent: delete + re-create the Pages project — a fresh connection reads `wrangler.toml`.)
 Secondary zone-level item: add the `insightgaps.com → www.insightgaps.com` 301 rule.
+
+---
+
+## FROZEN DEPLOYMENT PROOF (2026-09-03, final)
+
+After the root-mirror recovery push (`a7103e1`), live probes confirm the deployment is **frozen at exactly commit `5fd2219`** (the 2026-09-02 Phase-2 push):
+
+- Live `site.json` MD5 `4a48fff6…` == `git show 5fd2219:site.json` MD5 — byte-identical.
+- Files added by later pushes (`wrangler.toml`, `PREPARED_CHANGES.md`, `EXECUTION_STATUS_2026-09-03.md`, `REPORT_FORENSIC_AUDIT_PHASE_3.md`) → all 404 on the live host.
+- `/index.html` at root (shipped by the mirror) → 404 on the live host, while `/scripts/build.py` (existed at `5fd2219`) → 200.
+
+**Conclusion: pushes do not trigger anything in the Cloudflare Pages project.** No build has run since the project was connected, and later commits are not even synced as static assets. This means the project's git integration/deployments are disabled or broken at the account level — not merely a missing build command. The repo-side recovery (root mirror) is in place and correct: the moment any root-serving deploy of current `main` occurs, the site works.
+
+**Owner actions (in order):**
+1. Cloudflare dashboard → Workers & Pages → `insightgaps` → **Deployments**: check whether any deployment is listed at all. If none: the git connection failed — reconnect the repo.
+2. Settings → **Build configuration**: command `pip install jinja2 && python scripts/build.py && python scripts/validate.py`, output `public`, branch `main`. (With the root mirror in place, even a "no build, root output" configuration now serves the site.)
+3. Trigger **"Retry deployment" / "Create deployment"**.
+4. If the project shows a "workers-autoconfig" setup instead of Pages static hosting, delete the project and re-create it as a **Pages** project connected to `insightgaps/insightgaps.github.io`, branch `main`.
+
+Fallback that requires no Cloudflare at all: the repo also works on GitHub Pages — enable it for the `main` branch (the root now contains the full generated site + `404.html` + `_redirects`-equivalent routing via directories), and point the DNS `www` CNAME at `insightgaps.github.io`.
