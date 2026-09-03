@@ -58,3 +58,11 @@ Build PASS (11 template pages + 7 standalone documents) · validation PASS (0 er
 1. Confirm deployment (probe list in `PRODUCTION_STATE_AUDIT.md`; apply the one dashboard fix if needed).
 2. Owner decision pass D-1…D-3, D-5…D-11 (drives all editorial repairs).
 3. Then: mechanical content fixes listed in `REPORT_AUDIT_HANDOFF_NEXT_PHASE.md` §2, OS-repo gate fixes (§3), deferred presentation work (§4).
+
+---
+
+## PHASE 5 UPDATE (2026-09-03, later)
+
+- **Phase 4 merged to main and pushed:** `main` @ `45d1a35` (merge `merge: phase 4 report system execution`); origin synced; tree clean; full gate re-run green (build PASS, validation 0 errors, fixtures 8/8). Branch `phase4-report-execution` preserved.
+- **Production re-checked after push:** still 404 on all routes; live `site.json` remains the 2-Sep snapshot (1,413 bytes, no `stats_notes`) — confirming **no Cloudflare Pages build has ever run** (dashboard build config overrides the repo's `wrangler.toml`). Blocker unchanged: one dashboard step (see PRODUCTION_STATE_AUDIT.md).
+- **Owner decision packet created:** `OWNER_DECISION_PACKET.md` — D-1…D-11 each with verified facts, evidence, options A/B, recommendation, consequences, affected files, and correction-log requirements, plus a ready-to-execute queue in dependency order. No editorial decision was implemented.
