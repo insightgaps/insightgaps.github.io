@@ -8,11 +8,15 @@
 
 **STATUS: BLOCKED (one dashboard-level step) — everything else done**
 
-- Pushed `main` = `32776af` (origin verified identical).
-- Live `https://www.insightgaps.com/` returned **404 on every route** when last probed.
-- **Root cause (diagnosed, see `PRODUCTION_STATE_AUDIT.md`):** Cloudflare Pages was connected to the repo (remote branch `cloudflare/workers-autoconfig`) and deployed the **repo root**, which has no `index.html` because the generated site (`public/`) is git-ignored. The previous in-repo config file was not one Pages reads.
-- **In-repo fix shipped in this push:** single `wrangler.toml` Pages config (`pages_build_output_dir = "public"`, build command `pip install jinja2 && python scripts/build.py && python scripts/validate.py`, Python 3.11). Legacy `wrangler.jsonc` / `cloudflare-pages.toml` / `CNAME` removed.
-- **If the next probe still 404s after ~5 minutes:** the Pages project's dashboard settings are overriding the file. One manual step (owner, ~1 minute): Cloudflare dashboard → Workers & Pages → insightgaps → Settings → Build: command `pip install jinja2 && python scripts/build.py && python scripts/validate.py`, output dir `public`, production branch `main`.
+- Pushed `main` = `85e1112` (origin verified identical; includes the `wrangler.toml` fix and this doc).
+- Live `https://www.insightgaps.com/` still returns **404 with an empty body** after the latest deployment — including on the slum-fires route, which should have 301'd. An empty-body 404 from a *deployed* Pages project means the project is serving an output directory with **no root document**.
+- **Confirmed diagnosis:** the Pages project's **dashboard build settings are overriding `wrangler.toml`** (project was connected before the file existed, with no build command and output `/`). The in-repo fix alone cannot take effect.
+- **The one remaining step (owner, ~1 minute, account-level — cannot be done from the repository):**
+  Cloudflare dashboard → **Workers & Pages → insightgaps → Settings → Build configuration** → set:
+  - Build command: `pip install jinja2 && python scripts/build.py && python scripts/validate.py`
+  - Build output directory: `public`
+  - Production branch: `main`
+  Then retry deploy. (Alternative: delete and re-create the Pages project connected to the repo — it will then read `wrangler.toml` automatically.)
 - Also pending at zone level (documented since Phase 2): `insightgaps.com → www` 301 rule.
 - Verification commands are at the bottom of `PRODUCTION_STATE_AUDIT.md`.
 
@@ -44,7 +48,7 @@ Build PASS (11 template pages + 7 standalone documents) · validation PASS (0 er
 ## Git
 
 - Branch: `main` (+ `phase3-report-improvement` preserved)
-- HEAD: `32776af` (merge of phase3 into main)
+- HEAD: `85e1112` (merge + status docs)
 - Remote: origin/main == local main — **SYNCED (verified via ls-remote)**
 - Working tree: clean
 - Slum-fires content: removed from main; fully preserved in git history
