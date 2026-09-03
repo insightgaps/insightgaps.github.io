@@ -84,3 +84,19 @@
 - No scrollytelling additions, no animation additions.
 - No infographic regeneration (slum-fires): manufacturing evidence imagery is prohibited; the asset must come from the owner.
 - No interactive filters added anywhere: the audit found no filtering need that serves understanding/verification/discovery at current data volumes.
+
+---
+
+## Phase 4 update (2026-09-03): classification results after implementation
+
+| Visual | Classification (Phase 3) | Phase 4 action taken |
+|---|---|---|
+| Impunity canvas charts | KEEP (repair a11y) | **Repair implemented (safe subset):** readability floor 11px ≤768px; canvas max-width scaling; sub-nav wrap; table scroll-blocks. Residual ≤414px overflow documented as owner-gated (full repair = redesign pass D-9ii) |
+| Impunity tracker panels | KEEP | Containment applied; residual 20–40px overflow ≤414px owner-gated |
+| Lead Belt map + satellite viewer | KEEP | No change (was already clean 320–1440; re-verified) |
+| Blood Routes map | KEEP | No change (clean at all widths; re-verified) |
+| Blood Routes hero numbers | REPAIR (owner-gated labels) | Unchanged — label text requires bureau data (D-2) |
+| Wayfinding (new component) | n/a | **Implemented** on 3 report pages; manifest-generated; verified no-overflow |
+| Source verification profiles (new) | n/a | **Implemented** on index — data-driven disclosure, no editorial change |
+
+No visualization was replaced or removed; no chart form was changed; no data values were touched. All actions are presentation-layer and reversible (single CSS constant + template macros).
