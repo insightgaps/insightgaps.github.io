@@ -6,7 +6,7 @@
   "url": "/investigations/blood-routes/",
   "page_kind": "standalone",
   "date_published": "2026-05-26",
-  "date_revised": null,
+  "date_revised": "2026-06-08",
   "status": "published",
   "investigation_type": "Tier 1 - Visual Data Investigation",
   "topic_tags": [
@@ -25,7 +25,7 @@
   "source_count": 22,
   "methodology_link": "/investigations/blood-routes/geo_verification_report.md",
   "methodology_link_note": "Geographic coordinate verification report for the map dataset (generated 2026-06-03): 1,607 coordinates checked, 794 verified, 813 flagged POTENTIAL MISLABEL. The report has no separate methodology page; the bureau methodology standard is at /trust/methodology/.",
-  "has_correction": false,
+  "has_correction": true,
   "correction_notes": [],
   "og_image_path": "/assets/img/blood-routes-infographic.png",
   "related_items": [

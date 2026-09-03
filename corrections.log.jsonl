@@ -3,3 +3,4 @@
 # Schema (one JSON object per line):
 #   {"id":"C-001","date":"YYYY-MM-DD","work":"<work slug or page path>",
 #    "summary":"<what was wrong>","amended":"<what changed>"}
+{"id": "C-001", "date": "2026-06-08", "work": "/investigations/blood-routes/", "summary": "The report's night-time crash statistic was published as 97.13% (derived from a dataset later found to contain ~95% synthetic padding); it was corrected to 41.56% (RSF Dhaka Annual Report 2025 basis) on 2026-06-08, after the pipeline retracted the original figure on 2026-06-03. The change was made in commit 527d0a4 without a log entry at the time.", "amended": "Night-time share of fatal Dhaka crashes corrected 97.13% → 41.56% (10pm–6am window)."}
