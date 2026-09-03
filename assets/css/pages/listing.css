@@ -90,3 +90,20 @@
 .evidence-refs-panel__item--private-held .evidence-refs-panel__status { color: var(--color-warning, #946200); border-color: var(--color-warning, #946200); }
 .evidence-refs-panel__item--not-in-repository .evidence-refs-panel__status { color: #b3261e; border-color: #b3261e; }
 .evidence-refs-panel__link { color: var(--color-accent); text-decoration: underline; text-underline-offset: 2px; }
+
+/* ---- Phase 4: source verification profile ---- */
+.source-profile {
+  margin: var(--space-3, 0.75rem) 0 0;
+  padding-top: var(--space-3, 0.75rem);
+  border-top: var(--border-width) dashed var(--color-border);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+.source-profile__label {
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  margin-right: var(--space-2, 0.5rem);
+}
+.source-profile__note { display: block; margin-top: 0.2rem; }

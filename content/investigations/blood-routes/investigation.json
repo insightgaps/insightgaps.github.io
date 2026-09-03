@@ -9,7 +9,13 @@
   "date_revised": null,
   "status": "published",
   "investigation_type": "Tier 1 - Visual Data Investigation",
-  "topic_tags": ["road safety", "transport", "Eid", "structural accountability", "Bangladesh"],
+  "topic_tags": [
+    "road safety",
+    "transport",
+    "Eid",
+    "structural accountability",
+    "Bangladesh"
+  ],
   "summary": "A scroll-driven visual investigation into nationwide road crash fatalities in Bangladesh: the Eid holiday surge, the joma economic machine that incentivises racing, the Phoenix rebrand pattern, and four data voids the government holds but refuses to publish.",
   "key_findings": [
     "During the 15-day Eid-ul-Fitr 2026 travel period, 351 people were killed — averaging 23 deaths per day during the holiday rush.",
@@ -18,14 +24,36 @@
   ],
   "source_count": 22,
   "methodology_link": "/investigations/blood-routes/geo_verification_report.md",
+  "methodology_link_note": "Geographic coordinate verification report for the map dataset (generated 2026-06-03): 1,607 coordinates checked, 794 verified, 813 flagged POTENTIAL MISLABEL. The report has no separate methodology page; the bureau methodology standard is at /trust/methodology/.",
   "has_correction": false,
   "correction_notes": [],
   "og_image_path": "/assets/img/blood-routes-infographic.png",
-  "related_items": ["BD-INV-002"],
+  "related_items": [
+    "BD-INV-002"
+  ],
   "rtl_status": null,
   "evidence_refs": [
-    { "path": "/data/blood_routes_accidents.json", "title": "Cleaned accident dataset (2,331 records, 2022–2024)", "status": "available", "note": "Powers the report map; covers 2022–2024 only — the Eid-2026 headline period is outside this dataset's range." },
-    { "path": "/data/bangladesh.geojson", "title": "Division boundaries (GeoJSON)", "status": "available", "note": "Map layer." },
-    { "path": "/evidence/", "title": "Fatality incident records 2015–2024", "status": "private-held", "note": "Held by the bureau; publication pending editorial decision." }
-  ]
+    {
+      "path": "/data/blood_routes_accidents.json",
+      "title": "Cleaned accident dataset (2,331 records, 2022–2024)",
+      "status": "available",
+      "note": "Powers the report map; covers 2022–2024 only — the Eid-2026 headline period is outside this dataset's range."
+    },
+    {
+      "path": "/data/bangladesh.geojson",
+      "title": "Division boundaries (GeoJSON)",
+      "status": "available",
+      "note": "Map layer."
+    },
+    {
+      "path": "/evidence/",
+      "title": "Fatality incident records 2015–2024",
+      "status": "private-held",
+      "note": "Held by the bureau; publication pending editorial decision."
+    }
+  ],
+  "source_profile": {
+    "manifest_count": 22,
+    "note": "The manifest count is self-attested; the report names ~20+ external sources without publishing the list."
+  }
 }

@@ -9,7 +9,13 @@
   "date_revised": null,
   "status": "published",
   "investigation_type": "Tier 2 - Visual Spatial Investigation",
-  "topic_tags": ["lead contamination", "public health", "education", "environment", "Bangladesh"],
+  "topic_tags": [
+    "lead contamination",
+    "public health",
+    "education",
+    "environment",
+    "Bangladesh"
+  ],
   "summary": "A forensic spatial investigation mapping contaminated lead sites, nearby schools, child exposure indicators, and state inaction across Bangladesh.",
   "key_findings": [
     "294 contaminated sites are mapped across Bangladesh using Pure Earth / University of Dhaka assessment data.",
@@ -21,15 +27,41 @@
   "has_correction": false,
   "correction_notes": [],
   "og_image_path": "/assets/img/lead-belt-infographic.png",
-  "related_items": ["BD-INV-002"],
+  "related_items": [
+    "BD-INV-002"
+  ],
   "rtl_status": null,
   "subpages": {
     "methodology": "/investigations/the-lead-belt/methodology/"
   },
   "evidence_refs": [
-    { "path": "/methods/analyze.py", "title": "Spatial replication script", "status": "available", "note": "Published; note a divergent copy exists in the bureau's OS repository." },
-    { "path": "/data/BD-INV-003_LeadBelt_MasterDataset_v5.xlsx", "title": "Lead Belt master dataset v5 (Excel)", "status": "not-in-repository", "note": "Referenced by the report's downloads panel; the file is not in the website repository. Restoration is pending an owner decision." },
-    { "path": "/data/BD-INV-003_LeadBelt_MasterDataset_v5.csv", "title": "Lead Belt master dataset v5 (CSV)", "status": "not-in-repository", "note": "Referenced by the report's downloads panel; the file is not in the website repository. Restoration is pending an owner decision." },
-    { "path": "/data/osm_schools.geojson", "title": "OSM schools snapshot (9,846 nodes)", "status": "private-held", "note": "Archived in the bureau's OS repository; publication pending editorial decision." }
-  ]
+    {
+      "path": "/methods/analyze.py",
+      "title": "Spatial replication script",
+      "status": "available",
+      "note": "Published; note a divergent copy exists in the bureau's OS repository."
+    },
+    {
+      "path": "/data/BD-INV-003_LeadBelt_MasterDataset_v5.xlsx",
+      "title": "Lead Belt master dataset v5 (Excel)",
+      "status": "not-in-repository",
+      "note": "Referenced by the report's downloads panel; the file is not in the website repository. Restoration is pending an owner decision."
+    },
+    {
+      "path": "/data/BD-INV-003_LeadBelt_MasterDataset_v5.csv",
+      "title": "Lead Belt master dataset v5 (CSV)",
+      "status": "not-in-repository",
+      "note": "Referenced by the report's downloads panel; the file is not in the website repository. Restoration is pending an owner decision."
+    },
+    {
+      "path": "/data/osm_schools.geojson",
+      "title": "OSM schools snapshot (9,846 nodes)",
+      "status": "private-held",
+      "note": "Archived in the bureau's OS repository; publication pending editorial decision."
+    }
+  ],
+  "source_profile": {
+    "manifest_count": 7,
+    "note": "The footer lists 7 named sources; the bureau's internal evidence inventory catalogs 14 source entities."
+  }
 }

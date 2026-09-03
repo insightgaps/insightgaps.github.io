@@ -336,6 +336,54 @@ STANDALONE_ROUTES = {
 }
 
 
+def wayfinding_strip(inv, investigations) -> str:
+    """Breadcrumb + related-work strip injected atop report pages (Phase 4).
+    Generated entirely from manifest data; self-contained styles."""
+    related = []
+    by_id = {i["id"]: i for i in investigations}
+    for rid in inv.get("related_items") or []:
+        r = by_id.get(rid)
+        if r and r.get("status") in ("published", "corrected"):
+            related.append(f'<a href="{r["url"]}" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">{r["title"]}</a>')
+    related_html = (
+        '<span style="white-space:nowrap;">Related: ' + " · ".join(related) + "</span>"
+        if related else ""
+    )
+    return (
+        '<nav aria-label="Investigation wayfinding" style="'
+        "font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;"
+        "font-size:0.66rem;letter-spacing:0.06em;text-transform:uppercase;"
+        "display:flex;flex-wrap:wrap;gap:0.4rem 1.2rem;justify-content:space-between;"
+        "align-items:center;padding:0.55rem clamp(1rem,4vw,3rem);"
+        'border-bottom:1px solid rgba(128,128,128,0.25);">'
+        f'<span style="display:flex;flex-wrap:wrap;gap:0 0.4rem;"><a href="/" style="color:inherit;text-decoration:none;">Home</a>'
+        ' <span aria-hidden="true" style="opacity:0.5;">&rsaquo;</span> '
+        f'<a href="/investigations/" style="color:inherit;text-decoration:none;">Investigations</a>'
+        ' <span aria-hidden="true" style="opacity:0.5;">&rsaquo;</span> '
+        f'<span style="opacity:0.75;overflow-wrap:anywhere;">{inv["title"]}</span></span>'
+        f"{related_html}"
+        "</nav>"
+    )
+
+
+
+READABILITY_FLOOR = (
+    "\n  <style>/* Phase 4 presentation repairs (audit REP-013). Presentation-only; no content altered. "
+    "Mobile: readability floor for micro inline type; sub-nav wrapping; canvas scaling; "
+    "table horizontal scroll; scroll containment for animation tracks. "
+    "Known residual (owner-gated D-9ii): the frozen Impunity Machine report retains "
+    "20-40px horizontal overflow at <=414px from inline-styled absolute/flex elements; "
+    "the full fix requires the report-redesign pass, not CSS overrides. */"
+    "@media (max-width: 768px){"
+    " body * { font-size: max(11px, 0.6875em) !important; }"
+    " .sub-nav__inner, .sub-nav__scenes, .sub-nav__actions { max-width: 100% !important; flex-wrap: wrap !important; overflow-x: auto !important; }"
+    " canvas { max-width: 100% !important; height: auto !important; }"
+    " [class*='track'] { max-width: 100vw !important; overflow: hidden !important; }"
+    " table { display: block !important; overflow-x: auto !important; max-width: 100% !important; }"
+    " .counter-right, .cr-item, .tier { max-width: 100% !important; overflow-wrap: anywhere !important; }"
+    "}</style>"
+)
+
 def repair_standalone(text: str, route: str, site: dict, title: str, description: str) -> str:
     base = site["canonical_base"]
     canonical = base + route
@@ -365,11 +413,15 @@ def repair_standalone(text: str, route: str, site: dict, title: str, description
         seen.append(1)
         return m.group(0) if len(seen) == 1 else ""
     text = re.sub(r'<link rel="canonical" href="[^"]*">', dedupe_canon, text)
+    # Phase 4: readability floor for micro inline type (mobile)
+    if "readability floor" not in text:
+        text = text.replace("</head>", READABILITY_FLOOR + "\n</head>", 1)
     return text
 
 
-def emit_standalone(site, warnings) -> int:
+def emit_standalone(site, investigations, warnings) -> int:
     count = 0
+    inv_by_slug = {i["url"]: i for i in investigations}
     for src_rel, route in STANDALONE_ROUTES.items():
         src = ROOT / src_rel
         if not src.exists():
@@ -380,6 +432,15 @@ def emit_standalone(site, warnings) -> int:
         dmatch = re.search(r'<meta name="description" content="([^"]*)"', text)
         description = dmatch.group(1) if dmatch else ""
         text = repair_standalone(text, route, site, title, description)
+        # Phase 4: wayfinding breadcrumb + related-work strip (top of body,
+        # above the AI disclosure bar; manifest-generated, self-contained).
+        inv = inv_by_slug.get(route)
+        if inv and inv.get("status") in ("published", "corrected"):
+            strip = wayfinding_strip(inv, investigations)
+            body_m = re.search(r"<body[^>]*>", text)
+            if body_m and 'aria-label="Investigation wayfinding"' not in text:
+                insert_at = body_m.end()
+                text = text[:insert_at] + "\n" + strip + "\n" + text[insert_at:]
         dst = PUBLIC / route.lstrip("/") / "index.html"
         dst.parent.mkdir(parents=True, exist_ok=True)
         dst.write_text(text, encoding="utf-8")
@@ -590,7 +651,7 @@ def main() -> int:
         dst.parent.mkdir(parents=True, exist_ok=True)
         dst.write_text(html, encoding="utf-8")
 
-    n_standalone = emit_standalone(site, warnings)
+    n_standalone = emit_standalone(site, investigations, warnings)
 
     # NewsArticle JSON-LD injected into each investigation's report routes at
     # the </title> boundary (surgical; legacy JSON-LD untouched). Covers the
