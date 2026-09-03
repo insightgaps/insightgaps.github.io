@@ -254,7 +254,6 @@ REPORT_ROUTES = {
     "/investigations/blood-routes/",
     "/investigations/the-impunity-machine/",
     "/investigations/the-lead-belt/",
-    "/investigations/dhaka-slum-fires/",
     "/investigations/the-impunity-machine/tracker/",
     "/investigations/the-impunity-machine/methodology/",
     "/investigations/the-impunity-machine/detailed/",

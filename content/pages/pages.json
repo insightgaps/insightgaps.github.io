@@ -130,17 +130,5 @@
     "css": [
       "/assets/css/pages/archive.css"
     ]
-  },
-  "slum-fires": {
-    "route": "/investigations/dhaka-slum-fires/",
-    "title": "Dhaka Slum Fires · Land Transformation & Eviction Bypass · Insight Gaps",
-    "description": "A spatial forensic overlay investigation tracing how catastrophic fires bypass constitutional eviction protections to clear high-value infrastructure corridors in Dhaka.",
-    "og_title": "Dhaka Slum Fires · Land Transformation & Eviction Bypass · Insight Gaps",
-    "og_description": "A spatial forensic overlay investigation tracing how catastrophic fires bypass constitutional eviction protections to clear high-value infrastructure corridors in Dhaka.",
-    "og_image": "/assets/img/og-default.jpg",
-    "main_class": "investigation",
-    "css": [
-      "/assets/css/pages/slum-fires.css"
-    ]
   }
 }

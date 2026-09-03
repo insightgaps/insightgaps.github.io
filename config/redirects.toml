@@ -11,10 +11,16 @@
 
 # Legacy content tree
 "/content/investigations/"                     = "/investigations/"
+"/content/investigations/dhaka-slum-fires/"    = "/investigations/"
+"/content/investigations/dhaka-slum-fires/*"   = "/investigations/"
 "/content/investigations/*"                    = "/investigations/:splat"
 "/content/trust/methodology.html"              = "/trust/methodology/"
 "/content/trust/ai-use.html"                   = "/trust/ai-use/"
 "/content/trust/corrections.html"              = "/trust/corrections/"
+
+# Unpublished investigation (owner decision 2026-09-03; see OWNER_DECISIONS_REQUIRED.md D-4)
+"/investigations/dhaka-slum-fires/"            = "/investigations/"
+"/investigations/dhaka-slum-fires/*"           = "/investigations/"
 
 # Legacy investigation path
 "/investigations/national/blood-routes/"       = "/investigations/blood-routes/"

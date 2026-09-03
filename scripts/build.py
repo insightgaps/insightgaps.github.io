@@ -197,7 +197,7 @@ def render_template_pages(env, site, pages_meta, investigations, domains, correc
     )
     featured = next((i for i in published_sorted if i["slug"] == "the-impunity-machine"),
                     published_sorted[0])
-    latest = [i for i in published_sorted if i["slug"] != "dhaka-slum-fires"][:3] or published_sorted[:3]
+    latest = published_sorted[:3]
     total_sources = sum(int(i.get("source_count") or 0) for i in investigations)
     analysis_domains = domains[0]["domains"] if domains else []
     nav = site["nav"]
@@ -312,14 +312,11 @@ def render_template_pages(env, site, pages_meta, investigations, domains, correc
         out[route_file] = env.get_template("standard.html").render(
             meta(page, body=body, active_nav=page["route"] if page["route"] != "/" else ""))
 
-    # Slum-fires (template page with extracted body)
-    sf = pages_meta["slum-fires"]
-    sf_body = (ROOT / "content" / "pages" / "slum-fires.body.html").read_text(encoding="utf-8")
-    sf_inv = next((i for i in investigations if i["slug"] == "dhaka-slum-fires"), {})
-    out["investigations/dhaka-slum-fires/index.html"] = env.get_template("standard.html").render(
-        meta(sf, body=sf_body, active_nav="/investigations/",
-             og_type="article",
-             head_extra=Markup('<script type="application/ld+json">' + article_jsonld(site, sf_inv) + "</script>")))
+    # Investigation pages: standalone report documents are emitted separately
+    # (see STANDALONE_ROUTES / emit_standalone). Template-kind investigation
+    # pages would render here from content/pages/<slug>.body.html.
+    # NOTE: dhaka-slum-fires was unpublished by owner decision on 2026-09-03
+    # (audit REP-001/004/007 cluster); its route now redirects to /investigations/.
 
     return out
 
