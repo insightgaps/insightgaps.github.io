@@ -48,9 +48,28 @@
     {% endfor %}
   </nav>
   {% endif %}
+  {% if inv.methodology_link and inv.methodology_link not in (inv.subpages or {}).values() %}
+  <nav class="index-work__subpages" aria-label="Methodology">
+    <a href="{{ inv.methodology_link }}">methodology</a>
+  </nav>
+  {% endif %}
   {{ findings_list(inv) }}
   {{ evidence_panel(inv) }}
+  {{ source_profile(inv) }}
 </article>
+{%- endmacro %}
+
+{% macro source_profile(inv) -%}
+{#- Verification profile from manifest source_profile data (audit-verified facts
+    only; no editorial re-writing). Absent when the bureau hasn't supplied it. -#}
+{% if inv.source_profile %}
+<p class="source-profile">
+  <span class="source-profile__label">Sources on record:</span>
+  <span>{{ inv.source_profile.manifest_count }} (manifest count)</span>
+  {%- if inv.source_profile.registry %}<span> · registry: {{ inv.source_profile.registry.total }} ({{ inv.source_profile.registry.confirmed }} confirmed / {{ inv.source_profile.registry.probable }} probable)</span>{% endif -%}
+  <span class="source-profile__note">{{ inv.source_profile.note }}</span>
+</p>
+{% endif %}
 {%- endmacro %}
 
 {% macro evidence_panel(inv) -%}

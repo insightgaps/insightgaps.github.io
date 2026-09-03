@@ -55,3 +55,25 @@ curl -s https://www.insightgaps.com/ | grep -c "metrics-block__number"          
 curl -s -o /dev/null -w "%{http_code}" https://www.insightgaps.com/investigations/  # expect 200
 curl -s -o /dev/null -w "%{http_code} %{redirect_url}" https://www.insightgaps.com/investigations/dhaka-slum-fires/  # expect 301 -> /investigations/
 ```
+
+
+## Update (2026-09-03, post-owner-dashboard-config check) — CONFIRMED root cause with hard evidence
+
+Probes after the wrangler.toml fix was pushed:
+
+| Probe | Result | Meaning |
+|---|---|---|
+| `/scripts/build.py` | **200** | The deployment is serving **repo-root files** |
+| `/site.json` | 200, content = Phase-2 version (no `stats_notes`, 1,413 bytes vs 1,910 local) | The served snapshot is the **2026-09-02 Phase-2 push** — no build has run since |
+| `/` , `/content/` , `/wrangler.toml` , `/public/index.html` | 404 | No index document and no generated output in the deployment |
+| `Cache-Control: public, max-age=0, must-revalidate` + fresh ETag | — | Direct asset serving, not an error page |
+
+**Conclusion (evidence-closed):** the Pages project deploys the repository root as a static asset directory, with **no build command configured**, and its dashboard settings override the in-repo `wrangler.toml`. None of the 2026-09-02/03 pushes triggered a rebuild. This cannot be fixed from the repository.
+
+**The exact one-step fix (owner, Cloudflare dashboard):**
+Workers & Pages → project `insightgaps` → Settings → Build configuration:
+- Build command: `pip install jinja2 && python scripts/build.py && python scripts/validate.py`
+- Build output directory: `public`
+- Production branch: `main`
+Then "Retry deployment". (Equivalent: delete + re-create the Pages project — a fresh connection reads `wrangler.toml`.)
+Secondary zone-level item: add the `insightgaps.com → www.insightgaps.com` 301 rule.
