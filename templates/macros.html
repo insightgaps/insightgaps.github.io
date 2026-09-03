@@ -56,6 +56,9 @@
   {{ findings_list(inv) }}
   {{ evidence_panel(inv) }}
   {{ source_profile(inv) }}
+  {% if inv.headline_source_note %}
+  <p class="headline-source-note"><span class="headline-source-note__label">Headline figure basis:</span> {{ inv.headline_source_note }}</p>
+  {% endif %}
 </article>
 {%- endmacro %}
 
