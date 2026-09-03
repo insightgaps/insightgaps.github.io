@@ -35,6 +35,15 @@ REPO_ONLY = {
 ALLOW_CLOBBER = {"favicon.png", "theme-toggle.js"}
 
 
+# DANGER NOTE (2026-09-03): --clean once deleted tracked SOURCE files
+# (assets/, data/, methods/) because the mirror overwrites their root copies
+# with identical content, making them indistinguishable from mirror output.
+# The root mirror is now intentionally KEPT (see PRODUCTION_STATE_AUDIT.md):
+# it is the only artifact that serves the site under the account-level
+# Cloudflare failure. Do not run --clean unless you have verified every
+# deleted path against git ls-files first.
+
+
 def clean_dir(dst: Path) -> None:
     """Remove mirrored output at root (restore convention)."""
     for item in PUBLIC.iterdir():
