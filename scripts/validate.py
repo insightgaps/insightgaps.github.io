@@ -300,22 +300,23 @@ def check_report_integrity(files, rep: Report) -> None:
                     f"(use private-held/not-in-repository, or ship the file)"
                 )
 
-    # 3. Slum-fires claim drawer integrity: badges present -> drawer present
-    sf = files.get("/investigations/dhaka-slum-fires/index.html")
-    if sf:
-        text = sf.read_text(encoding="utf-8", errors="replace")
+    # 3. Claim-badge/ledger integrity: applies to any report page carrying
+    #    .claim-badge elements — badges without a functioning verification
+    #    drawer or ledger entries are errors. (Introduced for slum-fires,
+    #    now retired with that investigation; the check remains general.)
+    for route, page in files.items():
+        if not route.endswith(".html") or "/views/" in route:
+            continue
+        text = page.read_text(encoding="utf-8", errors="replace")
         badges = len(re.findall(r'class="claim-badge"', text))
-        has_drawer = "js-drawer" in text and "claimLedger" in text
-        if badges > 0 and not has_drawer:
-            rep.error(
-                f"slum-fires: {badges} claim badges rendered but the verification drawer is absent"
-            )
-        # every data-claim id must exist in the ledger
-        ids = set(re.findall(r'data-claim="(\d+)"', text))
-        ledger_ids = set(re.findall(r'"(\d+)":\s*\{\s*ref:', text))
-        missing = ids - ledger_ids
-        if missing:
-            rep.error(f"slum-fires: claim badges without ledger entries: {sorted(missing)}")
+        if badges and not ("js-drawer" in text and "claimLedger" in text):
+            rep.error(f"{route}: {badges} claim badges rendered but the verification drawer is absent")
+        if badges:
+            ids = set(re.findall(r'data-claim="(\d+)"', text))
+            ledger_ids = set(re.findall(r'"(\d+)":\s*\{\s*ref:', text))
+            missing = ids - ledger_ids
+            if missing:
+                rep.error(f"{route}: claim badges without ledger entries: {sorted(missing)}")
 
     # 4. Evidence page: every referenced /data/ download link must either
     #    resolve or carry a status badge nearby (known-missing set drives warnings)

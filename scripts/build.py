@@ -624,8 +624,7 @@ def main() -> int:
                 raise BuildError(f"{inv['slug']}: published work has no key_findings")
         # referenced OG images must exist
         if inv.get("og_image_path") and not (PUBLIC_STATIC := ROOT / inv["og_image_path"].lstrip("/")).exists():
-            if inv["og_image_path"] != "/assets/img/dhaka-slum-fires-infographic.png":
-                raise BuildError(f"{inv['slug']}: og_image_path missing on disk: {inv['og_image_path']}")
+            raise BuildError(f"{inv['slug']}: og_image_path missing on disk: {inv['og_image_path']}")
 
     if PUBLIC.exists():
         shutil.rmtree(PUBLIC)
