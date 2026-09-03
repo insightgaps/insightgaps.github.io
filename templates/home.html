@@ -34,18 +34,20 @@
       </div>
     </section>
 
-    <!-- METRICS (pre-rendered from manifests) -->
+    <!-- METRICS (pre-rendered from manifests; basis notes from site.json) -->
     <div class="home__metrics-wrap">
       <div class="metrics-block" aria-label="Bureau statistics">
 
         <div class="metrics-block__item">
           <span class="metrics-block__number" aria-label="Total investigations">{{ investigations|length }}</span>
           <span class="metrics-block__label">Total Investigations</span>
+          <span class="metrics-block__basis-note">{{ stats_notes.investigations }}</span>
         </div>
 
         <div class="metrics-block__item">
           <span class="metrics-block__number" aria-label="Total primary sources">{{ total_sources }}</span>
           <span class="metrics-block__label">Total Primary Sources</span>
+          <span class="metrics-block__basis-note">{{ stats_notes.sources }}</span>
         </div>
 
         {{ corrections_metric() }}

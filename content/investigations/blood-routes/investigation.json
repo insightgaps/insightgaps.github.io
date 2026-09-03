@@ -22,5 +22,10 @@
   "correction_notes": [],
   "og_image_path": "/assets/img/blood-routes-infographic.png",
   "related_items": ["BD-INV-002"],
-  "rtl_status": null
+  "rtl_status": null,
+  "evidence_refs": [
+    { "path": "/data/blood_routes_accidents.json", "title": "Cleaned accident dataset (2,331 records, 2022–2024)", "status": "available", "note": "Powers the report map; covers 2022–2024 only — the Eid-2026 headline period is outside this dataset's range." },
+    { "path": "/data/bangladesh.geojson", "title": "Division boundaries (GeoJSON)", "status": "available", "note": "Map layer." },
+    { "path": "/evidence/", "title": "Fatality incident records 2015–2024", "status": "private-held", "note": "Held by the bureau; publication pending editorial decision." }
+  ]
 }

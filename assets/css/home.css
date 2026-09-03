@@ -164,3 +164,14 @@
     }
 
   
+
+/* ---- Phase 3: stats basis notes ---- */
+.metrics-block__basis-note {
+  display: block;
+  margin-top: var(--space-2, 0.5rem);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+}

@@ -25,6 +25,53 @@
 </article>
 {%- endmacro %}
 
+{% macro findings_list(inv) -%}
+{#- Rendered on investigation index pages: the work's key findings with stable
+    deep-link anchors (#finding-N). Data comes verbatim from the manifest. -#}
+<ol class="index-findings">
+  {%- for finding in inv.key_findings -%}
+  <li id="finding-{{ loop.index }}" class="index-findings__item">{{ finding }}</li>
+  {%- endfor -%}
+</ol>
+{%- endmacro %}
+
+{% macro index_work(inv) -%}
+{#- Per-work section on the investigations index: title, dek, subpage nav,
+    anchored key findings, evidence-status panel. All from the manifest. -#}
+<article class="index-work" id="work-{{ inv.slug }}">
+  <h2 class="index-work__title"><a href="{{ inv.url }}">{{ inv.title }}</a></h2>
+  <p class="index-work__dek">{{ inv.dek or inv.summary }}</p>
+  {% if inv.subpages %}
+  <nav class="index-work__subpages" aria-label="Subpages">
+    {% for name, url in inv.subpages.items() %}
+    <a href="{{ url }}">{{ name }}</a>
+    {% endfor %}
+  </nav>
+  {% endif %}
+  {{ findings_list(inv) }}
+  {{ evidence_panel(inv) }}
+</article>
+{%- endmacro %}
+
+{% macro evidence_panel(inv) -%}
+{#- Evidence/status panel rendered from manifest evidence_refs (Phase 3).
+    Statuses: available | private-held | not-in-repository. Data, not prose. -#}
+{% if inv.evidence_refs %}
+<div class="evidence-refs-panel">
+  <p class="evidence-refs-panel__label">Evidence &amp; data status</p>
+  <ul class="evidence-refs-panel__list">
+    {% for ref in inv.evidence_refs %}
+    <li class="evidence-refs-panel__item evidence-refs-panel__item--{{ ref.status }}">
+      <span class="evidence-refs-panel__status" data-status="{{ ref.status }}">{{ ref.status }}</span>
+      {% if ref.path %}<a class="evidence-refs-panel__link" href="{{ ref.path }}">{{ ref.title }}</a>
+      {% else %}<span class="evidence-refs-panel__link">{{ ref.title }}</span>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+{%- endmacro %}
+
 {% macro analysis_card(domain) -%}
 <article class="analysis-card" data-type="analysis" data-status="published">
   {% if domain.og_image_path %}<div class="analysis-card__image-wrap"><img class="analysis-card__image" src="{{ domain.og_image_path }}" alt="{{ domain.domain_title }}"></div>{% endif %}

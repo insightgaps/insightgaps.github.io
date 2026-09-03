@@ -27,5 +27,11 @@
     "detailed": "/investigations/the-impunity-machine/detailed/",
     "methodology": "/investigations/the-impunity-machine/methodology/",
     "tracker": "/investigations/the-impunity-machine/tracker/"
-  }
+  },
+  "evidence_refs": [
+    { "path": "/data/cases.json", "title": "Case records", "status": "available", "note": "Powers the detailed report and tracker." },
+    { "path": "/data/leads.json", "title": "Lead records", "status": "available", "note": "Powers the detailed report." },
+    { "path": "/data/monthly.json", "title": "Monthly series", "status": "available", "note": "Powers the detailed report." },
+    { "path": "/data/BD-INV-002_Master_Evidence_File.xlsx", "title": "Master evidence file (9 sheets, incl. source registry)", "status": "private-held", "note": "Held in the bureau archive; publication pending editorial decision." }
+  ]
 }

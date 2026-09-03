@@ -248,6 +248,95 @@ def check_data(files, rep: Report) -> None:
         rep.error("data/analysis.json missing domains key")
 
 
+# ---- Phase 3: report-integrity checks ------------------------------------
+
+REPORT_ROUTES = {
+    "/investigations/blood-routes/",
+    "/investigations/the-impunity-machine/",
+    "/investigations/the-lead-belt/",
+    "/investigations/the-impunity-machine/tracker/",
+    "/investigations/the-impunity-machine/methodology/",
+    "/investigations/the-impunity-machine/detailed/",
+    "/investigations/the-lead-belt/methodology/",
+}
+
+VALID_EVIDENCE_STATUSES = {"available", "private-held", "not-in-repository"}
+
+
+def check_report_integrity(files, rep: Report) -> None:
+    # Skip report-integrity checks on sites that contain no investigations
+    # (fixture trees); they only apply to the real site.
+    if not any(r.startswith("/investigations/") for r in files):
+        return
+    # 1. NewsArticle JSON-LD presence on report routes
+    for route in REPORT_ROUTES:
+        page = files.get(route + "index.html")
+        if not page:
+            rep.error(f"report route missing from output: {route}")
+            continue
+        text = page.read_text(encoding="utf-8", errors="replace")
+        if "NewsArticle" not in text:
+            rep.error(f"{route}: missing NewsArticle JSON-LD")
+
+    # 2. Manifest evidence_refs consistency: statuses well-formed; links to
+    #    non-existent artifacts must be declared not-in-repository/private-held
+    inv_file = ROOT / "content" / "investigations"
+    for mf in inv_file.glob("*/investigation.json"):
+        slug = mf.parent.name
+        try:
+            inv = json.loads(mf.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as exc:
+            rep.error(f"{slug}: manifest invalid JSON: {exc}")
+            continue
+        for ref in inv.get("evidence_refs", []):
+            status = ref.get("status")
+            if status not in VALID_EVIDENCE_STATUSES:
+                rep.error(f"{slug}: evidence_refs has invalid status {status!r} for {ref.get('path')}")
+                continue
+            path = ref.get("path")
+            if path and status == "available" and not resolve_route(files, path):
+                rep.error(
+                    f"{slug}: evidence_refs marks {path} available but it is absent from output "
+                    f"(use private-held/not-in-repository, or ship the file)"
+                )
+
+    # 3. Slum-fires claim drawer integrity: badges present -> drawer present
+    sf = files.get("/investigations/dhaka-slum-fires/index.html")
+    if sf:
+        text = sf.read_text(encoding="utf-8", errors="replace")
+        badges = len(re.findall(r'class="claim-badge"', text))
+        has_drawer = "js-drawer" in text and "claimLedger" in text
+        if badges > 0 and not has_drawer:
+            rep.error(
+                f"slum-fires: {badges} claim badges rendered but the verification drawer is absent"
+            )
+        # every data-claim id must exist in the ledger
+        ids = set(re.findall(r'data-claim="(\d+)"', text))
+        ledger_ids = set(re.findall(r'"(\d+)":\s*\{\s*ref:', text))
+        missing = ids - ledger_ids
+        if missing:
+            rep.error(f"slum-fires: claim badges without ledger entries: {sorted(missing)}")
+
+    # 4. Evidence page: every referenced /data/ download link must either
+    #    resolve or carry a status badge nearby (known-missing set drives warnings)
+    ev = files.get("/evidence/index.html")
+    if ev:
+        text = ev.read_text(encoding="utf-8", errors="replace")
+        for m in re.finditer(r'href="(/data/[^"]+)"', text):
+            href = m.group(1)
+            if not resolve_route(files, href) and href not in ALLOWED_MISSING:
+                rep.error(f"evidence page: dead download link without status disclosure: {href}")
+
+    # 5. Investigation index: finding anchors present for every published work
+    idx = files.get("/investigations/index.html")
+    if idx:
+        text = idx.read_text(encoding="utf-8", errors="replace")
+        n_works = len(re.findall(r'class="index-work"', text))
+        n_findings = len(re.findall(r'id="finding-\d+"', text))
+        if n_works > 0 and n_findings == 0:
+            rep.error("investigations index: works rendered without finding anchors")
+
+
 def run(public: Path) -> Report:
     rep = Report()
     if not public.exists():
@@ -266,6 +355,7 @@ def run(public: Path) -> Report:
     check_corrections(rep)
     check_leaks(files, rep)
     check_data(files, rep)
+    check_report_integrity(files, rep)
     return rep
 
 

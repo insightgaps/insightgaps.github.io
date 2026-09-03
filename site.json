@@ -31,5 +31,10 @@
     { "label": "About", "href": "/about/" },
     { "label": "Contact", "href": "/contact/" }
   ],
-  "hosting_note": "Static site deployed via Cloudflare Pages. No runtime infrastructure."
+  "hosting_note": "Static site deployed via Cloudflare Pages. No runtime infrastructure.",
+  "stats_notes": {
+    "investigations": "Count of investigations with published status in the bureau's manifests.",
+    "sources": "Sum of per-investigation source_count manifest fields. A 'source' is a distinct external document, institution, or dataset named in an investigation's source log; per-work source lists are being published progressively (see each investigation's evidence panel).",
+    "sources_note": "Definition published 2026-09-02."
+  }
 }
