@@ -6,7 +6,7 @@
   "url": "/investigations/the-impunity-machine/",
   "page_kind": "standalone",
   "date_published": "2026-03-01",
-  "date_revised": null,
+  "date_revised": "2026-09-03",
   "status": "published",
   "investigation_type": "Tier 1 - Visual Data Investigation",
   "topic_tags": [
@@ -22,9 +22,9 @@
     "Bangladesh pairs maximum legal severity with near-zero certainty of punishment: death penalty expansion did not solve reporting attrition, backlog, evidence loss, or witness risk.",
     "Critical justice infrastructure remains thin: 14 OCCs, two national DNA machines, major unprocessed sample backlogs, and no complete national registry for key rape-case outcomes."
   ],
-  "source_count": 91,
+  "source_count": 65,
   "methodology_link": "/investigations/the-impunity-machine/methodology/",
-  "has_correction": false,
+  "has_correction": true,
   "correction_notes": [],
   "og_image_path": "/assets/img/impunity-machine-infographic.png",
   "related_items": [
@@ -63,8 +63,8 @@
     }
   ],
   "source_profile": {
-    "manifest_count": 91,
-    "note": "The archived source registry (BD-INV-002 master evidence file) contains 65 entries (54 CONFIRMED, 11 PROBABLE). The 91 figure is under owner review (decision D-9).",
+    "manifest_count": 65,
+    "note": "The archived source registry (BD-INV-002 master evidence file) contains 65 entries (54 CONFIRMED, 11 PROBABLE). The previously published count of 91 overstated the registry by 26 (corrected 2026-09-03; see the corrections log).",
     "registry": {
       "total": 65,
       "confirmed": 54,
