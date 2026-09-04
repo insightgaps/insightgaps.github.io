@@ -97,7 +97,7 @@
   padding-top: var(--space-3, 0.75rem);
   border-top: var(--border-width) dashed var(--color-border);
   font-family: var(--font-mono);
-  font-size: 0.66rem;
+  font-size: 0.72rem; /* 11.5px: reader-facing disclosure text */
   line-height: 1.6;
   color: var(--color-text-muted);
 }
@@ -112,7 +112,7 @@
 .headline-source-note {
   margin: var(--space-3, 0.75rem) 0 0;
   font-family: var(--font-mono);
-  font-size: 0.66rem;
+  font-size: 0.72rem; /* 11.5px: reader-facing disclosure text */
   line-height: 1.6;
   color: var(--color-text-muted);
 }
