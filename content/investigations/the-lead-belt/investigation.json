@@ -56,8 +56,8 @@
     {
       "path": "/data/osm_schools.geojson",
       "title": "OSM schools snapshot (9,846 nodes)",
-      "status": "private-held",
-      "note": "Archived in the bureau's OS repository; publication pending editorial decision."
+      "status": "available",
+      "note": "Archived OpenStreetMap schools snapshot (9,846 nodes) with ODbL attribution; powers the report's replication command."
     }
   ],
   "source_profile": {

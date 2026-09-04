@@ -38,6 +38,12 @@
   },
   "evidence_refs": [
     {
+      "path": "/data/BD-INV-002_Master_Evidence_File_digest.json",
+      "title": "Master evidence file — public digest (source registry + aggregates, no case records)",
+      "status": "available",
+      "note": "Provenance-preserving digest of the master evidence workbook: the full 65-entry source registry with tiers, plus aggregate-statistics summary. Case-level records withheld pending source-protection review."
+    },
+    {
       "path": "/data/cases.json",
       "title": "Case records",
       "status": "available",
@@ -59,7 +65,7 @@
       "path": "/data/BD-INV-002_Master_Evidence_File.xlsx",
       "title": "Master evidence file (9 sheets, incl. source registry)",
       "status": "private-held",
-      "note": "Held in the bureau archive; publication pending editorial decision."
+      "note": "The full master evidence file is held in the bureau archive (case-level records; publication pending source-protection review). A provenance-preserving digest (source registry + aggregate summary) is publicly available at /data/BD-INV-002_Master_Evidence_File_digest.json."
     }
   ],
   "source_profile": {

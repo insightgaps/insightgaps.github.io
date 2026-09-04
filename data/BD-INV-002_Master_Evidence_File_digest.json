@@ -1,0 +1,467 @@
+{
+  "digest_of": "BD-INV-002_Master_Evidence_File.xlsx (v4.1, March 2026)",
+  "original_sha256": "811c104d2305be17224ef8094a0e015925611a8799fd2c79c6ddc37062e6e8d9",
+  "note": "Provenance-preserving digest. Contains the source registry and aggregate-statistics summary only. Case-level records, tribunal case details, acquittal details, and Section 17 case records are withheld from publication pending source-protection review.",
+  "source_registry": [
+    {
+      "id": "S-01",
+      "tier": "CONFIRMED",
+      "publication": "BRAC/Agile Consultants — 'Public Prosecution System in Bangladesh: Issues of Justice for VAWG'",
+      "author": "BRAC / Agile Consultants",
+      "date": "Dec 2022"
+    },
+    {
+      "id": "S-02",
+      "tier": "CONFIRMED",
+      "publication": "UNFPA / BBS Violence Against Women Survey 2024",
+      "author": "Bangladesh Bureau of Statistics / UNFPA",
+      "date": "2024"
+    },
+    {
+      "id": "S-03",
+      "tier": "CONFIRMED",
+      "publication": "HRW — 'Death Penalty Not the Answer to Bangladesh's Rape Problem'",
+      "author": "Human Rights Watch",
+      "date": "Oct 13, 2020"
+    },
+    {
+      "id": "S-04",
+      "tier": "CONFIRMED",
+      "publication": "HRW — 'Bangladesh: Protests Erupt Over Rape Verdict'",
+      "author": "Human Rights Watch",
+      "date": "Nov 2021"
+    },
+    {
+      "id": "S-05",
+      "tier": "CONFIRMED",
+      "publication": "Amnesty International — 'Death penalty is not solution for violence against women'",
+      "author": "Amnesty International",
+      "date": "Oct 2020"
+    },
+    {
+      "id": "S-06",
+      "tier": "CONFIRMED",
+      "publication": "Daily Star — '19 victims out of 6,329 got justice in 7yrs: Naripokkho'",
+      "author": "The Daily Star / Naripokkho",
+      "date": "2018"
+    },
+    {
+      "id": "S-07",
+      "tier": "CONFIRMED",
+      "publication": "Daily Star — 'Over 35,000 VAWC cases unresolved for over 5 years'",
+      "author": "The Daily Star",
+      "date": "2023"
+    },
+    {
+      "id": "S-09",
+      "tier": "CONFIRMED",
+      "publication": "Government of Bangladesh UNSG Submission May 2024",
+      "author": "Government of Bangladesh / UN Women",
+      "date": "May 2024"
+    },
+    {
+      "id": "S-13",
+      "tier": "CONFIRMED",
+      "publication": "TBS News — 'False rape case proved: Court orders arrest of plaintiff'",
+      "author": "The Business Standard",
+      "date": "Jan 2026"
+    },
+    {
+      "id": "S-14",
+      "tier": "CONFIRMED",
+      "publication": "Prothom Alo — 'Woman jailed for five yrs for filing false rape case'",
+      "author": "Prothom Alo",
+      "date": "Apr 13, 2023"
+    },
+    {
+      "id": "S-16",
+      "tier": "CONFIRMED",
+      "publication": "UK Home Office CPIN Bangladesh",
+      "author": "UK Home Office",
+      "date": "Jan 2024"
+    },
+    {
+      "id": "S-17",
+      "tier": "CONFIRMED",
+      "publication": "OMCT Urgent Intervention — Jessore gang rape",
+      "author": "World Organisation Against Torture",
+      "date": "2009"
+    },
+    {
+      "id": "S-18",
+      "tier": "CONFIRMED",
+      "publication": "BLAST directory",
+      "author": "Bangladesh Legal Aid and Services Trust",
+      "date": "2024"
+    },
+    {
+      "id": "S-21",
+      "tier": "CONFIRMED",
+      "publication": "BSS — 'Council of advisers okays WCRPA Amendment Ordinance 2025'",
+      "author": "Bangladesh Sangbad Sangstha",
+      "date": "Mar 20, 2025"
+    },
+    {
+      "id": "S-22",
+      "tier": "CONFIRMED",
+      "publication": "TBS News — 'Forensics delayed is justice denied'",
+      "author": "The Business Standard",
+      "date": "Sep 3, 2025"
+    },
+    {
+      "id": "S-34",
+      "tier": "CONFIRMED",
+      "publication": "Prothom Alo — 'Rape case investigations: 44pc remain unproven'",
+      "author": "Prothom Alo / Naznin Akhter",
+      "date": "Sep 27, 2025"
+    },
+    {
+      "id": "S-37",
+      "tier": "CONFIRMED",
+      "publication": "UNFPA/BBS VAW Survey 2024 Highlights",
+      "author": "UNFPA / BBS",
+      "date": "Oct 2025"
+    },
+    {
+      "id": "S-40",
+      "tier": "CONFIRMED",
+      "publication": "South Africa NPA Annual Report 2023/24",
+      "author": "National Prosecuting Authority, South Africa",
+      "date": "2024"
+    },
+    {
+      "id": "S-41",
+      "tier": "CONFIRMED",
+      "publication": "CEDAW/C/BGD/CO/8 2016",
+      "author": "UN CEDAW Committee",
+      "date": "2016"
+    },
+    {
+      "id": "S-42",
+      "tier": "CONFIRMED",
+      "publication": "Nepal National Penal Code 2017",
+      "author": "Nepal Parliament",
+      "date": "2017"
+    },
+    {
+      "id": "S-45",
+      "tier": "CONFIRMED",
+      "publication": "HRW — 'I Sleep in My Own Deathbed'",
+      "author": "Human Rights Watch",
+      "date": "Oct 29, 2020"
+    },
+    {
+      "id": "S-46",
+      "tier": "PROBABLE",
+      "publication": "Daily Star — 'Stop rape arbitration'",
+      "author": "The Daily Star",
+      "date": "Oct 2020"
+    },
+    {
+      "id": "S-47",
+      "tier": "CONFIRMED",
+      "publication": "Abramovaite et al. (2022) — Classical deterrence theory revisited",
+      "author": "University of Birmingham",
+      "date": "2022"
+    },
+    {
+      "id": "S-48",
+      "tier": "CONFIRMED",
+      "publication": "Dölling et al. (2009) meta-analysis",
+      "author": "Dölling, Entorf, Hermann, Rupp",
+      "date": "2009"
+    },
+    {
+      "id": "S-50",
+      "tier": "CONFIRMED",
+      "publication": "Islam & Islam (2003) — 248 rape forensic cases, Dhaka MCH",
+      "author": "Islam & Islam",
+      "date": "2003"
+    },
+    {
+      "id": "S-52",
+      "tier": "CONFIRMED",
+      "publication": "Susila (2019) — Indonesia death penalty and child rape",
+      "author": "Susila",
+      "date": "2019"
+    },
+    {
+      "id": "S-54",
+      "tier": "CONFIRMED",
+      "publication": "Bailey (1977) — 'Deterrence and the Violent Sex Offender'",
+      "author": "Bailey",
+      "date": "1977"
+    },
+    {
+      "id": "S-55",
+      "tier": "CONFIRMED",
+      "publication": "Daily Star — 'One-Stop Crisis Centre: Conviction in less than 2pc cases'",
+      "author": "The Daily Star",
+      "date": "Nov 2, 2024"
+    },
+    {
+      "id": "S-56",
+      "tier": "CONFIRMED",
+      "publication": "TBS News — PHQ data 2023",
+      "author": "The Business Standard",
+      "date": "2024"
+    },
+    {
+      "id": "S-57",
+      "tier": "CONFIRMED",
+      "publication": "Daily Star — 'Over 5,600 children raped in 10yrs'",
+      "author": "The Daily Star",
+      "date": "Mar 14, 2025"
+    },
+    {
+      "id": "S-58",
+      "tier": "CONFIRMED",
+      "publication": "Justice Audit Bangladesh / UNDP",
+      "author": "UNDP / Dhaka Tribune",
+      "date": "Aug 2023"
+    },
+    {
+      "id": "S-59",
+      "tier": "CONFIRMED",
+      "publication": "Daily Star — 'Comprehensive legal approach: the crime of rape'",
+      "author": "The Daily Star",
+      "date": "Mar 2025"
+    },
+    {
+      "id": "S-60",
+      "tier": "CONFIRMED",
+      "publication": "Wikipedia / Bangladesh press — 2025 Magura child rape case",
+      "author": "Multiple sources",
+      "date": "2025"
+    },
+    {
+      "id": "S-61",
+      "tier": "PROBABLE",
+      "publication": "Prothom Alo — PHQ filing data",
+      "author": "Prothom Alo",
+      "date": "Jul 2025"
+    },
+    {
+      "id": "S-62",
+      "tier": "PROBABLE",
+      "publication": "ResearchGate — University Asia Pacific May 2024",
+      "author": "ResearchGate / UAP",
+      "date": "May 2024"
+    },
+    {
+      "id": "S-63",
+      "tier": "CONFIRMED",
+      "publication": "SHARE-Net Bangladesh — backlog report",
+      "author": "SHARE-Net Bangladesh",
+      "date": "2025"
+    },
+    {
+      "id": "S-64",
+      "tier": "CONFIRMED",
+      "publication": "Daily Star — 'Set up 200 more speedy trial tribunals'",
+      "author": "The Daily Star",
+      "date": "Mar 14, 2025"
+    },
+    {
+      "id": "S-65",
+      "tier": "PROBABLE",
+      "publication": "Prothom Alo Bangla — Post-revolution dynamics",
+      "author": "Prothom Alo Bangla",
+      "date": "2025"
+    },
+    {
+      "id": "S-66",
+      "tier": "PROBABLE",
+      "publication": "Prothom Alo Bangla — DNA lab crisis",
+      "author": "Prothom Alo Bangla",
+      "date": "2025"
+    },
+    {
+      "id": "S-67",
+      "tier": "CONFIRMED",
+      "publication": "BSS / Desh Rupantor — Magura appeal",
+      "author": "BSS",
+      "date": "Jul 1, 2025"
+    },
+    {
+      "id": "S-68",
+      "tier": "CONFIRMED",
+      "publication": "BSS + bdlaws.minlaw.gov.bd — WCRPA Amendment Ordinance 2025",
+      "author": "BSS / Ministry of Law",
+      "date": "2025"
+    },
+    {
+      "id": "S-69",
+      "tier": "PROBABLE",
+      "publication": "CoxsbazarJournal/Parbattanews — Runa Akhter §17 details",
+      "author": "CoxsbazarJournal",
+      "date": "2023"
+    },
+    {
+      "id": "S-70",
+      "tier": "CONFIRMED",
+      "publication": "BSS — '4 to die in Barishal rape case'",
+      "author": "BSS",
+      "date": "Feb 2026"
+    },
+    {
+      "id": "S-71",
+      "tier": "CONFIRMED",
+      "publication": "BSS/PHQ — Minority incidents report",
+      "author": "BSS / Police Headquarters",
+      "date": "Jan 19, 2026"
+    },
+    {
+      "id": "S-72",
+      "tier": "PROBABLE",
+      "publication": "HRCBM — Public Interest Litigation",
+      "author": "HRCBM",
+      "date": "Aug 1, 2025"
+    },
+    {
+      "id": "S-73",
+      "tier": "PROBABLE",
+      "publication": "News on Air / BMP Report — Aug 2025",
+      "author": "Bangladesh Mahila Parishad",
+      "date": "Sep 2, 2025"
+    },
+    {
+      "id": "S-73b",
+      "tier": "PROBABLE",
+      "publication": "News on Air / BMP Press Conference — March 2026",
+      "author": "Bangladesh Mahila Parishad",
+      "date": "Mar 2026"
+    },
+    {
+      "id": "S-74",
+      "tier": "CONFIRMED",
+      "publication": "UNFPA Bangladesh — 'Three out of four women experience violence'",
+      "author": "UNFPA Bangladesh / BBS",
+      "date": "Oct 13, 2025"
+    },
+    {
+      "id": "S-75",
+      "tier": "CONFIRMED",
+      "publication": "Daily Industry BD — 'Case backlog surpasses 4.65 million'",
+      "author": "Daily Industry BD",
+      "date": "Sep 22, 2025"
+    },
+    {
+      "id": "S-76",
+      "tier": "CONFIRMED",
+      "publication": "Lawyers Club Bangladesh — Supreme Court Secretariat",
+      "author": "Lawyers Club Bangladesh",
+      "date": "Jan 10, 2026"
+    },
+    {
+      "id": "S-77",
+      "tier": "CONFIRMED",
+      "publication": "skmahdi.com / Supreme Court Bangladesh — Art. 116 judgment",
+      "author": "SK Mahdi / Supreme Court",
+      "date": "Sep 2025"
+    },
+    {
+      "id": "S-78",
+      "tier": "CONFIRMED",
+      "publication": "BSS — Supreme Court Secretariat Ordinance 2025",
+      "author": "BSS",
+      "date": "Dec 11, 2025"
+    },
+    {
+      "id": "S-79",
+      "tier": "CONFIRMED",
+      "publication": "UNICEF Bangladesh — Statement on violence March 2025",
+      "author": "UNICEF Bangladesh",
+      "date": "Mar 23, 2025"
+    },
+    {
+      "id": "S-80",
+      "tier": "CONFIRMED",
+      "publication": "HRW — 'Bangladeshi Women, Girls, Minorities Face Rising Violence'",
+      "author": "Human Rights Watch",
+      "date": "Jan 14, 2026"
+    },
+    {
+      "id": "S-81",
+      "tier": "CONFIRMED",
+      "publication": "CEDAW/C/BGD/9-10 — Government of Bangladesh 9th/10th Periodic Report 2025",
+      "author": "Government of Bangladesh / CEDAW",
+      "date": "2025"
+    },
+    {
+      "id": "S-82",
+      "tier": "CONFIRMED",
+      "publication": "TBS News — VAW H1 2025 data",
+      "author": "The Business Standard",
+      "date": "Jul 2025"
+    },
+    {
+      "id": "S-83",
+      "tier": "CONFIRMED",
+      "publication": "Daily Star — 'Child rape cases rise nearly 75% in 7 months'",
+      "author": "The Daily Star",
+      "date": "Aug 2025"
+    },
+    {
+      "id": "S-84",
+      "tier": "CONFIRMED",
+      "publication": "Dhaka Tribune — 'Bangladesh sees sharp rise in rape cases'",
+      "author": "Dhaka Tribune",
+      "date": "Feb 2026"
+    },
+    {
+      "id": "S-85",
+      "tier": "CONFIRMED",
+      "publication": "Dhaka Tribune — BMP 2025 annual data",
+      "author": "Dhaka Tribune",
+      "date": "Feb 2026"
+    },
+    {
+      "id": "S-86",
+      "tier": "CONFIRMED",
+      "publication": "UN Women Asia Pacific — tribunal data",
+      "author": "UN Women Asia Pacific",
+      "date": "2019"
+    },
+    {
+      "id": "S-87",
+      "tier": "PROBABLE",
+      "publication": "EU/GTAI Assessment 2025",
+      "author": "EU / Germany Trade & Invest",
+      "date": "2025"
+    },
+    {
+      "id": "S-88",
+      "tier": "CONFIRMED",
+      "publication": "Daily Star Law — DMP Feb 2025 data",
+      "author": "The Daily Star Law Section",
+      "date": "Mar 2025"
+    },
+    {
+      "id": "S-89",
+      "tier": "CONFIRMED",
+      "publication": "Daily Star — Dec 2024 ASK annual report",
+      "author": "The Daily Star",
+      "date": "Dec 2024"
+    },
+    {
+      "id": "S-90",
+      "tier": "CONFIRMED",
+      "publication": "Daily Star Q1 2024 — ASK monitoring",
+      "author": "The Daily Star",
+      "date": "Apr 2024"
+    },
+    {
+      "id": "S-91",
+      "tier": "PROBABLE",
+      "publication": "BRAC USA — OCC reporting gap data",
+      "author": "BRAC USA",
+      "date": "Late 2025"
+    }
+  ],
+  "registry_summary": {
+    "total": 65,
+    "confirmed": 54,
+    "probable": 11
+  }
+}
