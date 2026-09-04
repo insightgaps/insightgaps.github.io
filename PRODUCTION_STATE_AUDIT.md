@@ -97,3 +97,32 @@ After the root-mirror recovery push (`a7103e1`), live probes confirm the deploym
 4. If the project shows a "workers-autoconfig" setup instead of Pages static hosting, delete the project and re-create it as a **Pages** project connected to `insightgaps/insightgaps.github.io`, branch `main`.
 
 Fallback that requires no Cloudflare at all: the repo also works on GitHub Pages — enable it for the `main` branch (the root now contains the full generated site + `404.html` + `_redirects`-equivalent routing via directories), and point the DNS `www` CNAME at `insightgaps.github.io`.
+
+---
+
+# PHASE 7 — PRODUCTION RECOVERED VIA GITHUB PAGES (2026-09-04)
+
+## What happened
+
+1. The Cloudflare Pages project remained broken at the account level (no build configured; pushes never triggered anything; deployment frozen at the 2-Sep snapshot serving the repo root as static files).
+2. **Discovery: GitHub Pages was already enabled** on the repository (legacy build from `main` @ repo root) — and the root mirror committed at `a7103e1` meant GitHub Pages had been quietly serving the generated site at `insightgaps.github.io`.
+4. **Root cause of stale live content found and fixed:** the root mirror was from `a7103e1` (Sep 3) — all Phase-5/6 corrections existed only in the source tree and the gitignored `public/`. Re-synced the mirror to the current build (commit `5de2c84`) and triggered a Pages rebuild via API.
+5. **Custom-domain attempt:** setting the Pages cname to `www.insightgaps.com` (API 204 + CNAME file) made every gh-pages route 301 to www — which 404s while DNS still points at the broken Cloudflare project — so the cname was **removed** to keep the site reachable NOW. The CNAME file remains removed in the repo; re-adding is a one-commit + one-API-call step documented below.
+
+## Live state (verified end-to-end at commit `5de2c84`)
+
+- **https://insightgaps.github.io is LIVE** — 28 routes verified 200 (all investigations + subpages, trust pages, evidence, analysis, data downloads, sitemap, robots, llms.txt, 404, favicon).
+- **19/19 content checks pass:** homepage pre-rendered stats (3 investigations / 94 sources), corrections table renders C-001..C-005, Lead Belt reconciled values (26/19 satellite, 93 upazila, projection language + unique estimate, provenance note), Impunity 65 sources everywhere (no 91 residue, S-37 remap live), Blood Routes 19.08% fix live (no 29% YoY), robots content-signals + bot blocks, evidence osm AVAILABLE label, sitemap matches publication state, slum-fires 404 with zero references.
+
+## Owner actions to move the site to www.insightgaps.com (choose ONE)
+
+### Option A — DNS to GitHub Pages (simplest; no Cloudflare dashboard build config needed)
+In the Cloudflare dashboard (DNS for insightgaps.com):
+1. Set `www` record: **CNAME → `insightgaps.github.io`**, **DNS-only (grey cloud)** — Cloudflare's proxy cannot front GitHub Pages (cert mismatch).
+2. Tell the agent (or run): re-add the CNAME file (`echo www.insightgaps.com > CNAME`) + `curl -X PUT -H "Authorization: token <TOKEN>" .../pages -d '{"cname":"www.insightgaps.com", ...}'`, then trigger a rebuild. GitHub will issue the cert and serve the current build at https://www.insightgaps.com.
+3. Optionally add apex `A` records → 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153 (DNS-only) if the apex should also serve.
+
+### Option B — Fix the Cloudflare Pages project (keeps current DNS)
+Workers & Pages → `insightgaps` → Settings → Build configuration → command `pip install jinja2 && python scripts/build.py && python scripts/validate.py`, output `public`, branch `main` → Retry deployment. (Note: with the root mirror in place, even a no-build/root-output configuration serves the site.)
+
+Until either action: **the site is fully live at https://insightgaps.github.io** and every push to `main` continues to auto-deploy there (Pages git integration verified working).
