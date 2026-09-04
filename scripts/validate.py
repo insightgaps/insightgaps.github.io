@@ -327,6 +327,47 @@ def check_report_integrity(files, rep: Report) -> None:
             if not resolve_route(files, href) and href not in ALLOWED_MISSING:
                 rep.error(f"evidence page: dead download link without status disclosure: {href}")
 
+    # 5. Manifest <-> corrections alignment: a work with has_correction=true
+    #    must have at least one corrections-log entry referencing it; and every
+    #    corrections-log entry's work path must resolve to a published route.
+    log = ROOT / "corrections.log.jsonl"
+    inv_map = {}
+    for mf in (ROOT / "content" / "investigations").glob("*/investigation.json"):
+        try:
+            inv = json.loads(mf.read_text(encoding="utf-8"))
+            inv_map[inv.get("url", "")] = inv
+        except json.JSONDecodeError:
+            rep.error(f"{mf.parent.name}: manifest invalid JSON")
+    corr_works = []
+    for line in log.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        e = json.loads(line)
+        corr_works.append(e.get("work", ""))
+        if e.get("work") not in inv_map and not resolve_route(files, e.get("work", "")):
+            rep.error(f"corrections {e.get('id')}: work path does not resolve: {e.get('work')!r}")
+    for url, inv in inv_map.items():
+        if inv.get("has_correction") and url not in corr_works:
+            rep.error(f"{inv.get('slug')}: has_correction=true but no corrections-log entry references {url}")
+
+    # 6. Methodology links must resolve (published works)
+    for url, inv in inv_map.items():
+        if inv.get("status") not in ("published", "corrected"):
+            continue
+        link = inv.get("methodology_link")
+        if link and not resolve_route(files, link) and not link.startswith("#"):
+            rep.error(f"{inv.get('slug')}: methodology_link does not resolve: {link}")
+
+    # 7. source_profile manifest_count must equal source_count
+    for url, inv in inv_map.items():
+        prof = inv.get("source_profile") or {}
+        if prof and "manifest_count" in prof and prof["manifest_count"] != inv.get("source_count"):
+            rep.error(
+                f"{inv.get('slug')}: source_profile.manifest_count ({prof['manifest_count']}) "
+                f"!= source_count ({inv.get('source_count')})"
+            )
+
     # 5. Investigation index: finding anchors present for every published work
     idx = files.get("/investigations/index.html")
     if idx:
