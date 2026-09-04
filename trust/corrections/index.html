@@ -39,6 +39,9 @@
 </head>
 <body>
 
+  <!-- Skip link: must be the first focusable element -->
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
   <!-- AI DISCLOSURE BAR -->
   <div class="ai-disclosure-bar" role="note" aria-label="AI use disclosure">
     <div class="ai-disclosure-bar__inner">
@@ -50,8 +53,6 @@
   </div>
 
   <!-- GLOBAL HEADER -->
-  <a href="#main-content" class="skip-link">Skip to content</a>
-
   <header class="site-header" role="banner">
     <div class="site-header__inner">
 
@@ -90,7 +91,9 @@
   <!-- MAIN CONTENT -->
   <main id="main-content" class="trust-page">
     
-<!-- Page header -->
+<!-- Corrections rows are generated from corrections.log.jsonl at build time. -->
+
+    <!-- Page header -->
     <div class="trust-page__header">
       <div class="trust-page__header-inner">
         <h1 class="trust-page__title">Corrections Log</h1>
@@ -105,77 +108,17 @@
     <!-- Body -->
     <article class="trust-page__body">
 
-      <!-- Policy statement -->
-      <div class="policy-block" role="note" aria-label="Corrections policy">
-        <span class="policy-block__label">Corrections policy</span>
-        <p class="policy-block__text">
-          When an error is identified in a published investigation, Insight Gaps
-          Bureau corrects the record as quickly as possible. The correction is noted
-          directly on the investigation page and added to this log with a timestamp.
-          Rows in this log are permanent — nothing is removed, suppressed, or
-          rewritten. The investigation's <code>status</code> field in the data index
-          is updated to <code>corrected</code> on the same day the correction is
-          published. Corrections are written and approved by the editor — no
-          correction notice is automated.
-        </p>
-      </div>
+      <p>
+        When the bureau identifies a factual error in published work, the
+        correction is made promptly, noted on the affected investigation, and
+        appended to this log with a timestamp. Rows in this log are permanent —
+        nothing is removed, suppressed, or rewritten after the fact. The
+        investigation's status is updated to corrected on the same day the
+        correction is published.
+      </p>
 
-      <h2>Corrections on record</h2>
-
-      <!-- ============================================================
-           CORRECTIONS TABLE
-           Add new rows at the TOP — most recent first.
-           Never delete a row.
-           To add a row, copy the <tr> block below and fill in:
-             - datetime attribute (ISO: YYYY-MM-DD)
-             - display date (e.g. 12 June 2025)
-             - investigation ID (e.g. BD-INV-003)
-             - error identified (what was wrong)
-             - correction executed (what was changed)
-           ============================================================ -->
-
-      <!--
-        NO CORRECTIONS EXIST YET — show empty state.
-        When the first correction is issued:
-          1. Remove the corrections-empty block below.
-          2. Uncomment the corrections-table-wrap block.
-          3. Add the correction row.
-          4. Update the has_correction field in investigations.json.
-          5. Update the Last updated date at the bottom of this page.
-      -->
-
-      <div class="corrections-table-wrap"><table class="corrections-table"><thead><tr><th>Date</th><th>Work</th><th>What was wrong</th><th>What changed</th></tr></thead><tbody><tr><td class="corrections-table__date">2026-06-08</td><td class="corrections-table__work">/investigations/blood-routes/</td><td class="corrections-table__summary">The report's night-time crash statistic was published as 97.13% (derived from a dataset later found to contain ~95% synthetic padding); it was corrected to 41.56% (RSF Dhaka Annual Report 2025 basis) on 2026-06-08, after the pipeline retracted the original figure on 2026-06-03. The change was made in commit 527d0a4 without a log entry at the time.</td><td class="corrections-table__amended">Night-time share of fatal Dhaka crashes corrected 97.13% → 41.56% (10pm–6am window).</td></tr></tbody></table></div>
-
-      <!--
-      <div class="corrections-table-wrap">
-        <table class="corrections-table" aria-label="Corrections log">
-          <thead>
-            <tr>
-              <th scope="col">Date</th>
-              <th scope="col">Investigation</th>
-              <th scope="col">Error Identified</th>
-              <th scope="col">Correction Executed</th>
-            </tr>
-          </thead>
-          <tbody>
-
-            PASTE NEW ROWS HERE — most recent at top
-
-            <tr>
-              <td class="corrections-table__date">
-                <time datetime="YYYY-MM-DD">DD Month YYYY</time>
-              </td>
-              <td class="corrections-table__id">
-                <a href="/investigations/SLUG/index.html">INV-00X</a>
-              </td>
-              <td>Description of what was wrong — specific, factual, no evasion.</td>
-              <td>Description of what was changed — what the correct information is and where it now appears.</td>
-            </tr>
-
-          </tbody>
-        </table>
-      </div>
-      -->
+      <!-- Rendered table replaces this block when the log is non-empty -->
+      <div class="corrections-table-wrap"><table class="corrections-table"><thead><tr><th>Date</th><th>Work</th><th>What was wrong</th><th>What changed</th></tr></thead><tbody><tr><td class="corrections-table__date">2026-06-08</td><td class="corrections-table__work">/investigations/blood-routes/</td><td class="corrections-table__summary">The report's night-time crash statistic was published as 97.13% (derived from a dataset later found to contain ~95% synthetic padding); it was corrected to 41.56% (RSF Dhaka Annual Report 2025 basis) on 2026-06-08, after the pipeline retracted the original figure on 2026-06-03. The change was made in commit 527d0a4 without a log entry at the time.</td><td class="corrections-table__amended">Night-time share of fatal Dhaka crashes corrected 97.13% → 41.56% (10pm–6am window).</td></tr><tr><td class="corrections-table__date">2026-09-03</td><td class="corrections-table__work">/investigations/blood-routes/</td><td class="corrections-table__summary">The Eid-ul-Adha 2025 timeline entry described a '29% YoY surge' in road fatalities. The report's own timeline data (312 deaths in 2025 vs 262 in 2024) yields a 19.08% increase, not 29%. The 29% figure appears to have been inherited from a contemporaneous RSF report framing rather than computed from the published series.</td><td class="corrections-table__amended">Eid-ul-Adha 2025 timeline description corrected to 'Sharp 19% year-on-year rise (312 vs 262 in 2024)'.</td></tr><tr><td class="corrections-table__date">2026-09-03</td><td class="corrections-table__work">/investigations/the-impunity-machine/</td><td class="corrections-table__summary">A note disclosing that the Bangladesh 0.46% conviction rate and the UK/India/South Africa comparator rates use different denominators (all complaints registered at One-Stop Crisis Centres vs prosecuted trials in court) was added to the comparison section after initial publication (commit 36177f6, 2026-05-26).</td><td class="corrections-table__amended">Cross-jurisdictional comparison chart now carries the denominator note; the comparison must not be read as like-for-like conviction rates.</td></tr><tr><td class="corrections-table__date">2026-09-03</td><td class="corrections-table__work">/investigations/the-impunity-machine/</td><td class="corrections-table__summary">The published source count of 91 named sources overstated the archived source registry, which contains 65 entries (54 CONFIRMED, 11 PROBABLE). 27 IDs in the S-01..S-91 sequence (including S-26, S-27, S-28) had no registry entries.</td><td class="corrections-table__amended">Source count corrected to 65 across the report, detailed report, methodology page, manifest, and evidence page. The S-26 citation was re-mapped to registry entry S-37 (UNFPA/BBS VAW Survey 2024 Highlights, exact content match); the S-27/S-28 parenthetical citations were removed (no registry equivalents exist; source names retained without dead IDs).</td></tr><tr><td class="corrections-table__date">2026-09-03</td><td class="corrections-table__work">/investigations/the-lead-belt/</td><td class="corrections-table__summary">Several published figures on the Lead Belt report were internally inconsistent with the report's own embedded dataset: the 'Satellite Active' filter chip said 26 while the data flags 19 high-confidence sites; the critical-areas label did not distinguish 68 critical sites from the 65 exceeding 100,000 ppm; the headline stated '507 upazila boundaries' while the embedded map payload contains 93 upazila polygons; the choropleth's student model (400 students/school) summed to 58,000 while the headline used 275 students/school (39,875); and the 39,875 figure was described as 'children at extreme risk' rather than as a projection of exposure instances. The manifest publication date (2025-01-01) also contradicted repository history (first published 2026-05-25).</td><td class="corrections-table__amended">Labels reconciled: 'Satellite confirmed: 26 (high-confidence: 19)'; 'Critical: 68 · 65 exceed 100,000 ppm'; upazila count corrected to 93; choropleth student model regenerated at ×275 (sums to 39,875); headline reframed as '~39,875 exposure instances (projection: 145 intersections × 275; unique-school estimate ~33,275; audited range 24,650–50,750)'; the 59 m closest-school claim scoped to the featured site; provenance note added documenting the snapshot-replication discrepancy (166/51/125 vs 145/44/121); manifest date corrected to 2026-05-25.</td></tr></tbody></table></div>
 
       <p>
         Corrections to the bureau's methodology or AI use policy are recorded on
@@ -190,7 +133,7 @@
     <!-- Last updated -->
     <footer class="trust-page__updated" aria-label="Page metadata">
       <p class="trust-page__updated-text">
-        Last updated: <time datetime="2025-01-01">January 2025</time>
+        Last updated: <time datetime="2026-09-03">September 2026</time>
         &mdash; This page is updated the same day any correction is published.
       </p>
     </footer>

@@ -480,7 +480,7 @@ a{color:var(--gold);text-decoration:none}
 }
 </style>
 
-  <style>/* Phase 4 presentation repairs (audit REP-013). Presentation-only; no content altered. Mobile: readability floor for micro inline type; sub-nav wrapping; canvas scaling; table horizontal scroll; scroll containment for animation tracks. Known residual (owner-gated D-9ii): the frozen Impunity Machine report retains 20-40px horizontal overflow at <=414px from inline-styled absolute/flex elements; the full fix requires the report-redesign pass, not CSS overrides. */@media (max-width: 768px){ body * { font-size: max(11px, 0.6875em) !important; } .sub-nav__inner, .sub-nav__scenes, .sub-nav__actions { max-width: 100% !important; flex-wrap: wrap !important; overflow-x: auto !important; } canvas { max-width: 100% !important; height: auto !important; } [class*='track'] { max-width: 100vw !important; overflow: hidden !important; } table { display: block !important; overflow-x: auto !important; max-width: 100% !important; } .counter-right, .cr-item, .tier { max-width: 100% !important; overflow-wrap: anywhere !important; }}</style>
+  <style>/* Phase 4/6 presentation repairs (audit REP-013 + §15). Presentation-only; no content altered. Mobile: readability floor for micro inline type; sub-nav wrapping; canvas scaling; table horizontal scroll; scroll containment for animation tracks; and clamping of inline-styled fixed-width/grid-min elements (e.g. minmax(280px,...) grids, 280px panels inside narrower containers) that caused the <=414px horizontal overflow. Chart geometry is untouched: clamps only allow shrink-to-fit, never growth. */@media (max-width: 768px){ body * { font-size: max(11px, 0.6875em) !important; } .sub-nav__inner, .sub-nav__scenes, .sub-nav__actions { max-width: 100% !important; flex-wrap: wrap !important; overflow-x: auto !important; } canvas { max-width: 100% !important; height: auto !important; } [class*='track'] { max-width: 100vw !important; overflow: hidden !important; } table { display: block !important; overflow-x: auto !important; max-width: 100% !important; } .counter-right, .cr-item, .tier { max-width: 100% !important; min-width: 0 !important; overflow-wrap: anywhere !important; } .surge-grid { grid-template-columns: 1fr !important; } main div, main span, main ul, main li { max-width: 100% !important; box-sizing: border-box !important; } #sources-list, .src-item, .sb, .surl, .sid { max-width: 100% !important; overflow-wrap: anywhere !important; word-break: break-word !important; min-width: 0 !important; } [style*='width:280px'], [style*='width: 280px'] { width: 100% !important; max-width: 100% !important; } [style*='minmax(280px'] { grid-template-columns: minmax(0, 1fr) !important; }}</style>
 </head>
 <body>
 <nav aria-label="Investigation wayfinding" style="font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.66rem;letter-spacing:0.06em;text-transform:uppercase;display:flex;flex-wrap:wrap;gap:0.4rem 1.2rem;justify-content:space-between;align-items:center;padding:0.55rem clamp(1rem,4vw,3rem);border-bottom:1px solid rgba(128,128,128,0.25);"><span style="display:flex;flex-wrap:wrap;gap:0 0.4rem;"><a href="/" style="color:inherit;text-decoration:none;">Home</a> <span aria-hidden="true" style="opacity:0.5;">&rsaquo;</span> <a href="/investigations/" style="color:inherit;text-decoration:none;">Investigations</a> <span aria-hidden="true" style="opacity:0.5;">&rsaquo;</span> <span style="opacity:0.75;overflow-wrap:anywhere;">The Impunity Machine</span></span><span style="white-space:nowrap;">Related: <a href="/investigations/the-lead-belt/" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">The Lead Belt</a></span></nav>
@@ -814,7 +814,7 @@ a{color:var(--gold);text-decoration:none}
         <div class="stat">73%</div>
         <h3>of those who spoke up didn&#8217;t contact police.</h3>
         <p>The shalish arrived first. Local elders, financial settlements, forced marriage, silence in exchange for &#8220;social peace.&#8221; The state never knew these women existed. Only 3.8% of non-partner violence survivors pursued any legal remedy.</p>
-        <div class="note">UNFPA 2024 Highlights &middot; <span class="ok">CONFIRMED</span> &middot; S-26</div>
+        <div class="note">UNFPA 2024 Highlights &middot; <span class="ok">CONFIRMED</span> &middot; S-37</div>
       </div>
       <div class="step" data-scene="funnel" data-step="3">
         <div class="step-num">Step 04 of 06</div>
@@ -1123,7 +1123,7 @@ a{color:var(--gold);text-decoration:none}
         <div class="stat gold">53.4%</div>
         <h3>UK: 53.4%. India: 27.4%. Both imperfect. Both visible. Both accountable.</h3>
         <p>Both publish conviction data annually. Both can be challenged on it. Bangladesh has never published an official conviction rate. <strong>The absence of data is not a limitation of research &#8212; it is a feature of the system.</strong></p>
-        <div class="note">UK: CPS VAWG 2024 (S-28) &middot; India: NCRB 2022 (S-27) &middot; <span class="ok">CONFIRMED</span></div>
+        <div class="note">UK: CPS VAWG 2024 &middot; India: NCRB 2022 &middot; <span class="ok">CONFIRMED</span></div>
       </div>
       <div class="step" data-scene="race" data-step="3">
         <div class="step-num">Step 04 of 04</div>
@@ -1632,7 +1632,7 @@ a{color:var(--gold);text-decoration:none}
     <h2 style="font-family:var(--display);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;letter-spacing:-.02em;margin-bottom:2rem">How This Investigation Was Built</h2>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);border:1px solid var(--border);margin-bottom:2rem">
       <div style="background:#fff;padding:1.4rem 1.6rem">
-        <div style="font-family:var(--mono);font-size:0.525rem;letter-spacing:.15em;text-transform:uppercase;color:var(--blood);margin-bottom:.6rem">91 Named Sources</div>
+        <div style="font-family:var(--mono);font-size:0.525rem;letter-spacing:.15em;text-transform:uppercase;color:var(--blood);margin-bottom:.6rem">65 Named Sources</div>
         <p style="font-size:0.825rem;color:var(--text2);line-height:1.85">Every factual claim carries a CONFIRMED, PROBABLE, or CONFIRMED ABSENT tier label. No claim appears without a named source. The conviction rate range (0.12%&ndash;3.66%) is fully documented with denominator explanations for each of the 12 measurements.</p>
       </div>
       <div style="background:#fff;padding:1.4rem 1.6rem;border-left:1px solid var(--border)">
@@ -1655,7 +1655,7 @@ a{color:var(--gold);text-decoration:none}
     </div>
     <div style="font-family:var(--mono);font-size:0.48rem;color:var(--muted2);line-height:1.9;border-top:1px solid var(--border);padding-top:1.5rem">
       BD-INV-002 &middot; The Impunity Machine &middot; Version 3.0 &middot; March 2026 &middot; Insight Gaps<br>
-      91 named sources &middot; All claims evidence-tiered &middot; Her Story: composite figure, all details from primary sources &middot; CC BY-NC 4.0<br>
+      65 named sources &middot; All claims evidence-tiered &middot; Her Story: composite figure, all details from primary sources &middot; CC BY-NC 4.0<br>
       Anonymous publication &middot; Open-source posture &middot; Corrections: <a href="mailto:insightgaps@gmail.com" style="color:var(--gold2)">insightgaps@gmail.com</a>
     </div>
   </div>
@@ -1666,7 +1666,7 @@ a{color:var(--gold);text-decoration:none}
 ════════════════════════════════════════════ -->
 <section id="closing" data-claim-id="BD-INV-002-C001">
   <div class="closing-v">The machine is<br><em>documented.</em></div>
-  <p class="closing-sub">Every link in the chain of impunity is named, sourced, and evidence-tiered. 91 named sources. All claims carry CONFIRMED / PROBABLE / ALLEGED tier labels. The reform pathway exists.</p>
+  <p class="closing-sub">Every link in the chain of impunity is named, sourced, and evidence-tiered. 65 named sources. All claims carry CONFIRMED / PROBABLE / ALLEGED tier labels. The reform pathway exists.</p>
   <div class="closing-stmt">
     &#8220;None of these interventions require new theory. They require political decision.<br>
     Forensic centres exist. 50 districts have none. This is not a resource problem &#8212; it is a decision.<br>
@@ -1705,7 +1705,7 @@ a{color:var(--gold);text-decoration:none}
       <a class="btn btn-gold" href="/data/monthly.json">monthly.json</a>
     </div>
   </div>
-  <div class="tier-note">BD-INV-002 &middot; The Impunity Machine &middot; Version 3.0 &middot; March 2026 &middot; Insight Gaps<br>91 named sources &middot; All claims evidence-tiered &middot; Her Story panels: composite figure, all details from primary sources &middot; CC BY-NC 4.0<br>Anonymous publication &middot; Open-source posture &middot; <a href="/investigations/the-impunity-machine/methodology/">Full methodology &#8594;</a></div>
+  <div class="tier-note">BD-INV-002 &middot; The Impunity Machine &middot; Version 3.0 &middot; March 2026 &middot; Insight Gaps<br>65 named sources &middot; All claims evidence-tiered &middot; Her Story panels: composite figure, all details from primary sources &middot; CC BY-NC 4.0<br>Anonymous publication &middot; Open-source posture &middot; <a href="/investigations/the-impunity-machine/methodology/">Full methodology &#8594;</a></div>
 </section>
 
 <script>

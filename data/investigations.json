@@ -56,81 +56,8 @@
     "source_profile": {
       "manifest_count": 22,
       "note": "The manifest count is self-attested; the report names ~20+ external sources without publishing the list."
-    }
-  },
-  {
-    "id": "BD-INV-002",
-    "title": "The Impunity Machine",
-    "dek": "A visual data investigation into Bangladesh's rape justice crisis and the institutional machinery that turns reported violence into near-zero punishment.",
-    "slug": "the-impunity-machine",
-    "url": "/investigations/the-impunity-machine/",
-    "page_kind": "standalone",
-    "date_published": "2026-03-01",
-    "date_revised": null,
-    "status": "published",
-    "investigation_type": "Tier 1 - Visual Data Investigation",
-    "topic_tags": [
-      "rape justice",
-      "gender-based violence",
-      "institutional accountability",
-      "criminal justice",
-      "Bangladesh"
-    ],
-    "summary": "A forensic visual investigation tracing Bangladesh's rape justice crisis across reporting attrition, conviction rates, court backlog, forensic capacity, and legal data voids.",
-    "key_findings": [
-      "Only 310 convictions were recorded from 66,711 women who came through One-Stop Crisis Centres over 23 years, a 0.46% conviction rate.",
-      "Bangladesh pairs maximum legal severity with near-zero certainty of punishment: death penalty expansion did not solve reporting attrition, backlog, evidence loss, or witness risk.",
-      "Critical justice infrastructure remains thin: 14 OCCs, two national DNA machines, major unprocessed sample backlogs, and no complete national registry for key rape-case outcomes."
-    ],
-    "source_count": 91,
-    "methodology_link": "/investigations/the-impunity-machine/methodology/",
-    "has_correction": false,
-    "correction_notes": [],
-    "og_image_path": "/assets/img/impunity-machine-infographic.png",
-    "related_items": [
-      "BD-INV-003"
-    ],
-    "rtl_status": null,
-    "subpages": {
-      "detailed": "/investigations/the-impunity-machine/detailed/",
-      "methodology": "/investigations/the-impunity-machine/methodology/",
-      "tracker": "/investigations/the-impunity-machine/tracker/"
     },
-    "evidence_refs": [
-      {
-        "path": "/data/cases.json",
-        "title": "Case records",
-        "status": "available",
-        "note": "Powers the detailed report and tracker."
-      },
-      {
-        "path": "/data/leads.json",
-        "title": "Lead records",
-        "status": "available",
-        "note": "Powers the detailed report."
-      },
-      {
-        "path": "/data/monthly.json",
-        "title": "Monthly series",
-        "status": "available",
-        "note": "Powers the detailed report."
-      },
-      {
-        "path": "/data/BD-INV-002_Master_Evidence_File.xlsx",
-        "title": "Master evidence file (9 sheets, incl. source registry)",
-        "status": "private-held",
-        "note": "Held in the bureau archive; publication pending editorial decision."
-      }
-    ],
-    "source_profile": {
-      "manifest_count": 91,
-      "note": "The archived source registry (BD-INV-002 master evidence file) contains 65 entries (54 CONFIRMED, 11 PROBABLE). The 91 figure is under owner review (decision D-9).",
-      "registry": {
-        "total": 65,
-        "confirmed": 54,
-        "probable": 11
-      }
-    }
+    "headline_source_note": "Eid 2026 figures as reported by Road Safety Foundation and Bangladesh Jatri Kalyan Samity; the underlying reports are not yet archived in the bureau's evidence repository."
   },
   {
     "id": "BD-INV-003",
@@ -139,8 +66,8 @@
     "slug": "the-lead-belt",
     "url": "/investigations/the-lead-belt/",
     "page_kind": "standalone",
-    "date_published": "2025-01-01",
-    "date_revised": null,
+    "date_published": "2026-05-25",
+    "date_revised": "2026-09-03",
     "status": "published",
     "investigation_type": "Tier 2 - Visual Spatial Investigation",
     "topic_tags": [
@@ -158,7 +85,7 @@
     ],
     "source_count": 7,
     "methodology_link": "/investigations/the-lead-belt/methodology/",
-    "has_correction": false,
+    "has_correction": true,
     "correction_notes": [],
     "og_image_path": "/assets/img/lead-belt-infographic.png",
     "related_items": [
@@ -190,13 +117,93 @@
       {
         "path": "/data/osm_schools.geojson",
         "title": "OSM schools snapshot (9,846 nodes)",
-        "status": "private-held",
-        "note": "Archived in the bureau's OS repository; publication pending editorial decision."
+        "status": "available",
+        "note": "Archived OpenStreetMap schools snapshot (9,846 nodes) with ODbL attribution; powers the report's replication command."
       }
     ],
     "source_profile": {
       "manifest_count": 7,
       "note": "The footer lists 7 named sources; the bureau's internal evidence inventory catalogs 14 source entities."
+    }
+  },
+  {
+    "id": "BD-INV-002",
+    "title": "The Impunity Machine",
+    "dek": "A visual data investigation into Bangladesh's rape justice crisis and the institutional machinery that turns reported violence into near-zero punishment.",
+    "slug": "the-impunity-machine",
+    "url": "/investigations/the-impunity-machine/",
+    "page_kind": "standalone",
+    "date_published": "2026-03-01",
+    "date_revised": "2026-09-03",
+    "status": "published",
+    "investigation_type": "Tier 1 - Visual Data Investigation",
+    "topic_tags": [
+      "rape justice",
+      "gender-based violence",
+      "institutional accountability",
+      "criminal justice",
+      "Bangladesh"
+    ],
+    "summary": "A forensic visual investigation tracing Bangladesh's rape justice crisis across reporting attrition, conviction rates, court backlog, forensic capacity, and legal data voids.",
+    "key_findings": [
+      "Only 310 convictions were recorded from 66,711 women who came through One-Stop Crisis Centres over 23 years, a 0.46% conviction rate.",
+      "Bangladesh pairs maximum legal severity with near-zero certainty of punishment: death penalty expansion did not solve reporting attrition, backlog, evidence loss, or witness risk.",
+      "Critical justice infrastructure remains thin: 14 OCCs, two national DNA machines, major unprocessed sample backlogs, and no complete national registry for key rape-case outcomes."
+    ],
+    "source_count": 65,
+    "methodology_link": "/investigations/the-impunity-machine/methodology/",
+    "has_correction": true,
+    "correction_notes": [],
+    "og_image_path": "/assets/img/impunity-machine-infographic.png",
+    "related_items": [
+      "BD-INV-003"
+    ],
+    "rtl_status": null,
+    "subpages": {
+      "detailed": "/investigations/the-impunity-machine/detailed/",
+      "methodology": "/investigations/the-impunity-machine/methodology/",
+      "tracker": "/investigations/the-impunity-machine/tracker/"
+    },
+    "evidence_refs": [
+      {
+        "path": "/data/BD-INV-002_Master_Evidence_File_digest.json",
+        "title": "Master evidence file — public digest (source registry + aggregates, no case records)",
+        "status": "available",
+        "note": "Provenance-preserving digest of the master evidence workbook: the full 65-entry source registry with tiers, plus aggregate-statistics summary. Case-level records withheld pending source-protection review."
+      },
+      {
+        "path": "/data/cases.json",
+        "title": "Case records",
+        "status": "available",
+        "note": "Powers the detailed report and tracker."
+      },
+      {
+        "path": "/data/leads.json",
+        "title": "Lead records",
+        "status": "available",
+        "note": "Powers the detailed report."
+      },
+      {
+        "path": "/data/monthly.json",
+        "title": "Monthly series",
+        "status": "available",
+        "note": "Powers the detailed report."
+      },
+      {
+        "path": "/data/BD-INV-002_Master_Evidence_File.xlsx",
+        "title": "Master evidence file (9 sheets, incl. source registry)",
+        "status": "private-held",
+        "note": "The full master evidence file is held in the bureau archive (case-level records; publication pending source-protection review). A provenance-preserving digest (source registry + aggregate summary) is publicly available at /data/BD-INV-002_Master_Evidence_File_digest.json."
+      }
+    ],
+    "source_profile": {
+      "manifest_count": 65,
+      "note": "The archived source registry (BD-INV-002 master evidence file) contains 65 entries (54 CONFIRMED, 11 PROBABLE). The previously published count of 91 overstated the registry by 26 (corrected 2026-09-03; see the corrections log).",
+      "registry": {
+        "total": 65,
+        "confirmed": 54,
+        "probable": 11
+      }
     }
   }
 ]

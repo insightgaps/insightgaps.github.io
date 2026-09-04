@@ -62,7 +62,7 @@
 })();
 </script>
 
-  <style>/* Phase 4 presentation repairs (audit REP-013). Presentation-only; no content altered. Mobile: readability floor for micro inline type; sub-nav wrapping; canvas scaling; table horizontal scroll; scroll containment for animation tracks. Known residual (owner-gated D-9ii): the frozen Impunity Machine report retains 20-40px horizontal overflow at <=414px from inline-styled absolute/flex elements; the full fix requires the report-redesign pass, not CSS overrides. */@media (max-width: 768px){ body * { font-size: max(11px, 0.6875em) !important; } .sub-nav__inner, .sub-nav__scenes, .sub-nav__actions { max-width: 100% !important; flex-wrap: wrap !important; overflow-x: auto !important; } canvas { max-width: 100% !important; height: auto !important; } [class*='track'] { max-width: 100vw !important; overflow: hidden !important; } table { display: block !important; overflow-x: auto !important; max-width: 100% !important; } .counter-right, .cr-item, .tier { max-width: 100% !important; overflow-wrap: anywhere !important; }}</style>
+  <style>/* Phase 4/6 presentation repairs (audit REP-013 + §15). Presentation-only; no content altered. Mobile: readability floor for micro inline type; sub-nav wrapping; canvas scaling; table horizontal scroll; scroll containment for animation tracks; and clamping of inline-styled fixed-width/grid-min elements (e.g. minmax(280px,...) grids, 280px panels inside narrower containers) that caused the <=414px horizontal overflow. Chart geometry is untouched: clamps only allow shrink-to-fit, never growth. */@media (max-width: 768px){ body * { font-size: max(11px, 0.6875em) !important; } .sub-nav__inner, .sub-nav__scenes, .sub-nav__actions { max-width: 100% !important; flex-wrap: wrap !important; overflow-x: auto !important; } canvas { max-width: 100% !important; height: auto !important; } [class*='track'] { max-width: 100vw !important; overflow: hidden !important; } table { display: block !important; overflow-x: auto !important; max-width: 100% !important; } .counter-right, .cr-item, .tier { max-width: 100% !important; min-width: 0 !important; overflow-wrap: anywhere !important; } .surge-grid { grid-template-columns: 1fr !important; } main div, main span, main ul, main li { max-width: 100% !important; box-sizing: border-box !important; } #sources-list, .src-item, .sb, .surl, .sid { max-width: 100% !important; overflow-wrap: anywhere !important; word-break: break-word !important; min-width: 0 !important; } [style*='width:280px'], [style*='width: 280px'] { width: 100% !important; max-width: 100% !important; } [style*='minmax(280px'] { grid-template-columns: minmax(0, 1fr) !important; }}</style>
 </head>
 <body>
 
@@ -326,7 +326,7 @@
 
   <div style="border-top:1px solid rgba(0,0,0,.1);padding-top:1.5rem;margin-top:3rem;font-family:'JetBrains Mono',monospace;font-size:.58rem;color:rgba(100,95,120,.8);line-height:2">
     BD-INV-002 · The Impunity Machine · Methodology v2.1 · March 2026 · Insight Gaps<br>
-    91 named sources · All claims evidence-tiered · CC BY-NC 4.0<br>
+    65 named sources · All claims evidence-tiered · CC BY-NC 4.0<br>
     Corrections and challenges: <a href="mailto:insightgaps@gmail.com" style="color:var(--red,#C41E3A)">insightgaps@gmail.com</a>
   </div>
 

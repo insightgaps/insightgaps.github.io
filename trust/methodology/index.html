@@ -39,6 +39,9 @@
 </head>
 <body>
 
+  <!-- Skip link: must be the first focusable element -->
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
   <!-- AI DISCLOSURE BAR -->
   <div class="ai-disclosure-bar" role="note" aria-label="AI use disclosure">
     <div class="ai-disclosure-bar__inner">
@@ -50,8 +53,6 @@
   </div>
 
   <!-- GLOBAL HEADER -->
-  <a href="#main-content" class="skip-link">Skip to content</a>
-
   <header class="site-header" role="banner">
     <div class="site-header__inner">
 
@@ -126,15 +127,20 @@
         Verification standards are not universal. Different investigation types
         carry different evidentiary obligations. Every investigation is assigned
         one of three tiers before reporting begins, and that tier governs what is
-        required before publication.
+        required before publication. The tier names below are the bureau's
+        operative taxonomy — the same labels used on each investigation's
+        manifest and report pages (<em>Visual Data</em>, <em>Visual Spatial</em>,
+        <em>Source-Driven</em>; some works also carry a subtype such as
+        <em>Spatial Overlay</em>, which follows the tier-2 obligations).
       </p>
 
       <div class="tier-block">
         <span class="tier-block__label">Tier 1</span>
-        <p class="tier-block__name">Document-Heavy Investigation</p>
+        <p class="tier-block__name">Visual Data Investigation</p>
         <p style="font-size: var(--type-body-sm); color: var(--color-text-secondary); margin-bottom: var(--space-3);">
-          Applies to: regulatory failures, environmental records, public health data,
-          institutional accountability.
+          Applies to: document-heavy and visual data investigations — regulatory
+          failures, environmental records, public health data, institutional
+          accountability, and large-scale visual data analysis.
         </p>
         <ul>
           <li>The central claim requires a traceable primary document.</li>
@@ -146,9 +152,11 @@
 
       <div class="tier-block">
         <span class="tier-block__label">Tier 2</span>
-        <p class="tier-block__name">Data-Driven Investigation</p>
+        <p class="tier-block__name">Visual Spatial Investigation</p>
         <p style="font-size: var(--type-body-sm); color: var(--color-text-secondary); margin-bottom: var(--space-3);">
-          Applies to: quantitative analysis, pattern detection, comparative datasets.
+          Applies to: visual spatial and data-driven investigations — quantitative
+          analysis, spatial mapping, pattern detection, comparative datasets,
+          and reproducible spatial overlays.
         </p>
         <ul>
           <li>Analysis must be reproducible from raw data using documented scripts.</li>
