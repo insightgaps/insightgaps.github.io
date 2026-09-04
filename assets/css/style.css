@@ -61,7 +61,7 @@
   /* Text */
   --color-text-primary:   #1A1917;  /* all primary body text */
   --color-text-secondary: #5C5954;  /* secondary labels, captions, metadata */
-  --color-text-muted:     #9C9891;  /* timestamps, placeholder text */
+  --color-text-muted:     #6E6A63;  /* timestamps, placeholder text (darkened 2026-09-04: 2.64 -> 4.94:1 contrast) */
   --color-text-inverse:   #F9F8F6;  /* text on dark backgrounds */
 
 
@@ -71,8 +71,8 @@
      Investigations: prominent use.
      Analysis: links and CTAs only.
      ---------------------------------------------------------- */
-  --color-accent:         #C17D11;  /* primary amber — links, active states, highlights */
-  --color-accent-hover:   #A06A0E;  /* hover state */
+  --color-accent:         #9A620C;  /* primary amber — links, active states, highlights (darkened 2026-09-04: 3.11 -> 4.67:1 contrast) */
+  --color-accent-hover:   #8F5B0A;  /* hover state (darkened 2026-09-04: 4.23 -> 5.26:1 contrast) */
   --color-accent-subtle:  #FDF3E3;  /* light amber backgrounds — callout blocks */
   --color-accent-border:  #E8C07A;  /* amber borders for callout blocks */
   --color-accent-dark:    #7A4F0A;  /* dark amber — for text on amber backgrounds */
