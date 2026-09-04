@@ -137,6 +137,10 @@ def check_links(files, rep: Report) -> None:
             if href in ALLOWED_MISSING:
                 rep.warn(f"{rel}: owner-held evidence file not in repo: {href}")
                 continue
+            if rel == "/evidence/index.html":
+                # Evidence-page /data/ links are governed by the dedicated
+                # evidence-check (dead ones there are errors, not warnings).
+                continue
             if href.endswith((".xlsx", ".csv")) and not resolve_route(files, href):
                 rep.warn(f"{rel}: dataset download missing: {href}")
                 continue
@@ -262,6 +266,30 @@ REPORT_ROUTES = {
 VALID_EVIDENCE_STATUSES = {"available", "private-held", "not-in-repository"}
 
 
+def check_evidence_page(files, rep: Report) -> None:
+    # Evidence-page /data/ download links: dead ones are ERRORs unless they
+    # carry an honest status label (owner-held / not-in-repository).
+    ev = files.get("/evidence/index.html")
+    if not ev:
+        return
+    text = ev.read_text(encoding="utf-8", errors="replace")
+    for m in re.finditer(r'href="(/data/[^"]+)"', text):
+        href = m.group(1)
+        if resolve_route(files, href):
+            continue
+        block_start = max(0, m.start() - 400)
+        block_end = min(len(text), m.end() + 400)
+        block = text[block_start:block_end]
+        has_status = ("data-file__status-badge" in block or "HELD BY BUREAU" in block
+                      or "NOT IN REPOSITORY" in block)
+        if href in ALLOWED_MISSING:
+            if not has_status:
+                rep.warn(f"evidence page: owner-held file without a status label: {href}")
+            continue
+        if has_status:
+            continue  # honestly labeled unavailable
+        rep.error(f"evidence page: dead download link without status disclosure: {href}")
+
 def check_report_integrity(files, rep: Report) -> None:
     # Skip report-integrity checks on sites that contain no investigations
     # (fixture trees); they only apply to the real site.
@@ -317,15 +345,6 @@ def check_report_integrity(files, rep: Report) -> None:
             if missing:
                 rep.error(f"{route}: claim badges without ledger entries: {sorted(missing)}")
 
-    # 4. Evidence page: every referenced /data/ download link must either
-    #    resolve or carry a status badge nearby (known-missing set drives warnings)
-    ev = files.get("/evidence/index.html")
-    if ev:
-        text = ev.read_text(encoding="utf-8", errors="replace")
-        for m in re.finditer(r'href="(/data/[^"]+)"', text):
-            href = m.group(1)
-            if not resolve_route(files, href) and href not in ALLOWED_MISSING:
-                rep.error(f"evidence page: dead download link without status disclosure: {href}")
 
     # 5. Manifest <-> corrections alignment: a work with has_correction=true
     #    must have at least one corrections-log entry referencing it; and every
@@ -396,6 +415,7 @@ def run(public: Path) -> Report:
     check_corrections(rep)
     check_leaks(files, rep)
     check_data(files, rep)
+    check_evidence_page(files, rep)
     check_report_integrity(files, rep)
     return rep
 

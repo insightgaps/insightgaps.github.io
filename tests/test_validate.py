@@ -13,6 +13,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 import validate  # noqa: E402
+ROOT = validate.ROOT
 
 PAGE = """<!DOCTYPE html>
 <html><head><title>T</title>
@@ -25,8 +26,8 @@ PAGE = """<!DOCTYPE html>
 
 def make_site(tmp: Path, page_html: str, route: str = "/") -> Path:
     public = tmp / "public"
-    (public / "assets").mkdir(parents=True)
-    (public / "data").mkdir(parents=True)
+    (public / "assets").mkdir(parents=True, exist_ok=True)
+    (public / "data").mkdir(parents=True, exist_ok=True)
     (public / "sitemap.xml").write_text(
         '<?xml version="1.0"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
         f'<url><loc>https://www.insightgaps.com{route}</loc></url></urlset>', encoding="utf-8")
@@ -94,6 +95,40 @@ def main() -> None:
         PAGE.format(route="/secret/", body=""), encoding="utf-8")
     expect_fail("orphan route (unsitemapped page)",
                 b7, "missing from sitemap: /secret/")
+
+    # §32 Fixture 5: unpublished investigation appearing in sitemap
+    b5 = make_site(tmp / "b5", good)
+    sm = b5 / "sitemap.xml"
+    sm.write_text(sm.read_text(encoding="utf-8").replace("</urlset>",
+        '<url><loc>https://www.insightgaps.com/investigations/ghost/</loc></url></urlset>'), encoding="utf-8")
+    expect_fail("unpublished investigation in sitemap", b5, "route in sitemap but absent from output")
+
+    # §32 Fixture 6: available evidence pointing at a 404 (evidence page dead link, no status badge)
+    b6 = make_site(tmp / "b6", good)
+    (b6 / "data" / "investigations.json").write_text("[]", encoding="utf-8")
+    evdir = b6 / "evidence"
+    evdir.mkdir(parents=True, exist_ok=True)
+    (evdir / "index.html").write_text(
+        PAGE.format(route="/evidence/", body='<a href="/data/ghost.xlsx">ghost</a>'),
+        encoding="utf-8")
+    sm = b6 / "sitemap.xml"
+    sm.write_text(sm.read_text(encoding="utf-8").replace("</urlset>",
+        '<url><loc>https://www.insightgaps.com/evidence/</loc></urlset>'), encoding="utf-8")
+    expect_fail("available evidence 404", b6, "dead download link without status disclosure")
+
+    # §32 Fixture 7: duplicate correction IDs
+    log = ROOT / "corrections.log.jsonl"
+    orig = log.read_text(encoding="utf-8")
+    try:
+        dup_line = json.dumps({"id": "C-001", "date": "2026-09-04", "work": "/", "summary": "dup", "amended": "dup"})
+        log.write_text(orig + dup_line + "\n", encoding="utf-8")
+        rep_dup = validate.run(b6)
+        dup_failed = not rep_dup.ok or any("out of order" in e or "bad id" in e for e in rep_dup.errors)
+        print(("ok  duplicate correction ID rejected" if dup_failed else "FAIL(test) duplicate correction ID accepted"))
+        if not dup_failed:
+            sys.exit(1)
+    finally:
+        log.write_text(orig, encoding="utf-8")
 
     shutil.rmtree(tmp, ignore_errors=True)
     print("all validator fixture tests passed")
