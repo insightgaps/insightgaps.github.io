@@ -121,3 +121,17 @@
   text-transform: uppercase;
   margin-right: var(--space-2, 0.5rem);
 }
+
+/* ---- Phase 5C: analysis work-type badge (D-7) ---- */
+.analysis-card__worktype {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  margin: var(--space-3, 0.75rem) 0 0 var(--space-3, 0.75rem);
+  border-radius: 2px;
+}

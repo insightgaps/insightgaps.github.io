@@ -5,7 +5,7 @@
       "domain_title": "Property Preservation",
       "domain_slug": "property-preservation",
       "og_image_path": "/assets/img/property-preservation.png",
-      "description": "Forensic financial and operational analysis for property preservation businesses in the United States. Covers cash flow risk, vendor performance, compliance exposure, and portfolio health. Designed for operators, investors, and portfolio reviewers who need data-backed insight, not summaries.",
+      "description": "An analytical tool from the bureau's operational analysis program: forensic financial and operational analysis for property preservation businesses in the United States. Covers cash flow risk, vendor performance, compliance exposure, and portfolio health. Built on the bureau's 480-record EPCS work order dataset (November 2025 - June 2026). Designed for operators, investors, and portfolio reviewers who need data-backed insight, not summaries.",
       "audience": "Business operators, investors, portfolio reviewers",
       "report_count": 4,
       "last_updated": "2025-01-01",
@@ -21,7 +21,7 @@
             "Receivable concentration creates a single-client liquidity risk.",
             "Collections have collapsed while contractor payments remain active."
           ],
-          "methodology_note": "Analysis is based on 268 work order records spanning May to December 2025, using operator-provided accounting ledgers and client validation portal logs.",
+          "methodology_note": "Analysis is based on a 480-record work order dataset covering November 2025 - June 2026. Records were compiled into the bureau's EPCS working dataset for analysis; figures reflect that dataset as generated on 2026-06-07.",
           "dataset_reference": "Operator accounting ledgers and validation portal logs",
           "confidence_level": "High",
           "contact_cta": true
@@ -63,7 +63,7 @@
           "title": "Interactive Workbook & Dashboard",
           "tag": "Analytical Tool",
           "date": "2025-01-01",
-          "executive_summary": "Interactive Looker Studio dashboard and Google Sheets workbook built directly on 268 forensic work order records to automate tracking of margin erosion, aging receivables, and contractor efficiency.",
+          "executive_summary": "Interactive Looker Studio dashboard and Google Sheets workbook built directly on the bureau's 480-record EPCS work order dataset to automate tracking of margin erosion, aging receivables, and contractor efficiency.",
           "key_findings": [
             "Integrates live data pipelines to visual dashboards.",
             "Allows filtering by client, region (ZIP), contractor, and service lines.",
@@ -74,7 +74,8 @@
           "confidence_level": "High",
           "contact_cta": true
         }
-      ]
+      ],
+      "work_type": "ANALYTICAL TOOL"
     }
   ]
 }

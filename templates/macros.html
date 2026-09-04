@@ -96,6 +96,7 @@
 
 {% macro analysis_card(domain) -%}
 <article class="analysis-card" data-type="analysis" data-status="published">
+  {% if domain.work_type %}<span class="analysis-card__worktype">{{ domain.work_type }}</span>{% endif %}
   {% if domain.og_image_path %}<div class="analysis-card__image-wrap"><img class="analysis-card__image" src="{{ domain.og_image_path }}" alt="{{ domain.domain_title }}"></div>{% endif %}
   <div class="analysis-card__content">
     <h3 class="analysis-card__title">{{ domain.domain_title }}</h3>
