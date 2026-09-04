@@ -31,7 +31,6 @@ ALLOWED_MISSING = {
     "/data/BD-INV-003_LeadBelt_MasterDataset_v5.csv",
     "/data/BD-INV-003_LeadBelt_MasterDataset_v5.xlsx",
     "/data/PP-ANA-001_PropertyPreservation_MasterDataset.xlsx",
-    "/data/osm_schools.geojson",
 }
 
 LEAK_PATTERNS = [

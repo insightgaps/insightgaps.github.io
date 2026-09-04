@@ -30,7 +30,6 @@ KNOWN_MISSING_DOWNLOADS = {
     "/data/BD-INV-003_LeadBelt_MasterDataset_v5.csv",
     "/data/BD-INV-003_LeadBelt_MasterDataset_v5.xlsx",
     "/data/PP-ANA-001_PropertyPreservation_MasterDataset.xlsx",
-    "/data/osm_schools.geojson",
 }
 
 # Link repair applied to the property-preservation tree at copy time.
@@ -549,7 +548,21 @@ def gen_sitemap_robots(site, investigations, pages_meta) -> None:
     lines.append("</urlset>")
     (PUBLIC / "sitemap.xml").write_text("\n".join(lines) + "\n", encoding="utf-8")
     (PUBLIC / "robots.txt").write_text(
-        "User-agent: *\nAllow: /\n\n"
+        "# Insight Gaps Bureau crawler policy\n"
+        "# Bureau policy: our reporting is licensed CC BY 4.0 for human reuse;\n"
+        "# machine-training use is not granted by default and is reserved via\n"
+        "# robots content-signals (see /trust/ai-use/).\n\n"
+        "User-agent: *\n"
+        "Content-Signal: search=yes,ai-train=no,use=reference\n"
+        "Allow: /\n\n"
+        "# Machine-training crawlers - reserved by bureau policy\n"
+        "User-agent: GPTBot\nDisallow: /\n\n"
+        "User-agent: ClaudeBot\nDisallow: /\n\n"
+        "User-agent: CCBot\nDisallow: /\n\n"
+        "User-agent: Bytespider\nDisallow: /\n\n"
+        "User-agent: Google-Extended\nDisallow: /\n\n"
+        "User-agent: Amazonbot\nDisallow: /\n\n"
+        "User-agent: Applebot-Extended\nDisallow: /\n\n"
         f"Sitemap: {base}/sitemap.xml\n", encoding="utf-8")
 
 
