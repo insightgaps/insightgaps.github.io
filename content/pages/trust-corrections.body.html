@@ -1,5 +1,30 @@
-<!-- Template block removed 2026-09-03: the corrections table is live; append new rows in corrections.log.jsonl (the build renders them). -->
+<!-- Corrections rows are generated from corrections.log.jsonl at build time. -->
 
+    <!-- Page header -->
+    <div class="trust-page__header">
+      <div class="trust-page__header-inner">
+        <h1 class="trust-page__title">Corrections Log</h1>
+        <p class="trust-page__intro">
+          A permanent public record of every factual correction issued by
+          Insight Gaps Bureau. Entries are never deleted — only appended.
+          Speed of correction is a credibility signal, not a liability.
+        </p>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <article class="trust-page__body">
+
+      <p>
+        When the bureau identifies a factual error in published work, the
+        correction is made promptly, noted on the affected investigation, and
+        appended to this log with a timestamp. Rows in this log are permanent —
+        nothing is removed, suppressed, or rewritten after the fact. The
+        investigation's status is updated to corrected on the same day the
+        correction is published.
+      </p>
+
+      <!-- Rendered table replaces this block when the log is non-empty -->
       <div class="corrections-empty" role="status" aria-label="Corrections status">
         <span class="corrections-empty__label">No corrections issued</span>
         <p class="corrections-empty__text">
@@ -7,23 +32,6 @@
           corrections table when the first correction is published.
         </p>
       </div>
-
-      <!--
-      <div class="corrections-table-wrap">
-        <table class="corrections-table" aria-label="Corrections log">
-          <thead>
-            <tr>
-              <th scope="col">Date</th>
-              <th scope="col">Investigation</th>
-              <th scope="col">Error Identified</th>
-              <th scope="col">Correction Executed</th>
-            </tr>
-          </thead>
-          <tbody>
-
-            <!-- Corrections rows are generated from corrections.log.jsonl at build time. -->
-      </div>
-      -->
 
       <p>
         Corrections to the bureau's methodology or AI use policy are recorded on
@@ -38,7 +46,7 @@
     <!-- Last updated -->
     <footer class="trust-page__updated" aria-label="Page metadata">
       <p class="trust-page__updated-text">
-        Last updated: <time datetime="2025-01-01">January 2025</time>
+        Last updated: <time datetime="2026-09-03">September 2026</time>
         &mdash; This page is updated the same day any correction is published.
       </p>
     </footer>
