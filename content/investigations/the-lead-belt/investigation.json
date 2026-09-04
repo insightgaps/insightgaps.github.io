@@ -5,8 +5,8 @@
   "slug": "the-lead-belt",
   "url": "/investigations/the-lead-belt/",
   "page_kind": "standalone",
-  "date_published": "2025-01-01",
-  "date_revised": null,
+  "date_published": "2026-05-25",
+  "date_revised": "2026-09-03",
   "status": "published",
   "investigation_type": "Tier 2 - Visual Spatial Investigation",
   "topic_tags": [
@@ -24,7 +24,7 @@
   ],
   "source_count": 7,
   "methodology_link": "/investigations/the-lead-belt/methodology/",
-  "has_correction": false,
+  "has_correction": true,
   "correction_notes": [],
   "og_image_path": "/assets/img/lead-belt-infographic.png",
   "related_items": [
