@@ -7,6 +7,7 @@ Insight Gaps is governed by the following documents located in `docs/governance/
 
 Read them in this order before making any changes:
 
+- `docs/publication/PRODUCTION_DEPLOYMENT_LOCK.md`
 - `docs/governance/03-content-architecture.md`
 - `docs/governance/04-content-schema.md`
 - `docs/governance/04a-design-tokens.md`
@@ -31,6 +32,7 @@ Read them in this order before making any changes:
 
 ### Prohibited Actions (What Agents MAY NOT Do):
 - Change repository/content architecture without explicit human owner approval.
+- Change the locked production hosting, DNS, redirect, GitHub Pages, Worker-domain, or deployment configuration described in `docs/publication/PRODUCTION_DEPLOYMENT_LOCK.md` without explicit human owner approval.
 - Change schemas without explicit human owner approval.
 - Change design tokens without explicit human owner approval.
 - Delete existing investigations.
