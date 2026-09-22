@@ -8,3 +8,9 @@ Thumbs.db
 # Python
 __pycache__/
 *.pyc
+
+# Local secrets / logs - never commit (Cloudflare OAuth URLs, wrangler logs)
+auth_url*.txt
+wl*.log
+.assetsignore
+.nojekyll.local
