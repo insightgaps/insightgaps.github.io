@@ -3,43 +3,35 @@
 
 {% block content %}
 
-    <!-- SCROLLY HERO (offline prototype): pinned figure, one claim per step -->
+    <!-- HERO: mandate + featured investigation (pre-rendered at build) -->
     <div class="scrolly-progress" aria-hidden="true"></div>
-    <section class="scrolly" data-scrolly aria-label="Bureau introduction">
-      <div class="scrolly__figure" aria-hidden="false">
-        <div class="scrolly__figure-state scrolly__figure-state--active">
+    <section class="home__hero" data-reveal aria-label="Bureau introduction">
+      <div class="home__hero-inner">
+
+        <div class="home__hero-content">
+
           <h1 class="home__mandate">
             Independent forensic data journalism from Dhaka.
           </h1>
-        </div>
-        <div class="scrolly__figure-state">
-          {% if featured.og_image_path %}
-          <div class="home__hero-image">
-            <img src="{{ featured.og_image_path }}" alt="Visual summary of {{ featured.title }}">
-          </div>
-          {% endif %}
-        </div>
-        <div class="scrolly__figure-state">
-          <div class="home__featured-meta">{{ status_badge(featured.status) }}
-            <time class="home__featured-date" datetime="{{ featured.date_published }}">{{ fmt_date(featured.date_published) }}</time></div>
-          <h2 class="home__featured-title">{{ featured.title }}</h2>
-          <a class="home__featured-link" href="{{ featured.url }}">Read investigation &rarr;</a>
-        </div>
-      </div>
 
-      <div class="scrolly__steps">
-        <div class="scrolly__step">
-          <span class="scrolly__step-kicker">Who we are</span>
-          <p class="home__featured-dek">Independent forensic data journalism from Dhaka, Bangladesh. Investigations into contamination, institutional failure, and accountability gaps.</p>
+          <span class="home__featured-pre">Latest investigation</span>
+
+          <div id="featured-investigation">
+            <div class="home__featured-meta">{{ status_badge(featured.status) }}
+              <time class="home__featured-date" datetime="{{ featured.date_published }}">{{ fmt_date(featured.date_published) }}</time></div>
+            <h2 class="home__featured-title">{{ featured.title }}</h2>
+            <p class="home__featured-dek">{{ featured.dek or featured.summary }}</p>
+            <a class="home__featured-link" href="{{ featured.url }}">Read investigation &rarr;</a>
+          </div>
+
         </div>
-        <div class="scrolly__step">
-          <span class="scrolly__step-kicker">Latest investigation</span>
-          <p class="home__featured-dek">{{ featured.dek or featured.summary }}</p>
+
+        {% if featured.og_image_path %}
+        <div class="home__hero-image">
+          <img src="{{ featured.og_image_path }}" alt="Visual summary of {{ featured.title }}" loading="eager" fetchpriority="high">
         </div>
-        <div class="scrolly__step">
-          <span class="scrolly__step-kicker">The evidence</span>
-          <p class="home__featured-dek">Every number traces to a named source. Scroll for the bureau in numbers.</p>
-        </div>
+        {% endif %}
+
       </div>
     </section>
 
@@ -141,5 +133,5 @@
 {% endblock %}
 
 {% block body_extra %}
-<script src="/assets/js/scrolly.js" defer></script>
+<script src="{{ asset('/assets/js/scrolly.js') }}" defer></script>
 {% endblock %}

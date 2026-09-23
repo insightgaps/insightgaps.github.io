@@ -41,14 +41,14 @@
 <article class="index-work" id="work-{{ inv.slug }}">
   <h2 class="index-work__title"><a href="{{ inv.url }}">{{ inv.title }}</a></h2>
   <p class="index-work__dek">{{ inv.dek or inv.summary }}</p>
-  {% if inv.subpages %}
+  {% if inv.subpages|default({}) %}
   <nav class="index-work__subpages" aria-label="Subpages">
-    {% for name, url in inv.subpages.items() %}
+    {% for name, url in (inv.subpages|default({})).items() %}
     <a href="{{ url }}">{{ name }}</a>
     {% endfor %}
   </nav>
   {% endif %}
-  {% if inv.methodology_link and inv.methodology_link not in (inv.subpages or {}).values() %}
+  {% if inv.methodology_link and inv.methodology_link not in (inv.subpages|default({})).values() %}
   <nav class="index-work__subpages" aria-label="Methodology">
     <a href="{{ inv.methodology_link }}">methodology</a>
   </nav>

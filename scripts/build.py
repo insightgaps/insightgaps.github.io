@@ -16,7 +16,7 @@ import sys
 import tomllib
 from pathlib import Path
 
-from jinja2 import Environment, FileSystemLoader, select_autoescape
+from jinja2 import Environment, FileSystemLoader, StrictUndefined, select_autoescape
 from markupsafe import Markup
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -78,6 +78,14 @@ def load_manifests() -> tuple[list[dict], list[dict]]:
     for path in sorted((ROOT / "content" / "investigations").glob("*/investigation.json")):
         inv = load_json(path)
         inv["_dir"] = path.parent
+        # Normalize optional manifest keys so StrictUndefined templates never
+        # crash on investigations that omit them (fail-closed, explicit defaults).
+        inv.setdefault("subpages", {})
+        inv.setdefault("methodology_link", "")
+        inv.setdefault("evidence_refs", [])
+        inv.setdefault("headline_source_note", "")
+        profile = inv.setdefault("source_profile", {})
+        profile.setdefault("registry", {})
         investigations.append(inv)
     analyses = []
     for path in sorted((ROOT / "content" / "analysis").glob("*/analysis.json")):
@@ -175,10 +183,12 @@ def make_env() -> Environment:
     env = Environment(
         loader=FileSystemLoader(str(TEMPLATES)),
         autoescape=select_autoescape(("html", "xml")),
+        undefined=StrictUndefined,
         trim_blocks=False,
         lstrip_blocks=False,
     )
     env.filters["date_format"] = fmt_date
+    env.globals["asset"] = asset_version
     return env
 
 
@@ -186,6 +196,23 @@ def absolute(base: str, path: str) -> str:
     if path.startswith("http"):
         return path
     return base + path
+
+
+def asset_version(path: str) -> str:
+    """No-bundler cache busting: append ?v=<short sha1> of the repo file.
+
+    Validator-safe: validate.py strips query strings before existence checks.
+    Unknown paths pass through unchanged (never fail the build here).
+    """
+    import hashlib
+
+    if not path.startswith("/"):
+        return path
+    target = ROOT / path.lstrip("/")
+    if not target.is_file():
+        return path
+    digest = hashlib.sha1(target.read_bytes()).hexdigest()[:8]
+    return f"{path}?v={digest}"
 
 
 def render_template_pages(env, site, pages_meta, investigations, domains, corrections, warnings):

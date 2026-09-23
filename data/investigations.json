@@ -55,9 +55,11 @@
     ],
     "source_profile": {
       "manifest_count": 22,
-      "note": "The manifest count is self-attested; the report names ~20+ external sources without publishing the list."
+      "note": "The manifest count is self-attested; the report names ~20+ external sources without publishing the list.",
+      "registry": {}
     },
-    "headline_source_note": "Eid 2026 figures as reported by Road Safety Foundation and Bangladesh Jatri Kalyan Samity; the underlying reports are not yet archived in the bureau's evidence repository."
+    "headline_source_note": "Eid 2026 figures as reported by Road Safety Foundation and Bangladesh Jatri Kalyan Samity; the underlying reports are not yet archived in the bureau's evidence repository.",
+    "subpages": {}
   },
   {
     "id": "BD-INV-003",
@@ -123,8 +125,10 @@
     ],
     "source_profile": {
       "manifest_count": 7,
-      "note": "The footer lists 7 named sources; the bureau's internal evidence inventory catalogs 14 source entities."
-    }
+      "note": "The footer lists 7 named sources; the bureau's internal evidence inventory catalogs 14 source entities.",
+      "registry": {}
+    },
+    "headline_source_note": ""
   },
   {
     "id": "BD-INV-002",
@@ -204,6 +208,7 @@
         "confirmed": 54,
         "probable": 11
       }
-    }
+    },
+    "headline_source_note": ""
   }
 ]

@@ -6,13 +6,19 @@
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Reading progress bar (skip entirely under reduced motion).
+  // Reading progress bar (rAF-throttled, compositor-safe transform only).
   var progress = document.querySelector('.scrolly-progress');
   if (progress && !reduceMotion) {
+    var ticking = false;
     var onScroll = function () {
-      var max = document.documentElement.scrollHeight - window.innerHeight;
-      var ratio = max > 0 ? window.scrollY / max : 0;
-      progress.style.transform = 'scaleX(' + ratio.toFixed(4) + ')';
+      if (ticking) { return; }
+      ticking = true;
+      window.requestAnimationFrame(function () {
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        var ratio = max > 0 ? window.scrollY / max : 0;
+        progress.style.transform = 'scaleX(' + ratio.toFixed(4) + ')';
+        ticking = false;
+      });
     };
     document.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
@@ -32,7 +38,9 @@
         el.classList.toggle('scrolly__step--active', i === index);
       });
       states.forEach(function (el, i) {
-        el.classList.toggle('scrolly__figure-state--active', i === index);
+        var on = i === index;
+        el.classList.toggle('scrolly__figure-state--active', on);
+        el.setAttribute('aria-hidden', String(!on));
       });
     };
     var stepObserver = new IntersectionObserver(function (entries) {
@@ -46,19 +54,21 @@
     setActive(0);
   }
 
-  // Animated counters: parse pre-rendered final value, count up once.
+  // Animated counters: easeOutExpo, locale-formatted, run once.
   var counters = document.querySelectorAll('.metrics-block__number--count');
+  var fmt = new Intl.NumberFormat('en-US');
   var countUp = function (el) {
     var target = parseInt(el.textContent.replace(/[^0-9]/g, ''), 10);
     if (isNaN(target)) { return; }
     var start = null;
-    var duration = 900;
+    var duration = Math.min(1400, Math.max(900, target * 4));
     var frame = function (now) {
       if (!start) { start = now; }
       var p = Math.min((now - start) / duration, 1);
-      el.textContent = String(Math.round(target * (0.2 + 0.8 * p)));
+      var eased = p === 1 ? 1 : 1 - Math.pow(2, -10 * p);
+      el.textContent = fmt.format(Math.round(target * eased));
       if (p < 1) { window.requestAnimationFrame(frame); }
-      else { el.textContent = String(target); }
+      else { el.textContent = fmt.format(target); }
     };
     window.requestAnimationFrame(frame);
   };
