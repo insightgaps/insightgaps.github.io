@@ -74,7 +74,8 @@ and robots all use the www host. If the zone rule is missing, add it before laun
 
 ## What must never enter this repository
 
-Private repositories (`Anik_OS`, `assets`, `insightgaps-os-main`), source-identifying
+Private repositories (the private operator vault, the raw-evidence store, the
+internal OS pipeline), source-identifying
 material, any secret or API key. The validator scans for leak patterns and private
 repo names on every build.
 

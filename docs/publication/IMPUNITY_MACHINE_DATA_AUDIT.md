@@ -6,7 +6,7 @@ This document outlines the data structures, schemas, collection pipelines, and r
 
 ## 1. Master Evidence File Structure
 
-The primary data store is [BD-INV-002_Master_Evidence_File.xlsx](file:///c:/Users/Administrator/Desktop/insightgaps.github.io-main/insightgaps.github.io-main/data/BD-INV-002_Master_Evidence_File.xlsx) (92,924 bytes), which contains the following worksheets:
+The primary data store is [BD-INV-002_Master_Evidence_File.xlsx](data/BD-INV-002_Master_Evidence_File.xlsx) (92,924 bytes), which contains the following worksheets:
 
 1.  **`README`**: Details the license (CC BY-NC 4.0), contact email (`insightgaps@gmail.com`), version history, and sheet description mapping.
 2.  **`AGGREGATE_STATISTICS`**: Annual rape case filings and VAW indicators (2001–2025) compiled from Police Headquarters (PHQ) and Bangladesh Mahila Parishad (BMP).
@@ -24,7 +24,7 @@ The primary data store is [BD-INV-002_Master_Evidence_File.xlsx](file:///c:/User
 ## 2. JSON Schemas & Codebooks
 
 ### A. Case Registry: `cases.json`
-Located at [cases.json](file:///c:/Users/Administrator/Desktop/insightgaps.github.io-main/insightgaps.github.io-main/data/cases.json). This file tracks timelines and status for WCRPA and Section 17 cases.
+Located at [cases.json](data/cases.json). This file tracks timelines and status for WCRPA and Section 17 cases.
 
 ```json
 {
@@ -56,7 +56,7 @@ Located at [cases.json](file:///c:/Users/Administrator/Desktop/insightgaps.githu
 ```
 
 ### B. Monthly Accountability Ledger: `monthly.json`
-Located at [monthly.json](file:///c:/Users/Administrator/Desktop/insightgaps.github.io-main/insightgaps.github.io-main/data/monthly.json). Tracks monthly and annual records of case progression.
+Located at [monthly.json](data/monthly.json). Tracks monthly and annual records of case progression.
 
 ```json
 {
@@ -83,7 +83,7 @@ Located at [monthly.json](file:///c:/Users/Administrator/Desktop/insightgaps.git
 ```
 
 ### C. Press Monitoring Leads: `leads.json`
-Located at [leads.json](file:///c:/Users/Administrator/Desktop/insightgaps.github.io-main/insightgaps.github.io-main/data/leads.json). populates the automated leads feed.
+Located at [leads.json](data/leads.json). populates the automated leads feed.
 
 ```json
 [

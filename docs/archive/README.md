@@ -27,5 +27,5 @@ Root keeps only `AGENTS.md`, `START_HERE.md`, `PRODUCTION_STATE_AUDIT.md` plus l
 - `ANTIGRAVITY.md` — agent notes.
 
 ## Deleted as superseded
-- `scratch/audit_website.py` (removed 2026-09-23): hardcoded stale `Administrator` path,
+- `scratch/audit_website.py` (removed 2026-09-23): hardcoded stale local-machine path,
   superseded by `scripts/validate.py` + `tests/test_validate.py`. No references remain.

@@ -9,12 +9,12 @@ Do **not** provide anything listed under "DO NOT NEED / DO NOT PROVIDE" below.
 
 ## 1. Repositories required
 
-| Repository | Location (current machine) | Why required | Priority |
+| Repository | Location | Why required | Priority |
 |---|---|---|---|
-| **Website repo** (`insightgaps.github.io`) | `C:\Users\User\Desktop\Insightgaps\insightgaps.github.io-main\insightgaps.github.io-main` | Contains the published investigation/report pages (the presentation layer under audit), manifests, corrections log, and the frozen-report source documents | **Required** — already present |
-| **`assets` repo** (raw evidence datasets) | `C:\Users\User\Desktop\Insightgaps\assets` | Contains the raw BD-INV-001/003/007 evidence files (xlsx/pdf) that published report claims reference. The audit must check whether public claims trace to these artifacts | **Required** — already present locally |
-| **OS repo** (`insightgaps-os-main`) | `C:\Users\User\Desktop\Insightgaps\insightgaps-os-main` | The investigation production pipeline (datasets, `scheduled_pipeline.yml`, intelligence/analysis working files). Needed to test claim-vs-pipeline consistency and to locate analysis notebooks/derived data | **Required** — already present locally |
-| `Anik_OS` vault | `C:\Users\User\Desktop\Insightgaps\Anik_OS` | **Only if the owner chooses to include it.** Contains career/personal operations material (01_Investigations, 04_Career, 05_Consulting). Relevant *only* to verifying investigation working files and their provenance; must never be published or quoted publicly. Provide only if the owner consents to its use as private audit context | Optional (owner consent) |
+| **Website repo** (`insightgaps.github.io`) | local checkout, branch `main` | Contains the published investigation/report pages (the presentation layer under audit), manifests, corrections log, and the frozen-report source documents | **Required** — already present |
+| **Raw-evidence store** | private local files (BD-INV-001/003/007) | Contains the raw evidence files (xlsx/pdf) that published report claims reference. The audit must check whether public claims trace to these artifacts | **Required** — already present locally |
+| **OS repo** (internal pipeline) | local checkout, branch `main` | The investigation production pipeline (datasets, `scheduled_pipeline.yml`, intelligence/analysis working files). Needed to test claim-vs-pipeline consistency and to locate analysis notebooks/derived data | **Required** — already present locally |
+| Private operator vault | withheld | **Only if the owner chooses to include it.** Contains career/personal operations material. Relevant *only* to verifying investigation working files and their provenance; must never be published or quoted publicly. Provide only if the owner consents to its use as private audit context | Optional (owner consent) |
 
 ## 2. Why each matters (audit logic)
 

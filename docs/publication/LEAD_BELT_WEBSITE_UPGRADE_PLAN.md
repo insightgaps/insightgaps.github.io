@@ -20,7 +20,7 @@ This plan details the specific engineering and design modifications required to 
 These modifications resolve functional bugs, mobile layout breaks, and raw file rendering issues that block publication quality.
 
 ### 1.1 render Methodology Paper as a Styled HTML Page
-* **File Affected:** `content/investigations/the-lead-belt/lead-belt-method-paper.md` [DELETE] and create [content/investigations/the-lead-belt/methodology/index.html](file:///c:/Users/Administrator/Desktop/insightgaps.github.io-main/insightgaps.github.io-main/content/investigations/the-lead-belt/methodology/index.html) [NEW]
+* **File Affected:** `content/investigations/the-lead-belt/lead-belt-method-paper.md` [DELETE] and create [content/investigations/the-lead-belt/methodology/index.html](content/investigations/the-lead-belt/methodology/index.html) [NEW]
 * **Exact Modification:** Converted the raw markdown text of the methodology paper into a beautifully styled HTML page. Wrap the content with:
   1. Global header (`components/header.html`) and footer (`components/footer.html`) templates.
   2. Typographic layout styling following the design tokens (Lora for body text, Space Grotesk for headings, Space Mono for formulas and tables).
@@ -29,7 +29,7 @@ These modifications resolve functional bugs, mobile layout breaks, and raw file 
 * **Expected Impact:** Guarantees a polished, responsive reading experience that matches academic journal publication quality.
 
 ### 1.2 Mobile Bottom-Drawer Layout for Map Site Details
-* **File Affected:** [content/investigations/the-lead-belt/index.html](file:///c:/Users/Administrator/Desktop/insightgaps.github.io-main/insightgaps.github.io-main/content/investigations/the-lead-belt/index.html)
+* **File Affected:** [content/investigations/the-lead-belt/index.html](content/investigations/the-lead-belt/index.html)
 * **Exact Modification:** Under mobile media queries (`@media (max-width: 768px)`), modify `#mpl` (the site detail panel) from a floating card covering the map to a slide-up bottom drawer. Specifically:
   - Set `#mpl` to `position: absolute; bottom: 0; left: 0; right: 0; width: 100%`.
   - Limit its height to `40vh` with an `overflow-y: auto` scroll area.
@@ -38,7 +38,7 @@ These modifications resolve functional bugs, mobile layout breaks, and raw file 
 * **Expected Impact:** Restores map usability on smartphones, ensuring a seamless user flow.
 
 ### 1.3 Mobile-First Sticky Panel for Scrollytelling
-* **File Affected:** [content/investigations/the-lead-belt/index.html](file:///c:/Users/Administrator/Desktop/insightgaps.github.io-main/insightgaps.github.io-main/content/investigations/the-lead-belt/index.html)
+* **File Affected:** [content/investigations/the-lead-belt/index.html](content/investigations/the-lead-belt/index.html)
 * **Exact Modification:** Modify the responsive styling for `.vsticky` and `.stcol`. Instead of setting `.vsticky { display: none }` on mobile, change it to:
   - `.vsticky { position: sticky; top: 76px; height: 35vh; width: 100%; z-index: 10; }`
   - `.stcol { position: relative; width: 100%; padding-top: 2vh; }`
@@ -47,7 +47,7 @@ These modifications resolve functional bugs, mobile layout breaks, and raw file 
 * **Expected Impact:** Ensures mobile readers (who represent >50% of traffic) receive the same rich visual storytelling as desktop users.
 
 ### 1.4 Resolve Inconsistent Links on Verdict & Data Hub
-* **Files Affected:** [content/investigations/the-lead-belt/index.html](file:///c:/Users/Administrator/Desktop/insightgaps.github.io-main/insightgaps.github.io-main/content/investigations/the-lead-belt/index.html) and [data/index.html](file:///c:/Users/Administrator/Desktop/insightgaps.github.io-main/insightgaps.github.io-main/data/index.html)
+* **Files Affected:** [content/investigations/the-lead-belt/index.html](content/investigations/the-lead-belt/index.html) and [data/index.html](data/index.html)
 * **Exact Modification:**
   - Update download links in the verdict panel of `index.html` to point to `/data/BD-INV-003_LeadBelt_MasterDataset_v5.xlsx` (Master workbook) and add a secondary link for the raw flat CSV `/data/BD-INV-003_LeadBelt_MasterDataset_v5.csv`.
   - Re-route the methodology badge link from `lead-belt-method-paper.md` to `content/investigations/the-lead-belt/methodology/index.html`.
@@ -61,7 +61,7 @@ These modifications resolve functional bugs, mobile layout breaks, and raw file 
 These upgrades add visual depth, interactive polish, and orbital satellite evidence directly to the reader's screen.
 
 ### 2.1 Interactive Map-Prose Scroll Binding (Map Scrollytelling)
-* **File Affected:** [content/investigations/the-lead-belt/index.html](file:///c:/Users/Administrator/Desktop/insightgaps.github.io-main/insightgaps.github.io-main/content/investigations/the-lead-belt/index.html)
+* **File Affected:** [content/investigations/the-lead-belt/index.html](content/investigations/the-lead-belt/index.html)
 * **Exact Modification:** Write an IntersectionObserver script that triggers Leaflet map panning, zooming, and marker-opening as the reader scrolls past specific narrative steps:
   - **Scene 02 (Kamrangir Char):** Trigger `map.flyTo([23.7227, 90.3698], 15)` to highlight the Rosulpur smelter (BD-4591) and open its school-proximity details.
   - **Scene 03 (Jatrabari):** Trigger `map.flyTo([23.7096, 90.4257], 15)` to focus on the Doyaganj market (BD-4802).
@@ -70,19 +70,19 @@ These upgrades add visual depth, interactive polish, and orbital satellite evide
 * **Expected Impact:** Creates a unified visual narrative that connects spatial data directly to reading progress.
 
 ### 2.2 Integration of Real Satellite Basemap Toggles
-* **File Affected:** [content/investigations/the-lead-belt/index.html](file:///c:/Users/Administrator/Desktop/insightgaps.github.io-main/insightgaps.github.io-main/content/investigations/the-lead-belt/index.html)
+* **File Affected:** [content/investigations/the-lead-belt/index.html](content/investigations/the-lead-belt/index.html)
 * **Exact Modification:** Initialize a second tile layer inside Leaflet pointing to Esri World Imagery (`https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}`). Add a listener to the `Satellite View` layer button that smoothly toggles between the dark vector tiles and the high-resolution satellite imagery tiles.
 * **Reason:** The current "Satellite View" button merely shows coordinate outline rings on a dark blank background, denying the reader actual orbital view context.
 * **Expected Impact:** Provides real geographic visualization of factory rooftops and nearby school structures, enhancing transparency.
 
 ### 2.3 Render Satellite Verification Proof Images in the Detail Panel
-* **File Affected:** [content/investigations/the-lead-belt/index.html](file:///c:/Users/Administrator/Desktop/insightgaps.github.io-main/insightgaps.github.io-main/content/investigations/the-lead-belt/index.html)
+* **File Affected:** [content/investigations/the-lead-belt/index.html](content/investigations/the-lead-belt/index.html)
 * **Exact Modification:** Update the JavaScript click handler for map markers. If a clicked site is active (has `sat: true` in its database object, e.g. BD-4591, BD-4802), render a tabbed media module inside the detail panel `#mpl` that lets readers click between Wide (Zoom-16) and Close-Up (Zoom-18) views of the smelting furnace and slag piles.
 * **Reason:** Although 44 folders of satellite screenshot proof have been archived in the OS repository, they are invisible to the public. Integrating them provides immediate evidence.
 * **Expected Impact:** Provides visual evidence directly in the interface, supporting the "reproducibility" standard.
 
 ### 2.4 Animate Horizontal Soil Bar Charts on Scroll
-* **File Affected:** [content/investigations/the-lead-belt/index.html](file:///c:/Users/Administrator/Desktop/insightgaps.github.io-main/insightgaps.github.io-main/content/investigations/the-lead-belt/index.html)
+* **File Affected:** [content/investigations/the-lead-belt/index.html](content/investigations/the-lead-belt/index.html)
 * **Exact Modification:** Change the inline styles of `.sbi-fill` from absolute widths to transition properties. When the bar chart container enters the viewport, trigger a script that sets the CSS variable widths (e.g. from `0%` to `100%` for BD-4921) over a `1s ease-out` transition.
 * **Reason:** The chart loads in a static state, missing the opportunity for a polished micro-animation that visually emphasizes scale.
 * **Expected Impact:** Boosts reader engagement and highlights the massive safety exceedances (e.g., 1,702× safe).
@@ -94,13 +94,13 @@ These upgrades add visual depth, interactive polish, and orbital satellite evide
 These upgrades add optional polish, sharing capabilities, and metadata rigor.
 
 ### 3.1 Skeleton Loader for Homepage Hydration
-* **Files Affected:** [index.html](file:///c:/Users/Administrator/Desktop/insightgaps.github.io-main/insightgaps.github.io-main/index.html) (root) and [assets/js/data-loader.js](file:///c:/Users/Administrator/Desktop/insightgaps.github.io-main/insightgaps.github.io-main/assets/js/data-loader.js)
+* **Files Affected:** [index.html](index.html) (root) and [assets/js/data-loader.js](assets/js/data-loader.js)
 * **Exact Modification:** Add a CSS skeleton card layout to `index.html` inside `#js-featured-investigation` that mimics the title, summary, and date fields. The hydration script in `data-loader.js` will replace this skeleton card once the JSON payload is parsed.
 * **Reason:** Currently, there is a minor layout shift on load when the client-side JS hydrates the featured investigation block.
 * **Expected Impact:** Eliminates content layout shifts, matching professional performance standards.
 
 ### 3.2 Interactive Command Line Replication Copy Block
-* **File Affected:** [content/investigations/the-lead-belt/methodology/index.html](file:///c:/Users/Administrator/Desktop/insightgaps.github.io-main/insightgaps.github.io-main/content/investigations/the-lead-belt/methodology/index.html) (new HTML file)
+* **File Affected:** [content/investigations/the-lead-belt/methodology/index.html](content/investigations/the-lead-belt/methodology/index.html) (new HTML file)
 * **Exact Modification:** Embed a styled command line block showing the exact CLI command to run `analyze.py` against `osm_schools.geojson`, equipped with a single-click "Copy to Clipboard" button.
 * **Reason:** Promotes replication by making the replication CLI command copy-pasteable.
 * **Expected Impact:** Signals transparency and makes replication easy for data analysts.

@@ -2,8 +2,8 @@
 
 **Date of Inventory:** May 25, 2026  
 **Investigation ID:** BD-INV-002  
-**Source Repository:** `C:\Users\Administrator\Desktop\old_insightgaps.github.io-main\insightgaps.github.io-main`  
-**Target Repository:** `c:\Users\Administrator\Desktop\insightgaps.github.io-main\insightgaps.github.io-main`
+**Source Repository:** legacy archive (pre-restructure snapshot)
+**Target Repository:** this repository (`insightgaps.github.io`, branch `main`)
 
 ---
 

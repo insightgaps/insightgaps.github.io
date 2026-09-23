@@ -19,7 +19,7 @@ All evidence files are registered on the [Data Repository](https://insightgaps.c
 
 ## 4. Sitemap Status
 *   **Status:** Verified & Updated
-*   **File:** [sitemap.xml](file:///c:/Users/Administrator/Desktop/insightgaps.github.io-main/insightgaps.github.io-main/sitemap.xml)
+*   **File:** `sitemap.xml`
 *   **Registered Entries:**
     ```xml
     <url>
