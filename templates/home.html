@@ -3,34 +3,43 @@
 
 {% block content %}
 
-    <!-- HERO: bureau mandate + featured investigation (pre-rendered at build) -->
-    <section class="home__hero" aria-label="Bureau introduction">
-      <div class="home__hero-inner">
-
-        <div class="home__hero-content">
-
+    <!-- SCROLLY HERO (offline prototype): pinned figure, one claim per step -->
+    <div class="scrolly-progress" aria-hidden="true"></div>
+    <section class="scrolly" data-scrolly aria-label="Bureau introduction">
+      <div class="scrolly__figure" aria-hidden="false">
+        <div class="scrolly__figure-state scrolly__figure-state--active">
           <h1 class="home__mandate">
             Independent forensic data journalism from Dhaka.
           </h1>
-
-          <span class="home__featured-pre">Latest investigation</span>
-
-          <div id="featured-investigation">
-            <div class="home__featured-meta">{{ status_badge(featured.status) }}
-              <time class="home__featured-date" datetime="{{ featured.date_published }}">{{ fmt_date(featured.date_published) }}</time></div>
-            <h2 class="home__featured-title">{{ featured.title }}</h2>
-            <p class="home__featured-dek">{{ featured.dek or featured.summary }}</p>
-            <a class="home__featured-link" href="{{ featured.url }}">Read investigation &rarr;</a>
+        </div>
+        <div class="scrolly__figure-state">
+          {% if featured.og_image_path %}
+          <div class="home__hero-image">
+            <img src="{{ featured.og_image_path }}" alt="Visual summary of {{ featured.title }}">
           </div>
-
+          {% endif %}
         </div>
-
-        {% if featured.og_image_path %}
-        <div class="home__hero-image">
-          <img src="{{ featured.og_image_path }}" alt="Visual summary of {{ featured.title }}">
+        <div class="scrolly__figure-state">
+          <div class="home__featured-meta">{{ status_badge(featured.status) }}
+            <time class="home__featured-date" datetime="{{ featured.date_published }}">{{ fmt_date(featured.date_published) }}</time></div>
+          <h2 class="home__featured-title">{{ featured.title }}</h2>
+          <a class="home__featured-link" href="{{ featured.url }}">Read investigation &rarr;</a>
         </div>
-        {% endif %}
+      </div>
 
+      <div class="scrolly__steps">
+        <div class="scrolly__step">
+          <span class="scrolly__step-kicker">Who we are</span>
+          <p class="home__featured-dek">Independent forensic data journalism from Dhaka, Bangladesh. Investigations into contamination, institutional failure, and accountability gaps.</p>
+        </div>
+        <div class="scrolly__step">
+          <span class="scrolly__step-kicker">Latest investigation</span>
+          <p class="home__featured-dek">{{ featured.dek or featured.summary }}</p>
+        </div>
+        <div class="scrolly__step">
+          <span class="scrolly__step-kicker">The evidence</span>
+          <p class="home__featured-dek">Every number traces to a named source. Scroll for the bureau in numbers.</p>
+        </div>
       </div>
     </section>
 
@@ -39,13 +48,13 @@
       <div class="metrics-block" aria-label="Bureau statistics">
 
         <div class="metrics-block__item">
-          <span class="metrics-block__number" aria-label="Total investigations">{{ investigations|length }}</span>
+          <span class="metrics-block__number metrics-block__number--count" aria-label="Total investigations">{{ investigations|length }}</span>
           <span class="metrics-block__label">Total Investigations</span>
           <span class="metrics-block__basis-note">{{ stats_notes.investigations }}</span>
         </div>
 
         <div class="metrics-block__item">
-          <span class="metrics-block__number" aria-label="Total primary sources">{{ total_sources }}</span>
+          <span class="metrics-block__number metrics-block__number--count" aria-label="Total primary sources">{{ total_sources }}</span>
           <span class="metrics-block__label">Total Primary Sources</span>
           <span class="metrics-block__basis-note">{{ stats_notes.sources }}</span>
         </div>
@@ -56,7 +65,7 @@
     </div>
 
     <!-- LATEST INVESTIGATIONS (pre-rendered; newest three) -->
-    <section class="home__investigations" aria-labelledby="label-investigations">
+    <section class="home__investigations" data-reveal aria-labelledby="label-investigations">
 
       <p class="section-label" id="label-investigations">Latest Investigations</p>
 
@@ -73,7 +82,7 @@
     </section>
 
     <!-- ANALYSIS DOMAINS (pre-rendered) -->
-    <section class="home__analysis" aria-labelledby="label-analysis">
+    <section class="home__analysis" data-reveal aria-labelledby="label-analysis">
 
       <p class="section-label" id="label-analysis">Analysis Domains</p>
 
@@ -90,7 +99,7 @@
     </section>
 
     <!-- TRUST SURFACE STRIP -->
-    <div class="trust-strip" aria-label="Trust and transparency">
+    <div class="trust-strip" data-reveal aria-label="Trust and transparency">
       <div class="trust-strip__inner">
 
         <div class="trust-strip__item">
@@ -129,4 +138,8 @@
       </div>
     </div>
 
+{% endblock %}
+
+{% block body_extra %}
+<script src="/assets/js/scrolly.js" defer></script>
 {% endblock %}
