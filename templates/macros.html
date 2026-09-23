@@ -16,7 +16,7 @@
     {{ status_badge(inv.status) }}
   </div>
   <h3 class="inv-card__title">{{ inv.title }}</h3>
-  <p class="inv-card__summary">{{ inv.summary or inv.dek }}</p>
+  <p class="inv-card__summary" data-claim-id="{{ inv.id }}-C1">{{ inv.summary or inv.dek }}</p>
   <footer class="inv-card__footer">
     <span class="inv-card__id">{% if inv.has_correction %}<span class="inv-card__correction-dot" aria-label="Correction issued"></span>{% endif %}{{ inv.id }}</span>
     <time class="inv-card__date" datetime="{{ inv.date_published }}">{{ fmt_date(inv.date_published) }}</time>
