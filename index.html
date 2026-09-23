@@ -34,6 +34,8 @@
   
   <link rel="stylesheet" href="/assets/css/home.css">
   
+  <link rel="stylesheet" href="/assets/css/scrolly.css">
+  
 
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Insight Gaps Bureau", "url": "https://www.insightgaps.com/", "description": "Independent forensic data journalism from Dhaka, Bangladesh. Investigations into contamination, institutional failure, and accountability gaps.", "email": "insightgaps@gmail.com", "logo": "https://www.insightgaps.com/assets/img/og-default.jpg"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Insight Gaps Bureau", "url": "https://www.insightgaps.com/"}</script>
 </head>
@@ -92,34 +94,43 @@
   <main id="main-content" class="">
     
 
-    <!-- HERO: bureau mandate + featured investigation (pre-rendered at build) -->
-    <section class="home__hero" aria-label="Bureau introduction">
-      <div class="home__hero-inner">
-
-        <div class="home__hero-content">
-
+    <!-- SCROLLY HERO (offline prototype): pinned figure, one claim per step -->
+    <div class="scrolly-progress" aria-hidden="true"></div>
+    <section class="scrolly" data-scrolly aria-label="Bureau introduction">
+      <div class="scrolly__figure" aria-hidden="false">
+        <div class="scrolly__figure-state scrolly__figure-state--active">
           <h1 class="home__mandate">
             Independent forensic data journalism from Dhaka.
           </h1>
-
-          <span class="home__featured-pre">Latest investigation</span>
-
-          <div id="featured-investigation">
-            <div class="home__featured-meta"><span class="status-badge status-badge--published">PUBLISHED</span>
-              <time class="home__featured-date" datetime="2026-03-01">1 March 2026</time></div>
-            <h2 class="home__featured-title">The Impunity Machine</h2>
-            <p class="home__featured-dek">A visual data investigation into Bangladesh&#39;s rape justice crisis and the institutional machinery that turns reported violence into near-zero punishment.</p>
-            <a class="home__featured-link" href="/investigations/the-impunity-machine/">Read investigation &rarr;</a>
+        </div>
+        <div class="scrolly__figure-state">
+          
+          <div class="home__hero-image">
+            <img src="/assets/img/impunity-machine-infographic.png" alt="Visual summary of The Impunity Machine">
           </div>
-
+          
         </div>
-
-        
-        <div class="home__hero-image">
-          <img src="/assets/img/impunity-machine-infographic.png" alt="Visual summary of The Impunity Machine">
+        <div class="scrolly__figure-state">
+          <div class="home__featured-meta"><span class="status-badge status-badge--published">PUBLISHED</span>
+            <time class="home__featured-date" datetime="2026-03-01">1 March 2026</time></div>
+          <h2 class="home__featured-title">The Impunity Machine</h2>
+          <a class="home__featured-link" href="/investigations/the-impunity-machine/">Read investigation &rarr;</a>
         </div>
-        
+      </div>
 
+      <div class="scrolly__steps">
+        <div class="scrolly__step">
+          <span class="scrolly__step-kicker">Who we are</span>
+          <p class="home__featured-dek">Independent forensic data journalism from Dhaka, Bangladesh. Investigations into contamination, institutional failure, and accountability gaps.</p>
+        </div>
+        <div class="scrolly__step">
+          <span class="scrolly__step-kicker">Latest investigation</span>
+          <p class="home__featured-dek">A visual data investigation into Bangladesh&#39;s rape justice crisis and the institutional machinery that turns reported violence into near-zero punishment.</p>
+        </div>
+        <div class="scrolly__step">
+          <span class="scrolly__step-kicker">The evidence</span>
+          <p class="home__featured-dek">Every number traces to a named source. Scroll for the bureau in numbers.</p>
+        </div>
       </div>
     </section>
 
@@ -128,13 +139,13 @@
       <div class="metrics-block" aria-label="Bureau statistics">
 
         <div class="metrics-block__item">
-          <span class="metrics-block__number" aria-label="Total investigations">3</span>
+          <span class="metrics-block__number metrics-block__number--count" aria-label="Total investigations">3</span>
           <span class="metrics-block__label">Total Investigations</span>
           <span class="metrics-block__basis-note">Count of investigations with published status in the bureau&#39;s manifests.</span>
         </div>
 
         <div class="metrics-block__item">
-          <span class="metrics-block__number" aria-label="Total primary sources">94</span>
+          <span class="metrics-block__number metrics-block__number--count" aria-label="Total primary sources">94</span>
           <span class="metrics-block__label">Total Primary Sources</span>
           <span class="metrics-block__basis-note">Sum of per-investigation source_count manifest fields. A &#39;source&#39; is a distinct external document, institution, or dataset named in an investigation&#39;s source log; per-work source lists are being published progressively (see each investigation&#39;s evidence panel).</span>
         </div>
@@ -148,7 +159,7 @@
     </div>
 
     <!-- LATEST INVESTIGATIONS (pre-rendered; newest three) -->
-    <section class="home__investigations" aria-labelledby="label-investigations">
+    <section class="home__investigations" data-reveal aria-labelledby="label-investigations">
 
       <p class="section-label" id="label-investigations">Latest Investigations</p>
 
@@ -208,7 +219,7 @@
     </section>
 
     <!-- ANALYSIS DOMAINS (pre-rendered) -->
-    <section class="home__analysis" aria-labelledby="label-analysis">
+    <section class="home__analysis" data-reveal aria-labelledby="label-analysis">
 
       <p class="section-label" id="label-analysis">Analysis Domains</p>
 
@@ -237,7 +248,7 @@
     </section>
 
     <!-- TRUST SURFACE STRIP -->
-    <div class="trust-strip" aria-label="Trust and transparency">
+    <div class="trust-strip" data-reveal aria-label="Trust and transparency">
       <div class="trust-strip__inner">
 
         <div class="trust-strip__item">
@@ -375,6 +386,8 @@
   </script>
 
   
+<script src="/assets/js/scrolly.js" defer></script>
+
 
 </body>
 </html>
