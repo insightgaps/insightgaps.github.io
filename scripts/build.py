@@ -651,7 +651,14 @@ def website_jsonld(site) -> str:
 # Main
 # ---------------------------------------------------------------------------
 
-def main() -> int:
+def main(args=None) -> int:
+    if args is None:
+        class _Args:
+            sync = False
+            validate = False
+            all = False
+        args = _Args()
+
     site = load_site()
     investigations, domains = load_manifests()
     pages_meta = load_pages_meta()
@@ -726,8 +733,49 @@ def main() -> int:
     print(f"build: {len(rendered)} template pages, {n_standalone} standalone documents")
     for w in warnings:
         print(f"  WARN: {w}")
+
+    # Optional chained pipeline stages
+    do_sync = args.sync or args.all
+    do_val = args.validate or args.all
+
+    if do_sync:
+        print("\n--- Running sync to root ---")
+        try:
+            from sync_root import sync
+            code = sync()
+            if code != 0:
+                print("[-] Sync failed!")
+                return code
+        except Exception as e:
+            print(f"[-] Sync error: {e}")
+            return 1
+
+    if do_val:
+        print("\n--- Running build validation ---")
+        try:
+            from validate import run as run_validate
+            # Validate public directory
+            rep = run_validate(PUBLIC)
+            for w in rep.warnings:
+                print(f"WARN: {w}")
+            for e in rep.errors:
+                print(f"ERROR: {e}")
+            print(f"validation: {'PASS' if rep.ok else 'FAIL'} ({len(rep.errors)} errors, {len(rep.warnings)} warnings)")
+            if not rep.ok:
+                return 1
+        except Exception as e:
+            print(f"[-] Validation error: {e}")
+            return 1
+
+    print("\n[+] Build pipeline completed successfully.")
     return 0
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    import argparse
+    ap = argparse.ArgumentParser(description="Insight Gaps Bureau static site generator")
+    ap.add_argument("--sync", action="store_true", help="Mirror public/ to repo root after build")
+    ap.add_argument("--validate", action="store_true", help="Run validation gate after build")
+    ap.add_argument("-a", "--all", action="store_true", help="Run full pipeline: build + sync + validate")
+    args = ap.parse_args()
+    sys.exit(main(args))
