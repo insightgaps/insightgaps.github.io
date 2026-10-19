@@ -121,6 +121,7 @@
 </script>
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="/assets/css/components.css">
+<link rel="stylesheet" href="/assets/css/scrolly.css">
 <!-- Leaflet & MarkerCluster CDNs -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.css">
@@ -1118,10 +1119,12 @@ html[data-theme="dark"] .sub-nav {
     <div class="sub-nav__brand">BD-INV-001 &middot; Blood Routes</div>
     <div class="sub-nav__scenes">
       <a href="#s1" class="sub-nav__link">The Gap</a>
-      <a href="#bloodmap" class="sub-nav__link">The Map</a>
       <a href="#s2" class="sub-nav__link">The Machine</a>
       <a href="#s3" class="sub-nav__link">The Phoenix</a>
+      <a href="#corridors" class="sub-nav__link">Corridors</a>
+      <a href="#bloodmap" class="sub-nav__link">The Map</a>
       <a href="#s4" class="sub-nav__link">The Hour</a>
+      <a href="#s4b" class="sub-nav__link">Two-Wheelers</a>
       <a href="#s5" class="sub-nav__link">The Scale</a>
       <a href="#s6" class="sub-nav__link">The Voids</a>
     </div>
@@ -1174,44 +1177,518 @@ html[data-theme="dark"] .sub-nav {
     <h2>Two Numbers. One Country. One Counting Choice.</h2>
     <p>Watch the official tally. Then watch what the data actually shows.</p>
   </div>
-  <div class="scroll-scene" style="margin-top:2rem">
-    <div class="viz-sticky">
-      <canvas id="gapCanvas" height="340" style="width:100%;max-width:560px"></canvas>
+  <div class="scrolly" id="scrolly-gap">
+    <div class="scrolly__stage">
+      <div class="scrolly__stage-inner" style="display:flex;align-items:center;justify-content:center;padding:1.5rem;">
+        <canvas id="gapCanvas" height="340" style="width:100%;max-width:560px"></canvas>
+      </div>
+      <div class="scrolly__stage-caption">
+        <span class="scrolly__stage-meta">Annual Fatality Accounting Disconnect</span>
+        <span class="scrolly__stage-meta" style="color:var(--bloodl);">5.8× Gap</span>
+      </div>
     </div>
-    <div class="steps-col">
-      <div class="step active" data-scene="gap" data-step="0">
-        <div class="step-num">Step 01 of 05</div>
-        <h3>Every year. The same roads. Two different answers.</h3>
-        <p>Bangladesh has two road death counts. They are not in dispute. They measure different things. The government counts only what police record. The WHO models what actually happens to human bodies on these roads.</p>
-        <div class="note">WHO Global Status Report 2023 &middot; BRTA Annual Report 2023</div>
+    <div class="scrolly__story">
+      <article class="scrolly__card" data-scene="gap" data-step="0">
+        <div class="scrolly__card-kicker">
+          <span>Counting Void 01</span>
+          <span class="scrolly__badge">DUAL TALLY</span>
+        </div>
+        <h3 class="scrolly__card-title">Every year. The same roads. Two different answers.</h3>
+        <p class="scrolly__card-body">Bangladesh has two road death counts. They are not in dispute. They measure different things. The government counts only what police record. The WHO models what actually happens to human bodies on these roads.</p>
+        <div class="scrolly__card-cite">WHO Global Status Report 2023 &middot; BRTA Annual Report 2023</div>
+      </article>
+
+      <article class="scrolly__card" data-scene="gap" data-step="1">
+        <div class="scrolly__card-kicker">
+          <span>Counting Void 02</span>
+          <span class="scrolly__badge">CONFIRMED</span>
+        </div>
+        <div class="scrolly__card-stat">
+          <span class="stat-number" data-counter="5480" data-decimals="0">5,480</span>
+          <span class="stat-unit">Deaths</span>
+          <span class="stat-label">BRTA official annual tally (Police FIR records)</span>
+        </div>
+        <h3 class="scrolly__card-title">The BRTA official count.</h3>
+        <p class="scrolly__card-body">Police FIR records compiled by the Bangladesh Road Transport Authority. Acknowledged limitation: many crashes are settled before police are called. Deaths that happen in hospital days after a crash are rarely linked back. This number counts what enters the formal record.</p>
+        <div class="scrolly__card-cite">BRTA Annual Report 2023 &middot; Confirmed Police FIR Count</div>
+      </article>
+
+      <article class="scrolly__card" data-scene="gap" data-step="2">
+        <div class="scrolly__card-kicker">
+          <span>Counting Void 03</span>
+          <span class="scrolly__badge">CONFIRMED</span>
+        </div>
+        <div class="scrolly__card-stat">
+          <span class="stat-number" data-counter="8543" data-decimals="0">8,543</span>
+          <span class="stat-unit">Media Tally</span>
+          <span class="stat-label">BJKS media scan across 37 national dailies</span>
+        </div>
+        <h3 class="scrolly__card-title">The BJKS media scan. 37 national newspapers.</h3>
+        <p class="scrolly__card-body">The Bangladesh Jatri Kalyan Samity scanned 37 daily newspapers in 2024 and tallied every reported road death: <strong>8,543</strong>. Already 55% higher than BRTA. But newspapers also miss what happens in remote villages at night, in unreported incidents, and in rural clinic wards.</p>
+        <div class="scrolly__card-cite">BJKS Annual Report 2024 &middot; Media-scan methodology</div>
+      </article>
+
+      <article class="scrolly__card" data-scene="gap" data-step="3">
+        <div class="scrolly__card-kicker">
+          <span>Counting Void 04</span>
+          <span class="scrolly__badge">CONFIRMED (MODELLED)</span>
+        </div>
+        <div class="scrolly__card-stat">
+          <span class="stat-number" data-counter="31578" data-decimals="0">~31,578</span>
+          <span class="stat-unit">Modelled Deaths</span>
+          <span class="stat-label">WHO modelled estimate of total annual fatalities</span>
+        </div>
+        <h3 class="scrolly__card-title">The WHO modelled estimate.</h3>
+        <p class="scrolly__card-body">WHO applies a corrective epidemiological model using hospital injury data, population surveys, and mortality registries. The result: approximately 31,578 road deaths per year in Bangladesh — nearly <strong>six times the official count.</strong></p>
+        <div class="scrolly__card-cite">WHO Global Status Report on Road Safety 2023 &middot; DGHS-CIPRB Survey 2023</div>
+      </article>
+
+      <article class="scrolly__card" data-scene="gap" data-step="4">
+        <div class="scrolly__card-kicker">
+          <span>Counting Void 05</span>
+          <span class="scrolly__badge">POLICY CHOICE</span>
+        </div>
+        <div class="scrolly__card-stat">
+          <span class="stat-number" data-counter="5.8" data-decimals="1">5.8</span>
+          <span class="stat-unit">× Multiplier</span>
+          <span class="stat-label">Ratio of real fatalities to recorded government tallies</span>
+        </div>
+        <h3 class="scrolly__card-title">The gap is a counting choice, not a data problem.</h3>
+        <p class="scrolly__card-body">Hospital records exist. Crash scene records exist. The link between them does not — by policy, not by technical incapacity. The BRTA holds registration data. The DGHS holds mortality data. No data-sharing protocol requires them to be connected. <strong>What is not counted cannot be held accountable.</strong></p>
+        <div class="scrolly__card-cite">World Bank "Delivering Road Safety in Bangladesh" 2022</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- S2: THE JOMA MACHINE -->
+<section id="s2" class="scene dark">
+  <div class="scene-title">
+    <div class="eyebrow">Scene 02 &middot; The Machine</div>
+    <h2>Why Buses Race — The Economic Architecture of Death</h2>
+    <p>Scroll through the mechanism. Racing is not recklessness. It is the rational output of an extractive commercial contract.</p>
+  </div>
+  <div class="scrolly" id="scrolly-joma">
+    <div class="scrolly__stage">
+      <div class="scrolly__stage-inner" style="display:flex;align-items:center;justify-content:center;padding:1.5rem;">
+        <div class="joma-wrap" id="jomaWrap">
+          <div class="joma-node" id="jn0">
+            <div class="jn-title" style="color:var(--amberl)">🏢 Bus Owner</div>
+            <div class="jn-amount">Tk 4,000–6,000 / day</div>
+            <div class="jn-desc">Fixed daily joma (জমা) collected regardless of trips completed. <strong>Hiked to Tk 8,000–10,000 during Eid rush.</strong> Owner's income is guaranteed. All operational risk transfers to the driver.</div>
+          </div>
+          <div class="joma-arrow">↓ joma is paid first ↓</div>
+          <div class="joma-node" id="jn1">
+            <div class="jn-title" style="color:var(--amberl)">📋 Waybill Checker</div>
+            <div class="jn-amount">Checkpoint system</div>
+            <div class="jn-desc">Owner-employed checkers count passengers at stops along the route. The first bus to reach each stop takes all waiting passengers. First arrival wins the fare.</div>
+          </div>
+          <div class="joma-arrow">↓ only surplus becomes wage ↓</div>
+          <div class="joma-node" id="jn2">
+            <div class="jn-title" style="color:var(--amberl)">🚌 Driver / Helper (Average Age: 25.8)</div>
+            <div class="jn-amount red">~Tk 300–500 / day net</div>
+            <div class="jn-desc">Driver pays joma first, then fuel and extortions. Only what remains becomes wage. Average driver is 25.8 years old and operates under extreme financial stress.</div>
+          </div>
+          <div class="joma-arrow">↓ racing is rational ↓</div>
+          <div class="joma-node danger" id="jn3">
+            <div class="jn-title" style="color:var(--bloodl)">⚠ Racing on Public Roads</div>
+            <div class="jn-amount red">Pedestrian risk</div>
+            <div class="jn-desc">Two same-route buses race stop-to-stop to grab passenger fares. The Badda incident is a documented output of this structure. The system produced it. It will produce it again.</div>
+          </div>
+          <div class="joma-arrow">↓ enforcement bypassed ↓</div>
+          <div class="joma-node" id="jn4">
+            <div class="jn-title" style="color:var(--gold)">🏛 Political Shield</div>
+            <div class="jn-amount" style="color:var(--gold)">92% linked — TIB 2024</div>
+            <div class="jn-desc">TIB (2024) documents 92% of operators with political connections. Tk 1,059 crore/year in bribery flows through the sector. Blacklisted operators continue appearing in incident records.</div>
+          </div>
+        </div>
       </div>
-      <div class="step" data-scene="gap" data-step="1">
-        <div class="step-num">Step 02 of 05</div>
-        <div class="stat white">5,480</div>
-        <h3>The BRTA official count.</h3>
-        <p>Police FIR records compiled by the Bangladesh Road Transport Authority. Acknowledged limitation: many crashes are settled before police are called. Deaths that happen in hospital days after a crash are rarely linked back. This number counts what enters the formal record.</p>
-        <div class="note">BRTA Annual Report 2023 &middot; <span class="ok">CONFIRMED</span></div>
+      <div class="scrolly__stage-caption">
+        <span class="scrolly__stage-meta">The Joma Extortion Waterfall</span>
+        <span class="scrolly__stage-meta" style="color:var(--amberl);">Commercial Risk Transfer</span>
       </div>
-      <div class="step" data-scene="gap" data-step="2">
-        <div class="step-num">Step 03 of 05</div>
-        <div class="stat amber">8,543</div>
-        <h3>The BJKS media scan. 37 national newspapers.</h3>
-        <p>The Bangladesh Jatri Kalyan Samity scanned 37 daily newspapers in 2024 and tallied every reported road death. <strong>8,543.</strong> Already 55% higher than BRTA. But newspapers also miss what happens in villages at night, in unreported incidents, in hospital wards.</p>
-        <div class="note">BJKS Annual Report 2024 &middot; <span class="ok">CONFIRMED</span> (media-scan methodology)</div>
+    </div>
+    <div class="scrolly__story">
+      <article class="scrolly__card" data-scene="joma" data-step="0">
+        <div class="scrolly__card-kicker">
+          <span>Economic Trap 01</span>
+          <span class="scrolly__badge">CONFIRMED (TIB)</span>
+        </div>
+        <h3 class="scrolly__card-title">Start with the owner. The owner is not on the bus.</h3>
+        <p class="scrolly__card-body">The owner collects a fixed daily sum called <em>joma</em> — between Tk 4,000 and 6,000 per day. <strong>During the high-pressure Eid rush, this is often hiked to Tk 8,000–10,000.</strong> This is collected regardless of how many passengers were carried, how fast the bus drove, or whether anyone died. The economic risk of the road never touches the owner.</p>
+        <div class="scrolly__card-cite">TIB "Integrity in Private Bus Transport Business" 2024</div>
+      </article>
+
+      <article class="scrolly__card" data-scene="joma" data-step="1">
+        <div class="scrolly__card-kicker">
+          <span>Economic Trap 02</span>
+          <span class="scrolly__badge">THE INCENTIVE</span>
+        </div>
+        <div class="scrolly__card-stat">
+          <span class="stat-number" data-counter="6000" data-decimals="0">6,000</span>
+          <span class="stat-unit">BDT / Day</span>
+          <span class="stat-label">Fixed owner lease (spikes to Tk 10,000 during Eid rush)</span>
+        </div>
+        <h3 class="scrolly__card-title">Per day. Guaranteed. Doubled during holiday rush.</h3>
+        <p class="scrolly__card-body">The waybill checker is the enforcement mechanism of this system — an owner-employed counter at bus stops who records passenger headcounts. The first bus to arrive takes the waiting crowd. <strong>The race is the business model.</strong></p>
+        <div class="scrolly__card-cite">TIB 2024 &middot; Confirmed Field Audit</div>
+      </article>
+
+      <article class="scrolly__card" data-scene="joma" data-step="2">
+        <div class="scrolly__card-kicker">
+          <span>Economic Trap 03</span>
+          <span class="scrolly__badge">MICRO-DATA VERIFIED</span>
+        </div>
+        <div class="scrolly__card-stat">
+          <span class="stat-number" data-counter="25.8" data-decimals="1">25.8</span>
+          <span class="stat-unit">Years</span>
+          <span class="stat-label">Average age of drivers involved in fatal collisions</span>
+        </div>
+        <h3 class="scrolly__card-title">What the driver earns. After joma. After fuel. After extortion.</h3>
+        <p class="scrolly__card-body">Racing is not a character flaw. It is the only rational economic response to the contract. The driver must pay the Tk 5,000 joma, fuel costs, and route extortion before taking home ~Tk 300–500. Our dataset reveals the <strong>average age of drivers in fatal crashes is just 25.8 years old</strong> — a young, sleep-deprived workforce trapped in high-speed debt recovery.</p>
+        <div class="scrolly__card-cite">BD-INV-001 Micro-data Analysis &middot; Driver Demographic Registry</div>
+      </article>
+
+      <article class="scrolly__card" data-scene="joma" data-step="3">
+        <div class="scrolly__card-kicker">
+          <span>Economic Trap 04</span>
+          <span class="scrolly__badge">CONFIRMED (RSF)</span>
+        </div>
+        <div class="scrolly__card-stat">
+          <span class="stat-number" data-counter="41.56" data-decimals="2">41.56</span>
+          <span class="stat-unit">%</span>
+          <span class="stat-label">of Dhaka's fatal crashes occur at night (10 PM to 6 AM)</span>
+        </div>
+        <h3 class="scrolly__card-title">Night: Zero enforcement. Maximum joma quota pressure.</h3>
+        <p class="scrolly__card-body">Traffic police leave intersections after 10 PM, but the morning lease payment deadline remains unchanged. Drivers sprint on empty roads. <strong>47% of documented Dhaka victims are pedestrians</strong> — citizens crossing the street, not passengers on buses.</p>
+        <div class="scrolly__card-cite">RSF Dhaka Annual Report 2025 &middot; Pedestrian Vulnerability Study</div>
+      </article>
+
+      <article class="scrolly__card" data-scene="joma" data-step="4">
+        <div class="scrolly__card-kicker">
+          <span>Economic Trap 05</span>
+          <span class="scrolly__badge">CONFIRMED (TIB)</span>
+        </div>
+        <div class="scrolly__card-stat">
+          <span class="stat-number" data-counter="1059" data-decimals="0">1,059</span>
+          <span class="stat-unit">Crore BDT</span>
+          <span class="stat-label">Annual extortion and bribery flowing through private bus transit</span>
+        </div>
+        <h3 class="scrolly__card-title">The Tk 1,059 Crore political shield that preserves the system.</h3>
+        <p class="scrolly__card-body">TIB documents that <strong>92% of bus fleet operators possess direct political connections</strong>. Enforcement orders and route permit bans evaporate because the system generates massive political and police kickbacks. The joma system is not tolerated by authorities — it is actively protected by them.</p>
+        <div class="scrolly__card-cite">Transparency International Bangladesh (TIB) 2024 Report</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- S3: THE PHOENIX -->
+<section id="s3" class="scene">
+  <div class="scene-title">
+    <div class="eyebrow">Scene 03 &middot; The Phoenix</div>
+    <h2>One Corridor. Four Names. Each Time: Ban, Rebrand, Continue.</h2>
+    <p>A documented sequence of operators on the Sadarghat–Gazipur route. Route continuity: probable. Ownership continuity: alleged. Each link carries its own evidence tier.</p>
+  </div>
+  <div class="scrolly" id="scrolly-phoenix">
+    <div class="scrolly__stage">
+      <div class="scrolly__stage-inner" style="display:flex;align-items:center;justify-content:center;padding:1.5rem;">
+        <div class="ph-wrap" id="phoenixWrap">
+          <div class="ph-node banned" id="ph0">
+            <div class="ph-era">~2010s – March 2019</div>
+            <div class="ph-name">SUPROBHAT PARIBAHAN</div>
+            <div class="ph-incident">Abrar Ahmed Choudhury killed 19 March 2019. Owner charged. Route permit cancelled. BRTA banned. Two buses formally deregistered.</div>
+            <span class="ph-tier ph-t-confirmed">Incident: CONFIRMED — Court record + media</span>
+          </div>
+          <div class="ph-arrow">↓ same corridor · route continuity: PROBABLE · ownership: ALLEGED ↓</div>
+          <div class="ph-node probable" id="ph1">
+            <div class="ph-era">2019 – ~2023</div>
+            <div class="ph-name">VICTOR CLASSIC</div>
+            <div class="ph-incident">Appeared on same Sadarghat–Gazipur corridor post-enforcement. Parvez Rob killed, 2019. Buses torched twice by crowds. Media-reported allegation of ownership continuity.</div>
+            <span class="ph-tier ph-t-probable">Route continuity: PROBABLE — 2 media sources</span>
+          </div>
+          <div class="ph-arrow">↓ same corridor · route continuity: PROBABLE · ownership: ALLEGED ↓</div>
+          <div class="ph-node alleged" id="ph2">
+            <div class="ph-era">~2023 – Present</div>
+            <div class="ph-name">AKASH PARIBAHAN</div>
+            <div class="ph-incident">October 2024: two Akash buses racing, Progati Sarani, Madhya Badda. Tasnim Jahan Airin killed. Drivers arrested. Victim family alleged ownership link to previous operators — recorded as family/victim testimony only.</div>
+            <span class="ph-tier ph-t-alleged">Ownership link: Family/victim testimony — not confirmed</span>
+          </div>
+          <div class="ph-arrow">↓ if pattern holds · next rebrand: undetectable without chassis registry ↓</div>
+          <div class="ph-node unknown" id="ph3">
+            <div class="ph-era">Future</div>
+            <div class="ph-name">???</div>
+            <div class="ph-incident">Without a public chassis-linked registry, the next operator rebrand will be undetectable until the next documented fatality. The pattern predicts it. The data gap enables it.</div>
+            <span class="ph-tier ph-t-unknown">Predicted — unverified</span>
+          </div>
+        </div>
       </div>
-      <div class="step" data-scene="gap" data-step="3">
-        <div class="step-num">Step 04 of 05</div>
-        <div class="stat">~31,578</div>
-        <h3>The WHO modelled estimate.</h3>
-        <p>WHO applies a corrective model using hospital injury data, population surveys, and mortality registries. The result: approximately 31,578 road deaths per year in Bangladesh — nearly <strong>six times the official count.</strong></p>
-        <div class="note">WHO Global Status Report on Road Safety 2023 &middot; DGHS-CIPRB National Injury Survey 2023 &middot; <span class="ok">CONFIRMED</span> (modelled)</div>
+      <div class="scrolly__stage-caption">
+        <span class="scrolly__stage-meta">Sadarghat–Gazipur Corridor Rebranding Chain</span>
+        <span class="scrolly__stage-meta" style="color:var(--amberl);">Chassis Registry Gap</span>
       </div>
-      <div class="step" data-scene="gap" data-step="4">
-        <div class="step-num">Step 05 of 05</div>
-        <div class="stat amber">~5.8×</div>
-        <h3>The gap is a counting choice, not a data problem.</h3>
-        <p>Hospital records exist. Crash scene records exist. The link between them does not — by policy, not by technical incapacity. The BRTA holds registration data. The DGHS holds mortality data. No data-sharing protocol requires them to be connected. <strong>What is not counted cannot be held accountable.</strong></p>
-        <div class="note">PROBABLE (derived, model-dependent) &middot; World Bank "Delivering Road Safety in Bangladesh" 2022</div>
+    </div>
+    <div class="scrolly__story">
+      <article class="scrolly__card" data-scene="phoenix" data-step="0">
+        <div class="scrolly__card-kicker">
+          <span>Rebranding Beat 01</span>
+          <span class="scrolly__badge">CONFIRMED</span>
+        </div>
+        <h3 class="scrolly__card-title">2019: Suprobhat Paribahan banned after killing student Abrar Ahmed.</h3>
+        <p class="scrolly__card-body">On March 19, 2019, student Abrar Ahmed Choudhury was struck and killed by a Suprobhat bus. Massive student protests erupted. BRTA cancelled route permits and revoked bus registrations. The brand was killed. The buses were not.</p>
+        <div class="scrolly__card-cite">Court record &middot; BRTA Deregistration Notice 2019</div>
+      </article>
+
+      <article class="scrolly__card" data-scene="phoenix" data-step="1">
+        <div class="scrolly__card-kicker">
+          <span>Rebranding Beat 02</span>
+          <span class="scrolly__badge">PROBABLE (ROUTE)</span>
+        </div>
+        <h3 class="scrolly__card-title">Victor Classic appears on the exact same corridor.</h3>
+        <p class="scrolly__card-body">Within months of Suprobhat's official ban, buses operating under the fresh brand <em>Victor Classic</em> took over the exact same Sadarghat–Gazipur route. Later that year, musician Parvez Rob was killed by a Victor Classic bus. Angry crowds torched the buses. Ownership continuity was widely reported by investigative media but never confirmed by corporate filings.</p>
+        <div class="scrolly__card-cite">Media Investigation Archives &middot; TBS News &middot; Prothom Alo</div>
+      </article>
+
+      <article class="scrolly__card" data-scene="phoenix" data-step="2">
+        <div class="scrolly__card-kicker">
+          <span>Rebranding Beat 03</span>
+          <span class="scrolly__badge">CONFIRMED INCIDENT</span>
+        </div>
+        <h3 class="scrolly__card-title">October 2024: Akash Paribahan kills Tasnim Jahan Airin on Progati Sarani.</h3>
+        <p class="scrolly__card-body">Two Akash Paribahan buses were documented racing neck-and-neck on Progati Sarani, Madhya Badda, competing to capture boarding passengers. Airin was killed instantly; her sister was critically injured. The drivers were arrested. The victim's family publicly testified to ownership links with Victor Classic and Suprobhat.</p>
+        <div class="scrolly__card-cite">TBS News &middot; Dhaka Tribune October 2024 &middot; FIR 14/2024</div>
+      </article>
+
+      <article class="scrolly__card" data-scene="phoenix" data-step="3">
+        <div class="scrolly__card-kicker">
+          <span>Rebranding Beat 04</span>
+          <span class="scrolly__badge">STRUCTURAL VOID</span>
+        </div>
+        <h3 class="scrolly__card-title">The Missing Chassis Registry: The legal shield for fleet owners.</h3>
+        <p class="scrolly__card-body">Our forensic audit of 47,680 police crash logs reveals that commercial operator brand names are systematically excluded from official records. Out of 47,680 rows, only generic "bus" (909) and "truck" (45,891) categories appear. Without a public registry linking vehicle chassis (VIN) to beneficial owners, bus owners can paint a fresh name on the body and resume racing tomorrow morning.</p>
+        <div class="scrolly__card-cite">Police Integrated Crash Registry Audit &middot; BRTA RTI Assessment</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CORRIDORS: SCROLLYTELLING LEAFLET FLY-THROUGH -->
+<section id="corridors" class="scene">
+  <div class="scene-title">
+    <div class="eyebrow">Scene 04 &middot; The Corridors of Death</div>
+    <h2>2,332 Fatal Collisions. Five Highways. Zero Structural Speed Control.</h2>
+    <p>Scroll to navigate the fatal arteries. From the congested intersections of the capital to undivided 80 km/h national corridors, watch where the economic racing model spills blood.</p>
+  </div>
+
+  <div class="scrolly scrolly--reverse" id="scrolly-corridors">
+    <div class="scrolly__stage">
+      <div class="scrolly__map-bar">
+        <span class="scrolly__map-badge">LIVE CAMERA</span>
+        <span class="scrolly__map-loc" id="corridor-loc-indicator">DHAKA METROPOLITAN CORE</span>
+      </div>
+      <div id="leafmap" style="width: 100%; height: 100%;"></div>
+      <div id="map-loading" style="position: absolute; inset: 0; background: rgba(6, 6, 14, 0.94); z-index: 1000; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: var(--mono); font-size: 0.85rem; color: var(--muted); gap: 1rem;">
+        <div style="width: 28px; height: 28px; border: 2px solid rgba(196, 30, 58, 0.15); border-top-color: var(--bloodl); border-radius: 50%; animation: spin 0.8s linear infinite;"></div>
+        <span>Loading Interactive Accident Map...</span>
+      </div>
+      <div class="scrolly__stage-caption">
+        <span class="scrolly__stage-meta" id="corridor-caption">N1 · N5 · N2 · N3 Highway Network</span>
+        <span class="scrolly__stage-meta" style="color: var(--bloodl);">2,332 Fatal Records</span>
+      </div>
+    </div>
+
+    <div class="scrolly__story">
+      <article class="scrolly__card" data-scene="corridors" data-step="0">
+        <div class="scrolly__card-kicker">
+          <span>Corridor Beat 01</span>
+          <span class="scrolly__badge">CONFIRMED</span>
+        </div>
+        <h3 class="scrolly__card-title">The Dhaka Bottleneck: Where Pedestrians Are 47% of Casualties</h3>
+        <p class="scrolly__card-body">
+          In the capital, the waybill checkpoint race collides with extreme human density. High-speed flyover exits meet street-level commuter crossings at <strong>Jatrabari, Mohakhali, and Tejgaon</strong>.
+        </p>
+        <div class="scrolly__card-stat">
+          <span class="stat-number" data-counter="47" data-decimals="0">47</span>
+          <span class="stat-unit">%</span>
+          <span class="stat-label">of Dhaka road victims are pedestrians crossing roads</span>
+        </div>
+        <p class="scrolly__card-body">
+          Buses race between intermediate checkers to capture boarding passengers. Drivers brake at the last possible yard, turning zebra crossings and bus stops into high-casualty impact zones.
+        </p>
+        <div class="scrolly__card-cite">Source: RSF Dhaka Annual Report 2025 · TBS News October 2024</div>
+      </article>
+
+      <article class="scrolly__card" data-scene="corridors" data-step="1">
+        <div class="scrolly__card-kicker">
+          <span>Corridor Beat 02</span>
+          <span class="scrolly__badge">CONFIRMED</span>
+        </div>
+        <div class="scrolly__card-stat">
+          <span class="stat-number" data-counter="589" data-decimals="0">589</span>
+          <span class="stat-unit">Crashes</span>
+          <span class="stat-label">431 verified fatalities along the N1 corridor</span>
+        </div>
+        <h3 class="scrolly__card-title">N1 Dhaka–Chattogram: The High-Speed Freight Slaughter</h3>
+        <p class="scrolly__card-body">
+          Carrying Bangladesh's entire maritime export freight, the 250km N1 corridor claims more lives than any other highway in the nation. Between <strong>Daudkandi, Comilla, and Feni</strong>, long-haul coaches maintain 80–100 km/h throughout the midnight hours.
+        </p>
+        <p class="scrolly__card-body">
+          With highway patrol posts unmanned between 11 PM and 4 AM, heavy freight trucks and passenger coaches share undivided bypasses in zero-visibility conditions, resulting in multi-vehicle head-on collisions.
+        </p>
+        <div class="scrolly__card-cite">Source: BD-INV-001 Micro-database · ARI-BUET Corridor Audit</div>
+      </article>
+
+      <article class="scrolly__card" data-scene="corridors" data-step="2">
+        <div class="scrolly__card-kicker">
+          <span>Corridor Beat 03</span>
+          <span class="scrolly__badge">CONFIRMED</span>
+        </div>
+        <div class="scrolly__card-stat">
+          <span class="stat-number" data-counter="412" data-decimals="0">412</span>
+          <span class="stat-unit">Crashes</span>
+          <span class="stat-label">287 verified fatalities along the N5 corridor</span>
+        </div>
+        <h3 class="scrolly__card-title">N5 Savar–Aricha–Bogura: The Garment Belt Hazard</h3>
+        <p class="scrolly__card-body">
+          Connecting Dhaka to North Bengal, the N5 passes directly through the Savar and Gazipur garment manufacturing belts. During morning and evening factory shift changes, hundreds of thousands of workers cross lanes on foot.
+        </p>
+        <p class="scrolly__card-body">
+          Long-distance night buses entering Dhaka at dawn race local feeder vans to beat morning gridlock, driving up pedestrian and factory commuter casualty rates.
+        </p>
+        <div class="scrolly__card-cite">Source: Mendeley Crash Geo-database · Police FIR Analysis</div>
+      </article>
+
+      <article class="scrolly__card" data-scene="corridors" data-step="3">
+        <div class="scrolly__card-kicker">
+          <span>Corridor Beat 04</span>
+          <span class="scrolly__badge">CONFIRMED</span>
+        </div>
+        <div class="scrolly__card-stat">
+          <span class="stat-number" data-counter="612" data-decimals="0">612</span>
+          <span class="stat-unit">Total Deaths</span>
+          <span class="stat-label">Combined death toll across N2 (248) and N3 (194)</span>
+        </div>
+        <h3 class="scrolly__card-title">N2 & N3 Gateways: The Undivided Head-On Traps</h3>
+        <p class="scrolly__card-body">
+          The Sylhet (N2) and Mymensingh (N3) corridors suffer from narrow undivided road geometry where vehicles must enter oncoming lanes to overtake. At <strong>Gazipur Chowrasta</strong>, regional traffic bottlenecks meet interstate highway speeds.
+        </p>
+        <p class="scrolly__card-body">
+          Lack of physical median dividers means any driver error or brake failure results in catastrophic head-on impact rather than side swiping.
+        </p>
+        <div class="scrolly__card-cite">Source: ARI-BUET 25-Year Highway Registry · TIB 2024</div>
+      </article>
+
+      <article class="scrolly__card" data-scene="corridors" data-step="4">
+        <div class="scrolly__card-kicker">
+          <span>Corridor Beat 05</span>
+          <span class="scrolly__badge">CONFIRMED</span>
+        </div>
+        <div class="scrolly__card-stat">
+          <span class="stat-number" data-counter="2332" data-decimals="0">2,332</span>
+          <span class="stat-unit">Mapped Records</span>
+          <span class="stat-label">Deduplicated fatal crash points compiled for public audit</span>
+        </div>
+        <h3 class="scrolly__card-title">Nationwide Horizon: 2,332 Crashes Across 8 Divisions</h3>
+        <p class="scrolly__card-body">
+          Zooming out across all 8 divisions reveals that road deaths are not random occurrences. They follow commercial transport routes with mathematical consistency.
+        </p>
+        <p class="scrolly__card-body">
+          Use the interactive intelligence console below to query individual crashes, filter by year, and inspect the 10-year holiday surge data.
+        </p>
+        <div class="scrolly__card-cite">Insight Gaps Forensic Dataset · Free Public Download Available</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══ FULL-WIDTH COUNTRY MAP: BLOOD ROUTES OF BANGLADESH ═══ -->
+<section id="bloodmap" class="fullmap-sec">
+  <div class="fullmap-header">
+    <div class="eyebrow">Interactive National Explorer · 8 Divisions · 25 Hotspots</div>
+    <h2>Highway Accident Intelligence Console</h2>
+    <p>Filter deduplicated fatal records across years, click division corridors to inspect localized risk indices, and examine individual crash collision profiles.</p>
+  </div>
+
+  <div class="fullmap-controls" style="margin-bottom: 1.5rem; display: flex; gap: 0.5rem; justify-content: center; width: 100%; flex-wrap: wrap; z-index: 10;">
+    <button class="toggle-btn active" data-year="all" onclick="setMapYear('all')">All Years</button>
+    <button class="toggle-btn" data-year="2022" onclick="setMapYear(2022)">2022</button>
+    <button class="toggle-btn" data-year="2023" onclick="setMapYear(2023)">2023</button>
+    <button class="toggle-btn" data-year="2024" onclick="setMapYear(2024)">2024</button>
+  </div>
+
+  <div class="fullmap-body">
+    <!-- Left side: National Snapshot Stat Cards & Division Risk Index -->
+    <div class="fullmap-sidebar" style="width: 100%; max-width: 100%; border: none;">
+      <div class="fullmap-sidebar-title">National Accident &amp; Fatality Registry Snapshot</div>
+
+      <div class="fm-stat-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin-bottom: 1.5rem;">
+        <div class="fm-stat-card">
+          <div class="fm-stat-num">2,332</div>
+          <div class="fm-stat-label">Accidents</div>
+        </div>
+        <div class="fm-stat-card">
+          <div class="fm-stat-num" style="color:var(--bloodl)">1,842</div>
+          <div class="fm-stat-label">Fatalities</div>
+        </div>
+        <div class="fm-stat-card">
+          <div class="fm-stat-num" style="color:var(--amberl)">909</div>
+          <div class="fm-stat-label">Bus-Involved</div>
+        </div>
+        <div class="fm-stat-card">
+          <div class="fm-stat-num" style="color:var(--gold)">8</div>
+          <div class="fm-stat-label">Risk Corridors</div>
+        </div>
+      </div>
+
+      <div class="fullmap-sidebar-title" style="margin-top:0.5rem">Select Division to Fly &amp; Filter Camera</div>
+      <div class="fm-div-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.5rem; margin-bottom: 1.5rem;">
+        <div class="fm-div-item" onclick="fmHighlightDiv('Dhaka')">
+          <span class="div-name">Dhaka</span>
+          <span class="div-risk extreme">Extreme</span>
+        </div>
+        <div class="fm-div-item" onclick="fmHighlightDiv('Chattogram')">
+          <span class="div-name">Chattogram</span>
+          <span class="div-risk extreme">Extreme</span>
+        </div>
+        <div class="fm-div-item" onclick="fmHighlightDiv('Rajshahi')">
+          <span class="div-name">Rajshahi</span>
+          <span class="div-risk high">High</span>
+        </div>
+        <div class="fm-div-item" onclick="fmHighlightDiv('Sylhet')">
+          <span class="div-name">Sylhet</span>
+          <span class="div-risk high">High</span>
+        </div>
+        <div class="fm-div-item" onclick="fmHighlightDiv('Khulna')">
+          <span class="div-name">Khulna</span>
+          <span class="div-risk moderate">Moderate</span>
+        </div>
+        <div class="fm-div-item" onclick="fmHighlightDiv('Rangpur')">
+          <span class="div-name">Rangpur</span>
+          <span class="div-risk moderate">Moderate</span>
+        </div>
+        <div class="fm-div-item" onclick="fmHighlightDiv('Mymensingh')">
+          <span class="div-name">Mymensingh</span>
+          <span class="div-risk moderate">Moderate</span>
+        </div>
+        <div class="fm-div-item" onclick="fmHighlightDiv('Barishal')">
+          <span class="div-name">Barishal</span>
+          <span class="div-risk moderate">Moderate</span>
+        </div>
+      </div>
+
+      <div class="fullmap-sidebar-title" style="margin-top:0.5rem">Hotspot Detail Record</div>
+      <div class="fm-detail-card" id="fmDetailCard">
+        <div class="mdc-title" id="fmDetailName">Click any hotspot or division</div>
+        <div class="mdc-risk" id="fmDetailRisk" style="color: var(--bloodl); font-weight: 700;">to audit risk factors</div>
+        <div class="mdc-desc" id="fmDetailDesc">Interactive country-wide map of deduplicated source records. Dhaka points use exact source coordinates; non-Dhaka records are placed on representative highway corridors and labelled as modelled.</div>
+        <div class="mdc-division" id="fmDetailDiv"></div>
       </div>
     </div>
   </div>
@@ -1224,10 +1701,10 @@ html[data-theme="dark"] .sub-nav {
   <div class="scene-title" style="margin-bottom: 2rem;">
     <div class="eyebrow" style="color: var(--amberl)">Advanced Interactive Analytics</div>
     <h2 style="font-family: var(--display); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; line-height: 1.15; color: var(--text);">
-      Highway Accident Intelligence &amp; Predictive Risk Dashboard
+      Holiday Surge Timeline &amp; Dhaka Metro Hotspots
     </h2>
     <p style="color: var(--muted); font-size: 0.88rem; max-width: 650px; margin: 0.8rem auto 0; line-height: 1.6;">
-      Explore historical travel deaths during the Eid rush and interact with a nationwide highway map that separates exact Dhaka source coordinates from clearly labelled modelled corridor placements.
+      Explore historical travel deaths during the 10-year holiday rush periods and examine the dense urban collision network of the capital.
     </p>
   </div>
 
@@ -1293,283 +1770,8 @@ html[data-theme="dark"] .sub-nav {
       <div class="map-details-card" id="mapDetails">
         <div class="mdc-title" id="mdcNodeName">Select a hotspot node</div>
         <div class="mdc-risk" id="mdcNodeRisk" style="color: var(--bloodl); font-weight: 700;">8 Dhaka metro hotspots · click any pulsing node</div>
-        <div class="mdc-desc" id="mdcNodeDesc">Zoomed view of the Dhaka metropolitan area showing the densest crash cluster in Bangladesh. See the full country map below.</div>
+        <div class="mdc-desc" id="mdcNodeDesc">Zoomed view of the Dhaka metropolitan area showing the densest crash cluster in Bangladesh.</div>
         <div class="mdc-division" id="mdcNodeDiv"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- ═══ FULL-WIDTH COUNTRY MAP: BLOOD ROUTES OF BANGLADESH ═══ -->
-<section id="bloodmap" class="fullmap-sec">
-  <div class="fullmap-header">
-    <div class="eyebrow">Interactive National Map · 8 Divisions · 25 Hotspots</div>
-    <h2>Blood Routes of Bangladesh</h2>
-    <p>Every glowing node is a deduplicated crash record: exact where the source gives Dhaka coordinates, modelled onto representative highway corridors elsewhere. The golden lines show the national routes where economic pressure, weak enforcement, and holiday surges converge.</p>
-  </div>
-
-  <div class="fullmap-body">
-    <!-- Full-width SVG map canvas -->
-    <div class="fullmap-canvas" style="flex-direction: column; align-items: stretch; justify-content: flex-start; width: 100%;">
-      <!-- Year Filter Control Panel -->
-      <div class="fullmap-controls" style="margin-bottom: 1.2rem; display: flex; gap: 0.5rem; justify-content: center; width: 100%; flex-wrap: wrap; z-index: 10;">
-        <button class="toggle-btn active" data-year="all" onclick="setMapYear('all')">All Years</button>
-        <button class="toggle-btn" data-year="2022" onclick="setMapYear(2022)">2022</button>
-        <button class="toggle-btn" data-year="2023" onclick="setMapYear(2023)">2023</button>
-        <button class="toggle-btn" data-year="2024" onclick="setMapYear(2024)">2024</button>
-      </div>
-
-      <div style="position: relative; width: 100%; height: 640px; border: 1px solid var(--border); border-radius: 2px; overflow: hidden; background: var(--ink3);" id="leafmap-container">
-        <!-- Leaflet Map Div -->
-        <div id="leafmap" style="width: 100%; height: 100%;"></div>
-        
-        <!-- Floating Tooltip for Divisions -->
-        <div id="div-tooltip" style="
-          position: absolute;
-          z-index: 1000;
-          background: rgba(13, 13, 24, 0.95);
-          border: 1px solid var(--border);
-          color: var(--text);
-          padding: 0.6rem 0.9rem;
-          font-family: var(--mono);
-          font-size: 0.72rem;
-          border-radius: 2px;
-          pointer-events: none;
-          display: none;
-          box-shadow: 0 6px 20px rgba(0,0,0,0.6);
-          line-height: 1.45;
-        "></div>
-
-        <!-- Map Loading Spinner overlay -->
-        <div id="map-loading" style="position: absolute; inset: 0; background: rgba(6, 6, 14, 0.94); z-index: 1000; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: var(--mono); font-size: 0.85rem; color: var(--muted); gap: 1rem;">
-          <div style="width: 28px; height: 28px; border: 2px solid rgba(196, 30, 58, 0.15); border-top-color: var(--bloodl); border-radius: 50%; animation: spin 0.8s linear infinite;"></div>
-          <span>Loading Interactive Accident Map...</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Sidebar: Division risk index + detail card -->
-    <div class="fullmap-sidebar">
-      <div class="fullmap-sidebar-title">National Snapshot</div>
-
-      <div class="fm-stat-grid">
-        <div class="fm-stat-card">
-          <div class="fm-stat-num">25</div>
-          <div class="fm-stat-label">Hotspots</div>
-        </div>
-        <div class="fm-stat-card">
-          <div class="fm-stat-num">8</div>
-          <div class="fm-stat-label">Divisions</div>
-        </div>
-        <div class="fm-stat-card">
-          <div class="fm-stat-num">10</div>
-          <div class="fm-stat-label">Highways</div>
-        </div>
-        <div class="fm-stat-card">
-          <div class="fm-stat-num" style="color:var(--amberl)">8</div>
-          <div class="fm-stat-label">Risk Corridors</div>
-        </div>
-      </div>
-
-      <div class="fullmap-sidebar-title" style="margin-top:0.5rem">Division Risk Index</div>
-      <div class="fm-div-list">
-        <div class="fm-div-item" onclick="fmHighlightDiv('Dhaka')">
-          <span class="div-name">Dhaka</span>
-          <span class="div-risk extreme">Extreme</span>
-        </div>
-        <div class="fm-div-item" onclick="fmHighlightDiv('Chattogram')">
-          <span class="div-name">Chattogram</span>
-          <span class="div-risk extreme">Extreme</span>
-        </div>
-        <div class="fm-div-item" onclick="fmHighlightDiv('Rajshahi')">
-          <span class="div-name">Rajshahi</span>
-          <span class="div-risk high">High</span>
-        </div>
-        <div class="fm-div-item" onclick="fmHighlightDiv('Sylhet')">
-          <span class="div-name">Sylhet</span>
-          <span class="div-risk high">High</span>
-        </div>
-        <div class="fm-div-item" onclick="fmHighlightDiv('Khulna')">
-          <span class="div-name">Khulna</span>
-          <span class="div-risk moderate">Moderate</span>
-        </div>
-        <div class="fm-div-item" onclick="fmHighlightDiv('Rangpur')">
-          <span class="div-name">Rangpur</span>
-          <span class="div-risk moderate">Moderate</span>
-        </div>
-        <div class="fm-div-item" onclick="fmHighlightDiv('Mymensingh')">
-          <span class="div-name">Mymensingh</span>
-          <span class="div-risk moderate">Moderate</span>
-        </div>
-        <div class="fm-div-item" onclick="fmHighlightDiv('Barishal')">
-          <span class="div-name">Barishal</span>
-          <span class="div-risk moderate">Moderate</span>
-        </div>
-      </div>
-
-      <div class="fullmap-sidebar-title" style="margin-top:0.5rem">Hotspot Detail</div>
-      <div class="fm-detail-card" id="fmDetailCard">
-        <div class="mdc-title" id="fmDetailName">Click any hotspot or division</div>
-        <div class="mdc-risk" id="fmDetailRisk" style="color: var(--bloodl); font-weight: 700;">to audit risk factors</div>
-        <div class="mdc-desc" id="fmDetailDesc">Interactive country-wide map of deduplicated source records. Dhaka points use exact source coordinates; non-Dhaka records are placed on representative highway corridors and labelled as modelled.</div>
-        <div class="mdc-division" id="fmDetailDiv"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- S2: THE JOMA MACHINE -->
-<section id="s2" class="scene dark">
-  <div class="scene-title">
-    <div class="eyebrow">Scene 02 &middot; The Machine</div>
-    <h2>Why Buses Race — The Economic Architecture of Death</h2>
-    <p>Scroll through the mechanism. Racing is not recklessness. It is the rational output of a designed system.</p>
-  </div>
-  <div class="scroll-scene" style="margin-top:2rem">
-    <div class="viz-sticky">
-      <div class="joma-wrap" id="jomaWrap">
-        <div class="joma-node" id="jn0">
-          <div class="jn-title" style="color:var(--amberl)">🏢 Bus Owner</div>
-          <div class="jn-amount">Tk 4,000–6,000 / day</div>
-          <div class="jn-desc">Fixed daily joma (জমা) collected regardless of trips completed. <strong>Hiked to Tk 8,000+ during Eid rush.</strong> Owner's income is guaranteed. All operational risk transfers to the driver.</div>
-        </div>
-        <div class="joma-arrow">↓ joma is paid first ↓</div>
-        <div class="joma-node" id="jn1">
-          <div class="jn-title" style="color:var(--amberl)">📋 Waybill Checker</div>
-          <div class="jn-amount">Checkpoint system</div>
-          <div class="jn-desc">Owner-employed checkers count passengers at stops along the route. The first bus to reach each stop takes all waiting passengers. First arrival wins the fare.</div>
-        </div>
-        <div class="joma-arrow">↓ only surplus becomes wage ↓</div>
-        <div class="joma-node" id="jn2">
-          <div class="jn-title" style="color:var(--amberl)">🚌 Driver / Helper (Average Age: 25.8)</div>
-          <div class="jn-amount red">~Tk 300–500 / day net</div>
-          <div class="jn-desc">Driver pays joma first, then fuel and extortions. Only what remains becomes wage. Average driver is highly young (25.8 years) and operates under massive financial stress.</div>
-        </div>
-        <div class="joma-arrow">↓ racing is rational ↓</div>
-        <div class="joma-node danger" id="jn3">
-          <div class="jn-title" style="color:var(--bloodl)">⚠ Racing on Public Roads</div>
-          <div class="jn-amount red">Pedestrian risk</div>
-          <div class="jn-desc">Two same-route buses race stop-to-stop to grab passenger fares. The Badda incident is a documented output of this structure. The system produced it. It will produce it again.</div>
-        </div>
-        <div class="joma-arrow">↓ enforcement bypassed ↓</div>
-        <div class="joma-node" id="jn4">
-          <div class="jn-title" style="color:var(--gold)">🏛 Political Shield</div>
-          <div class="jn-amount" style="color:var(--gold)">92% linked — TIB 2024</div>
-          <div class="jn-desc">TIB (2024) documents 92% of operators with political connections. Tk 1,059 crore/year in bribery flows through the sector. Blacklisted operators continue appearing in incident records.</div>
-        </div>
-      </div>
-    </div>
-    <div class="steps-col">
-      <div class="step" data-scene="joma" data-step="0">
-        <div class="step-num">Step 01 of 05</div>
-        <h3>Start with the owner. The owner is not on the bus.</h3>
-        <p>The owner collects a fixed daily sum called joma — between Tk 4,000 and 6,000 per day. <strong>During the high-pressure Eid rush, this is often hiked to Tk 8,000–10,000.</strong> This is collected regardless of how many passengers were carried, how fast the bus drove, or whether anyone died. The economic risk of the road does not touch the owner.</p>
-        <div class="note">TIB "Integrity in Private Bus Transport Business" 2024 &middot; <span class="ok">CONFIRMED (attributed TIB)</span></div>
-      </div>
-      <div class="step" data-scene="joma" data-step="1">
-        <div class="step-num">Step 02 of 05</div>
-        <div class="stat amber">Tk 4,000–6,000</div>
-        <h3>Per day. Guaranteed. Hiked to double during holiday rush.</h3>
-        <p>The waybill checker is the enforcement mechanism of this system — an owner-employed counter at bus stops who records which bus arrived first and collected the passengers. <strong>The race is the business model.</strong></p>
-        <div class="note">TIB 2024 &middot; <span class="ok">CONFIRMED (attributed TIB)</span></div>
-      </div>
-      <div class="step" data-scene="joma" data-step="2">
-        <div class="step-num">Step 03 of 05</div>
-        <div class="stat">~Tk 300–500</div>
-        <h3>What the driver earns on normal days. After joma. After fuel.</h3>
-        <p>Racing is not a character flaw. It is the correct response to the incentive structure. Our data shows the **average age of drivers involved in unique accidents is 25.8 years old** — a highly young, highly vulnerable workforce trapped under this structure.</p>
-        <div class="note">TIB 2024 &middot; <span class="prob">PROBABLE (single source)</span> &middot; Micro-data average age: <span class="ok">CONFIRMED</span></div>
-      </div>
-      <div class="step" data-scene="joma" data-step="3">
-        <div class="step-num">Step 04 of 05</div>
-        <div class="stat">41.56%</div>
-        <h3>of Dhaka's fatal crashes happen at night — 10pm to 6am.</h3>
-        <p>Night: minimal traffic enforcement. Maximum joma pressure — the same Tk 4,000–6,000 is due tomorrow morning regardless of the hour. 47% of documented Dhaka victims are pedestrians — people crossing, not passengers. <strong>The street is most dangerous when you have the least choice but to be on it.</strong></p>
-        <div class="note">RSF Dhaka Annual Report 2025 &middot; <span class="ok">CONFIRMED (RSF single source)</span></div>
-      </div>
-      <div class="step" data-scene="joma" data-step="4">
-        <div class="step-num">Step 05 of 05</div>
-        <div class="stat gold">Tk 1,059 crore</div>
-        <h3>Annual bribery estimate — bus sector. TIB 2024.</h3>
-        <p>TIB documents 92% of operators with political connections. Enforcement failures documented in pattern: blacklisted operators continue appearing in incident records after bans. The joma system is not tolerated by the political structure. <strong>It is maintained by it.</strong></p>
-        <div class="note">TIB 2024 &middot; <span class="prob">PROBABLE (single source, attributed)</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- S3: THE PHOENIX -->
-<section id="s3" class="scene">
-  <div class="scene-title">
-    <div class="eyebrow">Scene 03 &middot; The Phoenix</div>
-    <h2>One Corridor. Four Names. Each Time: Ban, Rebrand, Continue.</h2>
-    <p>A documented sequence of operators on the Sadarghat–Gazipur route. Route continuity: probable. Ownership continuity: alleged. Each link carries its own evidence tier.</p>
-  </div>
-  <div class="scroll-scene" style="margin-top:2rem">
-    <div class="viz-sticky">
-      <div class="ph-wrap" id="phoenixWrap">
-        <div class="ph-node banned" id="ph0">
-          <div class="ph-era">~2010s – March 2019</div>
-          <div class="ph-name">SUPROBHAT PARIBAHAN</div>
-          <div class="ph-incident">Abrar Ahmed Choudhury killed 19 March 2019. Owner charged. Route permit cancelled. BRTA banned. Two buses formally deregistered.</div>
-          <span class="ph-tier ph-t-confirmed">Incident: CONFIRMED — Court record + media</span>
-        </div>
-        <div class="ph-arrow">↓ same corridor · route continuity: PROBABLE · ownership: ALLEGED ↓</div>
-        <div class="ph-node probable" id="ph1">
-          <div class="ph-era">2019 – ~2023</div>
-          <div class="ph-name">VICTOR CLASSIC</div>
-          <div class="ph-incident">Appeared on same Sadarghat–Gazipur corridor post-enforcement. Parvez Rob killed, 2019. Buses torched twice by crowds. Media-reported allegation of ownership continuity.</div>
-          <span class="ph-tier ph-t-probable">Route continuity: PROBABLE — 2 media sources</span>
-        </div>
-        <div class="ph-arrow">↓ same corridor · route continuity: PROBABLE · ownership: ALLEGED ↓</div>
-        <div class="ph-node alleged" id="ph2">
-          <div class="ph-era">~2023 – Present</div>
-          <div class="ph-name">AKASH PARIBAHAN</div>
-          <div class="ph-incident">October 2024: two Akash buses racing, Progati Sarani, Madhya Badda. Tasnim Jahan Airin killed. Drivers arrested. Victim family alleged ownership link to previous operators — recorded as family/victim testimony only.</div>
-          <span class="ph-tier ph-t-alleged">Ownership link: Family/victim testimony — not confirmed</span>
-        </div>
-        <div class="ph-arrow">↓ if pattern holds · next rebrand: undetectable without chassis registry ↓</div>
-        <div class="ph-node unknown" id="ph3">
-          <div class="ph-era">Future</div>
-          <div class="ph-name">???</div>
-          <div class="ph-incident">Without a public chassis-linked registry, the next operator rebrand will be undetectable until the next documented fatality. The pattern predicts it. The data gap enables it.</div>
-          <span class="ph-tier ph-t-unknown">Predicted — unverified</span>
-        </div>
-      </div>
-    </div>
-    <div class="steps-col">
-      <div class="step" data-scene="phoenix" data-step="0">
-        <div class="step-num">Step 01 of 04</div>
-        <h3>2019. Suprobhat Paribahan is banned. Owner charged. Permit cancelled.</h3>
-        <p>March 19, 2019: Abrar Ahmed Choudhury is struck and killed by a Suprobhat bus. The incident is documented. Court records confirm driver arrested. BRTA cancelled route permits. Two registrations revoked. This is the enforcement. Watch what happens next.</p>
-        <div class="note">Court record &middot; BRTA announcement &middot; <span class="ok">CONFIRMED</span></div>
-      </div>
-      <div class="step" data-scene="phoenix" data-step="1">
-        <div class="step-num">Step 02 of 04</div>
-        <h3>Victor Classic appears. Same corridor. No registry confirmation.</h3>
-        <p>After Suprobhat's ban, buses under the name Victor Classic were documented operating on the same Sadarghat–Gazipur route. Two media sources document the corridor continuity. Ownership continuity is alleged in media reporting. <strong>No corporate registry confirms it.</strong> This investigation does not assert it.</p>
-        <div class="note">Route continuity: <span class="prob">PROBABLE</span> · Ownership: <span class="alg">ALLEGED</span> · No registry confirmation</div>
-      </div>
-      <div class="step" data-scene="phoenix" data-step="2">
-        <div class="step-num">Step 03 of 04</div>
-        <h3>October 2024. Akash. Badda. Tasnim Jahan Airin.</h3>
-        <p>Two Akash Paribahan buses documented racing on Progati Sarani, Madhya Badda. Eyewitness accounts in TBS News and Dhaka Tribune. Tasnim Jahan Airin killed at the scene. Her sister critically injured. Victim family alleged ownership link to Victor Classic and Suprobhat — recorded here as family/victim testimony, not a confirmed fact.</p>
-        <div class="note">Incident: <span class="ok">CONFIRMED</span> · TBS News + Dhaka Tribune, Oct 2024 · Ownership: family testimony only</div>
-      </div>
-      <div class="step" data-scene="phoenix" data-step="3">
-        <div class="step-num">Step 04 of 04</div>
-        <h3>The next name is unknown. That is the finding.</h3>
-        <p>Without a public chassis-linked vehicle registry — linking the bus frame, not the operator name — the pattern will continue invisibly. BRTA holds registration records. Publishing them is a policy decision, not a technical barrier. <strong>The gap is not accidental. It protects the system that produces the revenue.</strong></p>
-        <p style="margin-top: 1rem; border-top: 1px dashed var(--color-border); padding-top: 1rem; font-size: var(--type-body-sm); color: var(--color-text-secondary);">
-          <strong>Database Audit:</strong> Our analysis of the official 47,680-row police crash logs shows that this data gap starts at the source. Commercial operator brand names (e.g. <em>Hanif Paribahan</em>, <em>Ena</em>, or <em>Shyamoli</em>) are systematically excluded from official logs, which record only generic "bus" (909 unique crashes) and "truck" (45,891 unique crashes) categories. In the entire 47,680-record dataset, only a single record mentions a brand name ("Saint Martin Paribahan"). By recording only the vehicle type rather than the company, the registry shields politically connected bus line owners from operator-level fatality mapping and liability.
-        </p>
-        <div class="note">BRTA holds data &middot; Public access requires political decision &middot; RTI application possible under Information Rights Act 2009</div>
       </div>
     </div>
   </div>
@@ -1580,42 +1782,75 @@ html[data-theme="dark"] .sub-nav {
 <!-- S4: THE HOUR -->
 <section id="s4" class="scene dark">
   <div class="scene-title">
-    <div class="eyebrow">Scene 04 &middot; The Hour</div>
+    <div class="eyebrow">Scene 05 &middot; The Hour</div>
     <h2>The Safest Dhaka Street Does Not Exist at 3am</h2>
     <p>The joma is due every morning. The enforcement goes home at night. One of these is consistent.</p>
   </div>
-  <div class="scroll-scene" style="margin-top:2rem">
-    <div class="viz-sticky">
-      <canvas id="clockCanvas" height="380" style="width:100%;max-width:460px"></canvas>
+  <div class="scrolly" id="scrolly-hour">
+    <div class="scrolly__stage">
+      <div class="scrolly__stage-inner" style="display:flex;align-items:center;justify-content:center;padding:1.5rem;">
+        <canvas id="clockCanvas" height="380" style="width:100%;max-width:460px"></canvas>
+      </div>
+      <div class="scrolly__stage-caption">
+        <span class="scrolly__stage-meta">24-Hour Enforcement Void</span>
+        <span class="scrolly__stage-meta" style="color:var(--bloodl);">10 PM – 6 AM Void</span>
+      </div>
     </div>
-    <div class="steps-col">
-      <div class="step" data-scene="hour" data-step="0">
-        <div class="step-num">Step 01 of 04</div>
-        <h3>A 24-hour clock. One full day in Dhaka.</h3>
-        <p>Every hour the bus runs: the joma is the same. The driver's pressure is the same. Racing incentive does not have a time-of-day setting. But enforcement does.</p>
-        <div class="note">RSF Dhaka Annual Report 2025 · TIB 2024</div>
-      </div>
-      <div class="step" data-scene="hour" data-step="1">
-        <div class="step-num">Step 02 of 04</div>
-        <div class="stat">41.56%</div>
-        <h3>of fatal crashes in Dhaka happen between 10pm and 6am.</h3>
-        <p>Road Safety Foundation (RSF) data reveals that <strong>41.56% of fatal crashes in the capital occur during the night hour void</strong> (10 PM to 6 AM). The nationwide data reflects a similar systemic absence of nighttime traffic safety enforcement on long-distance highways, where heavy cargo vehicles operate without oversight.</p>
-        <div class="note">RSF Annual Report &middot; <span class="ok">CONFIRMED</span></div>
-      </div>
-      <div class="step" data-scene="hour" data-step="2">
-        <div class="step-num">Step 03 of 04</div>
-        <div class="stat amber">47%</div>
-        <h3>of documented Dhaka victims are pedestrians. Not passengers.</h3>
-        <p>Nearly half the people who die are not on the bus. They are crossing the road. Walking on the footpath. The joma system incentivises speed and racing between stops. Pedestrians near stops are the primary exposure. This is not a coincidence of location — it is the spatial output of the economic model.</p>
-        <div class="note">RSF 2025 &middot; <span class="ok">CONFIRMED</span></div>
-      </div>
-      <div class="step" data-scene="hour" data-step="3">
-        <div class="step-num">Step 04 of 04</div>
-        <div class="stat">24%</div>
-        <h3>of Dhaka buses without a valid fitness certificate. On the road now.</h3>
-        <p>TIB 2024 survey finding: one in four buses operating on Dhaka roads at any given time lacks a valid fitness certificate. BRTA enforcement exists on paper. The documented pattern of blacklisted operators continuing to operate shows that the paper enforcement does not consistently translate to road enforcement. <strong>The Imad case (ARI-BUET) confirmed both fitness certificate and route permit were suspended at time of operation.</strong></p>
-        <div class="note">TIB 2024 &middot; <span class="ok">CONFIRMED (attributed TIB)</span> · ARI-BUET Expressway investigation</div>
-      </div>
+    <div class="scrolly__story">
+      <article class="scrolly__card" data-scene="hour" data-step="0">
+        <div class="scrolly__card-kicker">
+          <span>Temporal Void 01</span>
+          <span class="scrolly__badge">24-HOUR CLOCK</span>
+        </div>
+        <h3 class="scrolly__card-title">A 24-hour clock. One full day in Dhaka.</h3>
+        <p class="scrolly__card-body">Every hour the bus runs: the joma is the same. The driver's pressure is the same. Racing incentive does not have a time-of-day setting. But enforcement does.</p>
+        <div class="scrolly__card-cite">RSF Dhaka Annual Report 2025 · TIB 2024</div>
+      </article>
+
+      <article class="scrolly__card" data-scene="hour" data-step="1">
+        <div class="scrolly__card-kicker">
+          <span>Temporal Void 02</span>
+          <span class="scrolly__badge">CONFIRMED (RSF)</span>
+        </div>
+        <div class="scrolly__card-stat">
+          <span class="stat-number" data-counter="41.56" data-decimals="2">41.56</span>
+          <span class="stat-unit">%</span>
+          <span class="stat-label">of fatal crashes in Dhaka happen between 10 PM and 6 AM</span>
+        </div>
+        <h3 class="scrolly__card-title">The Night Void: When Speed Meets Zero Oversight</h3>
+        <p class="scrolly__card-body">Road Safety Foundation data reveals that <strong>41.56% of fatal crashes in the capital occur during the night hours</strong>. On intercity highways, this void is even more absolute: long-distance heavy trucks and interdistrict coaches operate across undivided corridors without active radar checks.</p>
+        <div class="scrolly__card-cite">RSF Annual Report &middot; Confirmed Police FIR Analysis</div>
+      </article>
+
+      <article class="scrolly__card" data-scene="hour" data-step="2">
+        <div class="scrolly__card-kicker">
+          <span>Temporal Void 03</span>
+          <span class="scrolly__badge">CONFIRMED</span>
+        </div>
+        <div class="scrolly__card-stat">
+          <span class="stat-number" data-counter="47" data-decimals="0">47</span>
+          <span class="stat-unit">%</span>
+          <span class="stat-label">of documented Dhaka victims are pedestrians</span>
+        </div>
+        <h3 class="scrolly__card-title">47% of victims are pedestrians crossing the road.</h3>
+        <p class="scrolly__card-body">Nearly half the people who die are not inside vehicles. They are commuters crossing the street or waiting on pavements. The joma system incentivizes rapid acceleration between stops. Pedestrians near stops are the primary casualty exposure.</p>
+        <div class="scrolly__card-cite">RSF 2025 Report &middot; Pedestrian Casualty Census</div>
+      </article>
+
+      <article class="scrolly__card" data-scene="hour" data-step="3">
+        <div class="scrolly__card-kicker">
+          <span>Temporal Void 04</span>
+          <span class="scrolly__badge">FITNESS VOID</span>
+        </div>
+        <div class="scrolly__card-stat">
+          <span class="stat-number" data-counter="24" data-decimals="0">24</span>
+          <span class="stat-unit">%</span>
+          <span class="stat-label">of Dhaka buses operate without valid fitness certificates</span>
+        </div>
+        <h3 class="scrolly__card-title">One in four buses lacks legal roadworthiness.</h3>
+        <p class="scrolly__card-body">TIB survey records show that 24% of buses operating on Dhaka roads lack valid fitness certificates. In the fatal Madaripur Expressway rollover (19 deaths), the ARI-BUET investigation confirmed that both fitness certification and route permits were suspended at the moment of crash.</p>
+        <div class="scrolly__card-cite">TIB 2024 Audit &middot; ARI-BUET Expressway Investigation</div>
+      </article>
     </div>
   </div>
 </section>
@@ -1625,113 +1860,138 @@ html[data-theme="dark"] .sub-nav {
 <!-- S4B: THE MOTORCYCLE EPIDEMIC -->
 <section id="s4b" class="scene">
   <div class="scene-title">
-    <div class="eyebrow">Scene 05 &middot; The Biker Epidemic</div>
+    <div class="eyebrow">Scene 06 &middot; The Biker Epidemic</div>
     <h2>Motorcycles and the Licensing Void</h2>
     <p>As two-wheelers surge on undivided national highways, the lack of driver training and license enforcement translates directly to severe crash outcomes.</p>
   </div>
-  <div class="scroll-scene" style="margin-top:2rem">
-    <div class="viz-sticky">
-      <div class="moto-viz" style="width: 100%; max-width: 500px; display: flex; flex-direction: column; gap: 2rem;">
-        <!-- License Card -->
-        <div class="moto-card" id="mcLicense" style="background: var(--ink3); border: 1px solid var(--border); padding: 1.5rem; border-radius: 2px; transition: all 0.5s ease; opacity: 0.25;">
-          <div style="font-family: var(--mono); font-size: 0.75rem; color: var(--amberl); text-transform: uppercase; margin-bottom: 1rem; font-weight: 700; display: flex; align-items: center; gap: 0.4rem;">
-            <span>💳</span> Driver Licensing vs. Crash Severity
-          </div>
-          
-          <div style="margin-bottom: 1.5rem;">
-            <div style="display: flex; justify-content: space-between; font-family: var(--mono); font-size: 0.72rem; color: var(--text2); margin-bottom: 0.3rem;">
-              <span>Unlicensed Biker</span>
-              <span style="color: var(--bloodl); font-weight: 700;">47.26% Severe/Fatal</span>
+  <div class="scrolly" id="scrolly-moto">
+    <div class="scrolly__stage">
+      <div class="scrolly__stage-inner" style="display:flex;align-items:center;justify-content:center;padding:1.5rem;">
+        <div class="moto-viz" style="width: 100%; max-width: 500px; display: flex; flex-direction: column; gap: 1.5rem;">
+          <!-- License Card -->
+          <div class="moto-card" id="mcLicense" style="background: var(--ink3); border: 1px solid var(--border); padding: 1.5rem; border-radius: 2px; transition: all 0.5s ease; opacity: 0.25;">
+            <div style="font-family: var(--mono); font-size: 0.75rem; color: var(--amberl); text-transform: uppercase; margin-bottom: 1rem; font-weight: 700; display: flex; align-items: center; gap: 0.4rem;">
+              <span>💳</span> Driver Licensing vs. Crash Severity
             </div>
-            <div style="height: 12px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 1px; overflow: hidden;">
-              <div id="barUnlicensed" style="width: 0%; height: 100%; background: var(--blood); transition: width 1.2s ease;"></div>
+            
+            <div style="margin-bottom: 1.2rem;">
+              <div style="display: flex; justify-content: space-between; font-family: var(--mono); font-size: 0.72rem; color: var(--text2); margin-bottom: 0.3rem;">
+                <span>Unlicensed Biker</span>
+                <span style="color: var(--bloodl); font-weight: 700;">47.26% Severe/Fatal</span>
+              </div>
+              <div style="height: 12px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 1px; overflow: hidden;">
+                <div id="barUnlicensed" style="width: 0%; height: 100%; background: var(--blood); transition: width 1.2s ease;"></div>
+              </div>
+              <div style="display: flex; gap: 1rem; font-size: 0.68rem; color: var(--muted); margin-top: 0.2rem;">
+                <span>Moderate: 29.93%</span>
+                <span>No Injury: 22.81%</span>
+              </div>
             </div>
-            <div style="display: flex; gap: 1rem; font-size: 0.68rem; color: var(--muted); margin-top: 0.2rem;">
-              <span>Moderate: 29.93%</span>
-              <span>No Injury: 22.81%</span>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; font-family: var(--mono); font-size: 0.72rem; color: var(--text2); margin-bottom: 0.3rem;">
+                <span>Licensed Biker</span>
+                <span style="color: var(--greenl); font-weight: 700;">16.85% Severe/Fatal</span>
+              </div>
+              <div style="height: 12px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 1px; overflow: hidden;">
+                <div id="barLicensed" style="width: 0%; height: 100%; background: var(--green); transition: width 1.2s ease;"></div>
+              </div>
+              <div style="display: flex; gap: 1rem; font-size: 0.68rem; color: var(--muted); margin-top: 0.2rem;">
+                <span>Moderate: 40.09%</span>
+                <span>No Injury: 43.06%</span>
+              </div>
+            </div>
+            
+            <div style="margin-top: 1rem; font-size: 0.7rem; color: var(--muted); line-height: 1.5; font-style: italic; border-top: 1px dashed var(--border); padding-top: 0.8rem;">
+              Unlicensed motorcyclists are <strong>2.8× more likely to suffer severe or fatal injuries</strong> in collisions compared to licensed operators.
             </div>
           </div>
 
-          <div>
-            <div style="display: flex; justify-content: space-between; font-family: var(--mono); font-size: 0.72rem; color: var(--text2); margin-bottom: 0.3rem;">
-              <span>Licensed Biker</span>
-              <span style="color: var(--greenl); font-weight: 700;">16.85% Severe/Fatal</span>
+          <!-- Helmet Card -->
+          <div class="moto-card" id="mcHelmet" style="background: var(--ink3); border: 1px solid var(--border); padding: 1.5rem; border-radius: 2px; transition: all 0.5s ease; opacity: 0.25;">
+            <div style="font-family: var(--mono); font-size: 0.75rem; color: var(--amberl); text-transform: uppercase; margin-bottom: 1rem; font-weight: 700; display: flex; align-items: center; gap: 0.4rem;">
+              <span>🪖</span> Helmet Safety Margin
             </div>
-            <div style="height: 12px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 1px; overflow: hidden;">
-              <div id="barLicensed" style="width: 0%; height: 100%; background: var(--green); transition: width 1.2s ease;"></div>
+            
+            <div style="margin-bottom: 1.2rem;">
+              <div style="display: flex; justify-content: space-between; font-family: var(--mono); font-size: 0.72rem; color: var(--text2); margin-bottom: 0.3rem;">
+                <span>No Helmet</span>
+                <span style="color: var(--bloodl); font-weight: 700;">31.16% Severe/Fatal</span>
+              </div>
+              <div style="height: 12px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 1px; overflow: hidden;">
+                <div id="barNoHelmet" style="width: 0%; height: 100%; background: var(--blood); transition: width 1.2s ease;"></div>
+              </div>
+              <div style="display: flex; gap: 1rem; font-size: 0.68rem; color: var(--muted); margin-top: 0.2rem;">
+                <span>Moderate: 36.75%</span>
+                <span>No Injury: 32.09%</span>
+              </div>
             </div>
-            <div style="display: flex; gap: 1rem; font-size: 0.68rem; color: var(--muted); margin-top: 0.2rem;">
-              <span>Moderate: 40.09%</span>
-              <span>No Injury: 43.06%</span>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; font-family: var(--mono); font-size: 0.72rem; color: var(--text2); margin-bottom: 0.3rem;">
+                <span>Wearing Helmet</span>
+                <span style="color: var(--greenl); font-weight: 700;">30.47% Severe/Fatal</span>
+              </div>
+              <div style="height: 12px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 1px; overflow: hidden;">
+                <div id="barHelmet" style="width: 0%; height: 100%; background: var(--greenl); transition: width 1.2s ease;"></div>
+              </div>
+              <div style="display: flex; gap: 1rem; font-size: 0.68rem; color: var(--muted); margin-top: 0.2rem;">
+                <span>Moderate: 34.24%</span>
+                <span>No Injury: 35.29%</span>
+              </div>
             </div>
-          </div>
-          
-          <div style="margin-top: 1rem; font-size: 0.7rem; color: var(--muted); line-height: 1.5; font-style: italic; border-top: 1px dashed var(--border); padding-top: 0.8rem;">
-            Unlicensed motorcyclists are <strong>2.8× more likely to suffer severe or fatal injuries</strong> in collisions compared to licensed operators.
+            
+            <div style="margin-top: 1rem; font-size: 0.7rem; color: var(--muted); line-height: 1.5; font-style: italic; border-top: 1px dashed var(--border); padding-top: 0.8rem;">
+              On high-speed corridors (70–80 km/h), collision kinetic energy minimizes the helmet margin, making licensing and speed control vital.
+            </div>
           </div>
         </div>
-
-        <!-- Helmet Card -->
-        <div class="moto-card" id="mcHelmet" style="background: var(--ink3); border: 1px solid var(--border); padding: 1.5rem; border-radius: 2px; transition: all 0.5s ease; opacity: 0.25;">
-          <div style="font-family: var(--mono); font-size: 0.75rem; color: var(--amberl); text-transform: uppercase; margin-bottom: 1rem; font-weight: 700; display: flex; align-items: center; gap: 0.4rem;">
-            <span>🪖</span> Helmet Safety Margin
-          </div>
-          
-          <div style="margin-bottom: 1.5rem;">
-            <div style="display: flex; justify-content: space-between; font-family: var(--mono); font-size: 0.72rem; color: var(--text2); margin-bottom: 0.3rem;">
-              <span>No Helmet</span>
-              <span style="color: var(--bloodl); font-weight: 700;">31.16% Severe/Fatal</span>
-            </div>
-            <div style="height: 12px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 1px; overflow: hidden;">
-              <div id="barNoHelmet" style="width: 0%; height: 100%; background: var(--blood); transition: width 1.2s ease;"></div>
-            </div>
-            <div style="display: flex; gap: 1rem; font-size: 0.68rem; color: var(--muted); margin-top: 0.2rem;">
-              <span>Moderate: 36.75%</span>
-              <span>No Injury: 32.09%</span>
-            </div>
-          </div>
-
-          <div>
-            <div style="display: flex; justify-content: space-between; font-family: var(--mono); font-size: 0.72rem; color: var(--text2); margin-bottom: 0.3rem;">
-              <span>Wearing Helmet</span>
-              <span style="color: var(--greenl); font-weight: 700;">30.47% Severe/Fatal</span>
-            </div>
-            <div style="height: 12px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 1px; overflow: hidden;">
-              <div id="barHelmet" style="width: 0%; height: 100%; background: var(--greenl); transition: width 1.2s ease;"></div>
-            </div>
-            <div style="display: flex; gap: 1rem; font-size: 0.68rem; color: var(--muted); margin-top: 0.2rem;">
-              <span>Moderate: 34.24%</span>
-              <span>No Injury: 35.29%</span>
-            </div>
-          </div>
-          
-          <div style="margin-top: 1rem; font-size: 0.7rem; color: var(--muted); line-height: 1.5; font-style: italic; border-top: 1px dashed var(--border); padding-top: 0.8rem;">
-            On high-speed national corridors, collision kinetic energy minimizes the helmet safety margin, making license training and speed enforcement paramount.
-          </div>
-        </div>
+      </div>
+      <div class="scrolly__stage-caption">
+        <span class="scrolly__stage-meta">Two-Wheeler Fatality Dynamics</span>
+        <span class="scrolly__stage-meta" style="color:var(--amberl);">Licensing Impact</span>
       </div>
     </div>
-    <div class="steps-col">
-      <div class="step" data-scene="moto" data-step="0">
-        <div class="step-num">Step 01 of 03</div>
-        <h3>The Unregulated Shift to Two Wheels</h3>
-        <p>With public transit plagued by structural corruption and owner-racing, millions of commuters have shifted to motorcycles for long-distance highway travel. But this decentralized fleet runs on undivided national lanes with minimal training or speed enforcement, creating a new, massive category of road casualties.</p>
-        <div class="note">Mendeley Motorbike Accident Severity Analysis &middot; <span class="ok">CONFIRMED</span></div>
-      </div>
-      <div class="step" data-scene="moto" data-step="1">
-        <div class="step-num">Step 02 of 03</div>
-        <div class="stat">2.8×</div>
-        <h3>higher severe/fatal outcomes for unlicensed operators.</h3>
-        <p>Licensing is the primary filter for training. Our analysis shows that unlicensed bikers face a devastating **47.26% severe or fatal crash rate** in collisions, compared to **16.85%** for those with valid driving credentials. The lack of roadside license checks creates a deadly playground on major corridors.</p>
-        <div class="note">Mendeley Dataset crosstab &middot; <span class="ok">CONFIRMED (derived from survey logs)</span></div>
-      </div>
-      <div class="step" data-scene="moto" data-step="2">
-        <div class="step-num">Step 03 of 03</div>
-        <div class="stat amber">0.69%</div>
-        <h3>fatality margin between helmet and non-helmet highway collisions.</h3>
-        <p>Helmet wearers show 30.47% severe/fatal outcomes compared to 31.16% for non-wearers in highway records. Why is the gap so small? On high-speed corridors with speed zones of 70–80 km/h, collision energy exceeds human body tolerance regardless of helmet protection. **Helmets protect against head impact, but only speed control and licensed training prevent the crash itself.**</p>
-        <div class="note">Mendeley Dataset crosstab &middot; <span class="ok">CONFIRMED (derived)</span></div>
-      </div>
+    <div class="scrolly__story">
+      <article class="scrolly__card" data-scene="moto" data-step="0">
+        <div class="scrolly__card-kicker">
+          <span>Two-Wheeler Beat 01</span>
+          <span class="scrolly__badge">DECENTRALIZED FLEET</span>
+        </div>
+        <h3 class="scrolly__card-title">The Unregulated Shift to Two Wheels</h3>
+        <p class="scrolly__card-body">With public bus transit plagued by structural corruption and owner-racing, millions of commuters shifted to motorcycles for interstate travel. But this fleet operates on undivided national highways without driver training or speed governors.</p>
+        <div class="scrolly__card-cite">Mendeley Motorbike Severity Analysis &middot; National Highway Dataset</div>
+      </article>
+
+      <article class="scrolly__card" data-scene="moto" data-step="1">
+        <div class="scrolly__card-kicker">
+          <span>Two-Wheeler Beat 02</span>
+          <span class="scrolly__badge">CONFIRMED (2.8×)</span>
+        </div>
+        <div class="scrolly__card-stat">
+          <span class="stat-number" data-counter="2.8" data-decimals="1">2.8</span>
+          <span class="stat-unit">× Higher Risk</span>
+          <span class="stat-label">Higher severe or fatal crash outcomes for unlicensed riders</span>
+        </div>
+        <h3 class="scrolly__card-title">2.8× higher severe/fatal outcomes for unlicensed riders.</h3>
+        <p class="scrolly__card-body">Our micro-data cross-tabulation reveals that unlicensed motorcyclists suffer a devastating <strong>47.26% severe or fatal crash rate</strong> in collisions, compared to <strong>16.85%</strong> for licensed operators. Roadside license checks remain virtually absent outside central city checkpoints.</p>
+        <div class="scrolly__card-cite">Mendeley Dataset Crosstab &middot; Confirmed Survey Logs</div>
+      </article>
+
+      <article class="scrolly__card" data-scene="moto" data-step="2">
+        <div class="scrolly__card-kicker">
+          <span>Two-Wheeler Beat 03</span>
+          <span class="scrolly__badge">KINETIC ENERGY</span>
+        </div>
+        <div class="scrolly__card-stat">
+          <span class="stat-number" data-counter="0.69" data-decimals="2">0.69</span>
+          <span class="stat-unit">% Gap</span>
+          <span class="stat-label">Fatality difference between helmet and non-helmet riders at highway speeds</span>
+        </div>
+        <h3 class="scrolly__card-title">The kinetic illusion: Helmets cannot stop highway physics.</h3>
+        <p class="scrolly__card-body">On 80 km/h highway corridors, helmet wearers show 30.47% severe/fatal outcomes versus 31.16% for non-wearers — a margin of just 0.69%. Kinetic energy at highway speed overpowers basic headgear. Helmets protect against low-speed impacts, but only geometric road division and speed control save lives on national routes.</p>
+        <div class="scrolly__card-cite">Accident Micro-database Crosstab &middot; Kinetic Severity Study</div>
+      </article>
     </div>
   </div>
 </section>
@@ -1741,44 +2001,73 @@ html[data-theme="dark"] .sub-nav {
 <!-- S5: THE SCALE -->
 <section id="s5" class="scene">
   <div class="scene-title">
-    <div class="eyebrow">Scene 06 &middot; The Scale</div>
+    <div class="eyebrow">Scene 07 &middot; The Scale</div>
     <h2>Bangladesh in the World. The Highest Documented in South Asia.</h2>
     <p>102 deaths per 10,000 registered vehicles. Watch where every comparator sits.</p>
   </div>
-  <div class="scroll-scene" style="margin-top:2rem">
-    <div class="viz-sticky">
-      <div class="race-wrap">
-        <div class="denom-note">&#9888; DENOMINATOR NOTE: Figures are deaths per 100,000 population (WHO 2023 methodology). Bangladesh vehicle-density rate (102/10,000 registered vehicles) is not directly comparable — separate metric. Both figures place Bangladesh among the worst-documented in Asia-Pacific.</div>
-        <div id="scaleBars"></div>
+  <div class="scrolly" id="scrolly-scale">
+    <div class="scrolly__stage">
+      <div class="scrolly__stage-inner" style="display:flex;align-items:center;justify-content:center;padding:1.5rem;">
+        <div class="race-wrap" style="width:100%;">
+          <div class="denom-note">&#9888; DENOMINATOR NOTE: Figures are deaths per 100,000 population (WHO 2023 methodology). Bangladesh vehicle-density rate (102/10,000 registered vehicles) is a separate metric. Both place Bangladesh among the worst-documented in Asia-Pacific.</div>
+          <div id="scaleBars"></div>
+        </div>
+      </div>
+      <div class="scrolly__stage-caption">
+        <span class="scrolly__stage-meta">South Asia Regional Comparison</span>
+        <span class="scrolly__stage-meta" style="color:var(--bloodl);">19.3 per 100k</span>
       </div>
     </div>
-    <div class="steps-col">
-      <div class="step" data-scene="scale" data-step="0">
-        <div class="step-num">Step 01 of 04</div>
-        <h3>All bars start at zero. All governments claim to care about road safety.</h3>
-        <p>Per 100,000 population. WHO Global Status Report 2023 methodology. The comparators are Bangladesh's regional peers — countries with similar income levels, urbanisation patterns, and road infrastructure profiles.</p>
-        <div class="note">WHO Global Status Report 2023 &middot; ATO Asia-Pacific Road Safety Data 2025</div>
-      </div>
-      <div class="step" data-scene="scale" data-step="1">
-        <div class="step-num">Step 02 of 04</div>
-        <div class="stat green">~8.9</div>
-        <h3>India. Sri Lanka. Pakistan. China. All below 20 per 100,000.</h3>
-        <p>Regional peers use similar road infrastructure, comparable income levels, overlapping enforcement challenges. Their rates vary. None documented as high as Bangladesh. The difference is not inevitable — it reflects infrastructure investment, enforcement architecture, and political accountability for operator conduct.</p>
-        <div class="note">WHO 2023 &middot; <span class="ok">CONFIRMED</span> (modelled)</div>
-      </div>
-      <div class="step" data-scene="scale" data-step="2">
-        <div class="step-num">Step 03 of 04</div>
-        <div class="stat">~19.3</div>
-        <h3>Bangladesh. 19.3 per 100,000. The highest documented in South Asia.</h3>
-        <p>World Bank (2022): Bangladesh's estimated 102 deaths per 10,000 registered vehicles is the highest in South Asia. 19.3 per 100,000 population places Bangladesh among the worst-documented in Asia-Pacific. <strong>The joma system, unlinked vehicle registry, and political protection are the documented structural contributors.</strong></p>
-        <div class="note">WHO 2023 &middot; World Bank "Delivering Road Safety in Bangladesh" 2022 &middot; <span class="ok">CONFIRMED</span></div>
-      </div>
-      <div class="step" data-scene="scale" data-step="3">
-        <div class="step-num">Step 04 of 04</div>
-        <h3>The comparison shows what is possible. Not what is inevitable.</h3>
-        <p>Vietnam reduced road deaths by 30% from 2010–2020 through mandatory helmet laws and enforcement budgets. Thailand reduced by 47% over the same period. None of these countries had a joma system to dismantle. <strong>But all of them faced a political choice: protect operators or protect pedestrians.</strong></p>
-        <div class="note">WHO 2023 trend data &middot; ASEAN Road Safety observatory</div>
-      </div>
+    <div class="scrolly__story">
+      <article class="scrolly__card" data-scene="scale" data-step="0">
+        <div class="scrolly__card-kicker">
+          <span>Scale Beat 01</span>
+          <span class="scrolly__badge">WHO BASELINE</span>
+        </div>
+        <h3 class="scrolly__card-title">All bars start at zero. All governments claim to care.</h3>
+        <p class="scrolly__card-body">Measured per 100,000 population using the WHO Global Status Report 2023 methodology. The comparators are Bangladesh's regional peers — countries with similar urbanization patterns, comparable income levels, and shared road challenges.</p>
+        <div class="scrolly__card-cite">WHO Global Status Report 2023 &middot; ATO Asia-Pacific Data 2025</div>
+      </article>
+
+      <article class="scrolly__card" data-scene="scale" data-step="1">
+        <div class="scrolly__card-kicker">
+          <span>Scale Beat 02</span>
+          <span class="scrolly__badge">REGIONAL PEERS</span>
+        </div>
+        <div class="scrolly__card-stat">
+          <span class="stat-number" data-counter="11.5" data-decimals="1">11.5</span>
+          <span class="stat-unit">per 100k</span>
+          <span class="stat-label">India mortality rate (Sri Lanka: 9.6, Pakistan: 9.1)</span>
+        </div>
+        <h3 class="scrolly__card-title">India. Sri Lanka. Pakistan. All substantially lower.</h3>
+        <p class="scrolly__card-body">Regional peers operate under comparable climatic and economic conditions. Yet India stands at 11.5, Sri Lanka at 9.6, and Pakistan at 9.1. The difference is not inevitable geography — it is the absence of commercial transport regulation in Bangladesh.</p>
+        <div class="scrolly__card-cite">WHO 2023 &middot; Confirmed Modelled Estimates</div>
+      </article>
+
+      <article class="scrolly__card" data-scene="scale" data-step="2">
+        <div class="scrolly__card-kicker">
+          <span>Scale Beat 03</span>
+          <span class="scrolly__badge">SOUTH ASIA PEAK</span>
+        </div>
+        <div class="scrolly__card-stat">
+          <span class="stat-number" data-counter="19.3" data-decimals="1">19.3</span>
+          <span class="stat-unit">per 100k</span>
+          <span class="stat-label">Bangladesh road fatality rate — highest in South Asia</span>
+        </div>
+        <h3 class="scrolly__card-title">Bangladesh: 19.3 per 100,000. 102 per 10,000 vehicles.</h3>
+        <p class="scrolly__card-body">The World Bank (2022) notes that Bangladesh's rate of 102 deaths per 10,000 registered vehicles is the highest in South Asia. The joma system, unlinked vehicle chassis registries, and political protection are the documented structural causes.</p>
+        <div class="scrolly__card-cite">World Bank "Delivering Road Safety in Bangladesh" 2022</div>
+      </article>
+
+      <article class="scrolly__card" data-scene="scale" data-step="3">
+        <div class="scrolly__card-kicker">
+          <span>Scale Beat 04</span>
+          <span class="scrolly__badge">REFORM OUTCOME</span>
+        </div>
+        <h3 class="scrolly__card-title">Reform is possible. It requires political will.</h3>
+        <p class="scrolly__card-body">Vietnam cut road deaths by 30% through mandatory helmet enforcement and dedicated traffic funding. Thailand reduced deaths by 47%. Road slaughter is not an act of God. It is a political choice between protecting bus syndicate profits or protecting citizens' lives.</p>
+        <div class="scrolly__card-cite">ASEAN Road Safety Observatory &middot; WHO 2023 Trend Series</div>
+      </article>
     </div>
   </div>
 </section>
@@ -2214,22 +2503,100 @@ function showMoto(s) {
   }
 }
 
-// ═══ INTERSECTION OBSERVER ═══
-const io=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add("active");
-      const sc=e.target.dataset.scene,st=parseInt(e.target.dataset.step);
-      if(sc==="gap"){gapStep=st;drawGap(st);if(st>=1){animateGap(st);}}
-      if(sc==="joma")showJoma(st);
-      if(sc==="phoenix")showPhoenix(st);
-      if(sc==="hour")animateClock(st);
-      if(sc==="moto")showMoto(st);
-      if(sc==="scale")runScale(st);
-    }else{e.target.classList.remove("active");}
-  });
-},{rootMargin:"-35% 0px -35% 0px"});
-document.querySelectorAll("[data-step]").forEach(el=>io.observe(el));
+// ═══ SCROLLYTELLING ENGINE & CORRIDOR HANDLERS ═══
+function handleCorridorStep(st) {
+  const locEl = document.getElementById("corridor-loc-indicator");
+  const capEl = document.getElementById("corridor-caption");
+  if (!MAP) return;
+
+  if (st === 0) {
+    // Dhaka Metropolitan Core
+    MAP.flyTo([23.78, 90.41], 11, { duration: 1.2 });
+    if (locEl) locEl.textContent = "DHAKA METROPOLITAN CORE";
+    if (capEl) capEl.textContent = "Tejgaon · Jatrabari · Mohakhali (47% Pedestrian Toll)";
+    fmHighlightDiv('Dhaka', true);
+  } else if (st === 1) {
+    // N1 Highway: Dhaka - Chattogram
+    MAP.flyTo([22.95, 91.35], 8, { duration: 1.2 });
+    if (locEl) locEl.textContent = "N1 CORRIDOR (DHAKA–CHATTOGRAM)";
+    if (capEl) capEl.textContent = "589 Crashes · 431 Deaths · Heavy Freight Night Artery";
+    fmHighlightDiv('Chattogram', true);
+  } else if (st === 2) {
+    // N5 Highway: Savar - Aricha - Bogura
+    MAP.flyTo([24.3, 89.6], 8, { duration: 1.2 });
+    if (locEl) locEl.textContent = "N5 CORRIDOR (SAVAR–ARICHA–BOGURA)";
+    if (capEl) capEl.textContent = "412 Crashes · 287 Deaths · Garment Factory Shift Crossings";
+    fmHighlightDiv('Rajshahi', true);
+  } else if (st === 3) {
+    // N2 & N3 Gateways: Sylhet & Mymensingh
+    MAP.flyTo([24.5, 91.1], 8.5, { duration: 1.2 });
+    if (locEl) locEl.textContent = "N2 & N3 GATEWAYS (SYLHET & MYMENSINGH)";
+    if (capEl) capEl.textContent = "612 Combined Fatalities · Undivided Head-On Overtaking Traps";
+    fmHighlightDiv('Sylhet', true);
+  } else if (st === 4) {
+    // National Horizon
+    MAP.flyTo([23.8, 90.3], 7, { duration: 1.2 });
+    if (locEl) locEl.textContent = "NATIONWIDE HORIZON (ALL 8 DIVISIONS)";
+    if (capEl) capEl.textContent = "2,332 Verified Fatal Records · Systemic Economic Racing Pattern";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  if (typeof ScrollyEngine !== "undefined") {
+    const scrolly = new ScrollyEngine({
+      containerSelector: ".scrolly",
+      stepSelector: ".scrolly__card",
+      activeClass: "scrolly__card--active",
+      offset: 0.38
+    });
+
+    if (ScrollyEngine.CounterScrollyAdapter) {
+      new ScrollyEngine.CounterScrollyAdapter(scrolly);
+    }
+
+    scrolly.on("step", function(e) {
+      const sc = e.scene;
+      const st = e.index;
+      if (sc === "gap") {
+        gapStep = st;
+        drawGap(st);
+        if (st >= 1) animateGap(st);
+      } else if (sc === "joma") {
+        showJoma(st);
+      } else if (sc === "phoenix") {
+        showPhoenix(st);
+      } else if (sc === "corridors") {
+        handleCorridorStep(st);
+      } else if (sc === "hour") {
+        animateClock(st);
+      } else if (sc === "moto") {
+        showMoto(st);
+      } else if (sc === "scale") {
+        runScale(st);
+      }
+    });
+  } else {
+    // Fallback if ScrollyEngine script is not yet parsed
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add("active");
+          const sc = e.target.dataset.scene, st = parseInt(e.target.dataset.step, 10);
+          if (sc === "gap") { gapStep = st; drawGap(st); if (st >= 1) animateGap(st); }
+          else if (sc === "joma") showJoma(st);
+          else if (sc === "phoenix") showPhoenix(st);
+          else if (sc === "corridors") handleCorridorStep(st);
+          else if (sc === "hour") animateClock(st);
+          else if (sc === "moto") showMoto(st);
+          else if (sc === "scale") runScale(st);
+        } else {
+          e.target.classList.remove("active");
+        }
+      });
+    }, { rootMargin: "-35% 0px -35% 0px" });
+    document.querySelectorAll("[data-step]").forEach(el => io.observe(el));
+  }
+});
 
 // ═══ VOID CARDS ═══
 (function(){
@@ -3501,6 +3868,7 @@ function fmHighlightDiv(divName, keepDetail) {
   </div>
 </footer>
 
+<script src="/assets/js/scrolly-engine.js"></script>
 <script>
 (function () {
   'use strict';

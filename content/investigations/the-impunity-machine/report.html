@@ -121,6 +121,7 @@
 </script>
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="/assets/css/components.css">
+<link rel="stylesheet" href="/assets/css/scrolly.css">
 <script>
 (function(){
   var saved = localStorage.getItem('ig-theme');
@@ -481,6 +482,7 @@ a{color:var(--gold);text-decoration:none}
 </style>
 </head>
 <body>
+<div class="scrolly-progress" id="ig-progress" aria-hidden="true"></div>
 
 <!-- AI Disclosure Bar -->
 <div class="ai-disclosure-bar" role="note" aria-label="AI use disclosure">
@@ -527,9 +529,13 @@ a{color:var(--gold);text-decoration:none}
     <div class="sub-nav__scenes">
       <a class="sub-nav__link" href="#hero">Overview</a>
       <a class="sub-nav__link" href="#s1">Attrition</a>
-      <a class="sub-nav__link" href="#s2">Verdicts</a>
+      <a class="sub-nav__link" href="#s2">Two Clocks</a>
+      <a class="sub-nav__link" href="#s3">The Race</a>
       <a class="sub-nav__link" href="#s4">Backlog</a>
-      <a class="sub-nav__link" href="#sdna">DNA Backlog</a>
+      <a class="sub-nav__link" href="#s5">Geography</a>
+      <a class="sub-nav__link" href="#sdna">DNA Window</a>
+      <a class="sub-nav__link" href="#s6">Paradox</a>
+      <a class="sub-nav__link" href="#s7">The Voids</a>
     </div>
     <div class="sub-nav__actions">
       <button class="theme-toggle-btn" aria-label="Toggle theme" title="Toggle theme">
@@ -779,58 +785,78 @@ a{color:var(--gold);text-decoration:none}
     <h2>Watch 10,000 Women Disappear</h2>
     <p>Each dot is one assault. Watch what the system does to them.</p>
   </div>
-  <div class="scroll-scene" style="margin-top:2rem">
-    <div class="viz-sticky">
-      <div style="position:relative; padding-bottom: 3.5rem;">
-        <canvas id="dotCanvas" style="display:block;max-width:100%;max-height:90vh"></canvas>
-        <div style="position:absolute;bottom:1.5rem;left:0;right:0;text-align:center;font-family:var(--mono);font-size:.52rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase">
-          <span id="dot-count">10,000</span> <span id="dot-status">women &#8212; all assaults</span>
+  <div class="scrolly" style="margin-top:2rem">
+    <div class="scrolly__stage">
+      <div class="scrolly__stage-inner" style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;padding:1rem;box-sizing:border-box;">
+        <canvas id="dotCanvas" style="display:block;max-width:100%;max-height:calc(100% - 60px);object-fit:contain"></canvas>
+        <div style="margin-top:0.75rem;text-align:center;font-family:var(--font-mono, 'Space Mono', monospace);font-size:0.75rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase">
+          <strong id="dot-count" style="color:var(--gold);font-size:1.15rem;">10,000</strong> <span id="dot-status">women &#8212; all assaults</span>
         </div>
-        <div class="chart-caption" style="position:absolute;bottom:-1.5rem;left:0;right:0;text-align:center;font-family:var(--sans);font-size:0.75rem;color:var(--muted);line-height:1.4;max-width:320px;margin:0 auto;" data-claim-id="BD-INV-002-C001">
-          Attrition across the justice pathway from survivor contact to conviction.
-        </div>
+      </div>
+      <div class="scrolly__stage-caption">
+        <span class="scrolly__stage-meta">BD-INV-002 &middot; 10,000 Dot Attrition Funnel</span>
+        <span class="scrolly__stage-meta">UNFPA / BBS / PBI / BRAC</span>
       </div>
     </div>
-    <div class="steps-col">
-      <div class="step" data-scene="funnel" data-step="0">
-        <div class="step-num">Step 01 of 06</div>
-        <h3>Start here. 10,000 dots. 10,000 lives.</h3>
-        <p>Each gold dot represents one assault. One year in Bangladesh &#8212; an estimated 10,000 non-partner sexual violence incidents, derived from UNFPA 2024 survey methodology applied to the adult female population.</p>
+    <div class="scrolly__story">
+      <div class="scrolly__card scrolly__card--active" data-scene="funnel" data-step="0">
+        <div class="scrolly__card-kicker">Beat 01 &middot; Step 01 of 06 &middot; Baseline</div>
+        <h3 class="scrolly__card-title">Start here. 10,000 dots. 10,000 lives.</h3>
+        <p class="scrolly__card-text">Each gold dot represents one assault. One year in Bangladesh &#8212; an estimated 10,000 non-partner sexual violence incidents, derived from UNFPA 2024 survey methodology applied to the adult female population.</p>
+        <div class="scrolly__card-metric">
+          <span class="scrolly__card-number scrolly-counter" data-counter-target="10000" data-counter-duration="1200">10,000</span>
+          <span class="scrolly__card-label">Assaults (Annual Incident Baseline)</span>
+        </div>
         <div class="note">UNFPA/BBS VAW Survey 2024 &middot; <span class="prob">PROBABLE</span> &middot; IG-MODEL</div>
       </div>
-      <div class="step" data-scene="funnel" data-step="1">
-        <div class="step-num">Step 02 of 06</div>
-        <div class="stat">62&#8211;64%</div>
-        <h3>told no one.</h3>
-        <p>Not a sister. Not a doctor. <strong>Not a single person knew what happened to them.</strong> This is not weakness. This is a precise calculation of what speaking costs &#8212; reputation, family honour, risk of shalish, risk of Section 17 counter-prosecution. The silence is rational. The system made it so.</p>
+      <div class="scrolly__card" data-scene="funnel" data-step="1">
+        <div class="scrolly__card-kicker">Beat 02 &middot; Step 02 of 06 &middot; Silence</div>
+        <h3 class="scrolly__card-title">62&#8211;64% told no one.</h3>
+        <p class="scrolly__card-text">Not a sister. Not a doctor. <strong>Not a single person knew what happened to them.</strong> This is not weakness. This is a precise calculation of what speaking costs &#8212; reputation, family honour, risk of shalish, risk of Section 17 counter-prosecution. The silence is rational. The system made it so.</p>
+        <div class="scrolly__card-metric">
+          <span class="scrolly__card-number" style="color:var(--bloodl)">62&#8211;64%</span>
+          <span class="scrolly__card-label">Survivors Silenced Immediately</span>
+        </div>
         <div class="note">UNFPA/BBS VAW Survey 2024 &middot; 27,476 women interviewed &middot; <span class="ok">CONFIRMED</span> &middot; S-02</div>
       </div>
-      <div class="step" data-scene="funnel" data-step="2">
-        <div class="step-num">Step 03 of 06</div>
-        <div class="stat">73%</div>
-        <h3>of those who spoke up didn&#8217;t contact police.</h3>
-        <p>The shalish arrived first. Local elders, financial settlements, forced marriage, silence in exchange for &#8220;social peace.&#8221; The state never knew these women existed. Only 3.8% of non-partner violence survivors pursued any legal remedy.</p>
+      <div class="scrolly__card" data-scene="funnel" data-step="2">
+        <div class="scrolly__card-kicker">Beat 03 &middot; Step 03 of 06 &middot; Shalish</div>
+        <h3 class="scrolly__card-title">73% of those who spoke up didn&#8217;t contact police.</h3>
+        <p class="scrolly__card-text">The shalish arrived first. Local elders, financial settlements, forced marriage, silence in exchange for &#8220;social peace.&#8221; The state never knew these women existed. Only 3.8% of non-partner violence survivors pursued any legal remedy.</p>
+        <div class="scrolly__card-metric">
+          <span class="scrolly__card-number" style="color:var(--bloodl)">73%</span>
+          <span class="scrolly__card-label">Diverted from State Legal Remedies</span>
+        </div>
         <div class="note">UNFPA 2024 Highlights &middot; <span class="ok">CONFIRMED</span> &middot; S-37</div>
       </div>
-      <div class="step" data-scene="funnel" data-step="3">
-        <div class="step-num">Step 04 of 06</div>
-        <div class="stat">41%</div>
-        <h3>of referred cases closed as unproven.</h3>
-        <p>Police Bureau of Investigation examined 10,581 court-referred rape cases. 4,248 closed by final report &#8212; unsubstantiated. No charge. No trial. No record. <strong>The investigation became the verdict.</strong></p>
+      <div class="scrolly__card" data-scene="funnel" data-step="3">
+        <div class="scrolly__card-kicker">Beat 04 &middot; Step 04 of 06 &middot; Police Exit</div>
+        <h3 class="scrolly__card-title">41% of referred cases closed as unproven.</h3>
+        <p class="scrolly__card-text">Police Bureau of Investigation examined 10,581 court-referred rape cases. 4,248 closed by final report &#8212; unsubstantiated. No charge. No trial. No record. <strong>The investigation became the verdict.</strong></p>
+        <div class="scrolly__card-metric">
+          <span class="scrolly__card-number" style="color:var(--bloodl)">41%</span>
+          <span class="scrolly__card-label">Cases Closed Before Trial by Police (PBI)</span>
+        </div>
         <div class="note">Prothom Alo Sept 2025 &middot; PBI data 2016&#8211;2023 &middot; <span class="ok">CONFIRMED</span> &middot; S-23</div>
       </div>
-      <div class="step" data-scene="funnel" data-step="4">
-        <div class="step-num">Step 05 of 06</div>
-        <div class="stat">2,349 days</div>
-        <h3>average wait for those who remain.</h3>
-        <p>Six years and five months. Witnesses relocate. Forensic evidence degrades. Families exhaust savings. The 2025 Ordinance cut the statutory limit to 90 days. The compliance rate in 2025: <strong>unknown &#8212; no one publishes it.</strong></p>
+      <div class="scrolly__card" data-scene="funnel" data-step="4">
+        <div class="scrolly__card-kicker">Beat 05 &middot; Step 05 of 06 &middot; Court Wait</div>
+        <h3 class="scrolly__card-title">2,349 days average wait for those who remain.</h3>
+        <p class="scrolly__card-text">Six years and five months. Witnesses relocate. Forensic evidence degrades. Families exhaust savings. The 2025 Ordinance cut the statutory limit to 90 days. The compliance rate in 2025: <strong>unknown &#8212; no one publishes it.</strong></p>
+        <div class="scrolly__card-metric">
+          <span class="scrolly__card-number scrolly-counter" data-counter-target="2349" data-counter-duration="1400" style="color:var(--gold)">2,349</span>
+          <span class="scrolly__card-label">Days to Verdict (Average Trial Duration)</span>
+        </div>
         <div class="note">BRAC/Agile Consultants 2022 &middot; 16 districts, 385 resolved cases &middot; <span class="ok">CONFIRMED</span> &middot; S-01</div>
       </div>
-      <div class="step" data-scene="funnel" data-step="5">
-        <div class="step-num">Step 06 of 06</div>
-        <div class="stat" style="font-size:clamp(3rem,7vw,5.5rem)">2</div>
-        <h3>convictions. From 10,000 assaults.</h3>
-        <p><strong>Two red dots.</strong> Nine thousand nine hundred and ninety-eight dark ones. This is not a statistic about rare events. This is the normal functioning of the machine. In 23 years, the OCC programme recorded 310 convictions from 66,711 women who came forward.</p>
+      <div class="scrolly__card" data-scene="funnel" data-step="5">
+        <div class="scrolly__card-kicker">Beat 06 &middot; Step 06 of 06 &middot; Verdict</div>
+        <h3 class="scrolly__card-title">2 convictions. From 10,000 assaults.</h3>
+        <p class="scrolly__card-text"><strong>Two red dots.</strong> Nine thousand nine hundred and ninety-eight dark ones. This is not a statistic about rare events. This is the normal functioning of the machine. In 23 years, the OCC programme recorded 310 convictions from 66,711 women who came forward.</p>
+        <div class="scrolly__card-metric">
+          <span class="scrolly__card-number" style="color:var(--bloodl);font-size:3.5rem">2</span>
+          <span class="scrolly__card-label">Convictions from 10,000 Assaults (0.02% Outcome)</span>
+        </div>
         <div class="note">Daily Star Nov 2024 &middot; OCC 23yr programme &middot; <span class="ok">CONFIRMED</span> &middot; S-55</div>
       </div>
     </div>
@@ -857,184 +883,144 @@ a{color:var(--gold);text-decoration:none}
 <!-- ═══════════════════════════════════════════
      S2: TWO CLOCKS
 ════════════════════════════════════════════ -->
-<section id="s2" class="full-scene dark" data-claim-id="BD-INV-002-C004">
-  <div class="scene-title" style="position:relative;z-index:2">
-    <div class="eyebrow">Scene 02 &middot; The Two Verdicts</div>
-    <h2>The System Moved Fast Once</h2>
-    <p>The same legal system. Two very different speeds. Watch the arcs fill.</p>
-  </div>
-  <div class="clock-pair" style="position:relative;z-index:2">
-    <div class="clock-card">
-      <div class="clock-label" style="color:var(--bloodl)">Time to Convict<br>The Woman Who Reported</div>
-      <svg width="180" height="180" viewBox="0 0 180 180">
-        <circle cx="90" cy="90" r="75" fill="none" stroke="rgba(30,30,48,.8)" stroke-width="8"/>
-        <circle cx="90" cy="90" r="75" fill="none" stroke="var(--bloodl)" stroke-width="8"
-          stroke-dasharray="471.2" stroke-dashoffset="471.2" stroke-linecap="round"
-          transform="rotate(-90 90 90)" id="arc-runa" style="transition:stroke-dashoffset 1s cubic-bezier(.4,0,.2,1)"/>
-        <text x="90" y="82" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="28" font-weight="700" fill="var(--bloodl)" id="num-runa">0</text>
-        <text x="90" y="100" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="var(--muted)" letter-spacing="2">DAYS</text>
-      </svg>
-      <div class="clock-num" style="color:var(--bloodl)" id="display-runa">0</div>
-      <div class="clock-unit">days to &#167;17 conviction</div>
-      <div class="clock-name">Runa Akhter &middot; Cox&#8217;s Bazar 2023<br>Filed rape case. Was convicted instead.</div>
-    </div>
-    <div style="text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1rem;position:relative;z-index:2">
-      <div style="font-family:var(--mono);font-size:.52rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.5rem">vs</div>
-      <div style="font-family:var(--display);font-size:1.1rem;font-style:italic;color:var(--muted);max-width:160px;line-height:1.6">The same system.</div>
-    </div>
-    <div class="clock-card">
-      <div class="clock-label" style="color:var(--gold)">Time for the<br>Average Rape Case</div>
-      <svg width="180" height="180" viewBox="0 0 180 180">
-        <circle cx="90" cy="90" r="75" fill="none" stroke="rgba(30,30,48,.8)" stroke-width="8"/>
-        <circle cx="90" cy="90" r="75" fill="none" stroke="var(--gold)" stroke-width="8"
-          stroke-dasharray="471.2" stroke-dashoffset="471.2" stroke-linecap="round"
-          transform="rotate(-90 90 90)" id="arc-avg" style="transition:stroke-dashoffset 2.5s cubic-bezier(.4,0,.2,1)"/>
-        <text x="90" y="82" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="22" font-weight="700" fill="var(--gold)" id="num-avg">0</text>
-        <text x="90" y="100" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="var(--muted)" letter-spacing="2">DAYS</text>
-      </svg>
-      <div class="clock-num" style="color:var(--gold)" id="display-avg">0</div>
-      <div class="clock-unit">days to verdict (average)</div>
-      <div class="clock-name">BRAC 2022 &middot; 16 districts<br>385 resolved tribunal cases</div>
-    </div>
-  </div>
-  <div id="clock-caption" style="max-width:640px;text-align:center;opacity:0;transition:opacity .8s;margin-top:1rem;position:relative;z-index:2">
-    <p style="font-family:var(--display);font-style:italic;font-size:clamp(1rem,2vw,1.3rem);color:var(--amberl);line-height:1.7">In the time it took the system to move through a normal rape case &#8212; <strong style="font-style:normal;color:var(--text)">Runa Akhter had already served 6 months of her sentence</strong> for filing one.</p>
-    <div style="font-family:var(--mono);font-size:.46rem;color:var(--muted2);margin-top:.8rem;line-height:1.8">56 days &middot; &#167;17 conviction &middot; Arrested Feb 16, sentenced Apr 13 2023 &middot; Prothom Alo (S-14) &middot; <span class="ok">CONFIRMED</span></div>
-  </div>
-  
-  <div class="chart-caption" style="font-family:var(--sans); font-size:0.75rem; color:var(--muted); margin-top:1.5rem; text-align:center; position:relative; z-index:2;" data-claim-id="BD-INV-002-C004">
-    Comparison of justice system speeds: 56 days to convict a survivor under Section 17 vs. 2,349 days average to reach a verdict in a rape trial.
-  </div>
-
-  <!-- ═══ "WHERE TIME IS LOST" PANEL ═══ -->
-  <div class="time-lost-panel" style="max-width: 720px; width: 100%; margin: 3.5rem auto 0; background: var(--ink3); border: 1px solid var(--border); padding: 2.5rem 2rem; border-radius: 4px; position: relative; z-index: 2; text-align: left;">
-    <h3 style="font-family: var(--display); font-size: 1.15rem; font-weight: 700; color: var(--text); margin-bottom: 2rem; text-align: center; text-transform: uppercase; letter-spacing: 0.05em;">Where Time is Lost: 2,349-Day Delay Breakdown</h3>
-    
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
-      <!-- Investigation -->
-      <div style="background: var(--ink); border: 1px solid var(--border); padding: 1.25rem; border-radius: 4px; text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
-        <div>
-          <div style="font-family: var(--mono); font-size: 2.5rem; font-weight: 700; color: var(--bloodl); line-height: 1.1;" data-claim-id="BD-INV-002-C004">193</div>
-          <div style="font-family: var(--mono); font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-top: 0.2rem; font-weight: 700;">Days</div>
-          <span style="font-family: var(--sans); font-size: 0.85rem; font-weight: 700; color: var(--text); display: block; margin-top: 0.8rem;">Police Investigation</span>
-        </div>
-        <p style="font-size: 0.75rem; color: var(--muted); margin-top: 0.5rem; line-height: 1.45;">Gathering evidence, collecting DNA profiles, and filing the initial charge sheet.</p>
-      </div>
-      
-      <!-- Charge Framing -->
-      <div style="background: var(--ink); border: 1px solid var(--border); padding: 1.25rem; border-radius: 4px; text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
-        <div>
-          <div style="font-family: var(--mono); font-size: 2.5rem; font-weight: 700; color: var(--amber); line-height: 1.1;" data-claim-id="BD-INV-002-C004">700</div>
-          <div style="font-family: var(--mono); font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-top: 0.2rem; font-weight: 700;">Days</div>
-          <span style="font-family: var(--sans); font-size: 0.85rem; font-weight: 700; color: var(--text); display: block; margin-top: 0.8rem;">Charge Framing</span>
-        </div>
-        <p style="font-size: 0.75rem; color: var(--muted); margin-top: 0.5rem; line-height: 1.45;">Procedural court appearances, scheduling conflicts, and official indictment framing.</p>
-      </div>
-      
-      <!-- Trial Delay -->
-      <div style="background: var(--ink); border: 1px solid var(--border); padding: 1.25rem; border-radius: 4px; text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
-        <div>
-          <div style="font-family: var(--mono); font-size: 2.5rem; font-weight: 700; color: var(--gold); line-height: 1.1;" data-claim-id="BD-INV-002-C004">1,456</div>
-          <div style="font-family: var(--mono); font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-top: 0.2rem; font-weight: 700;">Days</div>
-          <span style="font-family: var(--sans); font-size: 0.85rem; font-weight: 700; color: var(--text); display: block; margin-top: 0.8rem;">Tribunal Trial Delay</span>
-        </div>
-        <p style="font-size: 0.75rem; color: var(--muted); margin-top: 0.5rem; line-height: 1.45;">Witness summon delays, cross-examinations, judge transfers, and verdict delivery.</p>
-      </div>
-    </div>
-    
-    <div style="font-family: var(--mono); font-size: 0.55rem; color: var(--muted2); line-height: 1.6; border-top: 1px dashed var(--border); padding-top: 1rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
-      <span>Total Average: 2,349 Days (6.4 Years)</span>
-      <span>Source: BRAC Longitudinal Study (2022)</span>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════
-     HER STORY — PANEL 03: THE DECISION
-════════════════════════════════════════════ -->
-<section class="her-story" style="background:var(--ink2)" data-claim-id="BD-INV-002-C001">
-  <div class="her-story-inner">
-    <div class="her-story-tag">Her Story</div>
-    <h4>
-      She decided to file. The decision took three months.<br><br>
-      She went to the OCC alone. She didn't tell her mother. She took a rickshaw from two streets over so the driver wouldn't know her. The nurse at the centre asked her how long ago it happened. She said eleven days. She watched the nurse's face change. She didn't know then what she knows now: that eleven days was already too late for most of the evidence. The law says 72 hours. No one had told her.<br><br>
-      <strong>She gave her case number to a sister she trusted. She said: remember this number. If something happens to me, this is the number. The sister asked what number. She said: just remember it.</strong>
-    </h4>
-    <div class="her-story-source">78% of survivors arrive after the 72-hour forensic window · BRAC 2022 (S-01) · CONFIRMED · Section 32 WCRPA mandates hospital examination — compliance tracking: CONFIRMED ABSENT (GA-012)</div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- ═══════════════════════════════════════════
-     SINV: THE INVERSION
-════════════════════════════════════════════ -->
-<section id="sinv" class="scene" data-claim-id="BD-INV-002-C005">
+<section id="s2" class="scene" data-claim-id="BD-INV-002-C004">
   <div class="scene-title">
-    <div class="eyebrow">Scene 03 &middot; The Inversion</div>
-    <h2>The State Moved For the Woman Who Reported. Against Her.</h2>
-    <p>Section 17 WCRPA allows counter-prosecution of survivors. Two documented cases. National scale: unknown.</p>
+    <div class="eyebrow">Scene 02 &middot; The Two Verdicts &amp; The Inversion</div>
+    <h2>The System Moved Fast Once</h2>
+    <p>The same legal system. Two very different speeds. Watch the clocks and the journey tracks.</p>
   </div>
-  <div class="scroll-scene" style="margin-top:2rem">
-    <div class="viz-sticky">
-      <div class="inv-wrap">
-        <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1.4rem">Both cases. Same legal system. Both start at Day 0.</div>
-        <div class="inv-block">
-          <div class="inv-label-row">
-            <span class="inv-who" style="color:var(--bloodl)">&#167;17 prosecution &#8212; Runa Akhter</span>
-            <span class="inv-daycount" style="color:var(--bloodl)" id="inv-d17">0 days</span>
+  <div class="scrolly" style="margin-top:2rem">
+    <div class="scrolly__stage">
+      <div class="scrolly__stage-inner" style="display:flex;flex-direction:column;justify-content:center;align-items:center;padding:1.5rem;box-sizing:border-box;">
+        
+        <!-- Two Clocks Row -->
+        <div class="clock-pair" style="margin:0 0 1.25rem;gap:clamp(1.5rem,4vw,3rem);display:flex;align-items:center;justify-content:center;">
+          <div class="clock-card" style="text-align:center;">
+            <div class="clock-label" style="color:var(--bloodl);font-family:var(--font-mono);font-size:0.65rem;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem;">Time to Convict Survivor<br>(&sect;17 Counter-Prosecution)</div>
+            <svg width="130" height="130" viewBox="0 0 180 180">
+              <circle cx="90" cy="90" r="75" fill="none" stroke="rgba(180,180,195,.2)" stroke-width="8"/>
+              <circle cx="90" cy="90" r="75" fill="none" stroke="var(--bloodl)" stroke-width="8"
+                stroke-dasharray="471.2" stroke-dashoffset="471.2" stroke-linecap="round"
+                transform="rotate(-90 90 90)" id="arc-runa" style="transition:stroke-dashoffset 1.2s cubic-bezier(.4,0,.2,1)"/>
+              <text x="90" y="82" text-anchor="middle" font-family="var(--font-mono, monospace)" font-size="28" font-weight="700" fill="var(--bloodl)" id="num-runa">0</text>
+              <text x="90" y="100" text-anchor="middle" font-family="var(--font-mono, monospace)" font-size="9" fill="var(--muted)" letter-spacing="2">DAYS</text>
+            </svg>
+            <div class="clock-name" style="font-size:0.75rem;margin-top:0.25rem;color:var(--muted);">Runa Akhter &middot; Cox&#8217;s Bazar</div>
           </div>
-          <div class="inv-track">
-            <div class="inv-fill" id="inv-f17" style="background:linear-gradient(to right,rgba(139,20,40,.8),var(--bloodl))"></div>
-            <div class="inv-fill-lbl" id="inv-fl17">CONVICTED &#8212; 100%</div>
+
+          <div style="text-align:center;padding:0 0.5rem;">
+            <div style="font-family:var(--font-mono);font-size:0.75rem;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.12em;">VS</div>
           </div>
-          <div class="inv-verdict" id="inv-v17" style="color:var(--bloodl)">&#9658; CONVICTED &#8212; Day 56 &middot; 5 years imprisonment &middot; BDT 20,000 fine</div>
-          <div class="inv-foot">Rape case filed Mar 2022 &#8594; &#167;17 complaint ~Jan 2023 &#8594; Arrested Feb 16 &#8594; <strong style="color:var(--bloodl)">Convicted Apr 13, 2023</strong><br>Prothom Alo (S-14) &middot; CoxsbazarJournal (S-69) &middot; <span class="ok">CONFIRMED</span></div>
+
+          <div class="clock-card" style="text-align:center;">
+            <div class="clock-label" style="color:var(--gold);font-family:var(--font-mono);font-size:0.65rem;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem;">Time for Average<br>Rape Trial Verdict</div>
+            <svg width="130" height="130" viewBox="0 0 180 180">
+              <circle cx="90" cy="90" r="75" fill="none" stroke="rgba(180,180,195,.2)" stroke-width="8"/>
+              <circle cx="90" cy="90" r="75" fill="none" stroke="var(--gold)" stroke-width="8"
+                stroke-dasharray="471.2" stroke-dashoffset="471.2" stroke-linecap="round"
+                transform="rotate(-90 90 90)" id="arc-avg" style="transition:stroke-dashoffset 2.5s cubic-bezier(.4,0,.2,1)"/>
+              <text x="90" y="82" text-anchor="middle" font-family="var(--font-mono, monospace)" font-size="24" font-weight="700" fill="var(--gold)" id="num-avg">0</text>
+              <text x="90" y="100" text-anchor="middle" font-family="var(--font-mono, monospace)" font-size="9" fill="var(--muted)" letter-spacing="2">DAYS</text>
+            </svg>
+            <div class="clock-name" style="font-size:0.75rem;margin-top:0.25rem;color:var(--muted);">BRAC 2022 &middot; 385 cases</div>
+          </div>
         </div>
-        <div class="inv-block" style="margin-top:2.5rem">
-          <div class="inv-label-row">
-            <span class="inv-who" style="color:var(--gold)">Her original rape case</span>
-            <span class="inv-daycount" style="color:var(--gold)" id="inv-drape">0 / 2,349 days</span>
+
+        <!-- Dual Progress Inversion Track -->
+        <div class="inv-wrap" style="width:100%;max-width:500px;border-top:1px solid var(--border);padding-top:1rem;">
+          <div style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:0.6rem;text-align:center;">
+            Same Legal System &middot; Journey Comparison at Day 56
           </div>
-          <div class="inv-track">
-            <div class="inv-fill" id="inv-frape" style="background:linear-gradient(to right,rgba(90,72,32,.8),var(--gold))"></div>
-            <div class="inv-fill-lbl" id="inv-flrape" style="color:rgba(201,168,76,.9)">2.38% of journey</div>
+          
+          <div style="margin-bottom:0.75rem;">
+            <div class="inv-label-row" style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.25rem;">
+              <span class="inv-who" style="color:var(--bloodl);font-family:var(--font-mono);font-size:0.68rem;text-transform:uppercase;">&sect;17 Prosecution (Runa Akhter)</span>
+              <span class="inv-daycount" style="color:var(--bloodl);font-family:var(--font-mono);font-size:0.85rem;font-weight:700;" id="inv-d17">0 days</span>
+            </div>
+            <div class="inv-track" style="height:26px;background:rgba(0,0,0,.05);border:1px solid var(--border);position:relative;overflow:hidden;">
+              <div class="inv-fill" id="inv-f17" style="background:linear-gradient(to right,rgba(139,20,40,.8),var(--bloodl));height:100%;width:0;transition:width 1.5s ease;"></div>
+              <div class="inv-fill-lbl" id="inv-fl17" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);font-family:var(--font-mono);font-size:0.65rem;font-weight:700;color:#fff;opacity:0;">CONVICTED &middot; 100%</div>
+            </div>
           </div>
-          <div class="inv-verdict" id="inv-vrape" style="color:var(--gold)">&#9632; STILL PENDING &#8212; 1,461+ days as of March 2026 &middot; No published verdict</div>
-          <div class="inv-foot">Filed Mar 2022 &#8594; Average case: 2,349 days &#8594; At Day 56 this case is at <strong style="color:var(--gold)">2.38%</strong> of average journey<br>BRAC 2022 (S-01) &middot; <span class="ok">CONFIRMED</span></div>
+
+          <div>
+            <div class="inv-label-row" style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.25rem;">
+              <span class="inv-who" style="color:var(--gold);font-family:var(--font-mono);font-size:0.68rem;text-transform:uppercase;">Her Original Rape Case (Average Pace)</span>
+              <span class="inv-daycount" style="color:var(--gold);font-family:var(--font-mono);font-size:0.85rem;font-weight:700;" id="inv-drape">0 / 2,349 days</span>
+            </div>
+            <div class="inv-track" style="height:26px;background:rgba(0,0,0,.05);border:1px solid var(--border);position:relative;overflow:hidden;">
+              <div class="inv-fill" id="inv-frape" style="background:linear-gradient(to right,rgba(90,72,32,.8),var(--gold));height:100%;width:0;transition:width 1.5s ease;"></div>
+              <div class="inv-fill-lbl" id="inv-flrape" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);font-family:var(--font-mono);font-size:0.65rem;font-weight:700;color:rgba(201,168,76,.95);opacity:0;">2.38% PROGRESS</div>
+            </div>
+          </div>
         </div>
-        <div id="inv-quote" style="opacity:0;transition:opacity .8s;margin-top:2.5rem;border-left:3px solid rgba(196,30,58,.4);padding-left:1.2rem">
-          <p style="font-family:var(--display);font-style:italic;font-size:clamp(.9rem,1.6vw,1.1rem);color:var(--amberl);line-height:1.85">The system convicts the woman who reports <em style="font-style:normal;color:var(--bloodl);font-weight:700">faster</em> than it convicts the man she reported against.</p>
-          <div style="font-family:var(--mono);font-size:.42rem;color:var(--muted2);margin-top:.5rem">BD-INV-002 &middot; Master Evidence File &middot; &#167;17 analysis &middot; March 2026</div>
-        </div>
+
+      </div>
+      <div class="scrolly__stage-caption">
+        <span class="scrolly__stage-meta">BD-INV-002-C004 / C005 &middot; Judicial Speed Inversion</span>
+        <span class="scrolly__stage-meta">BRAC (S-01) / Prothom Alo (S-14)</span>
       </div>
     </div>
-    <div class="steps-col">
-      <div class="step" data-scene="inversion" data-step="0">
-        <div class="step-num">Step 01 of 04</div>
-        <h3>Section 17. Designed to deter false reports. Used to silence real ones.</h3>
-        <p>WCRPA Section 17 criminalises filing a &#8220;false&#8221; rape case. Punishment: up to 7 years imprisonment. Two confirmed cases are on record. The national count: <strong>unknown &#8212; no institution tracks it.</strong></p>
-        <div class="note">Master Evidence File &middot; S17-001, S17-002 &middot; National tracking: <span class="ok">CONFIRMED ABSENT</span> &middot; GA-004</div>
+
+    <div class="scrolly__story">
+      <!-- Card 0 -->
+      <div class="scrolly__card scrolly__card--active" data-scene="two-clocks" data-step="0">
+        <div class="scrolly__card-kicker">Beat 01 &middot; Step 01 of 05 &middot; Two Speeds</div>
+        <h3 class="scrolly__card-title">The system moved fast once.</h3>
+        <p class="scrolly__card-text">When a woman reports rape in Bangladesh, the legal system takes an average of <strong>2,349 days (over 6 years)</strong> to reach a verdict. But when the man she reported against filed a Section 17 counter-complaint claiming her report was false, the state arrested, tried, and convicted her in just <strong>56 days</strong>.</p>
+        <div class="scrolly__card-metric">
+          <span class="scrolly__card-number" style="color:var(--bloodl)">56 vs 2,349</span>
+          <span class="scrolly__card-label">Days to Conviction (&sect;17 vs Rape Trial)</span>
+        </div>
+        <div class="note">Master Evidence File &middot; Prothom Alo (S-14) &middot; BRAC 2022 (S-01) &middot; <span class="ok">CONFIRMED</span></div>
       </div>
-      <div class="step" data-scene="inversion" data-step="1">
-        <div class="step-num">Step 02 of 04</div>
-        <div class="stat">56 days</div>
-        <h3>Runa Akhter. Convicted before her rape case had a single hearing.</h3>
-        <p>She filed a rape case in March 2022. Eleven months later, a Section 17 counter-complaint was filed against her. Arrested February 16, 2023. Tried. Convicted April 13. <strong>The entire &#167;17 process from complaint to conviction: 56 days.</strong> Her original case: still unresolved in March 2026.</p>
-        <div class="note">Cox&#8217;s Bazar &middot; Prothom Alo &middot; <span class="ok">CONFIRMED</span> &middot; S-14, S-69</div>
+
+      <!-- Card 1 -->
+      <div class="scrolly__card" data-scene="two-clocks" data-step="1">
+        <div class="scrolly__card-kicker">Beat 02 &middot; Step 02 of 05 &middot; Section 17</div>
+        <h3 class="scrolly__card-title">Section 17: Designed to deter false reports. Used to silence survivors.</h3>
+        <p class="scrolly__card-text">WCRPA Section 17 criminalises filing a &ldquo;false&rdquo; rape case, carrying up to 7 years imprisonment. Runa Akhter filed a rape case in Cox's Bazar in March 2022. Eleven months later, a counter-complaint was lodged against her. She was arrested February 16, 2023, and sentenced April 13 to <strong>5 years imprisonment</strong>. Her rape case had not received a single hearing.</p>
+        <div class="scrolly__card-metric">
+          <span class="scrolly__card-number" style="color:var(--bloodl)">56 Days</span>
+          <span class="scrolly__card-label">From Counter-Complaint to Imprisonment</span>
+        </div>
+        <div class="note">Cox's Bazar Tribunal &middot; S-14, S-69 &middot; <span class="ok">CONFIRMED</span> &middot; GA-004</div>
       </div>
-      <div class="step" data-scene="inversion" data-step="2">
-        <div class="step-num">Step 03 of 04</div>
-        <div class="stat gold">2.38%</div>
-        <h3>Where an average rape case stands at Day 56.</h3>
-        <p>The gold bar shows exactly how far her rape case would have progressed at the moment she was already convicted and imprisoned. Average trial: 2,349 days. At Day 56: 2.38% complete. The two bars are drawn to the same justice scale, not the same time scale.</p>
-        <div class="note">BRAC 2022 avg trial duration (S-01) &middot; <span class="ok">CONFIRMED</span></div>
+
+      <!-- Card 2 -->
+      <div class="scrolly__card" data-scene="two-clocks" data-step="2">
+        <div class="scrolly__card-kicker">Beat 03 &middot; Step 03 of 05 &middot; Where Time is Lost</div>
+        <h3 class="scrolly__card-title">Where time is lost: The 2,349-day breakdown.</h3>
+        <p class="scrolly__card-text">Why does a normal rape trial take 6.4 years? The delay is structural: <strong>193 days</strong> in police investigation, <strong>700 days</strong> in procedural charge framing, and <strong>1,456 days</strong> in tribunal cross-examinations and judge transfers. The statutory 90-day limit enacted in 2025 has zero published compliance monitoring.</p>
+        <div class="scrolly__card-metric">
+          <span class="scrolly__card-number" style="color:var(--gold)">193d + 700d + 1,456d</span>
+          <span class="scrolly__card-label">Investigation + Charge + Tribunal Trial</span>
+        </div>
+        <div class="note">BRAC Longitudinal Study 2022 (S-01) &middot; 16 districts, 385 resolved cases</div>
       </div>
-      <div class="step" data-scene="inversion" data-step="3">
-        <div class="step-num">Step 04 of 04</div>
-        <h3>Second case: Barishal 2026. Three teachers arrested under &#167;17.</h3>
-        <p>A woman who reported rape in 2025 faced &#167;17 counter-prosecution in January 2026. Arrest orders for her, three teachers, and two others. Under the 2025 Amendment Ordinance, &#167;17 was expanded to include &#8220;loss of dignity or reputation.&#8221; <strong>The chilling effect on future reports: unquantifiable. The trend: now documented.</strong></p>
-        <div class="note">TBS News Jan 2026 &middot; <span class="ok">CONFIRMED</span> &middot; S-13</div>
+
+      <!-- Card 3 -->
+      <div class="scrolly__card" data-scene="two-clocks" data-step="3" data-claim-id="BD-INV-002-C005">
+        <div class="scrolly__card-kicker">Beat 04 &middot; Step 04 of 05 &middot; The Inversion</div>
+        <h3 class="scrolly__card-title">At Day 56: Her rape case was at 2.38% of its journey.</h3>
+        <p class="scrolly__card-text">The gold progress bar shows where an average rape case stands on Day 56: exactly <strong>2.38% complete</strong>. At the moment Runa Akhter entered a prison cell, her original complaint was effectively at the starting line. As of March 2026, 1,461+ days later, her rape case remains without a published verdict.</p>
+        <div class="scrolly__card-metric">
+          <span class="scrolly__card-number" style="color:var(--gold)">2.38%</span>
+          <span class="scrolly__card-label">Progress of Rape Case when Survivor was Convicted</span>
+        </div>
+        <div class="note">The system convicts the woman who reports faster than the man she reported against.</div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="scrolly__card" data-scene="two-clocks" data-step="4">
+        <div class="scrolly__card-kicker">Beat 05 &middot; Step 05 of 05 &middot; The Pattern Expands</div>
+        <h3 class="scrolly__card-title">Barishal 2026: Three teachers arrested under expanded &sect;17.</h3>
+        <p class="scrolly__card-text">In January 2026, a survivor in Barishal who reported rape faced Section 17 counter-prosecution resulting in arrest orders for herself, three school teachers, and two supporters. The 2025 Amendment Ordinance expanded Section 17 to include &ldquo;loss of dignity or reputation&rdquo; &mdash; turning counter-complaints into a routine legal cudgel.</p>
+        <div class="scrolly__card-metric">
+          <span class="scrolly__card-number" style="color:var(--bloodl)">6 Arrest Orders</span>
+          <span class="scrolly__card-label">Issued Against Survivor and Witnesses in Barishal</span>
+        </div>
+        <div class="note">TBS News Jan 2026 &middot; S-13 &middot; <span class="ok">CONFIRMED</span></div>
       </div>
     </div>
   </div>
@@ -1068,64 +1054,85 @@ a{color:var(--gold);text-decoration:none}
     <h2>Watch Countries Try to Convict Rapists</h2>
     <p>All bars start at zero. Watch what justice systems produce when they invest.</p>
   </div>
-  <div class="scroll-scene" style="margin-top:2rem">
-    <div class="viz-sticky">
-      <div class="race-container">
-        <div class="denom-warn">&#9888; DENOMINATOR ALERT: These countries measure from different starting points. SA: trial-stage cases. UK: prosecutions commenced. India: completed trials only (90%+ still pending). Bangladesh: 23-year programme visitors &#8212; the broadest base. Direct ratio comparison is methodologically invalid. The pattern of scale difference is valid.</div>
-        <div style="font-family:var(--mono);font-size:.48rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1.2rem">Conviction rate at each system&#8217;s measured stage</div>
-        <div class="race-row">
-          <div class="race-label"><span class="race-country">South Africa</span><span class="race-val" style="color:var(--greenl)">72.2%</span></div>
-          <div class="race-track"><div class="race-bar" id="rb-sa" style="background:var(--greenl)" data-val="72.2%"></div></div>
-          <div class="race-note">Thuthuzela Care Centres &middot; No death penalty for rape &middot; NPA 2023/24</div>
+  <div class="scrolly" style="margin-top:2rem">
+    <div class="scrolly__stage">
+      <div class="scrolly__stage-inner" style="display:flex;flex-direction:column;justify-content:center;align-items:center;padding:1.5rem;box-sizing:border-box;">
+        <div class="race-container" style="width:100%;max-width:540px;">
+          <div class="denom-warn" style="font-family:var(--font-mono);font-size:0.6rem;line-height:1.5;margin-bottom:1rem;">
+            &#9888; <strong>DENOMINATOR ALERT:</strong> Cross-jurisdictional comparisons start from different baseline funnels. SA measures trial-stage cases; UK measures commenced prosecutions; India measures completed trials; Bangladesh measures 23-year OCC visitors. The pattern of scale difference is valid.
+          </div>
+          <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.08em;margin-bottom:0.8rem;">
+            Conviction Rate at Each System&#8217;s Measured Stage
+          </div>
+          <div class="race-row" style="margin-bottom:0.8rem;">
+            <div class="race-label" style="display:flex;justify-content:space-between;margin-bottom:0.25rem;"><span class="race-country" style="font-family:var(--font-mono);font-size:0.7rem;text-transform:uppercase;">South Africa (TCCs)</span><span class="race-val" style="color:var(--greenl);font-family:var(--font-mono);font-weight:700;">72.2%</span></div>
+            <div class="race-track" style="height:24px;background:rgba(0,0,0,.05);border:1px solid var(--border);position:relative;overflow:hidden;"><div class="race-bar" id="rb-sa" style="background:var(--greenl);height:100%;width:0;transition:width 1.2s ease;" data-val="72.2%"></div></div>
+            <div class="race-note" style="font-family:var(--font-mono);font-size:0.55rem;color:var(--muted);margin-top:0.2rem;">Thuthuzela Care Centres &middot; No death penalty for rape &middot; NPA 2023/24</div>
+          </div>
+          <div class="race-row" style="margin-bottom:0.8rem;">
+            <div class="race-label" style="display:flex;justify-content:space-between;margin-bottom:0.25rem;"><span class="race-country" style="font-family:var(--font-mono);font-size:0.7rem;text-transform:uppercase;">United Kingdom</span><span class="race-val" style="color:var(--gold);font-family:var(--font-mono);font-weight:700;">53.4%</span></div>
+            <div class="race-track" style="height:24px;background:rgba(0,0,0,.05);border:1px solid var(--border);position:relative;overflow:hidden;"><div class="race-bar" id="rb-uk" style="background:var(--gold);height:100%;width:0;transition:width 1.2s ease;" data-val="53.4%"></div></div>
+            <div class="race-note" style="font-family:var(--font-mono);font-size:0.55rem;color:var(--muted);margin-top:0.2rem;">Denominator: prosecutions commenced only &middot; CPS 2024</div>
+          </div>
+          <div class="race-row" style="margin-bottom:0.8rem;">
+            <div class="race-label" style="display:flex;justify-content:space-between;margin-bottom:0.25rem;"><span class="race-country" style="font-family:var(--font-mono);font-size:0.7rem;text-transform:uppercase;">India</span><span class="race-val" style="color:var(--amber);font-family:var(--font-mono);font-weight:700;">27.4%</span></div>
+            <div class="race-track" style="height:24px;background:rgba(0,0,0,.05);border:1px solid var(--border);position:relative;overflow:hidden;"><div class="race-bar" id="rb-in" style="background:var(--amber);height:100%;width:0;transition:width 1.2s ease;" data-val="27.4%"></div></div>
+            <div class="race-note" style="font-family:var(--font-mono);font-size:0.55rem;color:var(--muted);margin-top:0.2rem;">Completed trials only &middot; 90%+ pending &middot; NCRB 2022</div>
+          </div>
+          <div class="race-row" style="margin-bottom:0.8rem;">
+            <div class="race-label" style="display:flex;justify-content:space-between;margin-bottom:0.25rem;"><span class="race-country" style="font-family:var(--font-mono);font-size:0.7rem;text-transform:uppercase;">Bangladesh</span><span class="race-val" style="color:var(--bloodl);font-family:var(--font-mono);font-weight:700;">0.46%</span></div>
+            <div class="race-track" style="height:24px;background:rgba(0,0,0,.05);border:1px solid var(--border);position:relative;overflow:hidden;"><div class="race-bar" id="rb-bd" style="background:var(--bloodl);height:100%;width:0;transition:width 1.2s ease;" data-val="0.46%"></div></div>
+            <div class="race-note" style="font-family:var(--font-mono);font-size:0.55rem;color:var(--muted);margin-top:0.2rem;">OCC 23yr programme &middot; 310 of 66,711 &middot; Broadest denominator listed</div>
+          </div>
+          <div id="race-note2" style="opacity:0;transition:opacity .6s;margin-top:0.75rem;background:rgba(196,30,58,.06);border:1px solid rgba(196,30,58,.2);padding:.6rem .8rem">
+            <div style="font-family:var(--font-mono);font-size:.55rem;color:var(--muted);line-height:1.6">Even from only the 20,914 women who formally filed WCRPA cases, Bangladesh&#8217;s rate is <strong style="color:var(--bloodl)">1.48%</strong>. Still the lowest bar by an order of magnitude.</div>
+          </div>
         </div>
-        <div class="race-row" style="margin-top:1rem">
-          <div class="race-label"><span class="race-country">United Kingdom</span><span class="race-val" style="color:var(--gold)">53.4%</span></div>
-          <div class="race-track"><div class="race-bar" id="rb-uk" style="background:var(--gold)" data-val="53.4%"></div></div>
-          <div class="race-note">Denominator: prosecutions commenced only &middot; CPS 2024</div>
-        </div>
-        <div class="race-row" style="margin-top:1rem">
-          <div class="race-label"><span class="race-country">India</span><span class="race-val" style="color:var(--amber)">27.4%</span></div>
-          <div class="race-track"><div class="race-bar" id="rb-in" style="background:var(--amber)" data-val="27.4%"></div></div>
-          <div class="race-note">Completed trials only &middot; 90%+ pending &middot; NCRB 2022</div>
-        </div>
-        <div class="race-row" style="margin-top:1rem">
-          <div class="race-label"><span class="race-country">Bangladesh</span><span class="race-val" style="color:var(--bloodl)">0.46%</span></div>
-          <div class="race-track"><div class="race-bar" id="rb-bd" style="background:var(--bloodl)" data-val="0.46%"></div></div>
-          <div class="race-note">OCC 23yr programme &middot; 310 of 66,711 &middot; Broadest denominator listed</div>
-        </div>
-        <div id="race-note2" style="opacity:0;transition:opacity .6s;margin-top:1.5rem;background:rgba(196,30,58,.06);border:1px solid rgba(196,30,58,.2);padding:.8rem 1rem">
-          <div style="font-family:var(--mono);font-size:.46rem;color:var(--muted2);line-height:1.8">Even from only the 20,914 women who formally filed WCRPA cases &#8212; not all 66,711 OCC visitors &#8212; Bangladesh&#8217;s rate is <strong style="color:var(--bloodl)">1.48%</strong>. Still the furthest bar by an order of magnitude.</div>
-        </div>
-        <div class="disclosure-box" style="margin-top:1.2rem;font-family:var(--mono);font-size:0.55rem;color:var(--muted2);line-height:1.75;border-top:1px dashed rgba(255,255,255,0.15);padding-top:0.8rem">
-          <strong>* Note on Cross-Jurisdictional Comparisons:</strong> Comparing sexual violence conviction rates across jurisdictions is constrained by different denominator metrics. The UK (53.4%), India (27.4%), and South Africa (72.2%) figures represent conviction rates of prosecuted trials in court. The Bangladesh figure (0.46%) represents the total conviction rate of all complaints registered at One-Stop Crisis Centres (OCC), reflecting the massive attrition drop-off between reporting and prosecution.
-        </div>
+      </div>
+      <div class="scrolly__stage-caption">
+        <span class="scrolly__stage-meta">BD-INV-002-C006 &middot; International Conviction Comparison</span>
+        <span class="scrolly__stage-meta">NPA / CPS / NCRB / OCC</span>
       </div>
     </div>
-    <div class="steps-col">
-      <div class="step" data-scene="race" data-step="0">
-        <div class="step-num">Step 01 of 04</div>
-        <h3>All countries start at zero. All systems try.</h3>
-        <p>Every justice system loses most rape cases before trial. What matters is what infrastructure they built &#8212; and what they chose to invest in. The choice of investment is also a choice of outcome.</p>
+    <div class="scrolly__story">
+      <div class="scrolly__card scrolly__card--active" data-scene="race" data-step="0">
+        <div class="scrolly__card-kicker">Beat 01 &middot; Step 01 of 04 &middot; System Choices</div>
+        <h3 class="scrolly__card-title">All countries start at zero. All systems try.</h3>
+        <p class="scrolly__card-text">Every justice system loses most rape cases before trial. What matters is what infrastructure they built &#8212; and what they chose to invest in. The choice of investment is also a choice of outcome.</p>
+        <div class="scrolly__card-metric">
+          <span class="scrolly__card-number" style="color:var(--muted)">0%</span>
+          <span class="scrolly__card-label">Baseline Start for All Jurisdictions</span>
+        </div>
+        <div class="note">Cross-jurisdictional study &middot; Master Evidence File</div>
       </div>
-      <div class="step" data-scene="race" data-step="1">
-        <div class="step-num">Step 02 of 04</div>
-        <div class="stat green">72.2%</div>
-        <h3>South Africa built Thuthuzela Care Centres.</h3>
-        <p>One location: medical, forensic, and legal support integrated. Survivors don&#8217;t navigate a system &#8212; the system comes to them. No death penalty for rape. <strong>The investment was in certainty, not severity.</strong> 72.2% conviction rate at trial stage.</p>
+      <div class="scrolly__card" data-scene="race" data-step="1">
+        <div class="scrolly__card-kicker">Beat 02 &middot; Step 02 of 04 &middot; South Africa</div>
+        <h3 class="scrolly__card-title">South Africa built Thuthuzela Care Centres.</h3>
+        <p class="scrolly__card-text">One location: medical, forensic, and legal support integrated. Survivors don&#8217;t navigate a maze &#8212; the system comes to them. No death penalty for rape. <strong>The investment was in certainty, not severity.</strong> 72.2% conviction rate at trial stage.</p>
+        <div class="scrolly__card-metric">
+          <span class="scrolly__card-number" style="color:var(--greenl)">72.2%</span>
+          <span class="scrolly__card-label">Conviction Rate at Trial Stage (South Africa)</span>
+        </div>
         <div class="note">NPA Annual Report 2023/24 (S-29) &middot; <span class="ok">CONFIRMED</span></div>
       </div>
-      <div class="step" data-scene="race" data-step="2">
-        <div class="step-num">Step 03 of 04</div>
-        <div class="stat gold">53.4%</div>
-        <h3>UK: 53.4%. India: 27.4%. Both imperfect. Both visible. Both accountable.</h3>
-        <p>Both publish conviction data annually. Both can be challenged on it. Bangladesh has never published an official conviction rate. <strong>The absence of data is not a limitation of research &#8212; it is a feature of the system.</strong></p>
+      <div class="scrolly__card" data-scene="race" data-step="2">
+        <div class="scrolly__card-kicker">Beat 03 &middot; Step 03 of 04 &middot; UK &amp; India</div>
+        <h3 class="scrolly__card-title">UK: 53.4%. India: 27.4%. Both imperfect. Both visible. Both accountable.</h3>
+        <p class="scrolly__card-text">Both publish conviction data annually. Both can be challenged on it. Bangladesh has never published an official conviction rate. <strong>The absence of data is not a limitation of research &#8212; it is a feature of the system.</strong></p>
+        <div class="scrolly__card-metric">
+          <span class="scrolly__card-number" style="color:var(--gold)">53.4% / 27.4%</span>
+          <span class="scrolly__card-label">UK Prosecutions / India Completed Trials</span>
+        </div>
         <div class="note">UK: CPS VAWG 2024 &middot; India: NCRB 2022 &middot; <span class="ok">CONFIRMED</span></div>
       </div>
-      <div class="step" data-scene="race" data-step="3">
-        <div class="step-num">Step 04 of 04</div>
-        <div class="stat" style="color:var(--bloodl)">0.46%</div>
-        <h3>Bangladesh. Maximum severity. The bar barely moves.</h3>
-        <p>Death penalty since 2020. Conviction rate: 0.46% over 23 years. The reform pathway is not more punishment &#8212; it is <strong>more certainty.</strong> Forensic access. Witness protection. Time-limited trials with real enforcement. Six interventions. All documented. All achievable. None enacted.</p>
+      <div class="scrolly__card" data-scene="race" data-step="3">
+        <div class="scrolly__card-kicker">Beat 04 &middot; Step 04 of 04 &middot; Bangladesh</div>
+        <h3 class="scrolly__card-title">Bangladesh. Maximum severity. The bar barely moves.</h3>
+        <p class="scrolly__card-text">Death penalty since 2020. Conviction rate: 0.46% over 23 years. The reform pathway is not more punishment &#8212; it is <strong>more certainty.</strong> Forensic access. Witness protection. Time-limited trials with real enforcement. Six interventions. All documented. All achievable. None enacted.</p>
+        <div class="scrolly__card-metric">
+          <span class="scrolly__card-number" style="color:var(--bloodl)">0.46%</span>
+          <span class="scrolly__card-label">Crisis-to-Conviction Rate (310 of 66,711)</span>
+        </div>
         <div class="note">OCC programme 2001&#8211;2024 &middot; 310/66,711 (S-55) &middot; <span class="ok">CONFIRMED</span></div>
       </div>
     </div>
@@ -1137,52 +1144,72 @@ a{color:var(--gold);text-decoration:none}
 <!-- ═══════════════════════════════════════════
      S4: THE BACKLOG
 ════════════════════════════════════════════ -->
-<section id="s4" class="scene">
+<section id="s4" class="scene" data-claim-id="BD-INV-002-C002">
   <div class="scene-title">
     <div class="eyebrow">Scene 05 &middot; The Mountain</div>
     <h2>The Queue That Never Shrinks</h2>
     <p>Cases enter. Cases do not leave. Watch the mountain grow.</p>
   </div>
-  <div class="scroll-scene" style="margin-top:2rem">
-    <div class="viz-sticky">
-      <div style="width:100%;max-width:580px">
-        <canvas id="backlogCanvas" height="340" style="width:100%"></canvas>
-        <div class="chart-legend">
-          <div class="leg-item"><div class="leg-dot" style="background:var(--bloodl)"></div>Cases Filed</div>
-          <div class="leg-item"><div class="leg-dot" style="background:var(--gold)"></div>Cases Disposed</div>
-          <div class="leg-item"><div class="leg-dot" style="background:rgba(196,30,58,.25)"></div>Growing Backlog</div>
+  <div class="scrolly" style="margin-top:2rem">
+    <div class="scrolly__stage">
+      <div class="scrolly__stage-inner" style="display:flex;flex-direction:column;justify-content:center;align-items:center;padding:1.5rem;box-sizing:border-box;">
+        <div style="width:100%;max-width:540px;">
+          <canvas id="backlogCanvas" height="300" style="width:100%;display:block;"></canvas>
+          <div class="chart-legend" style="justify-content:center;margin-top:1rem;">
+            <div class="leg-item"><div class="leg-dot" style="background:var(--bloodl)"></div>Cases Filed</div>
+            <div class="leg-item"><div class="leg-dot" style="background:var(--gold)"></div>Cases Disposed</div>
+            <div class="leg-item"><div class="leg-dot" style="background:rgba(196,30,58,.25)"></div>Growing Backlog Gap</div>
+          </div>
+          <div style="font-family:var(--font-mono);font-size:.45rem;color:var(--muted2);margin-top:.75rem;line-height:1.5;text-align:center;">
+            PHQ / Daily Star / TBS / Anti-Rape Platform &middot; 2024 filing surge includes MoWCA-PHQ unified logs.
+          </div>
         </div>
-        <div class="chart-caption" style="font-family:var(--sans); font-size:0.75rem; color:var(--muted); margin-top:1rem; line-height:1.45;" data-claim-id="BD-INV-002-C002">
-          Court filing rates outpace disposal speed by 3.1x, adding 11,896 cases to the specialized tribunal backlog annually.
-        </div>
-        <div style="font-family:var(--mono);font-size:.42rem;color:var(--muted2);margin-top:.6rem;line-height:1.6;border-top:1px solid var(--border);padding-top:.6rem">PHQ via Kaler Kantho 2019&#8211;2020 &middot; PHQ via TBS 2023 &middot; PHQ via Daily Star 2024 &middot; Anti-Rape Platform 2024 * Note: The 2024 filing surge (17,544 cases) reflects a change in reporting aggregation where national police headquarters database logs were integrated with the Ministry of Women and Children Affairs (MoWCA) crisis centre logs, rather than representing solely OCC-registered cases.</div>
+      </div>
+      <div class="scrolly__stage-caption">
+        <span class="scrolly__stage-meta">BD-INV-002-C002 &middot; Specialized Tribunal Backlog</span>
+        <span class="scrolly__stage-meta">Police HQ &middot; 101 Tribunals</span>
       </div>
     </div>
-    <div class="steps-col">
-      <div class="step" data-scene="backlog" data-step="0">
-        <div class="step-num">Step 01 of 04</div>
-        <h3>2019. The system receives 6,766 rape cases.</h3>
-        <p>101 tribunals. A caseload already unmanageable. The 180-day statutory deadline was being violated in almost every case. This was the baseline before the crisis.</p>
+    <div class="scrolly__story">
+      <div class="scrolly__card scrolly__card--active" data-scene="backlog" data-step="0">
+        <div class="scrolly__card-kicker">Beat 01 &middot; Step 01 of 04 &middot; 2019 Baseline</div>
+        <h3 class="scrolly__card-title">2019. The system receives 6,766 rape cases.</h3>
+        <p class="scrolly__card-text">Across Bangladesh's 101 specialized tribunals, caseloads were already unmanageable before the pandemic. The 180-day statutory trial deadline was routinely violated in almost every jurisdiction.</p>
+        <div class="scrolly__card-metric">
+          <span class="scrolly__card-number scrolly-counter" data-counter-target="6766" data-counter-duration="1200">6,766</span>
+          <span class="scrolly__card-label">Rape Cases Filed in 2019</span>
+        </div>
         <div class="note">PHQ via Kaler Kantho &middot; <span class="ok">CONFIRMED</span> &middot; S-16</div>
       </div>
-      <div class="step" data-scene="backlog" data-step="1">
-        <div class="step-num">Step 02 of 04</div>
-        <h3>Every year: more enter than leave.</h3>
-        <p>The system disposes ~5,648 cases per year. In 2024: 17,544 new cases filed. <strong>Net annual backlog growth: ~12,000 cases.</strong> The queue has never shrunk in six years of documented data.</p>
-        <div class="note">2024: Anti-Rape Platform / BSS (S-65) &middot; <span class="prob">PROBABLE</span></div>
+      <div class="scrolly__card" data-scene="backlog" data-step="1">
+        <div class="scrolly__card-kicker">Beat 02 &middot; Step 02 of 04 &middot; Annual Surplus</div>
+        <h3 class="scrolly__card-title">Every year: More enter than leave.</h3>
+        <p class="scrolly__card-text">The court system disposes approximately 5,648 cases per year. In 2024 alone, 17,544 new cases were filed &mdash; adding nearly <strong>12,000 unresolved cases</strong> to the pending mountain. In six documented years, the backlog has never shrunk once.</p>
+        <div class="scrolly__card-metric">
+          <span class="scrolly__card-number" style="color:var(--bloodl)">+11,896</span>
+          <span class="scrolly__card-label">Net Annual Backlog Growth (2024)</span>
+        </div>
+        <div class="note">Anti-Rape Platform / BSS (S-65) &middot; <span class="prob">PROBABLE</span></div>
       </div>
-      <div class="step" data-scene="backlog" data-step="2">
-        <div class="step-num">Step 03 of 04</div>
-        <div class="stat" style="color:var(--amberl)">~150,000</div>
-        <h3>cases pending. March 2025.</h3>
-        <p>35,262 waiting more than five years. The longest documented case: TC-002 in the Case Registry. A 13-year-old girl in Jamalpur. Crime: 2004. Verdict: 2025. <strong>Twenty-one years.</strong></p>
+      <div class="scrolly__card" data-scene="backlog" data-step="2">
+        <div class="scrolly__card-kicker">Beat 03 &middot; Step 03 of 04 &middot; Queue Scale</div>
+        <h3 class="scrolly__card-title">~150,000 cases pending. March 2025.</h3>
+        <p class="scrolly__card-text">Over 35,262 cases have been waiting for more than five years without resolution. The longest documented case in the registry: a 13-year-old girl in Jamalpur whose crime was reported in 2004 and reached verdict in 2025 &mdash; <strong>twenty-one years later</strong>.</p>
+        <div class="scrolly__card-metric">
+          <span class="scrolly__card-number" style="color:var(--amberl)">~150,000</span>
+          <span class="scrolly__card-label">Total Cases Stalled in Specialized Tribunals</span>
+        </div>
         <div class="note">SHARE-Net (148,314) + Daily Star (151,317) &middot; <span class="ok">CONFIRMED</span> &middot; S-63, S-64</div>
       </div>
-      <div class="step" data-scene="backlog" data-step="3">
-        <div class="step-num">Step 04 of 04</div>
-        <h3>The math of permanent crisis.</h3>
-        <p>At current disposal rate, clearing the existing backlog with zero new filings would take <strong>over 26 years.</strong> New cases arrive every day. The system cannot self-correct. This is not a temporary backlog. It is the permanent architecture of impunity.</p>
-        <div class="note">Derived from confirmed filing and disposal data &middot; <span class="prob">PROBABLE</span></div>
+      <div class="scrolly__card" data-scene="backlog" data-step="3">
+        <div class="scrolly__card-kicker">Beat 04 &middot; Step 04 of 04 &middot; Math of Impunity</div>
+        <h3 class="scrolly__card-title">The math of permanent crisis.</h3>
+        <p class="scrolly__card-text">At current disposal rates, clearing the existing backlog with <em>zero</em> new filings would take <strong>over 26 years</strong>. But new cases enter every day. The system cannot self-correct. This is not an administrative delay; it is the structural architecture of impunity.</p>
+        <div class="scrolly__card-metric">
+          <span class="scrolly__card-number" style="color:var(--gold)">26+ Years</span>
+          <span class="scrolly__card-label">Time to Clear Queue Without New Filings</span>
+        </div>
+        <div class="note">Derived from confirmed filing and disposal registries &middot; <span class="prob">PROBABLE</span></div>
       </div>
     </div>
   </div>
@@ -1214,84 +1241,108 @@ a{color:var(--gold);text-decoration:none}
     <h2>In a Room of Ten Women in Barishal, Eight Have Experienced Violence</h2>
     <p>That is not a statistic about marginal populations. That is a room. Click any division.</p>
   </div>
-  <div class="scroll-scene" style="margin-top:2rem">
-    <div class="viz-sticky">
-      <div style="width:100%;max-width:440px">
-        <svg id="mapSvg" viewBox="0 0 400 500" style="width:100%;max-height:75vmin;min-height:200px">
-          <defs>
-            <radialGradient id="gBlood" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="rgba(200,30,58,.85)"/><stop offset="100%" stop-color="rgba(139,20,40,.4)"/></radialGradient>
-            <radialGradient id="gAmber" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="rgba(212,160,96,.75)"/><stop offset="100%" stop-color="rgba(160,110,60,.4)"/></radialGradient>
-            <radialGradient id="gGreen" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="rgba(82,183,136,.5)"/><stop offset="100%" stop-color="rgba(45,106,79,.25)"/></radialGradient>
-          </defs>
-          <polygon id="div-rangpur" points="40,15 175,15 175,120 40,120" fill="url(#gAmber)" stroke="#c8c5bc" stroke-width="1.5" opacity="0" style="transition:opacity .7s;cursor:pointer" onclick="showMapInfo('Rangpur','74.1%','1 crisis cell','Northern agricultural zone. High climate displacement. 1 crisis cell.')"/>
-          <text x="107" y="73" class="div-label-svg">Rangpur</text>
-          <polygon id="div-mym" points="175,15 285,15 285,108 175,120" fill="url(#gAmber)" stroke="#c8c5bc" stroke-width="1.5" opacity="0" style="transition:opacity .7s .1s;cursor:pointer" onclick="showMapInfo('Mymensingh','75.1%','1 crisis cell','Separated division 2015. 75.1% lifetime IPV. 1 crisis cell.')"/>
-          <text x="230" y="66" class="div-label-svg">Mymensingh</text>
-          <polygon id="div-sylhet" points="285,15 390,15 390,152 285,152 285,108" fill="url(#gGreen)" stroke="#c8c5bc" stroke-width="1.5" opacity="0" style="transition:opacity .7s .2s;cursor:pointer" onclick="showMapInfo('Sylhet','72.7%','1 full OCC','72.7% lifetime IPV. CORRECTED v2.0. MAG Osmani Medical College OCC.')"/>
-          <text x="337" y="82" class="div-label-svg">Sylhet</text>
-          <polygon id="div-raj" points="15,120 165,120 152,240 15,240" fill="url(#gAmber)" stroke="#c8c5bc" stroke-width="1.5" opacity="0" style="transition:opacity .7s .3s;cursor:pointer" onclick="showMapInfo('Rajshahi','74.5%','1 full OCC','74.5% lifetime IPV. Rajshahi Medical College OCC, oldest programme centre.')"/>
-          <text x="88" y="183" class="div-label-svg">Rajshahi</text>
-          <polygon id="div-dhaka" points="152,120 285,108 285,285 162,285 152,240" fill="url(#gGreen)" stroke="#c8c5bc" stroke-width="1.5" opacity="0" style="transition:opacity .7s .4s;cursor:pointer" onclick="showMapInfo('Dhaka','72.9%','3 full OCCs','Lowest IPV nationally at 72.9%. Highest court backlog. Resources concentrated in capital.')"/>
-          <text x="218" y="200" class="div-label-svg">Dhaka</text>
-          <polygon id="div-ctg" points="285,108 390,152 390,388 285,365 285,285" fill="url(#gBlood)" stroke="#c8c5bc" stroke-width="1.5" opacity="0" style="transition:opacity .7s .5s;cursor:pointer" onclick="showMapInfo('Chattogram','78.5%','3 full OCCs','78.5% lifetime IPV. Third highest nationally. 1M+ Rohingya refugees with zero GBV data.')"/>
-          <text x="337" y="258" class="div-label-svg">Chattogram</text>
-          <polygon id="div-khulna" points="15,240 152,240 162,285 152,390 15,390" fill="url(#gBlood)" stroke="#c8c5bc" stroke-width="2" opacity="0" style="transition:opacity .7s .6s;cursor:pointer" onclick="showMapInfo('Khulna','81.3%','2 centres','81.3% lifetime IPV. SECOND HIGHEST nationally. Khulna MC + Magura.')"/>
-          <text x="88" y="322" class="div-label-svg">Khulna</text>
-          <polygon id="div-barishal" points="152,285 285,285 285,445 162,445 152,390" fill="url(#gBlood)" stroke="#c8c5bc" stroke-width="2.5" opacity="0" style="transition:opacity .7s .7s;cursor:pointer" onclick="showMapInfo('Barishal','81.5%','1 full OCC','HIGHEST IN BANGLADESH. 81.5% lifetime IPV. 1 OCC for 9 million people.')"/>
-          <text x="218" y="372" class="div-label-svg">Barishal</text>
-          <text x="200" y="488" font-family="IBM Plex Mono,monospace" font-size="7" fill="rgba(120,115,105,.7)" text-anchor="middle">Bay of Bengal</text>
-          <g id="occ-dots">
-            <circle class="occ-dot" id="occ1" cx="218" cy="160" r="6"/><circle class="occ-dot" id="occ2" cx="175" cy="200" r="6"/>
-            <circle class="occ-dot" id="occ3" cx="235" cy="175" r="6"/><circle class="occ-dot" id="occ4" cx="325" cy="258" r="6"/>
-            <circle class="occ-dot" id="occ5" cx="365" cy="300" r="6"/><circle class="occ-dot" id="occ6" cx="310" cy="240" r="6"/>
-            <circle class="occ-dot" id="occ7" cx="88" cy="183" r="6"/><circle class="occ-dot" id="occ8" cx="88" cy="335" r="6"/>
-            <circle class="occ-dot" id="occ9" cx="218" cy="365" r="6"/><circle class="occ-dot" id="occ10" cx="337" cy="82" r="6"/>
-            <circle class="occ-dot" id="occ11" cx="115" cy="335" r="6"/><circle class="occ-dot" id="occ12" cx="175" cy="210" r="6"/>
-            <circle class="occ-dot" id="occ13" cx="230" cy="165" r="6"/><circle class="occ-dot" id="occ14" cx="155" cy="185" r="6"/>
-          </g>
-          <circle id="barishal-pulse" cx="218" cy="372" r="28" fill="none" stroke="var(--bloodl)" stroke-width="1.5" opacity="0"/>
-        </svg>
-        <div id="map-info" style="background:var(--ink3);border:1px solid var(--border);padding:.8rem 1rem;font-family:var(--mono);font-size:.5rem;line-height:1.7;min-height:64px;margin-top:.5rem"><span style="color:var(--muted2)">&#8592; Click any division to explore data</span></div>
-        <div style="display:flex;gap:.8rem;margin-top:.6rem;flex-wrap:wrap">
-          <div style="display:flex;align-items:center;gap:.3rem;font-family:var(--mono);font-size:.4rem;color:var(--muted)"><div style="width:9px;height:9px;background:rgba(200,30,58,.7)"></div>&gt;78% IPV</div>
-          <div style="display:flex;align-items:center;gap:.3rem;font-family:var(--mono);font-size:.4rem;color:var(--muted)"><div style="width:9px;height:9px;background:rgba(212,160,96,.7)"></div>74&#8211;78%</div>
-          <div style="display:flex;align-items:center;gap:.3rem;font-family:var(--mono);font-size:.4rem;color:var(--muted)"><div style="width:9px;height:9px;background:rgba(82,183,136,.5)"></div>&lt;74%</div>
-          <div style="display:flex;align-items:center;gap:.3rem;font-family:var(--mono);font-size:.4rem;color:var(--muted)"><div style="width:9px;height:9px;border-radius:50%;background:var(--amber)"></div>Full OCC</div>
+  <div class="scrolly" style="margin-top:2rem">
+    <div class="scrolly__stage">
+      <div class="scrolly__stage-inner" style="display:flex;flex-direction:column;justify-content:center;align-items:center;padding:1rem;box-sizing:border-box;">
+        <div style="width:100%;max-width:400px;text-align:center;">
+          <svg id="mapSvg" viewBox="0 0 400 500" style="width:100%;max-height:55vh;min-height:180px;display:block;margin:0 auto;">
+            <defs>
+              <radialGradient id="gBlood" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="rgba(200,30,58,.85)"/><stop offset="100%" stop-color="rgba(139,20,40,.4)"/></radialGradient>
+              <radialGradient id="gAmber" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="rgba(212,160,96,.75)"/><stop offset="100%" stop-color="rgba(160,110,60,.4)"/></radialGradient>
+              <radialGradient id="gGreen" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="rgba(82,183,136,.5)"/><stop offset="100%" stop-color="rgba(45,106,79,.25)"/></radialGradient>
+            </defs>
+            <polygon id="div-rangpur" points="40,15 175,15 175,120 40,120" fill="url(#gAmber)" stroke="#c8c5bc" stroke-width="1.5" opacity="0" style="transition:opacity .7s;cursor:pointer" onclick="showMapInfo('Rangpur','74.1%','1 crisis cell','Northern agricultural zone. High climate displacement. 1 crisis cell.')"/>
+            <text x="107" y="73" class="div-label-svg">Rangpur</text>
+            <polygon id="div-mym" points="175,15 285,15 285,108 175,120" fill="url(#gAmber)" stroke="#c8c5bc" stroke-width="1.5" opacity="0" style="transition:opacity .7s .1s;cursor:pointer" onclick="showMapInfo('Mymensingh','75.1%','1 crisis cell','Separated division 2015. 75.1% lifetime IPV. 1 crisis cell.')"/>
+            <text x="230" y="66" class="div-label-svg">Mymensingh</text>
+            <polygon id="div-sylhet" points="285,15 390,15 390,152 285,152 285,108" fill="url(#gGreen)" stroke="#c8c5bc" stroke-width="1.5" opacity="0" style="transition:opacity .7s .2s;cursor:pointer" onclick="showMapInfo('Sylhet','72.7%','1 full OCC','72.7% lifetime IPV. MAG Osmani Medical College OCC.')"/>
+            <text x="337" y="82" class="div-label-svg">Sylhet</text>
+            <polygon id="div-raj" points="15,120 165,120 152,240 15,240" fill="url(#gAmber)" stroke="#c8c5bc" stroke-width="1.5" opacity="0" style="transition:opacity .7s .3s;cursor:pointer" onclick="showMapInfo('Rajshahi','74.5%','1 full OCC','74.5% lifetime IPV. Rajshahi Medical College OCC, oldest programme centre.')"/>
+            <text x="88" y="183" class="div-label-svg">Rajshahi</text>
+            <polygon id="div-dhaka" points="152,120 285,108 285,285 162,285 152,240" fill="url(#gGreen)" stroke="#c8c5bc" stroke-width="1.5" opacity="0" style="transition:opacity .7s .4s;cursor:pointer" onclick="showMapInfo('Dhaka','72.9%','3 full OCCs','Lowest IPV nationally at 72.9%. Highest court backlog. Resources concentrated in capital.')"/>
+            <text x="218" y="200" class="div-label-svg">Dhaka</text>
+            <polygon id="div-ctg" points="285,108 390,152 390,388 285,365 285,285" fill="url(#gBlood)" stroke="#c8c5bc" stroke-width="1.5" opacity="0" style="transition:opacity .7s .5s;cursor:pointer" onclick="showMapInfo('Chattogram','78.5%','3 full OCCs','78.5% lifetime IPV. Third highest nationally. 1M+ Rohingya refugees with zero GBV data.')"/>
+            <text x="337" y="258" class="div-label-svg">Chattogram</text>
+            <polygon id="div-khulna" points="15,240 152,240 162,285 152,390 15,390" fill="url(#gBlood)" stroke="#c8c5bc" stroke-width="2" opacity="0" style="transition:opacity .7s .6s;cursor:pointer" onclick="showMapInfo('Khulna','81.3%','2 centres','81.3% lifetime IPV. SECOND HIGHEST nationally. Khulna MC + Magura.')"/>
+            <text x="88" y="322" class="div-label-svg">Khulna</text>
+            <polygon id="div-barishal" points="152,285 285,285 285,445 162,445 152,390" fill="url(#gBlood)" stroke="#c8c5bc" stroke-width="2.5" opacity="0" style="transition:opacity .7s .7s;cursor:pointer" onclick="showMapInfo('Barishal','81.5%','1 full OCC','HIGHEST IN BANGLADESH. 81.5% lifetime IPV. 1 OCC for 9 million people.')"/>
+            <text x="218" y="372" class="div-label-svg">Barishal</text>
+            <text x="200" y="488" font-family="var(--font-mono)" font-size="8" fill="rgba(120,115,105,.7)" text-anchor="middle">Bay of Bengal</text>
+            <g id="occ-dots">
+              <circle class="occ-dot" id="occ1" cx="218" cy="160" r="5"/><circle class="occ-dot" id="occ2" cx="175" cy="200" r="5"/>
+              <circle class="occ-dot" id="occ3" cx="235" cy="175" r="5"/><circle class="occ-dot" id="occ4" cx="325" cy="258" r="5"/>
+              <circle class="occ-dot" id="occ5" cx="365" cy="300" r="5"/><circle class="occ-dot" id="occ6" cx="310" cy="240" r="5"/>
+              <circle class="occ-dot" id="occ7" cx="88" cy="183" r="5"/><circle class="occ-dot" id="occ8" cx="88" cy="335" r="5"/>
+              <circle class="occ-dot" id="occ9" cx="218" cy="365" r="5"/><circle class="occ-dot" id="occ10" cx="337" cy="82" r="5"/>
+              <circle class="occ-dot" id="occ11" cx="115" cy="335" r="5"/><circle class="occ-dot" id="occ12" cx="175" cy="210" r="5"/>
+              <circle class="occ-dot" id="occ13" cx="230" cy="165" r="5"/><circle class="occ-dot" id="occ14" cx="155" cy="185" r="5"/>
+            </g>
+            <circle id="barishal-pulse" cx="218" cy="372" r="28" fill="none" stroke="var(--bloodl)" stroke-width="1.5" opacity="0"/>
+          </svg>
+          <div id="map-info" style="background:var(--ink3);border:1px solid var(--border);padding:.6rem .8rem;font-family:var(--font-mono);font-size:.55rem;line-height:1.5;min-height:50px;margin-top:.4rem;text-align:left;">
+            <span style="color:var(--muted2)">&#8592; Tap any division to inspect statistics</span>
+          </div>
+          <div style="display:flex;gap:.6rem;margin-top:.4rem;justify-content:center;flex-wrap:wrap;">
+            <div style="display:flex;align-items:center;gap:.25rem;font-family:var(--font-mono);font-size:.45rem;color:var(--muted);"><div style="width:8px;height:8px;background:rgba(200,30,58,.8);"></div>&gt;78% IPV</div>
+            <div style="display:flex;align-items:center;gap:.25rem;font-family:var(--font-mono);font-size:.45rem;color:var(--muted);"><div style="width:8px;height:8px;background:rgba(212,160,96,.8);"></div>74&#8211;78%</div>
+            <div style="display:flex;align-items:center;gap:.25rem;font-family:var(--font-mono);font-size:.45rem;color:var(--muted);"><div style="width:8px;height:8px;background:rgba(82,183,136,.6);"></div>&lt;74%</div>
+            <div style="display:flex;align-items:center;gap:.25rem;font-family:var(--font-mono);font-size:.45rem;color:var(--muted);"><div style="width:8px;height:8px;border-radius:50%;background:var(--gold);"></div>OCC</div>
+          </div>
         </div>
-        <div class="chart-caption" style="font-family:var(--sans); font-size:0.75rem; color:var(--muted); margin-top:1.2rem; line-height:1.45;">
-          Geographic distribution of violence exposure and the institutional footprint of Bangladesh's One-Stop Crisis Centre network.
-        </div>
+      </div>
+      <div class="scrolly__stage-caption">
+        <span class="scrolly__stage-meta">BD-INV-002-C003 &middot; 8 Divisions &middot; 14 Crisis Centres</span>
+        <span class="scrolly__stage-meta">UNFPA / BBS / GoB UN Submission</span>
       </div>
     </div>
-    <div class="steps-col">
-      <div class="step" data-scene="mapscene" data-step="0">
-        <div class="step-num">Step 01 of 05</div>
-        <h3>Bangladesh has eight divisions. Violence is everywhere.</h3>
-        <p>The UNFPA/BBS VAW Survey 2024 interviewed 27,476 women across all divisions. National lifetime IPV rate: 76.0%. The lowest division &#8212; Sylhet &#8212; is 72.7%. There is no safe geography in this data.</p>
-        <div class="note">UNFPA/BBS Oct 2025 updated survey &middot; <span class="ok">CONFIRMED</span> &middot; S-74</div>
+    <div class="scrolly__story">
+      <div class="scrolly__card scrolly__card--active" data-scene="mapscene" data-step="0">
+        <div class="scrolly__card-kicker">Beat 01 &middot; Step 01 of 05 &middot; National Floor</div>
+        <h3 class="scrolly__card-title">Bangladesh has eight divisions. Violence is everywhere.</h3>
+        <p class="scrolly__card-text">The UNFPA/BBS VAW Survey 2024 interviewed 27,476 women across all divisions. The national lifetime intimate partner violence rate is <strong>76.0%</strong>. Even the lowest division &mdash; Sylhet &mdash; stands at 72.7%. There is no safe geography in this data.</p>
+        <div class="scrolly__card-metric">
+          <span class="scrolly__card-number" style="color:var(--muted)">76.0%</span>
+          <span class="scrolly__card-label">National Lifetime IPV Baseline</span>
+        </div>
+        <div class="note">UNFPA/BBS VAW Survey 2024 &middot; <span class="ok">CONFIRMED</span> &middot; S-74</div>
       </div>
-      <div class="step" data-scene="mapscene" data-step="1">
-        <div class="step-num">Step 02 of 05</div>
-        <div class="stat" style="color:var(--bloodl)">81.5%</div>
-        <h3>Barishal highest. Khulna second: 81.3%. Chattogram third: 78.5%.</h3>
-        <p>In a room of ten women in Barishal or Khulna, eight have experienced intimate partner violence in their lifetime. The entire country sits in a 9-percentage-point band of violence. The floor is 72.7%. The ceiling is 81.5%.</p>
+      <div class="scrolly__card" data-scene="mapscene" data-step="1">
+        <div class="scrolly__card-kicker">Beat 02 &middot; Step 02 of 05 &middot; Coastal Crisis</div>
+        <h3 class="scrolly__card-title">Barishal highest: 81.5%. Khulna second: 81.3%.</h3>
+        <p class="scrolly__card-text">In a room of ten women in Barishal or Khulna, <strong>eight have experienced intimate partner violence</strong> in their lifetime. The entire country is compressed within a narrow 9-percentage-point band of violence: the floor is 72.7%, and the ceiling is 81.5%.</p>
+        <div class="scrolly__card-metric">
+          <span class="scrolly__card-number" style="color:var(--bloodl)">81.5%</span>
+          <span class="scrolly__card-label">Barishal Division Lifetime IPV Exposure</span>
+        </div>
         <div class="note">UNFPA/BBS VAW Survey 2024 (S-02) &middot; <span class="ok">CONFIRMED</span></div>
       </div>
-      <div class="step" data-scene="mapscene" data-step="2">
-        <div class="step-num">Step 03 of 05</div>
-        <h3>The gold circles are One-Stop Crisis Centres.</h3>
-        <p>Count them carefully. Fourteen centres across the entire country. Integrated medical, forensic, and legal support. The infrastructure designed to turn assaults into evidence into convictions. Fourteen circles for 170 million people.</p>
+      <div class="scrolly__card" data-scene="mapscene" data-step="2">
+        <div class="scrolly__card-kicker">Beat 03 &middot; Step 03 of 05 &middot; Resource Footprint</div>
+        <h3 class="scrolly__card-title">The gold circles are One-Stop Crisis Centres.</h3>
+        <p class="scrolly__card-text">Count them carefully. Fourteen centres across the entire country. Integrated medical, forensic, and legal support. The exact infrastructure designed to turn assaults into forensic evidence and convictions. Fourteen circles for <strong>170 million people</strong>.</p>
+        <div class="scrolly__card-metric">
+          <span class="scrolly__card-number" style="color:var(--gold)">14 Centres</span>
+          <span class="scrolly__card-label">Integrated Crisis Facilities for 170 Million People</span>
+        </div>
         <div class="note">GoB UNSG Submission May 2024 (S-09) &middot; <span class="ok">CONFIRMED</span></div>
       </div>
-      <div class="step" data-scene="mapscene" data-step="3">
-        <div class="step-num">Step 04 of 05</div>
-        <h3>The pattern is the verdict.</h3>
-        <p>Barishal: 81.5% IPV, <strong>1 OCC.</strong> Khulna: 81.3%, <strong>2 centres.</strong> Chattogram: 78.5%, 3 OCCs but 1M+ Rohingya with zero GBV data. Dhaka: 72.9% &#8212; the lowest nationally &#8212; <strong>3 OCCs.</strong> The resources flow to the capital. Not to the crisis.</p>
+      <div class="scrolly__card" data-scene="mapscene" data-step="3">
+        <div class="scrolly__card-kicker">Beat 04 &middot; Step 04 of 05 &middot; The Allocation Inversion</div>
+        <h3 class="scrolly__card-title">The pattern is the verdict.</h3>
+        <p class="scrolly__card-text">Barishal: 81.5% IPV, <strong>1 OCC for 9 million people</strong>. Khulna: 81.3%, 2 centres. Chattogram: 78.5%, 3 OCCs (with over 1M Rohingya refugees bearing zero GBV coverage). Meanwhile Dhaka has 3 OCCs despite the lowest IPV rate. Resources concentrate in the capital, not where the crisis is steepest.</p>
+        <div class="scrolly__card-metric">
+          <span class="scrolly__card-number" style="color:var(--gold)">1 OCC / 9M</span>
+          <span class="scrolly__card-label">Crisis Facility Ratio in Barishal Division</span>
+        </div>
       </div>
-      <div class="step" data-scene="mapscene" data-step="4">
-        <div class="step-num">Step 05 of 05</div>
-        <h3>50 of 64 districts have no full OCC.</h3>
-        <p>In those districts: no forensic physician. No integrated support. A 3&#8211;4 month wait for DNA results from the single national lab in Dhaka. 78% of survivors arrive after the 72-hour forensic evidence window. The evidence that produces convictions is destroyed before the system begins.</p>
+      <div class="scrolly__card" data-scene="mapscene" data-step="4">
+        <div class="scrolly__card-kicker">Beat 05 &middot; Step 05 of 05 &middot; The Desert</div>
+        <h3 class="scrolly__card-title">50 of 64 districts have no full OCC.</h3>
+        <p class="scrolly__card-text">In 50 districts: no forensic physician, no integrated legal support, and a 3&ndash;4 month wait for DNA testing from the single national lab in Dhaka. Over 78% of survivors arrive after the 72-hour forensic evidence window has closed &mdash; destroying cases before they begin.</p>
+        <div class="scrolly__card-metric">
+          <span class="scrolly__card-number" style="color:var(--bloodl)">50 of 64</span>
+          <span class="scrolly__card-label">Districts With Zero Comprehensive Crisis Facilities</span>
+        </div>
         <div class="note">BRAC 2022 (S-01) &middot; GoB UNSG Submission (S-09) &middot; <span class="ok">CONFIRMED</span></div>
       </div>
     </div>
@@ -1316,91 +1367,155 @@ a{color:var(--gold);text-decoration:none}
 <hr class="divider">
 
 <!-- ═══════════════════════════════════════════
+     HER STORY — PANEL 03: THE DECISION
+════════════════════════════════════════════ -->
+<section class="her-story" style="background:var(--ink2)" data-claim-id="BD-INV-002-C001">
+  <div class="her-story-inner">
+    <div class="her-story-tag">Her Story</div>
+    <h4>
+      She decided to file. The decision took three months.<br><br>
+      She went to the OCC alone. She didn't tell her mother. She took a rickshaw from two streets over so the driver wouldn't know her. The nurse at the centre asked her how long ago it happened. She said eleven days. She watched the nurse's face change. She didn't know then what she knows now: that eleven days was already too late for most of the evidence. The law says 72 hours. No one had told her.<br><br>
+      <strong>She gave her case number to a sister she trusted. She said: remember this number. If something happens to me, this is the number. The sister asked what number. She said: just remember it.</strong>
+    </h4>
+    <div class="her-story-source">78% of survivors arrive after the 72-hour forensic window · BRAC 2022 (S-01) · CONFIRMED · Section 32 WCRPA mandates hospital examination — compliance tracking: CONFIRMED ABSENT (GA-012)</div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════
      SDNA: THE EVIDENCE WINDOW
 ════════════════════════════════════════════ -->
-<section id="sdna" class="full-scene" data-claim-id="BD-INV-002-C003">
+<section id="sdna" class="scene" data-claim-id="BD-INV-002-C003">
   <div class="scene-title">
     <div class="eyebrow">Scene 07 &middot; The Evidence Window</div>
     <h2>Evidence Doesn&#8217;t Wait for the System</h2>
-    <p>Biology has a deadline. The law acknowledged it: 72 hours. The system misses it in 78% of cases.</p>
+    <p>Biology has a strict 72-hour deadline. The justice system misses it in 78% of cases.</p>
   </div>
-  <div class="fwrap" style="margin-top:3rem" id="forensicWrap">
-    <div class="fstat-row">
-      <div class="fstat">
-        <div class="fstat-val" style="color:var(--bloodl)">78%</div>
-        <div class="fstat-lbl">of survivors arrive after the 72-hour evidence window has closed</div>
+  <div class="scrolly" style="margin-top:2rem">
+    <div class="scrolly__stage">
+      <div class="scrolly__stage-inner" style="display:flex;flex-direction:column;justify-content:center;align-items:center;padding:1.5rem;box-sizing:border-box;">
+        
+        <!-- Live Stat Header -->
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.5rem;width:100%;max-width:520px;margin-bottom:1.2rem;">
+          <div style="background:var(--ink3);border:1px solid var(--border);padding:0.6rem;text-align:center;">
+            <div style="font-family:var(--font-mono);font-size:1.3rem;font-weight:700;color:var(--bloodl);line-height:1;">78%</div>
+            <div style="font-family:var(--font-mono);font-size:0.5rem;color:var(--muted);text-transform:uppercase;margin-top:0.2rem;">Arrive After 72h</div>
+          </div>
+          <div style="background:var(--ink3);border:1px solid var(--border);padding:0.6rem;text-align:center;">
+            <div style="font-family:var(--font-mono);font-size:1.3rem;font-weight:700;color:var(--gold);line-height:1;">2</div>
+            <div style="font-family:var(--font-mono);font-size:0.5rem;color:var(--muted);text-transform:uppercase;margin-top:0.2rem;">DNA Machines</div>
+          </div>
+          <div style="background:var(--ink3);border:1px solid var(--border);padding:0.6rem;text-align:center;">
+            <div style="font-family:var(--font-mono);font-size:1.3rem;font-weight:700;color:var(--amber);line-height:1;">92%</div>
+            <div style="font-family:var(--font-mono);font-size:0.5rem;color:var(--muted);text-transform:uppercase;margin-top:0.2rem;">DNA Backlog</div>
+          </div>
+        </div>
+
+        <!-- 3 Degradation Tracks -->
+        <div style="width:100%;max-width:520px;">
+          <!-- Track 1: DNA & Physical Evidence -->
+          <div style="margin-bottom:0.85rem;">
+            <div style="display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:0.65rem;margin-bottom:0.25rem;">
+              <span>1. Biological DNA &amp; Injuries</span>
+              <span style="color:var(--bloodl);font-weight:700;">FASTEST DECAY</span>
+            </div>
+            <div style="height:26px;background:rgba(0,0,0,.05);border:1px solid var(--border);position:relative;overflow:visible;">
+              <div id="ev-bio" style="height:100%;width:0;background:linear-gradient(to right,#52b788 0%,#52b788 16%,#c9a84c 28%,#e84060 47%,rgba(70,10,20,.6) 60%,rgba(30,30,48,.08) 100%);transition:width 1.2s ease;"></div>
+              <div style="position:absolute;left:28%;top:0;bottom:0;width:2px;background:var(--bloodl);"></div>
+              <div style="position:absolute;left:28%;top:-16px;font-family:var(--font-mono);font-size:0.5rem;font-weight:700;color:var(--bloodl);transform:translateX(-50%);white-space:nowrap;">72h LIMIT</div>
+              <div style="position:absolute;left:55%;top:0;bottom:0;width:2px;background:var(--gold);"></div>
+              <div style="position:absolute;left:55%;top:-16px;font-family:var(--font-mono);font-size:0.5rem;font-weight:700;color:var(--gold);transform:translateX(-50%);white-space:nowrap;">78% ARRIVE &darr;</div>
+            </div>
+          </div>
+
+          <!-- Track 2: Witness Memory -->
+          <div style="margin-bottom:0.85rem;">
+            <div style="display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:0.65rem;margin-bottom:0.25rem;">
+              <span>2. Witness Memory Reliability</span>
+              <span style="color:var(--gold);font-weight:700;">GRADUAL DECAY</span>
+            </div>
+            <div style="height:26px;background:rgba(0,0,0,.05);border:1px solid var(--border);position:relative;overflow:hidden;">
+              <div id="ev-mem" style="height:100%;width:0;background:linear-gradient(to right,#52b788 0%,#52b788 32%,#c9a84c 52%,#d4a060 64%,rgba(212,160,96,.22) 84%,rgba(30,30,48,.06) 100%);transition:width 1.2s ease;"></div>
+              <div style="position:absolute;left:28%;top:0;bottom:0;width:1px;background:rgba(232,64,96,.6);"></div>
+              <div style="position:absolute;left:55%;top:0;bottom:0;width:2px;background:var(--gold);"></div>
+            </div>
+          </div>
+
+          <!-- Track 3: Medical Documentation -->
+          <div style="margin-bottom:0.4rem;">
+            <div style="display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:0.65rem;margin-bottom:0.25rem;">
+              <span>3. Medical Examination Completeness</span>
+              <span style="color:var(--amber);font-weight:700;">STEEPEST LOSS</span>
+            </div>
+            <div style="height:26px;background:rgba(0,0,0,.05);border:1px solid var(--border);position:relative;overflow:hidden;">
+              <div id="ev-med" style="height:100%;width:0;background:linear-gradient(to right,#52b788 0%,#b8c84a 9%,#c9a84c 15%,#e84060 24%,rgba(139,20,40,.45) 36%,rgba(100,20,30,.18) 56%,rgba(30,30,48,.04) 100%);transition:width 1.2s ease;"></div>
+              <div style="position:absolute;left:28%;top:0;bottom:0;width:1px;background:rgba(232,64,96,.6);"></div>
+              <div style="position:absolute;left:55%;top:0;bottom:0;width:2px;background:var(--gold);"></div>
+            </div>
+          </div>
+          
+          <div style="display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:.45rem;color:var(--muted2);padding-top:.3rem;border-top:1px solid var(--border);">
+            <span style="color:var(--greenl);">&#9646; INTACT (Hour 0)</span>
+            <span>72 Hours</span>
+            <span>1 Month</span>
+            <span>6 Months</span>
+            <span style="color:var(--bloodl);">&#9646; DEGRADED</span>
+          </div>
+        </div>
+
       </div>
-      <div class="fstat">
-        <div class="fstat-val" style="color:var(--gold)">2 machines</div>
-        <div class="fstat-lbl">DNA profiling machines serving all of Bangladesh&#8217;s 170 million people</div>
-      </div>
-      <div class="fstat">
-        <div class="fstat-val" style="color:var(--amberl)">92%</div>
-        <div class="fstat-lbl">of 2025 DNA samples unprocessed &#8212; 1,204 of 1,304 samples backlogged</div>
+      <div class="scrolly__stage-caption">
+        <span class="scrolly__stage-meta">BD-INV-002-C003 &middot; 72-Hour Forensic Window</span>
+        <span class="scrolly__stage-meta">BRAC (S-01) &middot; NFDPL Lab Reports</span>
       </div>
     </div>
-    <div id="evidenceBars">
-      <div style="background:rgba(232,64,96,.07);border:1px solid rgba(232,64,96,.25);border-left:3px solid var(--bloodl);padding:.9rem 1.1rem;font-family:var(--mono);font-size:.46rem;color:var(--text2);line-height:1.9;margin-bottom:1.8rem">
-        Each bar shows how evidence quality changes from the moment of assault onwards.<br>
-        <span style="color:var(--bloodl);font-weight:700">&#9474; Red line = 72-hour legal threshold.</span> &nbsp;
-        <span style="color:var(--gold);font-weight:700">&#9474; Gold line = where 78% of survivors actually arrive.</span><br>
-        <span style="color:var(--text)">What Bangladesh's courts receive is the evidence quality to the <em>right</em> of the gold line.</span>
+
+    <div class="scrolly__story">
+      <div class="scrolly__card scrolly__card--active" data-scene="evidence" data-step="0">
+        <div class="scrolly__card-kicker">Beat 01 &middot; Step 01 of 04 &middot; Biological Clock</div>
+        <h3 class="scrolly__card-title">Evidence doesn&#8217;t wait for the system.</h3>
+        <p class="scrolly__card-text">Biology has a deadline: 72 hours. In that narrow window, viable DNA profiles can be retrieved and physical trauma documented. But because 50 of 64 districts lack a crisis centre, <strong>78% of survivors arrive after the window has already closed</strong>.</p>
+        <div class="scrolly__card-metric">
+          <span class="scrolly__card-number" style="color:var(--bloodl)">78%</span>
+          <span class="scrolly__card-label">Survivors Arrive After 72-Hour Evidence Window</span>
+        </div>
+        <div class="note">BRAC 2022 Longitudinal Study &middot; S-01 &middot; <span class="ok">CONFIRMED</span></div>
       </div>
-      <div style="font-family:var(--mono);font-size:.46rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1.6rem">Evidence quality over time &#8212; relative degradation after assault</div>
-      <div class="evbar-row">
-        <div class="evbar-lbl"><span>&#9312; DNA, Fibres &amp; Physical Injuries</span><span style="color:var(--bloodl);font-size:.4rem">FASTEST DECAY</span></div>
-        <div class="evbar-track" style="height:36px;overflow:visible;margin-top:.9rem">
-          <div class="evbar-fill" id="ev-bio" style="height:100%;background:linear-gradient(to right,#52b788 0%,#52b788 16%,#c9a84c 28%,#e84060 47%,rgba(70,10,20,.6) 60%,rgba(30,30,48,.08) 100%)"></div>
-          <div style="position:absolute;left:28%;top:0;bottom:0;width:2px;background:rgba(232,64,96,.9)"></div>
-          <div style="position:absolute;left:28%;top:-22px;font-family:var(--mono);font-size:.42rem;color:var(--bloodl);transform:translateX(-50%);white-space:nowrap;font-weight:700">72 HRS</div>
-          <div style="position:absolute;left:55%;top:0;bottom:0;width:2px;background:rgba(201,168,76,1)"></div>
-          <div style="position:absolute;left:55%;top:-22px;font-family:var(--mono);font-size:.42rem;color:var(--gold);transform:translateX(-50%);white-space:nowrap;font-weight:700">78% ARRIVE &#x2193;</div>
-          <div style="position:absolute;left:56%;bottom:-19px;font-family:var(--mono);font-size:.34rem;color:rgba(201,168,76,.6);white-space:nowrap">evidence already compromised</div>
+
+      <div class="scrolly__card" data-scene="evidence" data-step="1">
+        <div class="scrolly__card-kicker">Beat 02 &middot; Step 02 of 04 &middot; DNA Infrastructure</div>
+        <h3 class="scrolly__card-title">Track 1: Two machines for 170 million people.</h3>
+        <p class="scrolly__card-text">All DNA samples nationwide must travel to Dhaka to the National Forensic DNA Profiling Laboratory (NFDPL). The entire nation relies on just <strong>two operational DNA profiling machines</strong>. In 2025, 1,204 of 1,304 received samples went unprocessed &mdash; a staggering 92% backlog.</p>
+        <div class="scrolly__card-metric">
+          <span class="scrolly__card-number" style="color:var(--gold)">2 Machines</span>
+          <span class="scrolly__card-label">National Forensic Profiling Capacity (NFDPL Dhaka)</span>
         </div>
-        <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:.35rem;color:var(--muted2);margin-top:1.6rem;padding-top:.3rem;border-top:1px solid var(--border)">
-          <span style="color:var(--greenl)">&#9646; INTACT (hr 0)</span><span>72 hrs</span><span>1 week</span><span>1 month</span><span>3 months</span><span style="color:rgba(70,10,20,.8)">&#9646; GONE</span>
-        </div>
+        <div class="note">MoWCA NFDPL 2025 Lab Reports &middot; <span class="ok">CONFIRMED</span></div>
       </div>
-      <div class="evbar-row" style="margin-top:2rem">
-        <div class="evbar-lbl"><span>&#9313; Witness Memory Reliability</span><span style="color:var(--gold);font-size:.4rem">GRADUAL DECAY</span></div>
-        <div class="evbar-track" style="height:36px;margin-top:.5rem">
-          <div class="evbar-fill" id="ev-mem" style="height:100%;background:linear-gradient(to right,#52b788 0%,#52b788 32%,#c9a84c 52%,#d4a060 64%,rgba(212,160,96,.22) 84%,rgba(30,30,48,.06) 100%)"></div>
-          <div style="position:absolute;left:28%;top:0;bottom:0;width:1px;background:rgba(232,64,96,.55)"></div>
-          <div style="position:absolute;left:55%;top:0;bottom:0;width:2px;background:rgba(201,168,76,.8)"></div>
-          <div style="position:absolute;left:56%;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:.34rem;color:rgba(201,168,76,.65);white-space:nowrap">memory fades from here &#8594;</div>
+
+      <div class="scrolly__card" data-scene="evidence" data-step="2">
+        <div class="scrolly__card-kicker">Beat 03 &middot; Step 03 of 04 &middot; Memory Degradation</div>
+        <h3 class="scrolly__card-title">Track 2: Memory fades across 2,349 days.</h3>
+        <p class="scrolly__card-text">Over the average 6.4-year delay to verdict, witness memory naturally decays. Cross-examinations occurring 5 to 7 years after the crime exploit slight inconsistencies in recollection to impeach survivor credibility, collapsing cases before judges.</p>
+        <div class="scrolly__card-metric">
+          <span class="scrolly__card-number scrolly-counter" data-counter-target="2349" data-counter-duration="1200" style="color:var(--amber)">2,349</span>
+          <span class="scrolly__card-label">Days for Testimonial Recall to Degrade</span>
         </div>
-        <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:.35rem;color:var(--muted2);margin-top:.4rem">
-          <span style="color:var(--greenl)">&#9646; CLEAR</span><span>72hrs</span><span style="color:var(--gold)">avg arrival &#8594;</span><span></span><span style="color:rgba(212,160,96,.4)">&#9646; UNRELIABLE</span>
-        </div>
+        <div class="note">BRAC 2022 &middot; 385 cases &middot; Primary driver of courtroom acquittal</div>
       </div>
-      <div class="evbar-row" style="margin-top:2rem">
-        <div class="evbar-lbl"><span>&#9314; Medical Documentation Completeness</span><span style="color:var(--amberl);font-size:.4rem">STEEPEST INITIAL LOSS</span></div>
-        <div class="evbar-track" style="height:36px;margin-top:.5rem">
-          <div class="evbar-fill" id="ev-med" style="height:100%;background:linear-gradient(to right,#52b788 0%,#b8c84a 9%,#c9a84c 15%,#e84060 24%,rgba(139,20,40,.45) 36%,rgba(100,20,30,.18) 56%,rgba(30,30,48,.04) 100%)"></div>
-          <div style="position:absolute;left:28%;top:0;bottom:0;width:1px;background:rgba(232,64,96,.5)"></div>
-          <div style="position:absolute;left:55%;top:0;bottom:0;width:2px;background:rgba(201,168,76,.75)"></div>
+
+      <div class="scrolly__card" data-scene="evidence" data-step="3">
+        <div class="scrolly__card-kicker">Beat 04 &middot; Step 04 of 04 &middot; The Stalled Cases</div>
+        <h3 class="scrolly__card-title">Track 3: 789 cases completely stalled.</h3>
+        <p class="scrolly__card-text">As of September 2025, exactly <strong>789 court trials</strong> are completely stalled nationwide waiting solely for delayed DNA reports from Dhaka. Furthermore, only 55% of all samples submitted to NFDPL since 2006 have ever resulted in an issued court report.</p>
+        <div class="scrolly__card-metric">
+          <span class="scrolly__card-number" style="color:var(--bloodl)">789</span>
+          <span class="scrolly__card-label">Trials Stalled Exclusively Waiting for Lab Reports</span>
         </div>
-        <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:.35rem;color:var(--muted2);margin-top:.4rem">
-          <span style="color:var(--greenl)">&#9646; COMPLETE</span><span></span><span style="color:var(--bloodl)">drops sharply within hours &#8594;</span><span></span><span style="color:rgba(139,20,40,.45)">&#9646; PARTIAL</span>
-        </div>
-      </div>
-      <div class="chart-caption" style="font-family:var(--sans); font-size:0.75rem; color:var(--muted); margin-top:2rem; margin-bottom:2rem; line-height:1.45;">
-        Degradation curves of critical biological, testimonial, and medical evidence relative to the 72-hour legal collection window.
+        <div class="note">NFDPL MoWCA Records 2025 &middot; S-01, S-09 &middot; <span class="ok">CONFIRMED</span></div>
       </div>
     </div>
-    <div class="fsub-grid">
-      <div class="fsub">
-        <div style="font-family:var(--mono);font-size:.48rem;color:var(--bloodl);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem">The Pipeline Failure</div>
-        <div style="font-family:var(--mono);font-size:1.6rem;font-weight:700;color:var(--text);margin:.3rem 0">789</div>
-        <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);line-height:1.6">cases completely stalled nationwide due to DNA processing backlog (September 2025)</div>
-      </div>
-      <div class="fsub">
-        <div style="font-family:var(--mono);font-size:.48rem;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem">Report Issuance Rate</div>
-        <div style="font-family:var(--mono);font-size:1.6rem;font-weight:700;color:var(--text);margin:.3rem 0">55%</div>
-        <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);line-height:1.6">of DNA cases evaluated by NFDPL result in a court report (6,333 of 11,501 cases since 2006)</div>
-      </div>
-    </div>
-    <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);margin-top:1.2rem;line-height:1.8;border-top:1px solid var(--border);padding-top:1rem">Sources: BRAC 2022 (S-01) &middot; MoWCA NFDPL data 2025 &middot; <span class="ok">CONFIRMED</span> &middot; Only 1 national DNA profiling lab (NFDPL, Dhaka) + 5 regional screening labs. Average processing: 3&#8211;4 months per case.</div>
   </div>
 </section>
 
@@ -1431,34 +1546,51 @@ a{color:var(--gold);text-decoration:none}
     <h2>Maximum Severity. Near-Zero Certainty.</h2>
     <p>Criminological consensus: certainty deters crime. Severity alone does not. Bangladesh chose severity. Watch where it places them.</p>
   </div>
-  <div class="scroll-scene" style="margin-top:2rem">
-    <div class="viz-sticky">
-      <div style="width:100%;max-width:620px">
-        <canvas id="scatterCanvas" height="380" style="width:100%"></canvas>
-        <div class="chart-caption" style="font-family:var(--sans); font-size:0.75rem; color:var(--muted); margin-top:1rem; line-height:1.45;" data-claim-id="BD-INV-002-C006">
-          Cross-national comparison demonstrating that maximum penalty severity (death penalty) does not correlate with rape conviction rates.
+  <div class="scrolly" style="margin-top:2rem">
+    <div class="scrolly__stage">
+      <div class="scrolly__stage-inner" style="display:flex;flex-direction:column;justify-content:center;align-items:center;padding:1.5rem;box-sizing:border-box;">
+        <div style="width:100%;max-width:580px;">
+          <canvas id="scatterCanvas" height="340" style="width:100%;display:block;"></canvas>
+          <div style="font-family:var(--font-mono);font-size:.45rem;color:var(--muted2);margin-top:.6rem;line-height:1.5;text-align:center;">
+            Nagin 2013 &middot; D&#246;lling 2009 &middot; Abramovaite 2022 &middot; NPA 2023/24 &middot; CPS 2024 &middot; NCRB 2022 &middot; OCC 2024
+          </div>
         </div>
-        <div style="font-family:var(--mono);font-size:.44rem;color:var(--muted2);margin-top:.6rem;line-height:1.6;border-top:1px solid var(--border);padding-top:.6rem">Nagin 2013 &middot; D&#246;lling 2009 &middot; Abramovaite 2022 &middot; NPA 2023/24 &middot; CPS 2024 &middot; NCRB 2022 &middot; OCC 2024</div>
+      </div>
+      <div class="scrolly__stage-caption">
+        <span class="scrolly__stage-meta">BD-INV-002-C006 &middot; Deterrence vs Severity Scatter</span>
+        <span class="scrolly__stage-meta">Criminological Meta-Analysis</span>
       </div>
     </div>
-    <div class="steps-col">
-      <div class="step" data-scene="scatter" data-step="0">
-        <div class="step-num">Step 01 of 03</div>
-        <h3>Criminological consensus: certainty is the primary deterrent.</h3>
-        <p>Nagin (2013): certainty of apprehension &#8212; not severity of punishment &#8212; is the primary deterrent to crime. D&#246;lling et al. (2009) meta-analysis: deterrence hypothesis &#8220;rarely confirmed&#8221; for serious offences. This is not a minority view. It is the 50-year consensus across jurisdictions.</p>
-        <div class="note">Academic consensus &middot; Cross-jurisdictional &middot; No credible counter-evidence for rape specifically</div>
+    <div class="scrolly__story">
+      <div class="scrolly__card scrolly__card--active" data-scene="scatter" data-step="0">
+        <div class="scrolly__card-kicker">Beat 01 &middot; Step 01 of 03 &middot; Criminological Consensus</div>
+        <h3 class="scrolly__card-title">Criminological consensus: Certainty is the primary deterrent.</h3>
+        <p class="scrolly__card-text">Nagin (2013): Certainty of apprehension &mdash; not severity of punishment &mdash; is the primary deterrent to crime. The D&#246;lling et al. (2009) meta-analysis concluded that the severity deterrence hypothesis is &ldquo;rarely confirmed&rdquo; for violent sexual offences. This is the 50-year consensus across global legal systems.</p>
+        <div class="scrolly__card-metric">
+          <span class="scrolly__card-number" style="color:var(--muted)">Certainty &gt; Severity</span>
+          <span class="scrolly__card-label">Primary Driver of Offense Reduction</span>
+        </div>
+        <div class="note">Academic consensus &middot; Cross-jurisdictional &middot; Nagin 2013</div>
       </div>
-      <div class="step" data-scene="scatter" data-step="1">
-        <div class="step-num">Step 02 of 03</div>
-        <h3>Countries with higher certainty achieve higher conviction rates.</h3>
-        <p>South Africa: high certainty (forensic infrastructure, integrated support) &#8594; 72.2% conviction rate. No death penalty for rape. Indonesia: implemented death penalty for child rape &#8594; documented post-implementation <strong>surge in child rape rates.</strong> The mechanism is known. Certainty deters. Severity alone does not.</p>
+      <div class="scrolly__card" data-scene="scatter" data-step="1">
+        <div class="scrolly__card-kicker">Beat 02 &middot; Step 02 of 03 &middot; Comparative Evidence</div>
+        <h3 class="scrolly__card-title">Countries with higher certainty achieve higher conviction rates.</h3>
+        <p class="scrolly__card-text">South Africa built comprehensive forensic and medical care centres (TCCs), achieving a <strong>72.2% conviction rate</strong> at trial with no death penalty. Conversely, Indonesia introduced the death penalty for child rape and subsequently recorded a post-implementation surge in attacks. Certainty deters; severity alone produces silence.</p>
+        <div class="scrolly__card-metric">
+          <span class="scrolly__card-number" style="color:var(--greenl)">72.2%</span>
+          <span class="scrolly__card-label">Conviction Rate with Zero Capital Punishment (South Africa)</span>
+        </div>
         <div class="note">Susila 2019 &middot; S-52 &middot; <span class="ok">CONFIRMED</span></div>
       </div>
-      <div class="step" data-scene="scatter" data-step="2">
-        <div class="step-num">Step 03 of 03</div>
-        <h3>Bangladesh is in the worst possible corner.</h3>
-        <p>Maximum severity: mandatory death penalty since October 2020. Near-zero certainty: 0.46% conviction rate. <strong>The data places Bangladesh exactly where the literature predicts.</strong> The reform pathway requires no new theory. It requires political decision. Six evidence-based interventions. All documented below.</p>
-        <div class="note">Three documented mechanisms: judicial reluctance when penalty is death &middot; witness elimination incentive &middot; family suppression when accused is known</div>
+      <div class="scrolly__card" data-scene="scatter" data-step="2">
+        <div class="scrolly__card-kicker">Beat 03 &middot; Step 03 of 03 &middot; The Worst Corner</div>
+        <h3 class="scrolly__card-title">Bangladesh is trapped in the worst possible corner.</h3>
+        <p class="scrolly__card-text">Maximum severity: mandatory death penalty since October 2020. Near-zero certainty: a 0.46% conviction rate. The data places Bangladesh exactly where criminological models predict &mdash; three documented failure mechanisms: judicial reluctance to convict when penalty is capital, witness elimination incentives, and family pressure to settle.</p>
+        <div class="scrolly__card-metric">
+          <span class="scrolly__card-number" style="color:var(--bloodl)">Death Penalty + 0.46%</span>
+          <span class="scrolly__card-label">Maximum Severity Combined with Near-Zero Certainty</span>
+        </div>
+        <div class="note">Documented systemic failure mechanisms &middot; Master Evidence File</div>
       </div>
     </div>
   </div>
@@ -1704,6 +1836,7 @@ a{color:var(--gold);text-decoration:none}
   <div class="tier-note">BD-INV-002 &middot; The Impunity Machine &middot; Version 3.0 &middot; March 2026 &middot; Insight Gaps<br>65 named sources &middot; All claims evidence-tiered &middot; Her Story panels: composite figure, all details from primary sources &middot; CC BY-NC 4.0<br>Anonymous publication &middot; Open-source posture &middot; <a href="/investigations/the-impunity-machine/methodology/">Full methodology &#8594;</a></div>
 </section>
 
+<script src="/assets/js/scrolly-engine.js"></script>
 <script>
 const DC=document.getElementById("dotCanvas");
 const dpr=Math.min(window.devicePixelRatio||1,2);
@@ -1917,21 +2050,59 @@ setTimeout(()=>{const t=document.getElementById("htitle");if(t)t.classList.add("
 const navLinks=document.querySelectorAll(".sub-nav__link");
 window.addEventListener("scroll",()=>{let cur="";document.querySelectorAll("section[id]").forEach(s=>{if(window.scrollY>=s.offsetTop-120)cur=s.id;});navLinks.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+cur));},{passive:true});
 
-let scSt=-1;
-const io=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("active");const sc=e.target.dataset.scene,st=parseInt(e.target.dataset.step);
-    if(sc==="funnel"){const fs=FSTEPS[st]||FSTEPS[0];setDotStep(fs.alive,fs.surv);const c=document.getElementById("dot-count"),s2=document.getElementById("dot-status");if(c)c.textContent=fs.lbl;if(s2)s2.textContent=fs.st;}
-    if(sc==="inversion"&&!invDone&&st>=1){invDone=true;runInversion();}
-    if(sc==="race")runRace(st);
-    if(sc==="backlog"){const targets=[.1,.4,.75,1];btgt=targets[st]||.1;requestAnimationFrame(drawBacklog);}
-    if(sc==="mapscene")updateMap(st);
-    if(sc==="scatter"&&st!==scSt){scSt=st;drawScatter(st);}
-  }else e.target.classList.remove("active");});
-},{rootMargin:"-35% 0px -35% 0px"});
-document.querySelectorAll("[data-step]").forEach(el=>io.observe(el));
-
-new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting&&!clocksDone){clocksDone=true;runClocks();}});},{threshold:.1}).observe(document.getElementById("s2")||document.body);
-new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting&&!forensicDone){forensicDone=true;runForensic();}});},{threshold:.3}).observe(document.getElementById("sdna")||document.body);
+let scSt = -1;
+if (typeof ScrollyEngine !== 'undefined') {
+  var scrolly = new ScrollyEngine({
+    containerSelector: '.scrolly',
+    stepSelector: '.scrolly__card, .step',
+    offset: 0.38
+  });
+  var counterAdapter = new ScrollyEngine.CounterAdapter();
+  scrolly.on('step', function (e) {
+    counterAdapter.onStepEnter(e);
+    var sc = e.scene, st = e.index;
+    if (sc === 'funnel') {
+      var fs = FSTEPS[st] || FSTEPS[0];
+      setDotStep(fs.alive, fs.surv);
+      var c = document.getElementById('dot-count'), s2 = document.getElementById('dot-status');
+      if (c) c.textContent = fs.lbl;
+      if (s2) s2.textContent = fs.st;
+    } else if (sc === 'two-clocks') {
+      if (!clocksDone) { clocksDone = true; runClocks(); }
+      if (!invDone && st >= 1) { invDone = true; runInversion(); }
+    } else if (sc === 'race') {
+      runRace(st);
+    } else if (sc === 'backlog') {
+      var targets = [0.1, 0.4, 0.75, 1];
+      btgt = targets[st] || 0.1;
+      requestAnimationFrame(drawBacklog);
+    } else if (sc === 'mapscene') {
+      updateMap(st);
+    } else if (sc === 'evidence') {
+      if (!forensicDone) { forensicDone = true; runForensic(); }
+    } else if (sc === 'scatter') {
+      if (st !== scSt) { scSt = st; drawScatter(st); }
+    }
+  });
+} else {
+  // Fallback observer
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('active');
+        var sc = e.target.dataset.scene, st = parseInt(e.target.dataset.step, 10);
+        if (sc === 'funnel') { var fs = FSTEPS[st] || FSTEPS[0]; setDotStep(fs.alive, fs.surv); }
+        if (sc === 'two-clocks' && !clocksDone) { clocksDone = true; runClocks(); }
+        if (sc === 'race') runRace(st);
+        if (sc === 'backlog') { btgt = [0.1, 0.4, 0.75, 1][st] || 0.1; requestAnimationFrame(drawBacklog); }
+        if (sc === 'mapscene') updateMap(st);
+        if (sc === 'evidence' && !forensicDone) { forensicDone = true; runForensic(); }
+        if (sc === 'scatter') { drawScatter(st); }
+      }
+    });
+  }, { rootMargin: '-35% 0px -35% 0px' });
+  document.querySelectorAll('[data-step]').forEach(function (el) { io.observe(el); });
+}
 
 function dlCSV(e){e.preventDefault();const rows=[["Source","Figure","N_D","Tier"],["BRAC 2022","3.66% conviction rate","36/984","CONFIRMED"],["OCC 2001-2024","0.46% conviction rate","310/66711","CONFIRMED"],["PBI 2025","41% cases closed unproven","4248/10581","CONFIRMED"],["UNFPA 2024","76.0% national lifetime IPV","27476 women","CONFIRMED"],["UNFPA 2024","81.5% IPV Barishal","","CONFIRMED"],["UNFPA 2024","81.3% IPV Khulna","","CONFIRMED"],["UNFPA 2024","78.5% IPV Chattogram","","CONFIRMED"],["UNFPA 2024","72.7% IPV Sylhet","","CONFIRMED"],["UNFPA 2024","72.9% IPV Dhaka","","CONFIRMED"],["PHQ 2025","~150k cases pending","","CONFIRMED"],["NFDPL 2025","92% DNA samples unprocessed","1204/1304","CONFIRMED"],["Prothom Alo 2023","Runa Akhter S17 conviction 56 days","1 case","CONFIRMED"],["NPA SA 2023/24","72.2% conviction rate","trial-stage","CONFIRMED"],["BRAC 2022","2 DNA machines nationally","","CONFIRMED"]];const csv=rows.map(r=>r.map(c=>'"'+c+'"').join(",")).join("\n");const a=document.createElement("a");a.href="data:text/csv;charset=utf-8,"+encodeURIComponent(csv);a.download="BD-INV-002-evidence-export.csv";a.click();}
 

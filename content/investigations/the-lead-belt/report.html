@@ -121,12 +121,13 @@
 </script>
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="/assets/css/components.css">
+<link rel="stylesheet" href="/assets/css/scrolly.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"></script>
+<script src="/assets/js/scrolly-engine.js"></script>
 <style>
 :root {
   --void:#ffffff; --g1:#f7f6f3; --g2:#f0ede8; --g3:#e8e4de; --g4:#ddd9d2;
@@ -870,11 +871,36 @@ html[data-theme="dark"] .msi{border-right-color:var(--b1)}
      SCENE 01 — MAP (top of report)
 ══════════════════════════════════ -->
 <!-- START OF SCROLLYTELLING CONTAINER -->
-<div class="sscene" id="scrolly-container">
-  <div class="vsticky">
+<section class="scrolly sscene" id="scrolly-container" data-scrolly="lead-belt" aria-label="Spatial Investigation Map Story">
+  <div class="scrolly__stage vsticky">
     <div class="map-wrap" style="width: 100%; height: 100%; position: relative;">
+      <!-- PERSISTENT MAP FILTER & LAYER CONSOLE -->
+      <div class="map-bar scrolly__map-bar" id="lead-belt-map-bar" style="position: absolute; top: 10px; left: 10px; right: 10px; z-index: 500; background: rgba(7, 7, 12, 0.90); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid var(--b2); border-radius: var(--radius-sm); padding: 0.4rem 0.6rem; box-shadow: 0 4px 16px rgba(0,0,0,0.5);">
+        <div class="map-bar-row" style="display: flex; align-items: center; gap: 0.35rem; flex-wrap: wrap;">
+          <span class="mbl">Focus:</span>
+          <button class="mfbtn on" onclick="mFlt('all',this)">All 294 <span class="cnt" id="fc-all">294</span></button>
+          <button class="mfbtn" onclick="mFlt('sch',this)">Near Schools <span class="cnt" id="fc-sch">44</span></button>
+          <button class="mfbtn" data-claim-id="BD-INV-003-C16" onclick="mFlt('sat',this)" title="Satellite confirmed: 26 (high-confidence: 19)">Satellite (26)<span class="cnt" id="fc-sat">26</span></button>
+          <button class="mfbtn" data-claim-id="BD-INV-003-C16" onclick="mFlt('crit',this)" title="Critical: 68 · 65 exceed 100,000 ppm">Critical (&gt;100k) <span class="cnt" id="fc-crit">68</span></button>
+          <div class="mbsep" style="width: 1px; height: 14px; background: var(--b2); margin: 0 2px;"></div>
+          <span class="mbl">Layers:</span>
+          <button class="lyrbtn on" id="lb-choro" onclick="togL('choro',this)">🗺 Choro</button>
+          <button class="lyrbtn on" id="lb-bg"    onclick="togL('bg',this)">⬤ Sites</button>
+          <button class="lyrbtn"    id="lb-sch"   onclick="togL('sch',this)">🏫 Schools</button>
+          <button class="lyrbtn"    id="lb-buf"   onclick="togL('buf',this)">⭕ 500m</button>
+          <button class="lyrbtn"    id="lb-sat"   onclick="togL('sat',this)">🛰 Satellite</button>
+          <div class="mbsep" style="width: 1px; height: 14px; background: var(--b2); margin: 0 2px;"></div>
+          <input type="text" class="msearch" id="msearch" placeholder="Search site ID…" oninput="doSearch(this.value)" style="font-size: 0.72rem; padding: 0.2rem 0.45rem; width: 120px;">
+        </div>
+      </div>
+
       <div id="leafmap" style="width: 100%; height: 100%;"></div>
       
+      <!-- STAGE METADATA BAR -->
+      <div class="scrolly__stage-caption" aria-live="polite">
+        <span class="scrolly__stage-meta" id="scrolly-meta">SCENE 01 / 06 · NATIONWIDE MAPPING (294 SITES)</span>
+      </div>
+
       <!-- SITE DETAIL PANEL -->
       <div id="mpl">
         <div class="mpl-top">
@@ -913,7 +939,7 @@ html[data-theme="dark"] .msi{border-right-color:var(--b1)}
       </div>
 
       <!-- LEGEND -->
-      <div id="mleg">
+      <div id="mleg" style="bottom: 45px;">
         <div class="mleg-t">Map Legend</div>
         <div class="mleg-s">Upazila choropleth — max soil lead</div>
         <div class="cscale">
@@ -941,163 +967,164 @@ html[data-theme="dark"] .msi{border-right-color:var(--b1)}
     </div>
   </div>
   
-  <div class="stcol">
-    <!-- Step 1: Map Controls & General Geography -->
-    <div class="step active" data-scene="intro" id="step-intro">
-      <div class="map-hdr" style="padding: 0 0 1.5rem 0;">
-        <div class="ey">Scene 01 · The Geography</div>
-        <h2 class="sh2">294 contaminated sites.<br><em>93 upazila boundaries mapped in detail. Every division.</em></h2>
-        <p class="sp">Real thana-level choropleth — shaded by max soil lead concentration. Red pins mark each contaminated site. Amber pins = schools within 500m. Click any upazila or site for full data.</p>
-        <div class="bll-strip" style="margin: .9rem 0;">
-          <div class="bll-cell" data-claim-id="BD-INV-003-C15" style="background:rgba(192,21,42,.52)"><div class="bll-pct" style="color:#ff8080">65.2%</div><div class="bll-nm">Dhaka</div></div>
-          <div class="bll-cell" data-claim-id="BD-INV-003-C15" style="background:rgba(237,107,133,.42)"><div class="bll-pct" style="color:#ffb080">48.0%</div><div class="bll-nm">Khulna</div></div>
-          <div class="bll-cell" data-claim-id="BD-INV-003-C15" style="background:rgba(237,107,133,.38)"><div class="bll-pct" style="color:#ffbb88">46.7%</div><div class="bll-nm">Sylhet</div></div>
-          <div class="bll-cell" data-claim-id="BD-INV-003-C15" style="background:rgba(245,155,171,.35)"><div class="bll-pct" style="color:#ffd090">42.1%</div><div class="bll-nm">Chattogram</div></div>
-          <div class="bll-cell" data-claim-id="BD-INV-003-C15" style="background:rgba(252,197,206,.28)"><div class="bll-pct" style="color:var(--txl)">38%</div><div class="bll-nm">National</div></div>
-          <div class="bll-cell" data-claim-id="BD-INV-003-C15" style="background:rgba(40,184,112,.22)"><div class="bll-pct" style="color:#80e0a8">15.9%</div><div class="bll-nm">Rajshahi</div></div>
-        </div>
-      </div>
+  <div class="scrolly__story stcol">
+    <!-- Step 1: Map Overview & General Geography -->
+    <article class="scrolly__card step active" data-step="0" data-scene="intro" id="step-intro" aria-current="step">
+      <header class="scrolly__card-header">
+        <span class="scrolly__card-kicker">01 / 06 · The Hidden Inventory</span>
+      </header>
+      <h3 class="scrolly__card-title">294 Contaminated Lead Smelting Sites Mapped Across Bangladesh</h3>
+      <p class="scrolly__card-text">
+        Across 93 upazilas in all divisions, informal battery recycling operations melt lead scrap in the open air without containment. Spatial analysis reveals <strong>145 school–site intersections</strong> placing primary school children within 500 metres of toxic chimneys.
+      </p>
       
-      <div class="map-bar" style="border: 1px solid var(--b2); padding: 1rem; border-radius: var(--radius-md); background: rgba(7,7,12,0.4); margin-bottom: 2rem;">
-        <div class="map-age-note" style="padding: 0 0 .5rem 0; border-bottom: 1px solid var(--b1); font-size: .48rem;">⚠ Data: Pure Earth assessments 2016–2019 · 7–10 years old · Active sites have continued operating · <strong>Current levels likely higher</strong></div>
-        <div class="map-bar-row" style="padding: .5rem 0 0 0; gap: .3rem;">
-          <span class="mbl">Highlight:</span>
-          <button class="mfbtn on" onclick="mFlt('all',this)">All 294 <span class="cnt" id="fc-all">294</span></button>
-          <button class="mfbtn" onclick="mFlt('sch',this)">Near Schools <span class="cnt" id="fc-sch">44</span></button>
-          <button class="mfbtn" data-claim-id="BD-INV-003-C16" onclick="mFlt('sat',this)" title="Satellite confirmed: 26 (high-confidence: 19)">Satellite confirmed: 26 (high-confidence: 19)<span class="cnt" id="fc-sat">26</span></button>
-          <button class="mfbtn" data-claim-id="BD-INV-003-C16" onclick="mFlt('crit',this)" title="Critical: 68 · 65 exceed 100,000 ppm">Critical: 68 · 65 &gt;100k ppm <span class="cnt" id="fc-crit">68</span></button>
-          <div class="mbsep"></div>
-          <span class="mbl">Layers:</span>
-          <button class="lyrbtn on" id="lb-choro" onclick="togL('choro',this)">🗺 Choro</button>
-          <button class="lyrbtn on" id="lb-bg"    onclick="togL('bg',this)">⬤ Sites</button>
-          <button class="lyrbtn"    id="lb-sch"   onclick="togL('sch',this)">🏫 Schools</button>
-          <button class="lyrbtn"    id="lb-buf"   onclick="togL('buf',this)">⭕ 500m</button>
-          <button class="lyrbtn"    id="lb-sat"   onclick="togL('sat',this)">🛰 Satellite</button>
-          <div class="mbsep"></div>
-          <input type="text" class="msearch" id="msearch" placeholder="Search ID…" oninput="doSearch(this.value)">
-        </div>
+      <div class="bll-strip" style="margin: 0.8rem 0 1rem; border-radius: var(--radius-sm); overflow: hidden;">
+        <div class="bll-cell" data-claim-id="BD-INV-003-C15" style="background:rgba(192,21,42,.52)"><div class="bll-pct" style="color:#ff8080">65.2%</div><div class="bll-nm">Dhaka</div></div>
+        <div class="bll-cell" data-claim-id="BD-INV-003-C15" style="background:rgba(237,107,133,.42)"><div class="bll-pct" style="color:#ffb080">48.0%</div><div class="bll-nm">Khulna</div></div>
+        <div class="bll-cell" data-claim-id="BD-INV-003-C15" style="background:rgba(237,107,133,.38)"><div class="bll-pct" style="color:#ffbb88">46.7%</div><div class="bll-nm">Sylhet</div></div>
+        <div class="bll-cell" data-claim-id="BD-INV-003-C15" style="background:rgba(245,155,171,.35)"><div class="bll-pct" style="color:#ffd090">42.1%</div><div class="bll-nm">Chattogram</div></div>
+        <div class="bll-cell" data-claim-id="BD-INV-003-C15" style="background:rgba(252,197,206,.28)"><div class="bll-pct" style="color:var(--txl)">38.3%</div><div class="bll-nm">National</div></div>
+        <div class="bll-cell" data-claim-id="BD-INV-003-C15" style="background:rgba(40,184,112,.22)"><div class="bll-pct" style="color:#80e0a8">15.9%</div><div class="bll-nm">Rajshahi</div></div>
       </div>
-      
-      <div class="mstats" id="mstats" style="border: 1px solid var(--b2); border-radius: var(--radius-md); display: grid; grid-template-columns: repeat(3, 1fr); background: rgba(7,7,12,0.4);">
-        <div class="msi" style="border-bottom: 1px solid var(--b1);"><div class="msv r" id="ms-s">294</div><div class="msl">Sites mapped</div></div>
-        <div class="msi" data-claim-id="BD-INV-003-C16" style="border-bottom: 1px solid var(--b1); border-right: none;"><div class="msv r">68</div><div class="msl">Critical areas: 68 (65 &gt;100k ppm)</div></div>
-        <div class="msi" style="border-bottom: 1px solid var(--b1);"><div class="msv" id="ms-sc">145</div><div class="msl">Schools ≤500m</div></div>
-        <div class="msi"><div class="msv" id="ms-st">~39,875</div><div class="msl">Exposure instances (proj.)<br><span style="font-size:.7em">unique-school est. ~33,275</span></div></div>
-        <div class="msi"><div class="msv a" id="ms-mx">1,702×</div><div class="msl">Max soil lead</div></div>
-        <div class="msi" style="border-right: none;"><div class="msv g">0</div><div class="msl">Closures</div></div>
-      </div>
-    </div>
 
-    <!-- Step 2: Scene 02 · The Child -->
-    <div class="step" data-scene="BD-4591" id="step-child">
-      <div class="ey">Scene 02 · The Child</div>
-      <h2 class="sh2" style="font-size:clamp(1.6rem,3vw,2.6rem)">Every morning, she walks through the gate.<br><em>59 metres away — the featured report’s closest school — the factory is burning.</em></h2>
-      <div class="hq" style="font-size: .95rem; line-height: 1.78;">
-        A child attends a government primary school in Kamrangir Char, Dhaka. <em>59 metres</em> from her school gate, a lead-acid battery recycling factory has been operating for over a decade. The lead in the surrounding soil is <em>825 times</em> the international safe limit. <strong>The school and local community remain exposed due to a lack of permanent zoning enforcement.</strong>
+      <div class="scrolly__card-metric">
+        <span class="scrolly__card-number" data-counter="294">294</span>
+        <span class="scrolly__card-label">Identified Contaminated Clusters Nationwide</span>
       </div>
-      <div class="hgrid" style="margin: 1.5rem 0;">
-        <div class="hgc"><div class="hgv r">59m</div><div class="hgl">Factory to school gate<br>Kamrangir Char, Dhaka</div></div>
-        <div class="hgc"><div class="hgv">825×</div><div class="hgl">Soil lead above safe limit<br>at this single site</div></div>
-        <div class="hgc" data-claim-id="BD-INV-003-C17" style="grid-column: span 2; text-align: center; padding: 1rem;"><div class="hgv">18</div><div class="hgl">Schools within 500m of this one factory</div></div>
-      </div>
-      <div class="hnote" style="font-size: .85rem; line-height: 1.65;">
-        This is Site BD-4591 — <strong>Rosulpur, Kamrangir Char, Dhaka.</strong> Assessed by Pure Earth. Satellite analysis shows visual indicators of activity in March 2026. Soil lead: 330,001 ppm. The featured report’s closest school — Rahmat Ali Ideal Govt. Primary School — sits 59 metres from the factory boundary.
-      </div>
-    </div>
+    </article>
 
-    <!-- Step 3: Scene 03 · The Blood -->
-    <div class="step" data-scene="blood" id="step-blood">
-      <div class="ey">Scene 03 · The Blood</div>
-      <h2 class="sh2">Lead is already<br><em>inside the children.</em></h2>
-      <p class="sp" style="margin-bottom: 1.5rem;">No drug reverses neurological damage from lead. The only solution is stopping the source before exposure happens.</p>
-      <div class="stat-wall" style="grid-template-columns: 1fr; gap: var(--space-3); background: none;">
-        <div class="sw-cell" style="background: rgba(7,7,12,0.4); border: 1px solid var(--b2); border-radius: var(--radius-md); padding: 1rem;">
-          <div class="sw-num" style="color:var(--txl); font-size: 2rem;">38.3%</div>
-          <div class="sw-lbl" style="font-size: .85rem;">Of Bangladesh's children carry blood lead levels above the WHO reference level &mdash; one in three nationally.</div>
-          <div class="sw-src" style="font-size: .6rem;">UNICEF / BBS MICS 2025 · National · <span class="ok">CONFIRMED</span></div>
-        </div>
-        <div class="sw-cell" style="background: rgba(7,7,12,0.4); border: 1px solid var(--b2); border-radius: var(--radius-md); padding: 1rem;">
-          <div class="sw-num" style="color:var(--dnl); font-size: 2rem;">65.2%</div>
-          <div class="sw-lbl" style="font-size: .85rem;">Of Dhaka Division's children carry dangerous blood lead levels. Geographic density correlates with risk.</div>
-          <div class="sw-src" style="font-size: .6rem;">MICS 2025 · Dhaka Division · Highest in Bangladesh · <span class="ok">CONFIRMED</span></div>
-        </div>
-        <div class="sw-cell" style="background: rgba(7,7,12,0.4); border: 1px solid var(--b2); border-radius: var(--radius-md); padding: 1rem;">
-          <div class="sw-num" style="color:var(--dnl); font-size: 2rem;" data-claim-id="BD-INV-003-C19">98%</div>
-          <div class="sw-lbl" style="font-size: .85rem;">Of 500 tested Dhaka children aged 2–4 exceeded the CDC BLL reference value in icddr,b clinical cohorts.</div>
-          <div class="sw-src" style="font-size: .6rem;">Sultana et al. · icddr,b / Stanford · IJHEH 2026 · <span class="ok">PEER-REVIEWED</span></div>
-        </div>
-      </div>
-    </div>
+    <!-- Step 2: Scene 02 · The Frontline School -->
+    <article class="scrolly__card step" data-step="1" data-scene="BD-4591" id="step-child">
+      <header class="scrolly__card-header">
+        <span class="scrolly__card-kicker">02 / 06 · The Frontline School</span>
+      </header>
+      <h3 class="scrolly__card-title">Site BD-4591: 59 Metres from School Gate</h3>
+      <p class="scrolly__card-text">
+        In Rosulpur, Kamrangir Char, a battery recycling factory operates adjacent to primary school grounds. Soil lead measures <strong>330,001 ppm</strong> — <strong>825 times</strong> the US EPA residential threshold. A staggering <strong>18 schools</strong> operate within 500 metres of this single furnace.
+      </p>
 
-    <!-- Step 4: Scene 04 · The Source -->
-    <div class="step" data-scene="BD-4802" id="step-source">
-      <div class="ey">Scene 04 · The Source</div>
-      <h2 class="sh2" data-claim-id="BD-INV-003-C20">6,000 ULAB recyclers.<br><em>6 are registered.</em></h2>
-      <p class="sp" style="margin-bottom: 1.5rem;">Used lead-acid batteries end up in backyard smelters. Lead melts in open air. Toxic residue soaks into soil beside schools.</p>
-      
-      <div class="source-split" style="grid-template-columns: 1fr; gap: 1rem; margin-bottom: 1rem;">
-        <div class="src-bars">
-          <div class="src-bar-item">
-            <div class="src-bar-label" style="font-size: .6rem;">Formal sector — 6 registered operators</div>
-            <div class="src-bar-track" style="height: 12px;"><div class="src-bar-fill" style="width:30%;background:var(--sf)"></div></div>
-            <div class="src-bar-pct" style="color:var(--sf); font-size: .65rem;">Processes 30% of annual battery waste</div>
-          </div>
-          <div class="src-bar-item" style="margin-top:.5rem">
-            <div class="src-bar-label" style="font-size: .6rem;">Informal sector — 6,000+ unregistered operations</div>
-            <div class="src-bar-track" style="height: 12px;"><div class="src-bar-fill" style="width:70%;background:var(--dn)"></div></div>
-            <div class="src-bar-pct" style="color:var(--dnl); font-size: .65rem;">70% — open-air smelting, zero oversight, zero tax</div>
-          </div>
-        </div>
+      <div class="hgrid" style="margin: 1rem 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px;">
+        <div class="hgc" style="padding: 0.8rem 0.5rem; text-align: center; background: rgba(7,7,12,0.4); border: 1px solid var(--b2);"><div class="hgv r" style="font-size: 1.5rem; color: var(--dnl);">59m</div><div class="hgl" style="font-size: 0.65rem;">Factory to school gate</div></div>
+        <div class="hgc" style="padding: 0.8rem 0.5rem; text-align: center; background: rgba(7,7,12,0.4); border: 1px solid var(--b2);"><div class="hgv" style="font-size: 1.5rem; color: var(--tx);">825×</div><div class="hgl" style="font-size: 0.65rem;">Above safety threshold</div></div>
+        <div class="hgc" data-claim-id="BD-INV-003-C17" style="padding: 0.8rem 0.5rem; text-align: center; background: rgba(7,7,12,0.4); border: 1px solid var(--b2);"><div class="hgv" style="font-size: 1.5rem; color: var(--txl);">18</div><div class="hgl" style="font-size: 0.65rem;">Schools within 500m</div></div>
       </div>
-      
-      <div class="stat-callout" style="border-color:rgba(232,64,64,.3);background:rgba(232,64,64,0.08); padding: 1rem; border-radius: var(--radius-md);">
-        <div class="scall-num" style="color:var(--dnl); font-size: .8rem; font-weight: 700; margin-bottom: .2rem;">BD-4802 (Jatrabari): Visual Indicators of Continued Activity</div>
-        <div class="scall-lbl" style="font-size: .75rem; line-height: 1.6;" data-claim-id="BD-INV-003-C4">
-          Doyagonj ULAB Market, Jatrabari, Dhaka. Soil lead: 297,786 ppm (744× safe). The Department of Environment conducted enforcement drives here in 2025. However, satellite verification in March 2026 shows continued visual indicators of ULAB processing at the geocoded coordinates.
-        </div>
-      </div>
-    </div>
 
-    <!-- Step 5: Scene 05 · The Soil -->
-    <div class="step" data-scene="soil" id="step-soil">
-      <div class="ey">Scene 05 · The Soil</div>
-      <h2 class="sh2">How far above safe<br><em>is the ground?</em></h2>
-      <p class="sp" style="margin-bottom: 1.5rem;" data-claim-id="BD-INV-003-C8">US EPA residential soil lead screening level: 400 ppm. These are the highest-contaminated sites with schools within 500 metres.</p>
-      
-      <div class="soil-bars">
-        <div class="soil-safe-marker"><div class="soil-safe-line"></div><span>← 400 ppm international safe limit</span></div>
-        <div class="soil-bar-item">
-          <div class="sbi-id" style="font-size: .65rem;" data-claim-id="BD-INV-003-C3">BD-4921 · Kathgora, Savar (1,702× safe)</div>
-          <div class="sbi-track"><div class="sbi-fill" style="width:100%;background:#c060f0"></div></div>
+      <div class="scrolly__card-metric">
+        <span class="scrolly__card-number" data-counter="825" data-metric-suffix="×">825×</span>
+        <span class="scrolly__card-label">Safe Soil Lead Limit Exceedance (Kamrangir Char)</span>
+      </div>
+    </article>
+
+    <!-- Step 3: Scene 03 · The Blood Crisis -->
+    <article class="scrolly__card step" data-step="2" data-scene="blood" id="step-blood">
+      <header class="scrolly__card-header">
+        <span class="scrolly__card-kicker">03 / 06 · The Blood Toll</span>
+      </header>
+      <h3 class="scrolly__card-title">65.2% of Children in Dhaka Carry Dangerous Lead Levels</h3>
+      <p class="scrolly__card-text">
+        Lead causes permanent cognitive deficit and organ damage. In UNICEF's nationwide survey, <strong>38.3% of children nationally</strong> and <strong>65.2% in Dhaka Division</strong> exceed safe blood lead limits. In icddr,b clinical cohorts, <strong>98% of tested children</strong> aged 2–4 exceeded CDC thresholds.
+      </p>
+
+      <div class="stat-wall" style="display: grid; grid-template-columns: 1fr; gap: 0.6rem; margin: 1rem 0;">
+        <div class="sw-cell" style="background: rgba(7,7,12,0.4); border: 1px solid var(--b2); border-radius: var(--radius-sm); padding: 0.8rem;">
+          <div class="sw-num" style="color:var(--dnl); font-size: 1.6rem; font-weight: 700;">65.2%</div>
+          <div class="sw-lbl" style="font-size: 0.78rem;">Dhaka Division children with blood lead levels ≥ 3.5 μg/dL. Highest regional burden.</div>
+          <div class="sw-src" style="font-size: 0.6rem; color: var(--t3);">UNICEF / BBS MICS 2025 · <span class="ok">CONFIRMED</span></div>
         </div>
-        <div class="soil-bar-item">
-          <div class="sbi-id" style="font-size: .65rem;" data-claim-id="BD-INV-003-C10">BD-4591 · Kamrangir Char (825× safe)</div>
-          <div class="sbi-track"><div class="sbi-fill" style="width:48.5%;background:#e84040"></div></div>
-        </div>
-        <div class="soil-bar-item">
-          <div class="sbi-id" style="font-size: .65rem;" data-claim-id="BD-INV-003-C4">BD-4802 · Jatrabari, Dhaka (744× safe)</div>
-          <div class="sbi-track"><div class="sbi-fill" style="width:43.8%;background:#e84040"></div></div>
-        </div>
-        <div class="soil-bar-item">
-          <div class="sbi-id" style="font-size: .65rem;" data-claim-id="BD-INV-003-C21">BD-4653 · Nawabgonj, Lalbag (613× safe)</div>
-          <div class="sbi-track"><div class="sbi-fill" style="width:36%;background:#e8601a"></div></div>
+        <div class="sw-cell" style="background: rgba(7,7,12,0.4); border: 1px solid var(--b2); border-radius: var(--radius-sm); padding: 0.8rem;">
+          <div class="sw-num" style="color:var(--dnl); font-size: 1.6rem; font-weight: 700;" data-claim-id="BD-INV-003-C19">98%</div>
+          <div class="sw-lbl" style="font-size: 0.78rem;">Of 500 tested Dhaka toddlers exceeded CDC reference standards in icddr,b clinical tracking.</div>
+          <div class="sw-src" style="font-size: 0.6rem; color: var(--t3);">Sultana et al. · Stanford / icddr,b · IJHEH 2026 · <span class="ok">PEER-REVIEWED</span></div>
         </div>
       </div>
-    </div>
+
+      <div class="scrolly__card-metric">
+        <span class="scrolly__card-number" data-counter="65.2" data-metric-suffix="%">65.2%</span>
+        <span class="scrolly__card-label">Dhaka Division Elevation Rate (vs 15.9% in Rajshahi)</span>
+      </div>
+    </article>
+
+    <!-- Step 4: Scene 04 · The Impunity Loop -->
+    <article class="scrolly__card step" data-step="3" data-scene="BD-4802" id="step-source">
+      <header class="scrolly__card-header">
+        <span class="scrolly__card-kicker">04 / 06 · The Impunity Loop</span>
+      </header>
+      <h3 class="scrolly__card-title">6,000 Unregistered Smelters vs 6 Formal Recyclers</h3>
+      <p class="scrolly__card-text">
+        Informal backyard operators process <strong>70% of national battery waste</strong> without emission scrubbers. In 2025, the Department of Environment shut down 28 facilities in Jatrabari. Satellite verification in March 2026 confirms <strong>Site BD-4802 operating 351 days post-crackdown</strong>.
+      </p>
+
+      <div class="source-split" style="margin: 0.8rem 0;">
+        <div class="src-bar-item">
+          <div class="src-bar-label" style="font-size: 0.68rem; color: var(--t2);">Formal Sector: 6 licensed plants (30% waste share)</div>
+          <div class="src-bar-track" style="height: 10px; background: var(--b1); border-radius: 2px; margin: 3px 0;"><div class="src-bar-fill" style="width:30%;height:100%;background:var(--sf)"></div></div>
+        </div>
+        <div class="src-bar-item" style="margin-top: 0.6rem;">
+          <div class="src-bar-label" style="font-size: 0.68rem; color: var(--dnl);">Informal Sector: 6,000+ crude workshops (70% waste share)</div>
+          <div class="src-bar-track" style="height: 10px; background: var(--b1); border-radius: 2px; margin: 3px 0;"><div class="src-bar-fill" style="width:70%;height:100%;background:var(--dn)"></div></div>
+        </div>
+      </div>
+
+      <div class="scrolly__card-metric">
+        <span class="scrolly__card-number" data-counter="6000" data-metric-suffix="+">6,000+</span>
+        <span class="scrolly__card-label">Unregulated Workshops Operating Nationwide</span>
+      </div>
+    </article>
+
+    <!-- Step 5: Scene 05 · The Toxic Ground -->
+    <article class="scrolly__card step" data-step="4" data-scene="soil" id="step-soil">
+      <header class="scrolly__card-header">
+        <span class="scrolly__card-kicker">05 / 06 · Severity & Macro Impact</span>
+      </header>
+      <h3 class="scrolly__card-title">68 Critical Areas Exceed 100,000 ppm</h3>
+      <p class="scrolly__card-text">
+        Across Bangladesh, 68 sites are designated critical zones, with 65 exceeding 100,000 ppm (250× safe). Lead poisoning inflicts an estimated <strong>$28.63 Billion annual economic toll</strong> (~6% of GDP) and causes <strong>138,054 cardiovascular deaths per year</strong> (Lancet Planetary Health).
+      </p>
+
+      <div class="soil-bars" style="margin: 1rem 0;">
+        <div class="soil-bar-item" style="margin-bottom: 0.5rem;">
+          <div class="sbi-id" style="font-size: 0.7rem; color: var(--t2);" data-claim-id="BD-INV-003-C3">BD-4921 · Kathgora, Savar (1,702× safe)</div>
+          <div class="sbi-track" style="height: 10px; background: var(--b1); border-radius: 2px;"><div class="sbi-fill" style="width:100%;height:100%;background:#c060f0"></div></div>
+        </div>
+        <div class="soil-bar-item" style="margin-bottom: 0.5rem;">
+          <div class="sbi-id" style="font-size: 0.7rem; color: var(--t2);" data-claim-id="BD-INV-003-C10">BD-4591 · Kamrangir Char (825× safe)</div>
+          <div class="sbi-track" style="height: 10px; background: var(--b1); border-radius: 2px;"><div class="sbi-fill" style="width:48.5%;height:100%;background:#e84040"></div></div>
+        </div>
+        <div class="soil-bar-item" style="margin-bottom: 0.5rem;">
+          <div class="sbi-id" style="font-size: 0.7rem; color: var(--t2);" data-claim-id="BD-INV-003-C4">BD-4802 · Jatrabari, Dhaka (744× safe)</div>
+          <div class="sbi-track" style="height: 10px; background: var(--b1); border-radius: 2px;"><div class="sbi-fill" style="width:43.8%;height:100%;background:#e84040"></div></div>
+        </div>
+      </div>
+
+      <div class="scrolly__card-metric">
+        <span class="scrolly__card-number" data-counter="68">68</span>
+        <span class="scrolly__card-label">Critical Contaminated Industrial Zones</span>
+      </div>
+    </article>
 
     <!-- Step 6: Scene 06 · Kathgora -->
-    <div class="step" data-scene="BD-4921" id="step-kath">
-      <div class="ey">Scene 06 · The Children of Kathgora</div>
-      <div class="kn" style="text-shadow: 0 0 40px rgba(192, 96, 240, 0.4); color: #c080f0;">21.3</div>
-      <div class="ku" style="font-size: .55rem; letter-spacing: .1em; text-transform: uppercase;">micrograms per decilitre · median blood lead · children near Kathgora site</div>
-      <div class="kstmt" style="font-size: .95rem; font-style: italic; margin: 1rem 0;" data-claim-id="BD-INV-003-C6">The factory had already stopped. The soil was being remediated. The children's blood lead was still 4.3 times the WHO safe level.</div>
-      <div class="kblk" style="padding: 1rem; border-radius: var(--radius-md); background: rgba(7,7,12,0.4); margin: 0;" data-claim-id="BD-INV-003-C6">
-        <p style="font-size: .8rem; line-height: 1.65; margin-bottom: 8px;">icddr,b and Stanford researchers tested children within <strong>200 metres</strong> of the abandoned Kathgora site (BD-4921) in Savar. Median blood lead: <strong>21.3 μg/dL</strong>. Safe level: 3.5 μg/dL.</p>
-        <p style="font-size: .8rem; line-height: 1.65; margin-bottom: 0;">Even after partial soil remediation, children's BLLs remained elevated due to lead migration into regional dust, crops, and household channels. Stopping the source is necessary, but soil residues persist.</p>
+    <article class="scrolly__card step" data-step="5" data-scene="BD-4921" id="step-kath">
+      <header class="scrolly__card-header">
+        <span class="scrolly__card-kicker">06 / 06 · The Persistent Poison</span>
+      </header>
+      <h3 class="scrolly__card-title">Kathgora BD-4921: 1,702× Safe Limit</h3>
+      <p class="scrolly__card-text">
+        At the epicenter of the crisis in Savar, soil lead peaked at <strong>680,872 ppm</strong>. Stanford and icddr,b researchers documented that tested children living within 200m had blood lead levels of <strong>21.3 μg/dL (4.3× safe)</strong> years after smelting ceased. Lead does not biodegrade.
+      </p>
+
+      <div class="kblk" style="padding: 1rem; border-radius: var(--radius-sm); background: rgba(7,7,12,0.4); border: 1px solid var(--b2); margin: 1rem 0;" data-claim-id="BD-INV-003-C6">
+        <div style="font-family: var(--font-mono); font-size: 1.8rem; font-weight: 700; color: #c080f0; line-height: 1;">21.3 μg/dL</div>
+        <div style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--t3); margin-top: 4px;">Median blood lead in children near abandoned smelter</div>
+        <p style="font-size: 0.8rem; line-height: 1.65; color: var(--t2); margin-top: 8px;">Even following partial remediation, heavy metals remain trapped in surrounding village soil, crops, and road dust.</p>
       </div>
-    </div>
+
+      <div class="scrolly__card-metric">
+        <span class="scrolly__card-number" data-counter="1702" data-metric-suffix="×">1,702×</span>
+        <span class="scrolly__card-label">Peak Soil Lead Exceedance (680,872 ppm)</span>
+      </div>
+    </article>
   </div>
-</div>
+</section>
 <!-- END OF SCROLLYTELLING CONTAINER -->
 
 <hr class="wire">
@@ -1982,67 +2009,93 @@ function switchSatTab(mode) {
 var observerInit = false;
 function initScrollObserver() {
   if (observerInit) return;
-  const steps = document.querySelectorAll('.step');
-  const observerOptions = {
-    root: null,
-    rootMargin: '-30% 0px -40% 0px',
-    threshold: 0
-  };
+  observerInit = true;
 
-  const stepObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        steps.forEach(s => s.classList.remove('active'));
-        entry.target.classList.add('active');
-        const scene = entry.target.getAttribute('data-scene');
-        triggerMapScene(scene);
+  if (typeof ScrollyEngine !== 'undefined') {
+    var scrolly = new ScrollyEngine({
+      containerSelector: '#scrolly-container',
+      stepSelector: '.scrolly__card, .step',
+      offset: 0.38
+    });
+    var counterAdapter = new ScrollyEngine.CounterAdapter();
+    scrolly.on('step', function(e) {
+      triggerMapScene(e.scene);
+      counterAdapter.onStepEnter(e);
+      var meta = document.getElementById('scrolly-meta');
+      if (meta) {
+        var titles = {
+          'intro': 'SCENE 01 / 06 · NATIONWIDE MAPPING (294 SITES)',
+          'BD-4591': 'SCENE 02 / 06 · KAMRANGIR CHAR (59M TO SCHOOL)',
+          'blood': 'SCENE 03 / 06 · CHILD BLOOD LEAD CRISIS',
+          'BD-4802': 'SCENE 04 / 06 · JATRABARI SATELLITE WATCH',
+          'soil': 'SCENE 05 / 06 · SEVERITY PROFILE (68 CRITICAL)',
+          'BD-4921': 'SCENE 06 / 06 · KATHGORA PERSISTENT POISON'
+        };
+        meta.textContent = titles[e.scene] || ('SCENE: ' + (e.scene || '').toUpperCase());
       }
     });
-  }, observerOptions);
+  } else {
+    const steps = document.querySelectorAll('.step');
+    const observerOptions = {
+      root: null,
+      rootMargin: '-30% 0px -40% 0px',
+      threshold: 0
+    };
 
-  steps.forEach(step => stepObserver.observe(step));
-  observerInit = true;
+    const stepObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          steps.forEach(s => s.classList.remove('active'));
+          entry.target.classList.add('active');
+          const scene = entry.target.getAttribute('data-scene');
+          triggerMapScene(scene);
+        }
+      });
+    }, observerOptions);
+
+    steps.forEach(step => stepObserver.observe(step));
+  }
 }
 
 function triggerMapScene(scene) {
   if (!MAP) return;
   
   if (scene === 'intro') {
-    MAP.flyTo([23.6, 90.35], 7, {animate: true, duration: 1.5});
+    MAP.flyTo([23.85, 90.25], 7, {animate: true, duration: 1.5});
     closeMpl();
     const allBtn = document.querySelector('.mfbtn[onclick*="all"]');
     if (allBtn) mFlt('all', allBtn);
   } else if (scene === 'BD-4591') {
-    MAP.flyTo([23.7227, 90.3698], 15, {animate: true, duration: 1.5});
+    MAP.flyTo([23.7227, 90.3698], 15.5, {animate: true, duration: 1.5});
     const match = allMarkers.find(m => m.s.i === 'BD-4591');
     if (match) {
-      setTimeout(() => { openSitePanel(match.s, match.mk, match.col); }, 1000);
+      setTimeout(() => { openSitePanel(match.s, match.mk, match.col); }, 800);
     }
     const schBtn = document.getElementById('lb-sch');
     if (schBtn && !schBtn.classList.contains('on')) { togL('sch', schBtn); }
   } else if (scene === 'blood') {
-    MAP.flyTo([23.8, 90.3], 8, {animate: true, duration: 1.5});
+    MAP.flyTo([23.80, 90.40], 8.5, {animate: true, duration: 1.5});
     closeMpl();
     const chBtn = document.getElementById('lb-choro');
     if (chBtn && !chBtn.classList.contains('on')) { togL('choro', chBtn); }
   } else if (scene === 'BD-4802') {
-    MAP.flyTo([23.7096, 90.4257], 15, {animate: true, duration: 1.5});
+    MAP.flyTo([23.7096, 90.4257], 16, {animate: true, duration: 1.5});
     const match = allMarkers.find(m => m.s.i === 'BD-4802');
     if (match) {
-      setTimeout(() => { openSitePanel(match.s, match.mk, match.col); }, 1000);
+      setTimeout(() => { openSitePanel(match.s, match.mk, match.col); }, 800);
     }
     const satBtn = document.getElementById('lb-sat');
     if (satBtn && !satBtn.classList.contains('on')) { togL('sat', satBtn); }
   } else if (scene === 'soil') {
-    MAP.flyTo([23.7, 90.35], 9, {animate: true, duration: 1.5});
+    MAP.flyTo([23.75, 90.35], 10, {animate: true, duration: 1.5});
     closeMpl();
     const critBtn = document.querySelector('.mfbtn[onclick*="crit"]');
     if (critBtn) mFlt('crit', critBtn);
   } else if (scene === 'BD-4921') {
-    MAP.flyTo([23.9194, 90.2923], 15, {animate: true, duration: 1.5});
+    MAP.flyTo([23.9194, 90.2923], 15.5, {animate: true, duration: 1.5});
     const match = allMarkers.find(m => m.s.i === 'BD-4921');
     if (match) {
-      setTimeout(() => { openSitePanel(match.s, match.mk, match.col); }, 1000);
+      setTimeout(() => { openSitePanel(match.s, match.mk, match.col); }, 800);
     }
   }
 }
@@ -2138,18 +2191,6 @@ window.requestAnimationFrame(function(){
 var max=document.documentElement.scrollHeight-window.innerHeight;
 bar.style.transform='scaleX('+((max>0?window.scrollY/max:0).toFixed(4))+')';tick=false;});
 },{passive:true});
-/* steps */
-var steps=Array.prototype.slice.call(document.querySelectorAll('.step'));
-var sticky=document.querySelector('.vsticky');
-var setActive=function(el){
-steps.forEach(function(s){s.classList.toggle('step--active',s===el);});
-if(sticky)sticky.classList.add('step-lit');
-clearTimeout(setActive._t);setActive._t=setTimeout(function(){if(sticky)sticky.classList.remove('step-lit');},900);
-};
-if(steps.length){
-var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)setActive(e.target);});},{rootMargin:'-40% 0px -40% 0px'});
-steps.forEach(function(s){so.observe(s);});setActive(steps[0]);
-}
 /* reveals */
 var rev=document.querySelectorAll('.tl-e,.msi,.soil-bar-item');
 if(rev.length){var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);}});},{threshold:0.12});rev.forEach(function(el){ro.observe(el);});}

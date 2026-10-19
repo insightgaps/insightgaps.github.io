@@ -1,7 +1,10 @@
-/* Scrollytelling homepage hero — OFFLINE PROTOTYPE (uncommitted).
-   Vanilla CSS + IntersectionObserver (no dependencies, per build discipline).
-   Tokens only from style.css. Reduced-motion + mobile fallbacks included. */
+/* ==========================================================================
+   INSIGHT GAPS BUREAU — UNIVERSAL SCROLLYTELLING COMPONENT
+   Conforms to docs/governance/04a-design-tokens.md & 04b-component-rules.md
+   Zero-dependency, pure CSS sticky + IntersectionObserver architecture.
+   ========================================================================== */
 
+/* Reading progress bar anchored at viewport top */
 .scrolly-progress {
   position: fixed;
   top: 0;
@@ -10,136 +13,270 @@
   width: 100%;
   transform-origin: 0 50%;
   transform: scaleX(0);
-  background: var(--color-accent);
-  z-index: 60;
-}
-
-.scrolly {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-8);
-  max-width: var(--grid-max);
-  margin: 0 auto;
-  padding: var(--space-9) var(--grid-padding) var(--space-8);
-  border-bottom: var(--border-width) solid var(--color-border);
-}
-
-.scrolly__figure {
-  position: sticky;
-  top: var(--space-8);
-  align-self: start;
-  display: grid;
-}
-
-/* Cross-fade states (premium feel; display swap replaced) */
-.scrolly__figure-state {
-  grid-area: 1 / 1;
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  background: var(--color-accent, #9A620C);
+  z-index: 200;
   pointer-events: none;
 }
-.scrolly__figure-state--active {
-  opacity: 1;
-  transform: none;
-  pointer-events: auto;
+
+/* Master Scrollytelling Section Container */
+.scrolly {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: var(--space-7, 3rem);
+  max-width: var(--grid-max, 1200px);
+  margin: 0 auto;
+  padding: var(--space-8, 4rem) var(--grid-padding, 1.5rem);
+  box-sizing: border-box;
 }
 
-.scrolly__steps { display: flex; flex-direction: column; }
+/* Reversed layout variant: Story on left, Stage on right */
+.scrolly--reverse {
+  grid-template-columns: 1fr 1.15fr;
+}
+.scrolly--reverse .scrolly__stage {
+  order: 2;
+}
+.scrolly--reverse .scrolly__story {
+  order: 1;
+}
 
-.scrolly__step {
-  min-height: 70vh;
-  min-height: 70svh;
+/* STICKY STAGE (Visual Canvas: Map, SVG, Graphic Viewport) */
+.scrolly__stage {
+  position: -webkit-sticky;
+  position: sticky;
+  top: calc(4rem + var(--space-4, 1rem));
+  align-self: start;
+  height: calc(100vh - 5.5rem);
+  height: calc(100svh - 5.5rem);
+  max-height: 840px;
+  min-height: 480px;
+  z-index: 10;
+  background: var(--color-surface, #ffffff);
+  border: var(--border-width, 1px) solid var(--color-border, #E2E0DC);
+  border-radius: var(--radius-sm, 2px);
+  overflow: hidden;
+  box-sizing: border-box;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.scrolly__stage-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.scrolly__target-map,
+.scrolly__target-chart,
+.scrolly__target-canvas {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+
+/* Stage Bottom Metadata / Caption Bar */
+.scrolly__stage-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(249, 248, 246, 0.94);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-top: var(--border-width, 1px) solid var(--color-border, #E2E0DC);
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.scrolly__stage-meta {
+  font-family: var(--font-mono, "Space Mono", ui-monospace, monospace);
+  font-size: var(--type-label, 0.75rem);
+  color: var(--color-text-secondary, #5C5954);
+  letter-spacing: var(--tracking-wide, 0.06em);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* SCROLLING STORY TRACK */
+.scrolly__story {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 5;
+  padding-bottom: var(--space-9, 5rem);
+}
+
+/* Narrative Step Card */
+.scrolly__card {
+  min-height: 75vh;
+  min-height: 75svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: var(--space-6, 2rem) 0;
+  padding: var(--space-6, 2rem);
+  background: var(--color-surface, #ffffff);
+  border: var(--border-width, 1px) solid var(--color-border, #E2E0DC);
+  border-left: 3px solid var(--color-border-strong, #8C887B);
+  border-radius: var(--radius-sm, 2px);
   opacity: 0.35;
   transform: translateY(12px);
-  transition: opacity var(--transition-medium, 0.3s ease),
-              transform var(--transition-medium, 0.3s ease);
+  transition: opacity 0.35s ease, transform 0.35s ease, border-left-color 0.35s ease, box-shadow 0.35s ease;
+  box-sizing: border-box;
 }
 
-.scrolly__step--active {
+/* Active Step Card State */
+.scrolly__card--active,
+.scrolly__card.active {
   opacity: 1;
-  transform: none;
+  transform: translateY(0);
+  border-left-color: var(--color-accent, #9A620C);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
 }
 
-.scrolly__step-kicker {
-  font-family: var(--font-mono);
-  font-size: var(--type-label);
-  letter-spacing: var(--tracking-wide);
+.scrolly__card-kicker {
+  font-family: var(--font-mono, "Space Mono", ui-monospace, monospace);
+  font-size: var(--type-label, 0.75rem);
+  letter-spacing: var(--tracking-wide, 0.06em);
   text-transform: uppercase;
-  color: var(--color-text-muted);
-  display: block;
-  margin-bottom: var(--space-3);
+  color: var(--color-text-muted, #6E6A63);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: var(--space-2, 0.5rem);
 }
 
-/* Animated metric numbers (final values pre-rendered; JS counts up) */
-.metrics-block__number--count { font-variant-numeric: tabular-nums; }
-
-/* Hero entrance (plays once on load; static layout, nothing hidden without JS) */
-@keyframes hero-rise {
-  from { opacity: 0; transform: translateY(18px); }
-  to { opacity: 1; transform: none; }
-}
-@media (prefers-reduced-motion: no-preference) {
-  .home__hero-inner > * { animation: hero-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
-  .home__hero-inner > *:nth-child(2) { animation-delay: 0.12s; }
-}
-.home__hero-image img { transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
-.home__hero-image:hover img { transform: scale(1.03); }
-
-/* Generic reveal for sections below the hero (JS-driven default) */
-[data-reveal] {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-[data-reveal="in"] {
-  opacity: 1;
-  transform: none;
+.scrolly__card-title {
+  font-family: var(--font-headline, "Space Grotesk", system-ui, sans-serif);
+  font-size: var(--type-h3, 1.125rem);
+  font-weight: 600;
+  color: var(--color-text-primary, #1A1917);
+  line-height: var(--leading-tight, 1.25);
+  margin-bottom: var(--space-3, 0.75rem);
 }
 
-/* Compositor-driven enhancement where supported (JS still owns state) */
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    [data-reveal] {
-      animation: scrolly-reveal linear both;
-      animation-timeline: view();
-      animation-range: entry 0% cover 40%;
-    }
-    @keyframes scrolly-reveal {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: none; }
-    }
+.scrolly__card-text {
+  font-family: var(--font-body, "Lora", Georgia, serif);
+  font-size: var(--type-body, 1.0625rem);
+  line-height: var(--leading-body, 1.75);
+  color: var(--color-text-primary, #1A1917);
+  margin-bottom: var(--space-4, 1rem);
+}
+
+/* Card Metric Display */
+.scrolly__card-metric {
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--space-3, 0.75rem);
+  border-top: var(--border-width, 1px) solid var(--color-border, #E2E0DC);
+  margin-top: 0.25rem;
+}
+
+.scrolly__card-number {
+  font-family: var(--font-mono, "Space Mono", ui-monospace, monospace);
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--color-accent, #9A620C);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+
+.scrolly__card-label {
+  font-family: var(--font-headline, "Space Grotesk", system-ui, sans-serif);
+  font-size: var(--type-label, 0.75rem);
+  letter-spacing: var(--tracking-wide, 0.06em);
+  text-transform: uppercase;
+  color: var(--color-text-secondary, #5C5954);
+  margin-top: 0.25rem;
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS & SCROLL-TRAP DEFENSE (<= 768px and <= 414px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .scrolly {
+    display: block;
+    padding: var(--space-3, 0.75rem) var(--space-4, 1rem) var(--space-8, 4rem);
+  }
+
+  .scrolly__stage {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 3.5rem;
+    width: 100%;
+    height: 38svh;
+    height: 38vh;
+    min-height: 220px;
+    max-height: 270px;
+    margin-bottom: var(--space-4, 1rem);
+    z-index: 80;
+    pointer-events: none; /* Prevents mobile map scroll trap */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Keep controls in stage caption tap-friendly */
+  .scrolly__stage-caption {
+    pointer-events: auto;
+    padding: 0.35rem 0.75rem;
+  }
+
+  .scrolly__story {
+    position: relative;
+    padding-top: var(--space-3, 0.75rem);
+  }
+
+  .scrolly__card {
+    min-height: 52svh;
+    min-height: 52vh;
+    margin: var(--space-4, 1rem) 0 var(--space-6, 2rem);
+    padding: var(--space-4, 1rem);
+    opacity: 0.4;
+    background: var(--color-surface, #ffffff);
+  }
+
+  .scrolly__card--active,
+  .scrolly__card.active {
+    opacity: 1;
+    transform: none;
   }
 }
 
-/* Visible keyboard focus (a11y) */
-a:focus-visible,
-button:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 3px;
+@media (max-width: 414px) {
+  .scrolly__stage {
+    height: 35svh;
+    min-height: 200px;
+  }
+  .scrolly__card {
+    padding: 1rem;
+  }
+  .scrolly__card-title {
+    font-size: 1.05rem;
+  }
+  .scrolly__card-number {
+    font-size: 1.85rem;
+  }
 }
 
-/* Sticky figure must never cover text on small screens */
-@media (max-width: 768px) {
-  .scrolly { grid-template-columns: 1fr; }
-  .scrolly__figure { position: static; }
-  .scrolly__step { min-height: auto; padding: var(--space-6) 0; opacity: 1; transform: none; }
-  .scrolly__figure-state { opacity: 1; transform: none; pointer-events: auto; }
-  .scrolly__figure-state + .scrolly__figure-state { margin-top: var(--space-5); }
+/* High-Contrast / Dark-Mode Integration */
+html[data-theme="dark"] .scrolly__stage {
+  background: var(--color-surface, #141312);
+  border-color: var(--color-border, #2E2B27);
 }
-
-/* Reduced motion: illustrated-article fallback, everything visible, no pin */
-@media (prefers-reduced-motion: reduce) {
-  .scrolly__figure { position: static; }
-  .scrolly__figure-state { opacity: 1; transform: none; pointer-events: auto; }
-  .scrolly__figure-state + .scrolly__figure-state { margin-top: var(--space-5); }
-  .scrolly__step { min-height: auto; padding: var(--space-5) 0; opacity: 1; transform: none; }
-  [data-reveal] { opacity: 1; transform: none; }
-  .scrolly-progress { display: none; }
-  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+html[data-theme="dark"] .scrolly__stage-caption {
+  background: rgba(20, 19, 18, 0.94);
+  border-top-color: var(--color-border, #2E2B27);
+}
+html[data-theme="dark"] .scrolly__card {
+  background: var(--color-surface, #141312);
+  border-color: var(--color-border, #2E2B27);
+  border-left-color: var(--color-border-strong, #5C5954);
+}
+html[data-theme="dark"] .scrolly__card--active,
+html[data-theme="dark"] .scrolly__card.active {
+  border-left-color: var(--color-accent, #D98200);
 }
