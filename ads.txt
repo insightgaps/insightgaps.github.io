@@ -1,0 +1,13 @@
+# ads.txt — TEMPLATE ONLY, NOT ACTIVE
+# This file does nothing until the owner supplies a real AdSense publisher ID.
+# Do NOT replace the placeholder below with an invented ID.
+# To activate ads, the owner must:
+#  1. Create/approve a Google AdSense account for insightgaps.com.
+#  2. Get Google's approval for the site (approval is Google's decision,
+#     not guaranteed, and can take time).
+#  3. Supply the real publisher ID (pub-XXXXXXXXXXXXXXXX).
+#  4. Replace the placeholder line below, rebuild, and push.
+# Until then, ad slots on the site are labelled placeholders with no ad
+# script, no tracking, and no revenue.
+#
+# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0

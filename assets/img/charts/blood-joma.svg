@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 165" role="img" aria-label="The joma contract: fixed daily fee, costs on top, small net income">
+<title>The joma contract: fixed daily fee, costs on top, small net income</title>
+
+<text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">The joma contract, step by step (TIB 2024, as cited)</text>
+<rect x="10" y="50" width="150" height="70" fill="#f5f1e8" stroke="#16130f"/><text x="85" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#16130f">Owner leases bus</text><text x="85" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">to driver team</text>
+<text x="175" y="92" font-family="system-ui, sans-serif" font-size="18" fill="#8c2b18">→</text>
+<rect x="200" y="50" width="150" height="70" fill="#f5f1e8" stroke="#16130f"/><text x="275" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#16130f">Fixed daily fee</text><text x="275" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">BDT 4,000–6,000</text>
+<text x="365" y="92" font-family="system-ui, sans-serif" font-size="18" fill="#8c2b18">→</text>
+<rect x="390" y="50" width="150" height="70" fill="#f5f1e8" stroke="#16130f"/><text x="465" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#16130f">Fuel, helper, gate</text><text x="465" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">fees on top</text>
+<text x="555" y="92" font-family="system-ui, sans-serif" font-size="18" fill="#8c2b18">→</text>
+<rect x="580" y="50" width="130" height="70" fill="#8c2b18"/><text x="645" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#fff">Net: BDT 300–500</text><text x="645" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#fff">per day — race first</text>
+<text x="360" y="150" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Fee rises to Tk 8,000 or more during Eid. Figures are TIB estimates, not independently replicated.</text>
+</svg>

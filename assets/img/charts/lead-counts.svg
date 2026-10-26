@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 165" role="img" aria-label="From 294 mapped sites to 121 unique schools">
+<title>From 294 mapped sites to 121 unique schools</title>
+
+<text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">From sites to schools — published counts, not a single merged number</text>
+<rect x="10" y="50" width="130" height="70" fill="#f5f1e8" stroke="#16130f"/><text x="75" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#16130f">294 sites</text><text x="75" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">mapped</text>
+<text x="152" y="92" font-family="system-ui, sans-serif" font-size="18" fill="#8c2b18">→</text>
+<rect x="180" y="50" width="130" height="70" fill="#f5f1e8" stroke="#16130f"/><text x="245" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#16130f">44 headline</text><text x="245" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">sites</text>
+<text x="322" y="92" font-family="system-ui, sans-serif" font-size="18" fill="#8c2b18">→</text>
+<rect x="350" y="50" width="130" height="70" fill="#f5f1e8" stroke="#16130f"/><text x="415" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#16130f">145 intersections</text><text x="415" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">within 500 m</text>
+<text x="492" y="92" font-family="system-ui, sans-serif" font-size="18" fill="#8c2b18">→</text>
+<rect x="520" y="50" width="190" height="70" fill="#8c2b18"/><text x="615" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#fff">121 unique schools</text><text x="615" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#fff">24 overlaps make 145 ≠ 121</text>
+<text x="360" y="150" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Re-run snapshot differs (51 / 166 / 125) — different snapshot and counting rule, both shown in the appendix.</text>
+</svg>

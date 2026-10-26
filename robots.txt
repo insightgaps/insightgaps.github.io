@@ -1,13 +1,37 @@
-# Insight Gaps Bureau crawler policy — DRAFT
-# Bureau policy: reporting is licensed CC BY 4.0 for human reuse;
-# machine-training use is not granted by default.
+# Insight Gaps Bureau crawler policy
+# Reporting is licensed CC BY 4.0 for human reuse; machine-training use is not
+# granted by default. This file therefore does two things at once:
+#  (1) it lets search and retrieval AI systems FIND and CITE the site, and
+#  (2) it keeps the bureau's pre-existing training-crawler block in place.
+# Do NOT remove the training blocks below without an explicit owner decision:
+# GPTBot, ClaudeBot, CCBot, Bytespider and Google-Extended were deliberately
+# blocked in the bureau's earlier robots policy, and this file preserves that.
+
 User-agent: *
-Content-Signal: search=yes,ai-train=no,use=reference
+Content-Signal: search=yes, ai-train=no, use=reference
 Allow: /
 Disallow: /analysis/property-preservation/
 Disallow: /in-progress/
 
-# Machine-training crawlers — reserved by bureau policy
+# Search and retrieval AI crawlers — explicitly allowed (findability).
+# These bots retrieve pages to answer questions and cite sources; they are
+# not the training crawlers blocked below.
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# Machine-training crawlers — reserved by bureau policy (deliberate block, kept).
 User-agent: GPTBot
 Disallow: /
 

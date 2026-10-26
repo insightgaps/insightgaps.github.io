@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blood Routes — Evidence appendix — Insight Gaps Bureau</title>
+<meta name="description" content="Independent forensic data journalism from Dhaka, Bangladesh.">
+<meta name="theme-color" content="#16130f">
+<link rel="canonical" href="https://www.insightgaps.com/investigations/blood-routes/evidence/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Insight Gaps Bureau">
+<meta property="og:title" content="Blood Routes — Evidence appendix">
+<meta property="og:description" content="Independent forensic data journalism from Dhaka, Bangladesh.">
+<meta property="og:url" content="https://www.insightgaps.com/investigations/blood-routes/evidence/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Blood Routes — Evidence appendix">
+<meta name="twitter:description" content="Independent forensic data journalism from Dhaka, Bangladesh.">
+<link rel="stylesheet" href="/assets/css/style.css">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Blood Routes — Evidence appendix","description":,"datePublished":"2026-05-26T00:00:00.000Z","dateModified":"2026-09-03T00:00:00.000Z","mainEntityOfPage":"https://www.insightgaps.com/investigations/blood-routes/evidence/","author":{"@type":"Organization","name":"Insight Gaps Bureau","url":"https://www.insightgaps.com"},"publisher":{"@type":"Organization","name":"Insight Gaps Bureau","url":"https://www.insightgaps.com"}}</script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to content</a>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="/" class="site-header__logo">Insight&nbsp;Gaps<small>Independent data journalism · Dhaka</small></a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="/investigations/">Investigations</a>
+      <a href="/archive/">Archive</a>
+      <a href="/evidence/">Evidence</a>
+      <a href="/about/">About</a>
+      <a href="/trust/methodology/">Trust</a>
+      <a href="/search/">Search</a>
+    </nav>
+  </div>
+</header>
+<main id="main-content">
+<div class="page">
+<div class="page--narrow">
+<div class="prose">
+<h1>Blood Routes — Evidence appendix</h1>
+<p>This appendix holds the full detail that is not in the main visual scroll. Nothing here is new: it is the method, evidence panel, right-of-reply table, and corrections from the migrated report, preserved in full.</p>
+<h2>Method and limitations</h2>
+<p>Sources: WHO modelled estimates, BRTA official counts, Road Safety Foundation and Bangladesh Jatri Kalyan Samity annual and Eid monitoring reports, Transparency International Bangladesh 2024 transport survey, World Bank 2022 vehicle-rate comparison (102 deaths per 10,000 registered vehicles, 19.3 per 100,000 population, WHO 2023), and the Figshare academic dataset &quot;Bangladesh Road Traffic Accident Dataset (2007–2024): Multi-Source Integration&quot; (DOI 10.6084/m9.figshare.30631292.v1), 47,680 rows × 31 columns.</p>
+<p>Cleaning steps: rows grouped by nine identifying fields (location, parsed date, time, latitude, longitude, driver age, accident narrative, vehicle info, victim category); fatality and injury counts aggregated by maximum per incident; result 2,331 unique accidents (4.89% of raw rows). The raw Year and Month columns were discarded as mismatched padding; true dates were parsed from date strings, giving 2022–2024 (2022: 334, 2023: 4, 2024: 1,993 unique crashes in the audit text — note the 2023 count of 4 is itself a data-quality warning, not a real annual crash count). 143 rows contained the string &quot;IMG 2467&quot; instead of a valid date, indicating camera metadata mistakenly integrated into the date column.</p>
+<p>Definitions and sensitivity: BRTA counts police-FIR spot-recorded deaths; WHO uses a modelled 30-day definition. Changing the definition changes the total by a factor of about 5.8, which is the finding — not a rounding difference. Dhaka map points are exact source coordinates; non-Dhaka points are visual corridor placements, not street-level claims, per the live report's map provenance note.</p>
+<p><strong>Public data only.</strong> No RTI, interview, or fieldwork is used in this migrated report. The live report mentions an RTI application as possible for the beneficial-owner registry; this programme does not pursue RTI, so that route is stated as a gap, not a method step here.</p>
+<h2>Evidence panel</h2>
+<ul>
+<li>Claim register: <code>claims/BD-INV-001.json</code></li>
+<li>Dataset: <code>data/BD-INV-001.csv</code> — published figures only, with definitions and periods; the full cleaned accident dataset is referenced, not republished here.</li>
+<li>Data dictionary: <code>data/BD-INV-001-dictionary.md</code></li>
+<li>Code: not in this repository — the live report references its deduplication and mapping analysis; no analysis script is republished in this draft, and that is a gap.</li>
+<li>Licence: live report states CC BY-NC 4.0 on its closing page.</li>
+<li>DOI: none published for this investigation in the live repository; the Figshare source dataset DOI is given above.</li>
+<li>Evidence status: the live investigation metadata lists 22 sources, with a note that the manifest count is self-attested and the report names about 20 or more external sources without publishing the list. A per-story source list is therefore still a gap: this report names its sources in the text and tables above, but does not claim a complete 22-source list.</li>
+<li>Visuals: charts in the main report are pre-rendered SVG with a full data table underneath each one. No interactive map is republished here; the old 8.77 MB division GeoJSON is deliberately not served whole, and a simplified map is a remaining visual gap.</li>
+</ul>
+<h2>Right of reply</h2>
+<table>
+<thead>
+<tr>
+<th>Person / company</th>
+<th>Allegation / finding put to them</th>
+<th>Reply sought (date, method)</th>
+<th>Reply received</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BRTA, as institution</td>
+<td>Official counts undercount deaths because hospital deaths are not linked and FIRs omit operator names; chassis registry is held but not published</td>
+<td>Not documented in the live report text migrated here</td>
+<td>Not recorded in this migrated report — gap, to be filled from the bureau's reply log before any republication that names the institution in a new allegation</td>
+</tr>
+<tr>
+<td>Bus operators named in the Phoenix sequence</td>
+<td>Banned fleets continued under new names on the same routes</td>
+<td>Not documented in the live report text migrated here</td>
+<td>Not recorded — the live report itself states ownership continuity is alleged only, and no guilt is asserted without a specific conviction</td>
+</tr>
+</tbody>
+</table>
+<p>This table is honest about its limits: the live report's right-of-reply log was not published as a standalone table, so this migrated report does not invent reply dates. Any future allegation beyond what the live report already published needs a fresh, logged reply attempt.</p>
+<h2>Corrections on this page</h2>
+<ul>
+<li><strong>2026-06-08 (C-001):</strong> Night-time share of fatal Dhaka crashes corrected from 97.13% to 41.56% (10pm–6am window, RSF Dhaka Annual Report 2025 basis). The original figure came from a dataset later found to contain about 95% synthetic padding; the pipeline retracted it on 2026-06-03.</li>
+<li><strong>2026-09-03 (C-002):</strong> Eid-ul-Adha 2025 timeline description corrected from a &quot;29% year-on-year surge&quot; to a &quot;sharp 19% year-on-year rise (312 vs 262 in 2024)&quot;, computed from the report's own timeline data. The 29% figure appears to have been inherited from a contemporaneous RSF framing. The corrected chart and data table are in the main report, Step 5.</li>
+<li><strong>Live-report version note:</strong> The live investigation manifest lists a revised date of 2026-06-08, while the corrections log entries above are dated 2026-09-03. This migrated report uses 2026-09-03 as the revised date, matching the latest correction, and flags the manifest difference as an unresolved inconsistency.</li>
+</ul>
+<p>No other corrections are recorded for this report in the live corrections log. If a correction is found later, it will be added here dated, stating what changed, as well as in the permanent log.</p>
+<p><a href="/investigations/blood-routes/">Back to Blood Routes</a></p>
+
+</div>
+</div>
+
+</div>
+</main>
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <p>Insight Gaps Bureau — Independent forensic data journalism from Dhaka, Bangladesh. Evidence before narrative. Every claim traceable to a source, or marked untraced.</p>
+    <nav aria-label="Footer navigation">
+      <a href="/investigations/">Investigations</a>
+      <a href="/archive/">Archive</a>
+      <a href="/evidence/">Evidence</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/trust/corrections/">Corrections</a>
+    </nav>
+    <p><small>Content licensed CC BY 4.0 unless a dataset states otherwise. Corrections are shown on the affected story as well as in the corrections log.</small></p>
+  </div>
+</footer>
+</body>
+</html>

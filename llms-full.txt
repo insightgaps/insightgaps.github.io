@@ -1,0 +1,125 @@
+# Insight Gaps Bureau — Full AI index (llms-full.txt)
+
+This file gives full per-report summaries for AI systems that extract
+information from this site. Every figure below traces to a published report,
+chart data table, claim register, or dataset on this site. No figure here is
+invented, and no fictional material appears as fact. If a figure is contested
+or a source list is incomplete, that is stated, not smoothed over.
+
+Reporting is licensed CC BY 4.0 for human reuse; machine-training use is not
+granted by default (see robots.txt). The hidden section,
+in-progress work, and deleted old URLs are excluded from this file.
+
+## BD-INV-001: Blood Routes
+* URL: https://www.insightgaps.com/investigations/blood-routes/
+* Published: 2026-05-26. Revised: 2026-09-03.
+* Dek: 351 people died in 15 days during the 2026 Eid-ul-Fitr rush.
+  Bangladesh's roads kill at six times the official count. The joma
+  incentive system, political shields, and four critical data voids make
+  it structural — not accidental.
+* Key findings (7 claims, R-01 to R-07, grades in the claim register):
+  - WHO modelled road deaths about 31,578 per year versus BRTA official
+    count 5,480 per year; ratio about 5.8x (31,578 / 5,480 = 5.76). The gap
+    is definitional: BRTA counts police-FIR spot-recorded deaths; WHO uses
+    a modelled 30-day definition. Neither number alone is "the truth".
+  - 351 deaths in the 15-day Eid-ul-Fitr 2026 travel period (reported by
+    Road Safety Foundation and Bangladesh Jatri Kalyan Samity; the period
+    is outside the bureau's cleaned accident dataset range of 2022–2024).
+  - The joma daily-lease system (drivers pay a fixed daily fee before
+    earning) makes racing for passengers the rational response to the
+    contract, not only individual recklessness. Attributed to Transparency
+    International Bangladesh (TIB) 2024.
+  - Banned fleets re-emerge under new operator names on the same routes
+    (the Phoenix pattern). Route continuity is probable; ownership
+    continuity is alleged, not confirmed by a corporate registry, and no
+    operator is found guilty unless a specific conviction is cited.
+  - Four datasets the government holds are not published: a BRTA bus
+    crash registry by chassis, hospital trauma records linked to crash
+    cause, police FIRs linked to operator name, and a route-permit
+    beneficial-owner registry.
+  - Cleaned dataset: 47,680 raw rows reduced to 2,331 unique accidents
+    (2022–2024). The live report's scene heading says 2,332; this site uses
+    2,331, the audited deduplicated count, and flags the one-record
+    difference as unresolved.
+  - Dhaka hotspots in the deduplicated dataset: Tejgaon Industrial Area 8,
+    Hazrat Shahjalal Airport Roundabout 6, Jatrabari Intersection 6, Mayor
+    Mohammad Hanif Flyover 5, Shonir Akhra (Dhaka–Chittagong Highway) 4.
+  - Night enforcement void: 41.56% of fatal Dhaka crashes occur between
+    10pm and 6am (correction C-001, below).
+* What we do not know: whether publishing the four held datasets would
+  confirm or deny any Phoenix ownership chain; what share of crashes are
+  settled before police; how many victims die after hospital admission,
+  because hospital deaths are not linked to crash records.
+* Corrections on the page: C-001 (2026-06-08) night share corrected from
+  97.13% to 41.56%; C-002 (2026-09-03) Eid-ul-Adha description corrected
+  from a "29% surge" to a 19% rise, 312 versus 262 in 2024 (+19.08%).
+* Data: claim register /claims/BD-INV-001.json; dataset /data/BD-INV-001.csv.
+  No analysis script is republished for this investigation; no Zenodo DOI.
+  Per-story source list is incomplete (metadata lists 22 sources,
+  self-attested, list unpublished).
+
+## BD-INV-002: The Impunity Machine
+* URL: https://www.insightgaps.com/investigations/the-impunity-machine/
+* Published: 2026-03-01. Revised: 2026-09-03.
+* Dek: A visual data investigation into Bangladesh's rape justice crisis
+  and the institutional machinery that turns reported violence into
+  near-zero punishment.
+* Key findings (8 claims, R-01 to R-08, grades in the claim register):
+  - Conviction rates measured from 0.12% to 3.66% depending on the
+    denominator used (0.12 / 0.39 / 0.46 / 0.77 / 0.86 / 2.0 / 3.66 in the
+    published table). The denominator choice is the finding; do not quote
+    a single rate without its denominator.
+  - DNA backlog: 1,204 of 1,304 samples (92%).
+  - Court filings 17,544 versus disposals 5,648 in the reported year.
+  - Aggregate data only. No case-level records, victim identities, or
+    case timelines are published; live case-level data is private-held
+    pending source-protection review.
+* What we do not know: stated on the report page; right-of-reply logs are
+  incomplete, and no reply dates are invented.
+* Corrections on the page: C-003 (0.46% denominator note) and C-004
+  (source count 91 corrected to 65).
+* Data: claim register /claims/BD-INV-002.json; dataset /data/BD-INV-002.csv
+  (aggregate only). No analysis script republished; no Zenodo DOI.
+
+## BD-INV-003: The Lead Belt
+* URL: https://www.insightgaps.com/investigations/the-lead-belt/
+* Published: 2026-05-25. Revised: 2026-09-03.
+* Dek: Bangladesh's lead poisoning crisis mapped: 294 contaminated sites,
+  145 schools within 500 metres, and soil lead readings up to 1,702 times
+  the international safety standard.
+* Key findings (8 claims, R-01 to R-08, grades in the claim register):
+  - Divisional blood-lead rates as listed in the live report: Dhaka 65.2%,
+    Khulna 48.0%, Sylhet 46.7%, Chattogram 42.1%, National 38.3%,
+    Rajshahi 15.9%. The live page's list format is compressed, so the
+    mapping is flagged as "as listed in the live report".
+  - Soil-lead exceedance multiples: 1,702x, 825x, 744x.
+  - School gate schematic: 59 metres, 18 schools nearby (labelled
+    "not to scale — not a map").
+  - Satellite evidence is satellite corroboration, never satellite proof;
+    every satellite claim needs sensor, date, resolution, and ground truth.
+  - Published counts (44 sites, 145 intersections, 121 unique schools)
+    differ from the archived-snapshot re-run (51 sites, 166 intersections,
+    125 unique schools; methodology also reports 132 unique schools with
+    newly mapped schools). Both counts are documented; neither is silently
+    picked.
+* What we do not know: stated on the report page; master dataset v5 is not
+  in the repository, with restoration pending an owner decision.
+* Correction on the page: C-005.
+* Data: claim register /claims/BD-INV-003.json; dataset /data/BD-INV-003.csv.
+  No Zenodo DOI. Per-story source list is incomplete (7 named footer
+  sources versus a 14-entity internal inventory, unresolved).
+
+## Site-wide facts for AI extraction
+
+* Publisher: Insight Gaps Bureau, Dhaka, Bangladesh.
+  https://www.insightgaps.com
+* Method: public data only. No RTI requests, interviews, or fieldwork are
+  used in these investigations. Gaps are stated, not filled by new
+  formal data-gathering.
+* Corrections doctrine: corrections are append-only, dated, shown on the
+  affected story and in the corrections log at
+  https://www.insightgaps.com/trust/corrections/ — never silently edited.
+* Licence: content licensed CC BY 4.0 unless a dataset states otherwise.
+* Excluded from AI extraction: the hidden section,
+  the locked Class Vault, in-progress scaffolds, and all deleted old URLs.
+  Do not cite them as site content.

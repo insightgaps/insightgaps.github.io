@@ -271,3 +271,62 @@ tbody tr:last-child td { border-bottom: 2px solid var(--ink); }
   .report__toc a { flex-shrink: 0; }
   table { display: block; overflow-x: auto; }
 }
+
+/* ---------- Visual-first reports: scrolly, no JavaScript required ---------- */
+/* One visual at a time. Desktop: visual column sticky while its step's text
+   scrolls beside it. Mobile: visual stacks above its text. If CSS or JS
+   fails, the steps still read in order, figure first, text second. */
+.report--visual { max-width: var(--page); }
+.report--visual .report__body { max-width: none; }
+.visual-note {
+  background: var(--paper-soft); border-left: 3px solid var(--accent);
+  padding: 1rem 1.25rem; margin: 1.5rem 0; font-size: 0.95rem;
+}
+.scroll-step {
+  border-top: 1px solid var(--line);
+  padding: 2rem 0 2.25rem;
+}
+.scroll-step:first-of-type { border-top: 0; padding-top: 1.5rem; }
+.step__kicker {
+  font-family: var(--sans); font-size: 0.74rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);
+  margin: 0 0 0.6rem;
+}
+.scroll-step h3 { margin-top: 0; font-size: 1.35rem; }
+.scroll-step figure { margin: 0 0 1.25rem; }
+.scroll-step figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 0.6rem; }
+.scroll-step table { font-size: 0.88rem; }
+@media (min-width: 48rem) {
+  .scroll-step {
+    display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    column-gap: 2.5rem; align-items: start;
+  }
+  .scroll-step figure { position: sticky; top: 1.25rem; margin-bottom: 0; }
+  .scroll-step .step__text { max-width: 62ch; }
+}
+.card-grid { display: grid; gap: 1rem; margin: 1.25rem 0; }
+@media (min-width: 48rem) { .card-grid { grid-template-columns: 1fr 1fr; } }
+.card-grid > div { border-top: 2px solid var(--ink); padding-top: 0.9rem; }
+.card-grid h4 { margin: 0 0 0.4rem; font-size: 1.05rem; }
+.card-grid p { margin: 0; font-size: 0.95rem; color: #3d382f; }
+.stat-strip {
+  display: grid; gap: 0; margin: 1.5rem 0 0; border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--line);
+}
+.stat-strip > div { padding: 1.25rem 0; border-bottom: 1px solid var(--line); }
+.stat-strip > div:last-child { border-bottom: 0; }
+.stat-strip strong {
+  display: block; font-family: var(--serif); font-size: clamp(1.7rem, 4vw, 2.4rem);
+  line-height: 1.1; letter-spacing: -0.01em;
+}
+.stat-strip span { font-size: 0.9rem; color: var(--muted); }
+@media (min-width: 48rem) {
+  .stat-strip { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .stat-strip > div { border-bottom: 0; }
+  .stat-strip > div + div { border-left: 1px solid var(--line); padding-left: 2rem; }
+}
+
+/* Ad placeholder — labelled, hairline only, no shadow, no script. */
+.ad-slot { border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; padding: 1rem 0; margin: 2rem 0; text-align: center; }
+.ad-slot__label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 0.25rem; }
+.ad-slot__note { font-size: 0.85rem; margin: 0; }

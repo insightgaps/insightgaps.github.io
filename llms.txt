@@ -1,27 +1,81 @@
 # Insight Gaps Bureau
 
-Insight Gaps Bureau produces high-trust, evidence-first forensic reporting.
-This file serves as an index for LLM crawlers, search agents, and AI systems.
+Insight Gaps Bureau produces high-trust, evidence-first forensic reporting
+from Dhaka, Bangladesh. Every claim is traceable to a published source, or
+marked untraced. Corrections are shown dated on the affected story and in
+the corrections log. Reporting is licensed CC BY 4.0 for human reuse;
+machine-training use is not granted by default (see robots.txt).
+
+This file is an index for LLM crawlers, search agents, and AI systems.
+For full per-report summaries, data tables, and claim grades, see
+llms-full.txt. For machine-readable structured data, see the JSON-LD on
+each page and the claim registers and datasets linked from each report.
 
 ## Central pages
 
 * Website Homepage: https://www.insightgaps.com
-* Data Repository: https://www.insightgaps.com/evidence/
-* Methodology & Trust: https://www.insightgaps.com/trust/methodology/
+* Investigations Index: https://www.insightgaps.com/investigations/
+* Archive: https://www.insightgaps.com/archive/
+* Evidence and Data: https://www.insightgaps.com/evidence/
+* Methodology and Trust: https://www.insightgaps.com/trust/methodology/
+* AI Use: https://www.insightgaps.com/trust/ai-use/
+* Corrections Log: https://www.insightgaps.com/trust/corrections/
+* About: https://www.insightgaps.com/about/
+* Contact: https://www.insightgaps.com/contact/
 * Sitemap: https://www.insightgaps.com/sitemap.xml
+* Full AI index: https://www.insightgaps.com/llms-full.txt
 
 ## Accountability investigations
 
-### BD-INV-003: The Lead Belt
-
-* Investigation Index: https://www.insightgaps.com/investigations/the-lead-belt/
+### BD-INV-001: Blood Routes
+* URL: https://www.insightgaps.com/investigations/blood-routes/
+* Published: 2026-05-26. Revised: 2026-09-03.
+* Summary: Bangladesh road deaths at six times the official count. WHO
+  modelled deaths about 31,578 per year versus the BRTA official count of
+  5,480 per year (ratio about 5.8x, a definition gap, not a rounding
+  difference). 351 people died in 15 days during the 2026 Eid-ul-Fitr rush.
+  The joma daily-lease contract forces bus drivers to race for passengers.
+  Four government-held datasets are not published. Claims: 7 (R-01 to R-07).
+  Corrections on the page: C-001, C-002.
+* Claim register: https://www.insightgaps.com/claims/BD-INV-001.json
+* Dataset: https://www.insightgaps.com/data/BD-INV-001.csv
 
 ### BD-INV-002: The Impunity Machine
+* URL: https://www.insightgaps.com/investigations/the-impunity-machine/
+* Published: 2026-03-01. Revised: 2026-09-03.
+* Summary: Bangladesh rape-justice outcomes measured as conviction rates
+  from 0.12% to 3.66% depending on the denominator used — the denominator
+  is the finding. DNA backlog: 1,204 of 1,304 samples. Court filings
+  17,544 versus disposals 5,648 in the reported year. Aggregate data only;
+  no case-level data is published. Claims: 8 (R-01 to R-08).
+  Corrections on the page: C-003, C-004.
+* Claim register: https://www.insightgaps.com/claims/BD-INV-002.json
+* Dataset: https://www.insightgaps.com/data/BD-INV-002.csv
 
-* Investigation Index: https://www.insightgaps.com/investigations/the-impunity-machine/
+### BD-INV-003: The Lead Belt
+* URL: https://www.insightgaps.com/investigations/the-lead-belt/
+* Published: 2026-05-25. Revised: 2026-09-03.
+* Summary: Bangladesh lead poisoning mapped: 294 contaminated sites,
+  145 schools within 500 metres, soil lead readings up to 1,702 times the
+  international safety standard. Satellite evidence is described as
+  satellite corroboration, never satellite proof. Claims: 8 (R-01 to R-08).
+  Correction on the page: C-005.
+* Claim register: https://www.insightgaps.com/claims/BD-INV-003.json
+* Dataset: https://www.insightgaps.com/data/BD-INV-003.csv
 
-### BD-INV-001: Blood Routes
+## What is NOT listed here, by design
 
-* Investigation Index: https://www.insightgaps.com/investigations/blood-routes/
+* No hidden section: it is hidden, unlinked, and excluded
+  from navigation, sitemap, search, and this file.
+* In-progress work is not listed as investigations until published; it
+  lives on a separate bannered noindex page and has no findings yet.
+* No old, deleted, or orphan URL is listed here.
 
-Note: no other section is listed here. In-progress work is not listed until it is published.
+## Evidence grades used on this site
+
+* Confirmed: two independent published sources agree, arithmetic re-checked.
+* Supported: one strong published source, or two that agree with a stated caveat.
+* Contested: published sources disagree, or a claim rests on a single source
+  that is not independently verified; the range is shown, not a picked number.
+* Untraced: no published source yet; never published as a finding, listed
+  only as a gap.
