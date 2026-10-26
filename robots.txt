@@ -1,13 +1,13 @@
-# Insight Gaps Bureau crawler policy
-# Bureau policy: our reporting is licensed CC BY 4.0 for human reuse;
-# machine-training use is not granted by default and is reserved via
-# robots content-signals (see /trust/ai-use/).
-
+# Insight Gaps Bureau crawler policy — DRAFT
+# Bureau policy: reporting is licensed CC BY 4.0 for human reuse;
+# machine-training use is not granted by default.
 User-agent: *
 Content-Signal: search=yes,ai-train=no,use=reference
 Allow: /
+Disallow: /analysis/property-preservation/
+Disallow: /in-progress/
 
-# Machine-training crawlers - reserved by bureau policy
+# Machine-training crawlers — reserved by bureau policy
 User-agent: GPTBot
 Disallow: /
 
@@ -21,12 +21,6 @@ User-agent: Bytespider
 Disallow: /
 
 User-agent: Google-Extended
-Disallow: /
-
-User-agent: Amazonbot
-Disallow: /
-
-User-agent: Applebot-Extended
 Disallow: /
 
 Sitemap: https://www.insightgaps.com/sitemap.xml

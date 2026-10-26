@@ -1,0 +1,66 @@
+[
+  {
+    "claim": "During the 15-day Eid-ul-Fitr 2026 travel period, 351 people were killed, averaging 23 deaths per day.",
+    "claimId": "R-01",
+    "grade": "Supported",
+    "notes": "Average is 351 divided by 15 = 23.4 per day; the live report rounds to 23 per day. The headline period is outside the cleaned dataset's 2022-2024 range.",
+    "sources": [
+      "Road Safety Foundation and Bangladesh Jatri Kalyan Samity, Eid-ul-Fitr 2026 travel monitoring, as published in the live report; underlying reports not yet archived in the bureau's evidence repository"
+    ]
+  },
+  {
+    "claim": "The WHO-modelled road death estimate, about 31,578 per year, is 5.8 times the BRTA official count of 5,480.",
+    "claimId": "R-02",
+    "grade": "Supported",
+    "notes": "Ratio is 31,578 divided by 5,480 = 5.76, rounded to 5.8. Definitions differ: BRTA counts police-FIR deaths, WHO uses a modelled 30-day definition.",
+    "sources": [
+      "WHO modelled estimate 2023, as published in the live report",
+      "BRTA official count 2023, as published in the live report"
+    ]
+  },
+  {
+    "claim": "The joma daily-lease system forces bus drivers to race for passengers, because drivers pay a fixed daily fee before earning.",
+    "claimId": "R-03",
+    "grade": "Confirmed",
+    "notes": "Figures are attributed to TIB, not independently replicated by the bureau. Daily fee reported as BDT 4,000 to 6,000, rising to Tk 8,000 or more during Eid; net driver income reported as BDT 300 to 500 per day.",
+    "sources": [
+      "Transparency International Bangladesh 2024 transport survey, as cited in the live report"
+    ]
+  },
+  {
+    "claim": "Banned fleets re-emerge under new operator names on the same routes — the Phoenix pattern. Route continuity is probable; ownership continuity is alleged, not confirmed by a corporate registry.",
+    "claimId": "R-04",
+    "grade": "Contested",
+    "notes": "No operator is found guilty unless a specific conviction is cited. No beneficial ownership is asserted.",
+    "sources": [
+      "Live report, Phoenix scene: High Court and BRTA ban on Suprobhat Paribahan, Sadarghat-Gazipur corridor, 2019 crash context; family and victim testimony for ownership continuity"
+    ]
+  },
+  {
+    "claim": "Four datasets the government holds are not published: BRTA bus crash registry by chassis, hospital trauma records linked to crash cause, police FIRs linked to operator name, and a route-permit beneficial-owner registry.",
+    "claimId": "R-05",
+    "grade": "Confirmed",
+    "notes": "This is a confirmed absence finding: each dataset is held or should exist and is not published in the form needed.",
+    "sources": [
+      "Live report, Voids scene VOID-01 to VOID-04"
+    ]
+  },
+  {
+    "claim": "The deduplicated dataset (47,680 raw rows reduced to 2,331 unique accidents, because 95.11% of raw rows were artificial padding created by cross-joining single accidents across permuted metadata values) shows heavy clustering at highway entry and exit corridors and roundabouts.",
+    "claimId": "R-06",
+    "grade": "Confirmed",
+    "notes": "Live report scene heading says 2,332; this report uses 2,331, the audited count, and flags the one-record difference.",
+    "sources": [
+      "Figshare dataset 'Bangladesh Road Traffic Accident Dataset (2007-2024): Multi-Source Integration', DOI 10.6084/m9.figshare.30631292.v1; bureau deduplication audit as published in the live report"
+    ]
+  },
+  {
+    "claim": "41.56% of fatal Dhaka crashes occur between 10pm and 6am, and pedestrians account for 47% of Dhaka road victims (Road Safety Foundation).",
+    "claimId": "R-07",
+    "grade": "Confirmed",
+    "notes": "The earlier 97.13 percent night-time figure was corrected to 41.56 percent; see Corrections on the page.",
+    "sources": [
+      "Road Safety Foundation, Dhaka Annual Report 2025 basis, as corrected 2026-06-08 (correction C-001)"
+    ]
+  }
+]

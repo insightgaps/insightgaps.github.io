@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Property tracking, keyed by address — SAMPLE showcase</title>
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body data-pagefind-ignore="all">
+<main class="page"><div class="page--narrow"><div class="prose">
+<p class="eyebrow">Direct link only · SAMPLE data only</p>
+<h1>Property tracking, keyed by address</h1>
+<p>Work-order numbers do not match across systems. A job can be renumbered between a client portal, a vendor system, and a ledger, and a number search alone can falsely conclude a job is absent. The property address is the matching key; work-order numbers are attributes that can differ per system.</p>
+<p>A follow-up job at the same property is a chain, not a duplicate: a later job can carry the payment for earlier work at that address, so no "unpaid" classification is final until the same-property chain check runs.</p>
+<table>
+<caption>SAMPLE data only — fictional example</caption>
+<thead><tr><th scope="col">Property key (SAMPLE)</th><th scope="col">Jobs at that property (SAMPLE)</th><th scope="col">Chain state (SAMPLE)</th></tr></thead>
+<tbody>
+<tr><td>SAMPLE-001 — 1 Sample Lane, Sampletown</td><td>SAMPLE job A, SAMPLE job B (labels only)</td><td>Chain checked: payment for job A is recorded against job B in the sample</td></tr>
+<tr><td>SAMPLE-002 — 2 Sample Lane, Sampletown</td><td>SAMPLE job C (label only)</td><td>No successor job in the sample; state is UNRESOLVED, not "unpaid" as a final classification</td></tr>
+</tbody>
+</table>
+<p><a href="/analysis/property-preservation/">Back to the feature showcase</a> · <a href="/analysis/property-preservation/photo-qc/">Photo QC and datestamps</a> · <a href="/analysis/property-preservation/reconciliation/">Reconciliation</a> · <a href="/analysis/property-preservation/submission-queue/">Submission queue</a></p>
+</div></div></main>
+</body>
+</html>

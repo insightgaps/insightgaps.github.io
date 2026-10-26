@@ -1,0 +1,76 @@
+[
+  {
+    "claim": "Only 310 convictions were recorded from 66,711 women who came through One-Stop Crisis Centres over 23 years, a 0.46 percent conviction rate on that denominator.",
+    "claimId": "R-01",
+    "grade": "Confirmed",
+    "notes": "Denominator is OCC visitors, not filed cases or disposed cases. Twelve independent measurements range from 0.12 percent to 3.66 percent on different denominators.",
+    "sources": [
+      "One-Stop Crisis Centre programme data, 2001 to July 2024, as published in the live report and methodology"
+    ]
+  },
+  {
+    "claim": "Bangladesh pairs maximum legal severity with near-zero certainty of punishment: death-penalty expansion did not solve reporting attrition, backlog, evidence loss, or witness risk.",
+    "claimId": "R-02",
+    "grade": "Confirmed",
+    "notes": "Causal claim is supported by the published sequence (severity change, no documented conviction improvement, backlog growth), not by a controlled experiment.",
+    "sources": [
+      "Live report: WCRPA amended October 2020 to add the death penalty; conviction rate did not improve; backlog grew"
+    ]
+  },
+  {
+    "claim": "Critical justice infrastructure remains thin: 14 One-Stop Crisis Centres, two national DNA machines, major unprocessed sample backlogs, and no complete national registry for key case outcomes.",
+    "claimId": "R-03",
+    "grade": "Confirmed",
+    "notes": "14 centres are concentrated in divisional headquarters.",
+    "sources": [
+      "Live report investigation metadata; Government submission to the UN Secretary-General, May 2024 (50 of 64 districts with no full OCC)"
+    ]
+  },
+  {
+    "claim": "Forensic DNA backlog is 92%: 1,204 of 1,304 biological samples received in 2025 remained unprocessed at the National Forensic DNA Profiling Laboratory as of September 2025.",
+    "claimId": "R-04",
+    "grade": "Confirmed",
+    "notes": "Processed count 100 is derived: 1,304 minus 1,204.",
+    "sources": [
+      "MoWCA lab reports and NFDPL data, as published in the live report"
+    ]
+  },
+  {
+    "claim": "The average verdict wait is 2,349 days, over six years, against a statutory 90-day tribunal limit whose compliance rate is unpublished.",
+    "claimId": "R-05",
+    "grade": "Confirmed",
+    "notes": "90-day compliance is a confirmed absence, not a measured zero.",
+    "sources": [
+      "BRAC 2022, 16 districts, 385 cases (average resolution time)",
+      "2025 Amendment Ordinance, 90-day limit; compliance rate confirmed absent, gap GA-003"
+    ]
+  },
+  {
+    "claim": "The compound probability of punishment is about 0.0215 percent, or 1 in about 4,650, on the mid-reference model, with a sensitivity range from 0.00034 percent to 0.2756 percent.",
+    "claimId": "R-06",
+    "grade": "Supported",
+    "notes": "Live-report tier is PROBABLE. This is a model, not a direct count, and assumes independence between funnel stages.",
+    "sources": [
+      "Live report methodology, Model A: 0.0146 x 0.59 x 0.025 = 0.0215 percent; Model B 0.0400 percent; Model C 0.2756 percent"
+    ]
+  },
+  {
+    "claim": "78% of survivors arrive after the 72-hour forensic window (BRAC 2022), while §32 of the Women and Children Repression Prevention Act mandates hospital examination — and no institution tracks hospital-refusal compliance.",
+    "claimId": "R-07",
+    "grade": "Confirmed",
+    "notes": "Aggregate only; no individual case data.",
+    "sources": [
+      "BRAC 2022 (78 percent after 72 hours)",
+      "WCRPA section 32; compliance tracking confirmed absent, gap GA-012"
+    ]
+  },
+  {
+    "claim": "In 2024, new WCRPA filings (17,544) outpaced disposals (5,648) by about 3.1 times, adding 11,896 cases to the backlog in one year.",
+    "claimId": "R-08",
+    "grade": "Confirmed",
+    "notes": "Net growth is 17,544 minus 5,648 = 11,896.",
+    "sources": [
+      "Live report, system failure audit, 2024 filings and disposals"
+    ]
+  }
+]

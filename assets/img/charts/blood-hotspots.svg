@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 246" role="img" aria-label="Dhaka crash hotspots: unique crashes in the deduplicated dataset">
+<title>Dhaka crash hotspots: unique crashes in the deduplicated dataset</title>
+<text x="0" y="22" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">Dhaka crash hotspots: unique crashes in the deduplicated dataset</text>
+<text x="0" y="57" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Tejgaon Industrial Area</text>
+<rect x="210" y="42" width="430.0" height="20" fill="#8c2b18"/>
+<text x="645" y="57" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">8</text>
+<text x="0" y="91" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Airport Roundabout</text>
+<rect x="210" y="76" width="322.5" height="20" fill="#16130f"/>
+<text x="538" y="91" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">6</text>
+<text x="0" y="125" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Jatrabari Intersection</text>
+<rect x="210" y="110" width="322.5" height="20" fill="#16130f"/>
+<text x="538" y="125" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">6</text>
+<text x="0" y="159" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Mayor Mohammad Hanif Flyover</text>
+<rect x="210" y="144" width="268.8" height="20" fill="#16130f"/>
+<text x="484" y="159" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">5</text>
+<text x="0" y="193" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Shonir Akhra, Dhaka–Chittagong Hwy</text>
+<rect x="210" y="178" width="215.0" height="20" fill="#16130f"/>
+<text x="430" y="193" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">4</text>
+<text x="0" y="238" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Counts are unique crashes in the 2,331-record deduplicated dataset, 2022–2024.</text>
+</svg>

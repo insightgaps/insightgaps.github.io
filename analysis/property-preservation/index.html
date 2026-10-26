@@ -1,252 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Property Preservation Intelligence OS — Excellence Property Care Solutions</title>
-  <meta name="description" content="Operational intelligence for property preservation. Track margin integrity, work order risk, contractor performance, and ZIP coverage in one command view.">
-
-  <meta name="robots" content="noindex, nofollow">
-  <link rel="canonical" href="https://www.insightgaps.com/analysis/property-preservation/">
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-
-  <!-- Chart.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-
-  <!-- Leaflet Map library -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-  <!-- Global Stylesheet -->
-  <link rel="stylesheet" href="os-assets/os-shell.css">
-  <link rel="stylesheet" href="os-assets/os-views.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Operations system — feature showcase (direct link only)</title>
+<link rel="stylesheet" href="/assets/css/style.css">
 </head>
-<body>
-
-  <div class="os-shell">
-
-    <!-- ── Sidebar ────────────────────────────────────────────── -->
-    <aside class="os-sidebar">
-
-      <!-- Logo block -->
-      <div class="os-sidebar__logo-block">
-        <!-- Geometric 4-square mark representing data quadrants -->
-        <div class="os-sidebar__logo-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2"  y="2"  width="9" height="9" rx="1.5" fill="currentColor"/>
-            <rect x="13" y="2"  width="9" height="9" rx="1.5" fill="currentColor" opacity="0.4"/>
-            <rect x="2"  y="13" width="9" height="9" rx="1.5" fill="currentColor" opacity="0.4"/>
-            <rect x="13" y="13" width="9" height="9" rx="1.5" fill="currentColor"/>
-          </svg>
-        </div>
-        <div class="os-sidebar__brand">
-          <span class="os-sidebar__brand-name">Property Preservation</span>
-          <span class="os-sidebar__brand-sub">Intelligence OS</span>
-        </div>
-      </div>
-
-      <!-- Navigation -->
-      <nav class="os-nav" aria-label="Primary navigation">
-
-        <span class="os-nav__section-label">Finance &amp; Analytics</span>
-
-        <!-- Financials — trend arrow -->
-        <a class="os-nav__item active" data-view="financial" role="button" tabindex="0">
-          <span class="os-nav__icon" aria-hidden="true">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="2,12 6,8 9,10 14,4"/>
-              <polyline points="11,4 14,4 14,7"/>
-            </svg>
-          </span>
-          <span class="os-nav__label">Financials</span>
-        </a>
-
-        <!-- Leakage Breakdown — funnel -->
-        <a class="os-nav__item" data-view="leakage" role="button" tabindex="0">
-          <span class="os-nav__icon" aria-hidden="true">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M2 3h12L9 9v5H7V9L2 3z"/>
-            </svg>
-          </span>
-          <span class="os-nav__label">Leakage Analysis</span>
-        </a>
-
-        <!-- ZIP Intelligence — map pin -->
-        <a class="os-nav__item" data-view="zip" role="button" tabindex="0">
-          <span class="os-nav__icon" aria-hidden="true">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M8 1.5C5.5 1.5 3.5 3.5 3.5 6c0 3.5 4.5 8.5 4.5 8.5S12.5 9.5 12.5 6c0-2.5-2-4.5-4.5-4.5z"/>
-              <circle cx="8" cy="6" r="1.5"/>
-            </svg>
-          </span>
-          <span class="os-nav__label">ZIP Intelligence</span>
-        </a>
-
-
-        <span class="os-nav__section-label">Operations</span>
-
-        <!-- Morning Pulse — activity waveform -->
-        <a class="os-nav__item" data-view="pulse" role="button" tabindex="0">
-          <span class="os-nav__icon" aria-hidden="true">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="1,9 4,9 6,4 8,12 10,7 12,9 15,9"/>
-            </svg>
-          </span>
-          <span class="os-nav__label">Morning Pulse</span>
-        </a>
-
-        <!-- Work Orders — document with lines -->
-        <a class="os-nav__item" data-view="workorders" role="button" tabindex="0">
-          <span class="os-nav__icon" aria-hidden="true">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="1" width="10" height="14" rx="1.5"/>
-              <line x1="5.5" y1="6"  x2="10.5" y2="6"/>
-              <line x1="5.5" y1="9"  x2="10.5" y2="9"/>
-              <line x1="5.5" y1="12" x2="8.5"  y2="12"/>
-            </svg>
-          </span>
-          <span class="os-nav__label">Work Orders</span>
-          <span class="os-nav__badge" id="badge-workorders">0</span>
-        </a>
-
-        <!-- Contractors — person silhouette -->
-        <a class="os-nav__item" data-view="contractors" role="button" tabindex="0">
-          <span class="os-nav__icon" aria-hidden="true">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="8" cy="5" r="3"/>
-              <path d="M2 14c0-3 2.5-5 6-5s6 2 6 5"/>
-            </svg>
-          </span>
-          <span class="os-nav__label">Contractors</span>
-        </a>
-
-        <!-- Photo QC — camera body -->
-        <a class="os-nav__item" data-view="photoqc" role="button" tabindex="0">
-          <span class="os-nav__icon" aria-hidden="true">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="1" y="5" width="14" height="9" rx="1.5"/>
-              <circle cx="8" cy="9.5" r="2.5"/>
-              <path d="M5 5l1.5-2.5h3L11 5"/>
-            </svg>
-          </span>
-          <span class="os-nav__label">Photo QC</span>
-          <span class="os-nav__badge" id="badge-qc">0</span>
-        </a>
-
-        <!-- Communications — chat bubble -->
-        <a class="os-nav__item" data-view="communications" role="button" tabindex="0">
-          <span class="os-nav__icon" aria-hidden="true">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 2H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h5l2 2 2-2h3a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z"/>
-            </svg>
-          </span>
-          <span class="os-nav__label">Communications</span>
-          <span class="os-nav__badge" id="badge-comms">0</span>
-        </a>
-
-        <span class="os-nav__section-label">Tools</span>
-
-        <!-- Bid Generator — document with plus -->
-        <a class="os-nav__item" data-view="bidgenerator" role="button" tabindex="0">
-          <span class="os-nav__icon" aria-hidden="true">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9.5 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6L9.5 2z"/>
-              <path d="M9.5 2v4h4"/>
-              <line x1="6" y1="9"  x2="10" y2="9"/>
-              <line x1="8" y1="7"  x2="8" y2="11"/>
-            </svg>
-          </span>
-          <span class="os-nav__label">Bid Generator</span>
-        </a>
-
-        <!-- Consulting Mode — document list/search -->
-        <a class="os-nav__item" data-view="consulting" role="button" tabindex="0">
-          <span class="os-nav__icon" aria-hidden="true">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="3" width="12" height="10" rx="1.5"/>
-              <line x1="5" y1="6" x2="11" y2="6"/>
-              <line x1="5" y1="8" x2="9" y2="8"/>
-              <line x1="5" y1="10" x2="7" y2="10"/>
-            </svg>
-          </span>
-          <span class="os-nav__label">Consulting Mode</span>
-        </a>
-
-      </nav>
-
-      <!-- Sidebar footer -->
-      <div class="os-sidebar__footer">
-        <div class="os-sidebar__footer-row">
-          <span class="os-demo-badge">DEMO</span>
-          <span class="os-sidebar__data-range">Nov 2025 – Jun 2026</span>
-        </div>
-        <span class="os-sidebar__data-note">Live dataset · Static instance</span>
-        <a href="https://www.insightgaps.com" class="os-sidebar__site-link" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <polyline points="7,1 1,1 1,11 11,11 11,5"/>
-            <polyline points="5,7 11,1"/>
-          </svg>
-          insightgaps.com
-        </a>
-      </div>
-
-    </aside>
-
-    <!-- ── Main Content Area ───────────────────────────────────── -->
-    <main class="os-content">
-
-      <!-- Filter Bar -->
-      <header class="os-filter-bar">
-        <div class="os-filter-bar__left">
-          <h1 class="os-filter-bar__view-title" id="current-view-title">Financials</h1>
-        </div>
-
-        <div class="os-filter-bar__controls">
-          <select class="os-filter" id="filter-month" aria-label="Filter by month">
-            <option value="all">All Period</option>
-            <option value="2025-11">Nov 2025</option>
-            <option value="2025-12">Dec 2025</option>
-            <option value="2026-01">Jan 2026</option>
-            <option value="2026-02">Feb 2026</option>
-            <option value="2026-03">Mar 2026</option>
-            <option value="2026-04">Apr 2026</option>
-            <option value="2026-05">May 2026</option>
-            <option value="2026-06">Jun 2026</option>
-          </select>
-
-          <select class="os-filter" id="filter-client" aria-label="Filter by client">
-            <option value="all">All Clients</option>
-            <option value="MCS">MCS</option>
-            <option value="ServiceLink">ServiceLink</option>
-            <option value="FiveBrothers">Five Brothers</option>
-            <option value="MSI">MSI</option>
-            <option value="Safeguard">Safeguard</option>
-            <option value="ZVN">ZVN</option>
-          </select>
-
-          <select class="os-filter" id="filter-contractor" aria-label="Filter by contractor">
-            <option value="all">All Contractors</option>
-            <!-- Dynamically populated by os-nav.js -->
-          </select>
-
-          <button class="os-filter-reset" id="filter-reset" aria-label="Clear all filters">Clear</button>
-        </div>
-      </header>
-
-      <!-- View content loaded here by os-nav.js -->
-      <div class="os-view-container" id="view-container" role="main">
-      </div>
-
-    </main>
-
-  </div>
-
-  <!-- Data layer and shell logic -->
-  <script src="data/epcs_data.js"></script>
-  <script src="os-assets/os-nav.js?v=1.0.1"></script>
+<body data-pagefind-ignore="all">
+<main class="page">
+<div class="page--narrow">
+<div class="prose">
+<p class="eyebrow">Direct link only — not in site navigation, sitemap, search, or index</p>
+<h1>Operations system — feature showcase</h1>
+<p>This section is a feature showcase for a property-care operations system. It contains <strong>no real data</strong>: no real dataset, no real work-order numbers, addresses, client names, amounts, crew names, or payment details. Every example on every page in this section is labelled SAMPLE and uses fictional sample values that cannot be mistaken for a real job.</p>
+<p><strong>Hiding is not privacy.</strong> Anyone with a direct link can open these pages, and the files remain in the public repository. Do not put secrets, credentials, or sensitive material here.</p>
+<h2>What the system does</h2>
+<ul>
+<li><a href="/analysis/property-preservation/properties/">Property tracking, keyed by address</a> — one property, one record, matched by address first, never by work-order number alone.</li>
+<li><a href="/analysis/property-preservation/photo-qc/">Photo QC and datestamps</a> — before, during, and after photo sets, checked, flagged, and datestamped by the rules of the receiving system.</li>
+<li><a href="/analysis/property-preservation/reconciliation/">Reconciliation and loss-reason discipline</a> — every loss carries a mandatory reason code; unexplained losses are a queue driven to zero, never a closed book.</li>
+<li><a href="/analysis/property-preservation/submission-queue/">Submission-queue discipline</a> — complete, then report the finished state, then owner cross-check, then submit only on the owner's word. One job at a time, never on a green light alone.</li>
+<li><a href="vault/">Class Vault</a> — currently closed and locked, for class slides only. No slide list is shown, and no passcode appears in source. The gate, when opened, is obscurity, not security: see the Vault page for the honest label.</li>
+</ul>
+<h2>SAMPLE example — one property, end to end</h2>
+<table>
+<caption>SAMPLE data only — fictional example, not a real job</caption>
+<thead><tr><th scope="col">Field</th><th scope="col">SAMPLE value</th></tr></thead>
+<tbody>
+<tr><td>Property key</td><td>SAMPLE-001 — 1 Sample Lane, Sampletown (fictional)</td></tr>
+<tr><td>Work types in queue</td><td>SAMPLE secure, SAMPLE grass cut, SAMPLE winterisation (labels only)</td></tr>
+<tr><td>Photo sets</td><td>Before: 12 SAMPLE photos flagged; During: 5 SAMPLE photos; After: 9 SAMPLE photos</td></tr>
+<tr><td>Reconciliation state</td><td>SAMPLE loss: reason code required, currently UNEXPLAINED in the sample — queue item, not closed</td></tr>
+<tr><td>Submission state</td><td>NOT SUBMITTED — awaiting owner cross-check in the sample workflow</td></tr>
+</tbody>
+</table>
+<p>How this section is maintained: each feature page is a plain HTML file in this hidden folder. To change a feature description, edit that file. To add a class slide deck, see the <a href="vault/">Class Vault</a> and its "How to add a deck" page. Nothing in this section is linked from the public site, and nothing here is a client portal, a payment system, or a record of real work.</p>
+</div>
+</div>
+</main>
 </body>
 </html>

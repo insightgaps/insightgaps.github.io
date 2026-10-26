@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search — Insight Gaps Bureau</title>
+<meta name="description" content="Search published investigations, evidence, and methodology.">
+<meta name="theme-color" content="#16130f">
+<link rel="canonical" href="https://www.insightgaps.com/search/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Search">
+<meta property="og:description" content="Search published investigations, evidence, and methodology.">
+<meta property="og:url" content="https://www.insightgaps.com/search/">
+<link rel="stylesheet" href="/assets/css/style.css">
+
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to content</a>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="/" class="site-header__logo">Insight&nbsp;Gaps<small>Independent data journalism · Dhaka</small></a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="/investigations/">Investigations</a>
+      <a href="/archive/">Archive</a>
+      <a href="/evidence/">Evidence</a>
+      <a href="/about/">About</a>
+      <a href="/trust/methodology/">Trust</a>
+      <a href="/search/">Search</a>
+    </nav>
+  </div>
+</header>
+<main id="main-content">
+<div class="page">
+<div class="page--narrow">
+<div class="prose">
+<h1>Search</h1>
+<p>Search is provided by Pagefind, a fully static search library with no server and no tracking. After the site is built, run <code>npm run search:index</code> to generate the search index from the built pages.</p>
+<p>The hidden unlinked folder is excluded from search: its pages carry <code>data-pagefind-ignore</code> and are not in the sitemap. The in-progress page is excluded from the sitemap and is not a published investigation.</p>
+<p>If the search index has not been generated yet, use the <a href="/investigations/">investigations index</a> and the <a href="/archive/">archive</a> to browse published work.</p>
+<div id="search"></div>
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+<script src="/pagefind/pagefind-ui.js" defer></script>
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  if (window.PagefindUI) {
+    new PagefindUI({ element: "#search", showSubResults: true });
+  }
+});
+</script>
+
+</div>
+</div>
+
+</div>
+</main>
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <p>Insight Gaps Bureau — Independent forensic data journalism from Dhaka, Bangladesh. Evidence before narrative. Every claim traceable to a source, or marked untraced.</p>
+    <nav aria-label="Footer navigation">
+      <a href="/investigations/">Investigations</a>
+      <a href="/archive/">Archive</a>
+      <a href="/evidence/">Evidence</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/trust/corrections/">Corrections</a>
+    </nav>
+    <p><small>Content licensed CC BY 4.0 unless a dataset states otherwise. Corrections are shown on the affected story as well as in the corrections log.</small></p>
+  </div>
+</footer>
+</body>
+</html>

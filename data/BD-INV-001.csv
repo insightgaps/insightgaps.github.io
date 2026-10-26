@@ -1,0 +1,19 @@
+measure,value,source,notes
+WHO modelled road deaths per year,31578,WHO 2023 as published in live report,Modelled 30-day definition; not a police count
+BRTA official road deaths per year,5480,BRTA 2023 as published in live report,Police FIR count only
+Ratio modelled to official,5.76,Calculated: 31578 / 5480,Rounded to 5.8x in text
+Eid-ul-Fitr 2026 deaths in 15 days,351,RSF and BJKS Eid monitoring as published in live report,Outside cleaned dataset range 2022-2024
+Eid-ul-Fitr 2026 deaths per day,23.4,Calculated: 351 / 15,Live report rounds to 23 per day
+Eid-ul-Adha 2025 deaths,312,Report timeline data as corrected 2026-09-03,Corrected from 29 percent surge claim
+Eid-ul-Adha 2024 deaths,262,Report timeline data as corrected 2026-09-03,Baseline for year-on-year change
+Eid-ul-Adha year-on-year change percent,19.08,Calculated: (312 - 262) / 262 x 100,Rounded to 19 percent in text
+Raw Figshare rows,47680,Figshare dataset DOI 10.6084/m9.figshare.30631292.v1,47,680 rows x 31 columns
+Deduplicated unique accidents,2331,Bureau deduplication audit as published in live report,Live scene heading says 2332; audited count 2331 used here
+Padding share percent,95.11,Bureau deduplication audit as published in live report,Artificial cross-joining padding
+Tejgaon Industrial Area unique crashes,8,Bureau deduplicated dataset 2022-2024,Hotspot count
+Airport Roundabout unique crashes,6,Bureau deduplicated dataset 2022-2024,Hotspot count
+Jatrabari Intersection unique crashes,6,Bureau deduplicated dataset 2022-2024,Hotspot count
+Mayor Mohammad Hanif Flyover unique crashes,5,Bureau deduplicated dataset 2022-2024,Hotspot count
+Shonir Akhra Dhaka-Chittagong Highway unique crashes,4,Bureau deduplicated dataset 2022-2024,Hotspot count
+Fatal Dhaka crashes 10pm-6am percent,41.56,RSF Dhaka Annual Report 2025 basis as corrected 2026-06-08,Corrected from 97.13 percent
+Pedestrians share of Dhaka road victims percent,47,RSF as published in live report,Dhaka victims

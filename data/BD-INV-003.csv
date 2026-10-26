@@ -1,0 +1,33 @@
+measure,value,source,notes
+Contaminated sites mapped,294,Pure Earth and University of Dhaka assessment data,Across 93 upazilas all divisions
+Upazilas with mapped sites,93,Live report as corrected 2026-09-03,Corrected from 507
+Headline sites with schools within 500m,44,Live report March 2026 analysis,Formally assessed headline sites
+School-site intersections within 500m,145,Live report March 2026 analysis,Intersections not unique schools
+Unique schools for headline sites,121,Live report reconciliation,121 unique schools for 44 sites
+Exposure instances projected,39875,Calculated: 145 x 275,Projection not tested children
+Unique-school student estimate,33275,Live report: 121 unique schools x 275,Unique-school estimate
+Audited exposure range low,24650,Live report audited range,Lower bound
+Audited exposure range high,50750,Live report audited range,Upper bound
+Reconstructed sites with schools snapshot,51,Live report provenance note 2026-09-03,Archived OSM snapshot re-run across all 294 sites
+Reconstructed intersections snapshot,166,Live report provenance note 2026-09-03,Archived OSM snapshot re-run
+Reconstructed unique schools snapshot,125,Live report provenance note 2026-09-03,Archived OSM snapshot re-run
+Peak soil lead ppm Kathgora Savar,680872,Live report featured site BD-4921,Multiple 1702x of 400 ppm threshold
+Soil lead ppm Kamrangir Char,330001,Live report featured site BD-4591,Multiple 825x of 400 ppm threshold
+Exceedance multiple Kathgora,1702,Calculated: 680872 / 400,Rounded
+Exceedance multiple Kamrangir Char,825,Calculated: 330001 / 400,Rounded; live report states 825x
+Exceedance multiple Jatrabari,744,Live report featured site BD-4802,Multiple of 400 ppm threshold
+Distance school gate to factory BD-4591 metres,59,Live report featured site BD-4591,Closest school gate distance
+Schools within 500m of BD-4591 furnace,18,Live report featured site BD-4591,Single furnace count
+Critical sites total,68,Live report critical areas section,Designated critical zones
+Critical sites exceeding 100000 ppm,65,Live report critical areas section as reconciled 2026-09-03,250x safe threshold
+Children above safe limit Dhaka percent,65.2,UNICEF / BBS MICS 2025,Division rate
+Children above safe limit Khulna percent,48.0,UNICEF / BBS MICS 2025 as listed in live report,Division rate
+Children above safe limit Sylhet percent,46.7,UNICEF / BBS MICS 2025 as listed in live report,Division rate
+Children above safe limit Chattogram percent,42.1,UNICEF / BBS MICS 2025 as listed in live report,Division rate
+Children above safe limit national percent,38.3,UNICEF / BBS MICS 2025,National rate
+Children above safe limit Rajshahi percent,15.9,UNICEF / BBS MICS 2025,Division rate
+Formal licensed recyclers,6,Live report formal versus informal section,About 30 percent of battery waste
+Informal workshops,6000,Live report formal versus informal section,6000 or more; about 70 percent of battery waste
+Remediated sites public record,0,Live report Reckoning section,Zero permanent remediation at analysed coordinates
+Modelled cardiovascular deaths per year,138054,Lancet Planetary Health 2023 Larsen and Sanchez-Triana,Modelled estimate not counted deaths
+Modelled annual economic toll billion USD,28.63,Lancet Planetary Health 2023,About 6 percent of GDP; modelled estimate

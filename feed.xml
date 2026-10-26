@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Insight Gaps Bureau</title>
+  <link href="https://www.insightgaps.com/feed.xml" rel="self"/>
+  <link href="https://www.insightgaps.com/"/>
+  <updated>Thu Sep 03 2026 00:00:00 GMT+0000 (Coordinated Universal Time)T00:00:00Z</updated>
+  <id>https://www.insightgaps.com/</id>
+
+  <entry>
+    <title>Blood Routes</title>
+    <link href="https://www.insightgaps.com/investigations/blood-routes/"/>
+    <updated>Thu Sep 03 2026 00:00:00 GMT+0000 (Coordinated Universal Time)T00:00:00Z</updated>
+    <id>https://www.insightgaps.com/investigations/blood-routes/</id>
+    <summary>351 people died in 15 days during the 2026 Eid-ul-Fitr rush. Bangladesh&#39;s roads kill at six times the official count. The joma incentive system, political shields, and four critical data voids make it structural — not accidental.</summary>
+  </entry>
+
+  <entry>
+    <title>The Lead Belt</title>
+    <link href="https://www.insightgaps.com/investigations/the-lead-belt/"/>
+    <updated>Thu Sep 03 2026 00:00:00 GMT+0000 (Coordinated Universal Time)T00:00:00Z</updated>
+    <id>https://www.insightgaps.com/investigations/the-lead-belt/</id>
+    <summary>Bangladesh&#39;s lead poisoning crisis mapped: 294 contaminated sites, 145 schools within 500 metres, and soil lead readings up to 1,702 times the international safety standard.</summary>
+  </entry>
+
+  <entry>
+    <title>The Impunity Machine</title>
+    <link href="https://www.insightgaps.com/investigations/the-impunity-machine/"/>
+    <updated>Thu Sep 03 2026 00:00:00 GMT+0000 (Coordinated Universal Time)T00:00:00Z</updated>
+    <id>https://www.insightgaps.com/investigations/the-impunity-machine/</id>
+    <summary>A visual data investigation into Bangladesh&#39;s rape justice crisis and the institutional machinery that turns reported violence into near-zero punishment.</summary>
+  </entry>
+
+</feed>

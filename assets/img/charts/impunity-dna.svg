@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 120" role="img" aria-label="DNA samples 2025: unprocessed vs processed">
+<title>DNA samples 2025: unprocessed vs processed</title>
+<text x="0" y="22" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">DNA samples received in 2025: processed vs unprocessed</text>
+<rect x="0" y="40" width="644" height="26" fill="#8c2b18"/><rect x="644" y="40" width="56" height="26" fill="#16130f"/>
+<text x="0" y="86" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Unprocessed: 1,204 of 1,304 (92%)</text>
+<text x="0" y="106" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Processed: 100 of 1,304 (8%) — derived: 1,304 minus 1,204.</text></svg>

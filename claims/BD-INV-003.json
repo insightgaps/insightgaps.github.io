@@ -1,0 +1,74 @@
+[
+  {
+    "claim": "294 contaminated sites are mapped across Bangladesh using Pure Earth and University of Dhaka assessment data, across 93 upazilas in all divisions.",
+    "claimId": "R-01",
+    "grade": "Confirmed",
+    "notes": "Upazila count corrected to 93 in correction C-005; the earlier headline figure of 507 was wrong.",
+    "sources": [
+      "Pure Earth Contaminated Sites Index (2016-2019) and University of Dhaka assessment data, as published in the live report"
+    ]
+  },
+  {
+    "claim": "145 school–site intersections place schools within 500 metres of contaminated sites, for the 44 formally assessed headline sites. The unique-school count for those sites is 121, and the unique-student estimate is about 33,275.",
+    "claimId": "R-02",
+    "grade": "Confirmed",
+    "notes": "145 counts intersections, not unique schools. Re-running against the archived snapshot gives 51 sites, 166 intersections, and 125 unique schools across all 294 sites; both counts are documented in the report.",
+    "sources": [
+      "Live report and methodology: Haversine analysis, 500 metre screening threshold, OpenStreetMap schools snapshot March 2026"
+    ]
+  },
+  {
+    "claim": "The highest soil lead reading in the report reaches 680,872 ppm at Kathgora, Savar, about 1,702 times the 400 ppm international residential safety threshold.",
+    "claimId": "R-03",
+    "grade": "Confirmed",
+    "notes": "680,872 divided by 400 = 1,702.18, rounded to 1,702.",
+    "sources": [
+      "Live report, featured site BD-4921, Kathgora, Savar"
+    ]
+  },
+  {
+    "claim": "Zero contaminated sites have been permanently remediated or cleaned up, on the public record at the coordinates analysed.",
+    "claimId": "R-04",
+    "grade": "Confirmed",
+    "notes": "Enforcement closures and demolitions are not remediation. The claim is scoped to the public record at analysed coordinates.",
+    "sources": [
+      "Live report, Reckoning section: no public record of permanent environmental soil remediation at any analysed coordinate"
+    ]
+  },
+  {
+    "claim": "About 39,875 exposure instances are projected (145 intersections x 275 average enrolment), with a unique-school estimate of about 33,275 and an audited range of 24,650 to 50,750.",
+    "claimId": "R-05",
+    "grade": "Supported",
+    "notes": "This is a projection from an enrolment model, not a count of tested children. It must not be quoted as children poisoned.",
+    "sources": [
+      "Live report, March 2026 analysis; enrolment average 275 students per school, Annual Primary School Census 2024 / Directorate of Primary Education"
+    ]
+  },
+  {
+    "claim": "In UNICEF and Bangladesh Bureau of Statistics MICS 2025, 38.3% of children nationally and 65.2% in Dhaka Division exceed safe blood-lead limits, with Rajshahi lowest at 15.9%.",
+    "claimId": "R-06",
+    "grade": "Confirmed",
+    "notes": "Divisional rates are population survey rates, not clinical cohort rates.",
+    "sources": [
+      "UNICEF / Bangladesh Bureau of Statistics MICS 2025, divisional data Table TC.S5 p.98, as published in the live report"
+    ]
+  },
+  {
+    "claim": "Only six formal, licensed recyclers operate in Bangladesh, processing about 30 percent of battery waste, while more than 6,000 informal workshops process about 70 percent.",
+    "claimId": "R-07",
+    "grade": "Confirmed",
+    "notes": "Informal count is given as 6,000 or more in the live report.",
+    "sources": [
+      "Live report, formal versus informal section"
+    ]
+  },
+  {
+    "claim": "68 sites are designated critical zones, with 65 exceeding 100,000 ppm (250 times safe).",
+    "claimId": "R-08",
+    "grade": "Confirmed",
+    "notes": "68 and 65 are different numbers and must not be merged.",
+    "sources": [
+      "Live report, critical areas section, as reconciled in correction C-005"
+    ]
+  }
+]

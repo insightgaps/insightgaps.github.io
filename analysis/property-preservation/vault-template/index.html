@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to add a deck to the Class Vault — Insight Gaps Bureau</title>
+<meta name="description" content="Plain-language instructions for adding class slide decks to the vault.">
+<meta name="theme-color" content="#16130f">
+<link rel="canonical" href="https://www.insightgaps.com/analysis/property-preservation/vault-template/">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="How to add a deck to the Class Vault">
+<meta property="og:description" content="Plain-language instructions for adding class slide decks to the vault.">
+<meta property="og:url" content="https://www.insightgaps.com/analysis/property-preservation/vault-template/">
+<link rel="stylesheet" href="/assets/css/style.css">
+
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to content</a>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="/" class="site-header__logo">Insight&nbsp;Gaps<small>Independent data journalism · Dhaka</small></a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="/investigations/">Investigations</a>
+      <a href="/archive/">Archive</a>
+      <a href="/evidence/">Evidence</a>
+      <a href="/about/">About</a>
+      <a href="/trust/methodology/">Trust</a>
+      <a href="/search/">Search</a>
+    </nav>
+  </div>
+</header>
+<main id="main-content">
+<div class="page">
+<div class="page--narrow">
+<div class="prose">
+<div data-pagefind-ignore="all">
+<p class="eyebrow">Direct link only · Class Vault instructions</p>
+<h1>How to add a deck to the Class Vault</h1>
+<p>There is no upload button, because a static site has no backend. Adding a deck means adding a file, then rebuilding. That is the whole mechanism, and it is deliberate: it keeps the vault simple, and it means no slide is ever &quot;uploaded&quot; without a file the owner can see.</p>
+<h2>One file per deck</h2>
+<p>Create one Markdown file in the vault's <code>slides/</code> folder for each deck. Copy this pattern at the top of the file, then write a short description below it:</p>
+<pre><code>---
+layout: layouts/page.njk
+title: &quot;The deck title, as it should appear in the list&quot;
+className: &quot;The class name&quot;
+date: 2026-01-01
+slideFile: &quot;slides-files/your-deck.pdf&quot;
+noindex: true
+---
+
+&lt;div data-pagefind-ignore=&quot;all&quot;&gt;
+
+A short description of what the deck teaches, in plain words.
+
+&lt;/div&gt;
+</code></pre>
+<ul>
+<li><strong>title:</strong> the deck title, exactly as it should appear in the Vault list.</li>
+<li><strong>className:</strong> the class the deck belongs to.</li>
+<li><strong>date:</strong> the deck date, as YYYY-MM-DD.</li>
+<li><strong>slideFile:</strong> the link to the slide file itself. Put the slide file (for example a PDF) in the vault's files as a plain file, and link to it here. If there is no slide file yet, link to <code>#</code> and say so in the description — do not invent a file.</li>
+<li><strong>noindex: true</strong> and the <code>data-pagefind-ignore</code> wrapper must stay on every deck file, or the deck will leak into search. Do not remove them.</li>
+</ul>
+<h2>Rebuild, then check</h2>
+<ol>
+<li>Rebuild the site (<code>npm run build</code>).</li>
+<li>Open the deck itself and check its slide file link works.</li>
+<li>Note: the <a href="/analysis/property-preservation/vault/">Class Vault</a> is currently closed and shows no slide list. A deck added as a file is not listed there until the owner opens the vault.</li>
+</ol>
+<h2>The vault is closed — no passcode in source</h2>
+<p>There is no passcode in this site's source, and no passcode value is written in any vault file. The owner sets a passcode before opening the vault. Never reuse a real account password as a vault passcode. The gate is obscurity, not security: anyone with the direct link and the passcode can read the slides. Class slides only — never secrets, credentials, or sensitive material.</p>
+<p><a href="/analysis/property-preservation/vault/">Back to the Class Vault</a></p>
+</div>
+
+</div>
+</div>
+
+</div>
+</main>
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <p>Insight Gaps Bureau — Independent forensic data journalism from Dhaka, Bangladesh. Evidence before narrative. Every claim traceable to a source, or marked untraced.</p>
+    <nav aria-label="Footer navigation">
+      <a href="/investigations/">Investigations</a>
+      <a href="/archive/">Archive</a>
+      <a href="/evidence/">Evidence</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/trust/corrections/">Corrections</a>
+    </nav>
+    <p><small>Content licensed CC BY 4.0 unless a dataset states otherwise. Corrections are shown on the affected story as well as in the corrections log.</small></p>
+  </div>
+</footer>
+</body>
+</html>
