@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 170" role="img" aria-label="Eid-ul-Fitr 2026: 351 deaths in 15 days, about 23 per day, reported not re-computed">
+<title>Eid-ul-Fitr 2026 deaths per day</title>
+<text x="0" y="22" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">Eid-ul-Fitr 2026: 351 deaths in 15 days</text>
+<text x="0" y="57" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">15 days</text>
+<rect x="150" y="42" width="300" height="20" fill="#8c2b18"/>
+<text x="455" y="57" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">351 deaths</text>
+<text x="0" y="91" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Average per day (calculated: 351 ÷ 15)</text>
+<rect x="250" y="76" width="47" height="20" fill="#16130f"/>
+<text x="302" y="91" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">23.4 / day</text>
+<text x="0" y="130" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Reported by Road Safety Foundation / Jatri Kalyan Samity; NOT re-computed from the 2022–2024 cleaned dataset.</text>
+<text x="0" y="152" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Headline period sits outside the cleaned dataset range — reported, not re-computed.</text>
+</svg>

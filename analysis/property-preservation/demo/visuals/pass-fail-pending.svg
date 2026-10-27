@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="t d">
+<title id="t">Pass, Fail, Pending — three states — FAKE demo</title>
+<desc id="d">Original diagram. Pass means every Proof Test leg passes. Fail means a leg fails and the set is held. Pending means the set is incomplete, so it cannot pass or fail yet. Pending is a state, not a verdict.</desc>
+<rect width="1200" height="620" fill="#fdf8ef"/>
+<text x="60" y="62" font-family="Georgia, serif" font-size="44" font-weight="bold" fill="#1a1a1a">Pass · Fail · Pending</text>
+<text x="60" y="102" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#8a1f1f">DEMO — ALL DATA FAKE · DIAGRAM ONLY, NOT PHOTOS</text>
+<g font-family="Arial, sans-serif" text-anchor="middle">
+<rect x="60" y="150" width="340" height="300" fill="#e6f2e6" stroke="#2e7d32" stroke-width="4"/>
+<circle cx="230" cy="230" r="48" fill="#2e7d32"/><text x="230" y="248" font-size="52" font-weight="bold" fill="#fff">✓</text>
+<text x="230" y="330" font-size="32" font-weight="bold">PASS</text>
+<text x="230" y="370" font-size="22">Every leg passes.</text>
+<text x="230" y="400" font-size="22">Ready for owner</text>
+<text x="230" y="430" font-size="22">cross-check.</text>
+<rect x="430" y="150" width="340" height="300" fill="#fdecea" stroke="#b71c1c" stroke-width="4"/>
+<circle cx="600" cy="230" r="48" fill="#b71c1c"/><text x="600" y="248" font-size="52" font-weight="bold" fill="#fff">✕</text>
+<text x="600" y="330" font-size="32" font-weight="bold">FAIL — HELD</text>
+<text x="600" y="370" font-size="22">A leg fails.</text>
+<text x="600" y="400" font-size="22">Fix the file:</text>
+<text x="600" y="430" font-size="22">retake and re-check.</text>
+<rect x="800" y="150" width="340" height="300" fill="#fff3d6" stroke="#b77900" stroke-width="4"/>
+<circle cx="970" cy="230" r="48" fill="#b77900"/><text x="970" y="248" font-size="52" font-weight="bold" fill="#fff">?</text>
+<text x="970" y="330" font-size="32" font-weight="bold">PENDING</text>
+<text x="970" y="370" font-size="22">Set is incomplete.</text>
+<text x="970" y="400" font-size="22">Wait for the rest.</text>
+<text x="970" y="430" font-size="22">Do not judge yet.</text>
+</g>
+<rect x="60" y="490" width="1080" height="80" fill="#1a1a1a"/>
+<text x="90" y="542" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#fff">PENDING IS NOT A VERDICT. It is a state: “not complete yet.”</text>
+</svg>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="t d">
+<title id="t">Photo QC Board — FAKE demo</title>
+<desc id="d">Diagram only, not a real photograph. Three fake photo sets judged by Before, During and After. Set A passes after a retake. Set B fails, missing the cleared-area After view. Set C is pending, incomplete.</desc>
+<rect width="1200" height="760" fill="#fdf8ef"/>
+<text x="60" y="62" font-family="Georgia, serif" font-size="44" font-weight="bold" fill="#1a1a1a">Photo QC Board</text>
+<text x="60" y="102" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#8a1f1f">DEMO — ALL DATA FAKE · NOT A REAL PHOTO · FOR CLASS ONLY</text>
+<text x="60" y="140" font-family="Arial, sans-serif" font-size="22" fill="#333">Judge every set: BEFORE / DURING / AFTER. One missing leg = not ready.</text>
+<!-- header row -->
+<g font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#fff">
+<rect x="60" y="170" width="240" height="56" fill="#333"/><text x="80" y="207">FAKE SET</text>
+<rect x="320" y="170" width="280" height="56" fill="#333"/><text x="340" y="207">BEFORE</text>
+<rect x="620" y="170" width="240" height="56" fill="#333"/><text x="640" y="207">DURING</text>
+<rect x="880" y="170" width="260" height="56" fill="#333"/><text x="900" y="207">AFTER</text>
+</g>
+<!-- Set A -->
+<g font-family="Arial, sans-serif">
+<rect x="60" y="246" width="1080" height="130" fill="#e6f2e6" stroke="#2e7d32" stroke-width="3"/>
+<text x="80" y="290" font-size="26" font-weight="bold" fill="#1a1a1a">Set A</text>
+<text x="80" y="325" font-size="20" fill="#333">WO-EXAMPLE-003</text>
+<text x="80" y="355" font-size="22" font-weight="bold" fill="#2e7d32">PASS ✓</text>
+<text x="340" y="295" font-size="22">6 views ✓</text>
+<text x="340" y="330" font-size="20" fill="#444">Right place, dated</text>
+<text x="640" y="295" font-size="22">4 views ✓</text>
+<text x="640" y="330" font-size="20" fill="#444">Work shown</text>
+<text x="900" y="295" font-size="22">7 views ✓</text>
+<text x="900" y="330" font-size="20" fill="#444">1 blurry view RETAKEN</text>
+</g>
+<!-- Set B -->
+<g font-family="Arial, sans-serif">
+<rect x="60" y="396" width="1080" height="130" fill="#fdecea" stroke="#b71c1c" stroke-width="3"/>
+<text x="80" y="440" font-size="26" font-weight="bold" fill="#1a1a1a">Set B</text>
+<text x="80" y="475" font-size="20" fill="#333">WO-EXAMPLE-004</text>
+<text x="80" y="505" font-size="22" font-weight="bold" fill="#b71c1c">FAIL — HELD ✕</text>
+<text x="340" y="445" font-size="22">5 views ✓</text>
+<text x="640" y="445" font-size="22">3 views ✓</text>
+<text x="900" y="445" font-size="22" font-weight="bold" fill="#b71c1c">2 views ✕</text>
+<text x="900" y="480" font-size="20" fill="#444">MISSING: cleared-area</text>
+<text x="900" y="505" font-size="20" fill="#444">view. Retake it.</text>
+</g>
+<!-- Set C -->
+<g font-family="Arial, sans-serif">
+<rect x="60" y="546" width="1080" height="130" fill="#fff3d6" stroke="#b77900" stroke-width="3"/>
+<text x="80" y="590" font-size="26" font-weight="bold" fill="#1a1a1a">Set C</text>
+<text x="80" y="625" font-size="20" fill="#333">WO-EXAMPLE-001</text>
+<text x="80" y="655" font-size="22" font-weight="bold" fill="#8a5a00">PENDING ?</text>
+<text x="340" y="595" font-size="22">4 views so far</text>
+<text x="640" y="595" font-size="22">Not yet filed</text>
+<text x="900" y="595" font-size="22">Not yet filed</text>
+<text x="340" y="630" font-size="20" fill="#444">Incomplete = cannot pass or fail yet.</text>
+</g>
+<text x="60" y="720" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#1a1a1a">Rule: Never submit a scope the file does not show.</text>
+</svg>

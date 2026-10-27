@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 260" role="img" aria-label="Schematic, not a map: four held datasets and what each would test">
+<title>Four held datasets: schematic, not a map</title>
+<text x="0" y="22" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">Four datasets held, not published — schematic, NOT a map</text>
+<rect x="0" y="40" width="340" height="80" fill="#f2ede3" stroke="#16130f"/>
+<text x="12" y="62" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">VOID-01 · Chassis registry</text>
+<text x="12" y="84" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">BRTA bus crash registry by chassis.</text>
+<text x="12" y="104" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Would test: Phoenix ownership chains.</text>
+<rect x="370" y="40" width="350" height="80" fill="#f2ede3" stroke="#16130f"/>
+<text x="382" y="62" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">VOID-02 · Hospital records</text>
+<text x="382" y="84" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Trauma records linked to crash cause.</text>
+<text x="382" y="104" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Would test: the 5.8× undercount.</text>
+<rect x="0" y="140" width="340" height="80" fill="#f2ede3" stroke="#16130f"/>
+<text x="12" y="162" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">VOID-03 · Operator-linked FIRs</text>
+<text x="12" y="184" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">FIRs record registration numbers,</text>
+<text x="12" y="204" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">not operator brands.</text>
+<rect x="370" y="140" width="350" height="80" fill="#f2ede3" stroke="#16130f"/>
+<text x="382" y="162" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">VOID-04 · Beneficial owners</text>
+<text x="382" y="184" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Route-permit beneficial-owner registry.</text>
+<text x="382" y="204" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Many permits held via front companies.</text>
+<text x="0" y="248" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Each absence is a documented accountability gap, not a technical limitation.</text>
+</svg>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 240" role="img" aria-label="SAMPLE diagram only, fake data: field evidence through tagging, QC, owner cross-check, submit gate">
+<title>Preservation evidence chain: SAMPLE only</title>
+<text x="0" y="22" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">SAMPLE ONLY — FAKE DATA — the evidence chain, with its gates</text>
+<rect x="0" y="40" width="130" height="90" fill="#fbeede" stroke="#16130f"/>
+<text x="8" y="62" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#16130f">1 · FIELD</text>
+<text x="8" y="84" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Photos +</text>
+<text x="8" y="104" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">scope shown.</text>
+<rect x="145" y="40" width="130" height="90" fill="#f2ede3" stroke="#16130f"/>
+<text x="153" y="62" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#16130f">2 · TAG</text>
+<text x="153" y="84" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Per line item</text>
+<text x="153" y="104" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">+ flags.</text>
+<rect x="290" y="40" width="130" height="90" fill="#f2ede3" stroke="#16130f"/>
+<text x="298" y="62" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#16130f">3 · QC</text>
+<text x="298" y="84" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Place, time,</text>
+<text x="298" y="104" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">scope, clarity.</text>
+<rect x="435" y="40" width="130" height="90" fill="#fbeede" stroke="#16130f"/>
+<text x="443" y="62" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#16130f">4 · OWNER</text>
+<text x="443" y="84" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Cross-check</text>
+<text x="443" y="104" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">+ RFO (owner).</text>
+<rect x="580" y="40" width="140" height="90" fill="#f2ede3" stroke="#16130f"/>
+<text x="588" y="62" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#16130f">5 · SUBMIT</text>
+<text x="588" y="84" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Only on owner</text>
+<text x="588" y="104" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">word. Never alone.</text>
+<text x="0" y="160" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#8c2b18">Gates that must never be skipped: owner cross-check, owner RFO, owner submit word.</text>
+<text x="0" y="185" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">No real WO numbers, addresses, client names, amounts, crew names, or payment handles appear here.</text>
+<text x="0" y="207" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Diagram only — not a real photograph, not a real work order. For class training only.</text>
+</svg>

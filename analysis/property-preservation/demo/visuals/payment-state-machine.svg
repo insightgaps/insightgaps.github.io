@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="440" viewBox="0 0 1000 440" role="img" aria-labelledby="title desc">
+<title id="title">Payment state machine: from created to closed</title>
+<desc id="desc">States in order: CREATED, INVOICED, crew-paid branch (CREW_PAID, PARTIAL_CREW_PAID, or CREW_NOT_REQUIRED reason-coded), received branch (RECEIVED or PARTIAL_RECEIVED), CLOSED. Plus DEDUCTION_CONFIRMED and owner-approved WRITTEN_OFF. States compute from money columns only. Diagram only, fake data.</desc>
+<rect width="1000" height="440" fill="#fffdf5"/>
+<text x="500" y="42" text-anchor="middle" font-family="Georgia, serif" font-size="32" font-weight="bold" fill="#222222">PAYMENT STATE MACHINE (FAKE)</text>
+<text x="500" y="74" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#555555">States compute from money columns only — never from status text.</text>
+<g font-family="Arial, sans-serif" text-anchor="middle">
+<rect x="20" y="100" width="170" height="110" rx="12" fill="#ffffff" stroke="#222222" stroke-width="3"/>
+<text x="105" y="150" font-size="22" font-weight="bold" fill="#222222">CREATED</text>
+<text x="105" y="180" font-size="16" fill="#333333">Order exists</text>
+<rect x="210" y="100" width="170" height="110" rx="12" fill="#ffffff" stroke="#222222" stroke-width="3"/>
+<text x="295" y="150" font-size="22" font-weight="bold" fill="#222222">INVOICED</text>
+<text x="295" y="180" font-size="16" fill="#333333">Invoice built</text>
+<rect x="400" y="100" width="180" height="110" rx="12" fill="#ffffff" stroke="#222222" stroke-width="3"/>
+<text x="490" y="140" font-size="20" font-weight="bold" fill="#222222">CREW PAID *</text>
+<text x="490" y="170" font-size="15" fill="#333333">full / partial /</text>
+<text x="490" y="192" font-size="15" fill="#333333">not required *</text>
+<rect x="600" y="100" width="180" height="110" rx="12" fill="#ffffff" stroke="#222222" stroke-width="3"/>
+<text x="690" y="140" font-size="20" font-weight="bold" fill="#222222">RECEIVED *</text>
+<text x="690" y="170" font-size="15" fill="#333333">full or partial</text>
+<text x="690" y="192" font-size="15" fill="#333333">payment in</text>
+<rect x="800" y="100" width="170" height="110" rx="12" fill="#ffffff" stroke="#222222" stroke-width="3"/>
+<text x="885" y="150" font-size="22" font-weight="bold" fill="#222222">CLOSED</text>
+<text x="885" y="180" font-size="16" fill="#333333">Profit known</text>
+</g>
+<g font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#222222" text-anchor="middle">
+<text x="200" y="160">›</text><text x="390" y="160">›</text><text x="590" y="160">›</text><text x="790" y="160">›</text>
+</g>
+<text x="500" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" fill="#333333">* CREW_NOT_REQUIRED is reason-coded. Side states: DEDUCTION_CONFIRMED, and WRITTEN_OFF (owner-approved only).</text>
+<rect x="150" y="280" width="700" height="70" rx="12" fill="#8b1e1e"/>
+<text x="500" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#ffffff">RECEIVED-BUT-CREW-UNPAID = STANDING EXCEPTION</text>
+<text x="500" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#555555">It surfaces the day it crosses its age threshold. — DEMO, ALL DATA FAKE</text>
+<text x="500" y="415" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#555555">No dismiss: close only via a recorded, owner-approved adjustment.</text>
+</svg>

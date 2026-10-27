@@ -41,7 +41,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ---------- Header ---------- */
 .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
-.skip-link:focus { position: static; display: block; width: auto; height: auto; background: var(--ink); color: #fff; padding: 0.6rem 1rem; }
+.skip-link:focus { position: fixed; top: 0; left: 0; z-index: 10; display: block; width: auto; height: auto; background: var(--ink); color: #fff; padding: 0.6rem 1rem; }
 
 .site-header { border-top: 4px solid var(--ink); border-bottom: 1px solid var(--line); }
 .site-header__inner {
@@ -330,3 +330,42 @@ tbody tr:last-child td { border-bottom: 2px solid var(--ink); }
 .ad-slot { border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; padding: 1rem 0; margin: 2rem 0; text-align: center; }
 .ad-slot__label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 0.25rem; }
 .ad-slot__note { font-size: 0.85rem; margin: 0; }
+
+/* Print: hide nav/footer/ad, black on white, show evidence link URLs */
+@media print {
+  .site-header, .site-footer, .skip-link { display: none; }
+  body { background: #fff; color: #000; }
+  a::after { content: " (" attr(href) ")"; font-size: 0.8em; }
+}
+
+/* BEST-VERSION 2026-10-27: chart-only sticky (revert note: remove this block
+   and the .chart-sticky classes to restore the previous figure-sticky behaviour).
+   Only the element carrying .chart-sticky sticks on desktop. Data tables live
+   outside that element (in <details> or .v2-table), so table height never
+   stretches the sticky box. On mobile there is no sticky: visuals stack. */
+@media (min-width: 48rem) {
+  .chart-sticky { position: sticky; top: 1.25rem; align-self: start; }
+  .scroll-step figure.chart-sticky { position: sticky; top: 1.25rem; margin-bottom: 0; }
+  .scroll-step figure.no-sticky-figure { position: static; }
+}
+.extra-visual { margin: 1.5rem 0; }
+.extra-visual figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 0.6rem; }
+
+/* ADDED 2026-10-27 — whatever-needed pass, design polish only.
+   System unchanged: warm paper, serif headlines, deep-red accent, hairlines. */
+.toc-label { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+@media (max-width: 47.99rem) {
+  .report__toc { scroll-snap-type: x proximity; }
+  .report__toc a { scroll-snap-align: start; }
+  .report__toc::after { content: "→"; color: var(--faint); flex-shrink: 0; }
+}
+table:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+table[tabindex="0"] { outline: none; }
+table[tabindex="0"]:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+/* Image placeholder: a labelled gap, never a fake photo. */
+.image-placeholder { border: 1px dashed var(--line-strong); border-left: 4px solid var(--accent); background: var(--paper-soft); padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+.image-placeholder__label { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin: 0 0 0.5rem; }
+.image-placeholder p { margin: 0 0 0.6rem; font-size: 0.95rem; }
+.image-placeholder p:last-child { margin-bottom: 0; }
+/* Consistent spacing for extra figures in v2 pages. */
+.figure-note { font-size: 0.85rem; color: var(--muted); }

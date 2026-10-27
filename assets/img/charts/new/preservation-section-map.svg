@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="180" viewBox="0 0 720 180" role="img" aria-labelledby="t d">
+<title id="t">Preservation section map, sample only</title>
+<desc id="d">Diagram only, no real data. Showcase explains what the system does, Class teaches on one scrollable page, Demo shows the system with fake data only, and the Vault is for adding and editing slides only and is currently locked. Reading is by direct link only. Hiding is not privacy.</desc>
+<rect width="720" height="180" fill="#fdfcf8"/>
+<text x="20" y="30" font-family="Georgia,serif" font-size="20" font-weight="700" fill="#16130f">One section, three doors — plus Vault</text>
+<rect x="20" y="50" width="150" height="60" fill="#f5f1e8" stroke="#16130f"/><text x="30" y="85" font-family="system-ui,sans-serif" font-size="16" font-weight="700" fill="#16130f">Showcase</text>
+<rect x="190" y="50" width="150" height="60" fill="#f5f1e8" stroke="#16130f"/><text x="200" y="85" font-family="system-ui,sans-serif" font-size="16" font-weight="700" fill="#16130f">Class</text>
+<rect x="360" y="50" width="150" height="60" fill="#f5f1e8" stroke="#16130f"/><text x="370" y="85" font-family="system-ui,sans-serif" font-size="16" font-weight="700" fill="#16130f">Demo — FAKE</text>
+<rect x="530" y="50" width="150" height="60" fill="#f7ece8" stroke="#8c2b18"/><text x="540" y="85" font-family="system-ui,sans-serif" font-size="16" font-weight="700" fill="#8c2b18">Vault — LOCKED</text>
+<text x="20" y="140" font-family="system-ui,sans-serif" font-size="14" fill="#6d675c">Reading: direct link only. Adding/editing: Vault only. No real data anywhere here.</text>
+</svg>

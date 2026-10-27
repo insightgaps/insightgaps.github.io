@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 210" role="img" aria-label="Scale bar, 0 to 500 metres: the school gate at BD-4591 is 59 metres from the factory, inside the 500 metre screening buffer">
+<title>59 metres against 500 metres — drawn to scale</title>
+<text x="0" y="24" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">59 metres against 500 metres — drawn to scale</text>
+<text x="0" y="52" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">SCHOOL GATE — BD-4591, Kamrangir Char</text>
+<rect x="0" y="62" width="620" height="22" fill="#f2ede3" stroke="#16130f"/>
+<rect x="0" y="62" width="73" height="22" fill="#8c2b18"/>
+<text x="0" y="108" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#8c2b18">59 m to the factory</text>
+<text x="73" y="108" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">↑ factory wall (red segment, to scale)</text>
+<text x="620" y="108" font-family="system-ui, sans-serif" font-size="12" fill="#16130f" text-anchor="end">500 m screening buffer ends here →</text>
+<line x1="0" y1="130" x2="620" y2="130" stroke="#16130f" stroke-width="1"/>
+<text x="0" y="152" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">0 m</text>
+<text x="310" y="152" font-family="system-ui, sans-serif" font-size="12" fill="#16130f" text-anchor="middle">250 m</text>
+<text x="620" y="152" font-family="system-ui, sans-serif" font-size="12" fill="#16130f" text-anchor="end">500 m</text>
+<text x="0" y="180" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Schematic scale bar, not a map. 18 schools lie within 500 m of this single furnace.</text>
+<text x="0" y="200" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Colour + text: red = the 59 m gap; grey = the rest of the buffer. Never colour alone.</text>
+</svg>

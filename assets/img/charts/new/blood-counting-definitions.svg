@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 230" role="img" aria-label="Diagram: what the FIR-only official count includes and excludes versus the 30-day modelled definition">
+<title>Two counting definitions</title>
+<text x="0" y="22" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">Two counts, two definitions — who is left out?</text>
+<rect x="0" y="40" width="340" height="130" fill="#f2ede3" stroke="#16130f"/>
+<text x="12" y="62" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">BRTA official count: FIR only</text>
+<text x="12" y="86" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Counts: incidents logged in police FIRs.</text>
+<text x="12" y="108" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Misses: died on the way to hospital.</text>
+<text x="12" y="130" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Misses: families settled out of court.</text>
+<text x="12" y="152" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Unknown: died after hospital admission.</text>
+<rect x="370" y="40" width="350" height="130" fill="#fbeede" stroke="#16130f"/>
+<text x="382" y="62" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">WHO modelled: 30-day definition</text>
+<text x="382" y="86" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Counts: deaths within 30 days, modelled.</text>
+<text x="382" y="108" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Result: 31,578 / year vs 5,480 / year.</text>
+<text x="382" y="130" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Ratio: 5.8× (31,578 ÷ 5,480 = 5.76).</text>
+<text x="382" y="152" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Gap is knowable and publishable.</text>
+<text x="0" y="200" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Neither number alone is “the truth”. Hospital deaths are not linked to crash records.</text>
+<text x="0" y="220" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Sources: WHO 2023 and BRTA 2023, as published in the live report.</text>
+</svg>

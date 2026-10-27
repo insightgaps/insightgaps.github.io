@@ -7,13 +7,21 @@
 <meta name="description" content="Search published investigations, evidence, and methodology.">
 <meta name="theme-color" content="#16130f">
 <link rel="canonical" href="https://www.insightgaps.com/search/">
+<link rel="alternate" type="application/atom+xml" title="Insight Gaps Bureau" href="/feed.xml">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2316130f'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='32' fill='%23fdfcf8' text-anchor='middle'%3EIG%3C/text%3E%3C/svg%3E">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Insight Gaps Bureau">
 <meta property="og:title" content="Search">
 <meta property="og:description" content="Search published investigations, evidence, and methodology.">
 <meta property="og:url" content="https://www.insightgaps.com/search/">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://www.insightgaps.com/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Insight Gaps Bureau wordmark: Evidence before narrative. Independent forensic data journalism from Dhaka. Wordmark only, not a photograph and not chart data.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.insightgaps.com/assets/img/og-image.png">
+<meta name="twitter:image:alt" content="Insight Gaps Bureau wordmark: Evidence before narrative. Wordmark only, not a photograph.">
 <meta name="twitter:title" content="Search">
 <meta name="twitter:description" content="Search published investigations, evidence, and methodology.">
 <link rel="stylesheet" href="/assets/css/style.css">
@@ -31,7 +39,7 @@
       <a href="/evidence/">Evidence</a>
       <a href="/about/">About</a>
       <a href="/trust/methodology/">Trust</a>
-      <a href="/search/">Search</a>
+      <a href="/search/" aria-current="page">Search</a>
     </nav>
   </div>
 </header>
@@ -44,12 +52,15 @@
 <p>The hidden unlinked folder is excluded from search: its pages carry <code>data-pagefind-ignore</code> and are not in the sitemap. The in-progress page is excluded from the sitemap and is not a published investigation.</p>
 <p>If the search index has not been generated yet, use the <a href="/investigations/">investigations index</a> and the <a href="/archive/">archive</a> to browse published work.</p>
 <div id="search"></div>
+<noscript><p>Search needs JavaScript; browse the <a href="/investigations/">investigations index</a> and the <a href="/archive/">archive</a> instead.</p></noscript>
 <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
 <script src="/pagefind/pagefind-ui.js" defer></script>
 <script>
 window.addEventListener('DOMContentLoaded', () => {
   if (window.PagefindUI) {
     new PagefindUI({ element: "#search", showSubResults: true });
+  } else {
+    document.getElementById("search").innerHTML = "<p>Search is unavailable right now; browse the <a href=\"/investigations/\">investigations index</a> and the <a href=\"/archive/\">archive</a> instead.</p>";
   }
 });
 </script>
@@ -69,9 +80,16 @@ window.addEventListener('DOMContentLoaded', () => {
       <a href="/about/">About</a>
       <a href="/contact/">Contact</a>
       <a href="/trust/corrections/">Corrections</a>
+      <a href="/trust/ai-use/">AI use</a>
     </nav>
     <p><small>Content licensed CC BY 4.0 unless a dataset states otherwise. Corrections are shown on the affected story as well as in the corrections log.</small></p>
   </div>
 </footer>
+<script>
+/* Progressive enhancement only: tables are readable without JavaScript.
+   When JavaScript is available, tables that overflow horizontally become
+   keyboard-focusable regions so keyboard users can scroll them. */
+(function(){try{var tables=document.querySelectorAll('table');tables.forEach(function(tb){if(tb.scrollWidth>tb.clientWidth){tb.setAttribute('tabindex','0');tb.setAttribute('role','region');if(!tb.getAttribute('aria-label')){var cap=tb.querySelector('caption');tb.setAttribute('aria-label',cap?cap.textContent.trim():'Data table, scrollable');}}});}catch(e){}})();
+</script>
 </body>
 </html>

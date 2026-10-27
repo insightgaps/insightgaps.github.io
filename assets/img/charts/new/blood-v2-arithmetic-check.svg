@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 260" role="img" aria-label="Arithmetic check: 31,578 divided by 5,480 equals 5.76, rounded to 5.8; 351 divided by 15 equals 23.4 per day; 312 minus 262 divided by 262 equals 19.08 percent; 47,680 minus 2,331 divided by 47,680 equals 95.11 percent padding">
+<title>Check the maths: four calculations from published figures</title>
+<text x="0" y="22" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">Check the maths yourself — four calculations, no new figures</text>
+<text x="0" y="52" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">31,578 ÷ 5,480 = 5.76 → </text>
+<text x="195" y="52" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#8c2b18">5.8× (modelled vs official)</text>
+<text x="0" y="82" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">351 ÷ 15 days = 23.4 → </text>
+<text x="195" y="82" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#8c2b18">23 deaths per day (rounded)</text>
+<text x="0" y="112" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">(312 − 262) ÷ 262 = 19.08% → </text>
+<text x="240" y="112" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#8c2b18">19% rise, Eid-ul-Adha (not 29%)</text>
+<text x="0" y="142" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">(47,680 − 2,331) ÷ 47,680 = 95.11% → </text>
+<text x="315" y="142" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#8c2b18">padding; 4.89% kept</text>
+<text x="0" y="182" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Every input is a published figure from the claim register BD-INV-001 or its CSV.</text>
+<text x="0" y="204" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Rounding is shown, not hidden: 5.76 becomes 5.8, 23.4 becomes 23, 19.08% becomes 19%.</text>
+<text x="0" y="226" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Two gaps are NOT calculations and cannot be checked this way: 2,331 vs 2,332, and the</text>
+<text x="0" y="248" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Eid-ul-Fitr 2026 figure, reported not re-computed. Both are flagged, not smoothed.</text>
+</svg>

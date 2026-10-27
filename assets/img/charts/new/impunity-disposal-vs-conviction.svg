@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="230" viewBox="0 0 720 230" role="img" aria-labelledby="t d">
+<title id="t">Disposal is not conviction</title>
+<desc id="d">Conviction rates shown in the report range from 0.12 percent to 3.66 percent. The CEDAW figure of 53.52 percent is a disposal figure only, not a conviction rate, and must not be read as like-for-like with conviction rates.</desc>
+<rect width="720" height="230" fill="#fdfcf8"/>
+<text x="20" y="30" font-family="Georgia,serif" font-size="22" font-weight="700" fill="#16130f">Disposal is not conviction</text>
+<text x="20" y="70" font-family="system-ui,sans-serif" font-size="16" fill="#16130f">Conviction rates, range: 0.12% – 3.66%</text>
+<rect x="20" y="80" width="60" height="28" fill="#8c2b18"/>
+<text x="20" y="135" font-family="system-ui,sans-serif" font-size="16" fill="#16130f">CEDAW disposal, NOT a conviction rate: 53.52%</text>
+<rect x="20" y="145" width="386" height="28" fill="#6d675c"/>
+<text x="20" y="200" font-family="system-ui,sans-serif" font-size="14" fill="#6d675c">Do not compare these two bars as if they measured the same thing.</text>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 170" role="img" aria-label="Bar chart: 294 sites mapped, 68 critical zones, 65 exceeding 100,000 ppm">
+<title>Critical zones among 294 mapped sites</title>
+<text x="0" y="22" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">Among 294 mapped sites: 68 critical, 65 over 100,000 ppm</text>
+<text x="0" y="57" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">All sites mapped</text>
+<rect x="210" y="42" width="430" height="20" fill="#16130f"/>
+<text x="645" y="57" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">294</text>
+<text x="0" y="91" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Critical zones</text>
+<rect x="210" y="76" width="99" height="20" fill="#8c2b18"/>
+<text x="314" y="91" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">68</text>
+<text x="0" y="125" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Over 100,000 ppm (250× the 400 ppm threshold)</text>
+<rect x="340" y="110" width="95" height="20" fill="#8c2b18"/>
+<text x="440" y="125" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">65</text>
+<text x="0" y="160" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">68 and 65 are different numbers — do not merge them. Source: live report, Claim R-08, Confirmed.</text>
+</svg>

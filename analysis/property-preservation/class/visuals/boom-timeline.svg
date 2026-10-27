@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="460" viewBox="0 0 1000 460" role="img" aria-labelledby="title desc">
+<title id="title">The Boom timeline: from FHA insurance to the 1972 house</title>
+<desc id="desc">Timeline from the 10-hour schedule, Session 1: 1934 FHA insurance, 1944 Bretton Woods and the GI Bill, 1946 to 1964 baby boom, 1947 to 1951 Levittown, 1956 Interstates, 1972 the house is born in the biggest total building year. Diagram only, figures as stated in the schedule.</desc>
+<rect width="1000" height="460" fill="#fffdf5"/>
+<text x="500" y="42" text-anchor="middle" font-family="Georgia, serif" font-size="32" font-weight="bold" fill="#222222">THE BOOM — HOW THE HOUSE WAS BORN</text>
+<text x="500" y="74" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#555555">Session 1 timeline. Figures as stated in the 10-hour schedule.</text>
+<line x1="40" y1="220" x2="960" y2="220" stroke="#8b1e1e" stroke-width="4"/>
+<g font-family="Arial, sans-serif" text-anchor="middle">
+<circle cx="100" cy="220" r="14" fill="#8b1e1e"/><text x="100" y="180" font-size="24" font-weight="bold" fill="#222222">1934</text><text x="100" y="265" font-size="17" fill="#333333">FHA insurance:</text><text x="100" y="288" font-size="17" fill="#333333">long loans replace</text><text x="100" y="311" font-size="17" fill="#333333">balloon loans</text>
+<circle cx="260" cy="220" r="14" fill="#8b1e1e"/><text x="260" y="180" font-size="24" font-weight="bold" fill="#222222">1944</text><text x="260" y="265" font-size="17" fill="#333333">Bretton Woods</text><text x="260" y="288" font-size="17" fill="#333333">+ GI Bill</text>
+<circle cx="420" cy="220" r="14" fill="#8b1e1e"/><text x="420" y="180" font-size="24" font-weight="bold" fill="#222222">1946–64</text><text x="420" y="265" font-size="17" fill="#333333">Baby boom:</text><text x="420" y="288" font-size="17" fill="#333333">~76M births</text>
+<circle cx="580" cy="220" r="14" fill="#8b1e1e"/><text x="580" y="180" font-size="24" font-weight="bold" fill="#222222">1947–51</text><text x="580" y="265" font-size="17" fill="#333333">Levittown:</text><text x="580" y="288" font-size="17" fill="#333333">17,000+ houses</text>
+<circle cx="740" cy="220" r="14" fill="#8b1e1e"/><text x="740" y="180" font-size="24" font-weight="bold" fill="#222222">1956</text><text x="740" y="265" font-size="17" fill="#333333">Interstates;</text><text x="740" y="288" font-size="17" fill="#333333">cars spread</text>
+<circle cx="900" cy="220" r="14" fill="#8b1e1e"/><text x="900" y="180" font-size="24" font-weight="bold" fill="#222222">1972</text><text x="900" y="265" font-size="17" fill="#333333">House born —</text><text x="900" y="288" font-size="17" fill="#333333">biggest TOTAL year</text>
+</g>
+<rect x="150" y="340" width="700" height="60" rx="12" fill="#8b1e1e"/>
+<text x="500" y="378" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff">BOOM BABIES (1946–64) → HOUSEHOLDS (1972)</text>
+<text x="500" y="425" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#555555">Never a baby born in 1972 itself — that is post-boom. Prosperity and exclusion, side by side.</text>
+</svg>

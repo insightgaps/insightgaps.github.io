@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 170" role="img" aria-label="Bar chart: 78 percent of survivors arrive after the 72-hour forensic window, 22 percent within it, derived">
+<title>Forensic window: 78 percent arrive after 72 hours</title>
+<text x="0" y="22" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">The 72-hour window closes before most arrivals</text>
+<text x="0" y="57" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">After 72 hours</text>
+<rect x="210" y="42" width="390" height="20" fill="#8c2b18"/>
+<text x="605" y="57" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">78% — BRAC 2022</text>
+<text x="0" y="91" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Within 72 hours</text>
+<rect x="210" y="76" width="110" height="20" fill="#16130f"/>
+<text x="325" y="91" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">22% — derived (100 − 78)</text>
+<text x="0" y="125" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">§32 mandates hospital examination — but no institution tracks refusal compliance.</text>
+<text x="0" y="150" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Colour plus text labels: red = after window, dark = within window. Aggregate only.</text>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 240" role="img" aria-label="SAMPLE diagram only, fake data: every loss needs a reason code, unexplained queue driven to zero">
+<title>Loss reason queue: SAMPLE only</title>
+<text x="0" y="22" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">SAMPLE ONLY — FAKE DATA — every loss needs a reason</text>
+<rect x="0" y="40" width="170" height="80" fill="#f2ede3" stroke="#16130f"/>
+<text x="8" y="62" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">LOSS FOUND</text>
+<text x="8" y="84" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">(sample entry)</text>
+<text x="8" y="104" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">No amount shown.</text>
+<text x="180" y="80" font-family="system-ui, sans-serif" font-size="20" font-weight="700" fill="#16130f">→</text>
+<rect x="210" y="40" width="170" height="80" fill="#f2ede3" stroke="#16130f"/>
+<text x="218" y="62" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">REASON CODE?</text>
+<text x="218" y="84" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Yes → record it.</text>
+<text x="218" y="104" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">No → UNEXPLAINED.</text>
+<text x="390" y="80" font-family="system-ui, sans-serif" font-size="20" font-weight="700" fill="#16130f">→</text>
+<rect x="420" y="40" width="150" height="80" fill="#f2ede3" stroke="#16130f"/>
+<text x="428" y="62" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">ADDRESS CHECK</text>
+<text x="428" y="84" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Same-property</text>
+<text x="428" y="104" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">successor / chain?</text>
+<text x="580" y="80" font-family="system-ui, sans-serif" font-size="20" font-weight="700" fill="#16130f">→</text>
+<rect x="600" y="40" width="120" height="80" fill="#f2ede3" stroke="#16130f"/>
+<text x="608" y="62" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">QUEUE → 0</text>
+<text x="608" y="84" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Adjust same</text>
+<text x="608" y="104" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">property only.</text>
+<text x="0" y="150" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Rule shown, not a real case: no “unpaid” label is final until the same-property chain check runs.</text>
+<text x="0" y="175" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">No real WO numbers, addresses, amounts, or client names. Diagram only, for class training only.</text>
+<text x="0" y="200" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">UNEXPLAINED is a queue driven to zero — it is never a final answer.</text>
+</svg>

@@ -7,13 +7,21 @@
 <meta name="description" content="Hidden advanced page: ambiguous orders, photo failures, submission rejections, renumbered WOs, loss-reason discipline, datestamp traps. Verified core first, practice guidance labelled.">
 <meta name="theme-color" content="#16130f">
 <link rel="canonical" href="https://www.insightgaps.com/analysis/property-preservation/class/advanced/">
+<link rel="alternate" type="application/atom+xml" title="Insight Gaps Bureau" href="/feed.xml">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2316130f'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='32' fill='%23fdfcf8' text-anchor='middle'%3EIG%3C/text%3E%3C/svg%3E">
 <meta name="robots" content="noindex, nofollow">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Insight Gaps Bureau">
 <meta property="og:title" content="Advanced Edge Cases — For Experienced Preservation People">
 <meta property="og:description" content="Hidden advanced page: ambiguous orders, photo failures, submission rejections, renumbered WOs, loss-reason discipline, datestamp traps. Verified core first, practice guidance labelled.">
 <meta property="og:url" content="https://www.insightgaps.com/analysis/property-preservation/class/advanced/">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://www.insightgaps.com/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Insight Gaps Bureau wordmark: Evidence before narrative. Independent forensic data journalism from Dhaka. Wordmark only, not a photograph and not chart data.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.insightgaps.com/assets/img/og-image.png">
+<meta name="twitter:image:alt" content="Insight Gaps Bureau wordmark: Evidence before narrative. Wordmark only, not a photograph.">
 <meta name="twitter:title" content="Advanced Edge Cases — For Experienced Preservation People">
 <meta name="twitter:description" content="Hidden advanced page: ambiguous orders, photo failures, submission rejections, renumbered WOs, loss-reason discipline, datestamp traps. Verified core first, practice guidance labelled.">
 <link rel="stylesheet" href="/assets/css/style.css">
@@ -49,9 +57,9 @@
 <table>
 <thead>
 <tr>
-<th>Ambiguity</th>
-<th>Default verdict</th>
-<th>What flips it</th>
+<th scope="col">Ambiguity</th>
+<th scope="col">Default verdict</th>
+<th scope="col">What flips it</th>
 </tr>
 </thead>
 <tbody>
@@ -119,8 +127,8 @@
 <table>
 <thead>
 <tr>
-<th>Loss situation</th>
-<th>Reason discipline</th>
+<th scope="col">Loss situation</th>
+<th scope="col">Reason discipline</th>
 </tr>
 </thead>
 <tbody>
@@ -182,9 +190,16 @@
       <a href="/about/">About</a>
       <a href="/contact/">Contact</a>
       <a href="/trust/corrections/">Corrections</a>
+      <a href="/trust/ai-use/">AI use</a>
     </nav>
     <p><small>Content licensed CC BY 4.0 unless a dataset states otherwise. Corrections are shown on the affected story as well as in the corrections log.</small></p>
   </div>
 </footer>
+<script>
+/* Progressive enhancement only: tables are readable without JavaScript.
+   When JavaScript is available, tables that overflow horizontally become
+   keyboard-focusable regions so keyboard users can scroll them. */
+(function(){try{var tables=document.querySelectorAll('table');tables.forEach(function(tb){if(tb.scrollWidth>tb.clientWidth){tb.setAttribute('tabindex','0');tb.setAttribute('role','region');if(!tb.getAttribute('aria-label')){var cap=tb.querySelector('caption');tb.setAttribute('aria-label',cap?cap.textContent.trim():'Data table, scrollable');}}});}catch(e){}})();
+</script>
 </body>
 </html>

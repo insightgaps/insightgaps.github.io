@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420" role="img" aria-labelledby="title desc">
+<title id="title">Money Ladder for fake work order WO-EXAMPLE-003, 120 dollars</title>
+<desc id="desc">Five steps: Claimed 120 dollars, Allowable 120 dollars, Approved 120 dollars, Invoiced 120 dollars, Paid not yet. This is a fake sample example only, WO-EXAMPLE-003, not a real payment. The ladder shows that completed in the field is not paid.</desc>
+<rect width="1000" height="420" fill="#fffdf5"/>
+<text x="500" y="42" text-anchor="middle" font-family="Georgia, serif" font-size="32" font-weight="bold" fill="#222222">THE MONEY LADDER — FAKE ONLY</text>
+<text x="500" y="74" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#555555">WO-EXAMPLE-003 · SAMPLE-003 · $120 sample winterization · FAKE</text>
+<g font-family="Arial, sans-serif" text-anchor="middle">
+<rect x="40" y="110" width="170" height="130" rx="12" fill="#ffffff" stroke="#222222" stroke-width="3"/>
+<text x="125" y="155" font-size="22" font-weight="bold" fill="#222222">CLAIMED</text>
+<text x="125" y="195" font-size="30" font-weight="bold" fill="#222222">$120</text>
+<rect x="230" y="110" width="170" height="130" rx="12" fill="#ffffff" stroke="#222222" stroke-width="3"/>
+<text x="315" y="155" font-size="22" font-weight="bold" fill="#222222">ALLOWABLE</text>
+<text x="315" y="195" font-size="30" font-weight="bold" fill="#222222">$120</text>
+<rect x="420" y="110" width="170" height="130" rx="12" fill="#ffffff" stroke="#222222" stroke-width="3"/>
+<text x="505" y="155" font-size="22" font-weight="bold" fill="#222222">APPROVED</text>
+<text x="505" y="195" font-size="30" font-weight="bold" fill="#222222">$120</text>
+<rect x="610" y="110" width="170" height="130" rx="12" fill="#ffffff" stroke="#222222" stroke-width="3"/>
+<text x="695" y="155" font-size="22" font-weight="bold" fill="#222222">INVOICED</text>
+<text x="695" y="195" font-size="30" font-weight="bold" fill="#222222">$120</text>
+<rect x="800" y="110" width="170" height="130" rx="12" fill="#fdecea" stroke="#8b1e1e" stroke-width="3" stroke-dasharray="8 5"/>
+<text x="885" y="155" font-size="22" font-weight="bold" fill="#8b1e1e">PAID</text>
+<text x="885" y="195" font-size="24" font-weight="bold" fill="#8b1e1e">NOT YET</text>
+</g>
+<g font-size="30" font-weight="bold" fill="#222222" text-anchor="middle">
+<text x="220" y="185">→</text>
+<text x="410" y="185">→</text>
+<text x="600" y="185">→</text>
+<text x="790" y="185">→</text>
+</g>
+<rect x="150" y="270" width="700" height="70" rx="12" fill="#222222"/>
+<text x="500" y="315" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#ffffff">COMPLETED ≠ PAID</text>
+<text x="500" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#555555">Each step needs proof. A claim is not cash. — DEMO, ALL DATA FAKE</text>
+</svg>

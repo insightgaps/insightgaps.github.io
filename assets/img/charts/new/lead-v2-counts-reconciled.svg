@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 250" role="img" aria-label="Three counts of schools near contaminated sites, side by side: published 44 sites, 145 intersections, 121 unique schools; re-run snapshot 51 sites, 166 intersections, 125 unique schools; methodology page 166 intersections, 132 unique schools">
+<title>Three counts, not one — published, re-run, methodology page</title>
+<text x="0" y="24" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">Three counts, not one — do not merge them</text>
+<text x="0" y="52" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">PUBLISHED (record)</text>
+<text x="0" y="74" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">44 sites · 145 intersections · 121 unique schools</text>
+<text x="0" y="104" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">RE-RUN SNAPSHOT (all 294 sites)</text>
+<text x="0" y="126" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">51 sites · 166 intersections · 125 unique schools</text>
+<text x="0" y="156" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">METHODOLOGY PAGE (newly mapped schools included)</text>
+<text x="0" y="178" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">166 intersections · 132 unique schools</text>
+<rect x="0" y="192" width="720" height="34" fill="#f2ede3" stroke="#16130f"/>
+<text x="10" y="214" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#8c2b18">FLAGGED: 132 shares the same 166 intersections as 125 — no derivation published.</text>
+<text x="0" y="240" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Cause stated in the report: OpenStreetMap database drift between extraction windows.</text>
+</svg>

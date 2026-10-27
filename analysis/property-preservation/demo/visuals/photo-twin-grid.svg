@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="440" viewBox="0 0 1000 440" role="img" aria-labelledby="title desc">
+<title id="title">Visual twin: one area, across visits, Before During After</title>
+<desc id="desc">Grid of areas by visits: exterior front, rear, left, right, each room, each system, each filed Before, During, and After per visit, so the same area at the same angle can be compared across time. Duplicates flagged by perceptual hash are never accepted as new evidence. Diagram only, fake data.</desc>
+<rect width="1000" height="440" fill="#fffdf5"/>
+<text x="500" y="42" text-anchor="middle" font-family="Georgia, serif" font-size="32" font-weight="bold" fill="#222222">VISUAL TWIN — AREA × VISIT (FAKE)</text>
+<text x="500" y="74" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#555555">Same area, same angle, across time. That is what bids and QC judge on.</text>
+<g font-family="Arial, sans-serif" text-anchor="middle" font-size="19">
+<rect x="20" y="100" width="220" height="60" rx="8" fill="#222222"/><text x="130" y="138" font-weight="bold" fill="#ffffff">AREA ↓ / VISIT →</text>
+<rect x="260" y="100" width="220" height="60" rx="8" fill="#222222"/><text x="370" y="138" font-weight="bold" fill="#ffffff">VISIT 1</text>
+<rect x="500" y="100" width="220" height="60" rx="8" fill="#222222"/><text x="610" y="138" font-weight="bold" fill="#ffffff">VISIT 2</text>
+<rect x="740" y="100" width="220" height="60" rx="8" fill="#222222"/><text x="850" y="138" font-weight="bold" fill="#ffffff">COMPARE</text>
+<rect x="20" y="180" width="220" height="60" rx="8" fill="#ffffff" stroke="#222222" stroke-width="2"/><text x="130" y="218" fill="#222222">Exterior front</text>
+<rect x="260" y="180" width="220" height="60" rx="8" fill="#ffffff" stroke="#222222" stroke-width="2"/><text x="370" y="218" fill="#333333">Before / During / After</text>
+<rect x="500" y="180" width="220" height="60" rx="8" fill="#ffffff" stroke="#222222" stroke-width="2"/><text x="610" y="218" fill="#333333">Before / During / After</text>
+<rect x="740" y="180" width="220" height="60" rx="8" fill="#ffffff" stroke="#222222" stroke-width="2"/><text x="850" y="218" fill="#333333">Same angle?</text>
+<rect x="20" y="260" width="220" height="60" rx="8" fill="#ffffff" stroke="#222222" stroke-width="2"/><text x="130" y="298" fill="#222222">Each room + system</text>
+<rect x="260" y="260" width="220" height="60" rx="8" fill="#ffffff" stroke="#222222" stroke-width="2"/><text x="370" y="298" fill="#333333">Filed by area</text>
+<rect x="500" y="260" width="220" height="60" rx="8" fill="#ffffff" stroke="#222222" stroke-width="2"/><text x="610" y="298" fill="#333333">Filed by area</text>
+<rect x="740" y="260" width="220" height="60" rx="8" fill="#ffffff" stroke="#222222" stroke-width="2"/><text x="850" y="298" fill="#333333">Change shown?</text>
+</g>
+<rect x="150" y="345" width="700" height="60" rx="12" fill="#8b1e1e"/>
+<text x="500" y="383" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff">DUPLICATE BY HASH = FLAGGED, NEVER NEW EVIDENCE</text>
+<text x="500" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#555555">Evidence-grade, not survey-grade. No literal 3D claim. — DEMO, ALL DATA FAKE</text>
+</svg>

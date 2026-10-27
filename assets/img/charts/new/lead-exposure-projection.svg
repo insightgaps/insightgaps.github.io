@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 210" role="img" aria-label="Diagram: how the 39,875 exposure-instance projection is built, and what it must never be quoted as">
+<title>Exposure projection: anatomy, not a headcount</title>
+<text x="0" y="22" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">39,875 — a projection of exposure instances, NOT children poisoned</text>
+<rect x="0" y="40" width="200" height="70" fill="#f2ede3" stroke="#16130f"/>
+<text x="12" y="62" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">145 intersections</text>
+<text x="12" y="84" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Schools within 500 m</text>
+<text x="12" y="104" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">of headline sites.</text>
+<text x="215" y="75" font-family="system-ui, sans-serif" font-size="20" font-weight="700" fill="#16130f">×</text>
+<rect x="240" y="40" width="200" height="70" fill="#f2ede3" stroke="#16130f"/>
+<text x="252" y="62" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">275 pupils / school</text>
+<text x="252" y="84" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Average enrolment,</text>
+<text x="252" y="104" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Annual Primary Census 2024.</text>
+<text x="455" y="75" font-family="system-ui, sans-serif" font-size="20" font-weight="700" fill="#16130f">=</text>
+<rect x="480" y="40" width="240" height="70" fill="#f2ede3" stroke="#16130f"/>
+<text x="492" y="62" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">≈ 39,875 instances</text>
+<text x="492" y="84" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Unique-school estimate ≈ 33,275.</text>
+<text x="492" y="104" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Audited range 24,650–50,750.</text>
+<text x="0" y="140" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#8c2b18">NEVER quote as “39,875 children poisoned” or “children at extreme risk”.</text>
+<text x="0" y="165" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Claim R-05, Supported. Exposure instances are not tested children.</text>
+<text x="0" y="187" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Published counts retained as publication of record; re-run differs (51 / 166 / 125) — see report.</text>
+</svg>

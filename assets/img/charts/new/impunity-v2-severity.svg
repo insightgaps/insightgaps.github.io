@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 190" role="img" aria-label="Timeline diagram: October 2020 death penalty added, conviction rate did not improve, backlog grew">
+<title>Severity timeline: maximum penalty, near-zero certainty</title>
+<text x="0" y="22" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">Maximum severity, near-zero certainty — a timeline, not a rate chart</text>
+<rect x="0" y="40" width="220" height="90" fill="#f2ede3" stroke="#16130f"/>
+<text x="12" y="62" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">Oct 2020 · Severity up</text>
+<text x="12" y="86" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">WCRPA amended: death penalty</text>
+<text x="12" y="108" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">added for all rape.</text>
+<text x="250" y="40" width="220" height="90" fill="#f2ede3" stroke="#16130f"/>
+<text x="262" y="62" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">After 2020 · No improvement</text>
+<text x="262" y="86" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Conviction rate did not improve,</text>
+<text x="262" y="108" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">as published. No controlled</text>
+<text x="262" y="124" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">experiment is claimed.</text>
+<text x="500" y="40" width="220" height="90" fill="#f2ede3" stroke="#16130f"/>
+<text x="512" y="62" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">2024 · Backlog grew</text>
+<text x="512" y="86" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Filings 17,544 vs disposals 5,648:</text>
+<text x="512" y="108" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">net growth 11,896 in one year.</text>
+<text x="0" y="160" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Claim R-02, Confirmed. Sequence, not a causal experiment. See evidence appendix.</text>
+<text x="0" y="180" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">No bar heights here represent rates. Do not read this timeline as a trend chart.</text>
+</svg>

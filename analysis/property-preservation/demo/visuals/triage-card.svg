@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="t d">
+<title id="t">Triage Card — Approve, Hold, Reject — FAKE demo</title>
+<desc id="d">Original diagram for teaching triage. Approve only if place, time, scope and clarity all pass and owner cross-check is done. Hold if a view is missing or unclear, retake it. Reject or do not submit if wrong property, no authority, or scope not shown.</desc>
+<rect width="1200" height="720" fill="#fdf8ef"/>
+<text x="60" y="62" font-family="Georgia, serif" font-size="44" font-weight="bold" fill="#1a1a1a">Triage Card: Decide, Then Act</text>
+<text x="60" y="102" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#8a1f1f">DEMO — ALL DATA FAKE · NOT A REAL WORK SYSTEM</text>
+<text x="60" y="140" font-family="Arial, sans-serif" font-size="22">First check: PLACE? TIME? SCOPE? CLARITY? AUTHORITY?</text>
+<g font-family="Arial, sans-serif">
+<rect x="60" y="180" width="340" height="380" fill="#e6f2e6" stroke="#2e7d32" stroke-width="4"/>
+<text x="90" y="230" font-size="30" font-weight="bold" fill="#2e7d32">APPROVE ✓</text>
+<text x="90" y="275" font-size="22">All Proof Test legs pass.</text>
+<text x="90" y="310" font-size="22">Right property, dated,</text>
+<text x="90" y="345" font-size="22">scope shown, clear.</text>
+<text x="90" y="400" font-size="22" font-weight="bold">Next: owner</text>
+<text x="90" y="435" font-size="22" font-weight="bold">cross-check, then</text>
+<text x="90" y="470" font-size="22" font-weight="bold">only on owner word.</text>
+<text x="90" y="520" font-size="20" fill="#444">FAKE example:</text>
+<text x="90" y="545" font-size="20" fill="#444">WO-EXAMPLE-003</text>
+<rect x="430" y="180" width="340" height="380" fill="#fff3d6" stroke="#b77900" stroke-width="4"/>
+<text x="460" y="230" font-size="30" font-weight="bold" fill="#8a5a00">HOLD ?</text>
+<text x="460" y="275" font-size="22">A view is missing,</text>
+<text x="460" y="310" font-size="22">blurry, or unflagged.</text>
+<text x="460" y="345" font-size="22">File is incomplete.</text>
+<text x="460" y="400" font-size="22" font-weight="bold">Next: RETAKE,</text>
+<text x="460" y="435" font-size="22" font-weight="bold">re-flag, re-check.</text>
+<text x="460" y="470" font-size="22">Do NOT submit yet.</text>
+<text x="460" y="520" font-size="20" fill="#444">FAKE example:</text>
+<text x="460" y="545" font-size="20" fill="#444">WO-EXAMPLE-004</text>
+<rect x="800" y="180" width="340" height="380" fill="#fdecea" stroke="#b71c1c" stroke-width="4"/>
+<text x="830" y="230" font-size="30" font-weight="bold" fill="#b71c1c">REJECT ✕</text>
+<text x="830" y="275" font-size="22">Wrong property, or</text>
+<text x="830" y="310" font-size="22">no authority, or</text>
+<text x="830" y="345" font-size="22">scope never shown.</text>
+<text x="830" y="400" font-size="22" font-weight="bold">Next: DO NOT</text>
+<text x="830" y="435" font-size="22" font-weight="bold">SUBMIT. Send back.</text>
+<text x="830" y="470" font-size="22">Never write words</text>
+<text x="830" y="505" font-size="22">in place of a photo.</text>
+<text x="830" y="545" font-size="20" fill="#444">Teaching rule only.</text>
+</g>
+<text x="60" y="620" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Hold is a fixable gap. Reject is a stop. Neither is a submission.</text>
+<text x="60" y="660" font-family="Arial, sans-serif" font-size="22">In this demo, no button submits anything. Ever.</text>
+</svg>

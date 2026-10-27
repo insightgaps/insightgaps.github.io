@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 250" role="img" aria-label="What satellite imagery can and cannot show: it can show proximity and visual change, it cannot measure soil lead, blood lead, or emissions, and it is corroboration never proof">
+<title>Satellite: corroboration, never proof — what it can and cannot show</title>
+<text x="0" y="24" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">Satellite: corroboration, never proof</text>
+<rect x="0" y="40" width="350" height="120" fill="#f2ede3" stroke="#16130f"/>
+<text x="12" y="64" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">CAN SHOW (visual indicators)</text>
+<text x="12" y="88" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">• Proximity: furnace beside school grounds</text>
+<text x="12" y="110" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">• Change over time, against a baseline</text>
+<text x="12" y="132" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">• Visual signs of continued activity</text>
+<rect x="370" y="40" width="350" height="120" fill="#ffffff" stroke="#8c2b18"/>
+<text x="382" y="64" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#8c2b18">CANNOT SHOW (not measured)</text>
+<text x="382" y="88" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">• Soil lead in ppm — needs a laboratory</text>
+<text x="382" y="110" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">• Blood lead — needs a test</text>
+<text x="382" y="132" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">• Emissions, or proof of operation</text>
+<text x="0" y="188" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#8c2b18">UNSTATED for BD-4591 / BD-4802 pairs: sensor · date · resolution · cloud · baseline</text>
+<text x="0" y="210" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">“351 days” is unverifiable from a month-only “April 2025” crackdown date.</text>
+<text x="0" y="232" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">No satellite pair is reproduced here until those five items are verified per pair.</text>
+</svg>

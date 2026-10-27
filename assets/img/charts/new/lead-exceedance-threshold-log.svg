@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="240" viewBox="0 0 720 240" role="img" aria-labelledby="t d">
+<title id="t">Lead exceedance on a log scale, threshold at 1x</title>
+<desc id="d">Log scale, values labelled, not a linear bar chart. Threshold: 1 times, which is 400 parts per million. Published exceedance multiples: 744 times, 825 times, and 1,702 times. The 744-times site has no published parts-per-million value in the report, so only its multiple is shown. Satellite wording is corroboration, never proof.</desc>
+<rect width="720" height="240" fill="#fdfcf8"/>
+<text x="20" y="30" font-family="Georgia,serif" font-size="22" font-weight="700" fill="#16130f">Exceedance, log scale — threshold is 1×</text>
+<line x1="80" y1="180" x2="680" y2="180" stroke="#16130f" stroke-width="2"/>
+<circle cx="80" cy="180" r="8" fill="#16130f"/><text x="60" y="210" font-family="system-ui,sans-serif" font-size="14" fill="#16130f">1× threshold</text>
+<circle cx="540" cy="180" r="8" fill="#8c2b18"/><text x="500" y="210" font-family="system-ui,sans-serif" font-size="14" fill="#16130f">744×</text>
+<circle cx="560" cy="180" r="8" fill="#8c2b18"/><text x="540" y="150" font-family="system-ui,sans-serif" font-size="14" fill="#16130f">825×</text>
+<circle cx="620" cy="180" r="8" fill="#8c2b18"/><text x="590" y="150" font-family="system-ui,sans-serif" font-size="14" fill="#16130f">1,702×</text>
+<text x="20" y="70" font-family="system-ui,sans-serif" font-size="14" fill="#6d675c">Log scale, values labelled. A linear chart would hide the threshold entirely.</text>
+<text x="20" y="95" font-family="system-ui,sans-serif" font-size="14" fill="#6d675c">400 ppm = 1×. 330,001 ppm = 825×. 680,872 ppm = 1,702×. 744×: no ppm published.</text>
+</svg>

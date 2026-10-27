@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 220" role="img" aria-label="Aggregate-only path diagram: disclosure, forensic window, DNA bottleneck — no case-level detail">
+<title>Survivor path: aggregate points only</title>
+<text x="0" y="22" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">Where the path narrows — aggregates only, no case detail</text>
+<rect x="0" y="40" width="220" height="110" fill="#f2ede3" stroke="#16130f"/>
+<text x="12" y="62" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">1 · Disclosure</text>
+<text x="12" y="86" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">62–64% do not disclose</text>
+<text x="12" y="108" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">non-partner sexual violence.</text>
+<text x="12" y="130" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">UNFPA/BBS VAW Survey 2024.</text>
+<rect x="250" y="40" width="220" height="110" fill="#f2ede3" stroke="#16130f"/>
+<text x="262" y="62" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">2 · Forensic window</text>
+<text x="262" y="86" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">78% arrive AFTER the</text>
+<text x="262" y="108" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">72-hour forensic window.</text>
+<text x="262" y="130" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">BRAC 2022.</text>
+<rect x="500" y="40" width="220" height="110" fill="#f2ede3" stroke="#16130f"/>
+<text x="512" y="62" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">3 · DNA bottleneck</text>
+<text x="512" y="86" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">92% of 2025 samples</text>
+<text x="512" y="108" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">unprocessed (1,204 / 1,304).</text>
+<text x="512" y="130" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">2 national DNA machines.</text>
+<text x="0" y="180" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Aggregate only. No case-level tables, no identifying detail, no jigsaw identification.</text>
+<text x="0" y="202" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Widths are stages, not rates. Do not read this as a funnel rate.</text>
+</svg>

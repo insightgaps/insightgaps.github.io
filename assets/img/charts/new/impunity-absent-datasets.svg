@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" role="img" aria-label="Diagram: twelve confirmed-absent datasets in three groups">
+<title>Twelve confirmed-absent datasets</title>
+<text x="0" y="22" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">Twelve datasets confirmed absent (GA-001 to GA-012)</text>
+<rect x="0" y="40" width="720" height="70" fill="#f2ede3" stroke="#16130f"/>
+<text x="12" y="62" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">Absent · Rates and compliance</text>
+<text x="12" y="84" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Annual conviction rates by tribunal/district · FIR registration · 90-day compliance · withdrawal / abandonment · pre/post-2020 comparison.</text>
+<rect x="0" y="125" width="720" height="70" fill="#f2ede3" stroke="#16130f"/>
+<text x="12" y="147" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">Absent · Protection and law</text>
+<text x="12" y="169" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">National §17 prosecution counts · Witness Protection Bill (drafted, pending since 2015, not enacted) · marital rape exemption (CEDAW required removal 2016, still in force 2026).</text>
+<rect x="0" y="210" width="720" height="55" fill="#f2ede3" stroke="#16130f"/>
+<text x="12" y="232" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">Absent · Forensic tracking</text>
+<text x="12" y="254" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">DNA times by district/case type · district convictions · disposal-vs-conviction breakdowns · §32 hospital-refusal tracking.</text>
+</svg>
