@@ -10,7 +10,14 @@
 User-agent: *
 Content-Signal: search=yes, ai-train=no, use=reference
 Allow: /
-Disallow: /analysis/property-preservation/
+Allow: /analysis/property-preservation/class/
+Disallow: /analysis/property-preservation/demo/
+Disallow: /analysis/property-preservation/slides/
+Disallow: /analysis/property-preservation/photo-qc/
+Disallow: /analysis/property-preservation/properties/
+Disallow: /analysis/property-preservation/reconciliation/
+Disallow: /analysis/property-preservation/submission-queue/
+Disallow: /analysis/property-preservation/vault/
 Disallow: /in-progress/
 
 # Search and retrieval AI crawlers — explicitly allowed (findability).
