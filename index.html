@@ -140,6 +140,582 @@
 
 </div>
 </main>
+<!-- ============================================================
+     INSIGHT GAPS BUREAU — HOMEPAGE BOTTOM SECTION FRAGMENT
+     File: homepage_section_fragment.html
+     Location: Class_Build/Homepage_Hub_Gate/homepage_section_fragment.html
+     
+     STAGING ONLY — NOT LIVE.
+     Role: Polished, story-first showcase card at the bottom of the
+           Insight Gaps homepage (positioned above the site footer).
+           Public teaser ONLY — no learning content, no rubrics,
+           no answers, no money ladder amounts, no internal procedures.
+           Links to Class Hub (class_hub.html) and Syllabus (../Syllabus/syllabus.html).
+           Protected by Teacher Code Gate (code: 1972).
+     Placement Status: HELD for Muse cross-check pass before live placement.
+     ============================================================ -->
+
+<section id="property-preservation-class-showcase" class="ig-class-showcase" aria-labelledby="class-showcase-title">
+  <style>
+    /* Scoped Design Tokens & Component Styling */
+    .ig-class-showcase {
+      --showcase-bg: #FFFFFF;
+      --showcase-surface: #F9F8F6;
+      --showcase-surface-alt: #F2F0EC;
+      --showcase-border: #E2E0DC;
+      --showcase-border-strong: #C8C4BC;
+      --showcase-text: #1A1917;
+      --showcase-muted: #5C5954;
+      --showcase-subtle: #6E6A63;
+      --showcase-amber: #9A620C;
+      --showcase-amber-hover: #8F5B0A;
+      --showcase-amber-subtle: #FDF3E3;
+      --showcase-amber-border: #E8C07A;
+      --showcase-amber-dark: #7A4F0A;
+      --showcase-green: #1A6B3C;
+      --showcase-red: #6B1A1A;
+      
+      background-color: var(--showcase-surface);
+      border-top: 1px solid var(--showcase-border);
+      border-bottom: 3px solid var(--showcase-amber);
+      padding: 5rem 1.5rem;
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--showcase-text);
+      line-height: 1.6;
+    }
+
+    .ig-class-showcase * {
+      box-sizing: border-box;
+    }
+
+    .ig-class-container {
+      max-width: 75rem; /* 1200px */
+      margin: 0 auto;
+    }
+
+    /* Section Eyebrow & Badging */
+    .ig-showcase-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: var(--showcase-amber-subtle);
+      border: 1px solid var(--showcase-amber-border);
+      border-radius: 4px;
+      padding: 0.3rem 0.85rem;
+      font-family: 'Space Mono', 'Courier New', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--showcase-amber-dark);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .ig-showcase-eyebrow__pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--showcase-amber);
+      display: inline-block;
+    }
+
+    /* Grid Layout: Story-First Showcase (Left) + Gate & Pathway Card (Right) */
+    .ig-showcase-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    @media (min-width: 992px) {
+      .ig-showcase-grid {
+        grid-template-columns: 1.35fr 0.9fr;
+        align-items: start;
+        gap: 3.5rem;
+      }
+    }
+
+    /* Left: Polished, Story-First Showcase Card */
+    .ig-showcase-story {
+      background-color: var(--showcase-bg);
+      border: 1px solid var(--showcase-border);
+      border-radius: 8px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 20px rgba(26, 25, 23, 0.04);
+    }
+
+    .ig-showcase-title {
+      font-size: 2.35rem;
+      line-height: 1.2;
+      font-weight: 700;
+      color: var(--showcase-text);
+      letter-spacing: -0.025em;
+      margin: 0 0 0.75rem 0;
+    }
+
+    .ig-showcase-subtitle {
+      font-family: 'Lora', Georgia, serif;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--showcase-amber);
+      margin: 0 0 1.75rem 0;
+      line-height: 1.45;
+    }
+
+    .ig-showcase-prose {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 1.0625rem;
+      line-height: 1.75;
+      color: var(--showcase-text);
+      margin-bottom: 1.75rem;
+    }
+
+    .ig-showcase-prose p {
+      margin: 0 0 1.25rem 0;
+    }
+
+    .ig-showcase-callout-quote {
+      border-left: 3px solid var(--showcase-amber);
+      padding: 0.75rem 0 0.75rem 1.25rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: var(--showcase-muted);
+      background-color: #FAF9F7;
+      border-radius: 0 4px 4px 0;
+    }
+
+    /* Single Designed Image: Reusing HP_teaser_house_chain.svg */
+    .ig-showcase-visual-wrap {
+      margin: 2rem 0;
+      border: 1px solid var(--showcase-border);
+      border-radius: 6px;
+      overflow: hidden;
+      background-color: var(--showcase-surface);
+      box-shadow: 0 2px 8px rgba(26, 25, 23, 0.03);
+    }
+
+    .ig-showcase-visual-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Showcase Pathway CTAs */
+    .ig-showcase-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.75rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--showcase-border);
+    }
+
+    .ig-btn-syllabus {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: var(--showcase-amber);
+      color: #FFFFFF;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 700;
+      padding: 0.85rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background-color 0.15s ease, transform 0.1s ease;
+    }
+
+    .ig-btn-syllabus:hover {
+      background-color: var(--showcase-amber-hover);
+    }
+
+    .ig-btn-syllabus:active {
+      transform: translateY(1px);
+    }
+
+    .ig-btn-hub {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: var(--showcase-surface-alt);
+      color: var(--showcase-text);
+      border: 1px solid var(--showcase-border-strong);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 700;
+      padding: 0.85rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .ig-btn-hub:hover {
+      background-color: #E8E5DF;
+      border-color: var(--showcase-amber);
+    }
+
+    /* Honest Boundary Card */
+    .ig-showcase-boundary {
+      background-color: #FAF9F7;
+      border-left: 3px solid var(--showcase-border-strong);
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 6px 6px 0;
+      margin-top: 1.75rem;
+    }
+
+    .ig-showcase-boundary__header {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--showcase-text);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+
+    .ig-showcase-boundary__text {
+      font-size: 0.875rem;
+      color: var(--showcase-muted);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* Right: The Teacher Gate Card & Cohort Access */
+    .ig-gate-card {
+      background-color: var(--showcase-bg);
+      border: 1.5px solid var(--showcase-border-strong);
+      border-radius: 8px;
+      padding: 2.5rem;
+      box-shadow: 0 8px 24px rgba(26, 25, 23, 0.06);
+      position: sticky;
+      top: 2rem;
+    }
+
+    .ig-gate-card__badge {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--showcase-amber-dark);
+      background-color: var(--showcase-amber-subtle);
+      border: 1px solid var(--showcase-amber-border);
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
+      display: inline-block;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .ig-gate-card__title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--showcase-text);
+      margin: 0 0 0.5rem 0;
+    }
+
+    .ig-gate-card__tagline {
+      font-size: 0.9375rem;
+      color: var(--showcase-muted);
+      margin: 0 0 1.75rem 0;
+      line-height: 1.5;
+    }
+
+    .ig-gate-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .ig-gate-form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .ig-gate-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--showcase-text);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .ig-gate-input-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .ig-gate-input {
+      width: 100%;
+      height: 52px;
+      background-color: #FFFFFF;
+      border: 1.5px solid var(--showcase-border-strong);
+      border-radius: 6px;
+      padding: 0 1.25rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.35em;
+      color: var(--showcase-text);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .ig-gate-input:focus {
+      outline: none;
+      border-color: var(--showcase-amber);
+      box-shadow: 0 0 0 3px rgba(154, 98, 12, 0.15);
+    }
+
+    .ig-gate-input::placeholder {
+      letter-spacing: 0.2em;
+      color: #A09D96;
+    }
+
+    .ig-gate-btn {
+      height: 52px;
+      background-color: var(--showcase-text);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 6px;
+      padding: 0 1.75rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: background-color 0.15s ease, transform 0.1s ease;
+    }
+
+    .ig-gate-btn:hover {
+      background-color: #2E2C29;
+    }
+
+    .ig-gate-btn:active {
+      transform: translateY(1px);
+    }
+
+    /* Feedback message */
+    .gate-feedback {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8125rem;
+      margin: 0.25rem 0 0 0;
+      min-height: 1.25rem;
+    }
+
+    .gate-feedback--error {
+      color: var(--showcase-red);
+      font-weight: 700;
+    }
+
+    .gate-feedback--success {
+      color: var(--showcase-green);
+      font-weight: 700;
+    }
+
+    .gate-input--shake {
+      animation: gateShake 0.4s ease-in-out;
+      border-color: var(--showcase-red) !important;
+    }
+
+    @keyframes gateShake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-6px); }
+      40%, 80% { transform: translateX(6px); }
+    }
+
+    /* Cohort Navigation Pathway Box */
+    .ig-gate-pathways {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--showcase-border);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .ig-gate-pathway-link {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      text-decoration: none;
+      color: var(--showcase-text);
+      padding: 0.75rem;
+      border-radius: 4px;
+      background-color: var(--showcase-surface);
+      border: 1px solid var(--showcase-border);
+      transition: border-color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .ig-gate-pathway-link:hover {
+      border-color: var(--showcase-amber);
+      background-color: #FFFFFF;
+    }
+
+    .ig-gate-pathway-title {
+      font-size: 0.875rem;
+      font-weight: 700;
+    }
+
+    .ig-gate-pathway-desc {
+      font-size: 0.75rem;
+      color: var(--showcase-muted);
+      display: block;
+      margin-top: 0.2rem;
+    }
+
+    .ig-gate-pathway-arrow {
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      color: var(--showcase-amber);
+      font-weight: 700;
+    }
+  </style>
+
+  <div class="ig-class-container">
+    
+    <!-- Header Pill -->
+    <div class="ig-showcase-eyebrow">
+      <span class="ig-showcase-eyebrow__pulse" aria-hidden="true"></span>
+      <span>Executive Education • 5-Hour Immersive Case</span>
+    </div>
+
+    <div class="ig-showcase-grid">
+
+      <!-- LEFT: Polished, Story-First Showcase Card (Single House, Single Image, One Moment, One Decision) -->
+      <article class="ig-showcase-story">
+        <h2 id="class-showcase-title" class="ig-showcase-title">
+          Five Hours. One House. The Whole Chain.
+        </h2>
+        <p class="ig-showcase-subtitle">
+          The house did not break. The macroeconomic loop broke.
+        </p>
+
+        <div class="ig-showcase-prose">
+          <p>
+            In 1972, during the peak year of American total residential housing construction, a split-level suburban house was framed with Douglas fir and brick. For four decades, through interest rate shocks, energy crises, and refinancing waves, she sheltered families and marked milestones.
+          </p>
+          <p>
+            Decades later, when the macroeconomic mortgage loop snapped and the monthly payments stopped, she did not disappear into thin air. She stood silent on a residential street.
+          </p>
+
+          <div class="ig-showcase-callout-quote">
+            "When the dispatch team arrives at her front steps with a work order, they meet one defining moment: the lawn is waist-high and the mailbox overflows, but through the side glass, a refrigerator quietly hums and a digital clock still glows. Does the company have legal authority to rekey the door?"
+          </div>
+
+          <p>
+            An empty-looking house is not an abandoned file. Between that front porch and the institutional lender holding the note lies an invisible five-link custodial chain: banks, servicers, national coordinators, regional operations desks, and field crews.
+          </p>
+          <p>
+            In this intensive 300-minute curriculum, trainees follow this single 1972 home through her entire custodial lifecycle—from mortgage default and perimeter security to forensic evidence audits and contractor reconciliation. You will never look at an empty house the same way again.
+          </p>
+        </div>
+
+        <!-- The Single Designed Visual (HP_teaser_house_chain.svg reused, zero duplicate files) -->
+        <div class="ig-showcase-visual-wrap">
+          <img src="HP_teaser_house_chain.svg" 
+               alt="Architectural silhouette of the 1972 composite house inside the five-link custodial preservation chain"
+               loading="lazy">
+        </div>
+
+        <!-- Public Navigation Links: Clear relative paths to Syllabus and Class Hub -->
+        <div class="ig-showcase-actions">
+          <a href="../Syllabus/syllabus.html" class="ig-btn-syllabus">
+            <span>Explore 5-Hour Journey Syllabus</span>
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+          <a href="class_hub.html" class="ig-btn-hub">
+            <span>Access Class Hub</span>
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+
+        <!-- Honest Operational Boundary Guardrail -->
+        <div class="ig-showcase-boundary" role="note">
+          <div class="ig-showcase-boundary__header">The Honest Operational Boundary</div>
+          <p class="ig-showcase-boundary__text">
+            This five-hour program delivers industry literacy and audited classroom decision skills. It does not confer autonomous field authority or legal certification. Three distinct statuses exist and are never blended: <strong>Attended</strong> (completed class), <strong>Demonstrated in Class</strong> (passed the capstone defense), and <strong>Operationally Authorised</strong> (granted solely through employer onboarding and live client credentials).
+          </p>
+        </div>
+      </article>
+
+      <!-- RIGHT: The Teacher Code Gate & Gated Hub Entry -->
+      <aside class="ig-gate-card" aria-label="Cohort and Instructor Gate">
+        <span class="ig-gate-card__badge">RESTRICTED COHORT ACCESS</span>
+        
+        <h3 class="ig-gate-card__title">Teacher &amp; Cohort Access Gate</h3>
+        <p class="ig-gate-card__tagline">
+          Module teaching slides (M0–M10), exercise files, scoring rubrics, the seven-reveal case packet, and take-home field guides remain protected behind the teacher passcode.
+        </p>
+
+        <form id="hp-gate-form" class="ig-gate-form" onsubmit="return false;" novalidate>
+          <div class="ig-gate-form-group">
+            <label for="gate-passcode-input" class="ig-gate-label">
+              Teacher Code Gate (Passcode):
+            </label>
+            <div class="ig-gate-input-wrap">
+              <input type="password" 
+                     id="gate-passcode-input" 
+                     class="ig-gate-input" 
+                     placeholder="••••" 
+                     maxlength="8" 
+                     autocomplete="off"
+                     inputmode="numeric"
+                     aria-describedby="gate-feedback-msg"
+                     required>
+            </div>
+            <div id="gate-feedback-msg" class="gate-feedback" role="alert" aria-live="polite"></div>
+          </div>
+
+          <button type="button" id="gate-submit-btn" class="ig-gate-btn">
+            <span>Verify &amp; Unlock Class Hub</span>
+            <span aria-hidden="true">&rarr;</span>
+          </button>
+        </form>
+
+        <!-- Relative Links Pathway Cards -->
+        <div class="ig-gate-pathways">
+          <a href="../Syllabus/syllabus.html" class="ig-gate-pathway-link">
+            <div>
+              <span class="ig-gate-pathway-title">5-Hour Journey Syllabus</span>
+              <span class="ig-gate-pathway-desc">The chronological M0–M10 journey path and learning outcomes.</span>
+            </div>
+            <span class="ig-gate-pathway-arrow">&rarr;</span>
+          </a>
+
+          <a href="class_hub.html" class="ig-gate-pathway-link">
+            <div>
+              <span class="ig-gate-pathway-title">Class Hub Command Center</span>
+              <span class="ig-gate-pathway-desc">Full 300-minute orchestration center and module slide index.</span>
+            </div>
+            <span class="ig-gate-pathway-arrow">&rarr;</span>
+          </a>
+        </div>
+      </aside>
+
+    </div>
+
+  </div>
+
+  <!-- Gate Controller Script Integration -->
+  <script src="gate.js"></script>
+  <script>
+    (function () {
+      if (typeof ClassGate !== 'undefined') {
+        ClassGate.init({
+          inputId: 'gate-passcode-input',
+          submitId: 'gate-submit-btn',
+          feedbackId: 'gate-feedback-msg',
+          targetUrl: 'class_hub.html'
+        });
+      }
+    })();
+  </script>
+</section>
+
 <footer class="site-footer">
   <div class="site-footer__inner">
     <p>Insight Gaps Bureau — Independent forensic data journalism from Dhaka, Bangladesh. Evidence before narrative. Every claim traceable to a source, or marked untraced.</p>
