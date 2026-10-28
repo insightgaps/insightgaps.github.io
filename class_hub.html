@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class Hub — Property Preservation 5-Hour Intensive Immersion | Insight Gaps Bureau</title>
+  <meta name="description" content="Master class hub and curriculum orchestration navigation for the 5-Hour Property Preservation intensive training. Frozen M0–M10 structure.">
+  
+  <!-- Font Imports -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       INSIGHT GAPS DESIGN SYSTEM VARIABLES & RESET
+       ============================================================ */
+    :root {
+      --font-headline: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Lora', Georgia, serif;
+      --font-mono: 'Space Mono', 'Courier New', monospace;
+
+      --color-bg: #F9F8F6;
+      --color-surface: #FFFFFF;
+      --color-surface-alt: #F2F0EC;
+      --color-border: #E2E0DC;
+      --color-border-strong: #C8C4BC;
+
+      --color-text-primary: #1A1917;
+      --color-text-secondary: #5C5954;
+      --color-text-muted: #6E6A63;
+      --color-text-inverse: #F9F8F6;
+
+      --color-accent: #9A620C;
+      --color-accent-hover: #8F5B0A;
+      --color-accent-subtle: #FDF3E3;
+      --color-accent-border: #E8C07A;
+      --color-accent-dark: #7A4F0A;
+
+      --color-status-green: #1A6B3C;
+      --color-status-amber: #C17D11;
+      --color-status-red: #6B1A1A;
+      --color-status-blue: #2563AB;
+
+      --shadow-sm: 0 2px 8px rgba(26, 25, 23, 0.04);
+      --shadow-md: 0 6px 20px rgba(26, 25, 23, 0.07);
+      --shadow-lg: 0 12px 32px rgba(26, 25, 23, 0.1);
+
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text-primary);
+      font-family: var(--font-headline);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Accessibility Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 1rem;
+      background: var(--color-accent);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      z-index: 1000;
+      font-weight: 700;
+      text-decoration: none;
+      transition: top 0.2s ease;
+    }
+    .skip-link:focus {
+      top: 1rem;
+    }
+
+    /* Header Bar */
+    .hub-header {
+      background-color: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .hub-header__inner {
+      max-width: 78rem;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hub-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--color-text-primary);
+    }
+
+    .hub-brand__logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .hub-brand__badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      background-color: var(--color-accent-subtle);
+      border: 1px solid var(--color-accent-border);
+      color: var(--color-accent-dark);
+      padding: 0.15rem 0.5rem;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+    }
+
+    .hub-header__controls {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .hub-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-status-green);
+      font-weight: 700;
+      background: #E8F5E9;
+      border: 1px solid #C8E6C9;
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-sm);
+    }
+
+    .hub-status-pill__dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--color-status-green);
+    }
+
+    .btn-lock {
+      background: none;
+      border: 1px solid var(--color-border-strong);
+      color: var(--color-text-secondary);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-weight: 700;
+      transition: all 0.15s ease;
+    }
+    .btn-lock:hover {
+      background-color: var(--color-surface-alt);
+      color: var(--color-status-red);
+      border-color: var(--color-status-red);
+    }
+
+    /* Container */
+    .hub-container {
+      max-width: 78rem;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 5rem 1.5rem;
+    }
+
+    /* Hero Banner */
+    .hub-hero {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hub-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--color-accent), #C17D11);
+    }
+
+    .hub-hero__eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hub-hero__title {
+      font-size: 2.5rem;
+      line-height: 1.15;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+    }
+
+    .hub-hero__subtitle {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--color-text-secondary);
+      max-width: 52rem;
+      line-height: 1.45;
+      margin-bottom: 1.5rem;
+    }
+
+    .hub-hero__summary {
+      font-family: var(--font-body);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      color: var(--color-text-primary);
+      max-width: 54rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Metrics Bar */
+    .hub-metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .metric-card {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.25rem;
+    }
+
+    .metric-card__value {
+      font-family: var(--font-mono);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      margin-bottom: 0.25rem;
+    }
+
+    .metric-card__label {
+      font-size: 0.8125rem;
+      color: var(--color-text-secondary);
+      font-weight: 500;
+    }
+
+    /* Visual Embed Section */
+    .hub-visual-panel {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hub-visual-panel__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .hub-visual-panel__title {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .hub-visual-panel__caption {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+    }
+
+    .hub-visual-panel__media img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: var(--radius-md);
+    }
+
+    /* Section Headers */
+    .hub-section-header {
+      margin-bottom: 1.75rem;
+    }
+
+    .hub-section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .hub-section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    /* Module Navigation Grid */
+    .modules-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    @media (min-width: 768px) {
+      .modules-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .modules-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* Module Card */
+    .module-card {
+      background: var(--color-surface);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+    }
+
+    .module-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--color-accent);
+      box-shadow: var(--shadow-md);
+    }
+
+    .module-card--capstone {
+      border: 2px solid var(--color-accent);
+      background: linear-gradient(180deg, #FFFFFF, #FDFBF8);
+    }
+
+    .module-card__top {
+      margin-bottom: 1.25rem;
+    }
+
+    .module-card__meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .module-badge {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      background: var(--color-surface-alt);
+      border: 1px solid var(--color-border);
+      padding: 0.2rem 0.5rem;
+      border-radius: var(--radius-sm);
+      color: var(--color-text-primary);
+    }
+
+    .module-badge--capstone {
+      background: var(--color-accent-subtle);
+      border-color: var(--color-accent-border);
+      color: var(--color-accent-dark);
+    }
+
+    .module-time {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--color-accent);
+    }
+
+    .module-title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 0.65rem;
+      color: var(--color-text-primary);
+    }
+
+    .module-desc {
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+
+    .module-action-wrap {
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .module-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .module-link:hover {
+      color: var(--color-accent-hover);
+      text-decoration: underline;
+    }
+
+    /* Scheduled Break Banners */
+    .break-banner {
+      grid-column: 1 / -1;
+      background-color: var(--color-accent-subtle);
+      border: 1px dashed var(--color-accent-border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .break-banner__left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .break-badge {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      background: #FFFFFF;
+      border: 1px solid var(--color-accent-border);
+      color: var(--color-accent-dark);
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-sm);
+    }
+
+    .break-text {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--color-accent-dark);
+    }
+
+    .break-clock {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+
+    /* Auxiliary Materials Section */
+    .aux-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    @media (min-width: 900px) {
+      .aux-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .aux-card {
+      background: var(--color-surface);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .aux-card__tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .aux-card__title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .aux-card__desc {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--color-text-secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: var(--color-accent);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.9375rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: background-color 0.15s ease;
+      width: fit-content;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--color-accent-hover);
+    }
+
+    /* Locked Overlay View (When Unauthenticated) */
+    .hub-lock-screen {
+      background: var(--color-surface);
+      border: 1.5px solid var(--color-border-strong);
+      border-radius: var(--radius-lg);
+      padding: 4rem 2rem;
+      text-align: center;
+      max-width: 38rem;
+      margin: 4rem auto;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hub-lock-screen__crest {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.5rem auto;
+    }
+
+    .hub-lock-screen__title {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .hub-lock-screen__text {
+      font-family: var(--font-body);
+      font-size: 1.0625rem;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .hub-lock-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      max-width: 24rem;
+      margin: 0 auto;
+    }
+
+    .hub-lock-input {
+      width: 100%;
+      height: 52px;
+      font-family: var(--font-mono);
+      font-size: 1.25rem;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: 0.4em;
+      border: 1.5px solid var(--color-border-strong);
+      border-radius: var(--radius-sm);
+      outline: none;
+    }
+    .hub-lock-input:focus {
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px rgba(154, 98, 12, 0.15);
+    }
+
+    .hub-lock-btn {
+      width: 100%;
+      height: 52px;
+      background: var(--color-accent);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+    }
+    .hub-lock-btn:hover {
+      background: var(--color-accent-hover);
+    }
+
+    /* Footer */
+    .hub-footer {
+      background: #1A1917;
+      color: #F9F8F6;
+      border-top: 3px solid var(--color-accent);
+      padding: 3rem 1.5rem;
+      margin-top: 4rem;
+    }
+
+    .hub-footer__inner {
+      max-width: 78rem;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+      font-size: 0.875rem;
+    }
+
+    .hub-footer__copy {
+      color: #A09D96;
+    }
+
+    .hub-footer__note {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: #C8C4BC;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-hub-content" class="skip-link">Skip to main content</a>
+
+  <!-- TOP HEADER -->
+  <header class="hub-header" role="banner">
+    <div class="hub-header__inner">
+      <a href="/" class="hub-brand" aria-label="Insight Gaps Class Hub">
+        <span class="hub-brand__logo">Insight Gaps</span>
+        <span class="hub-brand__badge">CLASS HUB</span>
+      </a>
+
+      <div class="hub-header__controls">
+        <a href="../Syllabus/syllabus.html" class="btn-lock" style="text-decoration: none; color: var(--color-accent); border-color: var(--color-accent-border);" title="View 5-Hour Course Journey Syllabus">
+          Course Syllabus &rarr;
+        </a>
+        <div class="hub-status-pill" aria-label="Class State">
+          <span class="hub-status-pill__dot"></span>
+          <span>COHORT ACCESS ACTIVE</span>
+        </div>
+        <button id="hub-lock-trigger" class="btn-lock" title="Re-lock Class Hub">
+          Lock Gate
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- GATED VIEW CONTAINER (Swapped via gate.js) -->
+  <main id="main-hub-content">
+
+    <!-- 1. LOCKED VIEW (Shown when unauthenticated) -->
+    <div id="hub-locked-view" class="hub-lock-screen" data-gate-locked style="display: none;">
+      <img src="HP_gate_key_crest.svg" alt="Gate Crest" class="hub-lock-screen__crest">
+      <h1 class="hub-lock-screen__title">Instructor Passcode Required</h1>
+      <p class="hub-lock-screen__text">
+        Access to the 5-Hour Property Preservation Class Hub, curriculum modules (M0–M10), case packet, and take-home materials is restricted to enrolled cohort members.
+      </p>
+
+      <form id="hub-lock-form" class="hub-lock-form" onsubmit="return false;">
+        <input type="password" 
+               id="hub-gate-input" 
+               class="hub-lock-input" 
+               placeholder="••••" 
+               maxlength="8" 
+               autocomplete="off" 
+               inputmode="numeric" 
+               required>
+        <button type="button" id="hub-gate-btn" class="hub-lock-btn">
+          Verify &amp; Unlock Class Hub &rarr;
+        </button>
+        <div id="hub-gate-feedback" class="gate-feedback" role="alert" aria-live="polite"></div>
+      </form>
+    </div>
+
+    <!-- 2. UNLOCKED VIEW (Shown when authenticated with code 1972) -->
+    <div id="hub-unlocked-view" class="hub-container" data-gate-unlocked>
+
+      <!-- HERO BANNER -->
+      <section class="hub-hero" aria-labelledby="hub-hero-heading">
+        <div class="hub-hero__eyebrow">
+          <span>Curriculum Command Center</span>
+          <span>•</span>
+          <span>Single Composite House Arc</span>
+        </div>
+        <h1 id="hub-hero-heading" class="hub-hero__title">
+          Five Hours. One House. The Whole Chain.
+        </h1>
+        <p class="hub-hero__subtitle">
+          "The house did not break. The macroeconomic loop broke."
+        </p>
+        <div class="hub-hero__summary">
+          <p>
+            Welcome to the central instructional hub for the 5-Hour Accelerated Property Preservation Masterclass. Over 300 elapsed minutes (280 active instruction + 20 scheduled rest intervals), trainees follow a single composite suburban home born in 1972 through its entire custodial lifecycle: from mortgage default and vacancy decay to legal perimeter control, forensic evidence audits, and contractor reconciliation.
+          </p>
+        </div>
+
+        <!-- METRICS -->
+        <div class="hub-metrics" aria-label="Curriculum specifications">
+          <div class="metric-card">
+            <div class="metric-card__value">300 MIN</div>
+            <div class="metric-card__label">Total Run of Show (280 Active + 20 Breaks)</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-card__value">M0 – M10</div>
+            <div class="metric-card__label">Frozen Module Spine (11 Structured Blocks)</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-card__value">10 LABS</div>
+            <div class="metric-card__label">Active Drills + Cold Unseen Capstone</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-card__value">100% SYNTHETIC</div>
+            <div class="metric-card__label">Company-Neutral Data &amp; Mock Orders</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VISUAL 1: TIMELINE RUN OF SHOW -->
+      <section class="hub-visual-panel" aria-labelledby="timeline-panel-title">
+        <div class="hub-visual-panel__header">
+          <h2 id="timeline-panel-title" class="hub-visual-panel__title">Master Run of Show &amp; Time Budget</h2>
+          <span class="hub-visual-panel__caption">ASSET ID: HP_curriculum_timeline.svg</span>
+        </div>
+        <div class="hub-visual-panel__media">
+          <img src="HP_curriculum_timeline.svg" 
+               alt="Detailed timeline visualization of modules M0 through M10 and two scheduled breaks across 300 minutes"
+               loading="lazy">
+        </div>
+      </section>
+
+      <!-- FROZEN MODULE DIRECTORY (M0 to M10) -->
+      <section aria-labelledby="module-directory-title">
+        <div class="hub-section-header">
+          <div class="hub-section-eyebrow">Frozen Pedagogical Architecture</div>
+          <h2 id="module-directory-title" class="hub-section-title">Class Modules (M0 – M10)</h2>
+        </div>
+
+        <div class="modules-grid">
+
+          <!-- MODULE 0 -->
+          <article class="module-card">
+            <div class="module-card__top">
+              <div class="module-card__meta">
+                <span class="module-badge">MODULE 0</span>
+                <span class="module-time">10 MIN • 00:00–00:10</span>
+              </div>
+              <h3 class="module-title">Five Hours. One House. The Whole Chain.</h3>
+              <p class="module-desc">
+                The opening promise, 60-second house naming ritual, honest certification boundaries, and silent individual diagnostic. Sets the custodial mission before examining tools.
+              </p>
+            </div>
+            <div class="module-action-wrap">
+              <a href="../M0/" class="module-link" title="Open Module M0">
+                <span>Enter Module M0</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- MODULE 1 -->
+          <article class="module-card">
+            <div class="module-card__top">
+              <div class="module-card__meta">
+                <span class="module-badge">MODULE 1</span>
+                <span class="module-time">25 MIN • 00:10–00:35</span>
+              </div>
+              <h3 class="module-title">The Chain Is Illustrative; the Handoffs Are Real.</h3>
+              <p class="module-desc">
+                The 5-link custodial chain from bank capital to field crews. Separation of property condition from legal authority. Hands-on actor card assembly.
+              </p>
+            </div>
+            <div class="module-action-wrap">
+              <a href="../M1/" class="module-link" title="Open Module M1">
+                <span>Enter Module M1</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- MODULE 2 -->
+          <article class="module-card">
+            <div class="module-card__top">
+              <div class="module-card__meta">
+                <span class="module-badge">MODULE 2</span>
+                <span class="module-time">30 MIN • 00:35–01:05</span>
+              </div>
+              <h3 class="module-title">Five Forces Built the System — and the Filter.</h3>
+              <p class="module-desc">
+                Causal mapping of the postwar housing boom, exclusion filters, the two peaks (1972 Total vs 2005 Single-Family) never collapsed, and the live mortgage payment calculator.
+              </p>
+            </div>
+            <div class="module-action-wrap">
+              <a href="../M2/" class="module-link" title="Open Module M2">
+                <span>Enter Module M2</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- MODULE 3 -->
+          <article class="module-card">
+            <div class="module-card__top">
+              <div class="module-card__meta">
+                <span class="module-badge">MODULE 3</span>
+                <span class="module-time">20 MIN • 01:05–01:25</span>
+              </div>
+              <h3 class="module-title">Default Has an Order. Do Not Reorder It.</h3>
+              <p class="module-desc">
+                The invariant foreclosure sequence: Default &rarr; Loss Mitigation FIRST &rarr; State Foreclosure &rarr; Auction &rarr; REO. Physical vacancy decay timeline from week 1 to month 3+.
+              </p>
+            </div>
+            <div class="module-action-wrap">
+              <a href="../M3/" class="module-link" title="Open Module M3">
+                <span>Enter Module M3</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- MODULE 4 -->
+          <article class="module-card">
+            <div class="module-card__top">
+              <div class="module-card__meta">
+                <span class="module-badge">MODULE 4</span>
+                <span class="module-time">10 MIN • 01:25–01:35</span>
+              </div>
+              <h3 class="module-title">Rebuild the Chain Before Moving Forward.</h3>
+              <p class="module-desc">
+                Silent individual retrieval checkpoint without notes. Trainees draw the chain from memory, articulate systemic boundaries, and correct room misconceptions.
+              </p>
+            </div>
+            <div class="module-action-wrap">
+              <a href="../M4/" class="module-link" title="Open Module M4">
+                <span>Enter Module M4</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- SCHEDULED BREAK 1 -->
+          <div class="break-banner" role="region" aria-label="First Scheduled Break">
+            <div class="break-banner__left">
+              <span class="break-badge">SCHEDULED BREAK 1</span>
+              <span class="break-text">10-Minute Rest &amp; Cognitive Reset Interval</span>
+            </div>
+            <div class="break-clock">ELAPSED: 01:35 – 01:45</div>
+          </div>
+
+          <!-- MODULE 5 -->
+          <article class="module-card">
+            <div class="module-card__top">
+              <div class="module-card__meta">
+                <span class="module-badge">MODULE 5</span>
+                <span class="module-time">30 MIN • 01:45–02:15</span>
+              </div>
+              <h3 class="module-title">Four Layers of Authority Govern Every Handoff.</h3>
+              <p class="module-desc">
+                Operational swimlanes across three internal office desks, four concentric authority layers (Law, Client Order, SOP, Practice), and the invariant 4-field handoff rule.
+              </p>
+            </div>
+            <div class="module-action-wrap">
+              <a href="../M5/" class="module-link" title="Open Module M5">
+                <span>Enter Module M5</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- MODULE 6 -->
+          <article class="module-card">
+            <div class="module-card__top">
+              <div class="module-card__meta">
+                <span class="module-badge">MODULE 6</span>
+                <span class="module-time">35 MIN • 02:15–02:50</span>
+              </div>
+              <h3 class="module-title">Eleven Stops, One Clean Handoff: The Permission Gate.</h3>
+              <p class="module-desc">
+                The 11-stop lifecycle from intake to follow-up. Deep dive into Jordan v. Nationstar (WA lien theory only), ML 2016-02 rules, and the Occupancy Gate 25-word Update Line lab.
+              </p>
+            </div>
+            <div class="module-action-wrap">
+              <a href="../M6/" class="module-link" title="Open Module M6">
+                <span>Enter Module M6</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- MODULE 7 -->
+          <article class="module-card">
+            <div class="module-card__top">
+              <div class="module-card__meta">
+                <span class="module-badge">MODULE 7</span>
+                <span class="module-time">25 MIN • 02:50–03:15</span>
+              </div>
+              <h3 class="module-title">Five Jobs, Five Standards: Done Is a Claim, Proof Is the Test.</h3>
+              <p class="module-desc">
+                Mastery of Grass, Initial Secure, Winterization (pressure-test integrity rule: a failed test is data, never fake it), Debris CY calculations, and Property Inspection reports.
+              </p>
+            </div>
+            <div class="module-action-wrap">
+              <a href="../M7/" class="module-link" title="Open Module M7">
+                <span>Enter Module M7</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- SCHEDULED BREAK 2 -->
+          <div class="break-banner" role="region" aria-label="Second Scheduled Break">
+            <div class="break-banner__left">
+              <span class="break-badge">SCHEDULED BREAK 2</span>
+              <span class="break-text">10-Minute Rest &amp; Pre-Forensics Preparation</span>
+            </div>
+            <div class="break-clock">ELAPSED: 03:15 – 03:25</div>
+          </div>
+
+          <!-- MODULE 8 -->
+          <article class="module-card">
+            <div class="module-card__top">
+              <div class="module-card__meta">
+                <span class="module-badge">MODULE 8</span>
+                <span class="module-time">35 MIN • 03:25–04:00</span>
+              </div>
+              <h3 class="module-title">PLACE / TIME / SCOPE / CLARITY — The Missing Shot Is the Verdict.</h3>
+              <p class="module-desc">
+                Evidence forensics lab evaluating 5 distinct synthetic defects: Place mismatch, Time violation, Scope shortfall, Clarity breakdown, and the non-photo Authority gate.
+              </p>
+            </div>
+            <div class="module-action-wrap">
+              <a href="../M8/" class="module-link" title="Open Module M8">
+                <span>Enter Module M8</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- MODULE 9 -->
+          <article class="module-card">
+            <div class="module-card__top">
+              <div class="module-card__meta">
+                <span class="module-badge">MODULE 9</span>
+                <span class="module-time">25 MIN • 04:00–04:25</span>
+              </div>
+              <h3 class="module-title">Money Leaks at Every Handoff: Follow the Dollar.</h3>
+              <p class="module-desc">
+                The canonical money ladder ($1,000 claimed down to $550 paid), contractor invoice fixing, CY formula race (L&times;W&times;H &divide; 27), and the 6 loss reason codes.
+              </p>
+            </div>
+            <div class="module-action-wrap">
+              <a href="../M9/" class="module-link" title="Open Module M9">
+                <span>Enter Module M9</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- MODULE 10 (CAPSTONE) -->
+          <article class="module-card module-card--capstone">
+            <div class="module-card__top">
+              <div class="module-card__meta">
+                <span class="module-badge module-badge--capstone">MODULE 10 • CAPSTONE</span>
+                <span class="module-time">35 MIN • 04:25–05:00</span>
+              </div>
+              <h3 class="module-title">The Cold Capstone: Four Traps, One Unseen House, Full Defense.</h3>
+              <p class="module-desc">
+                Independent audit of an unseen multi-service order. Trainees detect all four deliberate traps, author an approved Update Line, recite the 11-stop lifecycle, and graduate.
+              </p>
+            </div>
+            <div class="module-action-wrap">
+              <a href="../M10/" class="module-link" style="color: var(--color-accent-dark); font-weight: 700;" title="Open Module M10 Capstone">
+                <span>Enter Capstone M10</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- VISUAL 2 & 3: ARCHITECTURE & STATUSES -->
+      <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 3rem;">
+        
+        <section class="hub-visual-panel">
+          <div class="hub-visual-panel__header">
+            <h2 class="hub-visual-panel__title">Institutional Custodial Swimlane &amp; Office Engine</h2>
+            <span class="hub-visual-panel__caption">ASSET ID: HP_chain_swimlane.svg</span>
+          </div>
+          <div class="hub-visual-panel__media">
+            <img src="HP_chain_swimlane.svg" 
+                 alt="The five-link custodial chain diagram and the internal three-desk office engine"
+                 loading="lazy">
+          </div>
+        </section>
+
+        <section class="hub-visual-panel">
+          <div class="hub-visual-panel__header">
+            <h2 class="hub-visual-panel__title">The Honest Boundary: Three Distinct Statuses</h2>
+            <span class="hub-visual-panel__caption">ASSET ID: HP_three_statuses_badge.svg</span>
+          </div>
+          <div class="hub-visual-panel__media">
+            <img src="HP_three_statuses_badge.svg" 
+                 alt="The three honest statuses ladder: Attended, Demonstrated, Authorised"
+                 loading="lazy">
+          </div>
+        </section>
+
+      </div>
+
+      <!-- AUXILIARY COURSE MATERIALS -->
+      <section aria-labelledby="aux-materials-title">
+        <div class="hub-section-header">
+          <div class="hub-section-eyebrow">Class Packets &amp; Reference Literature</div>
+          <h2 id="aux-materials-title" class="hub-section-title">Cohort Materials &amp; Field Guides</h2>
+        </div>
+
+        <div class="aux-grid">
+
+          <!-- SYLLABUS -->
+          <article class="aux-card">
+            <div>
+              <span class="aux-card__tag">JOURNEY ROADMAP • M0–M10</span>
+              <h3 class="aux-card__title">5-Hour Journey Syllabus</h3>
+              <p class="aux-card__desc">
+                The complete chronological roadmap through all 11 modules and 300 minutes. Details the core competencies, real-world decisions practiced, and diagnostic drills for each learning stop.
+              </p>
+            </div>
+            <a href="../Syllabus/syllabus.html" class="btn-primary" title="Access 5-Hour Course Syllabus">
+              <span>View Syllabus</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+          </article>
+
+          <!-- CASE PACKET -->
+          <article class="aux-card">
+            <div>
+              <span class="aux-card__tag">PRACTICE FILE • 7 PROGRESSIVE REVEALS</span>
+              <h3 class="aux-card__title">The Evolving Case Packet</h3>
+              <p class="aux-card__desc">
+                The complete case file for the composite house born in 1972. Contains closed-tab decision screens with progressive disclosure: work orders, intake sheets, photo logs, contractor bids, and cold capstone evidence.
+              </p>
+            </div>
+            <a href="../Case_Packet/" class="btn-primary" title="Access Student Case Packet">
+              <span>Open Case Packet</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+          </article>
+
+          <!-- TAKE-HOME PACK -->
+          <article class="aux-card">
+            <div>
+              <span class="aux-card__tag">JOB AIDS • DESK REFERENCE</span>
+              <h3 class="aux-card__title">Student Take-Home Pack</h3>
+              <p class="aux-card__desc">
+                Permanent operational field references: The 11-stop lifecycle wall chart, 5-work-type proof checklists, CY quick-conversion tables, the 6-loss code reference wheel, and 25-word Update Line rubric cards.
+              </p>
+            </div>
+            <a href="../Take_Home_Pack/" class="btn-primary" title="Access Take-Home Pack">
+              <span>Open Take-Home Pack</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+          </article>
+
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- GLOBAL FOOTER -->
+  <footer class="hub-footer" role="contentinfo">
+    <div class="hub-footer__inner">
+      <div>
+        <p style="font-weight: 700; margin-bottom: 0.25rem;">Insight Gaps Bureau — Education Track</p>
+        <p class="hub-footer__copy">5-Hour Property Preservation Class • Frozen M0–M10 Structure</p>
+      </div>
+      <div>
+        <p class="hub-footer__note">100% Synthetic &amp; Company-Neutral Data • Zero Real-World Identifiers</p>
+        <p class="hub-footer__copy" style="margin-top: 0.25rem;">Permission first. Proof always. Gaps go back — never papered over.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT INTEGRATION -->
+  <script src="gate.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      // Initialize gate for Class Hub
+      if (typeof ClassGate !== 'undefined') {
+        // Check if authorized
+        if (!ClassGate.isAuthorized()) {
+          var lockedView = document.getElementById('hub-locked-view');
+          var unlockedView = document.getElementById('hub-unlocked-view');
+          if (lockedView) lockedView.style.display = 'block';
+          if (unlockedView) unlockedView.style.display = 'none';
+        } else {
+          ClassGate.reveal();
+        }
+
+        // Init unlock form
+        ClassGate.init({
+          inputId: 'hub-gate-input',
+          submitId: 'hub-gate-btn',
+          feedbackId: 'hub-gate-feedback',
+          autoReveal: true,
+          onSuccess: function () {
+            ClassGate.reveal();
+          }
+        });
+
+        // Re-lock trigger button
+        var lockBtn = document.getElementById('hub-lock-trigger');
+        if (lockBtn) {
+          lockBtn.addEventListener('click', function () {
+            ClassGate.lock();
+            var lockedView = document.getElementById('hub-locked-view');
+            var unlockedView = document.getElementById('hub-unlocked-view');
+            if (lockedView) lockedView.style.display = 'block';
+            if (unlockedView) unlockedView.style.display = 'none';
+          });
+        }
+      }
+    })();
+  </script>
+</body>
+</html>

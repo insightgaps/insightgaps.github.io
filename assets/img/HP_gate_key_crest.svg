@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" width="100%" height="100%" style="font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;">
+  <defs>
+    <radialGradient id="hpCrestBg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F2F0EC"/>
+    </radialGradient>
+    <linearGradient id="hpRingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9A620C"/>
+      <stop offset="50%" stop-color="#C17D11"/>
+      <stop offset="100%" stop-color="#1A1917"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Protective Seal Ring -->
+  <circle cx="160" cy="160" r="148" fill="url(#hpCrestBg)" stroke="#E2E0DC" stroke-width="2"/>
+  <circle cx="160" cy="160" r="138" fill="none" stroke="url(#hpRingGrad)" stroke-width="2" stroke-dasharray="6,4"/>
+
+  <!-- Inner Dial -->
+  <circle cx="160" cy="160" r="112" fill="#FFFFFF" stroke="#1A1917" stroke-width="2"/>
+
+  <!-- Four Cross-Hair Marks -->
+  <line x1="160" y1="36" x2="160" y2="44" stroke="#9A620C" stroke-width="3"/>
+  <line x1="160" y1="276" x2="160" y2="284" stroke="#9A620C" stroke-width="3"/>
+  <line x1="36" y1="160" x2="44" y2="160" stroke="#9A620C" stroke-width="3"/>
+  <line x1="276" y1="160" x2="284" y2="160" stroke="#9A620C" stroke-width="3"/>
+
+  <!-- Key & Padlock Iconography -->
+  <g transform="translate(110, 85)">
+    <!-- Lock Shackle -->
+    <path d="M 28 40 L 28 26 C 28 12 72 12 72 26 L 72 40" fill="none" stroke="#1A1917" stroke-width="6" stroke-linecap="round"/>
+    <!-- Lock Body -->
+    <rect x="18" y="38" width="64" height="48" rx="6" fill="#FDF3E3" stroke="#9A620C" stroke-width="3"/>
+    <!-- Keyhole -->
+    <circle cx="50" cy="58" r="5" fill="#1A1917"/>
+    <polygon points="48,58 52,58 54,74 46,74" fill="#1A1917"/>
+  </g>
+
+  <!-- Passcode Emblem -->
+  <rect x="80" y="180" width="160" height="36" rx="4" fill="#1A1917"/>
+  <text x="160" y="204" font-family="'Space Mono', monospace" font-size="18" font-weight="700" fill="#F9F8F6" text-anchor="middle" letter-spacing="4">CODE 1972</text>
+
+  <!-- Typography Labels -->
+  <text x="160" y="238" font-family="'Space Mono', monospace" font-size="10" font-weight="700" fill="#7A4F0A" text-anchor="middle" letter-spacing="1.5">TEACHER PASSCODE GATE</text>
+  <text x="160" y="254" font-family="'Lora', serif" font-style="italic" font-size="11" fill="#6E6A63" text-anchor="middle">Authorized Cohort Access Only</text>
+</svg>
