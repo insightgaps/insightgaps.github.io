@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="m0-bg-5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF8"/>
+      <stop offset="100%" stop-color="#F4EFE6"/>
+    </linearGradient>
+    <filter id="m0-shadow-5" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#12263F" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" fill="url(#m0-bg-5)"/>
+  <rect x="24" y="24" width="912" height="492" rx="12" fill="none" stroke="#D6C8B2" stroke-width="1.5"/>
+
+  <!-- Header Banner -->
+  <rect x="40" y="40" width="880" height="48" rx="6" fill="#12263F"/>
+  <text x="56" y="70" font-family="'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="800" fill="#F59E0B" letter-spacing="1.5">THE CLASSROOM NAMING RITUAL</text>
+  <text x="360" y="70" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="600" fill="#E2E8F0">[STANDING RITUAL — 60-SECOND CONSENSUS]</text>
+  <rect x="800" y="52" width="106" height="24" rx="4" fill="#047857"/>
+  <text x="853" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8" text-anchor="middle">ACTIVE RITUAL</text>
+
+  <!-- Subtitle -->
+  <text x="40" y="114" font-family="Georgia, serif" font-size="17" font-weight="700" fill="#12263F">"She doesn't have a name yet. Trainees protect what they name. Her name stays on every order."</text>
+
+  <!-- Left: The Christening Deed Plate -->
+  <g transform="translate(40, 135)">
+    <rect x="0" y="0" width="480" height="295" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#m0-shadow-5)"/>
+    <rect x="0" y="0" width="480" height="8" rx="4" fill="#F59E0B"/>
+
+    <!-- Decorative Border around Plate -->
+    <rect x="18" y="22" width="444" height="252" rx="6" fill="#FBF9F5" stroke="#E2D9CC" stroke-width="1.5"/>
+    
+    <!-- Seal Crest -->
+    <circle cx="240" cy="70" r="32" fill="#12263F" stroke="#F59E0B" stroke-width="2"/>
+    <path d="M 226 78 L 240 56 L 254 78 Z" fill="#F59E0B"/>
+    <rect x="236" y="72" width="8" height="10" fill="#12263F"/>
+    
+    <text x="240" y="122" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#64748B" letter-spacing="1.5" text-anchor="middle">OFFICIAL COMPOSITE ASSET CHRISTENING</text>
+    <text x="240" y="156" font-family="Georgia, serif" font-size="28" font-weight="800" fill="#12263F" text-anchor="middle">[HOUSE NAME]</text>
+    <text x="240" y="178" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="700" fill="#B45309" text-anchor="middle">FALLBACK DEFAULT: "MAPLE HOUSE"</text>
+
+    <!-- Synthetic Spec Strip -->
+    <line x1="40" y1="195" x2="440" y2="195" stroke="#E2E8F0" stroke-width="1"/>
+    
+    <text x="50" y="218" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#334155">YEAR BUILT: 1972</text>
+    <text x="200" y="218" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#334155">ERA: PEAK TOTAL STARTS</text>
+    <text x="365" y="218" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#334155">CLASS ROLE: SPINE</text>
+
+    <text x="240" y="248" font-family="Georgia, serif" font-size="11" font-style="italic" fill="#64748B" text-anchor="middle">
+      "From minute zero to graduation, this name replaces every generic address."
+    </text>
+  </g>
+
+  <!-- Right: The 60-Second Ritual Rules -->
+  <g transform="translate(540, 135)">
+    <rect x="0" y="0" width="380" height="295" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#m0-shadow-5)"/>
+    <rect x="0" y="0" width="380" height="8" rx="4" fill="#12263F"/>
+
+    <text x="20" y="32" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="800" fill="#12263F" letter-spacing="1">THE 60-SECOND PROTOCOL:</text>
+
+    <!-- Rule 1 -->
+    <g transform="translate(20, 50)">
+      <circle cx="12" cy="12" r="12" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.5"/>
+      <text x="12" y="16" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#B45309" text-anchor="middle">1</text>
+      <text x="34" y="12" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="700" fill="#1E293B">Three Candidate Names</text>
+      <text x="34" y="28" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" fill="#64748B">The room shouts three street or house names.</text>
+    </g>
+
+    <!-- Rule 2 -->
+    <g transform="translate(20, 105)">
+      <circle cx="12" cy="12" r="12" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.5"/>
+      <text x="12" y="16" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#B45309" text-anchor="middle">2</text>
+      <text x="34" y="12" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="700" fill="#1E293B">Instant Hand Vote</text>
+      <text x="34" y="28" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" fill="#64748B">Trainees vote by show of hands; teacher breaks ties.</text>
+    </g>
+
+    <!-- Rule 3 -->
+    <g transform="translate(20, 160)">
+      <circle cx="12" cy="12" r="12" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.5"/>
+      <text x="12" y="16" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#B45309" text-anchor="middle">3</text>
+      <text x="34" y="12" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="700" fill="#1E293B">The 60-Second Stop-Clock</text>
+      <text x="34" y="28" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" fill="#64748B">If no consensus in 60s → fallback "Maple House".</text>
+    </g>
+
+    <!-- Rule 4 -->
+    <g transform="translate(20, 215)">
+      <circle cx="12" cy="12" r="12" fill="#ECFDF5" stroke="#10B981" stroke-width="1.5"/>
+      <text x="12" y="16" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#047857" text-anchor="middle">✓</text>
+      <text x="34" y="12" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="700" fill="#047857">Permanent Binding</text>
+      <text x="34" y="28" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" fill="#065F46">The chosen name is written on the wall board permanently.</text>
+    </g>
+  </g>
+
+  <!-- Bottom Strip -->
+  <g transform="translate(40, 448)">
+    <rect x="0" y="0" width="880" height="42" rx="6" fill="#12263F"/>
+    <text x="20" y="26" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="700" fill="#F59E0B">
+      PEDAGOGICAL PRINCIPLE: Empathy precedes accuracy. An anonymous house is just drywall; a named house is someone's life and the company's liability.
+    </text>
+  </g>
+</svg>

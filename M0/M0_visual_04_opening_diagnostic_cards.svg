@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="m0-bg-4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF8"/>
+      <stop offset="100%" stop-color="#F4EFE6"/>
+    </linearGradient>
+    <filter id="m0-shadow-4" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#12263F" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" fill="url(#m0-bg-4)"/>
+  <rect x="24" y="24" width="912" height="492" rx="12" fill="none" stroke="#D6C8B2" stroke-width="1.5"/>
+
+  <!-- Header Banner -->
+  <rect x="40" y="40" width="880" height="48" rx="6" fill="#12263F"/>
+  <text x="56" y="70" font-family="'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="800" fill="#F59E0B" letter-spacing="1.5">OPENING DIAGNOSTIC: THREE QUESTIONS YOU SHOULD NOT GUESS</text>
+  <text x="635" y="70" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="600" fill="#E2E8F0">[EXERCISE X-01 — SILENT COMMITMENT]</text>
+  <rect x="800" y="52" width="106" height="24" rx="4" fill="#B45309"/>
+  <text x="853" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8" text-anchor="middle">INDIVIDUAL</text>
+
+  <!-- Subtitle -->
+  <text x="40" y="114" font-family="Georgia, serif" font-size="17" font-weight="700" fill="#12263F">Write your honest answers on paper or screen. No discussion. We seal them until minute 290.</text>
+
+  <!-- Three Question Cards -->
+  <!-- Card 1: Authority -->
+  <g transform="translate(40, 135)">
+    <rect x="0" y="0" width="275" height="300" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#m0-shadow-4)"/>
+    <rect x="0" y="0" width="275" height="8" rx="4" fill="#1E3A8A"/>
+    
+    <rect x="18" y="20" width="100" height="22" rx="4" fill="#EFF6FF"/>
+    <text x="68" y="35" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="800" fill="#1D4ED8" text-anchor="middle">QUESTION 1</text>
+    
+    <text x="18" y="64" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#64748B" letter-spacing="0.8">AUTHORITY &amp; LOCKS</text>
+    
+    <text x="18" y="92" font-family="Georgia, serif" font-size="15" font-weight="700" fill="#12263F" width="239">
+      "Does a vacant-looking
+    </text>
+    <text x="18" y="112" font-family="Georgia, serif" font-size="15" font-weight="700" fill="#12263F">
+      home automatically
+    </text>
+    <text x="18" y="132" font-family="Georgia, serif" font-size="15" font-weight="700" fill="#12263F">
+      authorise a lock change?"
+    </text>
+
+    <!-- Stamp Box -->
+    <rect x="18" y="155" width="239" height="75" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="28" y="175" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#475569">Intuitive Trainee Reflex:</text>
+    <text x="28" y="193" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" fill="#64748B">"Sure, it's empty, we must secure it."</text>
+    <text x="28" y="213" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800" fill="#DC2626">TRAP: Washington law &amp; lien theory.</text>
+
+    <!-- Seal -->
+    <g transform="translate(185, 235)">
+      <circle cx="28" cy="28" r="24" fill="#FEF2F2" stroke="#EF4444" stroke-width="1.5" stroke-dasharray="3 2"/>
+      <text x="28" y="26" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="800" fill="#991B1B" text-anchor="middle">LOCKED</text>
+      <text x="28" y="36" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="700" fill="#991B1B" text-anchor="middle">ANSWER</text>
+    </g>
+    <text x="18" y="268" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#0369A1">Your verdict: [ YES / NO / HOLD ]</text>
+  </g>
+
+  <!-- Card 2: Money -->
+  <g transform="translate(342, 135)">
+    <rect x="0" y="0" width="275" height="300" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#m0-shadow-4)"/>
+    <rect x="0" y="0" width="275" height="8" rx="4" fill="#B45309"/>
+    
+    <rect x="18" y="20" width="100" height="22" rx="4" fill="#FEF3C7"/>
+    <text x="68" y="35" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="800" fill="#B45309" text-anchor="middle">QUESTION 2</text>
+    
+    <text x="18" y="64" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#64748B" letter-spacing="0.8">SWEAT VS. CASH</text>
+    
+    <text x="18" y="92" font-family="Georgia, serif" font-size="15" font-weight="700" fill="#12263F">
+      "Does a completed job
+    </text>
+    <text x="18" y="112" font-family="Georgia, serif" font-size="15" font-weight="700" fill="#12263F">
+      automatically mean the full
+    </text>
+    <text x="18" y="132" font-family="Georgia, serif" font-size="15" font-weight="700" fill="#12263F">
+      amount will be paid?"
+    </text>
+
+    <!-- Stamp Box -->
+    <rect x="18" y="155" width="239" height="75" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="28" y="175" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#475569">Intuitive Trainee Reflex:</text>
+    <text x="28" y="193" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" fill="#64748B">"If we cut the grass, they have to pay."</text>
+    <text x="28" y="213" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800" fill="#DC2626">TRAP: Canonical Staircase leaks.</text>
+
+    <!-- Seal -->
+    <g transform="translate(185, 235)">
+      <circle cx="28" cy="28" r="24" fill="#FEF2F2" stroke="#EF4444" stroke-width="1.5" stroke-dasharray="3 2"/>
+      <text x="28" y="26" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="800" fill="#991B1B" text-anchor="middle">LOCKED</text>
+      <text x="28" y="36" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="700" fill="#991B1B" text-anchor="middle">ANSWER</text>
+    </g>
+    <text x="18" y="268" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#0369A1">Your verdict: [ YES / NO / DEPENDS ]</text>
+  </g>
+
+  <!-- Card 3: Evidence -->
+  <g transform="translate(645, 135)">
+    <rect x="0" y="0" width="275" height="300" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#m0-shadow-4)"/>
+    <rect x="0" y="0" width="275" height="8" rx="4" fill="#047857"/>
+    
+    <rect x="18" y="20" width="100" height="22" rx="4" fill="#ECFDF5"/>
+    <text x="68" y="35" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="800" fill="#047857" text-anchor="middle">QUESTION 3</text>
+    
+    <text x="18" y="64" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#64748B" letter-spacing="0.8">PROOF INTEGRITY</text>
+    
+    <text x="18" y="92" font-family="Georgia, serif" font-size="15" font-weight="700" fill="#12263F">
+      "Can a clear, date-stamped
+    </text>
+    <text x="18" y="112" font-family="Georgia, serif" font-size="15" font-weight="700" fill="#12263F">
+      photo prove work if landmarks
+    </text>
+    <text x="18" y="132" font-family="Georgia, serif" font-size="15" font-weight="700" fill="#12263F">
+      show another property?"
+    </text>
+
+    <!-- Stamp Box -->
+    <rect x="18" y="155" width="239" height="75" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="28" y="175" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#475569">Intuitive Trainee Reflex:</text>
+    <text x="28" y="193" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" fill="#64748B">"The camera metadata has the right GPS."</text>
+    <text x="28" y="213" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800" fill="#DC2626">TRAP: Visual place verification.</text>
+
+    <!-- Seal -->
+    <g transform="translate(185, 235)">
+      <circle cx="28" cy="28" r="24" fill="#FEF2F2" stroke="#EF4444" stroke-width="1.5" stroke-dasharray="3 2"/>
+      <text x="28" y="26" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="800" fill="#991B1B" text-anchor="middle">LOCKED</text>
+      <text x="28" y="36" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="700" fill="#991B1B" text-anchor="middle">ANSWER</text>
+    </g>
+    <text x="18" y="268" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#0369A1">Your verdict: [ YES / NO / CONDITIONAL ]</text>
+  </g>
+
+  <!-- Bottom Strip -->
+  <g transform="translate(40, 448)">
+    <rect x="0" y="0" width="880" height="42" rx="6" fill="#12263F"/>
+    <text x="20" y="26" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="700" fill="#F59E0B">
+      TEACHER RULE: Do NOT reveal or debate the answers now. Collect or lock submissions. Trainees revisit at 04:50.
+    </text>
+  </g>
+</svg>

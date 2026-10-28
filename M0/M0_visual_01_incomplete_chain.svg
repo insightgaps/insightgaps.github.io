@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="m0-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF8"/>
+      <stop offset="100%" stop-color="#F4EFE6"/>
+    </linearGradient>
+    <filter id="m0-shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#12263F" flood-opacity="0.10"/>
+    </filter>
+    <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" fill="url(#m0-bg)"/>
+  <rect x="24" y="24" width="912" height="492" rx="12" fill="none" stroke="#D6C8B2" stroke-width="1.5"/>
+
+  <!-- Header Banner -->
+  <rect x="40" y="40" width="880" height="48" rx="6" fill="#12263F"/>
+  <text x="56" y="70" font-family="'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="800" fill="#F59E0B" letter-spacing="1.5">THE INCOMPLETE INDUSTRY CHAIN</text>
+  <text x="360" y="70" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="600" fill="#E2E8F0">[TEACHING ILLUSTRATION — BLOCK 1 OPENING HOOK]</text>
+  <rect x="790" y="52" width="116" height="24" rx="4" fill="#B45309"/>
+  <text x="848" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8" text-anchor="middle">DAY 1 DIAGNOSTIC</text>
+
+  <!-- Subtitle -->
+  <text x="40" y="114" font-family="Georgia, serif" font-size="18" font-weight="700" fill="#12263F">"Loan / Property → ? → Work Order → ? → Money. By hour five, you fill every box."</text>
+
+  <!-- Node 1: Loan & Physical Property -->
+  <g transform="translate(40, 150)">
+    <rect x="0" y="0" width="145" height="110" rx="8" fill="#12263F" filter="url(#m0-shadow)"/>
+    <rect x="0" y="0" width="145" height="6" rx="3" fill="#F59E0B"/>
+    <text x="14" y="28" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F59E0B" letter-spacing="0.8">ORIGIN POINT</text>
+    <text x="14" y="54" font-family="Georgia, serif" font-size="16" font-weight="700" fill="#FFFDF8">Loan / Asset</text>
+    <text x="14" y="74" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" fill="#CBD5E1">Mortgaged 1972 home</text>
+    <text x="14" y="92" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="600" fill="#94A3B8">Default triggers loss</text>
+  </g>
+
+  <!-- Connector 1 -->
+  <g transform="translate(185, 195)">
+    <line x1="10" y1="10" x2="45" y2="10" stroke="#12263F" stroke-width="2.5" stroke-dasharray="4 3"/>
+    <polygon points="45,6 55,10 45,14" fill="#12263F"/>
+  </g>
+
+  <!-- Node 2: Mystery Gap 1 -->
+  <g transform="translate(245, 150)">
+    <rect x="0" y="0" width="150" height="110" rx="8" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2" stroke-dasharray="6 4" filter="url(#m0-shadow)"/>
+    <rect x="0" y="0" width="150" height="6" rx="3" fill="#D97706"/>
+    <text x="14" y="28" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#B45309" letter-spacing="0.8">GAP 1: WHO HANDLES?</text>
+    <text x="75" y="66" font-family="Georgia, serif" font-size="32" font-weight="800" fill="#B45309" text-anchor="middle">?</text>
+    <text x="75" y="94" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" fill="#92400E" text-anchor="middle">[Servicer &amp; National]</text>
+  </g>
+
+  <!-- Connector 2 -->
+  <g transform="translate(395, 195)">
+    <line x1="10" y1="10" x2="45" y2="10" stroke="#12263F" stroke-width="2.5"/>
+    <polygon points="45,6 55,10 45,14" fill="#12263F"/>
+  </g>
+
+  <!-- Node 3: The Work Order -->
+  <g transform="translate(455, 150)">
+    <rect x="0" y="0" width="145" height="110" rx="8" fill="#1E3A8A" filter="url(#m0-shadow)"/>
+    <rect x="0" y="0" width="145" height="6" rx="3" fill="#38BDF8"/>
+    <text x="14" y="28" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#38BDF8" letter-spacing="0.8">THE DISPATCH</text>
+    <text x="14" y="54" font-family="Georgia, serif" font-size="16" font-weight="700" fill="#FFFDF8">Work Order</text>
+    <text x="14" y="74" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" fill="#E2E8F0">Task scope &amp; rulebook</text>
+    <text x="14" y="92" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="600" fill="#93C5FD">Permission required</text>
+  </g>
+
+  <!-- Connector 3 -->
+  <g transform="translate(600, 195)">
+    <line x1="10" y1="10" x2="45" y2="10" stroke="#12263F" stroke-width="2.5" stroke-dasharray="4 3"/>
+    <polygon points="45,6 55,10 45,14" fill="#12263F"/>
+  </g>
+
+  <!-- Node 4: Mystery Gap 2 -->
+  <g transform="translate(660, 150)">
+    <rect x="0" y="0" width="150" height="110" rx="8" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2" stroke-dasharray="6 4" filter="url(#m0-shadow)"/>
+    <rect x="0" y="0" width="150" height="6" rx="3" fill="#D97706"/>
+    <text x="14" y="28" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#B45309" letter-spacing="0.8">GAP 2: WHO PROVES?</text>
+    <text x="75" y="66" font-family="Georgia, serif" font-size="32" font-weight="800" fill="#B45309" text-anchor="middle">?</text>
+    <text x="75" y="94" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" fill="#92400E" text-anchor="middle">[Crew &amp; Office QC]</text>
+  </g>
+
+  <!-- Connector 4 -->
+  <g transform="translate(810, 195)">
+    <line x1="10" y1="10" x2="35" y2="10" stroke="#12263F" stroke-width="2.5"/>
+    <polygon points="35,6 45,10 35,14" fill="#12263F"/>
+  </g>
+
+  <!-- Node 5: Money Reconciled -->
+  <g transform="translate(860, 150)">
+    <rect x="0" y="0" width="60" height="110" rx="8" fill="#047857" filter="url(#m0-shadow)"/>
+    <rect x="0" y="0" width="60" height="6" rx="3" fill="#34D399"/>
+    <text x="30" y="64" font-family="Georgia, serif" font-size="28" font-weight="800" fill="#FFFDF8" text-anchor="middle">$$$</text>
+    <text x="30" y="92" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="800" fill="#A7F3D0" text-anchor="middle">PAID</text>
+  </g>
+
+  <!-- Insight Callout Box Below -->
+  <g transform="translate(40, 290)">
+    <rect x="0" y="0" width="880" height="190" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#m0-shadow)"/>
+    
+    <!-- Left Accent Strip -->
+    <rect x="0" y="0" width="8" height="190" rx="4" fill="#F59E0B"/>
+
+    <!-- Key Questions Trainees Will Answer -->
+    <text x="28" y="32" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="800" fill="#12263F" letter-spacing="1">THE THREE CORE MYSTERIES OF THE FIVE-HOUR TRAJECTORY:</text>
+
+    <!-- Point 1 -->
+    <circle cx="40" cy="62" r="10" fill="#12263F"/>
+    <text x="40" y="66" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8" text-anchor="middle">1</text>
+    <text x="60" y="66" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="700" fill="#1E293B">The Authority Mystery:</text>
+    <text x="215" y="66" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" fill="#475569">Does an overgrown lawn or dark window give anyone the right to enter and rekey? (No: authority is legal, not visual).</text>
+
+    <!-- Point 2 -->
+    <circle cx="40" cy="104" r="10" fill="#12263F"/>
+    <text x="40" y="108" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8" text-anchor="middle">2</text>
+    <text x="60" y="108" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="700" fill="#1E293B">The Evidence Mystery:</text>
+    <text x="215" y="108" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" fill="#475569">Does a high-resolution, timestamped photo prove work if the landmarks match the neighbor? (No: place must be verified).</text>
+
+    <!-- Point 3 -->
+    <circle cx="40" cy="146" r="10" fill="#12263F"/>
+    <text x="40" y="150" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8" text-anchor="middle">3</text>
+    <text x="60" y="150" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="700" fill="#1E293B">The Money Mystery:</text>
+    <text x="205" y="150" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" fill="#475569">Why does $1,000 in completed field labor frequently become only $550 wired to the company? (The Canonical Ladder leaks).</text>
+
+    <!-- Bottom Banner inside Callout -->
+    <rect x="28" y="165" width="824" height="1" fill="#E2E8F0"/>
+    <text x="28" y="180" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#D97706">STANDARDS ANCHOR: Canonical Money Ladder strictly runs BID → ALLOWABLE → APPROVED → INVOICED → PAID.</text>
+  </g>
+</svg>

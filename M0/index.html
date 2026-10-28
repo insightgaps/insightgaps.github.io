@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 0: Orientation, Honest Boundary & The Story of a House | Insight Gaps</title>
+  <style>
+    :root {
+      --navy-900: #0d1726;
+      --navy-800: #12263f;
+      --navy-700: #1e3a8a;
+      --amber-500: #f59e0b;
+      --amber-600: #d97706;
+      --amber-100: #fef3c7;
+      --green-600: #059669;
+      --green-100: #ecfdf5;
+      --red-600: #dc2626;
+      --red-100: #fef2f2;
+      --slate-50: #f8fafc;
+      --slate-100: #f1f5f9;
+      --slate-200: #e2e8f0;
+      --slate-300: #cbd5e1;
+      --slate-600: #475569;
+      --slate-700: #334155;
+      --slate-900: #0f172a;
+      --font-sans: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+      --font-serif: Georgia, Cambria, 'Times New Roman', serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--navy-900);
+      color: var(--slate-900);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* Top Control Bar */
+    .top-bar {
+      height: 56px;
+      background: var(--navy-800);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .brand-pill {
+      background: var(--amber-500);
+      color: var(--navy-900);
+      font-weight: 800;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    .brand-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--slate-100);
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn-drawer {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--slate-100);
+      padding: 0.35rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-drawer:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: var(--amber-500);
+      color: #fff;
+    }
+
+    /* Progress Rail */
+    .progress-rail {
+      background: #111e30;
+      height: 6px;
+      width: 100%;
+      display: flex;
+    }
+
+    .rail-track {
+      height: 100%;
+      background: linear-gradient(90deg, var(--amber-500), #fbbf24);
+      width: 12.5%;
+      transition: width 0.3s ease;
+    }
+
+    /* Story Player Container */
+    .player-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem 5rem;
+      position: relative;
+    }
+
+    .screen-card {
+      display: none;
+      width: 100%;
+      max-width: 1080px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+      overflow: hidden;
+      animation: fadeIn 0.35s ease forwards;
+    }
+
+    .screen-card.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Screen Card Header */
+    .card-header {
+      background: var(--slate-50);
+      border-bottom: 1px solid var(--slate-200);
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    .screen-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--amber-600);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+    }
+
+    .claim-title {
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--navy-800);
+      line-height: 1.25;
+    }
+
+    .badge-chip {
+      background: var(--slate-200);
+      color: var(--slate-700);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-chip.synthetic {
+      background: #fef3c7;
+      color: #92400e;
+      border: 1px solid #fde68a;
+    }
+
+    /* Human Moment Banner */
+    .human-moment {
+      background: #f8fafc;
+      border-left: 4px solid var(--amber-500);
+      padding: 0.9rem 1.5rem;
+      margin: 1.25rem 2rem 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.9rem;
+      color: var(--slate-700);
+      font-style: italic;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .human-icon {
+      font-style: normal;
+      font-size: 1.2rem;
+    }
+
+    /* Screen Card Body */
+    .card-body {
+      padding: 1.75rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .card-body.full-width {
+      grid-template-columns: 1fr;
+    }
+
+    .narrative-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--slate-700);
+    }
+
+    .narrative-col p strong {
+      color: var(--navy-800);
+    }
+
+    .callout-box {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .callout-box.amber {
+      background: #fffbeb;
+      border-color: #fde68a;
+      color: #92400e;
+    }
+
+    .callout-box.blue {
+      background: #eff6ff;
+      border-color: #bfdbfe;
+      color: #1e40af;
+    }
+
+    .callout-box.red {
+      background: #fef2f2;
+      border-color: #fecaca;
+      color: #991b1b;
+    }
+
+    .visual-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .visual-frame {
+      border: 1px solid var(--slate-200);
+      border-radius: 8px;
+      background: #fff;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .visual-frame img, .visual-frame svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .visual-caption {
+      font-size: 0.8rem;
+      color: var(--slate-600);
+      font-style: italic;
+      text-align: center;
+    }
+
+    /* Interactive Elements */
+    .interactive-card {
+      background: #f8fafc;
+      border: 1.5px solid var(--slate-300);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+
+    .interactive-header {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--navy-800);
+      margin-bottom: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .option-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+
+    .option-btn {
+      background: #fff;
+      border: 1px solid var(--slate-300);
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      text-align: left;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--slate-700);
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .option-btn:hover {
+      border-color: var(--navy-700);
+      background: #f1f5f9;
+    }
+
+    .option-btn.selected {
+      border-color: var(--amber-500);
+      background: #fffbeb;
+      color: var(--amber-600);
+    }
+
+    .btn-action {
+      background: var(--navy-800);
+      color: #fff;
+      border: none;
+      padding: 0.7rem 1.4rem;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-action:hover {
+      background: var(--navy-700);
+    }
+
+    .btn-action:disabled {
+      background: var(--slate-300);
+      cursor: not-allowed;
+    }
+
+    /* Bottom Player Navigation Bar */
+    .player-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 64px;
+      background: var(--navy-800);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      z-index: 90;
+    }
+
+    .nav-stats {
+      color: var(--slate-300);
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .nav-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      padding: 0.5rem 1.25rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s;
+    }
+
+    .nav-btn:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: var(--amber-500);
+    }
+
+    .nav-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .nav-btn.primary {
+      background: var(--amber-500);
+      border-color: var(--amber-600);
+      color: var(--navy-900);
+    }
+
+    .nav-btn.primary:hover:not(:disabled) {
+      background: #fbbf24;
+    }
+
+    /* Modal / Drawer Overlay */
+    .drawer-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(13, 23, 38, 0.75);
+      backdrop-filter: blur(4px);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .drawer-overlay.open {
+      display: flex;
+    }
+
+    .drawer-content {
+      background: #fff;
+      width: 100%;
+      max-width: 760px;
+      max-height: 85vh;
+      border-radius: 12px;
+      overflow-y: auto;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+      position: relative;
+      animation: popIn 0.25s ease forwards;
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .drawer-header {
+      background: var(--navy-800);
+      color: #fff;
+      padding: 1.25rem 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .drawer-header h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .drawer-close {
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .drawer-body {
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--slate-700);
+    }
+
+    .drawer-body h4 {
+      color: var(--navy-800);
+      font-size: 1.05rem;
+      margin-top: 0.5rem;
+      border-bottom: 2px solid var(--slate-100);
+      padding-bottom: 0.3rem;
+    }
+
+    /* Module Map Grid inside Drawer */
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .module-item {
+      padding: 0.75rem;
+      border-radius: 6px;
+      border: 1px solid var(--slate-200);
+      background: var(--slate-50);
+      font-size: 0.8rem;
+    }
+
+    .module-item.active-mod {
+      border-color: var(--amber-500);
+      background: #fffbeb;
+      font-weight: 700;
+    }
+
+    /* Responsive */
+    @media (max-width: 860px) {
+      .card-body {
+        grid-template-columns: 1fr;
+      }
+      .claim-title {
+        font-size: 1.35rem;
+      }
+      .top-bar {
+        padding: 0 1rem;
+      }
+      .player-nav {
+        padding: 0 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation & Utility Bar -->
+  <header class="top-bar">
+    <div class="brand-group">
+      <span class="brand-pill">M0</span>
+      <span class="brand-title">Property Preservation Immersion (300 Min)</span>
+    </div>
+    <div class="top-actions">
+      <button class="btn-drawer" onclick="openDrawer('moduleMapDrawer')">🗺️ Module Map</button>
+      <button class="btn-drawer" onclick="openDrawer('threeStatusesDrawer')">⚖️ 3 Statuses</button>
+      <button class="btn-drawer" onclick="openDrawer('honestBoundaryDrawer')">🛡️ Boundary</button>
+      <button class="btn-drawer" onclick="openDrawer('glossaryDrawer')">📖 Glossary</button>
+    </div>
+  </header>
+
+  <!-- Progress Rail -->
+  <div class="progress-rail">
+    <div class="rail-track" id="railTrack"></div>
+  </div>
+
+  <!-- Player Screen Container -->
+  <main class="player-container">
+
+    <!-- SCREEN 1: THE OPENING HOOK & PROMISE -->
+    <section class="screen-card active" id="screen-1" data-step="1">
+      <div class="card-header">
+        <div>
+          <div class="screen-meta">Block 1 • 00:00–00:02 • Orientation &amp; Hook</div>
+          <h1 class="claim-title">Five Hours. One House. The Whole Chain.</h1>
+        </div>
+        <span class="badge-chip synthetic">SYNTHETIC CURRICULUM</span>
+      </div>
+
+      <div class="human-moment">
+        <span class="human-icon">🧭</span>
+        <span>Anik writes four words on the whiteboard, leaving two massive gaps. Trainee Sarah glances at her blank notebook, wondering what connects a defaulting bank to an unkept backyard.</span>
+      </div>
+
+      <div class="card-body">
+        <div class="narrative-col">
+          <p>
+            Welcome to the front line of mortgage default servicing. In exactly 300 minutes (280 active minutes plus two 10-minute breaks), you will accomplish something few people outside senior management ever grasp:
+          </p>
+          <div class="callout-box blue">
+            <strong>The Core Promise:</strong> You will map the entire 50-state outsourcing industry, follow one single work order from receipt to remittance, inspect the forensic photographic proof, trace where money changes hands on the Canonical Ladder, and defend an uncoached decision on a cold property case.
+          </div>
+          <p>
+            Notice the chain on the screen right now. It is <strong>deliberately broken</strong>:
+            <br>
+            <code>Loan / Property &rarr; [ ? ] &rarr; Work Order &rarr; [ ? ] &rarr; Money</code>
+          </p>
+          <p>
+            A mortgage company in New York or Charlotte owns a financial lien on a house in Ohio or Texas. The lawn is three feet high, water pipes are threatening to burst in sub-zero frost, and the back door is unlatched.
+          </p>
+          <p>
+            <strong>The gap between the money and the physical dirt is your job.</strong> By minute 300, you will confidently fill every single missing box.
+          </p>
+        </div>
+
+        <div class="visual-col">
+          <div class="visual-frame">
+            <img src="M0_visual_01_incomplete_chain.svg" alt="The Incomplete Industry Chain showing mystery gaps">
+          </div>
+          <div class="visual-caption">Figure M0.1: The Incomplete Preservation Chain — The structural gap between financial interest and physical property care.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 2: THE HONEST BOUNDARY (THREE STATUSES) -->
+    <section class="screen-card" id="screen-2" data-step="2">
+      <div class="card-header">
+        <div>
+          <div class="screen-meta">Block 1 • 00:02–00:04 • Professional Standards</div>
+          <h2 class="claim-title">What This Class Does — and Does Not — Authorise.</h2>
+        </div>
+        <span class="badge-chip">ETHICAL BOUNDARY</span>
+      </div>
+
+      <div class="human-moment">
+        <span class="human-icon">⚖️</span>
+        <span>"Do not let any certificate inflate your legal authority," Anik tells the class. "A mistake on a door lock is not a bad grade; it is an illegal lockout lawsuit."</span>
+      </div>
+
+      <div class="card-body">
+        <div class="narrative-col">
+          <p>
+            We practice radical transparency from minute two. This course delivers deep <strong>industry literacy</strong> and your first demonstrated <strong>decision skill</strong>. It does <em>not</em> make you operationally independent or grant you the unilateral right to enter property.
+          </p>
+          <p>
+            Three distinct operational statuses exist in this industry. They are never blended:
+          </p>
+          
+          <div class="callout-box blue">
+            <strong>1. Attended:</strong> You completed the 5-hour class. You know the players, the 5 work types, the 11-stop order loop, and the risk vocabulary. Today earns this status.
+          </div>
+          
+          <div class="callout-box amber">
+            <strong>2. Demonstrated in Class:</strong> You passed the provisional practice rubric on the Hour 5 unseen synthetic cold case. You caught all four deliberate failure traps and authored an approved 25-word update line.
+          </div>
+
+          <div class="callout-box red">
+            <strong>3. Operationally Authorised:</strong> <em>NOT granted by this course.</em> Authority to dispatch crews, rekey entries, approve over-allowables, or submit portal claims depends strictly upon your employer's onboarding, client portal credentials, and supervisor approval.
+          </div>
+        </div>
+
+        <div class="visual-col">
+          <div class="visual-frame">
+            <img src="M0_visual_02_three_statuses_ladder.svg" alt="Three Statuses Ladder showing the Honest Boundary fence">
+          </div>
+          <div class="visual-caption">Figure M0.2: The Three Operational Statuses — Attendance demonstrates exposure; operational authority remains the employer's prerogative.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 3: THE OPENING DIAGNOSTIC (EXERCISE X-01) -->
+    <section class="screen-card" id="screen-3" data-step="3">
+      <div class="card-header">
+        <div>
+          <div class="screen-meta">Block 1 • 00:04–00:10 • Exercise X-01 (Diagnostic)</div>
+          <h2 class="claim-title">Three Questions You Should Not Guess.</h2>
+        </div>
+        <span class="badge-chip synthetic">SILENT COMMITMENT</span>
+      </div>
+
+      <div class="human-moment">
+        <span class="human-icon">📝</span>
+        <span>The training room goes dead silent. Anik starts the 3-minute timer. "Write what you honestly believe right now," he instructs. "No talking, no checking phones. You cannot correct an instinct until you see it on paper."</span>
+      </div>
+
+      <div class="card-body">
+        <div class="narrative-col">
+          <p>
+            Before we teach you any rules, you must record your initial baseline instincts. Most industry novices get all three of these questions completely wrong because real-world preservation law contradicts common intuition.
+          </p>
+          <div class="interactive-card">
+            <div class="interactive-header">
+              <span>EXERCISE X-01: SILENT COMMITMENT SHEET</span>
+              <span id="diagnosticTimer" style="color:var(--amber-600); font-family:monospace;">03:00</span>
+            </div>
+
+            <p style="font-size:0.85rem; margin-bottom:0.75rem; color:var(--slate-600);">
+              Select your commitment for each prompt. When you lock your answers, they are stashed for your Block 12 graduation debrief.
+            </p>
+
+            <div style="margin-bottom:1rem;">
+              <p style="font-size:0.9rem; font-weight:700; color:var(--navy-800);">1. Does a vacant-looking home automatically authorise a lock change?</p>
+              <div class="option-group">
+                <button type="button" class="option-btn" data-q="q1" data-val="YES" onclick="selectOpt(this, 'q1', 'YES')">A) Yes — preserving vacant collateral requires immediate securement.</button>
+                <button type="button" class="option-btn" data-q="q1" data-val="NO" onclick="selectOpt(this, 'q1', 'NO')">B) No — visual vacancy does not equal legal authority to possess.</button>
+              </div>
+            </div>
+
+            <div style="margin-bottom:1rem;">
+              <p style="font-size:0.9rem; font-weight:700; color:var(--navy-800);">2. Does a completed job automatically mean the full amount will be paid?</p>
+              <div class="option-group">
+                <button type="button" class="option-btn" data-q="q2" data-val="YES" onclick="selectOpt(this, 'q2', 'YES')">A) Yes — if the field work was performed, the client is obligated to pay.</button>
+                <button type="button" class="option-btn" data-q="q2" data-val="NO" onclick="selectOpt(this, 'q2', 'NO')">B) No — money leaks at allowables, approvals, and proof defects.</button>
+              </div>
+            </div>
+
+            <div style="margin-bottom:1rem;">
+              <p style="font-size:0.9rem; font-weight:700; color:var(--navy-800);">3. Can a clear, date-stamped photo prove work if its landmarks show another house?</p>
+              <div class="option-group">
+                <button type="button" class="option-btn" data-q="q3" data-val="YES" onclick="selectOpt(this, 'q3', 'YES')">A) Yes — clear metadata and date stamps substantiate the job.</button>
+                <button type="button" class="option-btn" data-q="q3" data-val="NO" onclick="selectOpt(this, 'q3', 'NO')">B) No — proof fails if PLACE cannot be independently corroborated.</button>
+              </div>
+            </div>
+
+            <button type="button" class="btn-action" id="lockDiagnosticBtn" onclick="lockDiagnostic()">🔒 Lock My Baseline Answers (Store for Hour 5)</button>
+            <div id="diagnosticFeedback" style="display:none; margin-top:0.75rem; font-size:0.85rem; color:var(--green-600); font-weight:700;">
+              ✓ Baseline committed and locked. These answers are sealed until Block 12!
+            </div>
+          </div>
+        </div>
+
+        <div class="visual-col">
+          <div class="visual-frame">
+            <img src="M0_visual_04_opening_diagnostic_cards.svg" alt="Three Diagnostic Cards with pre-judgment seals">
+          </div>
+          <div class="visual-caption">Figure M0.3: Exercise X-01 Cards — The three foundational misconceptions tested before instruction begins.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 4: THE NAMING RITUAL -->
+    <section class="screen-card" id="screen-4" data-step="4">
+      <div class="card-header">
+        <div>
+          <div class="screen-meta">Classroom Standing Ritual • Minute 0 • The Spine</div>
+          <h2 class="claim-title">She Doesn't Have a Name Yet: The Naming Ritual.</h2>
+        </div>
+        <span class="badge-chip synthetic">COMPOSITE HOUSE</span>
+      </div>
+
+      <div class="human-moment">
+        <span class="human-icon">🏷️</span>
+        <span>"In this office," Anik says, resting a palm on the whiteboard, "we don't preserve numbers or spreadsheets. We preserve homes where families lived. Trainees protect what they name."</span>
+      </div>
+
+      <div class="card-body">
+        <div class="narrative-col">
+          <p>
+            Throughout these 5 hours, you will not bounce across dozens of disconnected, random example properties. Instead, our entire curriculum anchors to <strong>one single fictional composite house</strong> born in 1972.
+          </p>
+          <p>
+            Her story is the story of American housing: built during the post-war boom, mortgaged, lived in for decades, defaulted during economic shock, emptied, preserved by field crews, audited by office coordinators, and ultimately sold to a new young family.
+          </p>
+          <div class="interactive-card">
+            <div class="interactive-header">
+              <span>60-SECOND NAMING RITUAL PROTOCOL</span>
+              <span id="namingCountdown" style="color:var(--amber-600); font-family:monospace; font-weight:800;">60s</span>
+            </div>
+            <p style="font-size:0.85rem; color:var(--slate-600); margin-bottom:0.75rem;">
+              The class shouts three names and takes an immediate hand vote. If consensus is not reached within 60 seconds, the official fallback is automatically ratified.
+            </p>
+            
+            <div style="display:flex; gap:0.5rem; margin-bottom:1rem;">
+              <input type="text" id="houseNameInput" value="Maple House" style="flex:1; padding:0.6rem 0.8rem; border:1px solid var(--slate-300); border-radius:6px; font-weight:700; color:var(--navy-800);">
+              <button class="btn-action" onclick="christenHouse()">Christen House</button>
+            </div>
+            
+            <div class="callout-box amber" id="christenNotice">
+              Active House Name: <strong id="activeHouseNameDisplay">Maple House</strong> (Fictional Composite House, Built 1972). This name is now bound to every work order in your curriculum.
+            </div>
+          </div>
+          <p>
+            Once named, her name is never debated again. Whenever you inspect a photo, write a 25-word update line, or calculate debris volume, you are safeguarding her.
+          </p>
+        </div>
+
+        <div class="visual-col">
+          <div class="visual-frame">
+            <img src="M0_visual_05_naming_ritual_crest.svg" alt="Christening Deed Plate and 60-Second Ritual Rules">
+          </div>
+          <div class="visual-caption">Figure M0.4: The Naming Ritual — Empathy precedes compliance. Default fallback: Maple House.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 5: BORN IN 1972 — THE STORY OF A HOUSE -->
+    <section class="screen-card" id="screen-5" data-step="5">
+      <div class="card-header">
+        <div>
+          <div class="screen-meta">Narrative Core • 1972–2026 • The 54-Year Arc</div>
+          <h2 class="claim-title">Born in 1972: The Story of a House.</h2>
+        </div>
+        <span class="badge-chip synthetic">HISTORICAL CONTEXT</span>
+      </div>
+
+      <div class="human-moment">
+        <span class="human-icon">🏡</span>
+        <span>A technician walking into a dark utility room finds three faint pencil marks on the pantry door trim: 'Liam — age 4, age 6, age 8'. The house isn't just wood and copper; it holds 54 years of life.</span>
+      </div>
+
+      <div class="card-body">
+        <div class="narrative-col">
+          <p>
+            Our composite house was built in <strong>1972</strong> — the single largest <strong>TOTAL</strong> housing starts year in United States history (2,379,000 starts, combining 1,309,000 single-family and 1,070,000 multifamily homes).
+          </p>
+          <p>
+            She stood through the high-inflation payment shocks of 1981 when mortgage rates touched 18.63%. She stood through the subprime credit bubble of 2005. She was soundly built: Douglas fir 2x4 framing, copper domestic supply lines, asphalt shingle roofing, and poured concrete footings.
+          </p>
+          <div class="callout-box blue">
+            <strong>The Cardinal Principle:</strong> <em>"The house did not break. The mortgage loop broke."</em>
+            <br>
+            A layoff occurs. An adjustable-rate mortgage resets. Illness strikes. The family misses payment 1 (30 days delinquent), payment 2 (60 days), payment 3 (90 days). After the required 120-day loss mitigation window, the file moves into the legal foreclosure road.
+          </div>
+          <p>
+            When the family packs their remaining belongings and drives away, the house stands alone. Nobody is being paid to care for her yet. And that is when <strong>vacancy decay</strong> strikes.
+          </p>
+        </div>
+
+        <div class="visual-col">
+          <div class="visual-frame">
+            <img src="M0_visual_03_house_1972_silhouette.svg" alt="Architectural silhouette of 1972 composite house with 54-year arc">
+          </div>
+          <div class="visual-caption">Figure M0.5: The 54-Year House Arc — From peak suburban construction to foreclosure, preservation, and rebirth.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 6: VACANCY DECAY — THE SILENT THREAT -->
+    <section class="screen-card" id="screen-6" data-step="6">
+      <div class="card-header">
+        <div>
+          <div class="screen-meta">Physical Reality • The Cost of Delay • Deterioration</div>
+          <h2 class="claim-title">Vacancy Is Damage. Nobody Has to Break a Window.</h2>
+        </div>
+        <span class="badge-chip synthetic">TEACHING SKETCH</span>
+      </div>
+
+      <div class="human-moment">
+        <span class="human-icon">💧</span>
+        <span>A slow drip from an upstairs toilet supply valve drops silently onto the linoleum floor. In three weeks, that unnoticed $10 drip will cause $18,000 in ceiling rot, collapsed subfloor, and black toxic mold.</span>
+      </div>
+
+      <div class="card-body">
+        <div class="narrative-col">
+          <p>
+            Trainees often assume that empty houses stay in the condition they were left in. In truth, <strong>vacancy itself is active deterioration</strong>:
+          </p>
+          
+          <ul style="padding-left:1.25rem; display:flex; flex-direction:column; gap:0.6rem;">
+            <li><strong>Week 1 (Visual Signals):</strong> The front lawn overgrows beyond municipal code limits (6–10 inches). Mail accumulates in the box. Circular flyers pile on the porch. Every neighbor and passerby now knows the property is empty.</li>
+            <li><strong>Weeks 2–4 (Moisture Infiltration):</strong> A sudden cold snap freezes water trapped in uninsulated copper supply elbows. The metal splits. When daytime temperatures warm, pressurized water gushes through the walls.</li>
+            <li><strong>Month 2 (Environmental Hazard):</strong> Warm standing moisture fuels microbial growth. Toxic mold climbs the drywall, infesting studs and HVAC ductwork.</li>
+            <li><strong>Month 3+ (Vandalism &amp; Blight):</strong> Scrappers force the rear door, stripping copper piping and the central AC condenser. The property becomes a neighborhood hazard and town code violation.</li>
+          </ul>
+
+          <div class="callout-box red">
+            <strong>The Business Mission:</strong> Property preservation is <em>controlled intervention</em> to protect a financial asset and eliminate avoidable loss, liability, and municipal fines.
+          </div>
+        </div>
+
+        <div class="visual-col">
+          <div class="callout-box amber" style="height:100%; display:flex; flex-direction:column; justify-content:center; gap:1rem;">
+            <h4 style="color:#92400e; font-size:1.1rem; border-bottom:1px solid #fde68a; padding-bottom:0.4rem;">The Five Core Physical Preservations You Will Master:</h4>
+            <div><strong>1. Grass Cut &amp; Recut:</strong> The house's public face; prevents code citations and signals active maintenance.</div>
+            <div><strong>2. Initial Secure:</strong> Perimeter control; lockbox mounting and boarding compromised entry points.</div>
+            <div><strong>3. Winterization:</strong> Freeze defense; draining lines and protecting fixtures with propylene glycol.</div>
+            <div><strong>4. Debris Cleanout:</strong> Health and hazard removal; measured strictly in Cubic Yards (L×W×H ÷ 27).</div>
+            <div><strong>5. Property Inspection:</strong> The eyes and ears of the servicer; the inspection report IS the product.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 7: THE CORE MENTAL MODEL — THREE SEPARATE STATES -->
+    <section class="screen-card" id="screen-7" data-step="7">
+      <div class="card-header">
+        <div>
+          <div class="screen-meta">Block 2 Foundation • Cognitive Discipline • Core Axiom</div>
+          <h2 class="claim-title">Three Separate States. Never Collapse Them.</h2>
+        </div>
+        <span class="badge-chip">DISCIPLINE RULE</span>
+      </div>
+
+      <div class="human-moment">
+        <span class="human-icon">🧠</span>
+        <span>A rookie processor sees a work order marked 'Complete' in PPW and clicks 'Submit'. Two days later, a national client rejects the entire invoice: the crew forgot the after photos. 'Complete' was a claim; 'Verified' was the missing proof.</span>
+      </div>
+
+      <div class="card-body">
+        <div class="narrative-col">
+          <p>
+            If you remember only one cognitive rule from this orientation, let it be this: <strong>you must maintain three completely separate judgments at all times</strong>:
+          </p>
+          
+          <div class="callout-box blue">
+            <strong>1. The Property State:</strong> What is the physical reality on the dirt? Is the house occupied, vacant, or uncertain? Are there broken windows, gas leaks, or overgrown grass?
+          </div>
+
+          <div class="callout-box amber">
+            <strong>2. The Legal Authority State:</strong> Who owns or controls the property under state law? Does the lender have a foreclosure judgment, or does the borrower still retain title under state lien theory?
+          </div>
+
+          <div class="callout-box green">
+            <strong>3. The Work-Order State:</strong> What is the lifecycle status of the paperwork? Has the order been received, dispatched, completed in the field, verified by QC, or approved for billing?
+          </div>
+
+          <p style="font-weight:700; color:var(--red-600);">
+            NEVER collapse these three into one sentence!
+          </p>
+          <p>
+            A home can <em>appear completely vacant</em> yet the company lacks legal authority to change the lock. A job can be <em>physically finished</em> in the backyard yet the work order remains <em>legally unpayable</em> because the wide photo is missing.
+          </p>
+        </div>
+
+        <div class="visual-col">
+          <div class="callout-box blue" style="height:100%; display:flex; flex-direction:column; justify-content:center; gap:1.25rem;">
+            <h4 style="color:#1e40af; font-size:1.15rem; border-bottom:1px solid #bfdbfe; padding-bottom:0.5rem;">The Golden Classroom Rule Card:</h4>
+            <div style="font-size:1.4rem; font-family:var(--font-serif); font-weight:700; color:var(--navy-800); text-align:center;">
+              "Permission first.<br>Proof always."
+            </div>
+            <p style="font-size:0.9rem; color:var(--slate-600); text-align:center;">
+              If authority is uncertain &rarr; <strong>HOLD</strong>.<br>
+              If a photo gap exists &rarr; <strong>SEND BACK TO FIELD</strong>.<br>
+              Never paper over a gap.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 8: CALLBACK & ORIENTATION CHECKPOINT -->
+    <section class="screen-card" id="screen-8" data-step="8">
+      <div class="card-header">
+        <div>
+          <div class="screen-meta">Block 1 Transition • 00:10 Milestone • Ready for M1</div>
+          <h2 class="claim-title">The Foundation Is Set. The Story Begins.</h2>
+        </div>
+        <span class="badge-chip synthetic">MILESTONE PASSED</span>
+      </div>
+
+      <div class="human-moment">
+        <span class="human-icon">🎯</span>
+        <span>Anik looks across the classroom. Every desk has a paper diagnostic locked away, the wall carries the christened house name, and the three statuses stand on the board. "Orientation is over," he says. "Now let's see how this whole system was built."</span>
+      </div>
+
+      <div class="card-body">
+        <div class="narrative-col">
+          <p>
+            You have now completed <strong>Module 0 (Course Orientation &amp; The Honest Boundary)</strong>. You have established:
+          </p>
+          <ul style="padding-left:1.25rem; display:flex; flex-direction:column; gap:0.5rem;">
+            <li>The 300-minute curriculum trajectory and promise.</li>
+            <li>The Three Statuses (Attended, Demonstrated, Authorised) and the honest operational boundary.</li>
+            <li>Your locked baseline instincts on the three diagnostic dilemmas.</li>
+            <li>The christening of <strong id="summaryHouseName">Maple House</strong>, born in 1972.</li>
+            <li>The separation of Property State, Legal Authority, and Work-Order State.</li>
+          </ul>
+
+          <div class="callout-box green" style="margin-top:1rem;">
+            <strong>Next Up — Module 1: The Macro System &amp; The Boom:</strong>
+            <br>
+            We travel back to 1945: how war factories converted to suburban tracts, how the GI Bill and FHA shaped the 30-year mortgage, the stark exclusion filter of redlining, and the two historical building peaks of 1972 and 2005.
+          </div>
+        </div>
+
+        <div class="visual-col">
+          <div class="callout-box amber" style="display:flex; flex-direction:column; gap:1rem; justify-content:center;">
+            <h4 style="color:#92400e; font-size:1.1rem;">Ready to Advance?</h4>
+            <p style="font-size:0.9rem; color:var(--slate-700);">
+              Review any drawer materials above if you need clarity on definitions or boundaries. When ready, click next or proceed to Module 1.
+            </p>
+            <div style="display:flex; gap:0.75rem;">
+              <button class="btn-action" style="background:var(--amber-500); color:var(--navy-900);" onclick="openDrawer('moduleMapDrawer')">View Class Syllabus Map</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Player Navigation Controller -->
+  <footer class="player-nav">
+    <div class="nav-stats">
+      <span>Screen <strong id="currentStepDisplay">1</strong> of <strong>8</strong></span>
+      <span style="color:rgba(255,255,255,0.4)">|</span>
+      <span>Elapsed Time: <strong>00:00–00:10</strong> (Orientation Block)</span>
+      <span style="color:rgba(255,255,255,0.4)">|</span>
+      <span>Active House: <strong id="footerHouseName" style="color:var(--amber-500);">Maple House</strong></span>
+    </div>
+
+    <div class="nav-controls">
+      <button class="nav-btn" id="prevBtn" onclick="prevScreen()" disabled>&larr; Previous</button>
+      <button class="nav-btn primary" id="nextBtn" onclick="nextScreen()">Next Screen &rarr;</button>
+    </div>
+  </footer>
+
+  <!-- ================= DRAWERS / FLYOUTS ================= -->
+
+  <!-- DRAWER 1: MODULE MAP (M0–M10) -->
+  <div class="drawer-overlay" id="moduleMapDrawer">
+    <div class="drawer-content">
+      <div class="drawer-header">
+        <h3>Property Preservation 5-Hour Master Curriculum (M0–M10)</h3>
+        <button class="drawer-close" onclick="closeDrawer('moduleMapDrawer')">&times;</button>
+      </div>
+      <div class="drawer-body">
+        <p>The course consists strictly of 11 modules totaling 300 minutes (280 active minutes + 20 minutes scheduled breaks). Governing frozen schedule:</p>
+        
+        <div class="module-grid">
+          <div class="module-item active-mod">
+            <strong>M0: Five Hours. One House. The Whole Chain. (10m)</strong><br>
+            Orientation, honest boundary, 3 statuses, diagnostic X-01, naming ritual.
+          </div>
+          <div class="module-item">
+            <strong>M1: The Chain Is Illustrative; the Handoffs Are Real. (25m)</strong><br>
+            The 5-link chain, 3 separate states, why preservation exists, actor cards.
+          </div>
+          <div class="module-item">
+            <strong>M2: Five Forces Built the System — and the Filter. (30m)</strong><br>
+            Causal map, boom &amp; exclusion filter, 1972 TOTAL vs 2005 SF, economy loop.
+          </div>
+          <div class="module-item">
+            <strong>M3: Default Has an Order. Do Not Reorder It. (20m)</strong><br>
+            (01:05–01:25) Foreclosure road, 120-day rule, labeled numbers, vacancy decay.
+          </div>
+          <div class="module-item">
+            <strong>M4: Rebuild the Chain Before Moving Forward. (10m)</strong><br>
+            Individual chain retrieval, unassisted reflection, misconception correction.
+          </div>
+          <div class="module-item" style="border-style:dashed; background:#f8fafc;">
+            <strong>Break 1: Scheduled Break (10m)</strong><br>
+            (01:35–01:45) Mid-morning classroom pause.
+          </div>
+          <div class="module-item">
+            <strong>M5: Four Layers of Authority Govern Every Handoff. (30m)</strong><br>
+            Four layers of authority, role swimlane (VM, Processor, Approver, CM), 4-field handoff.
+          </div>
+          <div class="module-item">
+            <strong>M6: Eleven Stops, One Clean Handoff: The Permission Gate. (35m)</strong><br>
+            One work order end to end, PPW vs Portal, permission gate deep dive, Occupancy Lab 1.
+          </div>
+          <div class="module-item">
+            <strong>M7: Five Jobs, Five Standards: Done Is a Claim, Proof Is the Test. (25m)</strong><br>
+            Grass, Secure, Winterization, Debris, Inspection side-by-side matrix; damage kinds.
+          </div>
+          <div class="module-item" style="border-style:dashed; background:#f8fafc;">
+            <strong>Break 2: Scheduled Break (10m)</strong><br>
+            (03:15–03:25) Mid-afternoon classroom pause.
+          </div>
+          <div class="module-item">
+            <strong>M8: PLACE / TIME / SCOPE / CLARITY — The Missing Shot Is the Verdict. (35m)</strong><br>
+            Four lenses plus AUTHORITY gate; five synthetic failure labs.
+          </div>
+          <div class="module-item">
+            <strong>M9: Money Leaks at Every Handoff: Follow the Dollar. (25m)</strong><br>
+            Canonical ladder from BID, CY math race, 6 loss codes, address chains.
+          </div>
+          <div class="module-item">
+            <strong>M10: The Cold Capstone: Four Traps, One Unseen House, Full Defense. (35m)</strong><br>
+            Unseen 4-trap cold case defense, 25-word update line, post-check debrief &amp; close.
+          </div>
+        </div>
+        <p style="margin-top:0.75rem; font-size:0.85rem; font-weight:700; color:var(--navy-800);">
+          Total Schedule: 280 Active Minutes + 20 Break Minutes = 300 Minutes Elapsed.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DRAWER 2: THREE STATUSES BREAKDOWN -->
+  <div class="drawer-overlay" id="threeStatusesDrawer">
+    <div class="drawer-content">
+      <div class="drawer-header">
+        <h3>The Three Operational Statuses Explained</h3>
+        <button class="drawer-close" onclick="closeDrawer('threeStatusesDrawer')">&times;</button>
+      </div>
+      <div class="drawer-body">
+        <h4>1. Attended</h4>
+        <p><strong>Definition:</strong> The participant was present for the complete 300 minutes (280 active minutes of instruction and practice). Understands industry structure, vocabulary, roles, and risks.</p>
+        <p><strong>Limitation:</strong> Does not substantiate ability to perform work unassisted.</p>
+
+        <h4>2. Demonstrated in Class</h4>
+        <p><strong>Definition:</strong> The participant successfully passed the independent Hour 5 Capstone evaluation by identifying all four deliberate failure traps (Occupancy defect, Photo gap, Winterization pressure failure, CY math calculation) and authoring a compliant &le;25-word Update Line.</p>
+        <p><strong>Limitation:</strong> Validates classroom simulation competence on synthetic files only.</p>
+
+        <h4>3. Operationally Authorised</h4>
+        <p><strong>Definition:</strong> Formal legal and administrative authority granted by an employer to dispatch contractors, change door locks, approve over-allowable work, or transmit claims to clients.</p>
+        <p><strong>Limitation:</strong> Can NEVER be granted by a training course. Requires employer SOP onboarding, background verification, portal access credentials, and direct managerial supervision.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DRAWER 3: HONEST BOUNDARY -->
+  <div class="drawer-overlay" id="honestBoundaryDrawer">
+    <div class="drawer-content">
+      <div class="drawer-header">
+        <h3>The Honest Boundary &amp; Legal Disclaimers</h3>
+        <button class="drawer-close" onclick="closeDrawer('honestBoundaryDrawer')">&times;</button>
+      </div>
+      <div class="drawer-body">
+        <h4>Educational &amp; Simulation Scope</h4>
+        <p>All data, property addresses, work orders, contractor names, dollar amounts, and scenarios used throughout this training program are 100% synthetic and fictional. Any resemblance to real properties, contractors, or specific corporate entities is purely coincidental.</p>
+        
+        <h4>No Legal Advice</h4>
+        <p>This class teaches operational risk awareness, not legal counsel. Legal statutes such as <em>Jordan v. Nationstar</em> (RCW 7.28.230) and HUD Mortgagee Letters (ML 2016-02) are presented as historical and operational boundaries. Trainees must always adhere to the specific client rulebook and employer SOP governing their active jurisdiction.</p>
+
+        <h4>Stop &amp; Hold Authority</h4>
+        <p><strong>HOLD:</strong> Decided prior to work starting when permission or occupancy is uncertain.<br>
+        <strong>STOP:</strong> Decided during active field work when an immediate safety hazard, environmental danger, or live occupant is discovered.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DRAWER 4: GLOSSARY -->
+  <div class="drawer-overlay" id="glossaryDrawer">
+    <div class="drawer-content">
+      <div class="drawer-header">
+        <h3>Master Domain Glossary (10 Core Terms)</h3>
+        <button class="drawer-close" onclick="closeDrawer('glossaryDrawer')">&times;</button>
+      </div>
+      <div class="drawer-body">
+        <h4>1. Bretton Woods (1944)</h4>
+        <p>The international agreement that stabilized world currencies and monetary systems post-WWII so nations could rebuild and trade.</p>
+
+        <h4>2. Marshall Plan (1948–1952)</h4>
+        <p>America's post-war European economic recovery program providing financial aid and commodities to reconstruct war-torn nations.</p>
+
+        <h4>3. GI Bill (1944)</h4>
+        <p>Federal law providing loan guarantees enabling millions of returning military veterans to buy houses without steep cash down payments.</p>
+
+        <h4>4. FHA (Federal Housing Administration)</h4>
+        <p>Federal agency created in 1934 that <strong>insures</strong> private mortgages; <em>it does NOT lend money.</em></p>
+
+        <h4>5. Securitisation</h4>
+        <p>The financial process of pooling thousands of individual home mortgages together and selling them as mortgage-backed securities (MBS) to institutional investors.</p>
+
+        <h4>6. Thrift / S&amp;L (Savings and Loan Association)</h4>
+        <p>A local depository financial institution that accepted household savings and invested them primarily in residential mortgages.</p>
+
+        <h4>7. REO (Real Estate Owned)</h4>
+        <p>A residential property owned directly by a bank, lender, or servicer following an unsuccessful sale at a foreclosure auction.</p>
+
+        <h4>8. HUD Home</h4>
+        <p>A 1-to-4 unit residential property acquired by HUD as a result of foreclosure on an FHA-insured loan, sold as-is.</p>
+
+        <h4>9. Loss Mitigation</h4>
+        <p>The specialized servicer division that helps delinquent borrowers avoid foreclosure through forbearance, loan mod, short sale, or deed-in-lieu.</p>
+
+        <h4>10. Conveyance</h4>
+        <p>The formal legal and physical transfer of a cleared, preserved property from the foreclosing servicer to the insuring agency (e.g., HUD or Fannie Mae).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Player Script -->
+  <script>
+    let currentStep = 1;
+    const totalSteps = 8;
+    let chosenHouseName = "Maple House";
+    const userAnswers = { q1: null, q2: null, q3: null };
+
+    function updateView() {
+      // Toggle screens
+      document.querySelectorAll('.screen-card').forEach((card, idx) => {
+        if (idx + 1 === currentStep) {
+          card.classList.add('active');
+        } else {
+          card.classList.remove('active');
+        }
+      });
+
+      // Update counter and progress rail
+      document.getElementById('currentStepDisplay').innerText = currentStep;
+      const progressPercent = (currentStep / totalSteps) * 100;
+      document.getElementById('railTrack').style.width = progressPercent + '%';
+
+      // Button states
+      document.getElementById('prevBtn').disabled = (currentStep === 1);
+      const nextBtn = document.getElementById('nextBtn');
+      if (currentStep === totalSteps) {
+        nextBtn.innerText = "Module 0 Complete ✓";
+        nextBtn.classList.remove('primary');
+      } else {
+        nextBtn.innerText = "Next Screen →";
+        nextBtn.classList.add('primary');
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function nextScreen() {
+      if (currentStep < totalSteps) {
+        currentStep++;
+        updateView();
+      }
+    }
+
+    function prevScreen() {
+      if (currentStep > 1) {
+        currentStep--;
+        updateView();
+      }
+    }
+
+    // Keyboard navigation
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+        nextScreen();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        prevScreen();
+      } else if (e.key === 'Escape') {
+        closeAllDrawers();
+      }
+    });
+
+    // Drawer management
+    function openDrawer(id) {
+      document.getElementById(id).classList.add('open');
+    }
+
+    function closeDrawer(id) {
+      document.getElementById(id).classList.remove('open');
+    }
+
+    function closeAllDrawers() {
+      document.querySelectorAll('.drawer-overlay').forEach(d => d.classList.remove('open'));
+    }
+
+    // Close on backdrop click
+    document.querySelectorAll('.drawer-overlay').forEach(overlay => {
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+          overlay.classList.remove('open');
+        }
+      });
+    });
+
+    let isDiagnosticLocked = false;
+
+    // Exercise X-01 Interactive
+    function selectOpt(btn, questionId, val) {
+      if (isDiagnosticLocked) return;
+      const parent = btn.parentElement;
+      parent.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      userAnswers[questionId] = val;
+    }
+
+    function lockDiagnostic() {
+      if (isDiagnosticLocked) return;
+      if (!userAnswers.q1 || !userAnswers.q2 || !userAnswers.q3) {
+        alert("Please make a selection for all three questions before locking your answers.");
+        return;
+      }
+      applyDiagnosticLockUI(true);
+    }
+
+    function applyDiagnosticLockUI(isNew) {
+      isDiagnosticLocked = true;
+      // Disable and freeze all option buttons on screen
+      document.querySelectorAll('.interactive-card .option-btn').forEach(btn => {
+        btn.disabled = true;
+        btn.style.pointerEvents = 'none';
+        btn.style.cursor = 'not-allowed';
+        if (!btn.classList.contains('selected')) {
+          btn.style.opacity = '0.45';
+        } else {
+          btn.style.borderColor = 'var(--green-600)';
+          btn.style.background = 'var(--green-100)';
+          btn.style.color = '#065f46';
+          btn.style.fontWeight = '700';
+        }
+      });
+
+      // Freeze lock button
+      const lockBtn = document.getElementById('lockDiagnosticBtn');
+      if (lockBtn) {
+        lockBtn.disabled = true;
+        lockBtn.style.cursor = 'not-allowed';
+        lockBtn.style.background = '#047857';
+        lockBtn.innerText = "🔒 Answers Sealed & Locked (Hour 5 Debrief)";
+      }
+
+      // Show persistent feedback notification
+      const feedback = document.getElementById('diagnosticFeedback');
+      if (feedback) {
+        feedback.style.display = "block";
+        feedback.innerHTML = "✓ Baseline committed and locked. These answers are sealed and cannot be changed on screen or upon page reload until Block 12!";
+      }
+
+      if (isNew) {
+        localStorage.setItem('m0_diagnostic_locked', 'true');
+        localStorage.setItem('m0_diagnostic_answers', JSON.stringify(userAnswers));
+        localStorage.setItem('m0_diagnostic_time', new Date().toISOString());
+      }
+    }
+
+    function restoreDiagnosticState() {
+      const locked = localStorage.getItem('m0_diagnostic_locked');
+      const savedAnswers = localStorage.getItem('m0_diagnostic_answers');
+      if (locked === 'true' && savedAnswers) {
+        try {
+          const parsed = JSON.parse(savedAnswers);
+          userAnswers.q1 = parsed.q1;
+          userAnswers.q2 = parsed.q2;
+          userAnswers.q3 = parsed.q3;
+
+          ['q1', 'q2', 'q3'].forEach(qId => {
+            const val = parsed[qId];
+            if (val) {
+              const matchingBtn = document.querySelector(`.interactive-card button[data-q="${qId}"][data-val="${val}"]`);
+              if (matchingBtn) {
+                matchingBtn.classList.add('selected');
+              }
+            }
+          });
+
+          applyDiagnosticLockUI(false);
+        } catch (e) {
+          console.error("Error restoring diagnostic state:", e);
+        }
+      }
+
+      // Restore house name if christened
+      const savedHouse = localStorage.getItem('m0_house_name');
+      if (savedHouse) {
+        chosenHouseName = savedHouse;
+        const input = document.getElementById('houseNameInput');
+        if (input) input.value = savedHouse;
+        const disp = document.getElementById('activeHouseNameDisplay');
+        if (disp) disp.innerText = savedHouse;
+        const ftr = document.getElementById('footerHouseName');
+        if (ftr) ftr.innerText = savedHouse;
+        const sum = document.getElementById('summaryHouseName');
+        if (sum) sum.innerText = savedHouse;
+      }
+    }
+
+    // Call restore on page initialization
+    window.addEventListener('DOMContentLoaded', restoreDiagnosticState);
+
+    // Naming Ritual
+    function christenHouse() {
+      const name = document.getElementById('houseNameInput').value.trim();
+      if (name) {
+        chosenHouseName = name;
+        document.getElementById('activeHouseNameDisplay').innerText = chosenHouseName;
+        document.getElementById('footerHouseName').innerText = chosenHouseName;
+        document.getElementById('summaryHouseName').innerText = chosenHouseName;
+        localStorage.setItem('m0_house_name', chosenHouseName);
+      }
+    }
+  </script>
+</body>
+</html>

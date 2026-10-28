@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="m0-bg-2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF8"/>
+      <stop offset="100%" stop-color="#F4EFE6"/>
+    </linearGradient>
+    <filter id="m0-shadow-2" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#12263F" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" fill="url(#m0-bg-2)"/>
+  <rect x="24" y="24" width="912" height="492" rx="12" fill="none" stroke="#D6C8B2" stroke-width="1.5"/>
+
+  <!-- Header Banner -->
+  <rect x="40" y="40" width="880" height="48" rx="6" fill="#12263F"/>
+  <text x="56" y="70" font-family="'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="800" fill="#F59E0B" letter-spacing="1.5">WHAT THIS CLASS DOES — AND DOES NOT — AUTHORISE</text>
+  <text x="540" y="70" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="600" fill="#E2E8F0">[HONEST BOUNDARY — THREE STATUSES]</text>
+  <rect x="800" y="52" width="106" height="24" rx="4" fill="#047857"/>
+  <text x="853" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8" text-anchor="middle">GOVERNANCE</text>
+
+  <!-- Subtitle -->
+  <text x="40" y="114" font-family="Georgia, serif" font-size="17" font-weight="700" fill="#12263F">Three statuses exist in this industry. Never collapse or confuse them on a résumé or in an office.</text>
+
+  <!-- Three Columns / Status Cards -->
+  <!-- Status 1: ATTENDED -->
+  <g transform="translate(40, 135)">
+    <rect x="0" y="0" width="275" height="295" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#m0-shadow-2)"/>
+    <rect x="0" y="0" width="275" height="8" rx="4" fill="#0284C7"/>
+    
+    <rect x="18" y="22" width="85" height="22" rx="4" fill="#E0F2FE"/>
+    <text x="60" y="37" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="800" fill="#0369A1" text-anchor="middle">STATUS 1</text>
+    
+    <text x="18" y="68" font-family="Georgia, serif" font-size="22" font-weight="800" fill="#12263F">Attended</text>
+    <text x="18" y="90" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#0284C7">Completed 300-min Immersion</text>
+    
+    <line x1="18" y1="104" x2="257" y2="104" stroke="#F1F5F9" stroke-width="2"/>
+    
+    <text x="18" y="125" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#334155">What You Possess:</text>
+    <text x="18" y="145" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" fill="#475569">• Full industry vocabulary &amp; actors</text>
+    <text x="18" y="165" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" fill="#475569">• 5-link chain &amp; 11-stop order flow</text>
+    <text x="18" y="185" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" fill="#475569">• The 5 primary preservation work types</text>
+    <text x="18" y="205" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" fill="#475569">• Basic photo standards &amp; loss codes</text>
+    
+    <rect x="18" y="235" width="239" height="42" rx="6" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="1"/>
+    <text x="28" y="253" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="800" fill="#0369A1">EARNED TODAY:</text>
+    <text x="28" y="268" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#0C4A6E">Valid for course completion verification.</text>
+  </g>
+
+  <!-- Status 2: DEMONSTRATED IN CLASS -->
+  <g transform="translate(342, 135)">
+    <rect x="0" y="0" width="275" height="295" rx="8" fill="#FFFFFF" stroke="#F59E0B" stroke-width="2" filter="url(#m0-shadow-2)"/>
+    <rect x="0" y="0" width="275" height="8" rx="4" fill="#F59E0B"/>
+    
+    <rect x="18" y="22" width="145" height="22" rx="4" fill="#FEF3C7"/>
+    <text x="90" y="37" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="800" fill="#B45309" text-anchor="middle">STATUS 2 (BENCHMARK)</text>
+    
+    <text x="18" y="68" font-family="Georgia, serif" font-size="20" font-weight="800" fill="#12263F">Demonstrated</text>
+    <text x="18" y="90" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#D97706">Met Capstone Synthetic Rubric</text>
+    
+    <line x1="18" y1="104" x2="257" y2="104" stroke="#F1F5F9" stroke-width="2"/>
+    
+    <text x="18" y="125" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#334155">What You Demonstrated:</text>
+    <text x="18" y="145" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" fill="#475569">• Unseen cold case audit (0 coaching)</text>
+    <text x="18" y="165" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" fill="#475569">• Caught 4 deliberate failure traps</text>
+    <text x="18" y="185" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" fill="#475569">• Compliant ≤25-word Update Line</text>
+    <text x="18" y="205" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" fill="#475569">• Cubic yard formula &amp; ladder audit</text>
+    
+    <rect x="18" y="235" width="239" height="42" rx="6" fill="#FFFBEB" stroke="#FDE68A" stroke-width="1"/>
+    <text x="28" y="253" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="800" fill="#B45309">HOUR 5 REQUIREMENT:</text>
+    <text x="28" y="268" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#78350F">Provisional classroom decision skill.</text>
+  </g>
+
+  <!-- Status 3: OPERATIONALLY AUTHORISED -->
+  <g transform="translate(645, 135)">
+    <rect x="0" y="0" width="275" height="295" rx="8" fill="#FAFAFA" stroke="#E11D48" stroke-width="1.5" stroke-dasharray="5 3" filter="url(#m0-shadow-2)"/>
+    <rect x="0" y="0" width="275" height="8" rx="4" fill="#E11D48"/>
+    
+    <rect x="18" y="22" width="135" height="22" rx="4" fill="#FFE4E6"/>
+    <text x="85" y="37" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="800" fill="#BE123C" text-anchor="middle">STATUS 3 (RESTRICTED)</text>
+    
+    <text x="18" y="68" font-family="Georgia, serif" font-size="20" font-weight="800" fill="#9F1239">Authorised</text>
+    <text x="18" y="90" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#E11D48">NOT GRANTED BY THIS COURSE</text>
+    
+    <line x1="18" y1="104" x2="257" y2="104" stroke="#F1F5F9" stroke-width="2"/>
+    
+    <text x="18" y="125" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#334155">Only Granted By Employer Via:</text>
+    <text x="18" y="145" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" fill="#475569">• Live company SOP onboarding</text>
+    <text x="18" y="165" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" fill="#475569">• Client-specific portal permissions</text>
+    <text x="18" y="185" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" fill="#475569">• State licensing &amp; contractor insurance</text>
+    <text x="18" y="205" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" fill="#475569">• Direct supervisor sign-off on live jobs</text>
+    
+    <rect x="18" y="235" width="239" height="42" rx="6" fill="#FFF1F2" stroke="#FECDD3" stroke-width="1"/>
+    <text x="28" y="253" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="800" fill="#BE123C">THE HONEST FENCE:</text>
+    <text x="28" y="268" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#881337">No course alone authorises field entry.</text>
+  </g>
+
+  <!-- Bottom Legal / Boundary Ribbon -->
+  <g transform="translate(40, 448)">
+    <rect x="0" y="0" width="880" height="42" rx="6" fill="#1E293B"/>
+    <text x="20" y="26" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="700" fill="#F8FAFC">
+      CORE DISCIPLINE: Attendance demonstrates exposure. The capstone demonstrates synthetic skill. Authority remains your employer's legal judgment.
+    </text>
+  </g>
+</svg>

@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="m0-bg-3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF8"/>
+      <stop offset="100%" stop-color="#F4EFE6"/>
+    </linearGradient>
+    <filter id="m0-shadow-3" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#12263F" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" fill="url(#m0-bg-3)"/>
+  <rect x="24" y="24" width="912" height="492" rx="12" fill="none" stroke="#D6C8B2" stroke-width="1.5"/>
+
+  <!-- Header Banner -->
+  <rect x="40" y="40" width="880" height="48" rx="6" fill="#12263F"/>
+  <text x="56" y="70" font-family="'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="800" fill="#F59E0B" letter-spacing="1.5">BORN IN 1972: THE COMPOSITE HOUSE SPINE</text>
+  <text x="460" y="70" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="600" fill="#E2E8F0">[FICTIONAL COMPOSITE — DEFAULT: MAPLE HOUSE]</text>
+  <rect x="800" y="52" width="106" height="24" rx="4" fill="#B45309"/>
+  <text x="853" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8" text-anchor="middle">54-YEAR ARC</text>
+
+  <!-- Subtitle -->
+  <text x="40" y="114" font-family="Georgia, serif" font-size="17" font-weight="700" fill="#12263F">"She does not break on her own. The mortgage loop breaks, and the elements step in."</text>
+
+  <!-- Main House Illustration & Cutaway Area -->
+  <g transform="translate(60, 135)">
+    <!-- Sky / Ambient Box -->
+    <rect x="0" y="0" width="460" height="280" rx="8" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.5"/>
+    
+    <!-- Sun / 1972 Era Marker -->
+    <circle cx="60" cy="50" r="22" fill="#FEF3C7" stroke="#FDE68A" stroke-width="2"/>
+    <text x="60" y="54" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800" fill="#B45309" text-anchor="middle">1972</text>
+
+    <!-- Ground Line -->
+    <rect x="20" y="225" width="420" height="45" rx="4" fill="#E2E8F0"/>
+    <line x1="20" y1="225" x2="440" y2="225" stroke="#94A3B8" stroke-width="2"/>
+    
+    <!-- Grass blades illustration (overgrown indicator) -->
+    <path d="M 30 225 L 35 205 L 40 225 M 50 225 L 55 198 L 62 225 M 390 225 L 396 200 L 405 225 M 415 225 L 422 195 L 430 225" stroke="#16A34A" stroke-width="2" fill="none"/>
+
+    <!-- House Silhouette & Structure -->
+    <!-- Main Body -->
+    <polygon points="120,120 230,50 340,120 340,225 120,225" fill="#FFFFFF" stroke="#334155" stroke-width="2.5"/>
+    <!-- Roof overhang -->
+    <polygon points="105,125 230,45 355,125 345,130 230,58 115,130" fill="#475569"/>
+    
+    <!-- Chimney -->
+    <rect x="280" y="65" width="28" height="40" fill="#94A3B8" stroke="#334155" stroke-width="1.5"/>
+
+    <!-- Windows (2nd floor / Attic vent) -->
+    <rect x="218" y="85" width="24" height="24" rx="2" fill="#E0F2FE" stroke="#334155" stroke-width="1.5"/>
+    <line x1="230" y1="85" x2="230" y2="109" stroke="#334155" stroke-width="1.5"/>
+    
+    <!-- Windows (Main floor) -->
+    <rect x="145" y="145" width="45" height="40" fill="#E0F2FE" stroke="#334155" stroke-width="1.5"/>
+    <line x1="167" y1="145" x2="167" y2="185" stroke="#334155" stroke-width="1"/>
+    <line x1="145" y1="165" x2="190" y2="165" stroke="#334155" stroke-width="1"/>
+
+    <rect x="270" y="145" width="45" height="40" fill="#E0F2FE" stroke="#334155" stroke-width="1.5"/>
+    <line x1="292" y1="145" x2="292" y2="185" stroke="#334155" stroke-width="1"/>
+    <line x1="270" y1="165" x2="315" y2="165" stroke="#334155" stroke-width="1"/>
+
+    <!-- Front Door (Permission Gate) -->
+    <rect x="212" y="155" width="36" height="70" fill="#CBD5E1" stroke="#334155" stroke-width="2"/>
+    <circle cx="218" cy="192" r="3" fill="#D97706"/> <!-- Lock / Doorknob -->
+    
+    <!-- Front Porch Steps -->
+    <rect x="206" y="215" width="48" height="10" fill="#94A3B8" stroke="#334155" stroke-width="1"/>
+
+    <!-- Door Height Marks Detail (Human Moment) -->
+    <line x1="214" y1="180" x2="217" y2="180" stroke="#64748B" stroke-width="1"/>
+    <line x1="214" y1="172" x2="218" y2="172" stroke="#64748B" stroke-width="1"/>
+    <line x1="214" y1="165" x2="217" y2="165" stroke="#64748B" stroke-width="1"/>
+
+    <!-- House Badge -->
+    <rect x="15" y="15" width="165" height="24" rx="4" fill="#12263F"/>
+    <text x="97" y="31" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#F59E0B" text-anchor="middle">54-YEAR PHYSICAL ASSET</text>
+  </g>
+
+  <!-- Narrative Timeline & The Five Vulnerability Points -->
+  <g transform="translate(545, 135)">
+    <rect x="0" y="0" width="375" height="280" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#m0-shadow-3)"/>
+    <rect x="0" y="0" width="375" height="6" rx="3" fill="#12263F"/>
+
+    <text x="20" y="28" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#12263F" letter-spacing="1">THE HOUSE LIFECYCLE (M0–M10 ARC):</text>
+
+    <!-- Step 1 -->
+    <g transform="translate(20, 42)">
+      <circle cx="10" cy="10" r="10" fill="#1E3A8A"/>
+      <text x="10" y="14" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800" fill="#FFFDF8" text-anchor="middle">A</text>
+      <text x="28" y="10" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#1E293B">1972 Construction (M0–M1)</text>
+      <text x="28" y="24" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#64748B">Born in peak boom; suburban mortgage promise.</text>
+    </g>
+
+    <!-- Step 2 -->
+    <g transform="translate(20, 84)">
+      <circle cx="10" cy="10" r="10" fill="#B45309"/>
+      <text x="10" y="14" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800" fill="#FFFDF8" text-anchor="middle">B</text>
+      <text x="28" y="10" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#1E293B">Default &amp; Vacancy Decay (M2)</text>
+      <text x="28" y="24" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#64748B">Payments stop. Lawn overgrows; pipe seals dry.</text>
+    </g>
+
+    <!-- Step 3 -->
+    <g transform="translate(20, 126)">
+      <circle cx="10" cy="10" r="10" fill="#0369A1"/>
+      <text x="10" y="14" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800" fill="#FFFDF8" text-anchor="middle">C</text>
+      <text x="28" y="10" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#1E293B">Dispatch &amp; Authority Gate (M3–M6)</text>
+      <text x="28" y="24" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#64748B">Order issued. Is she vacant? Jordan rule applies.</text>
+    </g>
+
+    <!-- Step 4 -->
+    <g transform="translate(20, 168)">
+      <circle cx="10" cy="10" r="10" fill="#047857"/>
+      <text x="10" y="14" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800" fill="#FFFDF8" text-anchor="middle">D</text>
+      <text x="28" y="10" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#1E293B">Preservation &amp; Forensics (M7–M9)</text>
+      <text x="28" y="24" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#64748B">Pipes blown, trash measured, proof audited.</text>
+    </g>
+
+    <!-- Step 5 -->
+    <g transform="translate(20, 210)">
+      <circle cx="10" cy="10" r="10" fill="#12263F"/>
+      <text x="10" y="14" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800" fill="#FFFDF8" text-anchor="middle">E</text>
+      <text x="28" y="10" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#1E293B">Reconciliation &amp; Conveyance (M10)</text>
+      <text x="28" y="24" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#64748B">Staircase audited; deed conveyed; sold to new family.</text>
+    </g>
+
+    <!-- Narrative Quote Line -->
+    <rect x="15" y="248" width="345" height="22" rx="4" fill="#F8FAFC"/>
+    <text x="187" y="263" font-family="Georgia, serif" font-size="11" font-style="italic" fill="#475569" text-anchor="middle">"They protect what they named. Her name stays on every order."</text>
+  </g>
+
+  <!-- Bottom Strip -->
+  <g transform="translate(40, 435)">
+    <rect x="0" y="0" width="880" height="55" rx="8" fill="#12263F"/>
+    <text x="24" y="28" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="700" fill="#F59E0B">WHY THE STORY FORMAT?</text>
+    <text x="200" y="28" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#E2E8F0">Trainees forget rules, allowable lists, and code tables. They never forget the house they named.</text>
+    <text x="24" y="46" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="600" fill="#94A3B8">Every work order, photo check, and CY formula across all 5 hours anchors directly to this single physical property.</text>
+  </g>
+</svg>
