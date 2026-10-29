@@ -193,9 +193,9 @@
   <g transform="translate(35, 460)">
     <rect width="930" height="85" rx="6" fill="#111c2e" stroke="#2a3f5f" stroke-width="1.2"/>
     <text x="20" y="24" fill="#f59e0b" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800">THE UNIVERSAL PRESERVATION HIERARCHY &amp; DAMAGES STANDARD:</text>
-    <text x="20" y="44" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="700">1. Safety First &nbsp;&rarr;&nbsp; 2. Proof Always &nbsp;&rarr;&nbsp; 3. Work Authorized Only</text>
-    <text x="20" y="65" fill="#94a3b8" font-family="'Segoe UI', sans-serif" font-size="11.5">5 Damage Kinds: Water (find source) &bull; Mold (moisture active) &bull; Vandalism (secure first) &bull; Weather (envelope) &bull; Neglect (layered decay)</text>
-    <text x="640" y="44" fill="#38bdf8" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="700">5 Systems: Roof &bull; Plumbing &bull; HVAC &bull; Electric &bull; Structure</text>
-    <text x="640" y="65" fill="#a7f3d0" font-family="'Segoe UI', sans-serif" font-size="11.5" font-weight="700">Done Is a Claim &bull; Proof Is the Test &bull; Gaps Go Back</text>
+    <text x="20" y="44" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="700">1. Safety First  &#8594;  2. Proof Always  &#8594;  3. Work Authorized Only</text>
+    <text x="20" y="65" fill="#94a3b8" font-family="'Segoe UI', sans-serif" font-size="11.5">5 Damage Kinds: Water (find source) &#8226; Mold (moisture active) &#8226; Vandalism (secure first) &#8226; Weather (envelope) &#8226; Neglect (layered decay)</text>
+    <text x="640" y="44" fill="#38bdf8" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="700">5 Systems: Roof &#8226; Plumbing &#8226; HVAC &#8226; Electric &#8226; Structure</text>
+    <text x="640" y="65" fill="#a7f3d0" font-family="'Segoe UI', sans-serif" font-size="11.5" font-weight="700">Done Is a Claim &#8226; Proof Is the Test &#8226; Gaps Go Back</text>
   </g>
 </svg>
