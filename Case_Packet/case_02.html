@@ -3,217 +3,232 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Case 2: The Chain • Maple House Case Dossier</title>
+  <title>Reveal 2: The Chain (Five Hands on One House) — Case Packet Dossier</title>
+  <meta name="description" content="When adjustable interest rates reset, the economic loop broke, transferring custody of the 1972 house across five distinct hands.">
   <style>
     :root {
-      --navy-950: #070d1e;
-      --navy-900: #0b1329;
-      --navy-800: #14213d;
-      --navy-700: #1e293b;
-      --navy-600: #253553;
-      --amber-500: #fca311;
-      --amber-400: #ffb703;
-      --blue-400: #38bdf8;
-      --slate-100: #f1f5f9;
-      --slate-200: #e2e8f0;
-      --slate-300: #cbd5e1;
-      --slate-400: #94a3b8;
-      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --bg-dark: #0b1320;
+      --bg-surface: #12263f;
+      --bg-card: #1e293b;
+      --bg-depth: #0f1c30;
+      --amber: #f59e0b;
+      --amber-light: #fef08a;
+      --teal-light: #2dd4bf;
+      --border: #334155;
+      --border-accent: #475569;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-subtle: #cbd5e1;
+      --sans: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+      --serif: Georgia, Cambria, "Times New Roman", serif;
+      --mono: "Space Mono", Consolas, "Courier New", monospace;
+      --radius: 8px;
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      background-color: var(--navy-950);
-      color: var(--slate-100);
-      font-family: var(--font-sans);
-      line-height: 1.6;
+      background-color: var(--bg-dark);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: clamp(15px, 1.1vw, 17px);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      line-height: 1.6;
+      min-width: 320px;
+      overflow-x: hidden;
     }
-    header.header {
-      background: var(--navy-900);
-      border-bottom: 1px solid var(--navy-600);
+
+    /* STUDENT FACE HEADER */
+    header.class-header {
+      background: rgba(11, 19, 32, 0.95);
+      border-bottom: 1px solid var(--border);
       padding: 16px 24px;
-    }
-    .header-inner {
-      max-width: 960px;
-      margin: 0 auto;
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
       align-items: center;
       gap: 12px;
     }
+
+    .brand-badge {
+      background: var(--amber);
+      color: var(--bg-dark);
+      font-weight: 900;
+      font-size: 13px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+    }
+
     .brand-title {
-      font-size: 17px;
-      font-weight: 800;
+      font-size: 14px;
+      font-weight: 700;
       color: #ffffff;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
-    .brand-chip {
-      background: var(--amber-500);
-      color: #000;
-      font-size: 10px;
-      font-weight: 800;
-      padding: 2px 7px;
-      border-radius: 4px;
+
+    .course-retelling-step {
+      font-size: 11px;
+      color: var(--amber-light);
+      font-weight: 700;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
-    .status-badge {
-      background: #0f172a;
-      border: 1px solid var(--navy-600);
-      color: var(--blue-400);
-      font-size: 11px;
-      font-weight: 600;
-      padding: 3px 10px;
-      border-radius: 4px;
-    }
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 24px 20px 60px;
+
+    main.content-wrap {
+      max-width: 1080px;
       width: 100%;
-      flex: 1;
-    }
-    .chain-tracker {
+      margin: 0 auto;
+      padding: clamp(24px, 4vw, 40px) 24px 60px;
       display: flex;
-      justify-content: space-between;
-      background: var(--navy-900);
-      border: 1px solid var(--navy-600);
-      border-radius: 8px;
-      padding: 6px;
-      margin-bottom: 24px;
-      overflow-x: auto;
+      flex-direction: column;
+      gap: 28px;
     }
-    .chain-step {
-      flex: 1;
-      text-align: center;
-      padding: 8px 4px;
+
+    .title-block {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
+    }
+
+    .kicker {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      color: var(--amber);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    h1.page-title {
+      font-family: var(--serif);
+      font-size: clamp(26px, 4vw, 40px);
+      line-height: 1.2;
+      color: #ffffff;
+      margin-bottom: 12px;
+      text-wrap: balance;
+    }
+
+    .mapping-kicker {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--teal-light);
+      margin-bottom: 8px;
+    }
+
+    p.story-intro {
+      font-family: var(--serif);
+      font-size: clamp(16px, 1.3vw, 19px);
+      color: #e2e8f0;
+      font-style: italic;
+      line-height: 1.5;
+      max-width: 920px;
+    }
+
+    /* ONE-LOOK FOCAL IMAGE */
+    .focal-visual {
+      background: var(--bg-surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+      position: relative;
+    }
+
+    .visual-mock-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--mono);
       font-size: 11px;
       font-weight: 700;
-      color: var(--slate-400);
-      border-radius: 5px;
-      text-decoration: none;
-      white-space: nowrap;
+      color: var(--amber-light);
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 4px 10px;
+      margin-bottom: 8px;
+      letter-spacing: 0.05em;
     }
-    .chain-step.active {
-      background: var(--navy-800);
-      color: var(--amber-400);
-      border: 1px solid var(--amber-500);
-    }
-    .case-screen {
-      background: var(--navy-900);
-      border: 1px solid var(--navy-600);
-      border-radius: 12px;
-      padding: 32px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    }
-    .case-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--amber-400);
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-    }
-    .claim-title {
-      font-size: 24px;
-      font-weight: 800;
-      line-height: 1.35;
-      color: #ffffff;
-      margin-bottom: 20px;
-      letter-spacing: -0.3px;
-    }
-    .story-intro {
-      background: linear-gradient(135deg, rgba(20, 33, 61, 0.8) 0%, rgba(11, 19, 41, 0.9) 100%);
-      border-left: 4px solid var(--amber-500);
-      border-radius: 0 8px 8px 0;
-      padding: 18px 22px;
-      margin-bottom: 24px;
-      font-size: 15px;
-      color: var(--slate-200);
-      font-style: italic;
-      line-height: 1.65;
-    }
-    .media-frame {
-      background: #000;
-      border: 1px solid var(--navy-600);
-      border-radius: 8px;
-      overflow: hidden;
-      margin-bottom: 24px;
-    }
-    .media-frame img {
+
+    .focal-visual img {
       width: 100%;
       height: auto;
       display: block;
+      border-radius: 4px;
     }
-    .media-caption {
-      background: #0a1122;
-      padding: 10px 16px;
-      font-size: 12.5px;
-      color: var(--slate-300);
-      border-top: 1px solid var(--navy-600);
+
+    /* MAX 3 KEY POINTS */
+    .key-points-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 4px;
     }
-    .key-points-card {
-      background: #0f172a;
-      border: 1px solid var(--navy-600);
-      border-radius: 8px;
-      padding: 20px 24px;
-      margin-bottom: 28px;
+
+    @media (max-width: 860px) {
+      .key-points-grid { grid-template-columns: 1fr; }
     }
-    .key-points-title {
-      font-size: 11.5px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--amber-400);
-      margin-bottom: 14px;
-    }
-    .points-list {
-      list-style: none;
+
+    .key-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-top: 3.5px solid var(--amber);
+      border-radius: var(--radius);
+      padding: 20px 18px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
     }
-    .points-list li {
-      font-size: 14px;
-      color: var(--slate-200);
-      line-height: 1.55;
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-    }
-    .point-num {
-      background: var(--navy-800);
-      border: 1px solid var(--navy-600);
-      color: var(--amber-400);
-      font-size: 12px;
+
+    .card-num {
+      font-size: 11px;
       font-weight: 800;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 2px;
+      color: var(--amber);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
-    .nav-bar {
+
+    .card-heading {
+      font-family: var(--serif);
+      font-size: 18px;
+      color: #ffffff;
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .card-body strong { color: #ffffff; }
+
+    /* STEP NAVIGATION BUTTONS */
+    nav.class-nav {
+      margin-top: 8px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
       padding-top: 20px;
-      border-top: 1px solid var(--navy-600);
+      border-top: 1px solid var(--border);
     }
-    .nav-btn {
-      background: var(--navy-800);
-      border: 1px solid var(--navy-600);
-      color: var(--slate-200);
-      padding: 10px 20px;
+
+    .btn-step {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border);
+      color: var(--text);
+      min-height: 48px;
+      padding: 10px 18px;
       border-radius: 6px;
       font-size: 13px;
       font-weight: 700;
@@ -221,96 +236,370 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      transition: all 0.2s ease;
     }
-    .nav-btn.primary {
-      background: linear-gradient(180deg, var(--amber-500) 0%, #e09100 100%);
-      color: #000;
-      border: none;
-      font-weight: 800;
+
+    .btn-step:hover:not(.disabled) {
+      background: var(--amber);
+      color: var(--bg-dark);
+      border-color: var(--amber);
     }
-    footer.footer {
-      background: var(--navy-900);
-      border-top: 1px solid var(--navy-600);
-      padding: 20px 24px;
-      margin-top: auto;
-      text-align: center;
+
+    .btn-step.primary {
+      background: var(--amber);
+      color: var(--bg-dark);
+      border-color: var(--amber);
+    }
+
+    .btn-step.primary:hover { background: #d97706; }
+
+    .btn-step.disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      border-color: var(--border);
+    }
+
+    /* CONTENT DEPTH CONTAINER */
+    section.chapter-depth-container {
+      margin-top: 16px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg-depth);
+      overflow: hidden;
+    }
+
+    .depth-summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      background: var(--bg-surface);
+      cursor: pointer;
+      user-select: none;
+      font-family: var(--sans);
+      font-weight: 700;
+      font-size: 15px;
+      color: #ffffff;
+      min-height: 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .depth-summary::-webkit-details-marker { display: none; }
+    .depth-summary:hover { background: #162c47; }
+
+    .depth-indicator {
+      color: var(--amber);
+      font-family: var(--mono);
       font-size: 12px;
-      color: var(--slate-400);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .depth-inner {
+      padding: 24px 20px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* WORK ORDER SPEC BOX */
+    .wo-spec-box {
+      background: #09101a;
+      border: 1px solid var(--border-accent);
+      border-left: 4px solid var(--teal-light);
+      border-radius: 6px;
+      padding: 18px 20px;
+    }
+
+    .wo-spec-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+      border-bottom: 1px dashed var(--border);
+      padding-bottom: 8px;
+    }
+
+    .wo-badge {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--teal-light);
+      letter-spacing: 0.08em;
+    }
+
+    .wo-client {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .wo-title {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .wo-body {
+      font-family: var(--mono);
+      font-size: 12.5px;
+      color: var(--text-subtle);
+      line-height: 1.55;
+    }
+
+    /* RULES & REQUIREMENTS */
+    .depth-section-title {
+      font-family: var(--serif);
+      font-size: 19px;
+      color: #ffffff;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .depth-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .depth-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .depth-card-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--amber-light);
+    }
+
+    .depth-card-body {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ALL REVEALS NAV BLOCK */
+    section.all-chapters-nav {
+      margin-top: 24px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+    }
+
+    .all-chapters-title {
+      font-family: var(--serif);
+      font-size: 18px;
+      color: #ffffff;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .all-chapters-title a {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--amber);
+      text-decoration: underline;
+    }
+
+    ul.chapters-menu-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 8px 16px;
+    }
+
+    li.nav-item {
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+    }
+
+    a.nav-link {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 13.5px;
+      min-height: 48px;
+      width: 100%;
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 4px;
+      transition: all 0.15s ease;
+    }
+
+    a.nav-link:hover {
+      color: var(--amber-light);
+      background: rgba(245, 158, 11, 0.1);
+      text-decoration: underline;
+    }
+
+    li.nav-item.current {
+      background: rgba(245, 158, 11, 0.15);
+      border-radius: 4px;
+      border-left: 3px solid var(--amber);
+    }
+
+    .nav-current-label {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--amber-light);
+      padding: 6px 10px;
+      display: inline-flex;
+      align-items: center;
+      min-height: 48px;
+      width: 100%;
     }
   </style>
 </head>
 <body>
-  <header class="header">
-    <div class="header-inner">
-      <div class="brand-title">
-        <span>MAPLE HOUSE CASE DOSSIER</span>
-        <span class="brand-chip">Class Case Packet</span>
-      </div>
-      <div class="status-badge">Fictional Teaching File • 7-Stop Retelling Arc</div>
+
+  <header class="class-header">
+    <div class="brand">
+      <span class="brand-badge">CASE</span>
+      <span class="brand-title">Maple House Forensic Case Dossier — Seven Progressive Reveals</span>
     </div>
+    <div class="course-retelling-step">REVEAL 2 OF 7</div>
   </header>
 
-  <main class="container">
-    <nav class="chain-tracker" aria-label="Course Retelling Chain">
-      <a href="case_01.html" class="chain-step">1. House</a>
-      <a href="case_02.html" class="chain-step active">2. Chain</a>
-      <a href="case_03.html" class="chain-step">3. Order</a>
-      <a href="case_04.html" class="chain-step">4. Work</a>
-      <a href="case_05.html" class="chain-step">5. Evidence</a>
-      <a href="case_06.html" class="chain-step">6. Money</a>
-      <a href="case_07.html" class="chain-step">7. Capstone</a>
+  <main class="content-wrap">
+
+    <div class="title-block">
+      <div class="kicker">CASE DOSSIER · REVEAL 2 OF 7</div>
+      <h1 class="page-title">Reveal 2: The Chain (Five Hands on One House)</h1>
+      <div class="mapping-kicker">CURRICULUM MAPPING: Ch2 "The Chain: Five Hands on One House" (25 min) & Ch5 "Check Yourself: Rebuild the Chain" (10 min)</div>
+      <p class="story-intro">When adjustable interest rates reset, the economic loop broke, transferring custody of the 1972 house across five distinct hands.</p>
+    </div>
+
+    <div class="focal-visual">
+      <div class="visual-mock-badge">
+        <span>⚙</span>
+        <span>FLOWCHART / ECONOMIC LOOP BREAK & CUSTODIAL CHAIN · 100% SYNTHETIC</span>
+      </div>
+      <img src="CASE_02_economy_loop_break.svg" alt="Reveal 2: The Chain (Five Hands on One House) visual illustration" width="960" height="540">
+    </div>
+
+    <div class="key-points-grid">
+
+      <div class="key-card">
+        <span class="card-num">CASE FOCUS 1</span>
+        <h2 class="card-heading">The Macroeconomic Loop Failure</h2>
+        <p class="card-body">Wage stagnation coupled with interest rate resets broke borrower repayment capacity, initiating loan default across the portfolio.</p>
+      </div>
+
+      <div class="key-card">
+        <span class="card-num">CASE FOCUS 2</span>
+        <h2 class="card-heading">Five Custodial Hands</h2>
+        <p class="card-body">Custody transferred from Bank/Investor to Loan Servicer, National Management Firm, Regional Vendor Office, and Local Field Crew.</p>
+      </div>
+
+      <div class="key-card">
+        <span class="card-num">CASE FOCUS 3</span>
+        <h2 class="card-heading">The Handoff Failure Risk</h2>
+        <p class="card-body">Every seam between the five hands represents a failure vulnerability where missing documentation halts field authorizations.</p>
+      </div>
+
+    </div>
+
+    <nav class="class-nav" aria-label="Case Progression">
+      <a href="case_01.html" class="btn-step">◀ Reveal 1</a>
+      <a href="index.html" class="btn-step">Case Packet Index</a>
+      <a href="case_03.html" class="btn-step primary">Reveal 3 ▶</a>
     </nav>
 
-    <article class="case-screen">
-      <div class="case-meta">
-        <span>Case 2 of 7 • Retelling Stop: Chain</span>
-        <span>Module M3–M4 • Distress Loop</span>
-      </div>
+    <section class="chapter-depth-container" aria-label="Operational Depth & Case Specifications">
+      <details class="depth-accordion" open>
+        <summary class="depth-summary">
+          <span>Operational Depth: Work Order Docket, Rules &amp; Protocols</span>
+          <span class="depth-indicator">▼ Click to Toggle Depth Details</span>
+        </summary>
+        <div class="depth-inner">
 
-      <h1 class="claim-title">When the Economy Loop Breaks, the Family Leaves Long Before the Wood Decays.</h1>
+          <div class="wo-spec-box">
+            <div class="wo-spec-header">
+              <span class="wo-badge">SYNTHETIC WORK ORDER EXAMPLE: CASE-WO-02-CUSTODY</span>
+              <span class="wo-client">CLIENT POOL: SECONDARY CAPITAL POOL (SYNTHETIC)</span>
+            </div>
+            <div class="wo-title">FIELD WORK ORDER DISPATCH SCOPE (100% FICTIONAL / LABELED EXAMPLE):</div>
+            <p class="wo-body">CASE PACKET REVEAL 02: Trace loan transfer instruments through custodial chain. Log assignment from master servicer to regional management queue. Confirm subcontractor general liability compliance before site routing.</p>
+          </div>
 
-      <div class="story-intro">
-        "November 2008. David Miller sat at the kitchen table beneath the fluorescent ring light, staring at a stack of final notices. When the local manufacturing plant cut shifts and his adjustable rate mortgage reset, the monthly payment jumped by $640. He applied for loan modification; he waited out the 120-day federal floor. But when permanent layoffs hit, David and his wife packed their two children and what clothes would fit into a rented trailer on a freezing Friday night. David pulled the door shut and whispered, 'I'm sorry.' The house did not break. The macroeconomic loop broke."
-      </div>
+          <div>
+            <h2 class="depth-section-title">Governing Rules &amp; Compliance Standards</h2>
+            <div class="depth-grid">
+          <div class="depth-card">
+            <h3 class="depth-card-title">Two-Way Information Law</h3>
+            <p class="depth-card-body">Work instructions flow downward; verified photos and audit packages flow upward through all five stations.</p>
+          </div>
+          <div class="depth-card">
+            <h3 class="depth-card-title">Seam Verification Mandate</h3>
+            <p class="depth-card-body">Each handoff requires recorded time-stamps; orders cannot transition on verbal assumptions.</p>
+          </div>
+          <div class="depth-card">
+            <h3 class="depth-card-title">Subcontractor Authority Ceiling</h3>
+            <p class="depth-card-body">Field crews hold safety stop rights only; zero spend authorization exists without office approval.</p>
+          </div>
+            </div>
+          </div>
 
-      <div class="media-frame">
-        <img src="CASE_02_economy_loop_break.svg" alt="Macroeconomic Feedback Loop and Foreclosure Road">
-        <div class="media-caption">
-          <strong>Asset CASE_02:</strong> The circular macroeconomic feedback loop, the 5-stage foreclosure road, and the vacancy decay cascade.
+          <div>
+            <h2 class="depth-section-title">Operational Requirements &amp; Dealing Protocols</h2>
+            <div class="depth-grid">
+          <div class="depth-card">
+            <h3 class="depth-card-title">Custodial Transfer Record</h3>
+            <p class="depth-card-body">Verify digital chain of custody certificates across all 5 intermediaries.</p>
+          </div>
+          <div class="depth-card">
+            <h3 class="depth-card-title">Risk Category Assignment</h3>
+            <p class="depth-card-body">Assign portfolio delinquency rating based on debt servicing indices.</p>
+          </div>
+          <div class="depth-card">
+            <h3 class="depth-card-title">Dealing Point — Handoff Disputes</h3>
+            <p class="depth-card-body">Resolve docket discrepancies between national portals and regional software via written escalation.</p>
+          </div>
+            </div>
+          </div>
+
         </div>
-      </div>
+      </details>
+    </section>
 
-      <div class="key-points-card">
-        <div class="key-points-title">Three Sticky Anchors to Remember</div>
-        <ol class="points-list">
-          <li>
-            <span class="point-num">1</span>
-            <div><strong>The Loop Snaps First:</strong> Jobs, interest rates, and credit standards drive home prices; when payment shock hits, default happens long before the physical wood rots.</div>
-          </li>
-          <li>
-            <span class="point-num">2</span>
-            <div><strong>Help Before Foreclosure:</strong> Federal CFPB rules enforce an invariant 120-day loss mitigation floor (forbearance, modification, short sale) before legal foreclosure can begin.</div>
-          </li>
-          <li>
-            <span class="point-num">3</span>
-            <div><strong>Three Separate States:</strong> Never confuse Property State (empty), Legal State (pre-foreclosure), and Work Order State (unauthorized)—each is governed by separate rules.</div>
-          </li>
-        </ol>
+    <section class="all-chapters-nav" aria-label="All Reveals Menu">
+      <div class="all-chapters-title">
+        <span>The Seven Progressive Reveals of the Case Dossier</span>
+        <a href="index.html">View Case Index &amp; Course Mapping →</a>
       </div>
+      <ul class="chapters-menu-list">
+            <li class="nav-item"><a href="case_01.html" class="nav-link">Reveal 1: The House (1972 Origin)</a></li>
+            <li class="nav-item current" aria-current="page"><span class="nav-current-label">▶ Reveal 2: The Chain (Five Hands on One House) (Current)</span></li>
+            <li class="nav-item"><a href="case_03.html" class="nav-link">Reveal 3: The Order (Authority & Jordan Fence)</a></li>
+            <li class="nav-item"><a href="case_04.html" class="nav-link">Reveal 4: The Work (Grass, Doors & Occupancy)</a></li>
+            <li class="nav-item"><a href="case_05.html" class="nav-link">Reveal 5: The Evidence (Winterization & Debris)</a></li>
+            <li class="nav-item"><a href="case_06.html" class="nav-link">Reveal 6: The Money (Where the Margin Bleeds)</a></li>
+            <li class="nav-item"><a href="case_07.html" class="nav-link">Reveal 7: The Capstone (The Cold House)</a></li>
+      </ul>
+    </section>
 
-      <div class="nav-bar">
-        <a href="case_01.html" class="nav-btn">← Previous: House</a>
-        <span style="font-size:12.5px; color:var(--slate-400); font-weight:600;">Case 2 of 7 (Chain)</span>
-        <a href="case_03.html" class="nav-btn primary">Next: Order →</a>
-      </div>
-    </article>
   </main>
 
-  <footer class="footer">
-    <div>
-      <strong>Property Preservation Class • Case Packet</strong> | Built strictly within frozen M0–M10 structure (300 min).<br>
-      <span>Excellence Property Care Solutions Inc. (EPCS) • Fictional Teaching Case Dossier</span>
-    </div>
-  </footer>
 </body>
 </html>

@@ -3,885 +3,267 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Property Preservation Class • Maple House Case Dossier</title>
+  <title>Maple House Case Packet Dossier — Seven Progressive Reveals</title>
+  <meta name="description" content="Comprehensive seven-reveal forensic case dossier tracking the 1972 composite residence across all eleven office course chapters.">
   <style>
     :root {
-      --navy-950: #070d1e;
-      --navy-900: #0b1329;
-      --navy-800: #14213d;
-      --navy-700: #1e293b;
-      --navy-600: #253553;
-      --amber-500: #fca311;
-      --amber-400: #ffb703;
-      --teal-500: #10b981;
-      --blue-400: #38bdf8;
-      --slate-100: #f1f5f9;
-      --slate-200: #e2e8f0;
-      --slate-300: #cbd5e1;
-      --slate-400: #94a3b8;
-      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --bg-dark: #0b1320;
+      --bg-surface: #12263f;
+      --bg-card: #1e293b;
+      --bg-depth: #0f1c30;
+      --amber: #f59e0b;
+      --amber-light: #fef08a;
+      --teal-light: #2dd4bf;
+      --border: #334155;
+      --border-accent: #475569;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-subtle: #cbd5e1;
+      --sans: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+      --serif: Georgia, Cambria, "Times New Roman", serif;
+      --mono: "Space Mono", Consolas, "Courier New", monospace;
+      --radius: 8px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background-color: var(--navy-950);
-      color: var(--slate-100);
-      font-family: var(--font-sans);
-      line-height: 1.6;
+      background-color: var(--bg-dark);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: clamp(15px, 1.1vw, 17px);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      line-height: 1.6;
+      min-width: 320px;
+      overflow-x: hidden;
     }
 
-    /* Minimal Header */
-    header.header {
-      background: var(--navy-900);
-      border-bottom: 1px solid var(--navy-600);
+    header.class-header {
+      background: rgba(11, 19, 32, 0.95);
+      border-bottom: 1px solid var(--border);
       padding: 16px 24px;
-    }
-
-    .header-inner {
-      max-width: 960px;
-      margin: 0 auto;
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
       gap: 12px;
+    }
+
+    .brand-badge {
+      background: var(--amber);
+      color: var(--bg-dark);
+      font-weight: 900;
+      font-size: 13px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
     }
 
     .brand-title {
-      font-size: 17px;
-      font-weight: 800;
+      font-size: 14px;
+      font-weight: 700;
       color: #ffffff;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
 
-    .brand-chip {
-      background: var(--amber-500);
-      color: #000;
-      font-size: 10px;
-      font-weight: 800;
-      padding: 2px 7px;
-      border-radius: 4px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .status-badge {
-      background: #0f172a;
-      border: 1px solid var(--navy-600);
-      color: var(--blue-400);
-      font-size: 11px;
-      font-weight: 600;
-      padding: 3px 10px;
-      border-radius: 4px;
-    }
-
-    /* Main Container */
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 24px 20px 60px;
+    main.content-wrap {
+      max-width: 1080px;
       width: 100%;
-      flex: 1;
-    }
-
-    /* Chain Retelling Tracker */
-    .chain-tracker {
+      margin: 0 auto;
+      padding: clamp(24px, 4vw, 40px) 24px 60px;
       display: flex;
-      justify-content: space-between;
-      background: var(--navy-900);
-      border: 1px solid var(--navy-600);
-      border-radius: 8px;
-      padding: 6px;
-      margin-bottom: 24px;
-      overflow-x: auto;
+      flex-direction: column;
+      gap: 28px;
     }
 
-    .chain-step {
-      flex: 1;
-      text-align: center;
-      padding: 8px 4px;
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--slate-400);
-      border-radius: 5px;
-      cursor: pointer;
-      border: 1px solid transparent;
-      text-decoration: none;
-      white-space: nowrap;
-      transition: all 0.2s;
+    .title-block {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
     }
 
-    .chain-step:hover {
-      color: #ffffff;
-      background: var(--navy-800);
-    }
-
-    .chain-step.active {
-      background: var(--navy-800);
-      color: var(--amber-400);
-      border-color: var(--amber-500);
-    }
-
-    /* Case Page Frame */
-    .case-screen {
-      display: none;
-      background: var(--navy-900);
-      border: 1px solid var(--navy-600);
-      border-radius: 12px;
-      padding: 32px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    }
-
-    .case-screen.active {
-      display: block;
-      animation: fadeIn 0.25s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(4px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .case-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
+    .kicker {
       font-size: 12px;
-      font-weight: 700;
-      color: var(--amber-400);
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-    }
-
-    .claim-title {
-      font-size: 24px;
       font-weight: 800;
-      line-height: 1.35;
+      letter-spacing: 0.14em;
+      color: var(--amber);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    h1.page-title {
+      font-family: var(--serif);
+      font-size: clamp(26px, 4vw, 40px);
+      line-height: 1.2;
       color: #ffffff;
-      margin-bottom: 20px;
-      letter-spacing: -0.3px;
-    }
-
-    /* Short Story Opening */
-    .story-intro {
-      background: linear-gradient(135deg, rgba(20, 33, 61, 0.8) 0%, rgba(11, 19, 41, 0.9) 100%);
-      border-left: 4px solid var(--amber-500);
-      border-radius: 0 8px 8px 0;
-      padding: 18px 22px;
-      margin-bottom: 24px;
-      font-size: 15px;
-      color: var(--slate-200);
-      font-style: italic;
-      line-height: 1.65;
-    }
-
-    /* Standalone Evidence & Diagram Portal Card */
-    .evidence-portal-card {
-      background: linear-gradient(145deg, #0f1a30 0%, #0a1122 100%);
-      border: 1px solid var(--navy-600);
-      border-left: 4px solid var(--blue-400);
-      border-radius: 8px;
-      padding: 22px 26px;
-      margin-bottom: 26px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-
-    .evidence-portal-card:hover {
-      border-color: var(--blue-400);
-      box-shadow: 0 6px 20px rgba(56, 189, 248, 0.15);
-    }
-
-    .evidence-portal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
       margin-bottom: 12px;
     }
 
-    .evidence-portal-tag {
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      color: var(--blue-400);
-      background: rgba(56, 189, 248, 0.1);
-      padding: 3px 10px;
-      border-radius: 4px;
-      border: 1px solid rgba(56, 189, 248, 0.25);
+    p.story-intro {
+      font-family: var(--serif);
+      font-size: clamp(16px, 1.3vw, 19px);
+      color: #e2e8f0;
+      font-style: italic;
+      line-height: 1.5;
+      max-width: 920px;
     }
 
-    .evidence-portal-file {
-      font-size: 11.5px;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      color: var(--slate-400);
+    .case-nav-section {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 20px;
     }
 
-    .evidence-portal-title {
-      font-size: 16px;
-      font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 8px;
-      line-height: 1.4;
-    }
-
-    .evidence-portal-desc {
-      font-size: 13.5px;
-      color: var(--slate-300);
-      line-height: 1.6;
-      margin-bottom: 18px;
-    }
-
-    .evidence-portal-action {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--navy-800);
-      color: #ffffff;
-      border: 1px solid var(--navy-600);
-      padding: 10px 18px;
-      border-radius: 6px;
-      font-size: 13px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-
-    .evidence-portal-action:hover {
-      background: var(--navy-700);
-      border-color: var(--amber-500);
-      color: var(--amber-400);
-      transform: translateX(2px);
-    }
-
-    .evidence-portal-action .action-arrow {
-      font-size: 14px;
-      transition: transform 0.2s;
-    }
-
-    .evidence-portal-action:hover .action-arrow {
-      transform: translateX(3px);
-    }
-
-    /* Single Visual Card */
-    .media-frame {
-      background: #000;
-      border: 1px solid var(--navy-600);
-      border-radius: 8px;
-      overflow: hidden;
-      margin-bottom: 24px;
-    }
-
-    .media-frame img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .media-caption {
-      background: #0a1122;
-      padding: 10px 16px;
-      font-size: 12.5px;
-      color: var(--slate-300);
-      border-top: 1px solid var(--navy-600);
-    }
-
-    .media-caption strong {
-      color: #ffffff;
-    }
-
-    /* Max Three Sticky Key Points */
-    .key-points-card {
-      background: #0f172a;
-      border: 1px solid var(--navy-600);
-      border-radius: 8px;
-      padding: 20px 24px;
-      margin-bottom: 28px;
-    }
-
-    .key-points-title {
-      font-size: 11.5px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--amber-400);
-      margin-bottom: 14px;
-    }
-
-    .points-list {
+    ul.chapters-menu-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
     }
 
-    .points-list li {
+    li.nav-item {
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+    }
+
+    a.nav-link {
+      color: #cbd5e1;
+      text-decoration: none;
       font-size: 14px;
-      color: var(--slate-200);
-      line-height: 1.55;
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-    }
-
-    .point-num {
-      background: var(--navy-800);
-      border: 1px solid var(--navy-600);
-      color: var(--amber-400);
-      font-size: 12px;
-      font-weight: 800;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    .points-list li strong {
-      color: #ffffff;
-    }
-
-    /* Navigation Bar ONLY */
-    .nav-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 20px;
-      border-top: 1px solid var(--navy-600);
-    }
-
-    .nav-btn {
-      background: var(--navy-800);
-      border: 1px solid var(--navy-600);
-      color: var(--slate-200);
-      padding: 10px 20px;
-      border-radius: 6px;
-      font-size: 13px;
-      font-weight: 700;
-      cursor: pointer;
+      min-height: 48px;
+      width: 100%;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      transition: all 0.2s;
-      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 4px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      transition: all 0.15s ease;
     }
 
-    .nav-btn:hover:not(:disabled) {
-      background: var(--navy-700);
-      border-color: var(--amber-500);
+    a.nav-link:hover {
+      color: var(--amber-light);
+      border-color: var(--amber);
+      background: rgba(245, 158, 11, 0.1);
+      text-decoration: underline;
+    }
+
+    /* Course Chapter Reference Block */
+    .course-reference-card {
+      background: var(--bg-depth);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+
+    .course-ref-title {
+      font-family: var(--serif);
+      font-size: 18px;
       color: #ffffff;
+      margin-bottom: 12px;
     }
 
-    .nav-btn:disabled {
-      opacity: 0.35;
-      cursor: not-allowed;
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text-muted);
     }
 
-    .nav-btn.primary {
-      background: linear-gradient(180deg, var(--amber-500) 0%, #e09100 100%);
-      color: #000;
-      border: none;
-      font-weight: 800;
-    }
-
-    .nav-btn.primary:hover {
-      box-shadow: 0 0 12px rgba(252, 163, 17, 0.4);
-    }
-
-    .nav-pos {
-      font-size: 12.5px;
-      color: var(--slate-400);
-      font-weight: 600;
-    }
-
-    /* Footer */
-    footer.footer {
-      background: var(--navy-900);
-      border-top: 1px solid var(--navy-600);
-      padding: 20px 24px;
-      margin-top: auto;
-      text-align: center;
-      font-size: 12px;
-      color: var(--slate-400);
-    }
-
-    footer.footer strong {
+    .course-grid strong {
       color: #ffffff;
     }
   </style>
 </head>
 <body>
 
-  <!-- Minimal Header -->
-  <header class="header">
-    <div class="header-inner">
-      <div class="brand-title">
-        <span>MAPLE HOUSE CASE DOSSIER</span>
-        <span class="brand-chip">Class Case Packet</span>
-      </div>
-      <div class="status-badge">
-        Fictional Teaching File • 7-Stop Retelling Arc
-      </div>
+  <header class="class-header">
+    <div class="brand">
+      <span class="brand-badge">CASE</span>
+      <span class="brand-title">Maple House Forensic Case Dossier</span>
     </div>
+    <div class="course-retelling-step">COMPANION CASE PACKET · 7 REVEALS</div>
   </header>
 
-  <!-- Main Container -->
-  <main class="container">
+  <main class="content-wrap">
 
-    <!-- Retelling Chain Tracker: house → chain → order → work → evidence → money → capstone -->
-    <nav class="chain-tracker" aria-label="Course Retelling Chain">
-      <button class="chain-step active" id="step1" onclick="showCase(1)">1. House</button>
-      <button class="chain-step" id="step2" onclick="showCase(2)">2. Chain</button>
-      <button class="chain-step" id="step3" onclick="showCase(3)">3. Order</button>
-      <button class="chain-step" id="step4" onclick="showCase(4)">4. Work</button>
-      <button class="chain-step" id="step5" onclick="showCase(5)">5. Evidence</button>
-      <button class="chain-step" id="step6" onclick="showCase(6)">6. Money</button>
-      <button class="chain-step" id="step7" onclick="showCase(7)">7. Capstone</button>
-    </nav>
+    <div class="title-block">
+      <div class="kicker">PROGRESSIVE COMPANION DOSSIER · SEVEN REVEALS</div>
+      <h1 class="page-title">Maple House Case Packet Dossier</h1>
+      <p class="story-intro">
+        Track the 1972 composite residence across seven progressive evidentiary reveals,
+        coordinated directly with all eleven chapters of the Preservation Office Course (300 minutes total).
+      </p>
+    </div>
 
-    <!-- ==================== CASE 1: HOUSE ==================== -->
-    <article class="case-screen active" id="case1">
-      <div class="case-meta">
-        <span>Case 1 of 7 • Retelling Stop: House</span>
-        <span>Module M0–M2 • Built 1972</span>
+    <section class="case-nav-section" aria-label="Seven Reveals Menu">
+      <h2 style="font-family: var(--serif); font-size: 20px; color: #ffffff; margin-bottom: 16px;">The Seven Progressive Case Reveals</h2>
+      <ul class="chapters-menu-list">
+        <li class="nav-item">
+          <a href="case_01.html" class="nav-link">
+            <strong>Reveal 1: The House (1972 Origin)</strong> — Maps to Ch1 "One House, Five Hours" (10 min) & Ch3 "How the System Was Built" (30 min)
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="case_02.html" class="nav-link">
+            <strong>Reveal 2: The Chain (Five Hands on One House)</strong> — Maps to Ch2 "The Chain: Five Hands on One House" (25 min) & Ch5 "Check Yourself: Rebuild the Chain" (10 min)
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="case_03.html" class="nav-link">
+            <strong>Reveal 3: The Order (Authority & Jordan Fence)</strong> — Maps to Ch6 "Who May Do What" (30 min) & Ch7 "The Job, Start to Finish" (35 min)
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="case_04.html" class="nav-link">
+            <strong>Reveal 4: The Work (Grass, Doors & Occupancy)</strong> — Maps to Ch7 "The Job, Start to Finish" (35 min) & Ch8 "Five Jobs, Done Right" (25 min)
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="case_05.html" class="nav-link">
+            <strong>Reveal 5: The Evidence (Winterization & Debris)</strong> — Maps to Ch8 "Five Jobs, Done Right" (25 min) & Ch9 "Prove It With Photos" (35 min)
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="case_06.html" class="nav-link">
+            <strong>Reveal 6: The Money (Where the Margin Bleeds)</strong> — Maps to Ch10 "Where the Money Goes" (25 min)
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="case_07.html" class="nav-link">
+            <strong>Reveal 7: The Capstone (The Cold House)</strong> — Maps to Ch11 "The Final Test: One Unseen House" (35 min)
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="course-reference-card" aria-label="Course Reference Standards">
+      <h3 class="course-ref-title">Preservation Office Course — 11 Governing Chapters (300 Min Total)</h3>
+      <div class="course-grid">
+        <div><strong>Ch1:</strong> One House, Five Hours (10 min)</div>
+        <div><strong>Ch2:</strong> The Chain: Five Hands on One House (25 min)</div>
+        <div><strong>Ch3:</strong> How the System Was Built (30 min)</div>
+        <div><strong>Ch4:</strong> Foreclosure, Step by Step (20 min)</div>
+        <div><strong>Ch5:</strong> Check Yourself: Rebuild the Chain (10 min)</div>
+        <div><strong>Ch6:</strong> Who May Do What (30 min)</div>
+        <div><strong>Ch7:</strong> The Job, Start to Finish (35 min)</div>
+        <div><strong>Ch8:</strong> Five Jobs, Done Right (25 min)</div>
+        <div><strong>Ch9:</strong> Prove It With Photos (35 min)</div>
+        <div><strong>Ch10:</strong> Where the Money Goes (25 min)</div>
+        <div><strong>Ch11:</strong> The Final Test: One Unseen House (35 min)</div>
       </div>
-
-      <h1 class="claim-title">A House Is Born in 1972: Prosperity Built the Walls, but an Invisible Filter Defined the Block.</h1>
-
-      <!-- Intro: Short Story Opening -->
-      <div class="story-intro">
-        "Arthur Miller stood on the raw pine subfloor of 1142 Maplewood Terrace in October 1972 holding his newborn daughter. The smell of cedar sawdust and fresh paint hung in the cold air. Arthur had worked seven years at the machine plant to qualify for a 30-year amortizing FHA-insured mortgage. Outside, no red line was painted on the asphalt, yet suburban deed covenants and lender maps had already decided who was permitted to buy on this cul-de-sac and who was turned away at the city line."
-      </div>
-
-      <!-- Standalone Visual Asset Link -->
-      <div class="evidence-portal-card">
-        <div class="evidence-portal-header">
-          <span class="evidence-portal-tag">Standalone Case Dossier &bull; Primary Visual</span>
-          <span class="evidence-portal-file">Asset: CASE_01_house_1972_origin.svg</span>
-        </div>
-        <div class="evidence-portal-title">Maple House 1972 Origin Elevation &amp; The 5-Link Custodial Chain</div>
-        <p class="evidence-portal-desc">
-          The full architectural elevation of 1142 Maplewood Terrace, the 1972 national housing peak benchmark (2,379,000 starts), and the 5-link custodial chain from bank note to field crew are embedded exclusively in the standalone Case 1 file.
-        </p>
-        <a href="case_01.html" class="evidence-portal-action" title="Open Standalone Case 1 Page">
-          <span>Open Standalone Case 1 Dossier &amp; Primary Diagram</span>
-          <span class="action-arrow">&rarr;</span>
-        </a>
-      </div>
-
-      <!-- Max Three Sticky Story-Anchored Key Points -->
-      <div class="key-points-card">
-        <div class="key-points-title">Three Sticky Anchors to Remember</div>
-        <ol class="points-list">
-          <li>
-            <span class="point-num">1</span>
-            <div><strong>Built in the 1972 Peak:</strong> Maple House was born in America's highest total building peak (2,379,000 starts); FHA insured her note against default, but never lent a single dollar.</div>
-          </li>
-          <li>
-            <span class="point-num">2</span>
-            <div><strong>The 5-Link Custodial Chain:</strong> A work order travels five distinct links—Bank to Servicer to National to Local Office to Field Crew—before a single lock turns.</div>
-          </li>
-          <li>
-            <span class="point-num">3</span>
-            <div><strong>Condition Is Not Permission:</strong> An empty lawn and dark windows indicate physical vacancy, but never grant legal authority to enter or rekey.</div>
-          </li>
-        </ol>
-      </div>
-
-      <!-- Navigation ONLY -->
-      <div class="nav-bar">
-        <button class="nav-btn" disabled>← Previous</button>
-        <span class="nav-pos">Case 1 of 7 (House)</span>
-        <button class="nav-btn primary" onclick="showCase(2)">Next: Chain →</button>
-      </div>
-    </article>
-
-    <!-- ==================== CASE 2: CHAIN & DISTRESS ==================== -->
-    <article class="case-screen" id="case2">
-      <div class="case-meta">
-        <span>Case 2 of 7 • Retelling Stop: Chain</span>
-        <span>Module M3–M4 • Distress Loop</span>
-      </div>
-
-      <h1 class="claim-title">When the Economy Loop Breaks, the Family Leaves Long Before the Wood Decays.</h1>
-
-      <!-- Intro: Short Story Opening -->
-      <div class="story-intro">
-        "November 2008. David Miller sat at the kitchen table beneath the fluorescent ring light, staring at a stack of final notices. When the local manufacturing plant cut shifts and his adjustable rate mortgage reset, the monthly payment jumped by $640. He applied for loan modification; he waited out the 120-day federal floor. But when permanent layoffs hit, David and his wife packed their two children and what clothes would fit into a rented trailer on a freezing Friday night. David pulled the door shut and whispered, 'I'm sorry.' The house did not break. The macroeconomic loop broke."
-      </div>
-
-      <!-- Standalone Visual Asset Link -->
-      <div class="evidence-portal-card">
-        <div class="evidence-portal-header">
-          <span class="evidence-portal-tag">Standalone Case Dossier &bull; Primary Visual</span>
-          <span class="evidence-portal-file">Asset: CASE_02_economy_loop_break.svg</span>
-        </div>
-        <div class="evidence-portal-title">Macroeconomic Feedback Loop, Foreclosure Road &amp; Vacancy Decay</div>
-        <p class="evidence-portal-desc">
-          The complete circular macroeconomic distress loop, the 120-day federal loss mitigation floor, and the 5-stage foreclosure road diagram are embedded exclusively in the standalone Case 2 file.
-        </p>
-        <a href="case_02.html" class="evidence-portal-action" title="Open Standalone Case 2 Page">
-          <span>Open Standalone Case 2 Dossier &amp; Primary Diagram</span>
-          <span class="action-arrow">&rarr;</span>
-        </a>
-      </div>
-
-      <!-- Max Three Sticky Story-Anchored Key Points -->
-      <div class="key-points-card">
-        <div class="key-points-title">Three Sticky Anchors to Remember</div>
-        <ol class="points-list">
-          <li>
-            <span class="point-num">1</span>
-            <div><strong>The Loop Snaps First:</strong> Jobs, interest rates, and credit standards drive home prices; when payment shock hits, default happens long before the physical wood rots.</div>
-          </li>
-          <li>
-            <span class="point-num">2</span>
-            <div><strong>Help Before Foreclosure:</strong> Federal CFPB rules enforce an invariant 120-day loss mitigation floor (forbearance, modification, short sale) before legal foreclosure can begin.</div>
-          </li>
-          <li>
-            <span class="point-num">3</span>
-            <div><strong>Three Separate States:</strong> Never confuse Property State (empty), Legal State (pre-foreclosure), and Work Order State (unauthorized)—each is governed by separate rules.</div>
-          </li>
-        </ol>
-      </div>
-
-      <!-- Navigation ONLY -->
-      <div class="nav-bar">
-        <button class="nav-btn" onclick="showCase(1)">← Previous: House</button>
-        <span class="nav-pos">Case 2 of 7 (Chain)</span>
-        <button class="nav-btn primary" onclick="showCase(3)">Next: Order →</button>
-      </div>
-    </article>
-
-    <!-- ==================== CASE 3: ORDER ==================== -->
-    <article class="case-screen" id="case3">
-      <div class="case-meta">
-        <span>Case 3 of 7 • Retelling Stop: Order</span>
-        <span>Module M5–M6 • Intake &amp; Fences</span>
-      </div>
-
-      <h1 class="claim-title">A Work Order Is a Financial Contract, Not a Field Chore List.</h1>
-
-      <!-- Intro: Short Story Opening -->
-      <div class="story-intro">
-        "7:15 AM at the dispatch desk. WO-88419 flashed red on Marcus's screen: 'Initial Secure, Winterization, Debris Cleanout. Client SLA: 72 hours.' In the gravel yard outside, Hector's crew was already idling the work truck, waiting for the lockbox code. Marcus grabbed the printed ticket and his eyes locked onto the state: Washington. He grabbed his radio and called into the yard: 'Hold the truck, Hector! She's in Washington. Before anyone puts a wrench on that deadbolt, we verify whether title has reverted.'"
-      </div>
-
-      <!-- Standalone Visual Asset Link -->
-      <div class="evidence-portal-card">
-        <div class="evidence-portal-header">
-          <span class="evidence-portal-tag">Standalone Case Dossier &bull; Primary Visual</span>
-          <span class="evidence-portal-file">Asset: CASE_03_authority_four_fences.svg</span>
-        </div>
-        <div class="evidence-portal-title">Four Layers of Authority, PPW-Portal System Wall &amp; Six Intake Flags</div>
-        <p class="evidence-portal-desc">
-          The four concentric authority fences, the Washington-only <em>Jordan v. Nationstar</em> legal boundary, and the six work order verification flags are embedded exclusively in the standalone Case 3 file.
-        </p>
-        <a href="case_03.html" class="evidence-portal-action" title="Open Standalone Case 3 Page">
-          <span>Open Standalone Case 3 Dossier &amp; Primary Diagram</span>
-          <span class="action-arrow">&rarr;</span>
-        </a>
-      </div>
-
-      <!-- Max Three Sticky Story-Anchored Key Points -->
-      <div class="key-points-card">
-        <div class="key-points-title">Three Sticky Anchors to Remember</div>
-        <ol class="points-list">
-          <li>
-            <span class="point-num">1</span>
-            <div><strong>Six Mandatory Intake Flags:</strong> Every dispatch requires six verified flags: property address, authorized scope, SLA deadline, investor rulebook, reported occupancy, and access code.</div>
-          </li>
-          <li>
-            <span class="point-num">2</span>
-            <div><strong>Outer Legal Fences Rule:</strong> Under Washington's <em>Jordan v. Nationstar</em> ruling, rekeying before foreclosure sale is unlawful possession; client contracts can never override state statute.</div>
-          </li>
-          <li>
-            <span class="point-num">3</span>
-            <div><strong>The System Wall:</strong> Internal preparation occurs strictly inside the office engine (PPW); client portals (Equator, P260) are for official submission only after approver sign-off.</div>
-          </li>
-        </ol>
-      </div>
-
-      <!-- Navigation ONLY -->
-      <div class="nav-bar">
-        <button class="nav-btn" onclick="showCase(2)">← Previous: Chain</button>
-        <span class="nav-pos">Case 3 of 7 (Order)</span>
-        <button class="nav-btn primary" onclick="showCase(4)">Next: Work →</button>
-      </div>
-    </article>
-
-    <!-- ==================== CASE 4: WORK & PERMISSION ==================== -->
-    <article class="case-screen" id="case4">
-      <div class="case-meta">
-        <span>Case 4 of 7 • Retelling Stop: Work</span>
-        <span>Module M6–M7 • The Permission Gate</span>
-      </div>
-
-      <h1 class="claim-title">Uncertainty Is an Unbreakable Wall: One Sign of Life Forbids the Key.</h1>
-
-      <!-- Intro: Short Story Opening -->
-      <div class="story-intro">
-        "8:30 AM at the kitchen window. Hector stood on the frosted porch steps of Maple House holding a new brass deadbolt and a cordless drill. The client ticket said 'Confirmed Vacant.' But as Hector peered through the kitchen pane to snap his exterior before photo, his breath caught: the digital microwave clock beamed 8:32 AM, an active prescription bottle sat on the counter dated four days ago, and deep in the room, the refrigerator compressor hummed cold. His helper urged, 'Let's just change the lock, we drove an hour.' Hector lowered the drill: 'Not today.'"
-      </div>
-
-      <!-- Standalone Visual Asset Link -->
-      <div class="evidence-portal-card">
-        <div class="evidence-portal-header">
-          <span class="evidence-portal-tag">Standalone Case Dossier &bull; Primary Visual</span>
-          <span class="evidence-portal-file">Asset: CASE_04_permission_occupancy_gate.svg</span>
-        </div>
-        <div class="evidence-portal-title">Kitchen Window Occupancy Clues, HOLD vs. STOP &amp; 25-Word Rule</div>
-        <p class="evidence-portal-desc">
-          The four observable life signals, the exact operational timing between HOLD and STOP, and the 25-word memory communication rubric are embedded exclusively in the standalone Case 4 file.
-        </p>
-        <a href="case_04.html" class="evidence-portal-action" title="Open Standalone Case 4 Page">
-          <span>Open Standalone Case 4 Dossier &amp; Primary Diagram</span>
-          <span class="action-arrow">&rarr;</span>
-        </a>
-      </div>
-
-      <!-- Max Three Sticky Story-Anchored Key Points -->
-      <div class="key-points-card">
-        <div class="key-points-title">Three Sticky Anchors to Remember</div>
-        <ol class="points-list">
-          <li>
-            <span class="point-num">1</span>
-            <div><strong>One Clue Stops the Work:</strong> A cold humming fridge, lit digital clock, fresh delivery parcel, or recent medicine bottle means occupancy is legally uncertain.</div>
-          </li>
-          <li>
-            <span class="point-num">2</span>
-            <div><strong>HOLD vs. STOP Protocol:</strong> Declare HOLD <em>before</em> starting work when occupancy is uncertain; declare STOP <em>during</em> active work if living occupants or hazards are found.</div>
-          </li>
-          <li>
-            <span class="point-num">3</span>
-            <div><strong>The 25-Word Memory Rule:</strong> Communicate the exact physical signal, the clear decision (HOLD), and the escalation owner in 25 words or fewer.</div>
-          </li>
-        </ol>
-      </div>
-
-      <!-- Navigation ONLY -->
-      <div class="nav-bar">
-        <button class="nav-btn" onclick="showCase(3)">← Previous: Order</button>
-        <span class="nav-pos">Case 4 of 7 (Work)</span>
-        <button class="nav-btn primary" onclick="showCase(5)">Next: Evidence →</button>
-      </div>
-    </article>
-
-    <!-- ==================== CASE 5: EVIDENCE ==================== -->
-    <article class="case-screen" id="case5">
-      <div class="case-meta">
-        <span>Case 5 of 7 • Retelling Stop: Evidence</span>
-        <span>Module M7–M9 • Field Preservation Craft</span>
-      </div>
-
-      <h1 class="claim-title">Craft in the Sub-Zero Basement: An Air Pressure Gauge Never Lies Unless You Force It.</h1>
-
-      <!-- Intro: Short Story Opening -->
-      <div class="story-intro">
-        "2:15 PM in the freezing cellar. Breath puffed white in the dark. Once vacancy was officially verified, Hector returned to winterize. He drained the water heater, blew compressor air through the lines, and poured pink propylene glycol into every trap. Then came the test: he charged the supply lines to 35 PSI. At minute twelve, the brass needle had crept down to 23 PSI—a 12 PSI drop. In the dark behind the laundry wall, a faint hiss whispered. His apprentice said, 'The pink antifreeze is in the bowl, Hector. Just mark it pass.' Hector snapped: 'If we lie, thirty thousand dollars of water destroys this foundation in April. A failed test is the truth.'"
-      </div>
-
-      <!-- Standalone Visual Asset Link -->
-      <div class="evidence-portal-card">
-        <div class="evidence-portal-header">
-          <span class="evidence-portal-tag">Standalone Case Dossier &bull; Primary Visual</span>
-          <span class="evidence-portal-file">Asset: CASE_05_field_craft_gauge_audit.svg</span>
-        </div>
-        <div class="evidence-portal-title">Winterization Pressure Gauge Audit (12 PSI Drop), 5-Gate Proof &amp; CY Math</div>
-        <p class="evidence-portal-desc">
-          The 12 PSI drop pressure gauge diagnostic, the five gates of photographic evidence (PLACE, TIME, SCOPE, CLARITY, AUTHORITY), and the cubic yard formula audit are embedded exclusively in the standalone Case 5 file.
-        </p>
-        <a href="case_05.html" class="evidence-portal-action" title="Open Standalone Case 5 Page">
-          <span>Open Standalone Case 5 Dossier &amp; Primary Diagram</span>
-          <span class="action-arrow">&rarr;</span>
-        </a>
-      </div>
-
-      <!-- Max Three Sticky Story-Anchored Key Points -->
-      <div class="key-points-card">
-        <div class="key-points-title">Three Sticky Anchors to Remember</div>
-        <ol class="points-list">
-          <li>
-            <span class="point-num">1</span>
-            <div><strong>Never Fake a Pressure Test:</strong> A pressure needle drop is critical diagnostic evidence of a ruptured pipe; declare HOLD / SYSTEM FAILED and bid line repair.</div>
-          </li>
-          <li>
-            <span class="point-num">2</span>
-            <div><strong>Five Gates of Evidence:</strong> Every claim line must pass PLACE (house numbers), TIME (date-stamps), SCOPE (Before/During/After), CLARITY (sharp focus), and AUTHORITY.</div>
-          </li>
-          <li>
-            <span class="point-num">3</span>
-            <div><strong>Debris Math Is Honest Math:</strong> Measure the pile in feet: $(L \times W \times H) \div 27 = \text{Cubic Yards}$; an $8\times 5\times 3$ pile is 4.44 CY, and billing 9.0 CY is fraud.</div>
-          </li>
-        </ol>
-      </div>
-
-      <!-- Navigation ONLY -->
-      <div class="nav-bar">
-        <button class="nav-btn" onclick="showCase(4)">← Previous: Work</button>
-        <span class="nav-pos">Case 5 of 7 (Evidence)</span>
-        <button class="nav-btn primary" onclick="showCase(6)">Next: Money →</button>
-      </div>
-    </article>
-
-    <!-- ==================== CASE 6: MONEY ==================== -->
-    <article class="case-screen" id="case6">
-      <div class="case-meta">
-        <span>Case 6 of 7 • Retelling Stop: Money</span>
-        <span>Module M9–M10 • The Money Staircase</span>
-      </div>
-
-      <h1 class="claim-title">Every Lost Dollar Has an Owner: The Forensic Bleed from BID to Remittance.</h1>
-
-      <!-- Intro: Short Story Opening -->
-      <div class="story-intro">
-        "Friday, 4:45 PM. Sarah and Elena sat side by side before dual monitors. On the left screen, the contractor billed $1,000 for work at Maple House. On the right, the client remittance check arriving 60 days later showed exactly $550. Elena asked, 'Where did $450 go?' Sarah pointed to the audit logs: '$200 unallowable debris and missing photos at my desk; $100 unapproved repair at dispatch; and $150 split into $60 short-pay + $50 disputed quantity + $40 property adjustment. Every lost dollar has a desk owner. Nothing disappeared into thin air.'"
-      </div>
-
-      <!-- Standalone Visual Asset Link -->
-      <div class="evidence-portal-card">
-        <div class="evidence-portal-header">
-          <span class="evidence-portal-tag">Standalone Case Dossier &bull; Primary Visual</span>
-          <span class="evidence-portal-file">Asset: CASE_06_money_staircase_bleed.svg</span>
-        </div>
-        <div class="evidence-portal-title">Canonical Money Staircase ($1,000 to $550), Desk Bleed &amp; 6 Loss Codes</div>
-        <p class="evidence-portal-desc">
-          The canonical staircase from BID ($1,000) down to Remittance ($550), the $150 split ($60 short-pay + $50 disputed quantity + $40 property adjustment), and the six loss codes are embedded exclusively in the standalone Case 6 file.
-        </p>
-        <a href="case_06.html" class="evidence-portal-action" title="Open Standalone Case 6 Page">
-          <span>Open Standalone Case 6 Dossier &amp; Primary Diagram</span>
-          <span class="action-arrow">&rarr;</span>
-        </a>
-      </div>
-
-      <!-- Max Three Sticky Story-Anchored Key Points -->
-      <div class="key-points-card">
-        <div class="key-points-title">Three Sticky Anchors to Remember</div>
-        <ol class="points-list">
-          <li>
-            <span class="point-num">1</span>
-            <div><strong>Staircase Starts from BID:</strong> Canonical sequence: BID ($1,000) → ALLOWABLE ($800) → APPROVED ($700) → INVOICED ($700) → PAID ($550).</div>
-          </li>
-          <li>
-            <span class="point-num">2</span>
-            <div><strong>Bleed Ownership Across Three Desks:</strong> Leaks belong to the Processor (unallowable scope), Vendor Manager (unapproved work), or Client Manager (unappealed rejections).</div>
-          </li>
-          <li>
-            <span class="point-num">3</span>
-            <div><strong>Chain Detective Matches by Address:</strong> An order closed at $0 followed by payment under another order at the same address is CHAIN-PAID, not delinquent debt.</div>
-          </li>
-        </ol>
-      </div>
-
-      <!-- Navigation ONLY -->
-      <div class="nav-bar">
-        <button class="nav-btn" onclick="showCase(5)">← Previous: Evidence</button>
-        <span class="nav-pos">Case 6 of 7 (Money)</span>
-        <button class="nav-btn primary" onclick="showCase(7)">Next: Capstone →</button>
-      </div>
-    </article>
-
-    <!-- ==================== CASE 7: CAPSTONE ==================== -->
-    <article class="case-screen" id="case7">
-      <div class="case-meta">
-        <span>Case 7 of 7 • Retelling Stop: Capstone</span>
-        <span>Module M10 • The Cold Capstone</span>
-      </div>
-
-      <h1 class="claim-title">The Cold Capstone: Maple House Stands at the Brink of Conveyance.</h1>
-
-      <!-- Intro: Short Story Opening -->
-      <div class="story-intro">
-        "4:25 PM today. Anik folds his arms and steps away from the whiteboard: 'Today, no help. You have the whole chain.' Maple House is 48 hours away from HUD conveyance. If this file has an uncorrected defect, the claim will be debentured, costing tens of thousands of dollars. The folder lands on your desk with four planted traps: a fresh delivery parcel on the porch, a missing back patio lock photo, a faked 12 PSI pressure drop, and a bloated 9 CY debris invoice. You pick up your pen alone."
-      </div>
-
-      <!-- Standalone Visual Asset Link -->
-      <div class="evidence-portal-card">
-        <div class="evidence-portal-header">
-          <span class="evidence-portal-tag">Standalone Case Dossier &bull; Primary Visual</span>
-          <span class="evidence-portal-file">Asset: CASE_07_capstone_cold_audit_file.svg</span>
-        </div>
-        <div class="evidence-portal-title">Capstone Cold Audit Dossier, 4 Planted Failure Traps &amp; Conveyance Resolution</div>
-        <p class="evidence-portal-desc">
-          The cold audit file, detection of the four planted conveyance traps (occupancy clue, missing photo, 12 PSI fake test, debris overbill), and clean resolution are embedded exclusively in the standalone Case 7 file.
-        </p>
-        <a href="case_07.html" class="evidence-portal-action" title="Open Standalone Case 7 Page">
-          <span>Open Standalone Case 7 Dossier &amp; Primary Diagram</span>
-          <span class="action-arrow">&rarr;</span>
-        </a>
-      </div>
-
-      <!-- Max Three Sticky Story-Anchored Key Points -->
-      <div class="key-points-card">
-        <div class="key-points-title">Three Sticky Anchors to Remember</div>
-        <ol class="points-list">
-          <li>
-            <span class="point-num">1</span>
-            <div><strong>Four Planted Traps:</strong> Authority contradiction on the porch, missing rear lock photo, faked winterization gauge test, and mathematical debris overbill.</div>
-          </li>
-          <li>
-            <span class="point-num">2</span>
-            <div><strong>Hold the File, Audit the Lines:</strong> Declare HOLD on the file for authority and pressure failure; correct debris to 4.44 CY and strike unapproved items line by line.</div>
-          </li>
-          <li>
-            <span class="point-num">3</span>
-            <div><strong>The Chain Closes Clean:</strong> Because the audit was honest, Maple House conveyed without debenture; last week, a young family moved in and turned the key.</div>
-          </li>
-        </ol>
-      </div>
-
-      <!-- Navigation ONLY -->
-      <div class="nav-bar">
-        <button class="nav-btn" onclick="showCase(6)">← Previous: Money</button>
-        <span class="nav-pos">Case 7 of 7 (Capstone)</span>
-        <button class="nav-btn primary" onclick="showCase(1)">Restart Retelling (Case 1) ↺</button>
-      </div>
-    </article>
+    </section>
 
   </main>
 
-  <!-- Minimal Footer -->
-  <footer class="footer">
-    <div>
-      <strong>Property Preservation Class • Case Packet</strong> | Built strictly within frozen M0–M10 structure (300 min).<br>
-      <span>Excellence Property Care Solutions Inc. (EPCS) • Fictional Teaching Case Dossier</span>
-    </div>
-  </footer>
-
-  <script>
-    function showCase(caseNum) {
-      for (let i = 1; i <= 7; i++) {
-        const screen = document.getElementById('case' + i);
-        const step = document.getElementById('step' + i);
-        if (screen) screen.classList.toggle('active', i === caseNum);
-        if (step) step.classList.toggle('active', i === caseNum);
-      }
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // Keyboard Arrow Navigation
-    document.addEventListener('keydown', function(e) {
-      const activeScreen = document.querySelector('.case-screen.active');
-      if (!activeScreen) return;
-      const currentId = parseInt(activeScreen.id.replace('case', ''));
-      if (e.key === 'ArrowRight' && currentId < 7) {
-        showCase(currentId + 1);
-      } else if (e.key === 'ArrowLeft' && currentId > 1) {
-        showCase(currentId - 1);
-      }
-    });
-  </script>
 </body>
 </html>

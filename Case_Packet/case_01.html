@@ -3,217 +3,232 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Case 1: The House • Maple House Case Dossier</title>
+  <title>Reveal 1: The House (1972 Origin) — Case Packet Dossier</title>
+  <meta name="description" content="The composite subject dwelling was constructed in 1972 under postwar subdivision plat rules, backed by local thrift mortgages.">
   <style>
     :root {
-      --navy-950: #070d1e;
-      --navy-900: #0b1329;
-      --navy-800: #14213d;
-      --navy-700: #1e293b;
-      --navy-600: #253553;
-      --amber-500: #fca311;
-      --amber-400: #ffb703;
-      --blue-400: #38bdf8;
-      --slate-100: #f1f5f9;
-      --slate-200: #e2e8f0;
-      --slate-300: #cbd5e1;
-      --slate-400: #94a3b8;
-      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --bg-dark: #0b1320;
+      --bg-surface: #12263f;
+      --bg-card: #1e293b;
+      --bg-depth: #0f1c30;
+      --amber: #f59e0b;
+      --amber-light: #fef08a;
+      --teal-light: #2dd4bf;
+      --border: #334155;
+      --border-accent: #475569;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-subtle: #cbd5e1;
+      --sans: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+      --serif: Georgia, Cambria, "Times New Roman", serif;
+      --mono: "Space Mono", Consolas, "Courier New", monospace;
+      --radius: 8px;
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      background-color: var(--navy-950);
-      color: var(--slate-100);
-      font-family: var(--font-sans);
-      line-height: 1.6;
+      background-color: var(--bg-dark);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: clamp(15px, 1.1vw, 17px);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      line-height: 1.6;
+      min-width: 320px;
+      overflow-x: hidden;
     }
-    header.header {
-      background: var(--navy-900);
-      border-bottom: 1px solid var(--navy-600);
+
+    /* STUDENT FACE HEADER */
+    header.class-header {
+      background: rgba(11, 19, 32, 0.95);
+      border-bottom: 1px solid var(--border);
       padding: 16px 24px;
-    }
-    .header-inner {
-      max-width: 960px;
-      margin: 0 auto;
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
       align-items: center;
       gap: 12px;
     }
+
+    .brand-badge {
+      background: var(--amber);
+      color: var(--bg-dark);
+      font-weight: 900;
+      font-size: 13px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+    }
+
     .brand-title {
-      font-size: 17px;
-      font-weight: 800;
+      font-size: 14px;
+      font-weight: 700;
       color: #ffffff;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
-    .brand-chip {
-      background: var(--amber-500);
-      color: #000;
-      font-size: 10px;
-      font-weight: 800;
-      padding: 2px 7px;
-      border-radius: 4px;
+
+    .course-retelling-step {
+      font-size: 11px;
+      color: var(--amber-light);
+      font-weight: 700;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
-    .status-badge {
-      background: #0f172a;
-      border: 1px solid var(--navy-600);
-      color: var(--blue-400);
-      font-size: 11px;
-      font-weight: 600;
-      padding: 3px 10px;
-      border-radius: 4px;
-    }
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 24px 20px 60px;
+
+    main.content-wrap {
+      max-width: 1080px;
       width: 100%;
-      flex: 1;
-    }
-    .chain-tracker {
+      margin: 0 auto;
+      padding: clamp(24px, 4vw, 40px) 24px 60px;
       display: flex;
-      justify-content: space-between;
-      background: var(--navy-900);
-      border: 1px solid var(--navy-600);
-      border-radius: 8px;
-      padding: 6px;
-      margin-bottom: 24px;
-      overflow-x: auto;
+      flex-direction: column;
+      gap: 28px;
     }
-    .chain-step {
-      flex: 1;
-      text-align: center;
-      padding: 8px 4px;
+
+    .title-block {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
+    }
+
+    .kicker {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      color: var(--amber);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    h1.page-title {
+      font-family: var(--serif);
+      font-size: clamp(26px, 4vw, 40px);
+      line-height: 1.2;
+      color: #ffffff;
+      margin-bottom: 12px;
+      text-wrap: balance;
+    }
+
+    .mapping-kicker {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--teal-light);
+      margin-bottom: 8px;
+    }
+
+    p.story-intro {
+      font-family: var(--serif);
+      font-size: clamp(16px, 1.3vw, 19px);
+      color: #e2e8f0;
+      font-style: italic;
+      line-height: 1.5;
+      max-width: 920px;
+    }
+
+    /* ONE-LOOK FOCAL IMAGE */
+    .focal-visual {
+      background: var(--bg-surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+      position: relative;
+    }
+
+    .visual-mock-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--mono);
       font-size: 11px;
       font-weight: 700;
-      color: var(--slate-400);
-      border-radius: 5px;
-      text-decoration: none;
-      white-space: nowrap;
+      color: var(--amber-light);
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 4px 10px;
+      margin-bottom: 8px;
+      letter-spacing: 0.05em;
     }
-    .chain-step.active {
-      background: var(--navy-800);
-      color: var(--amber-400);
-      border: 1px solid var(--amber-500);
-    }
-    .case-screen {
-      background: var(--navy-900);
-      border: 1px solid var(--navy-600);
-      border-radius: 12px;
-      padding: 32px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    }
-    .case-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--amber-400);
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-    }
-    .claim-title {
-      font-size: 24px;
-      font-weight: 800;
-      line-height: 1.35;
-      color: #ffffff;
-      margin-bottom: 20px;
-      letter-spacing: -0.3px;
-    }
-    .story-intro {
-      background: linear-gradient(135deg, rgba(20, 33, 61, 0.8) 0%, rgba(11, 19, 41, 0.9) 100%);
-      border-left: 4px solid var(--amber-500);
-      border-radius: 0 8px 8px 0;
-      padding: 18px 22px;
-      margin-bottom: 24px;
-      font-size: 15px;
-      color: var(--slate-200);
-      font-style: italic;
-      line-height: 1.65;
-    }
-    .media-frame {
-      background: #000;
-      border: 1px solid var(--navy-600);
-      border-radius: 8px;
-      overflow: hidden;
-      margin-bottom: 24px;
-    }
-    .media-frame img {
+
+    .focal-visual img {
       width: 100%;
       height: auto;
       display: block;
+      border-radius: 4px;
     }
-    .media-caption {
-      background: #0a1122;
-      padding: 10px 16px;
-      font-size: 12.5px;
-      color: var(--slate-300);
-      border-top: 1px solid var(--navy-600);
+
+    /* MAX 3 KEY POINTS */
+    .key-points-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 4px;
     }
-    .key-points-card {
-      background: #0f172a;
-      border: 1px solid var(--navy-600);
-      border-radius: 8px;
-      padding: 20px 24px;
-      margin-bottom: 28px;
+
+    @media (max-width: 860px) {
+      .key-points-grid { grid-template-columns: 1fr; }
     }
-    .key-points-title {
-      font-size: 11.5px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--amber-400);
-      margin-bottom: 14px;
-    }
-    .points-list {
-      list-style: none;
+
+    .key-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-top: 3.5px solid var(--amber);
+      border-radius: var(--radius);
+      padding: 20px 18px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
     }
-    .points-list li {
-      font-size: 14px;
-      color: var(--slate-200);
-      line-height: 1.55;
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-    }
-    .point-num {
-      background: var(--navy-800);
-      border: 1px solid var(--navy-600);
-      color: var(--amber-400);
-      font-size: 12px;
+
+    .card-num {
+      font-size: 11px;
       font-weight: 800;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 2px;
+      color: var(--amber);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
-    .nav-bar {
+
+    .card-heading {
+      font-family: var(--serif);
+      font-size: 18px;
+      color: #ffffff;
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .card-body strong { color: #ffffff; }
+
+    /* STEP NAVIGATION BUTTONS */
+    nav.class-nav {
+      margin-top: 8px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
       padding-top: 20px;
-      border-top: 1px solid var(--navy-600);
+      border-top: 1px solid var(--border);
     }
-    .nav-btn {
-      background: var(--navy-800);
-      border: 1px solid var(--navy-600);
-      color: var(--slate-200);
-      padding: 10px 20px;
+
+    .btn-step {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border);
+      color: var(--text);
+      min-height: 48px;
+      padding: 10px 18px;
       border-radius: 6px;
       font-size: 13px;
       font-weight: 700;
@@ -221,96 +236,370 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      transition: all 0.2s ease;
     }
-    .nav-btn.primary {
-      background: linear-gradient(180deg, var(--amber-500) 0%, #e09100 100%);
-      color: #000;
-      border: none;
-      font-weight: 800;
+
+    .btn-step:hover:not(.disabled) {
+      background: var(--amber);
+      color: var(--bg-dark);
+      border-color: var(--amber);
     }
-    footer.footer {
-      background: var(--navy-900);
-      border-top: 1px solid var(--navy-600);
-      padding: 20px 24px;
-      margin-top: auto;
-      text-align: center;
+
+    .btn-step.primary {
+      background: var(--amber);
+      color: var(--bg-dark);
+      border-color: var(--amber);
+    }
+
+    .btn-step.primary:hover { background: #d97706; }
+
+    .btn-step.disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      border-color: var(--border);
+    }
+
+    /* CONTENT DEPTH CONTAINER */
+    section.chapter-depth-container {
+      margin-top: 16px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg-depth);
+      overflow: hidden;
+    }
+
+    .depth-summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      background: var(--bg-surface);
+      cursor: pointer;
+      user-select: none;
+      font-family: var(--sans);
+      font-weight: 700;
+      font-size: 15px;
+      color: #ffffff;
+      min-height: 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .depth-summary::-webkit-details-marker { display: none; }
+    .depth-summary:hover { background: #162c47; }
+
+    .depth-indicator {
+      color: var(--amber);
+      font-family: var(--mono);
       font-size: 12px;
-      color: var(--slate-400);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .depth-inner {
+      padding: 24px 20px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* WORK ORDER SPEC BOX */
+    .wo-spec-box {
+      background: #09101a;
+      border: 1px solid var(--border-accent);
+      border-left: 4px solid var(--teal-light);
+      border-radius: 6px;
+      padding: 18px 20px;
+    }
+
+    .wo-spec-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+      border-bottom: 1px dashed var(--border);
+      padding-bottom: 8px;
+    }
+
+    .wo-badge {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--teal-light);
+      letter-spacing: 0.08em;
+    }
+
+    .wo-client {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .wo-title {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .wo-body {
+      font-family: var(--mono);
+      font-size: 12.5px;
+      color: var(--text-subtle);
+      line-height: 1.55;
+    }
+
+    /* RULES & REQUIREMENTS */
+    .depth-section-title {
+      font-family: var(--serif);
+      font-size: 19px;
+      color: #ffffff;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .depth-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .depth-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .depth-card-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--amber-light);
+    }
+
+    .depth-card-body {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ALL REVEALS NAV BLOCK */
+    section.all-chapters-nav {
+      margin-top: 24px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+    }
+
+    .all-chapters-title {
+      font-family: var(--serif);
+      font-size: 18px;
+      color: #ffffff;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .all-chapters-title a {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--amber);
+      text-decoration: underline;
+    }
+
+    ul.chapters-menu-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 8px 16px;
+    }
+
+    li.nav-item {
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+    }
+
+    a.nav-link {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 13.5px;
+      min-height: 48px;
+      width: 100%;
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 4px;
+      transition: all 0.15s ease;
+    }
+
+    a.nav-link:hover {
+      color: var(--amber-light);
+      background: rgba(245, 158, 11, 0.1);
+      text-decoration: underline;
+    }
+
+    li.nav-item.current {
+      background: rgba(245, 158, 11, 0.15);
+      border-radius: 4px;
+      border-left: 3px solid var(--amber);
+    }
+
+    .nav-current-label {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--amber-light);
+      padding: 6px 10px;
+      display: inline-flex;
+      align-items: center;
+      min-height: 48px;
+      width: 100%;
     }
   </style>
 </head>
 <body>
-  <header class="header">
-    <div class="header-inner">
-      <div class="brand-title">
-        <span>MAPLE HOUSE CASE DOSSIER</span>
-        <span class="brand-chip">Class Case Packet</span>
-      </div>
-      <div class="status-badge">Fictional Teaching File • 7-Stop Retelling Arc</div>
+
+  <header class="class-header">
+    <div class="brand">
+      <span class="brand-badge">CASE</span>
+      <span class="brand-title">Maple House Forensic Case Dossier — Seven Progressive Reveals</span>
     </div>
+    <div class="course-retelling-step">REVEAL 1 OF 7</div>
   </header>
 
-  <main class="container">
-    <nav class="chain-tracker" aria-label="Course Retelling Chain">
-      <a href="case_01.html" class="chain-step active">1. House</a>
-      <a href="case_02.html" class="chain-step">2. Chain</a>
-      <a href="case_03.html" class="chain-step">3. Order</a>
-      <a href="case_04.html" class="chain-step">4. Work</a>
-      <a href="case_05.html" class="chain-step">5. Evidence</a>
-      <a href="case_06.html" class="chain-step">6. Money</a>
-      <a href="case_07.html" class="chain-step">7. Capstone</a>
+  <main class="content-wrap">
+
+    <div class="title-block">
+      <div class="kicker">CASE DOSSIER · REVEAL 1 OF 7</div>
+      <h1 class="page-title">Reveal 1: The House (1972 Origin)</h1>
+      <div class="mapping-kicker">CURRICULUM MAPPING: Ch1 "One House, Five Hours" (10 min) & Ch3 "How the System Was Built" (30 min)</div>
+      <p class="story-intro">The composite subject dwelling was constructed in 1972 under postwar subdivision plat rules, backed by local thrift mortgages.</p>
+    </div>
+
+    <div class="focal-visual">
+      <div class="visual-mock-badge">
+        <span>⚙</span>
+        <span>FLOWCHART / CASE REVEAL 1 ARCHITECTURE · 100% SYNTHETIC</span>
+      </div>
+      <img src="CASE_01_house_1972_origin.svg" alt="Reveal 1: The House (1972 Origin) visual illustration" width="960" height="540">
+    </div>
+
+    <div class="key-points-grid">
+
+      <div class="key-card">
+        <span class="card-num">CASE FOCUS 1</span>
+        <h2 class="card-heading">Suburban Plat Foundations</h2>
+        <p class="card-body">Constructed in 1972 with timber framing and copper plumbing, representing the peak single-family housing volume funded by community savings deposits.</p>
+      </div>
+
+      <div class="key-card">
+        <span class="card-num">CASE FOCUS 2</span>
+        <h2 class="card-heading">The Opening Diagnostic</h2>
+        <p class="card-body">Before locks are changed or tools unholstered, the first diagnostic call is committed silently on site: verify appearance against statutory right.</p>
+      </div>
+
+      <div class="key-card">
+        <span class="card-num">CASE FOCUS 3</span>
+        <h2 class="card-heading">Municipal Boundaries</h2>
+        <p class="card-body">Setback lines, utility hookups, and recorded subdivision plats establish the outer legal boundary of all future preservation orders.</p>
+      </div>
+
+    </div>
+
+    <nav class="class-nav" aria-label="Case Progression">
+      <span class="btn-step disabled">◀ First Reveal</span>
+      <a href="index.html" class="btn-step">Case Packet Index</a>
+      <a href="case_02.html" class="btn-step primary">Reveal 2 ▶</a>
     </nav>
 
-    <article class="case-screen">
-      <div class="case-meta">
-        <span>Case 1 of 7 • Retelling Stop: House</span>
-        <span>Module M0–M2 • Built 1972</span>
-      </div>
+    <section class="chapter-depth-container" aria-label="Operational Depth & Case Specifications">
+      <details class="depth-accordion" open>
+        <summary class="depth-summary">
+          <span>Operational Depth: Work Order Docket, Rules &amp; Protocols</span>
+          <span class="depth-indicator">▼ Click to Toggle Depth Details</span>
+        </summary>
+        <div class="depth-inner">
 
-      <h1 class="claim-title">A House Is Born in 1972: Prosperity Built the Walls, but an Invisible Filter Defined the Block.</h1>
+          <div class="wo-spec-box">
+            <div class="wo-spec-header">
+              <span class="wo-badge">SYNTHETIC WORK ORDER EXAMPLE: CASE-WO-01-ORIGIN</span>
+              <span class="wo-client">CLIENT POOL: MAPLE HOOD TRUST (SYNTHETIC EXAMPLE)</span>
+            </div>
+            <div class="wo-title">FIELD WORK ORDER DISPATCH SCOPE (100% FICTIONAL / LABELED EXAMPLE):</div>
+            <p class="wo-body">CASE PACKET REVEAL 01: Examine recorded plat map, initial appraisal docket, and 1972 construction specifications. Confirm boundary setbacks and baseline utility disconnect status. Zero physical alteration permitted.</p>
+          </div>
 
-      <div class="story-intro">
-        "Arthur Miller stood on the raw pine subfloor of 1142 Maplewood Terrace in October 1972 holding his newborn daughter. The smell of cedar sawdust and fresh paint hung in the cold air. Arthur had worked seven years at the machine plant to qualify for a 30-year amortizing FHA-insured mortgage. Outside, no red line was painted on the asphalt, yet suburban deed covenants and lender maps had already decided who was permitted to buy on this cul-de-sac and who was turned away at the city line."
-      </div>
+          <div>
+            <h2 class="depth-section-title">Governing Rules &amp; Compliance Standards</h2>
+            <div class="depth-grid">
+          <div class="depth-card">
+            <h3 class="depth-card-title">Plat Primacy Standard</h3>
+            <p class="depth-card-body">Original recorded subdivision covenants govern boundary lines across all subsequent servicer conveyances.</p>
+          </div>
+          <div class="depth-card">
+            <h3 class="depth-card-title">Baseline Diagnostic Commitment</h3>
+            <p class="depth-card-body">Execute silent pre-inspection decision record prior to reviewing downstream work orders.</p>
+          </div>
+          <div class="depth-card">
+            <h3 class="depth-card-title">Zero Physical Alteration</h3>
+            <p class="depth-card-body">Document exterior envelope without manipulating locks or testing interior mechanics.</p>
+          </div>
+            </div>
+          </div>
 
-      <div class="media-frame">
-        <img src="CASE_01_house_1972_origin.svg" alt="Maple House 1972 Origin Elevation and the 5-Link Chain">
-        <div class="media-caption">
-          <strong>Asset CASE_01:</strong> Maple House 1972 origin elevation, 1972 total peak starts (2,379,000), and the 5-link custodial chain.
+          <div>
+            <h2 class="depth-section-title">Operational Requirements &amp; Dealing Protocols</h2>
+            <div class="depth-grid">
+          <div class="depth-card">
+            <h3 class="depth-card-title">Plat Survey Verification</h3>
+            <p class="depth-card-body">Confirm parcel dimensions match county assessor records.</p>
+          </div>
+          <div class="depth-card">
+            <h3 class="depth-card-title">Elevation Photo Baseline</h3>
+            <p class="depth-card-body">Provide front, street-view left, and street-view right contextual photographs.</p>
+          </div>
+          <div class="depth-card">
+            <h3 class="depth-card-title">Dealing Point — Initial Inquiries</h3>
+            <p class="depth-card-body">Direct all neighbor or municipal questions to the administrative property management registry.</p>
+          </div>
+            </div>
+          </div>
+
         </div>
-      </div>
+      </details>
+    </section>
 
-      <div class="key-points-card">
-        <div class="key-points-title">Three Sticky Anchors to Remember</div>
-        <ol class="points-list">
-          <li>
-            <span class="point-num">1</span>
-            <div><strong>Built in the 1972 Peak:</strong> Maple House was born in America's highest total building peak (2,379,000 starts); FHA insured her note against default, but never lent a single dollar.</div>
-          </li>
-          <li>
-            <span class="point-num">2</span>
-            <div><strong>The 5-Link Custodial Chain:</strong> A work order travels five distinct links—Bank to Servicer to National to Local Office to Field Crew—before a single lock turns.</div>
-          </li>
-          <li>
-            <span class="point-num">3</span>
-            <div><strong>Condition Is Not Permission:</strong> An empty lawn and dark windows indicate physical vacancy, but never grant legal authority to enter or rekey.</div>
-          </li>
-        </ol>
+    <section class="all-chapters-nav" aria-label="All Reveals Menu">
+      <div class="all-chapters-title">
+        <span>The Seven Progressive Reveals of the Case Dossier</span>
+        <a href="index.html">View Case Index &amp; Course Mapping →</a>
       </div>
+      <ul class="chapters-menu-list">
+            <li class="nav-item current" aria-current="page"><span class="nav-current-label">▶ Reveal 1: The House (1972 Origin) (Current)</span></li>
+            <li class="nav-item"><a href="case_02.html" class="nav-link">Reveal 2: The Chain (Five Hands on One House)</a></li>
+            <li class="nav-item"><a href="case_03.html" class="nav-link">Reveal 3: The Order (Authority & Jordan Fence)</a></li>
+            <li class="nav-item"><a href="case_04.html" class="nav-link">Reveal 4: The Work (Grass, Doors & Occupancy)</a></li>
+            <li class="nav-item"><a href="case_05.html" class="nav-link">Reveal 5: The Evidence (Winterization & Debris)</a></li>
+            <li class="nav-item"><a href="case_06.html" class="nav-link">Reveal 6: The Money (Where the Margin Bleeds)</a></li>
+            <li class="nav-item"><a href="case_07.html" class="nav-link">Reveal 7: The Capstone (The Cold House)</a></li>
+      </ul>
+    </section>
 
-      <div class="nav-bar">
-        <span style="font-size:12.5px; color:var(--slate-400);">First case in sequence</span>
-        <span style="font-size:12.5px; color:var(--slate-400); font-weight:600;">Case 1 of 7 (House)</span>
-        <a href="case_02.html" class="nav-btn primary">Next: Chain →</a>
-      </div>
-    </article>
   </main>
 
-  <footer class="footer">
-    <div>
-      <strong>Property Preservation Class • Case Packet</strong> | Built strictly within frozen M0–M10 structure (300 min).<br>
-      <span>Excellence Property Care Solutions Inc. (EPCS) • Fictional Teaching Case Dossier</span>
-    </div>
-  </footer>
 </body>
 </html>

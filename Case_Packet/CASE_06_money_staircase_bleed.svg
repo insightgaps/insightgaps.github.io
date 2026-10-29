@@ -150,7 +150,7 @@
     <g transform="translate(24, 40)">
       <!-- Order A -->
       <rect width="320" height="58" rx="6" fill="#1e293b" stroke="#ef4444" stroke-width="1"/>
-      <text x="12" y="20" fill="#f87171" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" font-weight="800">ORDER A • WO-10492 • $0 PAID</text>
+      <text x="12" y="20" fill="#f87171" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" font-weight="800">ORDER A • CASE-WO-06-ORIG • $0 PAID</text>
       <text x="12" y="34" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="9">Property: 1142 Maplewood Terrace</text>
       <text x="12" y="47" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="8.5">Portal shows closed with $0 remittance</text>
 
@@ -159,7 +159,7 @@
 
       <!-- Order B -->
       <rect x="370" width="390" height="58" rx="6" fill="#172e2b" stroke="#10b981" stroke-width="1.2"/>
-      <text x="382" y="20" fill="#34d399" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" font-weight="800">ORDER B • WO-10811 • $420 REMITTANCE ARRIVED</text>
+      <text x="382" y="20" fill="#34d399" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" font-weight="800">ORDER B • CASE-WO-06-SUPP • $420 REMITTANCE ARRIVED</text>
       <text x="382" y="34" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="9">Property: 1142 Maplewood Terrace (Same address! Follow-up chain)</text>
       <text x="382" y="47" fill="#a7f3d0" font-family="system-ui, -apple-system, sans-serif" font-size="8.5">VERDICT: Order A is NOT unpaid. It is CHAIN-PAID under Order B.</text>
     </g>
