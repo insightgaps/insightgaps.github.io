@@ -3,142 +3,401 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Class Syllabus — Every Chapter, in Order</title>
+  <title>The Story Course — Syllabus · Insight Gaps</title>
+  <meta name="description" content="The Story Course syllabus: fourteen property preservation chapters following one house, in order.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;700&family=Space+Grotesk:wght@400;500;600&family=Space+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #F7F5EF;
-      --card-bg: #FFFFFF;
+      --card: #FFFFFF;
       --ink: #1D2422;
-      --ink-muted: #4C5551;
+      --muted: #4C5551;
       --line: #D8D2C4;
       --link: #1F5F57;
-      --link-hover: #8F2C10;
-      --staging-bg: #EFE9DB;
-      --staging-border: #D8D2C4;
-      --staging-text: #4C5551;
+      --tint: #F2EFE6;
+      --pad: clamp(16px, 4vw, 32px);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { -webkit-text-size-adjust: 100%; }
 
     body {
-      background-color: var(--bg);
+      margin: 0;
+      background: var(--bg);
       color: var(--ink);
       font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-size: 16px;
+      font-size: clamp(15px, 0.92rem + 0.25vw, 17px);
       line-height: 1.6;
-      padding: 48px 24px;
+      padding: clamp(24px, 6vw, 64px) clamp(14px, 4vw, 28px) clamp(40px, 8vw, 80px);
+      -webkit-font-smoothing: antialiased;
     }
 
-    .container {
-      max-width: 780px;
-      margin: 0 auto;
-      background: var(--card-bg);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 40px;
+    .page { max-width: 860px; margin: 0 auto; }
+
+    .eyebrow {
+      margin: 0 0 0.9rem;
+      font-family: 'Space Mono', ui-monospace, monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
     }
 
     h1 {
+      margin: 0;
       font-family: 'Newsreader', Georgia, serif;
-      font-size: 2.2rem;
       font-weight: 600;
-      color: var(--ink);
-      margin-bottom: 28px;
-      padding-bottom: 16px;
+      font-size: clamp(2rem, 1.35rem + 3.1vw, 3.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.015em;
+    }
+
+    .deck {
+      max-width: 56ch;
+      margin: clamp(10px, 1.6vw, 16px) 0 0;
+      color: var(--muted);
+      font-size: clamp(0.98rem, 0.94rem + 0.3vw, 1.1rem);
+    }
+
+    .tree { margin-top: clamp(24px, 4vw, 40px); }
+
+    /* One class node = one details element. Chapters are the ordered list inside it. */
+    .class-node {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      box-shadow: 0 1px 0 rgba(29, 36, 34, 0.03);
+    }
+
+    .class-summary {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: clamp(12px, 2.2vw, 18px);
+      min-height: 72px;
+      padding: clamp(14px, 3vw, 22px) var(--pad);
+      background: var(--card);
+      border-radius: 9px;
+      cursor: pointer;
+      list-style: none;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .class-summary::-webkit-details-marker { display: none; }
+    .class-summary::marker { content: ""; }
+
+    .class-summary:hover { background: #FCFBF7; }
+
+    .class-summary:focus-visible {
+      outline: 2px solid var(--link);
+      outline-offset: -3px;
+    }
+
+    .class-node[open] > .class-summary {
       border-bottom: 1px solid var(--line);
+      border-radius: 9px 9px 0 0;
     }
 
-    h2 {
+    .class-bar {
+      flex: 0 0 auto;
+      align-self: stretch;
+      width: 4px;
+      min-height: 42px;
+      border-radius: 2px;
+      background: var(--link);
+    }
+
+    .class-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .class-kicker {
+      font-family: 'Space Mono', ui-monospace, monospace;
+      font-size: 0.66rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .class-title {
       font-family: 'Newsreader', Georgia, serif;
-      font-size: 1.35rem;
       font-weight: 600;
-      color: var(--ink);
-      margin-top: 36px;
-      margin-bottom: 18px;
-      line-height: 1.4;
+      font-size: clamp(1.25rem, 1.05rem + 0.8vw, 1.55rem);
+      line-height: 1.2;
     }
 
-    ul {
-      list-style-type: disc;
-      padding-left: 24px;
-      margin-bottom: 28px;
+    .class-meta {
+      font-size: 0.86rem;
+      color: var(--muted);
     }
 
-    li {
-      margin-bottom: 12px;
-      color: var(--ink);
-      line-height: 1.5;
+    .toggle {
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      margin-left: auto;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      transition: border-color 0.18s ease, background 0.18s ease;
     }
 
-    a {
-      color: var(--link);
-      text-decoration: underline;
-      text-underline-offset: 3px;
+    .toggle::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-right: 2px solid var(--muted);
+      border-bottom: 2px solid var(--muted);
+      transform: translateY(-1px) rotate(45deg);
+      transition: transform 0.2s ease;
     }
 
-    a:hover {
-      color: var(--link-hover);
+    .class-node[open] .toggle {
+      border-color: var(--link);
+      background: var(--tint);
     }
 
-    .staging-tag {
-      display: inline-block;
-      font-family: 'Space Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--staging-text);
-      background-color: var(--staging-bg);
-      border: 1px solid var(--staging-border);
-      border-radius: 4px;
-      padding: 1px 6px;
-      margin-left: 4px;
-      vertical-align: middle;
+    .class-node[open] .toggle::before {
+      border-color: var(--link);
+      transform: translateY(1px) rotate(-135deg);
+    }
+
+    .chapters {
+      list-style: none;
+      margin: 0 0 6px clamp(10px, 2.5vw, 18px);
+      padding: 6px 0 10px clamp(8px, 2vw, 14px);
+      border-left: 1px solid var(--line);
+    }
+
+    .chapter + .chapter { border-top: 1px solid rgba(216, 210, 196, 0.6); }
+
+    .chapter-link {
+      display: grid;
+      grid-template-columns: 2.25rem minmax(0, 1fr);
+      gap: clamp(8px, 1.8vw, 14px);
+      align-items: start;
+      min-height: 52px;
+      padding: clamp(11px, 2vw, 15px) clamp(6px, 1.6vw, 12px);
+      border-radius: 6px;
+      color: inherit;
+      text-decoration: none;
+      transition: background 0.15s ease;
+    }
+
+    .chapter-link:hover { background: var(--tint); }
+    .chapter-link:hover .chapter-name { color: var(--link); }
+
+    .chapter-link:focus-visible {
+      outline: 2px solid var(--link);
+      outline-offset: -2px;
+    }
+
+    .chapter-num {
+      padding-top: 0.32em;
+      font-family: 'Space Mono', ui-monospace, monospace;
+      font-size: 0.74rem;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .chapter-body { min-width: 0; }
+
+    .chapter-name {
+      display: block;
+      font-weight: 500;
+      font-size: clamp(1rem, 0.96rem + 0.25vw, 1.12rem);
+      line-height: 1.35;
+      overflow-wrap: break-word;
+    }
+
+    .chapter-line {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: clamp(0.875rem, 0.86rem + 0.15vw, 0.95rem);
+      line-height: 1.45;
+      text-wrap: pretty;
+    }
+
+    @media (any-pointer: coarse) {
+      .chapter-link { padding-top: 14px; padding-bottom: 14px; }
+      .toggle { width: 40px; height: 40px; }
+    }
+
+    @media print {
+      .class-summary { position: static; }
+      .class-node { break-inside: avoid; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Staged for live path /Syllabus/syllabus.html (it will replace the current syllabus page at push time, on the user's word — do NOT push it). -->
-  <div class="container">
-    <h1>Class Syllabus — Every Chapter, in Order</h1>
+  <main class="page">
+    <header>
+      <p class="eyebrow">Property preservation</p>
+      <h1>Syllabus</h1>
+      <p class="deck">Fourteen chapters that follow one house — from the year she was built to the day she is a home again.</p>
+    </header>
 
-    <h2>TRACK 1 — The Preservation Office Course — Five Hours, One House — 300 minutes total (280 active + 20 breaks)</h2>
-    <ul>
-      <li><a href="https://www.insightgaps.com/class_hub.html">Course hub</a></li>
-      <li><a href="https://www.insightgaps.com/M0/">Chapter 1 One House, Five Hours</a> — 10 min — Meet the house, meet the chain, first diagnostic</li>
-      <li>Chapter 2 The Chain: Five Hands on One House — 25 min — Bank, Servicer, National, Office, Crew — every handoff — <span class="staging-tag">[In Staging]</span> <!-- ../M1/ --></li>
-      <li>Chapter 3 How the System Was Built — 30 min — Boom, two peaks, the loop, and the filter — <span class="staging-tag">[In Staging]</span> <!-- ../M2/ --></li>
-      <li>Chapter 4 Foreclosure, Step by Step — 20 min — Default, help first, foreclosure, auction, REO; vacancy decay — <span class="staging-tag">[In Staging]</span> <!-- ../M3/ --></li>
-      <li>Chapter 5 Check Yourself: Rebuild the Chain — 10 min — Silent retrieval checkpoint before moving on — <span class="staging-tag">[In Staging]</span> <!-- ../M4/ --></li>
-      <li>Chapter 6 Who May Do What — 30 min — Four layers of authority; who approves what — <span class="staging-tag">[In Staging]</span> <!-- ../M5/ --></li>
-      <li>Chapter 7 The Job, Start to Finish — 35 min — Eleven stops; the Permission Gate — <span class="staging-tag">[In Staging]</span> <!-- ../M6/ --></li>
-      <li>Chapter 8 Five Jobs, Done Right — 25 min — Grass, Secure, Winterization, Debris, Inspection; proof is the test — <span class="staging-tag">[In Staging]</span> <!-- ../M7/ --></li>
-      <li>Chapter 9 Prove It With Photos — 35 min — PLACE, TIME, SCOPE, CLARITY; the missing shot is the verdict — <span class="staging-tag">[In Staging]</span> <!-- ../M8/ --></li>
-      <li>Chapter 10 Where the Money Goes — 25 min — BID to PAID; every leak owned — <span class="staging-tag">[In Staging]</span> <!-- ../M9/ --></li>
-      <li>Chapter 11 The Final Test: One Unseen House — 35 min — Four traps, full defense — <span class="staging-tag">[In Staging]</span> <!-- ../M10/ --></li>
-    </ul>
+    <section class="tree" aria-label="Course chapters">
+      <details class="class-node" open>
+        <summary class="class-summary">
+          <span class="class-bar" aria-hidden="true"></span>
+          <span class="class-text">
+            <span class="class-kicker">Class</span>
+            <span class="class-title">The Story Course</span>
+            <span class="class-meta">14 chapters</span>
+          </span>
+          <span class="toggle" aria-hidden="true"></span>
+        </summary>
 
-    <h2>TRACK 2 — The Story Course</h2>
-    <ul>
-      <li><a href="https://www.insightgaps.com/analysis/property-preservation/class/demo-class-page/">Story 1 The Rise of the American House</a> — How America got houses — boom, loans, and the filter</li>
-      <li><a href="https://www.insightgaps.com/analysis/property-preservation/class/demo-class-page-2/">Story 2 The Peaks and the Loop</a> — Two building waves and the money loop</li>
-      <li><a href="https://www.insightgaps.com/analysis/property-preservation/class/safeguard-demo-page/">Story 3 Safeguard, 2008 &amp; the System</a> — The company example, the flood, and the system</li>
-      <li><a href="https://www.insightgaps.com/analysis/property-preservation/class/class-3-demo-page/">Story 4 The Fall</a> — From missed payment to vacant house, in order</li>
-      <li><a href="https://www.insightgaps.com/analysis/property-preservation/class/class-4-demo-page/">Story 5 The System: Nationals, Proof, Rules</a> — Nationals, proof, and the rules that arrived</li>
-      <li><a href="https://www.insightgaps.com/analysis/property-preservation/class/class-5-demo-page/">Story 6 The Order</a> — One work order, eleven stops</li>
-      <li><a href="https://www.insightgaps.com/analysis/property-preservation/class/class-6-demo-page/">Story 7 The Work I: Grass + Secure</a> — The first jobs: the face and the lock</li>
-      <li><a href="https://www.insightgaps.com/analysis/property-preservation/class/class-7-demo-page/">Story 8 The Work II: Winter, Debris, Inspection</a> — Winter, debris, inspection</li>
-      <li><a href="https://www.insightgaps.com/analysis/property-preservation/class/class-8-demo-page/">Story 9 Damage + Property: Read Any House</a> — Read any house: damage and systems</li>
-      <li><a href="https://www.insightgaps.com/analysis/property-preservation/class/class-9-demo-page/">Story 10 Follow the Money</a> — Bidding, invoice, three desks</li>
-      <li><a href="https://www.insightgaps.com/analysis/property-preservation/class/class-10-demo-page/">Story 11 Money's End + Judgment: The Capstone</a> — Money's end and final judgment</li>
-      <li><a href="https://www.insightgaps.com/analysis/property-preservation/class/2008-demo-page/">Story 12 2008: The Flood</a> — 2008, the flood</li>
-      <li><a href="https://www.insightgaps.com/analysis/property-preservation/class/full-work-circle-demo-page/">Story 13 The Full Work Circle</a> — The full work circle</li>
-      <li><a href="https://www.insightgaps.com/analysis/property-preservation/class/what-we-do-demo-page/">Story 14 What We Do: The Work Itself</a> — The work itself</li>
-    </ul>
-  </div>
+        <ol class="chapters">
+          <li class="chapter">
+            <a class="chapter-link" href="https://www.insightgaps.com/analysis/property-preservation/class/demo-class-page/">
+              <span class="chapter-num" aria-hidden="true">01</span>
+              <span class="chapter-body">
+                <span class="chapter-name">The Rise of the American House</span>
+                <span class="chapter-line">How America got its houses — the boom, the loans, and the filter.</span>
+              </span>
+            </a>
+          </li>
+          <li class="chapter">
+            <a class="chapter-link" href="https://www.insightgaps.com/analysis/property-preservation/class/demo-class-page-2/">
+              <span class="chapter-num" aria-hidden="true">02</span>
+              <span class="chapter-body">
+                <span class="chapter-name">The Peaks and the Loop</span>
+                <span class="chapter-line">Two building waves, and the money loop that fed them.</span>
+              </span>
+            </a>
+          </li>
+          <li class="chapter">
+            <a class="chapter-link" href="https://www.insightgaps.com/analysis/property-preservation/class/safeguard-demo-page/">
+              <span class="chapter-num" aria-hidden="true">03</span>
+              <span class="chapter-body">
+                <span class="chapter-name">Who Looks After an Empty House</span>
+                <span class="chapter-line">The chain of hands, the Safeguard example, and the 2008 flood.</span>
+              </span>
+            </a>
+          </li>
+          <li class="chapter">
+            <a class="chapter-link" href="https://www.insightgaps.com/analysis/property-preservation/class/class-3-demo-page/">
+              <span class="chapter-num" aria-hidden="true">04</span>
+              <span class="chapter-body">
+                <span class="chapter-name">How a House Falls</span>
+                <span class="chapter-line">From a missed payment to an empty house, step by step.</span>
+              </span>
+            </a>
+          </li>
+          <li class="chapter">
+            <a class="chapter-link" href="https://www.insightgaps.com/analysis/property-preservation/class/class-4-demo-page/">
+              <span class="chapter-num" aria-hidden="true">05</span>
+              <span class="chapter-body">
+                <span class="chapter-name">Proof, Rules, and Many Clients</span>
+                <span class="chapter-line">Three eras of proof, one courtroom question, and a rulebook per client.</span>
+              </span>
+            </a>
+          </li>
+          <li class="chapter">
+            <a class="chapter-link" href="https://www.insightgaps.com/analysis/property-preservation/class/class-5-demo-page/">
+              <span class="chapter-num" aria-hidden="true">06</span>
+              <span class="chapter-body">
+                <span class="chapter-name">One Work Order, Eleven Stops</span>
+                <span class="chapter-line">A single order's whole journey, from intake to follow-up.</span>
+              </span>
+            </a>
+          </li>
+          <li class="chapter">
+            <a class="chapter-link" href="https://www.insightgaps.com/analysis/property-preservation/class/class-6-demo-page/">
+              <span class="chapter-num" aria-hidden="true">07</span>
+              <span class="chapter-body">
+                <span class="chapter-name">The First Jobs: Grass and Doors</span>
+                <span class="chapter-line">The face of the house, and every opening that has to be closed.</span>
+              </span>
+            </a>
+          </li>
+          <li class="chapter">
+            <a class="chapter-link" href="https://www.insightgaps.com/analysis/property-preservation/class/class-7-demo-page/">
+              <span class="chapter-num" aria-hidden="true">08</span>
+              <span class="chapter-body">
+                <span class="chapter-name">Winter, Debris, and Inspection</span>
+                <span class="chapter-line">Three more jobs, and the proof each one demands.</span>
+              </span>
+            </a>
+          </li>
+          <li class="chapter">
+            <a class="chapter-link" href="https://www.insightgaps.com/analysis/property-preservation/class/class-8-demo-page/">
+              <span class="chapter-num" aria-hidden="true">09</span>
+              <span class="chapter-body">
+                <span class="chapter-name">How to Read a Damaged House</span>
+                <span class="chapter-line">Water, mold, weather, and neglect — and what to do first.</span>
+              </span>
+            </a>
+          </li>
+          <li class="chapter">
+            <a class="chapter-link" href="https://www.insightgaps.com/analysis/property-preservation/class/class-9-demo-page/">
+              <span class="chapter-num" aria-hidden="true">10</span>
+              <span class="chapter-body">
+                <span class="chapter-name">Follow the Money</span>
+                <span class="chapter-line">A bid, five leaks, and the three desks that move the money.</span>
+              </span>
+            </a>
+          </li>
+          <li class="chapter">
+            <a class="chapter-link" href="https://www.insightgaps.com/analysis/property-preservation/class/class-10-demo-page/">
+              <span class="chapter-num" aria-hidden="true">11</span>
+              <span class="chapter-body">
+                <span class="chapter-name">The Last House, With No Help</span>
+                <span class="chapter-line">Loose money, an unseen house, and a verdict defended in twenty-five words.</span>
+              </span>
+            </a>
+          </li>
+          <li class="chapter">
+            <a class="chapter-link" href="https://www.insightgaps.com/analysis/property-preservation/class/2008-demo-page/">
+              <span class="chapter-num" aria-hidden="true">12</span>
+              <span class="chapter-body">
+                <span class="chapter-name">2008: The Flood</span>
+                <span class="chapter-line">The year the system broke — and the industry it left behind.</span>
+              </span>
+            </a>
+          </li>
+          <li class="chapter">
+            <a class="chapter-link" href="https://www.insightgaps.com/analysis/property-preservation/class/full-work-circle-demo-page/">
+              <span class="chapter-num" aria-hidden="true">13</span>
+              <span class="chapter-body">
+                <span class="chapter-name">One Job, Eight Stations</span>
+                <span class="chapter-line">The work as a circle — and the gaps where jobs die.</span>
+              </span>
+            </a>
+          </li>
+          <li class="chapter">
+            <a class="chapter-link" href="https://www.insightgaps.com/analysis/property-preservation/class/what-we-do-demo-page/">
+              <span class="chapter-num" aria-hidden="true">14</span>
+              <span class="chapter-body">
+                <span class="chapter-name">The Work Itself</span>
+                <span class="chapter-line">All five jobs in one pass, on one house.</span>
+              </span>
+            </a>
+          </li>
+        </ol>
+      </details>
+    </section>
+  </main>
 </body>
 </html>
