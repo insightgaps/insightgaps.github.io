@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 495" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1329"/>
+      <stop offset="100%" stop-color="#14213d"/>
+    </linearGradient>
+    <filter id="shadow4" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <rect width="880" height="495" fill="url(#bgGrad4)"/>
+  
+  <!-- Subtle Blueprint Grid -->
+  <g opacity="0.08" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="55" x2="880" y2="55"/>
+    <line x1="0" y1="110" x2="880" y2="110"/>
+    <line x1="0" y1="165" x2="880" y2="165"/>
+    <line x1="0" y1="220" x2="880" y2="220"/>
+    <line x1="0" y1="275" x2="880" y2="275"/>
+    <line x1="0" y1="330" x2="880" y2="330"/>
+    <line x1="0" y1="385" x2="880" y2="385"/>
+    <line x1="0" y1="440" x2="880" y2="440"/>
+    <line x1="110" y1="0" x2="110" y2="495"/>
+    <line x1="220" y1="0" x2="220" y2="495"/>
+    <line x1="330" y1="0" x2="330" y2="495"/>
+    <line x1="440" y1="0" x2="440" y2="495"/>
+    <line x1="550" y1="0" x2="550" y2="495"/>
+    <line x1="660" y1="0" x2="660" y2="495"/>
+    <line x1="770" y1="0" x2="770" y2="495"/>
+  </g>
+
+  <!-- Header Chips -->
+  <rect x="36" y="24" width="250" height="26" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <circle cx="50" cy="37" r="4" fill="#fca311"/>
+  <text x="62" y="41" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="1">REVEAL 4 • THE OCCUPANCY GATE</text>
+
+  <rect x="614" y="24" width="230" height="26" rx="4" fill="#0f172a" stroke="#fca311" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="626" y="41" fill="#fca311" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="600" letter-spacing="0.5">SYNTHETIC TEACHING ILLUSTRATION</text>
+
+  <!-- Left Card: Kitchen Window Forensic Observation -->
+  <g transform="translate(40, 70)" filter="url(#shadow4)">
+    <rect width="390" height="260" rx="10" fill="#131d31" stroke="#253553" stroke-width="1.5"/>
+    <text x="24" y="32" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">The Kitchen Window Signals</text>
+    <text x="24" y="48" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="11">Observable physical facts visible from the lawful perimeter</text>
+
+    <!-- Visual Clues Grid -->
+    <g transform="translate(24, 65)">
+      <!-- Clue 1: Cold Refrigerator -->
+      <g transform="translate(0, 0)">
+        <rect width="162" height="66" rx="5" fill="#172238" stroke="#38bdf8" stroke-width="1"/>
+        <text x="12" y="20" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="700">1. REFRIGERATOR</text>
+        <text x="12" y="36" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="9.5">Interior light lit</text>
+        <text x="12" y="50" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="9">Compressor humming cold</text>
+      </g>
+
+      <!-- Clue 2: Microwave Clock -->
+      <g transform="translate(176, 0)">
+        <rect width="162" height="66" rx="5" fill="#172238" stroke="#38bdf8" stroke-width="1"/>
+        <text x="12" y="20" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="700">2. DIGITAL CLOCK</text>
+        <text x="12" y="36" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="9.5">Glowing "10:14 AM"</text>
+        <text x="12" y="50" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="9">Accurate current time</text>
+      </g>
+
+      <!-- Clue 3: Prescription Bottle -->
+      <g transform="translate(0, 76)">
+        <rect width="162" height="66" rx="5" fill="#2d1520" stroke="#f43f5e" stroke-width="1.2"/>
+        <text x="12" y="20" fill="#fb7185" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="700">3. MEDICATION</text>
+        <text x="12" y="36" fill="#fda4af" font-family="system-ui, -apple-system, sans-serif" font-size="9.5">Active prescription bottle</text>
+        <text x="12" y="50" fill="#fda4af" font-family="system-ui, -apple-system, sans-serif" font-size="9">Dated 4 days ago on counter</text>
+      </g>
+
+      <!-- Clue 4: Delivery Package -->
+      <g transform="translate(176, 76)">
+        <rect width="162" height="66" rx="5" fill="#2d1520" stroke="#f43f5e" stroke-width="1.2"/>
+        <text x="12" y="20" fill="#fb7185" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="700">4. RECENT PARCEL</text>
+        <text x="12" y="36" fill="#fda4af" font-family="system-ui, -apple-system, sans-serif" font-size="9.5">Delivery box on porch</text>
+        <text x="12" y="50" fill="#fda4af" font-family="system-ui, -apple-system, sans-serif" font-size="9">Shipping label 2 days old</text>
+      </g>
+    </g>
+
+    <rect x="24" y="218" width="340" height="26" rx="4" fill="#0b1322"/>
+    <text x="34" y="235" fill="#ef4444" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="700">OPERATIONAL VERDICT: HOLD &amp; ESCALATE IMMEDIATELY</text>
+  </g>
+
+  <!-- Right Card: HOLD vs STOP & The 4-Point Rubric -->
+  <g transform="translate(450, 70)" filter="url(#shadow4)">
+    <rect width="390" height="260" rx="10" fill="#131d31" stroke="#253553" stroke-width="1.5"/>
+    <text x="24" y="32" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">HOLD vs. STOP &amp; The 4-Point Line</text>
+    <text x="24" y="48" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="11">Precise operational language under strict word control</text>
+
+    <!-- Timing Rule Box -->
+    <g transform="translate(24, 65)">
+      <rect width="162" height="42" rx="4" fill="#1e293b" stroke="#f59e0b" stroke-width="1.2"/>
+      <text x="12" y="18" fill="#f59e0b" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="800">HOLD (PRE-WORK)</text>
+      <text x="12" y="32" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="9">Authority/occupancy uncertain</text>
+
+      <rect x="176" width="166" height="42" rx="4" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
+      <text x="188" y="18" fill="#ef4444" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="800">STOP (MID-WORK)</text>
+      <text x="188" y="32" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="9">Hazard or human found on site</text>
+    </g>
+
+    <!-- The 4 Rubric Checks -->
+    <g transform="translate(24, 116)">
+      <rect width="342" height="74" rx="5" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+      <text x="12" y="18" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" font-weight="700">4-POINT UPDATE LINE RUBRIC (MUST PASS ALL FOUR):</text>
+      <text x="12" y="33" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif" font-size="9">1. Physical signal named? (Fridge, clock, medicine)</text>
+      <text x="12" y="46" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif" font-size="9">2. Decision stated? (Unambiguous HOLD)</text>
+      <text x="12" y="59" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif" font-size="9">3. Next step named? (Escalate for occupancy check)</text>
+      <text x="12" y="71" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif" font-size="9">4. 25 words or fewer? (Strict ceiling)</text>
+    </g>
+
+    <!-- Model Line Quote -->
+    <rect x="24" y="200" width="342" height="44" rx="5" fill="#172e2b" stroke="#10b981" stroke-width="1"/>
+    <text x="34" y="216" fill="#a7f3d0" font-family="system-ui, -apple-system, sans-serif" font-size="8.5" font-weight="700">MODEL LINE (18 WORDS • PASSES ALL 4 CHECKS):</text>
+    <text x="34" y="233" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="8.5" font-style="italic">"Fridge cold, clock lit, prescription 4 days old: occupancy uncertain. HOLD work, escalate to manager for occupancy check."</text>
+  </g>
+
+  <!-- Bottom Strip: The Liability Wall -->
+  <g transform="translate(40, 350)" filter="url(#shadow4)">
+    <rect width="800" height="115" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+    <text x="24" y="26" fill="#ef4444" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="800" letter-spacing="1">THE CATASTROPHIC LIABILITIES OF WRONGFUL LOCKOUT</text>
+
+    <g transform="translate(24, 42)">
+      <!-- Risk 1 -->
+      <rect width="240" height="56" rx="6" fill="#1e293b" stroke="#ef4444" stroke-width="1"/>
+      <text x="12" y="20" fill="#f87171" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700">CRIMINAL TRESPASS &amp; TORT</text>
+      <text x="12" y="36" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="9.5">Unlawful change of locks</text>
+      <text x="12" y="49" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="9">violates possessory rights</text>
+
+      <!-- Risk 2 -->
+      <rect x="255" width="245" height="56" rx="6" fill="#1e293b" stroke="#ef4444" stroke-width="1"/>
+      <text x="267" y="20" fill="#f87171" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700">JORDAN V. NATIONSTAR (WA ONLY)</text>
+      <text x="267" y="36" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="9.5">Lock change = possession under</text>
+      <text x="267" y="49" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="9">WA RCW 7.28.230 lien theory</text>
+
+      <!-- Risk 3 -->
+      <rect x="515" width="245" height="56" rx="6" fill="#1e293b" stroke="#ef4444" stroke-width="1"/>
+      <text x="527" y="20" fill="#f87171" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700">IMMEDIATE MASTER BREACH</text>
+      <text x="527" y="36" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="9.5">Contract de-boarding, personal</text>
+      <text x="527" y="49" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="9">property conversion damages</text>
+    </g>
+  </g>
+</svg>

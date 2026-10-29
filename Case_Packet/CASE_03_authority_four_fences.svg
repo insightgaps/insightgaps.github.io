@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 495" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1329"/>
+      <stop offset="100%" stop-color="#14213d"/>
+    </linearGradient>
+    <filter id="shadow3" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <rect width="880" height="495" fill="url(#bgGrad3)"/>
+  
+  <!-- Subtle Blueprint Grid -->
+  <g opacity="0.08" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="55" x2="880" y2="55"/>
+    <line x1="0" y1="110" x2="880" y2="110"/>
+    <line x1="0" y1="165" x2="880" y2="165"/>
+    <line x1="0" y1="220" x2="880" y2="220"/>
+    <line x1="0" y1="275" x2="880" y2="275"/>
+    <line x1="0" y1="330" x2="880" y2="330"/>
+    <line x1="0" y1="385" x2="880" y2="385"/>
+    <line x1="0" y1="440" x2="880" y2="440"/>
+    <line x1="110" y1="0" x2="110" y2="495"/>
+    <line x1="220" y1="0" x2="220" y2="495"/>
+    <line x1="330" y1="0" x2="330" y2="495"/>
+    <line x1="440" y1="0" x2="440" y2="495"/>
+    <line x1="550" y1="0" x2="550" y2="495"/>
+    <line x1="660" y1="0" x2="660" y2="495"/>
+    <line x1="770" y1="0" x2="770" y2="495"/>
+  </g>
+
+  <!-- Header Chips -->
+  <rect x="36" y="24" width="245" height="26" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <circle cx="50" cy="37" r="4" fill="#fca311"/>
+  <text x="62" y="41" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="1">REVEAL 3 • ORDER & AUTHORITY</text>
+
+  <rect x="614" y="24" width="230" height="26" rx="4" fill="#0f172a" stroke="#fca311" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="626" y="41" fill="#fca311" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="600" letter-spacing="0.5">SYNTHETIC TEACHING ILLUSTRATION</text>
+
+  <!-- Left Card: Four Concentric Fences of Authority -->
+  <g transform="translate(40, 70)" filter="url(#shadow3)">
+    <rect width="400" height="260" rx="10" fill="#131d31" stroke="#253553" stroke-width="1.5"/>
+    <text x="24" y="32" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">Four Layers of Authority</text>
+    <text x="24" y="48" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="11">Inner layers never override outer legal fences</text>
+
+    <!-- Concentric Layers -->
+    <g transform="translate(200, 150)">
+      <!-- Outer Layer 1: Law & Court Precedent -->
+      <circle r="86" fill="#162038" stroke="#ef4444" stroke-width="2"/>
+      <!-- Layer 2: Client Contract & Rulebook -->
+      <circle r="66" fill="#1b2848" stroke="#f59e0b" stroke-width="1.8"/>
+      <!-- Layer 3: Company SOP -->
+      <circle r="46" fill="#20325a" stroke="#3b82f6" stroke-width="1.5"/>
+      <!-- Layer 4: Typical Practice -->
+      <circle r="26" fill="#283d6e" stroke="#10b981" stroke-width="1.2"/>
+      <!-- Center House Icon -->
+      <text x="0" y="5" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="900" text-anchor="middle">🏠</text>
+    </g>
+
+    <!-- Legend & Labels -->
+    <g transform="translate(24, 75)">
+      <rect width="10" height="10" rx="2" fill="#ef4444"/>
+      <text x="16" y="9" fill="#f87171" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="700">1. LAW / STATUTE</text>
+      <text x="16" y="21" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="9">Jordan fence (WA lien theory)</text>
+
+      <rect y="30" width="10" height="10" rx="2" fill="#f59e0b"/>
+      <text x="16" y="39" fill="#fbbf24" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="700">2. CLIENT ORDER</text>
+      <text x="16" y="51" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="9">HUD ML 2016-02 rules</text>
+
+      <rect y="60" width="10" height="10" rx="2" fill="#3b82f6"/>
+      <text x="16" y="69" fill="#60a5fa" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="700">3. COMPANY SOP</text>
+      <text x="16" y="81" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="9">Approver RFO threshold</text>
+
+      <rect y="90" width="10" height="10" rx="2" fill="#10b981"/>
+      <text x="16" y="99" fill="#34d399" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="700">4. FIELD PRACTICE</text>
+      <text x="16" y="111" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="9">Typical trades & tools</text>
+    </g>
+
+    <!-- Blocked Arrow Callout -->
+    <rect x="20" y="215" width="360" height="32" rx="4" fill="#2d1520" stroke="#f43f5e" stroke-width="1"/>
+    <text x="30" y="235" fill="#fca5a5" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700">CONFLICT RULE: Client order cannot authorise what law forbids → HOLD</text>
+  </g>
+
+  <!-- Right Card: The System Wall (PPW vs Portal) -->
+  <g transform="translate(460, 70)" filter="url(#shadow3)">
+    <rect width="380" height="260" rx="10" fill="#131d31" stroke="#253553" stroke-width="1.5"/>
+    <text x="24" y="32" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">The System Wall</text>
+    <text x="24" y="48" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="11">Preparation Engine vs Submission Portal (Never confused)</text>
+
+    <!-- Side-by-Side Systems with Iron Wall -->
+    <g transform="translate(24, 68)">
+      <!-- Left Box: Preparation Engine (PPW) -->
+      <rect width="145" height="135" rx="6" fill="#1a2744" stroke="#2563eb" stroke-width="1.2"/>
+      <text x="12" y="22" fill="#60a5fa" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="800">OFFICE ENGINE</text>
+      <text x="12" y="36" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="9.5">(Internal PPW Prep)</text>
+      <text x="12" y="58" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="9.5">• Ingest field photos</text>
+      <text x="12" y="74" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="9.5">• Tag B / D / A stages</text>
+      <text x="12" y="90" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="9.5">• QC Place/Time/Scope</text>
+      <text x="12" y="106" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="9.5">• Processor builds invoice</text>
+      <text x="12" y="122" fill="#f59e0b" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="700">STOPS AT READY</text>
+
+      <!-- The Iron Gate in Middle -->
+      <rect x="153" y="10" width="26" height="115" rx="3" fill="#0f172a" stroke="#fca311" stroke-width="1.5"/>
+      <text x="166" y="72" fill="#fca311" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="900" text-anchor="middle" transform="rotate(-90 166 72)">RFO GATE</text>
+
+      <!-- Right Box: Client Portal -->
+      <rect x="187" width="145" height="135" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1.2"/>
+      <text x="199" y="22" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="800">CLIENT PORTAL</text>
+      <text x="199" y="36" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="9.5">(Equator / P260 / Aspen)</text>
+      <text x="199" y="58" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="9.5">• Client intake queue</text>
+      <text x="199" y="74" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="9.5">• Official claim submission</text>
+      <text x="199" y="90" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="9.5">• Over-allowable approval</text>
+      <text x="199" y="106" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="9.5">• Remittance generation</text>
+      <text x="199" y="122" fill="#10b981" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="700">CM SUBMITS ONLY</text>
+    </g>
+
+    <rect x="20" y="215" width="340" height="32" rx="4" fill="#0b1322"/>
+    <text x="30" y="235" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600">RULE: Approver signs RFO personally. Never prepare in portal.</text>
+  </g>
+
+  <!-- Bottom Strip: The 6 Intake Flags on Work Order -->
+  <g transform="translate(40, 350)" filter="url(#shadow3)">
+    <rect width="800" height="115" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+    <text x="24" y="26" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="1">THE SIX INTAKE FLAGS (READ BEFORE YOU DISPATCH)</text>
+
+    <g transform="translate(20, 42)">
+      <!-- Flag 1 -->
+      <rect width="120" height="56" rx="5" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+      <text x="12" y="20" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="700">FLAG 1 • HOUSE</text>
+      <text x="12" y="36" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700">1142 Maplewood</text>
+      <text x="12" y="48" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="8.5">Verified parcel ID</text>
+
+      <!-- Flag 2 -->
+      <rect x="130" width="120" height="56" rx="5" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+      <text x="142" y="20" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="700">FLAG 2 • SCOPE</text>
+      <text x="142" y="36" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700">Secure + Wint + Debris</text>
+      <text x="142" y="48" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="8.5">Multi-service bundle</text>
+
+      <!-- Flag 3 -->
+      <rect x="260" width="120" height="56" rx="5" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+      <text x="272" y="20" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="700">FLAG 3 • DEADLINE</text>
+      <text x="272" y="36" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700">72-Hour Client SLA</text>
+      <text x="272" y="48" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="8.5">Strict countdown</text>
+
+      <!-- Flag 4 -->
+      <rect x="390" width="125" height="56" rx="5" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+      <text x="402" y="20" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="700">FLAG 4 • RULEBOOK</text>
+      <text x="402" y="36" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700">HUD ML 2016-02</text>
+      <text x="402" y="48" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="8.5">$5k cap exclusions</text>
+
+      <!-- Flag 5 -->
+      <rect x="525" width="125" height="56" rx="5" fill="#2d1520" stroke="#f43f5e" stroke-width="1.2"/>
+      <text x="537" y="20" fill="#fb7185" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="700">FLAG 5 • OCCUPANCY</text>
+      <text x="537" y="36" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700">"Reported Vacant"</text>
+      <text x="537" y="48" fill="#fda4af" font-family="system-ui, -apple-system, sans-serif" font-size="8.5">UNVERIFIED AT CURB</text>
+
+      <!-- Flag 6 -->
+      <rect x="660" width="105" height="56" rx="5" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+      <text x="672" y="20" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="700">FLAG 6 • ACCESS</text>
+      <text x="672" y="36" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700">Code: 35241</text>
+      <text x="672" y="48" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="8.5">Spin off tumblers</text>
+    </g>
+  </g>
+</svg>

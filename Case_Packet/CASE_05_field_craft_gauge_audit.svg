@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 495" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1329"/>
+      <stop offset="100%" stop-color="#14213d"/>
+    </linearGradient>
+    <filter id="shadow5" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <rect width="880" height="495" fill="url(#bgGrad5)"/>
+  
+  <!-- Subtle Blueprint Grid -->
+  <g opacity="0.08" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="55" x2="880" y2="55"/>
+    <line x1="0" y1="110" x2="880" y2="110"/>
+    <line x1="0" y1="165" x2="880" y2="165"/>
+    <line x1="0" y1="220" x2="880" y2="220"/>
+    <line x1="0" y1="275" x2="880" y2="275"/>
+    <line x1="0" y1="330" x2="880" y2="330"/>
+    <line x1="0" y1="385" x2="880" y2="385"/>
+    <line x1="0" y1="440" x2="880" y2="440"/>
+    <line x1="110" y1="0" x2="110" y2="495"/>
+    <line x1="220" y1="0" x2="220" y2="495"/>
+    <line x1="330" y1="0" x2="330" y2="495"/>
+    <line x1="440" y1="0" x2="440" y2="495"/>
+    <line x1="550" y1="0" x2="550" y2="495"/>
+    <line x1="660" y1="0" x2="660" y2="495"/>
+    <line x1="770" y1="0" x2="770" y2="495"/>
+  </g>
+
+  <!-- Header Chips -->
+  <rect x="36" y="24" width="255" height="26" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <circle cx="50" cy="37" r="4" fill="#fca311"/>
+  <text x="62" y="41" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="1">REVEAL 5 • FIELD CRAFT &amp; PROOF</text>
+
+  <rect x="614" y="24" width="230" height="26" rx="4" fill="#0f172a" stroke="#fca311" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="626" y="41" fill="#fca311" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="600" letter-spacing="0.5">SYNTHETIC TEACHING ILLUSTRATION</text>
+
+  <!-- Left Card: Pressure Test Gauge & Cardinal Integrity Rule -->
+  <g transform="translate(40, 70)" filter="url(#shadow5)">
+    <rect width="390" height="260" rx="10" fill="#131d31" stroke="#253553" stroke-width="1.5"/>
+    <text x="24" y="32" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">Winterization Integrity Audit</text>
+    <text x="24" y="48" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="11">The gauge tells the truth: 12 PSI drop over 15 minutes</text>
+
+    <!-- Gauge Graphic -->
+    <g transform="translate(100, 140)">
+      <!-- Outer Rim -->
+      <circle r="60" fill="#1e293b" stroke="#475569" stroke-width="4"/>
+      <!-- Inner Dial -->
+      <circle r="52" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+      
+      <!-- Ticks -->
+      <line x1="0" y1="-48" x2="0" y2="-40" stroke="#94a3b8" stroke-width="1.5"/>
+      <line x1="34" y1="-34" x2="28" y2="-28" stroke="#94a3b8" stroke-width="1.5"/>
+      <line x1="48" y1="0" x2="40" y2="0" stroke="#94a3b8" stroke-width="1.5"/>
+      <line x1="34" y1="34" x2="28" y2="28" stroke="#94a3b8" stroke-width="1.5"/>
+      <line x1="-34" y1="-34" x2="-28" y2="-28" stroke="#94a3b8" stroke-width="1.5"/>
+      <line x1="-48" y1="0" x2="-40" y2="0" stroke="#94a3b8" stroke-width="1.5"/>
+
+      <!-- Labels on Dial -->
+      <text x="0" y="-28" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="8" font-weight="700" text-anchor="middle">35 PSI</text>
+      <text x="28" y="5" fill="#fca311" font-family="system-ui, -apple-system, sans-serif" font-size="8" font-weight="700" text-anchor="middle">23 PSI</text>
+      <text x="0" y="24" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="8" text-anchor="middle">AIR TEST</text>
+
+      <!-- Starting Needle (dashed 35 PSI) -->
+      <line x1="0" y1="0" x2="0" y2="-44" stroke="#64748b" stroke-width="1.5" stroke-dasharray="2 2"/>
+      <!-- Current Needle (dropped to 23 PSI) -->
+      <line x1="0" y1="0" x2="30" y2="-12" stroke="#ef4444" stroke-width="2.5"/>
+      <circle cx="0" cy="0" r="4" fill="#ef4444"/>
+    </g>
+
+    <!-- Side Callout inside card -->
+    <g transform="translate(185, 75)">
+      <rect width="180" height="65" rx="5" fill="#2d1520" stroke="#f43f5e" stroke-width="1"/>
+      <text x="10" y="18" fill="#fb7185" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" font-weight="800">FAILED TEST DETECTED</text>
+      <text x="10" y="32" fill="#fda4af" font-family="system-ui, -apple-system, sans-serif" font-size="8.5">• 35 PSI pump test</text>
+      <text x="10" y="44" fill="#fda4af" font-family="system-ui, -apple-system, sans-serif" font-size="8.5">• Dropped 12 PSI in 15 min</text>
+      <text x="10" y="56" fill="#fca311" font-family="system-ui, -apple-system, sans-serif" font-size="8.5" font-weight="700">Tech checked "Pass" (FRAUD)</text>
+
+      <rect y="74" width="180" height="58" rx="5" fill="#172e2b" stroke="#10b981" stroke-width="1"/>
+      <text x="10" y="90" fill="#a7f3d0" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="700">THE CARDINAL RULE:</text>
+      <text x="10" y="104" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="8">"Never fake a failed test.</text>
+      <text x="10" y="116" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif" font-size="8">A failed test is information."</text>
+    </g>
+
+    <rect x="20" y="218" width="350" height="26" rx="4" fill="#0b1322"/>
+    <text x="30" y="235" fill="#ef4444" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700">ACTION: Declare HOLD / SYSTEM FAILED • Bid line repair</text>
+  </g>
+
+  <!-- Right Card: The 5 Gates of Evidence & Debris Math -->
+  <g transform="translate(450, 70)" filter="url(#shadow5)">
+    <rect width="390" height="260" rx="10" fill="#131d31" stroke="#253553" stroke-width="1.5"/>
+    <text x="24" y="32" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">Evidence Gates &amp; Debris Math</text>
+    <text x="24" y="48" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="11">5-Gate Proof Test + Forensic Cubic Yard Formula</text>
+
+    <!-- 5 Gates Mini Badges -->
+    <g transform="translate(24, 65)">
+      <rect width="64" height="42" rx="4" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+      <text x="32" y="18" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="800" text-anchor="middle">PLACE</text>
+      <text x="32" y="32" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="8" text-anchor="middle">House #</text>
+
+      <rect x="70" width="64" height="42" rx="4" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+      <text x="102" y="18" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="800" text-anchor="middle">TIME</text>
+      <text x="102" y="32" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="8" text-anchor="middle">Date-stamp</text>
+
+      <rect x="140" width="64" height="42" rx="4" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+      <text x="172" y="18" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="800" text-anchor="middle">SCOPE</text>
+      <text x="172" y="32" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="8" text-anchor="middle">B / D / A</text>
+
+      <rect x="210" width="64" height="42" rx="4" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+      <text x="242" y="18" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="800" text-anchor="middle">CLARITY</text>
+      <text x="242" y="32" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="8" text-anchor="middle">Sharp/lit</text>
+
+      <rect x="280" width="64" height="42" rx="4" fill="#1e293b" stroke="#f59e0b" stroke-width="1.2"/>
+      <text x="312" y="18" fill="#f59e0b" font-family="system-ui, -apple-system, sans-serif" font-size="8.5" font-weight="800" text-anchor="middle">AUTHORITY</text>
+      <text x="312" y="32" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="8" text-anchor="middle">Permitted?</text>
+    </g>
+
+    <!-- Debris Math Box -->
+    <g transform="translate(24, 118)">
+      <rect width="342" height="85" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+      <text x="12" y="18" fill="#fca311" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700">THE CUBIC YARD (CY) AUDIT FORMULA:</text>
+      <text x="12" y="36" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="800">CY = (Length × Width × Height in Feet) ÷ 27</text>
+      <text x="12" y="54" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="9.5">Field Measurement: 8 ft × 5 ft × 3 ft = 120 cu ft ÷ 27</text>
+      <text x="12" y="70" fill="#10b981" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="800">ACTUAL: 4.44 CY  •  BILLED: 9.0 CY  (OVERBILL DETECTED!)</text>
+    </g>
+
+    <rect x="24" y="218" width="342" height="26" rx="4" fill="#0b1322"/>
+    <text x="34" y="235" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" font-weight="600">RULE: Processor cuts quantity to 4.44 CY at Allowable rung.</text>
+  </g>
+
+  <!-- Bottom Strip: The 5 Core Field Trades -->
+  <g transform="translate(40, 350)" filter="url(#shadow5)">
+    <rect width="800" height="115" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+    <text x="24" y="26" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="1">THE FIVE CORE PRESERVATION WORK TYPES (STAGE PHOTO PROTOCOL)</text>
+
+    <g transform="translate(20, 40)">
+      <!-- Trade 1 -->
+      <rect width="145" height="58" rx="5" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+      <text x="10" y="18" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" font-weight="700">1. GRASS CUT</text>
+      <text x="10" y="32" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="8.5">Wide lot before &amp; after</text>
+      <text x="10" y="44" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="8">Edging / clear clippings</text>
+      <text x="10" y="54" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="7.5">Recut diary 10-14 days</text>
+
+      <!-- Trade 2 -->
+      <rect x="155" width="145" height="58" rx="5" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+      <text x="165" y="18" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" font-weight="700">2. INITIAL SECURE</text>
+      <text x="165" y="32" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="8.5">Every exterior entry lock</text>
+      <text x="165" y="44" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="8">Key code in cylinder</text>
+      <text x="165" y="54" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="7.5">Lockbox tumblers spun</text>
+
+      <!-- Trade 3 -->
+      <rect x="310" width="150" height="58" rx="5" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+      <text x="320" y="18" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" font-weight="700">3. WINTERIZATION</text>
+      <text x="320" y="32" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="8.5">Main meter shut &amp; wired</text>
+      <text x="320" y="44" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="8">Pink antifreeze in traps</text>
+      <text x="320" y="54" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="7.5">35 PSI pressure gauge</text>
+
+      <!-- Trade 4 -->
+      <rect x="470" width="145" height="58" rx="5" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+      <text x="480" y="18" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" font-weight="700">4. DEBRIS REMOVAL</text>
+      <text x="480" y="32" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="8.5">Measured in cubic yards</text>
+      <text x="480" y="44" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="8">Opposite corner photos</text>
+      <text x="480" y="54" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="7.5">Broom-swept empty</text>
+
+      <!-- Trade 5 -->
+      <rect x="625" width="140" height="58" rx="5" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+      <text x="635" y="18" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" font-weight="700">5. INSPECTION</text>
+      <text x="635" y="32" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="8.5">Fixes nothing on site</text>
+      <text x="635" y="44" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="8">Written condition report</text>
+      <text x="635" y="54" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="7.5">Report IS the product</text>
+    </g>
+  </g>
+</svg>

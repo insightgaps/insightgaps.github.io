@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 495" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1329"/>
+      <stop offset="100%" stop-color="#14213d"/>
+    </linearGradient>
+    <linearGradient id="houseGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2a3b5c"/>
+      <stop offset="100%" stop-color="#19253d"/>
+    </linearGradient>
+    <linearGradient id="amberAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fca311"/>
+      <stop offset="100%" stop-color="#ffb703"/>
+    </linearGradient>
+    <filter id="shadow1" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="880" height="495" fill="url(#bgGrad1)"/>
+  
+  <!-- Subtle Blueprint Grid -->
+  <g opacity="0.08" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="55" x2="880" y2="55"/>
+    <line x1="0" y1="110" x2="880" y2="110"/>
+    <line x1="0" y1="165" x2="880" y2="165"/>
+    <line x1="0" y1="220" x2="880" y2="220"/>
+    <line x1="0" y1="275" x2="880" y2="275"/>
+    <line x1="0" y1="330" x2="880" y2="330"/>
+    <line x1="0" y1="385" x2="880" y2="385"/>
+    <line x1="0" y1="440" x2="880" y2="440"/>
+    <line x1="110" y1="0" x2="110" y2="495"/>
+    <line x1="220" y1="0" x2="220" y2="495"/>
+    <line x1="330" y1="0" x2="330" y2="495"/>
+    <line x1="440" y1="0" x2="440" y2="495"/>
+    <line x1="550" y1="0" x2="550" y2="495"/>
+    <line x1="660" y1="0" x2="660" y2="495"/>
+    <line x1="770" y1="0" x2="770" y2="495"/>
+  </g>
+
+  <!-- Status Chip / Header Bar -->
+  <rect x="36" y="24" width="230" height="26" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <circle cx="50" cy="37" r="4" fill="#fca311"/>
+  <text x="62" y="41" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="1">REVEAL 1 • ORIGIN MOMENT</text>
+
+  <rect x="614" y="24" width="230" height="26" rx="4" fill="#0f172a" stroke="#fca311" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="626" y="41" fill="#fca311" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="600" letter-spacing="0.5">SYNTHETIC TEACHING ILLUSTRATION</text>
+
+  <!-- Left Card: Architectural Elevation of Maple House -->
+  <g transform="translate(40, 70)" filter="url(#shadow1)">
+    <rect width="360" height="260" rx="10" fill="#131d31" stroke="#253553" stroke-width="1.5"/>
+    
+    <!-- Title banner inside card -->
+    <text x="24" y="32" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">Maple House (Built 1972)</text>
+    <text x="24" y="48" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="11">Suburban Single-Family • 1,240 sq ft • FHA Insured</text>
+
+    <!-- House Silhouette Drawing -->
+    <g transform="translate(30, 65)">
+      <!-- Ground line -->
+      <line x1="0" y1="135" x2="300" y2="135" stroke="#475569" stroke-width="2"/>
+      
+      <!-- Main House Body -->
+      <rect x="30" y="45" width="160" height="90" fill="url(#houseGrad1)" stroke="#38bdf8" stroke-width="1.5"/>
+      <!-- Roof -->
+      <polygon points="15,45 110,0 205,45" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+      <!-- Dormer / Upper Half-Story -->
+      <polygon points="65,25 90,8 115,25" fill="#0f172a" stroke="#60a5fa" stroke-width="1"/>
+      <rect x="78" y="20" width="24" height="18" fill="#38bdf8" opacity="0.3"/>
+      
+      <!-- Chimney -->
+      <rect x="155" y="8" width="18" height="28" fill="#334155"/>
+      
+      <!-- Front Door -->
+      <rect x="50" y="80" width="26" height="55" fill="#0f172a" stroke="#fca311" stroke-width="1.2"/>
+      <circle cx="70" cy="108" r="2" fill="#fca311"/>
+      
+      <!-- Windows with warm light (1972 family occupancy) -->
+      <rect x="95" y="70" width="36" height="32" fill="#ffedd5" opacity="0.85" rx="2" stroke="#ea580c" stroke-width="1"/>
+      <line x1="113" y1="70" x2="113" y2="102" stroke="#9a3412" stroke-width="1"/>
+      <line x1="95" y1="86" x2="131" y2="86" stroke="#9a3412" stroke-width="1"/>
+
+      <rect x="145" y="70" width="36" height="32" fill="#ffedd5" opacity="0.85" rx="2" stroke="#ea580c" stroke-width="1"/>
+      <line x1="163" y1="70" x2="163" y2="102" stroke="#9a3412" stroke-width="1"/>
+      <line x1="145" y1="86" x2="181" y2="86" stroke="#9a3412" stroke-width="1"/>
+
+      <!-- Garage attached -->
+      <rect x="190" y="65" width="90" height="70" fill="#172238" stroke="#38bdf8" stroke-width="1.2"/>
+      <polygon points="185,65 235,38 285,65" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+      <rect x="202" y="82" width="66" height="53" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+      <line x1="202" y1="95" x2="268" y2="95" stroke="#334155" stroke-width="1"/>
+      <line x1="202" y1="108" x2="268" y2="108" stroke="#334155" stroke-width="1"/>
+      <line x1="202" y1="121" x2="268" y2="121" stroke="#334155" stroke-width="1"/>
+    </g>
+
+    <rect x="24" y="218" width="312" height="26" rx="4" fill="#0b1322"/>
+    <text x="34" y="235" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="600">MORTGAGE: 30-Year Amortizing FHA • 7.25% Note • $19,400</text>
+  </g>
+
+  <!-- Right Card: The Macro System & Exclusion Filter -->
+  <g transform="translate(430, 70)" filter="url(#shadow1)">
+    <rect width="410" height="260" rx="10" fill="#131d31" stroke="#253553" stroke-width="1.5"/>
+    
+    <text x="24" y="32" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">The 1972 Peak & The Exclusion Filter</text>
+    <text x="24" y="48" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="11">How post-war policies built prosperity with structural barriers</text>
+
+    <!-- Side-by-side comparative badges -->
+    <g transform="translate(24, 66)">
+      <!-- Left box: 1972 Housing Peak -->
+      <rect width="175" height="96" rx="6" fill="#1a2744" stroke="#2563eb" stroke-width="1.2"/>
+      <text x="14" y="24" fill="#60a5fa" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700">1972 TOTAL PEAK</text>
+      <text x="14" y="52" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="800">2,379,000</text>
+      <text x="14" y="72" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="10.5">1.31M Single-Family</text>
+      <text x="14" y="86" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="10.5">+ 1.07M Multifamily (Boomers)</text>
+
+      <!-- Right box: The Filter Fence -->
+      <rect x="187" width="175" height="96" rx="6" fill="#2d1520" stroke="#f43f5e" stroke-width="1.2"/>
+      <text x="201" y="24" fill="#fb7185" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700">THE INVISIBLE FILTER</text>
+      <text x="201" y="46" fill="#fda4af" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="600">• HOLC Redlining Maps</text>
+      <text x="201" y="62" fill="#fda4af" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="600">• Restrictive Deed Covenants</text>
+      <text x="201" y="78" fill="#fda4af" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="600">• Single-Family Zoning Gates</text>
+      <text x="201" y="92" fill="#fda4af" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" font-style="italic">Prosperity & exclusion side by side</text>
+    </g>
+
+    <!-- Bottom Anchor Banner inside right card -->
+    <rect x="24" y="176" width="362" height="68" rx="6" fill="#0f192b" stroke="#334155" stroke-width="1"/>
+    <text x="38" y="196" fill="#fca311" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="700">CORE STATUTORY ANCHOR: FHA MANDATE</text>
+    <text x="38" y="215" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="11">"FHA insures loans against default; it NEVER lends money."</text>
+    <text x="38" y="231" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="10">Created 1934 (National Housing Act) • Established the 30-year amortizing loan</text>
+  </g>
+
+  <!-- Bottom Strip: The 5-Link Industry Chain -->
+  <g transform="translate(40, 350)" filter="url(#shadow1)">
+    <rect width="800" height="115" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+    
+    <text x="24" y="26" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="1">THE 5-LINK INDUSTRY CHAIN (ONE WORK ORDER TRAVELS ALL FIVE)</text>
+
+    <!-- Link 1: Bank / Lender -->
+    <g transform="translate(20, 42)">
+      <rect width="132" height="56" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+      <text x="14" y="24" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" font-weight="700">LINK 1</text>
+      <text x="14" y="42" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700">Bank / Lender</text>
+    </g>
+    <path d="M 158 70 L 176 70" stroke="#fca311" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- Link 2: Servicer -->
+    <g transform="translate(180, 42)">
+      <rect width="132" height="56" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+      <text x="14" y="24" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" font-weight="700">LINK 2</text>
+      <text x="14" y="42" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700">Mortgage Servicer</text>
+    </g>
+    <path d="M 318 70 L 336 70" stroke="#fca311" stroke-width="2"/>
+
+    <!-- Link 3: National -->
+    <g transform="translate(340, 42)">
+      <rect width="132" height="56" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+      <text x="14" y="24" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" font-weight="700">LINK 3</text>
+      <text x="14" y="42" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700">National FSM</text>
+    </g>
+    <path d="M 478 70 L 496 70" stroke="#fca311" stroke-width="2"/>
+
+    <!-- Link 4: Our Office (EPCS) -->
+    <g transform="translate(500, 42)">
+      <rect width="138" height="56" rx="6" fill="#1e3a5f" stroke="#38bdf8" stroke-width="1.8"/>
+      <text x="14" y="24" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" font-weight="700">LINK 4 • OUR OFFICE</text>
+      <text x="14" y="42" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="800">Preservation Desk</text>
+    </g>
+    <path d="M 644 70 L 662 70" stroke="#fca311" stroke-width="2"/>
+
+    <!-- Link 5: Field Crew -->
+    <g transform="translate(666, 42)">
+      <rect width="116" height="56" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+      <text x="12" y="24" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" font-weight="700">LINK 5</text>
+      <text x="12" y="42" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700">Field Crew</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 495" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1329"/>
+      <stop offset="100%" stop-color="#14213d"/>
+    </linearGradient>
+    <filter id="shadow2" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <rect width="880" height="495" fill="url(#bgGrad2)"/>
+  
+  <!-- Subtle Blueprint Grid -->
+  <g opacity="0.08" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="55" x2="880" y2="55"/>
+    <line x1="0" y1="110" x2="880" y2="110"/>
+    <line x1="0" y1="165" x2="880" y2="165"/>
+    <line x1="0" y1="220" x2="880" y2="220"/>
+    <line x1="0" y1="275" x2="880" y2="275"/>
+    <line x1="0" y1="330" x2="880" y2="330"/>
+    <line x1="0" y1="385" x2="880" y2="385"/>
+    <line x1="0" y1="440" x2="880" y2="440"/>
+    <line x1="110" y1="0" x2="110" y2="495"/>
+    <line x1="220" y1="0" x2="220" y2="495"/>
+    <line x1="330" y1="0" x2="330" y2="495"/>
+    <line x1="440" y1="0" x2="440" y2="495"/>
+    <line x1="550" y1="0" x2="550" y2="495"/>
+    <line x1="660" y1="0" x2="660" y2="495"/>
+    <line x1="770" y1="0" x2="770" y2="495"/>
+  </g>
+
+  <!-- Status Chip / Header Bar -->
+  <rect x="36" y="24" width="245" height="26" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <circle cx="50" cy="37" r="4" fill="#fca311"/>
+  <text x="62" y="41" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="1">REVEAL 2 • DISTRESS MOMENT</text>
+
+  <rect x="614" y="24" width="230" height="26" rx="4" fill="#0f172a" stroke="#fca311" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="626" y="41" fill="#fca311" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="600" letter-spacing="0.5">SYNTHETIC TEACHING ILLUSTRATION</text>
+
+  <!-- Left Card: The Macroeconomic Feedback Loop -->
+  <g transform="translate(40, 70)" filter="url(#shadow2)">
+    <rect width="400" height="260" rx="10" fill="#131d31" stroke="#253553" stroke-width="1.5"/>
+    <text x="24" y="32" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">The Loop Breaks Before the House</text>
+    <text x="24" y="48" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="11">Circular macroeconomic engine and the two fatal snap points</text>
+
+    <!-- Circular / Hexagonal Node diagram -->
+    <g transform="translate(30, 68)">
+      <!-- Loop nodes -->
+      <rect x="10" y="8" width="95" height="34" rx="4" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2"/>
+      <text x="57" y="29" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">Jobs / Income</text>
+
+      <rect x="135" y="8" width="95" height="34" rx="4" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2"/>
+      <text x="182" y="29" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">Ability to Pay</text>
+
+      <rect x="250" y="45" width="85" height="34" rx="4" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2"/>
+      <text x="292" y="66" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">Rates / Credit</text>
+
+      <rect x="210" y="105" width="105" height="34" rx="4" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2"/>
+      <text x="262" y="126" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">Building Supply</text>
+
+      <rect x="50" y="105" width="115" height="34" rx="4" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2"/>
+      <text x="107" y="126" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">Home Prices / Collateral</text>
+
+      <!-- Connecting arrows -->
+      <path d="M 105 25 L 135 25" stroke="#fca311" stroke-width="1.5"/>
+      <path d="M 230 25 L 250 50" stroke="#fca311" stroke-width="1.5"/>
+      <path d="M 285 80 L 270 105" stroke="#fca311" stroke-width="1.5"/>
+      <path d="M 210 122 L 165 122" stroke="#fca311" stroke-width="1.5"/>
+      <path d="M 50 115 L 25 80 L 35 42" fill="none" stroke="#fca311" stroke-width="1.5"/>
+
+      <!-- Snap Point 1 Indicator -->
+      <circle cx="120" cy="25" r="8" fill="#e11d48"/>
+      <text x="120" y="29" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="900" text-anchor="middle">⚡</text>
+
+      <!-- Snap Point 2 Indicator -->
+      <circle cx="187" cy="122" r="8" fill="#e11d48"/>
+      <text x="187" y="126" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="900" text-anchor="middle">⚡</text>
+    </g>
+
+    <!-- Payment sensitivity pill -->
+    <rect x="20" y="215" width="360" height="32" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <text x="30" y="235" fill="#fca311" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="700">$1,500/MO BUYS:</text>
+    <text x="135" y="235" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="10.5">$96k at 18.63% (1981) vs $372k at 2.65% (2021)</text>
+  </g>
+
+  <!-- Right Card: The Foreclosure Road (Strict Order) -->
+  <g transform="translate(460, 70)" filter="url(#shadow2)">
+    <rect width="380" height="260" rx="10" fill="#131d31" stroke="#253553" stroke-width="1.5"/>
+    <text x="24" y="32" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">The Foreclosure Road</text>
+    <text x="24" y="48" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="11">Invariant legal progression (Chanted in strict sequence)</text>
+
+    <!-- Road steps vertical stacked -->
+    <g transform="translate(24, 65)">
+      <!-- Step 1 -->
+      <rect width="332" height="28" rx="4" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+      <text x="12" y="19" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700">1. DEFAULT</text>
+      <text x="110" y="19" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="10">Missed payments (30 / 60 / 90+ days)</text>
+
+      <!-- Step 2 (Highlighted: Loss Mitigation First) -->
+      <rect y="36" width="332" height="34" rx="4" fill="#172e2b" stroke="#10b981" stroke-width="1.5"/>
+      <text x="12" y="52" fill="#10b981" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="800">2. LOSS MITIGATION FIRST</text>
+      <text x="12" y="65" fill="#a7f3d0" font-family="system-ui, -apple-system, sans-serif" font-size="9.5">CFPB 120-Day Floor • Forbearance, Mod, Short Sale, DIL</text>
+
+      <!-- Step 3 -->
+      <rect y="78" width="332" height="28" rx="4" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+      <text x="12" y="96" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700">3. FORECLOSURE</text>
+      <text x="120" y="96" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="10">State Law Governs (Judicial vs Non-Judicial)</text>
+
+      <!-- Step 4 -->
+      <rect y="114" width="332" height="28" rx="4" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+      <text x="12" y="132" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700">4. AUCTION</text>
+      <text x="110" y="132" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="10">Public Sheriff/Trustee sale (Credit bid reverts)</text>
+
+      <!-- Step 5 -->
+      <rect y="150" width="332" height="28" rx="4" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+      <text x="12" y="168" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700">5. REO / HUD CONVEY</text>
+      <text x="145" y="168" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="10">Bank-owned or FHA conveyance (As-is)</text>
+    </g>
+  </g>
+
+  <!-- Bottom Strip: Vacancy Decay Timeline -->
+  <g transform="translate(40, 350)" filter="url(#shadow2)">
+    <rect width="800" height="115" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+    <text x="24" y="26" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="1">VACANCY DECAY CASCADE (TEACHING SKETCH • PHYSICAL RISK ACCELERATION)</text>
+
+    <!-- Stage 1 -->
+    <g transform="translate(24, 42)">
+      <rect width="175" height="56" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+      <text x="12" y="22" fill="#fca311" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700">WEEK 1 • SIGNALS</text>
+      <text x="12" y="38" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="9.5">Lawn overgrows, mail piles,</text>
+      <text x="12" y="49" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="9">curb screams "unmonitored"</text>
+    </g>
+
+    <!-- Stage 2 -->
+    <g transform="translate(215, 42)">
+      <rect width="180" height="56" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+      <text x="12" y="22" fill="#fca311" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700">WEEKS 2–4 • MOISTURE</text>
+      <text x="12" y="38" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="9.5">Traps dry, roof seal leaks,</text>
+      <text x="12" y="49" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="9">interior humidity climbs</text>
+    </g>
+
+    <!-- Stage 3 -->
+    <g transform="translate(410, 42)">
+      <rect width="180" height="56" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+      <text x="12" y="22" fill="#fca311" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700">MONTH 2 • MOLD</text>
+      <text x="12" y="38" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="9.5">Damp becomes active spore,</text>
+      <text x="12" y="49" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="9">remediation cost quadruples</text>
+    </g>
+
+    <!-- Stage 4 -->
+    <g transform="translate(605, 42)">
+      <rect width="175" height="56" rx="6" fill="#2d1520" stroke="#f43f5e" stroke-width="1.2"/>
+      <text x="12" y="22" fill="#fb7185" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700">MONTH 3+ • VANDALISM</text>
+      <text x="12" y="38" fill="#fda4af" font-family="system-ui, -apple-system, sans-serif" font-size="9.5">Copper stripped, squatters,</text>
+      <text x="12" y="49" fill="#fda4af" font-family="system-ui, -apple-system, sans-serif" font-size="9">property slides to total blight</text>
+    </g>
+  </g>
+</svg>
