@@ -1,0 +1,201 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 580" width="100%" height="100%">
+  <!-- Synthetic Mock Label Banner -->
+  <g id="synthetic-mock-badge" transform="translate(20, 24)">
+    <rect x="0" y="0" width="310" height="22" rx="4" fill="#0B1320" stroke="#F59E0B" stroke-width="1.2" opacity="0.95"/>
+    <text x="10" y="15" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="900" fill="#F59E0B" letter-spacing="0.8">SYNTHETIC MOCK / INSTRUCTIONAL ILLUSTRATION ONLY</text>
+  </g>
+
+  <defs>
+    <linearGradient id="bgM7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1320"/>
+      <stop offset="100%" stop-color="#12263f"/>
+    </linearGradient>
+    <filter id="m7Shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="580" fill="url(#bgM7)"/>
+  <rect x="18" y="18" width="964" height="544" rx="12" fill="none" stroke="#253a56" stroke-width="1.5"/>
+
+  <!-- Top Title Banner -->
+  <text x="45" y="55" fill="#f8fafc" font-family="Georgia, serif" font-size="23" font-weight="700">Five Jobs, Five Standards: Done Is a Claim, Proof Is the Test</text>
+  <text x="45" y="77" fill="#94a3b8" font-family="'Segoe UI', sans-serif" font-size="13">The Five Physical Preservation Work Types Unified in One Operational System</text>
+
+  <!-- Status Chip -->
+  <rect x="795" y="38" width="165" height="26" rx="13" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <circle cx="810" cy="51" r="4.5" fill="#f59e0b"/>
+  <text x="822" y="55" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="10.5" font-weight="700" letter-spacing="0.05em">MASTER SYSTEM MAP</text>
+
+  <!-- 5 Columns Grid (The Five Work Types) -->
+  <!-- Col 1: Grass Cut -->
+  <g transform="translate(35, 100)" filter="url(#m7Shadow)">
+    <rect width="175" height="340" rx="8" fill="#111f35" stroke="#22c55e" stroke-width="1.5"/>
+    <rect width="175" height="42" rx="8" fill="#143929"/>
+    <text x="87" y="22" fill="#86efac" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="800" text-anchor="middle">1. GRASS CUT / RECUT</text>
+    <text x="87" y="36" fill="#bbf7d0" font-family="'Segoe UI', sans-serif" font-size="9.5" text-anchor="middle">"The House's Face"</text>
+
+    <!-- Scope -->
+    <text x="12" y="62" fill="#94a3b8" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="700">CORE SCOPE:</text>
+    <text x="12" y="78" fill="#f1f5f9" font-family="'Segoe UI', sans-serif" font-size="11">Initial overgrown mow,</text>
+    <text x="12" y="93" fill="#f1f5f9" font-family="'Segoe UI', sans-serif" font-size="11">edging, weed-eating,</text>
+    <text x="12" y="108" fill="#f1f5f9" font-family="'Segoe UI', sans-serif" font-size="11">14-day recut cycle diary.</text>
+
+    <!-- Photo Proof -->
+    <rect x="10" y="120" width="155" height="65" rx="4" fill="#0c1726"/>
+    <text x="16" y="136" fill="#38bdf8" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800">PHOTO PROOF TRIAD:</text>
+    <text x="16" y="152" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="10">• Before: Full lot perimeter</text>
+    <text x="16" y="166" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="10">• During: Mower in action</text>
+    <text x="16" y="180" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="10">• After: Wide lot + clean edges</text>
+
+    <!-- Key Failure -->
+    <text x="12" y="206" fill="#ef4444" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800">CRITICAL FAILURE:</text>
+    <text x="12" y="222" fill="#fca5a5" font-family="'Segoe UI', sans-serif" font-size="10.5">Missing wide after-shot</text>
+    <text x="12" y="236" fill="#fca5a5" font-family="'Segoe UI', sans-serif" font-size="10.5">or un-cleared clippings</text>
+    <text x="12" y="250" fill="#fca5a5" font-family="'Segoe UI', sans-serif" font-size="10.5">causes 100% claim denial.</text>
+
+    <!-- Care Ranking -->
+    <rect x="10" y="275" width="155" height="52" rx="4" fill="#1b2e24"/>
+    <text x="87" y="295" fill="#4ade80" font-family="'Segoe UI', sans-serif" font-size="10.5" font-weight="800" text-anchor="middle">CARE RANK: HIGH VIS</text>
+    <text x="87" y="313" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="9.5" text-anchor="middle">Neighborhood blight filter</text>
+  </g>
+
+  <!-- Col 2: Initial Secure -->
+  <g transform="translate(225, 100)" filter="url(#m7Shadow)">
+    <rect width="175" height="340" rx="8" fill="#111f35" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect width="175" height="42" rx="8" fill="#172e54"/>
+    <text x="87" y="22" fill="#93c5fd" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="800" text-anchor="middle">2. INITIAL SECURE</text>
+    <text x="87" y="36" fill="#bfdbfe" font-family="'Segoe UI', sans-serif" font-size="9.5" text-anchor="middle">"Permission Slip for All"</text>
+
+    <!-- Scope -->
+    <text x="12" y="62" fill="#94a3b8" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="700">CORE SCOPE:</text>
+    <text x="12" y="78" fill="#f1f5f9" font-family="'Segoe UI', sans-serif" font-size="11">Rekey exterior knobs/deadbolts,</text>
+    <text x="12" y="93" fill="#f1f5f9" font-family="'Segoe UI', sans-serif" font-size="11">set client lockbox code,</text>
+    <text x="12" y="108" fill="#f1f5f9" font-family="'Segoe UI', sans-serif" font-size="11">board open / broken entries.</text>
+
+    <!-- Photo Proof -->
+    <rect x="10" y="120" width="155" height="65" rx="4" fill="#0c1726"/>
+    <text x="16" y="136" fill="#38bdf8" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800">PHOTO PROOF TRIAD:</text>
+    <text x="16" y="152" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="10">• Before: Old lock / open entry</text>
+    <text x="16" y="166" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="10">• During: Cylinder replacement</text>
+    <text x="16" y="180" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="10">• After: New lockset + box code</text>
+
+    <!-- Key Failure -->
+    <text x="12" y="206" fill="#ef4444" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800">CRITICAL FAILURE:</text>
+    <text x="12" y="222" fill="#fca5a5" font-family="'Segoe UI', sans-serif" font-size="10.5">Locking occupied home</text>
+    <text x="12" y="236" fill="#fca5a5" font-family="'Segoe UI', sans-serif" font-size="10.5">or violating Jordan v. Nationstar</text>
+    <text x="12" y="250" fill="#fca5a5" font-family="'Segoe UI', sans-serif" font-size="10.5">(WA lien theory liability).</text>
+
+    <!-- Care Ranking -->
+    <rect x="10" y="275" width="155" height="52" rx="4" fill="#172b49"/>
+    <text x="87" y="295" fill="#60a5fa" font-family="'Segoe UI', sans-serif" font-size="10.5" font-weight="800" text-anchor="middle">CARE RANK: MAXIMUM LEGAL</text>
+    <text x="87" y="313" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="9.5" text-anchor="middle">Permission gate for all jobs</text>
+  </g>
+
+  <!-- Col 3: Winterization -->
+  <g transform="translate(415, 100)" filter="url(#m7Shadow)">
+    <rect width="175" height="340" rx="8" fill="#111f35" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect width="175" height="42" rx="8" fill="#3b2b14"/>
+    <text x="87" y="22" fill="#fde68a" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="800" text-anchor="middle">3. WINTERIZATION</text>
+    <text x="87" y="36" fill="#fef3c7" font-family="'Segoe UI', sans-serif" font-size="9.5" text-anchor="middle">"Stops $20k Loss for $150"</text>
+
+    <!-- Scope -->
+    <text x="12" y="62" fill="#94a3b8" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="700">CORE SCOPE:</text>
+    <text x="12" y="78" fill="#f1f5f9" font-family="'Segoe UI', sans-serif" font-size="11">Curb shutoff, heater drain,</text>
+    <text x="12" y="93" fill="#f1f5f9" font-family="'Segoe UI', sans-serif" font-size="11">35 PSI blowout, RV pink</text>
+    <text x="12" y="108" fill="#f1f5f9" font-family="'Segoe UI', sans-serif" font-size="11">glycol, static pressure test.</text>
+
+    <!-- Photo Proof -->
+    <rect x="10" y="120" width="155" height="65" rx="4" fill="#0c1726"/>
+    <text x="16" y="136" fill="#38bdf8" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800">PHOTO PROOF TRIAD:</text>
+    <text x="16" y="152" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="10">• Meter locked + heater off</text>
+    <text x="16" y="166" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="10">• Pink glycol in all traps/bowls</text>
+    <text x="16" y="180" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="10">• Gauge PSI at T=0 and T=15</text>
+
+    <!-- Key Failure -->
+    <text x="12" y="206" fill="#ef4444" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800">CRITICAL INTEGRITY RULE:</text>
+    <text x="12" y="222" fill="#fca5a5" font-family="'Segoe UI', sans-serif" font-size="10.5">Needle drops? NEVER FAKE.</text>
+    <text x="12" y="236" fill="#fca5a5" font-family="'Segoe UI', sans-serif" font-size="10.5">A leak is diagnostic info:</text>
+    <text x="12" y="250" fill="#fca5a5" font-family="'Segoe UI', sans-serif" font-size="10.5">HOLD + escalate repair bid.</text>
+
+    <!-- Care Ranking -->
+    <rect x="10" y="275" width="155" height="52" rx="4" fill="#332414"/>
+    <text x="87" y="295" fill="#fbbf24" font-family="'Segoe UI', sans-serif" font-size="10.5" font-weight="800" text-anchor="middle">CARE RANK: EXPONENTIAL</text>
+    <text x="87" y="313" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="9.5" text-anchor="middle">Prevents $20,000 thaw burst</text>
+  </g>
+
+  <!-- Col 4: Debris Removal -->
+  <g transform="translate(605, 100)" filter="url(#m7Shadow)">
+    <rect width="175" height="340" rx="8" fill="#111f35" stroke="#ec4899" stroke-width="1.5"/>
+    <rect width="175" height="42" rx="8" fill="#3b1b2d"/>
+    <text x="87" y="22" fill="#fbcfe8" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="800" text-anchor="middle">4. DEBRIS / TRASH-OUT</text>
+    <text x="87" y="36" fill="#fdf2f8" font-family="'Segoe UI', sans-serif" font-size="9.5" text-anchor="middle">"Honesty Measured in Yards"</text>
+
+    <!-- Scope -->
+    <text x="12" y="62" fill="#94a3b8" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="700">CORE SCOPE &amp; FORMULA:</text>
+    <text x="12" y="78" fill="#38bdf8" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700">L × W × H ÷ 27 = CY</text>
+    <text x="12" y="93" fill="#f1f5f9" font-family="'Segoe UI', sans-serif" font-size="10.5">9×6×3 ft = 162 cu ft</text>
+    <text x="12" y="108" fill="#a7f3d0" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800">162 ÷ 27 = 6.0 CY (Exact)</text>
+
+    <!-- Photo Proof -->
+    <rect x="10" y="120" width="155" height="65" rx="4" fill="#0c1726"/>
+    <text x="16" y="136" fill="#38bdf8" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800">PHOTO PROOF TRIAD:</text>
+    <text x="16" y="152" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="10">• Every room from 2 corners</text>
+    <text x="16" y="166" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="10">• Pile with visible tape measure</text>
+    <text x="16" y="180" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="10">• Empty, broom-clean floors</text>
+
+    <!-- Key Failure -->
+    <text x="12" y="206" fill="#ef4444" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800">CRITICAL FAILURE:</text>
+    <text x="12" y="222" fill="#fca5a5" font-family="'Segoe UI', sans-serif" font-size="10.5">Trailer-bed visual guess,</text>
+    <text x="12" y="236" fill="#fca5a5" font-family="'Segoe UI', sans-serif" font-size="10.5">or removing personal items</text>
+    <text x="12" y="250" fill="#fca5a5" font-family="'Segoe UI', sans-serif" font-size="10.5">without client authorization.</text>
+
+    <!-- Care Ranking -->
+    <rect x="10" y="275" width="155" height="52" rx="4" fill="#331726"/>
+    <text x="87" y="295" fill="#f472b6" font-family="'Segoe UI', sans-serif" font-size="10.5" font-weight="800" text-anchor="middle">CARE RANK: STRICT AUDIT</text>
+    <text x="87" y="313" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="9.5" text-anchor="middle">Geometry controls payment</text>
+  </g>
+
+  <!-- Col 5: Property Inspection -->
+  <g transform="translate(795, 100)" filter="url(#m7Shadow)">
+    <rect width="170" height="340" rx="8" fill="#111f35" stroke="#a855f7" stroke-width="1.5"/>
+    <rect width="170" height="42" rx="8" fill="#2d1742"/>
+    <text x="85" y="22" fill="#e9d5ff" font-family="'Segoe UI', sans-serif" font-size="11.5" font-weight="800" text-anchor="middle">5. INSPECTION</text>
+    <text x="85" y="36" fill="#f3e8ff" font-family="'Segoe UI', sans-serif" font-size="9.5" text-anchor="middle">"The Report IS the Product"</text>
+
+    <!-- Scope -->
+    <text x="12" y="62" fill="#94a3b8" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="700">CORE SCOPE:</text>
+    <text x="12" y="78" fill="#f1f5f9" font-family="'Segoe UI', sans-serif" font-size="11">Look at everything, record</text>
+    <text x="12" y="93" fill="#f1f5f9" font-family="'Segoe UI', sans-serif" font-size="11">exact condition truth: roof,</text>
+    <text x="12" y="108" fill="#f1f5f9" font-family="'Segoe UI', sans-serif" font-size="11">plumbing, structure, mold.</text>
+
+    <!-- Photo Proof -->
+    <rect x="10" y="120" width="150" height="65" rx="4" fill="#0c1726"/>
+    <text x="16" y="136" fill="#38bdf8" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800">PHOTO PROOF TRIAD:</text>
+    <text x="16" y="152" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="10">• Street scene + house number</text>
+    <text x="16" y="166" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="10">• 4 exterior elevations</text>
+    <text x="16" y="180" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="10">• Condition report IS the "after"</text>
+
+    <!-- Key Failure -->
+    <text x="12" y="206" fill="#ef4444" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800">CRITICAL FAILURE:</text>
+    <text x="12" y="222" fill="#fca5a5" font-family="'Segoe UI', sans-serif" font-size="10.5">Skipping attic/crawlspace,</text>
+    <text x="12" y="236" fill="#fca5a5" font-family="'Segoe UI', sans-serif" font-size="10.5">ignoring active leaks,</text>
+    <text x="12" y="250" fill="#fca5a5" font-family="'Segoe UI', sans-serif" font-size="10.5">or vague written logs.</text>
+
+    <!-- Care Ranking -->
+    <rect x="10" y="275" width="150" height="52" rx="4" fill="#251636"/>
+    <text x="85" y="295" fill="#c084fc" font-family="'Segoe UI', sans-serif" font-size="10.5" font-weight="800" text-anchor="middle">CARE RANK: DIAGNOSTIC</text>
+    <text x="85" y="313" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="9.5" text-anchor="middle">Tells truth about everything</text>
+  </g>
+
+  <!-- Bottom Damages Standard Strip -->
+  <g transform="translate(35, 460)">
+    <rect width="930" height="85" rx="6" fill="#111c2e" stroke="#2a3f5f" stroke-width="1.2"/>
+    <text x="20" y="24" fill="#f59e0b" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800">THE UNIVERSAL PRESERVATION HIERARCHY &amp; DAMAGES STANDARD:</text>
+    <text x="20" y="44" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="700">1. Safety First &nbsp;&rarr;&nbsp; 2. Proof Always &nbsp;&rarr;&nbsp; 3. Work Authorized Only</text>
+    <text x="20" y="65" fill="#94a3b8" font-family="'Segoe UI', sans-serif" font-size="11.5">5 Damage Kinds: Water (find source) &bull; Mold (moisture active) &bull; Vandalism (secure first) &bull; Weather (envelope) &bull; Neglect (layered decay)</text>
+    <text x="640" y="44" fill="#38bdf8" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="700">5 Systems: Roof &bull; Plumbing &bull; HVAC &bull; Electric &bull; Structure</text>
+    <text x="640" y="65" fill="#a7f3d0" font-family="'Segoe UI', sans-serif" font-size="11.5" font-weight="700">Done Is a Claim &bull; Proof Is the Test &bull; Gaps Go Back</text>
+  </g>
+</svg>
