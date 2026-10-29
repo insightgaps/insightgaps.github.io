@@ -45,7 +45,7 @@
       <!-- Work Order Summary Header -->
       <rect x="25" y="35" width="470" height="40" rx="3" fill="#12263F"/>
       <text x="35" y="52" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800" fill="#F59E0B">CASE DOSSIER:</text>
-      <text x="120" y="52" font-family="'Segoe UI', sans-serif" font-size="10.5" font-weight="700" fill="#FFFFFF">WO-SYN-2026-8841 &bull; Maple House</text>
+      <text x="120" y="52" font-family="'Segoe UI', sans-serif" font-size="10.5" font-weight="700" fill="#FFFFFF">MOCK-WO-10-CAPSTONE &bull; Maple House</text>
       <text x="35" y="66" font-family="'Segoe UI', sans-serif" font-size="9.5" fill="#E2E8F0">42 Field Photos &bull; Initial Secure + Winterize + Debris</text>
 
       <!-- Subcontract Intake Note with Rain Streaks -->

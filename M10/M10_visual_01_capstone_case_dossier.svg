@@ -29,7 +29,7 @@
     <path d="M 0 30 L 140 30 L 165 0 L 320 0 L 345 30 L 880 30 L 880 355 L 0 355 Z" fill="#E8D7B8" stroke="#CBB48B" stroke-width="1.5"/>
 
     <!-- Tab Labels -->
-    <text x="242" y="20" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#12263F" text-anchor="middle">WO-SYN-2026-8841: MAPLE HOUSE</text>
+    <text x="242" y="20" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#12263F" text-anchor="middle">MOCK-WO-10-CAPSTONE: MAPLE HOUSE</text>
 
     <!-- Inner Document Sheet -->
     <rect x="20" y="45" width="840" height="295" rx="4" fill="#FFFDF8" stroke="#D6C8B2" stroke-width="1"/>
