@@ -1,0 +1,238 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="100%" height="100%">
+  <defs>
+    <linearGradient id="deckBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070d18"/>
+      <stop offset="60%" stop-color="#0f1d30"/>
+      <stop offset="100%" stop-color="#14263d"/>
+    </linearGradient>
+    <linearGradient id="timerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <linearGradient id="slateGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="sheetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
+    <filter id="canvasShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000000" flood-opacity="0.65"/>
+    </filter>
+    <filter id="timerGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#f59e0b" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Deep Architectural Background -->
+  <rect width="1280" height="720" fill="url(#deckBg)"/>
+
+  <!-- Projection Grid Texture -->
+  <g stroke="#ffffff" stroke-opacity="0.04" stroke-width="1">
+    <line x1="0" y1="90" x2="1280" y2="90"/>
+    <line x1="0" y1="630" x2="1280" y2="630"/>
+    <line x1="380" y1="0" x2="380" y2="720"/>
+  </g>
+
+  <!-- Top Banner / Room Header -->
+  <g transform="translate(60, 32)">
+    <rect x="0" y="0" width="260" height="26" rx="4" fill="#1e293b" stroke="#f59e0b" stroke-width="1.2"/>
+    <text x="14" y="17" fill="#fef08a" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="900" letter-spacing="1.5">PROJECTION STAGE • SLIDE 13</text>
+    <text x="0" y="58" fill="#ffffff" font-family="Georgia, serif" font-size="30" font-weight="700">Classroom Retrieval Challenge</text>
+    <text x="390" y="56" fill="#94a3b8" font-family="'Segoe UI', sans-serif" font-size="14">Silent Individual Diagnostic • Minute 85 of 300 • Hands off keyboard</text>
+  </g>
+
+  <!-- LEFT ZONE: ACTIVE COUNTDOWN & DISCIPLINE PLACARD -->
+  <g transform="translate(60, 110)">
+    <!-- Discipline Card -->
+    <rect width="290" height="500" rx="10" fill="url(#slateGrad)" stroke="#334155" stroke-width="1.5" filter="url(#canvasShadow)"/>
+    <rect x="0" y="0" width="290" height="36" rx="10" fill="#1e293b"/>
+    <rect x="0" y="28" width="290" height="8" fill="#1e293b"/>
+    <text x="20" y="23" fill="#f59e0b" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="900" letter-spacing="1.2">SESSION DISCIPLINE</text>
+
+    <!-- Circular Stopwatch Dial -->
+    <g transform="translate(145, 135)" filter="url(#timerGlow)">
+      <!-- Outer Dial Ring -->
+      <circle cx="0" cy="0" r="76" fill="#0b1320" stroke="#334155" stroke-width="8"/>
+      <!-- Progress Arc (4:00 remaining) -->
+      <circle cx="0" cy="0" r="76" fill="none" stroke="url(#timerGrad)" stroke-width="8" stroke-dasharray="477" stroke-dashoffset="100" stroke-linecap="round"/>
+      <!-- Inner Ticks -->
+      <circle cx="0" cy="0" r="62" fill="#0f172a" stroke="#1e293b" stroke-width="2"/>
+      <!-- Time Display -->
+      <text x="0" y="6" fill="#fef08a" font-family="'Segoe UI', monospace, sans-serif" font-size="32" font-weight="900" text-anchor="middle">04:00</text>
+      <text x="0" y="24" fill="#94a3b8" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800" letter-spacing="1" text-anchor="middle">SILENT MINUTES</text>
+    </g>
+
+    <!-- Rules Checklist -->
+    <g transform="translate(24, 240)">
+      <text x="0" y="0" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="800">CLASSROOM GROUND RULES:</text>
+
+      <g transform="translate(0, 16)">
+        <circle cx="8" cy="8" r="4" fill="#ef4444"/>
+        <text x="22" y="12" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="12">Laptops &amp; screens closed</text>
+      </g>
+      <g transform="translate(0, 42)">
+        <circle cx="8" cy="8" r="4" fill="#ef4444"/>
+        <text x="22" y="12" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="12">Course notes face-down</text>
+      </g>
+      <g transform="translate(0, 68)">
+        <circle cx="8" cy="8" r="4" fill="#10b981"/>
+        <text x="22" y="12" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="12">Clean physical sheet + pen</text>
+      </g>
+      <g transform="translate(0, 94)">
+        <circle cx="8" cy="8" r="4" fill="#10b981"/>
+        <text x="22" y="12" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="12">Pure cognitive recall</text>
+      </g>
+    </g>
+
+    <!-- Bottom Protocol Box -->
+    <g transform="translate(18, 385)">
+      <rect width="254" height="95" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="14" y="22" fill="#f59e0b" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800">PACING INTERVALS:</text>
+      <text x="14" y="42" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="11.5">• 4 min: Silent writing</text>
+      <text x="14" y="60" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="11.5">• 3 min: Pair compare</text>
+      <text x="14" y="78" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="11.5">• 3 min: Board correction</text>
+    </g>
+  </g>
+
+  <!-- RIGHT ZONE: THE RETRIEVAL WORKSHEET SIMULATION -->
+  <g transform="translate(380, 110)" filter="url(#canvasShadow)">
+    <!-- Physical Worksheet Container -->
+    <rect width="840" height="500" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+
+    <!-- Worksheet Header -->
+    <rect x="0" y="0" width="840" height="42" rx="10" fill="#1e293b"/>
+    <rect x="0" y="34" width="840" height="8" fill="#1e293b"/>
+    <circle cx="24" cy="21" r="7" fill="#f59e0b"/>
+    <text x="40" y="26" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="800">TRAINEE RETRIEVAL SLATE: TWO RECONSTRUCTION TASKS</text>
+    <text x="640" y="26" fill="#94a3b8" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700">DIAGNOSTIC NO-GRADE STANDARD</text>
+
+    <!-- SECTION A: THE 5 EMPTY CHAIN BOXES -->
+    <g transform="translate(24, 60)">
+      <text x="0" y="0" fill="#fef08a" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="800">TASK 1: RECONSTRUCT THE 5-LINK CUSTODIAL CHAIN (LEFT TO RIGHT)</text>
+      
+      <!-- Box 1 -->
+      <g transform="translate(0, 15)">
+        <rect width="140" height="74" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="5 3"/>
+        <text x="70" y="24" fill="#38bdf8" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800" text-anchor="middle">LINK 1 • ORIGIN</text>
+        <text x="70" y="46" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="700" text-anchor="middle">[ ? ? ? ]</text>
+        <text x="70" y="62" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="9" text-anchor="middle">Capital / Note Owner</text>
+      </g>
+
+      <!-- Arrow 1 -->
+      <path d="M 148 52 L 158 52" stroke="#f59e0b" stroke-width="2"/>
+      <polygon points="162,52 156,48 156,56" fill="#f59e0b"/>
+
+      <!-- Box 2 -->
+      <g transform="translate(166, 15)">
+        <rect width="140" height="74" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="5 3"/>
+        <text x="70" y="24" fill="#38bdf8" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800" text-anchor="middle">LINK 2 • SERVICING</text>
+        <text x="70" y="46" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="700" text-anchor="middle">[ ? ? ? ]</text>
+        <text x="70" y="62" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="9" text-anchor="middle">Day-to-day / Loss Mit</text>
+      </g>
+
+      <!-- Arrow 2 -->
+      <path d="M 314 52 L 324 52" stroke="#f59e0b" stroke-width="2"/>
+      <polygon points="328,52 322,48 322,56" fill="#f59e0b"/>
+
+      <!-- Box 3 -->
+      <g transform="translate(332, 15)">
+        <rect width="140" height="74" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="5 3"/>
+        <text x="70" y="24" fill="#38bdf8" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800" text-anchor="middle">LINK 3 • LOGISTICS</text>
+        <text x="70" y="46" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="700" text-anchor="middle">[ ? ? ? ]</text>
+        <text x="70" y="62" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="9" text-anchor="middle">National Manager</text>
+      </g>
+
+      <!-- Arrow 3 -->
+      <path d="M 480 52 L 490 52" stroke="#f59e0b" stroke-width="2"/>
+      <polygon points="494,52 488,48 488,56" fill="#f59e0b"/>
+
+      <!-- Box 4 -->
+      <g transform="translate(498, 15)">
+        <rect width="140" height="74" rx="6" fill="#1e1b4b" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5 3"/>
+        <text x="70" y="24" fill="#fde047" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="900" text-anchor="middle">LINK 4 • OUR DESK</text>
+        <text x="70" y="46" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="800" text-anchor="middle">[ ? ? ? ]</text>
+        <text x="70" y="62" fill="#fde047" font-family="'Segoe UI', sans-serif" font-size="9" text-anchor="middle">Preservation Vendor</text>
+      </g>
+
+      <!-- Arrow 4 -->
+      <path d="M 646 52 L 656 52" stroke="#f59e0b" stroke-width="2"/>
+      <polygon points="660,52 654,48 654,56" fill="#f59e0b"/>
+
+      <!-- Box 5 -->
+      <g transform="translate(664, 15)">
+        <rect width="128" height="74" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5" stroke-dasharray="5 3"/>
+        <text x="64" y="24" fill="#6ee7b7" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800" text-anchor="middle">LINK 5 • PHYSICAL</text>
+        <text x="64" y="46" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="700" text-anchor="middle">[ ? ? ? ]</text>
+        <text x="64" y="62" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="9" text-anchor="middle">Field Contractor</text>
+      </g>
+    </g>
+
+    <!-- SECTION B: FOUR RETRIEVAL PROMPT STATIONS -->
+    <g transform="translate(24, 185)">
+      <text x="0" y="0" fill="#fef08a" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="800">TASK 2: RECORD PRECISE DEFINITIONS ON YOUR PAPER</text>
+
+      <!-- Prompt Card 1 -->
+      <g transform="translate(0, 16)">
+        <rect width="386" height="120" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1.2"/>
+        <rect x="0" y="0" width="386" height="26" rx="6" fill="#0f172a"/>
+        <circle cx="16" cy="13" r="8" fill="#b45309"/>
+        <text x="16" y="17" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="900" text-anchor="middle">1</text>
+        <text x="32" y="17" fill="#fde047" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800">SYSTEM GROWTH: NAME ONE DRIVER</text>
+        <text x="16" y="48" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="600">What institutional engine built the postwar suburbs?</text>
+        <text x="16" y="70" fill="#94a3b8" font-family="'Segoe UI', sans-serif" font-size="11">• FHA 30-year amortizing insurance (insures, NOT lends)</text>
+        <text x="16" y="88" fill="#94a3b8" font-family="'Segoe UI', sans-serif" font-size="11">• GI Bill (13.9M loans) • 1956 Interstates &amp; autos</text>
+        <text x="16" y="106" fill="#38bdf8" font-family="'Segoe UI', sans-serif" font-size="10.5" font-weight="700">1972 TOTAL Peak: 2,379,000 starts (Do not add to 2005)</text>
+      </g>
+
+      <!-- Prompt Card 2 -->
+      <g transform="translate(406, 16)">
+        <rect width="386" height="120" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1.2"/>
+        <rect x="0" y="0" width="386" height="26" rx="6" fill="#0f172a"/>
+        <circle cx="16" cy="13" r="8" fill="#b45309"/>
+        <text x="16" y="17" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="900" text-anchor="middle">2</text>
+        <text x="32" y="17" fill="#fde047" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800">EXCLUSION: NAME ONE STRUCTURAL FILTER</text>
+        <text x="16" y="48" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="600">How was credit and housing access institutionally filtered?</text>
+        <text x="16" y="70" fill="#94a3b8" font-family="'Segoe UI', sans-serif" font-size="11">• HOLC Redlining Maps (Hazardous red zones)</text>
+        <text x="16" y="88" fill="#94a3b8" font-family="'Segoe UI', sans-serif" font-size="11">• Restrictive deed covenants • Blockbusting land contracts</text>
+        <text x="16" y="106" fill="#38bdf8" font-family="'Segoe UI', sans-serif" font-size="10.5" font-weight="700">Axiom: Never teach postwar prosperity without the filter</text>
+      </g>
+
+      <!-- Prompt Card 3 -->
+      <g transform="translate(0, 150)">
+        <rect width="386" height="125" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1.2"/>
+        <rect x="0" y="0" width="386" height="26" rx="6" fill="#0f172a"/>
+        <circle cx="16" cy="13" r="8" fill="#b45309"/>
+        <text x="16" y="17" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="900" text-anchor="middle">3</text>
+        <text x="32" y="17" fill="#fde047" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800">FORECLOSURE VS. PRESERVATION WORK</text>
+        <text x="16" y="48" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="600">State one core contrast between the two domains:</text>
+        <text x="16" y="70" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="11">• <strong>Foreclosure:</strong> Legal lawsuit to transfer title (court / auction)</text>
+        <text x="16" y="88" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="11">• <strong>Preservation:</strong> Physical care to protect collateral asset</text>
+        <text x="16" y="108" fill="#ef4444" font-family="'Segoe UI', sans-serif" font-size="10.5" font-weight="700">Discipline: Foreclosure filings are NOT work orders</text>
+      </g>
+
+      <!-- Prompt Card 4 -->
+      <g transform="translate(406, 150)">
+        <rect width="386" height="125" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1.2"/>
+        <rect x="0" y="0" width="386" height="26" rx="6" fill="#0f172a"/>
+        <circle cx="16" cy="13" r="8" fill="#b45309"/>
+        <text x="16" y="17" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="900" text-anchor="middle">4</text>
+        <text x="32" y="17" fill="#fde047" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800">CONDITION VS. AUTHORITY (LEGAL FENCE)</text>
+        <text x="16" y="48" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="600">Does a vacant-looking home authorise lock change?</text>
+        <text x="16" y="70" fill="#f87171" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800">• NO. Physical condition is NOT legal authority</text>
+        <text x="16" y="88" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="11">• Jordan v. Nationstar: Pre-foreclosure rekeying = illegal</text>
+        <text x="16" y="108" fill="#fde047" font-family="'Segoe UI', sans-serif" font-size="10.5" font-weight="700">Fence: Washington State lien law only (RCW 7.28.230)</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom Stage Footer Strip -->
+  <g transform="translate(60, 642)">
+    <rect width="1160" height="48" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <text x="24" y="29" fill="#fef08a" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="800">CLASSROOM AXIOM:</text>
+    <text x="175" y="29" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="12">"Do not move forward on a guess. Rebuild the foundation, confirm the legal fence, then take Break 1."</text>
+    <rect x="1000" y="11" width="138" height="26" rx="4" fill="#1e293b" stroke="#f59e0b" stroke-width="1"/>
+    <text x="1069" y="28" fill="#fef08a" font-family="'Segoe UI', sans-serif" font-size="10.5" font-weight="800" text-anchor="middle">STAGE RETRIEVAL</text>
+  </g>
+</svg>

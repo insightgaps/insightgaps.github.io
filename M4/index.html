@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 4: Rebuild the Chain Before Moving Forward | Property Preservation Class</title>
+  <style>
+    /* ==========================================================================
+       Module M4: Mid-Flight Silent Retrieval Checkpoint (10 Min)
+       Standing Simple Rule + Memory Bar Standard
+       Intro + Max 3 Sticky Story Key Points + 1 Image + Navigation ONLY
+       ========================================================================== */
+    :root {
+      --bg-dark: #0b1320;
+      --bg-surface: #12263f;
+      --bg-card: #1e293b;
+      --amber: #f59e0b;
+      --amber-light: #fef08a;
+      --teal: #0f766e;
+      --teal-light: #2dd4bf;
+      --border: #334155;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --sans: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+      --serif: Georgia, Cambria, "Times New Roman", serif;
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text);
+      font-family: var(--sans);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+    }
+
+    /* Minimal Header */
+    header.class-header {
+      background: rgba(11, 19, 32, 0.95);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      background: var(--amber);
+      color: var(--bg-dark);
+      font-weight: 900;
+      font-size: 13px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    .brand-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .course-retelling-step {
+      font-size: 11px;
+      color: var(--amber-light);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* Main Container */
+    main.content-wrap {
+      max-width: 1080px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    /* Title Block */
+    .title-block {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 24px;
+    }
+
+    .kicker {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      color: var(--amber);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    h1.page-title {
+      font-family: var(--serif);
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.15;
+      color: #ffffff;
+      margin-bottom: 12px;
+      text-wrap: balance;
+    }
+
+    p.story-intro {
+      font-family: var(--serif);
+      font-size: 18px;
+      color: #e2e8f0;
+      font-style: italic;
+      line-height: 1.55;
+      max-width: 920px;
+    }
+
+    /* Focal Image Container */
+    .focal-visual {
+      background: var(--bg-surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+    }
+
+    .focal-visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 4px;
+    }
+
+    /* Three Sticky Key Points */
+    .key-points-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 860px) {
+      .key-points-grid { grid-template-columns: 1fr; }
+    }
+
+    .key-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-top: 3.5px solid var(--amber);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .card-num {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--amber);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .card-heading {
+      font-family: var(--serif);
+      font-size: 19px;
+      color: #ffffff;
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .card-body strong {
+      color: #ffffff;
+    }
+
+    /* Retelling Arc Banner */
+    .retelling-bar {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 12.5px;
+    }
+
+    .retelling-label {
+      color: var(--amber-light);
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .retelling-chain {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .retelling-chain span.done { color: var(--teal-light); }
+    .retelling-chain span.curr { color: var(--amber); font-weight: 800; text-decoration: underline; }
+
+    /* Navigation Bar */
+    nav.class-nav {
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .btn-link {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border);
+      color: var(--text);
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-link:hover {
+      background: var(--amber);
+      color: var(--bg-dark);
+      border-color: var(--amber);
+    }
+
+    .btn-link.primary {
+      background: var(--amber);
+      color: var(--bg-dark);
+      border-color: var(--amber);
+    }
+
+    .btn-link.primary:hover {
+      background: #d97706;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Minimal Header -->
+  <header class="class-header">
+    <div class="brand">
+      <span class="brand-badge">M4</span>
+      <span class="brand-title">Property Preservation Class • 300 Minutes</span>
+    </div>
+    <div class="course-retelling-step">
+      RETELLING: HOUSE → CHAIN → [M4 RETRIEVAL] → ORDER → WORK
+    </div>
+  </header>
+
+  <!-- Main Content Wrap -->
+  <main class="content-wrap">
+
+    <!-- Story Opening Header -->
+    <div class="title-block">
+      <div class="kicker">MID-FLIGHT SILENT CHECKPOINT • 10 MINUTES ACTIVE (01:25–01:35)</div>
+      <h1 class="page-title">Rebuild the Chain Before Moving Forward</h1>
+      <p class="story-intro">
+        "Maple House has survived fifty-four years of American macro-history. She was financed during the record 1972 boom, stood through the subprime flood, and now sits quietly in pre-foreclosure default. But before any contractor turns a drill or bills an invoice, the classroom goes silent. We close every notebook, turn over every sheet, and face the single question: can you draw the chain from memory, or are you operating on a guess?"
+      </p>
+    </div>
+
+    <!-- ONE Primary Focal Visual -->
+    <div class="focal-visual">
+      <img src="M4_visual_01_midflight_retrieval_chain.svg" alt="Module 4 Mid-Flight Retrieval Chain and Four Core Checkpoint Anchors">
+    </div>
+
+    <!-- Max Three Sticky Story-Anchored Key Points -->
+    <div class="key-points-grid">
+      
+      <!-- Key Point 1 -->
+      <div class="key-card">
+        <span class="card-num">KEY POINT 1 • THE FIVE LINKS</span>
+        <h2 class="card-heading">One House, Five Hands</h2>
+        <p class="card-body">
+          <strong>Bank → Servicer → National → Our Office → Field Crew.</strong> One work order travels all five links before a single lock is changed. If you cannot name who touches the house before you, you do not know whose money you are risking or whose permission you carry.
+        </p>
+      </div>
+
+      <!-- Key Point 2 -->
+      <div class="key-card">
+        <span class="card-num">KEY POINT 2 • THE SYSTEM &amp; THE FILTER</span>
+        <h2 class="card-heading">The Boom Built a Filter</h2>
+        <p class="card-body">
+          Maple House was born in <strong>1972</strong>—the biggest total building year in American history (2,379,000 starts). But the same post-war system engineered exclusion through redlining, restrictive deed covenants, and predatory land contracts. <strong>Never teach prosperity without the filter.</strong>
+        </p>
+      </div>
+
+      <!-- Key Point 3 -->
+      <div class="key-card">
+        <span class="card-num">KEY POINT 3 • CONDITION VS AUTHORITY</span>
+        <h2 class="card-heading">Vacant Is Never Permission</h2>
+        <p class="card-body">
+          A house may look vacant, but <strong>condition is not legal authority</strong>. Foreclosure is a state legal proceeding, not a cleanout job. Under Washington law in <em>Jordan v. Nationstar</em>, rekeying before foreclosure sale is unlawful possession. <strong>Permission first. Proof always.</strong>
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Retelling Arc Banner -->
+    <div class="retelling-bar">
+      <span class="retelling-label">The Whole-Course Retelling Arc:</span>
+      <div class="retelling-chain">
+        <span class="done">House (1972)</span> →
+        <span class="done">Chain (5 Links)</span> →
+        <span class="curr">M4 Retrieval</span> →
+        <span>Order</span> →
+        <span>Work</span> →
+        <span>Evidence</span> →
+        <span>Money</span> →
+        <span>Capstone</span>
+      </div>
+    </div>
+
+    <!-- Navigation ONLY -->
+    <nav class="class-nav">
+      <a href="../M3/" class="btn-link">◀ Module 3: Foreclosure Road</a>
+      <a href="../Homepage_Hub_Gate/class_hub.html" class="btn-link">Class Hub</a>
+      <a href="../M5/" class="btn-link primary">Break 1 &amp; Module 5: Roles &amp; Authority ▶</a>
+    </nav>
+
+  </main>
+
+</body>
+</html>
