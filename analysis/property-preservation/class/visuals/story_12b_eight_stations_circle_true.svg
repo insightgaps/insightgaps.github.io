@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="100%" height="100%">
+  <!-- Synthetic Mock Label Banner -->
+  <g id="synthetic-mock-badge" transform="translate(20, 20)">
+    <rect x="0" y="0" width="310" height="22" rx="4" fill="#0B1320" stroke="#F59E0B" stroke-width="1.2" opacity="0.95"/>
+    <text x="10" y="15" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="900" fill="#F59E0B" letter-spacing="0.8">SYNTHETIC MOCK / INSTRUCTIONAL ILLUSTRATION ONLY</text>
+  </g>
+  <defs>
+    <linearGradient id="map-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCFAF6"/>
+      <stop offset="100%" stop-color="#F2ECE1"/>
+    </linearGradient>
+    <filter id="box-shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#12263F" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <!-- Canvas Background -->
+  <rect width="1000" height="600" fill="url(#map-bg)"/>
+  <rect x="20" y="20" width="960" height="560" rx="12" fill="none" stroke="#D6C8B2" stroke-width="1.5"/>
+  <!-- Top Title Banner -->
+  <rect x="36" y="30" width="928" height="54" rx="8" fill="#12263F"/>
+  <text x="54" y="64" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="800" fill="#F59E0B" letter-spacing="1.5">CHAPTER 12: ONE JOB, EIGHT STATIONS WORKFLOW CIRCLE</text>
+  <text x="565" y="64" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="600" fill="#E2E8F0">[CONTINUOUS LIFECYCLE RING &amp;#8226; MAPLE HOUSE]</text>
+  <rect x="830" y="44" width="118" height="26" rx="4" fill="#0F766E"/>
+  <text x="889" y="61" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="800" fill="#FFFDF8" text-anchor="middle">CLOSED RING</text>
+
+  <!-- Ring Track -->
+  <circle cx="500" cy="315" r="175" fill="none" stroke="#CBD5E1" stroke-width="6" stroke-dasharray="8 6"/>
+
+  <!-- Center Core -->
+  <circle cx="500" cy="315" r="70" fill="#12263F" filter="url(#box-shadow)"/>
+  <circle cx="500" cy="315" r="66" fill="none" stroke="#F59E0B" stroke-width="2"/>
+  <text x="500" y="305" font-family="Georgia, serif" font-size="15" font-weight="700" fill="#FFFDF8" text-anchor="middle">ONE JOB</text>
+  <text x="500" y="324" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#F59E0B" text-anchor="middle">8 STATIONS</text>
+  <text x="500" y="340" font-family="'Segoe UI', sans-serif" font-size="9" fill="#94A3B8" text-anchor="middle">ZERO SEAM LEAKAGE</text>
+  <!-- Station 1 -->
+  <g transform="translate(425.0, 116.0)" filter="url(#box-shadow)">
+    <rect width="150" height="48" rx="6" fill="#1E293B" stroke="#38BDF8" stroke-width="1.8"/>
+    <rect x="0" y="0" width="5" height="48" rx="2" fill="#38BDF8"/>
+    <text x="12" y="20" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#FFFDF8">1. INTAKE</text>
+    <text x="12" y="36" font-family="'Segoe UI', sans-serif" font-size="8.5" fill="#E2E8F0">Client directive &amp; address</text>
+  </g>
+  <!-- Station 2 -->
+  <g transform="translate(548.7, 167.3)" filter="url(#box-shadow)">
+    <rect width="150" height="48" rx="6" fill="#1D3A5F" stroke="#F59E0B" stroke-width="1.8"/>
+    <rect x="0" y="0" width="5" height="48" rx="2" fill="#F59E0B"/>
+    <text x="12" y="20" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#FFFDF8">2. PERMISSION</text>
+    <text x="12" y="36" font-family="'Segoe UI', sans-serif" font-size="8.5" fill="#E2E8F0">Legal authority &amp; gate</text>
+  </g>
+  <!-- Station 3 -->
+  <g transform="translate(600.0, 291.0)" filter="url(#box-shadow)">
+    <rect width="150" height="48" rx="6" fill="#1E3A8A" stroke="#60A5FA" stroke-width="1.8"/>
+    <rect x="0" y="0" width="5" height="48" rx="2" fill="#60A5FA"/>
+    <text x="12" y="20" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#FFFDF8">3. DISPATCH</text>
+    <text x="12" y="36" font-family="'Segoe UI', sans-serif" font-size="8.5" fill="#E2E8F0">Vendor manager routing</text>
+  </g>
+  <!-- Station 4 -->
+  <g transform="translate(548.7, 414.7)" filter="url(#box-shadow)">
+    <rect width="150" height="48" rx="6" fill="#B45309" stroke="#FCD34D" stroke-width="1.8"/>
+    <rect x="0" y="0" width="5" height="48" rx="2" fill="#FCD34D"/>
+    <text x="12" y="20" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#FFFDF8">4. FIELD CREW</text>
+    <text x="12" y="36" font-family="'Segoe UI', sans-serif" font-size="8.5" fill="#E2E8F0">Boots on property / B-D-A</text>
+  </g>
+  <!-- Station 5 -->
+  <g transform="translate(425.0, 466.0)" filter="url(#box-shadow)">
+    <rect width="150" height="48" rx="6" fill="#047857" stroke="#34D399" stroke-width="1.8"/>
+    <rect x="0" y="0" width="5" height="48" rx="2" fill="#34D399"/>
+    <text x="12" y="20" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#FFFDF8">5. PHOTO QC</text>
+    <text x="12" y="36" font-family="'Segoe UI', sans-serif" font-size="8.5" fill="#E2E8F0">Evidence review / No gap</text>
+  </g>
+  <!-- Station 6 -->
+  <g transform="translate(301.3, 414.7)" filter="url(#box-shadow)">
+    <rect width="150" height="48" rx="6" fill="#134E4A" stroke="#2DD4BF" stroke-width="1.8"/>
+    <rect x="0" y="0" width="5" height="48" rx="2" fill="#2DD4BF"/>
+    <text x="12" y="20" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#FFFDF8">6. INVOICING</text>
+    <text x="12" y="36" font-family="'Segoe UI', sans-serif" font-size="8.5" fill="#E2E8F0">Allowable price &amp; ledger</text>
+  </g>
+  <!-- Station 7 -->
+  <g transform="translate(250.0, 291.0)" filter="url(#box-shadow)">
+    <rect width="150" height="48" rx="6" fill="#4C1D95" stroke="#A78BFA" stroke-width="1.8"/>
+    <rect x="0" y="0" width="5" height="48" rx="2" fill="#A78BFA"/>
+    <text x="12" y="20" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#FFFDF8">7. CLIENT PORTAL</text>
+    <text x="12" y="36" font-family="'Segoe UI', sans-serif" font-size="8.5" fill="#E2E8F0">Submission &amp; collections</text>
+  </g>
+  <!-- Station 8 -->
+  <g transform="translate(301.3, 167.3)" filter="url(#box-shadow)">
+    <rect width="150" height="48" rx="6" fill="#0F172A" stroke="#10B981" stroke-width="1.8"/>
+    <rect x="0" y="0" width="5" height="48" rx="2" fill="#10B981"/>
+    <text x="12" y="20" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#FFFDF8">8. RECONCILIATION</text>
+    <text x="12" y="36" font-family="'Segoe UI', sans-serif" font-size="8.5" fill="#E2E8F0">Final payment &amp; closeout</text>
+  </g>
+
+  <!-- Bottom Bar: Zero Seam Law -->
+  <g transform="translate(36, 505)">
+    <rect width="928" height="60" rx="8" fill="#12263F"/>
+    <text x="24" y="25" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#F59E0B" letter-spacing="1">THE EIGHT-STATION COHESION LAW:</text>
+    <text x="24" y="44" font-family="Georgia, serif" font-size="12" fill="#FFFDF8">"Every order enters at Intake, validates Authority, dispatches to Crew, verifies Evidence QC, builds Invoice, passes Portal, and closes at Reconciliation without unacknowledged seams."</text>
+  </g>
+</svg>
