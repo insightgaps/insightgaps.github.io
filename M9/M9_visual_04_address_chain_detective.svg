@@ -24,7 +24,7 @@
   <rect x="40" y="102" width="880" height="46" rx="6" fill="#F0FDF4" stroke="#86EFAC"/>
   <text x="60" y="131" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="800" fill="#166534">GOLDEN AUDIT RULE: Never call an order unpaid until you have searched the physical street address history.</text>
 
-  <!-- Comparison: WO-A (Left) vs WO-B (Right) linked by Address Anchor -->
+  <!-- Comparison: OFFICE-WO-CH10-A (Left) vs OFFICE-WO-CH10-B (Right) linked by Address Anchor -->
   <!-- Middle Address Anchor Pin -->
   <g transform="translate(480, 165)">
     <circle cx="0" cy="40" r="34" fill="#12263F" filter="url(#chain-shadow)"/>
@@ -36,11 +36,11 @@
     <path d="M 34 40 L 90 40" stroke="#0F766E" stroke-width="3" stroke-dasharray="4 2"/>
   </g>
 
-  <!-- Left: Work Order WO-A -->
+  <!-- Left: Work Order OFFICE-WO-CH10-A -->
   <g transform="translate(40, 165)">
     <rect x="0" y="0" width="340" height="295" rx="8" fill="#FFFDF8" stroke="#DC2626" stroke-width="1.8" filter="url(#chain-shadow)"/>
     <rect x="0" y="0" width="340" height="34" rx="8" fill="#991B1B"/>
-    <text x="14" y="23" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#FFFDF8">TICKET: WO-1049-A (INITIAL SECURE)</text>
+    <text x="14" y="23" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#FFFDF8">TICKET: OFFICE-WO-CH10-ORIG (INITIAL SECURE)</text>
     
     <text x="16" y="60" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#64748B">Target Address:</text>
     <text x="110" y="60" font-family="Georgia, serif" font-size="12" font-weight="700" fill="#12263F">742 Evergreen Street</text>
@@ -61,11 +61,11 @@
     <text x="26" y="252" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="600" fill="#7F1D1D">Company writes off real revenue. Double-billing risk if re-invoiced blind.</text>
   </g>
 
-  <!-- Right: Work Order WO-B (The Discovery) -->
+  <!-- Right: Work Order OFFICE-WO-CH10-B (The Discovery) -->
   <g transform="translate(580, 165)">
     <rect x="0" y="0" width="340" height="295" rx="8" fill="#FFFDF8" stroke="#166534" stroke-width="1.8" filter="url(#chain-shadow)"/>
     <rect x="0" y="0" width="340" height="34" rx="8" fill="#166534"/>
-    <text x="14" y="23" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#FFFDF8">TICKET: WO-1049-B (SUPPLEMENTAL)</text>
+    <text x="14" y="23" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#FFFDF8">TICKET: OFFICE-WO-CH10-SUPP (SUPPLEMENTAL)</text>
     
     <text x="16" y="60" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#64748B">Target Address:</text>
     <text x="110" y="60" font-family="Georgia, serif" font-size="12" font-weight="700" fill="#12263F">742 Evergreen Street</text>
@@ -79,11 +79,11 @@
     <line x1="16" y1="130" x2="324" y2="130" stroke="#E2E8F0" stroke-width="1.5"/>
 
     <text x="16" y="152" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="800" fill="#15803D">THE FORENSIC SOLUTION:</text>
-    <text x="16" y="172" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="500" fill="#475569">Elena matched by street address, discovered client re-cut the work order under WO-B, and linked the payment.</text>
+    <text x="16" y="172" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="500" fill="#475569">Elena matched by street address, discovered client re-cut the work order under OFFICE-WO-CH10-B, and linked the payment.</text>
     
     <rect x="16" y="215" width="308" height="60" rx="5" fill="#F0FDF4" stroke="#86EFAC"/>
     <text x="26" y="235" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#166534">CORRECT ACTION:</text>
-    <text x="26" y="252" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" fill="#14532D">Mark WO-A as CHAIN-PAID with link to WO-B. Zero bad debt write-off. Ledger balances clean.</text>
+    <text x="26" y="252" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" fill="#14532D">Mark OFFICE-WO-CH10-A as CHAIN-PAID with link to OFFICE-WO-CH10-B. Zero bad debt write-off. Ledger balances clean.</text>
   </g>
 
   <!-- Footer Caption -->
