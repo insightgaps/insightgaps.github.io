@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 495" width="100%" height="100%">
+  <!-- Synthetic Mock Label Banner -->
+  <g id="synthetic-mock-badge" transform="translate(20, 24)">
+    <rect x="0" y="0" width="310" height="22" rx="4" fill="#0B1320" stroke="#F59E0B" stroke-width="1.2" opacity="0.95"/>
+    <text x="10" y="15" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="900" fill="#F59E0B" letter-spacing="0.8">SYNTHETIC MOCK / INSTRUCTIONAL ILLUSTRATION ONLY</text>
+  </g>
+
+  <defs>
+    <linearGradient id="bgGrad7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1329"/>
+      <stop offset="100%" stop-color="#14213d"/>
+    </linearGradient>
+    <filter id="shadow7" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <rect width="880" height="495" fill="url(#bgGrad7)"/>
+  
+  <!-- Subtle Blueprint Grid -->
+  <g opacity="0.08" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="55" x2="880" y2="55"/>
+    <line x1="0" y1="110" x2="880" y2="110"/>
+    <line x1="0" y1="165" x2="880" y2="165"/>
+    <line x1="0" y1="220" x2="880" y2="220"/>
+    <line x1="0" y1="275" x2="880" y2="275"/>
+    <line x1="0" y1="330" x2="880" y2="330"/>
+    <line x1="0" y1="385" x2="880" y2="385"/>
+    <line x1="0" y1="440" x2="880" y2="440"/>
+    <line x1="110" y1="0" x2="110" y2="495"/>
+    <line x1="220" y1="0" x2="220" y2="495"/>
+    <line x1="330" y1="0" x2="330" y2="495"/>
+    <line x1="440" y1="0" x2="440" y2="495"/>
+    <line x1="550" y1="0" x2="550" y2="495"/>
+    <line x1="660" y1="0" x2="660" y2="495"/>
+    <line x1="770" y1="0" x2="770" y2="495"/>
+  </g>
+
+  <!-- Header Chips -->
+  <rect x="36" y="24" width="270" height="26" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <circle cx="50" cy="37" r="4" fill="#fca311"/>
+  <text x="62" y="41" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="1">REVEAL 7 • THE COLD CAPSTONE</text>
+
+  <rect x="614" y="24" width="230" height="26" rx="4" fill="#0f172a" stroke="#fca311" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="626" y="41" fill="#fca311" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="600" letter-spacing="0.5">SYNTHETIC TEACHING ILLUSTRATION</text>
+
+  <!-- Left Card: The Four Deliberate Failure Traps Dossier -->
+  <g transform="translate(40, 70)" filter="url(#shadow7)">
+    <rect width="410" height="260" rx="10" fill="#131d31" stroke="#253553" stroke-width="1.5"/>
+    <text x="24" y="32" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">Cold Case Audit: The 4 Failure Traps</text>
+    <text x="24" y="48" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="11">Maple House final conveyance file • Detect every defect</text>
+
+    <!-- 4 Traps Visual Matrix -->
+    <g transform="translate(24, 62)">
+      <!-- Trap 1 -->
+      <rect width="362" height="42" rx="4" fill="#2d1520" stroke="#f43f5e" stroke-width="1"/>
+      <text x="12" y="18" fill="#fb7185" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" font-weight="800">TRAP 1 • AUTHORITY / OCCUPANCY DEFECT</text>
+      <text x="12" y="32" fill="#fda4af" font-family="system-ui, -apple-system, sans-serif" font-size="8.5">Fresh parcel on porch (2 days old), stocked pantry, humming fridge</text>
+
+      <!-- Trap 2 -->
+      <rect y="48" width="362" height="42" rx="4" fill="#2d1520" stroke="#f43f5e" stroke-width="1"/>
+      <text x="12" y="66" fill="#fb7185" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" font-weight="800">TRAP 2 • EVIDENCE / PROOF GAP</text>
+      <text x="12" y="80" fill="#fda4af" font-family="system-ui, -apple-system, sans-serif" font-size="8.5">Missing rear sliding patio door lock photo; no toilet tank antifreeze shot</text>
+
+      <!-- Trap 3 -->
+      <rect y="96" width="362" height="42" rx="4" fill="#2d1520" stroke="#f43f5e" stroke-width="1"/>
+      <text x="12" y="114" fill="#fb7185" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" font-weight="800">TRAP 3 • WINTERIZATION INTEGRITY FAILURE</text>
+      <text x="12" y="128" fill="#fda4af" font-family="system-ui, -apple-system, sans-serif" font-size="8.5">Pressure dropped 12 PSI in 15 min; tech noted pinhole &amp; checked "Complete"</text>
+
+      <!-- Trap 4 -->
+      <rect y="144" width="362" height="42" rx="4" fill="#2d1520" stroke="#f43f5e" stroke-width="1"/>
+      <text x="12" y="162" fill="#fb7185" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" font-weight="800">TRAP 4 • MATH &amp; SCOPE DISCREPANCY</text>
+      <text x="12" y="176" fill="#fda4af" font-family="system-ui, -apple-system, sans-serif" font-size="8.5">Billed 9 CY for 8×5×3 pile (actual 4.44 CY) + unapproved $75 gutter line</text>
+    </g>
+
+    <rect x="24" y="218" width="362" height="26" rx="4" fill="#0b1322"/>
+    <text x="34" y="235" fill="#fca311" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" font-weight="700">VERDICT: HOLD THE FILE • DO NOT BLANKET REJECT • FIX LINE-LEVEL</text>
+  </g>
+
+  <!-- Right Card: The 4 Deliverables & Graduation Rubric -->
+  <g transform="translate(470, 70)" filter="url(#shadow7)">
+    <rect width="370" height="260" rx="10" fill="#131d31" stroke="#253553" stroke-width="1.5"/>
+    <text x="24" y="32" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">Trainee Graduation Requirements</text>
+    <text x="24" y="48" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="11">Independent submission (No teacher coaching in Block 11)</text>
+
+    <!-- 4 Deliverables List -->
+    <g transform="translate(24, 65)">
+      <rect width="322" height="78" rx="5" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+      <text x="12" y="18" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" font-weight="700">FOUR REQUIRED SUBMISSION ELEMENTS:</text>
+      <text x="12" y="33" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="9">1. File Decision &amp; Line Items (Approve, Hold, or Reject)</text>
+      <text x="12" y="47" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="9">2. Identify all 4 failure traps with governing rules</text>
+      <text x="12" y="61" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="9">3. Author compliant Update Line (≤ 25 words, passes 4 checks)</text>
+      <text x="12" y="73" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="9">4. Correct the invoice quantities &amp; remove unallowable line</text>
+    </g>
+
+    <!-- Three Status Ladder -->
+    <g transform="translate(24, 150)">
+      <rect width="102" height="52" rx="4" fill="#172e2b" stroke="#10b981" stroke-width="1.2"/>
+      <text x="51" y="20" fill="#10b981" font-family="system-ui, -apple-system, sans-serif" font-size="8.5" font-weight="800" text-anchor="middle">PASS</text>
+      <text x="51" y="34" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="7.5" text-anchor="middle">All 4 traps caught</text>
+      <text x="51" y="44" fill="#a7f3d0" font-family="system-ui, -apple-system, sans-serif" font-size="7.5" text-anchor="middle">+ Update Line pass</text>
+
+      <rect x="110" width="102" height="52" rx="4" fill="#1e293b" stroke="#f59e0b" stroke-width="1"/>
+      <text x="161" y="20" fill="#f59e0b" font-family="system-ui, -apple-system, sans-serif" font-size="8.5" font-weight="800" text-anchor="middle">REVISE &amp; RETRY</text>
+      <text x="161" y="34" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="7.5" text-anchor="middle">3 of 4 traps</text>
+      <text x="161" y="44" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif" font-size="7.5" text-anchor="middle">or line fail</text>
+
+      <rect x="220" width="102" height="52" rx="4" fill="#2d1520" stroke="#f43f5e" stroke-width="1"/>
+      <text x="271" y="20" fill="#fb7185" font-family="system-ui, -apple-system, sans-serif" font-size="8.5" font-weight="800" text-anchor="middle">NOT YET</text>
+      <text x="271" y="34" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="7.5" text-anchor="middle">&lt; 3 traps</text>
+      <text x="271" y="44" fill="#fda4af" font-family="system-ui, -apple-system, sans-serif" font-size="7.5" text-anchor="middle">or approved file</text>
+    </g>
+
+    <rect x="24" y="218" width="322" height="26" rx="4" fill="#0b1322"/>
+    <text x="34" y="235" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="600">HONEST BOUNDARY: Evaluates demonstrated skill in class.</text>
+  </g>
+
+  <!-- Bottom Strip: Full Circle Resolution -->
+  <g transform="translate(40, 350)" filter="url(#shadow7)">
+    <rect width="800" height="115" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+    <text x="24" y="26" fill="#10b981" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="800" letter-spacing="1">FULL CIRCLE CLOSING: MAPLE HOUSE CONVEYS TO A NEW FAMILY</text>
+
+    <g transform="translate(24, 40)">
+      <rect width="752" height="58" rx="6" fill="#172e2b" stroke="#10b981" stroke-width="1.2"/>
+      <text x="16" y="22" fill="#34d399" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="800">"No single role sees what you now see. You hold the whole chain."</text>
+      <text x="16" y="38" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="9.5">Because Sarah audited the CY, Marcus caught the WA lien fence, and Hector reported the failed pressure test honestly,</text>
+      <text x="16" y="50" fill="#a7f3d0" font-family="system-ui, -apple-system, sans-serif" font-size="9">Maple House conveyed clean to HUD without debenture. A new young family moved in last week. The story restarts.</text>
+    </g>
+  </g>
+</svg>
