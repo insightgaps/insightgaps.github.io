@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="100%" height="100%">
+  <!-- Synthetic Mock Label Banner -->
+  <g id="synthetic-mock-badge" transform="translate(20, 24)">
+    <rect x="0" y="0" width="310" height="22" rx="4" fill="#0B1320" stroke="#F59E0B" stroke-width="1.2" opacity="0.95"/>
+    <text x="10" y="15" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="900" fill="#F59E0B" letter-spacing="0.8">SYNTHETIC MOCK / INSTRUCTIONAL ILLUSTRATION ONLY</text>
+  </g>
+
+  <defs>
+    <linearGradient id="dmg-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCFAF6"/>
+      <stop offset="100%" stop-color="#F2ECE1"/>
+    </linearGradient>
+    <filter id="d-shadow" x="-3%" y="-4%" width="106%" height="110%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#12263F" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="580" fill="url(#dmg-bg)"/>
+  <rect x="20" y="20" width="920" height="540" rx="12" fill="none" stroke="#D6C8B2" stroke-width="1.5"/>
+
+  <!-- Top Title Banner -->
+  <rect x="36" y="34" width="888" height="56" rx="8" fill="#12263F"/>
+  <text x="54" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="800" fill="#F59E0B" letter-spacing="1.5">TAKE-HOME JOB AID 07: FORENSIC DAMAGE &amp; PROPERTY READING</text>
+  <rect x="786" y="48" width="122" height="28" rx="4" fill="#0F766E"/>
+  <text x="847" y="66" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8" text-anchor="middle">FORENSIC TRIAD</text>
+
+  <!-- Subtitle -->
+  <text x="38" y="116" font-family="Georgia, serif" font-size="18" font-weight="700" fill="#12263F">Safety first, then proof, then work. Never invert this order.</text>
+  <text x="38" y="136" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="500" fill="#4B5563">Every property inspection is an independent forensic report. Read the structure from the sky down.</text>
+
+  <!-- Five Damage Types Cards Grid -->
+  <g transform="translate(38, 155)">
+    <!-- 1. WATER -->
+    <g transform="translate(0, 0)">
+      <rect width="170" height="260" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#d-shadow)"/>
+      <rect width="170" height="32" rx="6" fill="#1D3A5F"/>
+      <text x="12" y="21" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F8FAFC">1. WATER</text>
+      <text x="12" y="52" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#1D3A5F">Active Intrusion</text>
+      <text x="12" y="72" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="500" fill="#334155">• Source: roof, pipe, basin</text>
+      <text x="12" y="88" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="500" fill="#334155">• Rotting subfloors</text>
+      <text x="12" y="104" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="500" fill="#334155">• Peeling drywall tape</text>
+      
+      <rect x="8" y="124" width="154" height="124" rx="4" fill="#F0F9FF" stroke="#BAE6FD"/>
+      <text x="14" y="142" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="800" fill="#0369A1">FIRST SAFE ACTION:</text>
+      <text x="14" y="158" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="700" fill="#0C4A6E">Find source first!</text>
+      <text x="14" y="174" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="500" fill="#0C4A6E">Shut main water valve.</text>
+      <text x="14" y="190" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="500" fill="#0C4A6E">Photograph water meter.</text>
+      <text x="14" y="206" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="700" fill="#B42318">Do NOT insulate wet area.</text>
+      <text x="14" y="222" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="600" fill="#0369A1">Bid emergency tarp/plumb.</text>
+    </g>
+
+    <!-- 2. MOLD -->
+    <g transform="translate(180, 0)">
+      <rect width="170" height="260" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#d-shadow)"/>
+      <rect width="170" height="32" rx="6" fill="#0F766E"/>
+      <text x="12" y="21" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F8FAFC">2. MOLD</text>
+      <text x="12" y="52" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#0F766E">Microbial Growth</text>
+      <text x="12" y="72" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="500" fill="#334155">• Black/green spore clusters</text>
+      <text x="12" y="88" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="500" fill="#334155">• Basement &amp; bath sheetrock</text>
+      <text x="12" y="104" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="500" fill="#334155">• Musty persistent odor</text>
+      
+      <rect x="8" y="124" width="154" height="124" rx="4" fill="#F0FDF4" stroke="#BBF7D0"/>
+      <text x="14" y="142" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="800" fill="#15803D">FIRST SAFE ACTION:</text>
+      <text x="14" y="158" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="700" fill="#14532D">Don't paint over it!</text>
+      <text x="14" y="174" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="500" fill="#14532D">Don N95 respirator.</text>
+      <text x="14" y="190" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="500" fill="#14532D">Measure square footage.</text>
+      <text x="14" y="206" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="700" fill="#B42318">Painting over = FRAUD.</text>
+      <text x="14" y="222" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="600" fill="#15803D">Bid mold remediation.</text>
+    </g>
+
+    <!-- 3. VANDALISM -->
+    <g transform="translate(360, 0)">
+      <rect width="170" height="260" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#d-shadow)"/>
+      <rect width="170" height="32" rx="6" fill="#B42318"/>
+      <text x="12" y="21" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8">3. VANDALISM</text>
+      <text x="12" y="52" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#B42318">Intentional Damage</text>
+      <text x="12" y="72" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="500" fill="#334155">• Smashed entry windows</text>
+      <text x="12" y="88" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="500" fill="#334155">• Copper water lines cut</text>
+      <text x="12" y="104" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="500" fill="#334155">• Stripped electrical wiring</text>
+      
+      <rect x="8" y="124" width="154" height="124" rx="4" fill="#FEF2F2" stroke="#FECACA"/>
+      <text x="14" y="142" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="800" fill="#B42318">FIRST SAFE ACTION:</text>
+      <text x="14" y="158" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="700" fill="#991B1B">Secure perimeter first!</text>
+      <text x="14" y="174" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="500" fill="#7F1D1D">Check for squatters/weapons.</text>
+      <text x="14" y="190" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="500" fill="#7F1D1D">Board all breaches.</text>
+      <text x="14" y="206" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="700" fill="#B42318">Never enter alone if unverified.</text>
+      <text x="14" y="222" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="600" fill="#B42318">Report police incident #.</text>
+    </g>
+
+    <!-- 4. WEATHER -->
+    <g transform="translate(540, 0)">
+      <rect width="170" height="260" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#d-shadow)"/>
+      <rect width="170" height="32" rx="6" fill="#B45309"/>
+      <text x="12" y="21" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8">4. WEATHER</text>
+      <text x="12" y="52" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#B45309">Storm &amp; Freeze</text>
+      <text x="12" y="72" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="500" fill="#334155">• Wind-torn roof shingles</text>
+      <text x="12" y="88" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="500" fill="#334155">• Fallen limb on deck</text>
+      <text x="12" y="104" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="500" fill="#334155">• Burst pipes from deep freeze</text>
+      
+      <rect x="8" y="124" width="154" height="124" rx="4" fill="#FFFBEB" stroke="#FDE68A"/>
+      <text x="14" y="142" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="800" fill="#B45309">FIRST SAFE ACTION:</text>
+      <text x="14" y="158" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="700" fill="#78350F">Seal the envelope!</text>
+      <text x="14" y="174" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="500" fill="#78350F">Tarp roof securely.</text>
+      <text x="14" y="190" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="500" fill="#78350F">Clear branch from walkway.</text>
+      <text x="14" y="206" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="700" fill="#B42318">Do not climb wet pitch.</text>
+      <text x="14" y="222" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="600" fill="#B45309">Bid emergency dry-in.</text>
+    </g>
+
+    <!-- 5. NEGLECT -->
+    <g transform="translate(720, 0)">
+      <rect width="168" height="260" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#d-shadow)"/>
+      <rect width="170" height="32" rx="6" fill="#1E293B"/>
+      <text x="12" y="21" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F8FAFC">5. NEGLECT</text>
+      <text x="12" y="52" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#1E293B">Chronic Deferred Care</text>
+      <text x="12" y="72" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="500" fill="#334155">• Overgrown tree saplings</text>
+      <text x="12" y="88" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="500" fill="#334155">• Rusted iron handrails</text>
+      <text x="12" y="104" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="500" fill="#334155">• Decaying fascia &amp; gutters</text>
+      
+      <rect x="8" y="124" width="154" height="124" rx="4" fill="#F8FAFC" stroke="#E2E8F0"/>
+      <text x="14" y="142" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="800" fill="#334155">FIRST SAFE ACTION:</text>
+      <text x="14" y="158" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="700" fill="#1E293B">Differentiate wear!</text>
+      <text x="14" y="174" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="500" fill="#334155">Insurable event vs aging.</text>
+      <text x="14" y="190" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="500" fill="#334155">Median home age is 42 yrs.</text>
+      <text x="14" y="206" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="700" fill="#B45309">Report condition honestly.</text>
+      <text x="14" y="222" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="600" fill="#334155">Bid preventative repair.</text>
+    </g>
+  </g>
+
+  <!-- Bottom Safety Hierarchy Strip -->
+  <g transform="translate(38, 435)">
+    <rect width="888" height="105" rx="8" fill="#12263F"/>
+    <text x="24" y="28" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#F59E0B" letter-spacing="1">THE LIFE-SAFETY HIERARCHY &amp; ELECTRICAL HAZARDS:</text>
+    
+    <g transform="translate(24, 42)">
+      <rect width="180" height="42" rx="4" fill="#B42318"/>
+      <text x="90" y="26" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#FFFDF8" text-anchor="middle">1. SAFETY FIRST</text>
+    </g>
+    <text x="214" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="800" fill="#F59E0B">→</text>
+    <g transform="translate(234, 42)">
+      <rect width="180" height="42" rx="4" fill="#0F766E"/>
+      <text x="90" y="26" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#FFFDF8" text-anchor="middle">2. PROOF SECOND</text>
+    </g>
+    <text x="424" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="800" fill="#F59E0B">→</text>
+    <g transform="translate(444, 42)">
+      <rect width="180" height="42" rx="4" fill="#1D3A5F"/>
+      <text x="90" y="26" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#FFFDF8" text-anchor="middle">3. WORK THIRD</text>
+    </g>
+
+    <text x="640" y="56" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" fill="#FCA5A5">STANDING WATER + LIVE PANEL =</text>
+    <text x="640" y="72" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="800" fill="#FFFDF8">LETHAL DANGER. DO NOT STEP.</text>
+    <text x="640" y="88" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="600" fill="#CBD5E1">Retreat, notify dispatcher, call utility.</text>
+  </g>
+</svg>
