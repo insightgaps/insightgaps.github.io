@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #f7f2e8; }
+      .grid-line { stroke: rgba(18, 38, 63, 0.04); stroke-width: 1; }
+      .navy-box { fill: #ffffff; stroke: #12263f; stroke-width: 2; rx: 8; filter: drop-shadow(0 6px 16px rgba(18, 38, 63, 0.08)); }
+      .amber-box { fill: #fffbeb; stroke: #b45309; stroke-width: 2; rx: 8; filter: drop-shadow(0 6px 16px rgba(180, 83, 9, 0.08)); }
+      .teal-box { fill: #f0fdf4; stroke: #0f766e; stroke-width: 2; rx: 8; filter: drop-shadow(0 6px 16px rgba(15, 118, 110, 0.08)); }
+      .red-box { fill: #fef2f2; stroke: #b42318; stroke-width: 2; rx: 8; filter: drop-shadow(0 6px 16px rgba(180, 35, 24, 0.08)); }
+      .purple-box { fill: #faf5ff; stroke: #6b21a8; stroke-width: 2; rx: 8; filter: drop-shadow(0 6px 16px rgba(107, 33, 168, 0.08)); }
+      
+      .title { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 18px; font-weight: 800; fill: #12263f; }
+      .force-head { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 13px; font-weight: 800; letter-spacing: 0.04em; }
+      .force-body { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 10px; font-weight: 500; fill: #334155; }
+      .force-stat { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 10px; font-weight: 700; }
+      .center-title { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 14px; font-weight: 800; fill: #12263f; }
+      .center-sub { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 10px; font-weight: 600; fill: #0f766e; }
+      .arrow { stroke: #12263f; stroke-width: 1.75; fill: none; stroke-dasharray: 4,3; marker-end: url(#arrowhead); }
+      .arrow-red { stroke: #b42318; stroke-width: 2; fill: none; stroke-dasharray: 4,3; marker-end: url(#arrowhead-red); }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#12263f" />
+    </marker>
+    <marker id="arrowhead-red" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#b42318" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" class="bg" />
+
+  <!-- Top Title Bar -->
+  <rect x="40" y="20" width="880" height="50" rx="8" fill="#ffffff" stroke="#d6c8b2" stroke-width="1.5" />
+  <text x="65" y="51" class="title">FIVE FORCES BUILT THE SYSTEM: A CAUSAL MAP (NOT A RECITATION)</text>
+  <rect x="760" y="32" width="145" height="26" rx="4" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1" />
+  <text x="770" y="49" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800" fill="#1e40af">ARCHIVED / HISTORICAL</text>
+
+  <!-- Central Hub: The 1972 House -->
+  <g transform="translate(380, 210)">
+    <circle cx="100" cy="60" r="75" fill="#ffffff" stroke="#12263f" stroke-width="3" filter="drop-shadow(0 8px 20px rgba(0,0,0,0.12))" />
+    <!-- Small House Icon -->
+    <polygon points="75,50 100,30 125,50" fill="#0f766e" stroke="#12263f" stroke-width="1.5" />
+    <rect x="80" y="50" width="40" height="30" fill="#fffdf8" stroke="#12263f" stroke-width="1.5" />
+    <rect x="94" y="62" width="12" height="18" fill="#b45309" />
+    <text x="100" y="96" text-anchor="middle" class="center-title">1972 HOUSE</text>
+    <text x="100" y="110" text-anchor="middle" class="center-sub">THE PHYSICAL RESULT</text>
+    <text x="100" y="122" text-anchor="middle" font-family="'Consolas', monospace" font-size="9" fill="#64748b">2,379,000 STARTS</text>
+  </g>
+
+  <!-- FORCE 1: DEMAND (Top Center) -->
+  <g transform="translate(350, 85)">
+    <rect width="260" height="95" class="navy-box" />
+    <text x="15" y="24" class="force-head" fill="#12263f">1. DEMAND &amp; DEMOGRAPHICS</text>
+    <text x="15" y="42" class="force-body">• Postwar household formation surge</text>
+    <text x="15" y="57" class="force-body">• Baby Boom: <tspan class="force-stat" fill="#0f766e">~76M births</tspan> (1946–1964)</text>
+    <text x="15" y="72" class="force-body">• Household size: <tspan class="force-stat">3.37</tspan> (1950) → <tspan class="force-stat">2.62</tspan> (2000)</text>
+    <text x="15" y="87" class="force-body">• Urban crowding pushed families outward</text>
+  </g>
+  <path d="M 480,180 L 480,205" class="arrow" />
+
+  <!-- FORCE 2: FINANCE & MORTGAGE ENGINE (Top Left) -->
+  <g transform="translate(40, 110)">
+    <rect width="270" height="120" class="teal-box" />
+    <text x="15" y="24" class="force-head" fill="#0f766e">2. FINANCE &amp; CAPITAL ENGINE</text>
+    <text x="15" y="42" class="force-body">• <tspan font-weight="bold">FHA (1934):</tspan> Replaced 3-5yr balloon notes with</text>
+    <text x="25" y="56" class="force-body">20-30yr amortizing loans. <tspan font-weight="bold" fill="#b42318">Insures; does NOT lend.</tspan></text>
+    <text x="15" y="72" class="force-body">• <tspan font-weight="bold">GI Bill (1944):</tspan> 13.9M loans guaranteed (1944–93)</text>
+    <text x="15" y="88" class="force-body">• <tspan font-weight="bold">S&amp;Ls (Thrifts):</tspan> Financed ~57% mortgages late 60s</text>
+    <text x="15" y="104" class="force-body">• Securitisation: Ginnie Mae (1968/70), Freddie (1971)</text>
+  </g>
+  <path d="M 310,180 L 390,230" class="arrow" />
+
+  <!-- FORCE 3: INFRASTRUCTURE & CONSTRUCTION (Top Right) -->
+  <g transform="translate(650, 110)">
+    <rect width="270" height="120" class="amber-box" />
+    <text x="15" y="24" class="force-head" fill="#b45309">3. INFRASTRUCTURE &amp; BUILDING</text>
+    <text x="15" y="42" class="force-body">• <tspan font-weight="bold">Levittown (1947–51):</tspan> 17,000+ homes ($6.9k–$8k)</text>
+    <text x="15" y="58" class="force-body">• <tspan font-weight="bold">1956 Interstate Highways:</tspan> Unlocked suburban land</text>
+    <text x="15" y="74" class="force-body">• Autos: 25.6M (1945) → 61.4M (1960); 82% own car (1970)</text>
+    <text x="15" y="90" class="force-body">• Grid &amp; AC: Farm electric 11% (1935) → 97% (1960)</text>
+    <text x="15" y="106" class="force-body">• Scale: House size &lt;1,000 sq ft (1950) → 2,631 sq ft (2017)</text>
+  </g>
+  <path d="M 650,180 L 570,230" class="arrow" />
+
+  <!-- FORCE 4: POLICY & THE EXCLUSION FILTER (Bottom Left - CRITICAL FILTER) -->
+  <g transform="translate(40, 275)">
+    <rect width="290" height="145" class="red-box" />
+    <text x="15" y="24" class="force-head" fill="#b42318">4. POLICY &amp; THE EXCLUSION FILTER</text>
+    <text x="15" y="42" class="force-body" font-weight="700" fill="#991b1b">NEVER TEACH PROSPERITY WITHOUT THIS FILTER:</text>
+    <text x="15" y="58" class="force-body">• <tspan font-weight="bold">Zoning:</tspan> Single-family barriers (Berkeley 1916, Euclid 1926)</text>
+    <text x="15" y="74" class="force-body">• <tspan font-weight="bold">Redlining:</tspan> HOLC red maps tagged minority areas "hazardous"</text>
+    <text x="15" y="90" class="force-body">• <tspan font-weight="bold">Deed Restrictions:</tspan> FHA manual required racial covenants</text>
+    <text x="15" y="106" class="force-body">• <tspan font-weight="bold">Contract Sales:</tspan> Chicago Lawndale ~85% on contract</text>
+    <text x="15" y="122" class="force-body">• Legal: Brown (1954), Milliken v. Bradley (1974 suburban fence)</text>
+    <text x="15" y="137" class="force-body" font-style="italic" fill="#7f1d1d">"Loans + zoning + funding + highways built her — with a filter."</text>
+  </g>
+  <path d="M 330,340 L 400,300" class="arrow-red" />
+
+  <!-- FORCE 5: CREDIT CYCLE & MACRO RISK (Bottom Right) -->
+  <g transform="translate(630, 275)">
+    <rect width="290" height="145" class="purple-box" />
+    <text x="15" y="24" class="force-head" fill="#6b21a8">5. THE CREDIT CYCLE &amp; DEFAULT RISK</text>
+    <text x="15" y="42" class="force-body">• Rates, employment, lending terms, and prices form a loop</text>
+    <text x="15" y="58" class="force-body">• Expansion phase: Cheap credit → price boom → overbuilding</text>
+    <text x="15" y="74" class="force-body">• Reversal shock: Rate spike or layoff → payment failure</text>
+    <text x="15" y="90" class="force-body">• Underwater equity: Price drop below remaining loan balance</text>
+    <text x="15" y="106" class="force-body">• Result: Distressed inventory &amp; abandoned collateral</text>
+    <text x="15" y="124" class="force-body" font-weight="bold" fill="#581c87">PRESERVATION INTERVENES WHEN THIS CYCLE REVERSES</text>
+    <text x="15" y="138" class="force-body" font-style="italic">"The house did not break. The loop broke."</text>
+  </g>
+  <path d="M 630,340 L 560,300" class="arrow" />
+
+  <!-- Bottom Synthesis Banner -->
+  <g transform="translate(50, 440)">
+    <rect width="860" height="65" rx="8" fill="#12263f" stroke="#f59e0b" stroke-width="1.5" />
+    <text x="25" y="27" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="800" fill="#fef3c7" letter-spacing="0.08em">
+      SYNTHESIS: NO SINGLE CAUSE BUILT THE HOUSE OR CREATED THE INDUSTRY
+    </text>
+    <text x="25" y="48" font-family="'Georgia', serif" font-size="12.5" font-style="italic" fill="#ffffff">
+      "No single cause built her. Loans + zoning + funding + highways + cars + utilities + air + tax + culture built her — with a filter.
+      Never tell one half without the other." — Anowar Hossain Anik
+    </text>
+  </g>
+
+  <!-- Footnote -->
+  <text x="50" y="525" font-family="'Segoe UI', sans-serif" font-size="10" fill="#64748b">
+    Figure M2.2: The Five Forces Causal Map. Interconnected drivers of postwar housing infrastructure and systemic default risk.
+  </text>
+</svg>

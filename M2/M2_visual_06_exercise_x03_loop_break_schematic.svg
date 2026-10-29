@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #f7f2e8; }
+      .sheet { fill: #ffffff; stroke: #12263f; stroke-width: 2; rx: 10; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.08)); }
+      .header-title { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 17px; font-weight: 800; fill: #12263f; }
+      .inst-text { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 11px; font-weight: 500; fill: #334155; }
+      .tag-lab { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 10px; font-weight: 800; fill: #ffffff; letter-spacing: 0.08em; }
+      .node-wire { fill: #f8fafc; stroke: #94a3b8; stroke-width: 2; stroke-dasharray: 5,4; rx: 6; }
+      .node-text { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 11px; font-weight: 700; fill: #64748b; text-anchor: middle; }
+      .step-head { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 12px; font-weight: 800; fill: #12263f; }
+      .step-body { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 10px; font-weight: 500; fill: #475569; }
+      .mono { font-family: 'Consolas', monospace; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" class="bg" />
+
+  <!-- Main Worksheet Sheet -->
+  <g transform="translate(40, 20)">
+    <rect width="880" height="490" class="sheet" />
+
+    <!-- Top Exercise Bar -->
+    <rect x="0" y="0" width="880" height="52" rx="10" fill="#12263f" />
+    <text x="25" y="32" class="header-title" fill="#ffffff">EXERCISE INSERT X-03: DRAW THE LOOP &amp; MARK TWO BREAKS</text>
+    
+    <rect x="670" y="14" width="85" height="24" rx="4" fill="#0f766e" />
+    <text x="684" y="30" class="tag-lab">TIMED: 7 MIN</text>
+
+    <rect x="765" y="14" width="95" height="24" rx="4" fill="#b45309" />
+    <text x="777" y="30" class="tag-lab">PAIR ACTIVITY</text>
+
+    <!-- Instructions Banner -->
+    <rect x="25" y="65" width="830" height="42" rx="6" fill="#f1f5f9" stroke="#cbd5e1" />
+    <text x="40" y="84" class="inst-text" font-weight="700" fill="#0f172a">
+      MISSION: Reconstruct the complete macroeconomic feedback loop from memory on blank paper.
+    </text>
+    <text x="40" y="98" class="inst-text">
+      Identify exactly TWO distinct points where the economic link snaps, explaining the causal transmission mechanism to default.
+    </text>
+
+    <!-- Left Box: The Memory Reconstitution Challenge (Visual Outline) -->
+    <g transform="translate(25, 120)">
+      <rect width="470" height="340" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+      <text x="20" y="25" class="step-head">PART 1: BLANK CHAIN TEMPLATE (NO NOTES ALLOWED)</text>
+      <text x="20" y="40" class="step-body">Arrange the 6 components in continuous clockwise flow. Connect with directional arrows.</text>
+      
+      <!-- Center Graphic Template -->
+      <g transform="translate(15, 50)">
+        <!-- Node A: Top -->
+        <rect x="140" y="10" width="160" height="36" class="node-wire" />
+        <text x="220" y="32" class="node-text">[ NODE 1: ??? ]</text>
+
+        <!-- Node B: Top Right -->
+        <rect x="270" y="70" width="150" height="36" class="node-wire" />
+        <text x="345" y="92" class="node-text">[ NODE 2: ??? ]</text>
+
+        <!-- Node C: Bottom Right -->
+        <rect x="270" y="170" width="150" height="36" class="node-wire" />
+        <text x="345" y="192" class="node-text">[ NODE 3: ??? ]</text>
+
+        <!-- Node D: Bottom -->
+        <rect x="140" y="230" width="160" height="36" class="node-wire" />
+        <text x="220" y="252" class="node-text">[ NODE 4: ??? ]</text>
+
+        <!-- Node E: Bottom Left -->
+        <rect x="20" y="170" width="150" height="36" class="node-wire" />
+        <text x="95" y="192" class="node-text">[ NODE 5: ??? ]</text>
+
+        <!-- Node F: Top Left -->
+        <rect x="20" y="70" width="150" height="36" class="node-wire" />
+        <text x="95" y="92" class="node-text">[ NODE 6: ??? ]</text>
+
+        <!-- Dotted Cycle Track -->
+        <circle cx="220" cy="140" r="50" fill="none" stroke="#e2e8f0" stroke-width="2" stroke-dasharray="4,4" />
+        <text x="220" y="144" text-anchor="middle" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800" fill="#94a3b8">
+          CLOCKWISE FLOW
+        </text>
+      </g>
+    </g>
+
+    <!-- Right Box: The Two Break Point Verbal Defense Tasks -->
+    <g transform="translate(515, 120)">
+      <rect width="340" height="340" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+      <text x="18" y="25" class="step-head">PART 2: THE TWO FAILURE ZONES</text>
+      <text x="18" y="40" class="step-body">For each break point, state the trigger and operational result:</text>
+
+      <!-- Break Zone 1 -->
+      <g transform="translate(18, 55)">
+        <rect width="304" height="110" rx="6" fill="#fffbeb" stroke="#b45309" stroke-width="1.5" />
+        <text x="12" y="22" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#b45309">
+          BREAK POINT A: FINANCIAL / INTEREST RATE SHOCK
+        </text>
+        <text x="12" y="40" class="step-body">• <tspan font-weight="bold">Between:</tspan> Ability to Pay and Interest Rates / Debt Load</text>
+        <text x="12" y="56" class="step-body">• <tspan font-weight="bold">Trigger:</tspan> Rate spike, ARM reset, or balloon note expiry</text>
+        <text x="12" y="72" class="step-body">• <tspan font-weight="bold">Mechanic:</tspan> $1,500 payment purchasing power collapses</text>
+        <text x="12" y="90" font-family="'Consolas', monospace" font-size="10" font-weight="700" fill="#92400e">
+          RESULT: Borrowers cannot refinance; payments jump
+        </text>
+      </g>
+
+      <!-- Break Zone 2 -->
+      <g transform="translate(18, 180)">
+        <rect width="304" height="110" rx="6" fill="#fef2f2" stroke="#b42318" stroke-width="1.5" />
+        <text x="12" y="22" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#b42318">
+          BREAK POINT B: MACROECONOMIC / EMPLOYMENT SHOCK
+        </text>
+        <text x="12" y="40" class="step-body">• <tspan font-weight="bold">Between:</tspan> Prices/Equity and Household Income/Jobs</text>
+        <text x="12" y="56" class="step-body">• <tspan font-weight="bold">Trigger:</tspan> Factory closure, regional layoff, divorce, injury</text>
+        <text x="12" y="72" class="step-body">• <tspan font-weight="bold">Mechanic:</tspan> Household cash inflow drops to zero</text>
+        <text x="12" y="90" font-family="'Consolas', monospace" font-size="10" font-weight="700" fill="#991b1b">
+          RESULT: Collateral underwater + zero ability to service debt
+        </text>
+      </g>
+
+      <!-- Pass Rubric Flag -->
+      <rect x="18" y="302" width="304" height="28" rx="4" fill="#12263f" />
+      <text x="170" y="320" text-anchor="middle" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800" fill="#fef3c7">
+        PASS CRITERIA: 6 Correct Nodes + 2 Valid Causal Breaks
+      </text>
+    </g>
+  </g>
+</svg>

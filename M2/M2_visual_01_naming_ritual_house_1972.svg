@@ -1,0 +1,199 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #f7f2e8; }
+      .grid-line { stroke: rgba(18, 38, 63, 0.05); stroke-width: 1; }
+      .navy { fill: #12263f; }
+      .navy-stroke { stroke: #12263f; stroke-width: 2; fill: none; }
+      .teal { fill: #0f766e; }
+      .amber { fill: #b45309; }
+      .paper-card { fill: #ffffff; stroke: #d6c8b2; stroke-width: 1.5; filter: drop-shadow(0 8px 24px rgba(18, 38, 63, 0.08)); }
+      .title-text { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 20px; font-weight: 800; fill: #12263f; letter-spacing: 0.05em; }
+      .label-text { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 13px; font-weight: 700; fill: #12263f; }
+      .sub-text { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 11px; font-weight: 500; fill: #667085; }
+      .accent-tag { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 10px; font-weight: 800; fill: #b45309; letter-spacing: 0.08em; text-transform: uppercase; }
+      .mono { font-family: 'Consolas', monospace; }
+    </style>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8f1f5" />
+      <stop offset="100%" stop-color="#f7f2e8" />
+    </linearGradient>
+    <linearGradient id="roofGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1d3a5f" />
+      <stop offset="100%" stop-color="#12263f" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" class="bg" />
+  
+  <!-- Subtle Grid Pattern -->
+  <g class="grid-line">
+    <line x1="40" y1="0" x2="40" y2="540" />
+    <line x1="160" y1="0" x2="160" y2="540" />
+    <line x1="280" y1="0" x2="280" y2="540" />
+    <line x1="400" y1="0" x2="400" y2="540" />
+    <line x1="520" y1="0" x2="520" y2="540" />
+    <line x1="640" y1="0" x2="640" y2="540" />
+    <line x1="760" y1="0" x2="760" y2="540" />
+    <line x1="880" y1="0" x2="880" y2="540" />
+    <line x1="0" y1="60" x2="960" y2="60" />
+    <line x1="0" y1="180" x2="960" y2="180" />
+    <line x1="0" y1="300" x2="960" y2="300" />
+    <line x1="0" y1="420" x2="960" y2="420" />
+  </g>
+
+  <!-- Header Banner -->
+  <rect x="50" y="30" width="860" height="60" rx="8" class="paper-card" />
+  <text x="80" y="66" class="title-text">THE NAMING RITUAL: HER STORY BEGINS IN 1972</text>
+  <rect x="730" y="47" width="155" height="26" rx="4" fill="#fef3c7" stroke="#b45309" stroke-width="1" />
+  <text x="740" y="64" class="accent-tag">SYNTHETIC COMPOSITE</text>
+
+  <!-- Left: House Illustration (1972 Split-Level Suburban Home) -->
+  <g transform="translate(60, 110)">
+    <!-- Sky backdrop card -->
+    <rect width="480" height="380" rx="12" fill="url(#skyGrad)" stroke="#d6c8b2" stroke-width="1.5" />
+    
+    <!-- Sun -->
+    <circle cx="410" cy="70" r="32" fill="#fef3c7" opacity="0.8" />
+    <circle cx="410" cy="70" r="26" fill="#fde68a" />
+
+    <!-- Distant Suburban Hills / Trees -->
+    <path d="M 0,260 Q 120,230 240,250 T 480,240 L 480,380 L 0,380 Z" fill="#d1fae5" opacity="0.6" />
+    <path d="M 0,275 Q 160,255 320,270 T 480,260 L 480,380 L 0,380 Z" fill="#a7f3d0" opacity="0.7" />
+
+    <!-- Lawn -->
+    <rect x="0" y="285" width="480" height="95" rx="0" fill="#059669" />
+    <rect x="0" y="285" width="480" height="8" fill="#10b981" />
+
+    <!-- Concrete Driveway & Walkway -->
+    <path d="M 280,380 L 320,290 L 390,290 L 430,380 Z" fill="#e5e7eb" stroke="#d1d5db" />
+    <path d="M 180,380 L 195,300 L 225,300 L 220,380 Z" fill="#e5e7eb" stroke="#d1d5db" />
+
+    <!-- House Structure (1972 Split-Level Colonial) -->
+    <!-- Main Left Body (Two-story section) -->
+    <rect x="80" y="150" width="180" height="150" fill="#fffdf8" stroke="#12263f" stroke-width="2.5" />
+    <!-- Siding Lines -->
+    <line x1="80" y1="165" x2="260" y2="165" stroke="#e5e7eb" stroke-width="1" />
+    <line x1="80" y1="180" x2="260" y2="180" stroke="#e5e7eb" stroke-width="1" />
+    <line x1="80" y1="195" x2="260" y2="195" stroke="#e5e7eb" stroke-width="1" />
+    <line x1="80" y1="210" x2="260" y2="210" stroke="#e5e7eb" stroke-width="1" />
+    <line x1="80" y1="225" x2="260" y2="225" stroke="#e5e7eb" stroke-width="1" />
+    <line x1="80" y1="240" x2="260" y2="240" stroke="#e5e7eb" stroke-width="1" />
+    <line x1="80" y1="255" x2="260" y2="255" stroke="#e5e7eb" stroke-width="1" />
+    <line x1="80" y1="270" x2="260" y2="270" stroke="#e5e7eb" stroke-width="1" />
+    <line x1="80" y1="285" x2="260" y2="285" stroke="#e5e7eb" stroke-width="1" />
+
+    <!-- Roof Left -->
+    <polygon points="70,150 170,95 270,150" fill="url(#roofGrad)" stroke="#12263f" stroke-width="2.5" />
+    <!-- Brick Chimney -->
+    <rect x="220" y="100" width="24" height="40" fill="#b42318" stroke="#12263f" stroke-width="2" />
+    <rect x="216" y="96" width="32" height="6" fill="#991b1b" stroke="#12263f" stroke-width="1.5" />
+
+    <!-- Right Wing (Single-story garage & family room) -->
+    <rect x="260" y="195" width="160" height="105" fill="#fdfbf7" stroke="#12263f" stroke-width="2.5" />
+    <!-- Roof Right -->
+    <polygon points="255,195 340,155 425,195" fill="url(#roofGrad)" stroke="#12263f" stroke-width="2.5" />
+
+    <!-- Windows Upper Story -->
+    <rect x="105" y="170" width="45" height="35" fill="#bae6fd" stroke="#12263f" stroke-width="2" />
+    <line x1="127.5" y1="170" x2="127.5" y2="205" stroke="#12263f" stroke-width="1.5" />
+    <line x1="105" y1="187.5" x2="150" y2="187.5" stroke="#12263f" stroke-width="1.5" />
+
+    <rect x="190" y="170" width="45" height="35" fill="#bae6fd" stroke="#12263f" stroke-width="2" />
+    <line x1="212.5" y1="170" x2="212.5" y2="205" stroke="#12263f" stroke-width="1.5" />
+    <line x1="190" y1="187.5" x2="235" y2="187.5" stroke="#12263f" stroke-width="1.5" />
+
+    <!-- Front Door & Steps -->
+    <rect x="195" y="240" width="35" height="60" fill="#0f766e" stroke="#12263f" stroke-width="2" />
+    <circle cx="222" cy="272" r="3" fill="#f59e0b" />
+    <!-- Small Stoop -->
+    <rect x="190" y="296" width="45" height="8" fill="#d1d5db" stroke="#12263f" stroke-width="1.5" />
+
+    <!-- Living Room Picture Window -->
+    <rect x="105" y="240" width="60" height="42" fill="#bae6fd" stroke="#12263f" stroke-width="2" />
+    <line x1="125" y1="240" x2="125" y2="282" stroke="#12263f" stroke-width="1.5" />
+    <line x1="145" y1="240" x2="145" y2="282" stroke="#12263f" stroke-width="1.5" />
+
+    <!-- Garage Door Right -->
+    <rect x="290" y="225" width="105" height="75" fill="#f3f4f6" stroke="#12263f" stroke-width="2" />
+    <!-- Garage Panels -->
+    <line x1="290" y1="244" x2="395" y2="244" stroke="#9ca3af" stroke-width="1" />
+    <line x1="290" y1="263" x2="395" y2="263" stroke="#9ca3af" stroke-width="1" />
+    <line x1="290" y1="282" x2="395" y2="282" stroke="#9ca3af" stroke-width="1" />
+
+    <!-- Station Wagon in Driveway (1970s Wood-paneled Family Car) -->
+    <g transform="translate(345, 305) scale(0.65)">
+      <path d="M 10,40 L 40,20 L 110,20 L 150,35 L 160,50 L 0,50 Z" fill="#b45309" stroke="#12263f" stroke-width="2" />
+      <rect x="35" y="32" width="90" height="12" fill="#78350f" stroke="#d97706" />
+      <circle cx="35" cy="50" r="14" fill="#374151" stroke="#12263f" stroke-width="2" />
+      <circle cx="35" cy="50" r="6" fill="#e5e7eb" />
+      <circle cx="125" cy="50" r="14" fill="#374151" stroke="#12263f" stroke-width="2" />
+      <circle cx="125" cy="50" r="6" fill="#e5e7eb" />
+    </g>
+
+    <!-- Naming Banner Ribbon Over House -->
+    <g transform="translate(40, 20)">
+      <rect width="250" height="34" rx="17" fill="#12263f" stroke="#f59e0b" stroke-width="2" filter="drop-shadow(0 4px 10px rgba(0,0,0,0.25))" />
+      <text x="125" y="22" text-anchor="middle" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="800" fill="#fef3c7" letter-spacing="0.1em">
+        PROPERTY IDENTIFIER: [HOUSE NAME]
+      </text>
+    </g>
+
+    <text x="20" y="365" class="mono" font-size="10" fill="#064e3b" font-weight="bold">
+      BUILT: 1972 | SUBDIVISION LOT 42 | HISTORICAL START PEAK
+    </text>
+  </g>
+
+  <!-- Right: The Operational Ritual & Core Principles Card -->
+  <g transform="translate(560, 110)">
+    <rect width="350" height="380" rx="12" class="paper-card" />
+    
+    <!-- Title inside card -->
+    <text x="24" y="38" class="label-text" font-size="15" fill="#12263f">THE 60-SECOND NAMING RITUAL</text>
+    <line x1="24" y1="50" x2="326" y2="50" stroke="#d6c8b2" stroke-width="1" />
+
+    <!-- Step 1 -->
+    <circle cx="38" cy="76" r="14" fill="#12263f" />
+    <text x="38" y="81" text-anchor="middle" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="bold" fill="#ffffff">1</text>
+    <text x="64" y="72" class="label-text" font-size="13">Class Shouts Three Names</text>
+    <text x="64" y="88" class="sub-text">Trainees propose candidate names for the home.</text>
+
+    <!-- Step 2 -->
+    <circle cx="38" cy="126" r="14" fill="#0f766e" />
+    <text x="38" y="131" text-anchor="middle" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="bold" fill="#ffffff">2</text>
+    <text x="64" y="122" class="label-text" font-size="13">Show of Hands Vote</text>
+    <text x="64" y="138" class="sub-text">Majority wins; instructor breaks any tie vote.</text>
+
+    <!-- Step 3 -->
+    <circle cx="38" cy="176" r="14" fill="#b45309" />
+    <text x="38" y="181" text-anchor="middle" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="bold" fill="#ffffff">3</text>
+    <text x="64" y="172" class="label-text" font-size="13">60-Second Fallback Guard</text>
+    <text x="64" y="188" class="sub-text">If no consensus in 60s, default is "Maple House".</text>
+
+    <!-- Core Instructor Law Box -->
+    <rect x="20" y="215" width="310" height="95" rx="8" fill="#fffbeb" stroke="#fcd34d" stroke-width="1.5" />
+    <text x="32" y="235" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#92400e" letter-spacing="0.06em">
+      NON-NEGOTIABLE CORE LAW:
+    </text>
+    <text x="32" y="255" font-family="'Georgia', serif" font-size="13" font-style="italic" fill="#78350f">
+      "They protect what they named. Her name goes
+    </text>
+    <text x="32" y="273" font-family="'Georgia', serif" font-size="13" font-style="italic" fill="#78350f">
+      on every work order from today on."
+    </text>
+    <text x="32" y="295" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="700" fill="#b45309">
+      — Anowar Hossain Anik, Operations Manager
+    </text>
+
+    <!-- Boundary Status Chip -->
+    <rect x="20" y="325" width="310" height="38" rx="6" fill="#f3f4f6" stroke="#d1d5db" />
+    <text x="32" y="342" class="mono" font-size="10" font-weight="bold" fill="#374151">STATUS CHIP: TEACHING ILLUSTRATION</text>
+    <text x="32" y="354" font-family="'Segoe UI', sans-serif" font-size="9" fill="#6b7280">One composite house follows all 5 hours from birth to sale.</text>
+  </g>
+
+  <!-- Footer Caption -->
+  <text x="50" y="520" font-family="'Segoe UI', sans-serif" font-size="11" fill="#667085" font-style="italic">
+    Figure M2.1: Composite single-family house established in 1972. Fictional teaching model for all operational lifecycle demonstrations.
+  </text>
+</svg>

@@ -1,0 +1,255 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #f7f2e8; }
+      .navy { fill: #12263f; }
+      .navy-stroke { stroke: #12263f; stroke-width: 2; fill: none; }
+      .teal { fill: #0f766e; }
+      .amber { fill: #b45309; }
+      .paper-card { fill: #ffffff; stroke: #d6c8b2; stroke-width: 1.5; filter: drop-shadow(0 8px 24px rgba(18, 38, 63, 0.08)); }
+      .dark-board { fill: #142231; stroke: #2a3f55; stroke-width: 2; filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.15)); }
+      .clipboard { fill: #fdfbf7; stroke: #c8b9a2; stroke-width: 2; filter: drop-shadow(0 8px 20px rgba(18, 38, 63, 0.12)); }
+      .title-text { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 19px; font-weight: 800; fill: #12263f; letter-spacing: 0.05em; }
+      .label-text { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 13px; font-weight: 700; fill: #12263f; }
+      .sub-text { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 11px; font-weight: 500; fill: #667085; }
+      .accent-tag { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 10px; font-weight: 800; fill: #b45309; letter-spacing: 0.08em; text-transform: uppercase; }
+      .chalk-text { font-family: 'Segoe UI', system-ui, sans-serif; font-weight: 700; fill: #ffffff; }
+      .mono { font-family: 'Consolas', 'Courier New', monospace; }
+    </style>
+    <linearGradient id="headerGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#12263f" />
+      <stop offset="100%" stop-color="#1f3b60" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" class="bg" />
+
+  <!-- Grid Guide Lines -->
+  <g stroke="rgba(18, 38, 63, 0.04)" stroke-width="1">
+    <line x1="480" y1="0" x2="480" y2="540" />
+    <line x1="0" y1="88" x2="960" y2="88" />
+    <line x1="0" y1="465" x2="960" y2="465" />
+  </g>
+
+  <!-- Header Banner -->
+  <rect x="40" y="24" width="880" height="56" rx="8" class="paper-card" />
+  <rect x="40" y="24" width="6" height="56" rx="3" fill="#b45309" />
+  <text x="60" y="58" class="title-text">THE 60-SECOND NAMING DRILL: CLASSROOM VOTING BOARD</text>
+  
+  <!-- Timer Pill in Header -->
+  <g transform="translate(680, 36)">
+    <rect width="130" height="32" rx="16" fill="#fef3c7" stroke="#b45309" stroke-width="1.5" />
+    <circle cx="20" cy="16" r="6" fill="#dc2626" />
+    <text x="34" y="21" font-family="'Consolas', monospace" font-size="12" font-weight="800" fill="#92400e">TIMER: 00:48</text>
+  </g>
+  <rect x="822" y="36" width="86" height="32" rx="6" fill="#12263f" />
+  <text x="865" y="56" text-anchor="middle" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800" fill="#fef3c7" letter-spacing="0.08em">BLOCK 3</text>
+
+  <!-- LEFT: The Live Classroom Voting Board (Tally Stage) -->
+  <g transform="translate(40, 96)">
+    <!-- Board Frame -->
+    <rect width="470" height="355" rx="10" class="dark-board" />
+    
+    <!-- Chalkboard Top Title Bar -->
+    <rect x="15" y="15" width="440" height="32" rx="6" fill="#1b2d42" />
+    <text x="28" y="36" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="800" fill="#93c5fd" letter-spacing="0.06em">
+      LIVE NOMINATIONS &amp; HAND VOTE TALLY
+    </text>
+    <text x="440" y="36" text-anchor="end" font-family="'Consolas', monospace" font-size="11" font-weight="700" fill="#38bdf8">
+      STAGE: ACTIVE
+    </text>
+
+    <!-- Candidate 1: MAPLE HOUSE (Winning Selection) -->
+    <g transform="translate(15, 60)">
+      <rect width="440" height="82" rx="8" fill="#1e344d" stroke="#f59e0b" stroke-width="2" />
+      <rect x="0" y="0" width="8" height="82" rx="4" fill="#f59e0b" />
+      
+      <!-- Option letter -->
+      <circle cx="32" cy="28" r="14" fill="#f59e0b" />
+      <text x="32" y="33" text-anchor="middle" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="900" fill="#12263f">A</text>
+      
+      <text x="56" y="32" class="chalk-text" font-size="16">"Maple House"</text>
+      <rect x="175" y="16" width="160" height="20" rx="4" fill="#fef3c7" stroke="#b45309" stroke-width="1" />
+      <text x="255" y="30" text-anchor="middle" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800" fill="#92400e">
+        CHOSEN OPERATIONAL NAME
+      </text>
+
+      <!-- Chalk tallies for Candidate 1 (14 votes) -->
+      <g transform="translate(56, 44)" stroke="#fef08a" stroke-width="2.5" stroke-linecap="round">
+        <!-- 5-bundle 1 -->
+        <line x1="0" y1="5" x2="0" y2="25" />
+        <line x1="8" y1="5" x2="8" y2="25" />
+        <line x1="16" y1="5" x2="16" y2="25" />
+        <line x1="24" y1="5" x2="24" y2="25" />
+        <line x1="-3" y1="23" x2="27" y2="7" stroke="#fef08a" stroke-width="2" />
+
+        <!-- 5-bundle 2 -->
+        <g transform="translate(42, 0)">
+          <line x1="0" y1="5" x2="0" y2="25" />
+          <line x1="8" y1="5" x2="8" y2="25" />
+          <line x1="16" y1="5" x2="16" y2="25" />
+          <line x1="24" y1="5" x2="24" y2="25" />
+          <line x1="-3" y1="23" x2="27" y2="7" stroke="#fef08a" stroke-width="2" />
+        </g>
+
+        <!-- 4 singles -->
+        <g transform="translate(84, 0)">
+          <line x1="0" y1="5" x2="0" y2="25" />
+          <line x1="8" y1="5" x2="8" y2="25" />
+          <line x1="16" y1="5" x2="16" y2="25" />
+          <line x1="24" y1="5" x2="24" y2="25" />
+        </g>
+      </g>
+      <text x="425" y="65" text-anchor="end" font-family="'Segoe UI', sans-serif" font-size="18" font-weight="900" fill="#fef08a">
+        14 VOTES
+      </text>
+    </g>
+
+    <!-- Candidate 2: JUNIPER HOUSE (7 votes) -->
+    <g transform="translate(15, 150)">
+      <rect width="440" height="66" rx="8" fill="#18283a" stroke="#2c425b" stroke-width="1.5" />
+      <circle cx="32" cy="24" r="12" fill="#2c425b" />
+      <text x="32" y="28" text-anchor="middle" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#94a3b8">B</text>
+      <text x="56" y="28" class="chalk-text" font-size="14" fill="#cbd5e1">"Juniper House"</text>
+
+      <!-- Chalk tallies (7 votes) -->
+      <g transform="translate(56, 36)" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round">
+        <line x1="0" y1="4" x2="0" y2="20" />
+        <line x1="7" y1="4" x2="7" y2="20" />
+        <line x1="14" y1="4" x2="14" y2="20" />
+        <line x1="21" y1="4" x2="21" y2="20" />
+        <line x1="-3" y1="18" x2="24" y2="6" stroke="#cbd5e1" stroke-width="1.5" />
+        <line x1="34" y1="4" x2="34" y2="20" />
+        <line x1="41" y1="4" x2="41" y2="20" />
+      </g>
+      <text x="425" y="52" text-anchor="end" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="700" fill="#94a3b8">
+        7 VOTES
+      </text>
+    </g>
+
+    <!-- Candidate 3: OAKWOOD HOME (5 votes) -->
+    <g transform="translate(15, 224)">
+      <rect width="440" height="66" rx="8" fill="#18283a" stroke="#2c425b" stroke-width="1.5" />
+      <circle cx="32" cy="24" r="12" fill="#2c425b" />
+      <text x="32" y="28" text-anchor="middle" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#94a3b8">C</text>
+      <text x="56" y="28" class="chalk-text" font-size="14" fill="#cbd5e1">"Oakwood Home"</text>
+
+      <!-- Chalk tallies (5 votes) -->
+      <g transform="translate(56, 36)" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round">
+        <line x1="0" y1="4" x2="0" y2="20" />
+        <line x1="7" y1="4" x2="7" y2="20" />
+        <line x1="14" y1="4" x2="14" y2="20" />
+        <line x1="21" y1="4" x2="21" y2="20" />
+        <line x1="-3" y1="18" x2="24" y2="6" stroke="#cbd5e1" stroke-width="1.5" />
+      </g>
+      <text x="425" y="52" text-anchor="end" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="700" fill="#94a3b8">
+        5 VOTES
+      </text>
+    </g>
+
+    <!-- Board Bottom Protocol Strip -->
+    <rect x="15" y="300" width="440" height="42" rx="6" fill="#0f1b27" stroke="#25384d" />
+    <text x="25" y="325" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="600" fill="#93c5fd">
+      DRILL PROTOCOL:
+    </text>
+    <text x="135" y="325" font-family="'Segoe UI', sans-serif" font-size="11" fill="#e2e8f0">
+      Room shouts 3 names &#8594; 10s hand vote &#8594; Fallback: "Maple House" (60s cap).
+    </text>
+  </g>
+
+  <!-- RIGHT: The Work Order Clipboard (Immediate Downstream Binding) -->
+  <g transform="translate(530, 96)">
+    <!-- Clipboard Frame -->
+    <rect width="390" height="355" rx="10" class="clipboard" />
+    
+    <!-- Brass Clip at Top -->
+    <path d="M 135, -8 L 255, -8 L 245, 14 L 145, 14 Z" fill="#947648" stroke="#6b5329" stroke-width="1.5" />
+    <circle cx="195" cy="4" r="4" fill="#3e2e14" />
+
+    <!-- Sheet Header -->
+    <g transform="translate(20, 22)">
+      <text x="0" y="16" class="mono" font-size="11" font-weight="bold" fill="#0f766e">
+        FIELD DISPATCH &amp; PRESERVATION WORK ORDER
+      </text>
+      <text x="350" y="16" text-anchor="end" class="mono" font-size="10" fill="#667085">
+        ORDER #PP-1972-042
+      </text>
+      <line x1="0" y1="24" x2="350" y2="24" stroke="#c8b9a2" stroke-width="1" />
+    </g>
+
+    <!-- Bound Name Ribbon -->
+    <g transform="translate(20, 56)">
+      <rect width="350" height="54" rx="6" fill="#12263f" />
+      <text x="16" y="22" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="700" fill="#94a3b8" letter-spacing="0.08em">
+        OFFICIAL CLASSROOM PROPERTY IDENTIFIER:
+      </text>
+      <text x="16" y="44" font-family="'Georgia', serif" font-size="20" font-weight="bold" fill="#fef3c7">
+        "MAPLE HOUSE"
+      </text>
+      <rect x="250" y="14" width="86" height="26" rx="4" fill="#0f766e" />
+      <text x="293" y="31" text-anchor="middle" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800" fill="#ffffff">
+        SEALED
+      </text>
+    </g>
+
+    <!-- Work Order Field Details -->
+    <g transform="translate(20, 122)">
+      <!-- Row 1 -->
+      <rect width="350" height="26" fill="#f3f0e8" rx="4" />
+      <text x="12" y="17" class="mono" font-size="10" font-weight="bold" fill="#374151">ORIGIN YEAR:</text>
+      <text x="110" y="17" class="mono" font-size="10" fill="#111827">1972 (Subdivision Lot 42)</text>
+      <text x="250" y="17" class="mono" font-size="10" font-weight="bold" fill="#374151">PEAK:</text>
+      <text x="290" y="17" class="mono" font-size="10" fill="#b45309">TOTAL (2.38M)</text>
+
+      <!-- Row 2 -->
+      <rect y="32" width="350" height="26" fill="#ffffff" stroke="#e5e0d3" stroke-width="1" rx="4" />
+      <text x="12" y="49" class="mono" font-size="10" font-weight="bold" fill="#374151">ORDER SCOPE:</text>
+      <text x="110" y="49" class="mono" font-size="10" fill="#111827">Full 5-Hour Course Through-Line</text>
+
+      <!-- Row 3 -->
+      <rect y="64" width="350" height="26" fill="#f3f0e8" rx="4" />
+      <text x="12" y="81" class="mono" font-size="10" font-weight="bold" fill="#374151">DISPATCH STATE:</text>
+      <text x="110" y="81" class="mono" font-size="10" font-weight="bold" fill="#047857">Named &amp; Protected</text>
+      <text x="240" y="81" class="mono" font-size="10" font-weight="bold" fill="#374151">CREW ID:</text>
+      <text x="295" y="81" class="mono" font-size="10" fill="#111827">OFFICE-01</text>
+    </g>
+
+    <!-- Pedagogical Axiom Callout -->
+    <g transform="translate(20, 224)">
+      <rect width="350" height="80" rx="6" fill="#fffbeb" stroke="#fcd34d" stroke-width="1.5" />
+      <text x="14" y="22" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800" fill="#92400e" letter-spacing="0.08em">
+        OPERATIONAL IMPERATIVE:
+      </text>
+      <text x="14" y="40" font-family="'Georgia', serif" font-size="12" font-style="italic" fill="#78350f">
+        "Contractors who manage 'File #4029' cut corners.
+      </text>
+      <text x="14" y="56" font-family="'Georgia', serif" font-size="12" font-style="italic" fill="#78350f">
+        Contractors who protect Maple House keep her dry,
+      </text>
+      <text x="14" y="72" font-family="'Georgia', serif" font-size="12" font-style="italic" fill="#78350f">
+        photograph her clean, and get paid 100% of claim."
+      </text>
+    </g>
+
+    <!-- Bottom Stamp -->
+    <g transform="translate(20, 314)">
+      <rect width="350" height="26" rx="4" fill="#f8fafc" stroke="#cbd5e1" />
+      <text x="175" y="17" text-anchor="middle" class="mono" font-size="9.5" fill="#475569">
+        DOWNSTREAM TRACK: M2 &#8594; M1 &#8594; M3 &#8594; M6 &#8594; M7 &#8594; M8 &#8594; M9 &#8594; M10
+      </text>
+    </g>
+  </g>
+
+  <!-- Footer Caption -->
+  <text x="40" y="490" font-family="'Segoe UI', sans-serif" font-size="11" fill="#667085" font-style="italic">
+    Figure M2.7: Live classroom naming ritual board and immediate work order binding. Projection screen asset for in-room voting drill. [TEACHING DRILL]
+  </text>
+  <text x="920" y="490" text-anchor="end" font-family="'Consolas', monospace" font-size="10" fill="#94a3b8">
+    ASSET: M2_visual_07_deck_naming_ritual_board.svg
+  </text>
+</svg>

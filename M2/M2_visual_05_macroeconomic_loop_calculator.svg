@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #f7f2e8; }
+      .title { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 18px; font-weight: 800; fill: #12263f; }
+      .node-box { fill: #ffffff; stroke: #12263f; stroke-width: 2; rx: 8; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.06)); }
+      .node-text { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 11px; font-weight: 800; fill: #12263f; text-anchor: middle; }
+      .node-sub { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 9px; font-weight: 500; fill: #64748b; text-anchor: middle; }
+      .loop-arrow { stroke: #0f766e; stroke-width: 2.5; fill: none; marker-end: url(#loop-head); }
+      .calc-card { fill: #ffffff; stroke: #d6c8b2; stroke-width: 1.5; rx: 8; filter: drop-shadow(0 6px 16px rgba(18, 38, 63, 0.08)); }
+      .calc-head { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 14px; font-weight: 800; fill: #12263f; }
+      .calc-val { font-family: 'Consolas', monospace; font-size: 18px; font-weight: 900; }
+      .break-tag { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 10px; font-weight: 800; fill: #ffffff; }
+      .mono { font-family: 'Consolas', monospace; }
+    </style>
+    <marker id="loop-head" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#0f766e" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" class="bg" />
+
+  <!-- Top Title Bar -->
+  <rect x="40" y="20" width="880" height="50" rx="8" fill="#ffffff" stroke="#d6c8b2" stroke-width="1.5" />
+  <text x="65" y="51" class="title">THE LOOP BREAKS BEFORE THE HOUSE DOES: ECONOMY &amp; SENSITIVITY</text>
+  <rect x="760" y="32" width="145" height="26" rx="4" fill="#fef3c7" stroke="#b45309" stroke-width="1" />
+  <text x="770" y="49" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800" fill="#92400e">DYNAMIC CALCULATOR</text>
+
+  <!-- Left: Macroeconomic Circular Feedback Loop -->
+  <g transform="translate(40, 85)">
+    <rect width="470" height="350" rx="10" fill="#ffffff" stroke="#d6c8b2" stroke-width="1.5" filter="drop-shadow(0 4px 12px rgba(0,0,0,0.05))" />
+    <text x="24" y="30" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="800" fill="#12263f">THE 6-LINK MORTGAGE &amp; HOUSING LOOP</text>
+    <line x1="24" y1="40" x2="446" y2="40" stroke="#e2e8f0" />
+
+    <!-- Center Loop Label -->
+    <circle cx="235" cy="190" r="48" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="3,3" />
+    <text x="235" y="184" text-anchor="middle" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800" fill="#0f766e">HOUSING</text>
+    <text x="235" y="196" text-anchor="middle" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800" fill="#0f766e">CYCLE</text>
+    <text x="235" y="208" text-anchor="middle" font-family="'Segoe UI', sans-serif" font-size="8" fill="#64748b">EQUILIBRIUM</text>
+
+    <!-- Node 1: Jobs & Household Income (Top Center: x=165, y=55) -->
+    <rect x="160" y="55" width="150" height="42" class="node-box" />
+    <text x="235" y="73" class="node-text">1. JOBS &amp; INCOME</text>
+    <text x="235" y="87" class="node-sub">Employment &amp; Wages</text>
+
+    <!-- Node 2: Ability to Pay Mortgages (Top Right: x=320, y=115) -->
+    <rect x="310" y="115" width="145" height="42" class="node-box" />
+    <text x="382" y="133" class="node-text">2. ABILITY TO PAY</text>
+    <text x="382" y="147" class="node-sub">Debt-to-Income / Cash Flow</text>
+
+    <!-- Node 3: Interest Rates (Bottom Right: x=320, y=235) -->
+    <rect x="310" y="235" width="145" height="42" class="node-box" />
+    <text x="382" y="253" class="node-text">3. INTEREST RATES</text>
+    <text x="382" y="267" class="node-sub">Bond Yields / Fed Policy</text>
+
+    <!-- Node 4: Credit Standards (Bottom Center: x=160, y=290) -->
+    <rect x="160" y="290" width="150" height="42" class="node-box" />
+    <text x="235" y="308" class="node-text">4. CREDIT STANDARDS</text>
+    <text x="235" y="322" class="node-sub">Lending Guidelines / DTI</text>
+
+    <!-- Node 5: Construction & Supply (Bottom Left: x=15, y=235) -->
+    <rect x="15" y="235" width="145" height="42" class="node-box" />
+    <text x="87" y="253" class="node-text">5. BUILDING &amp; SUPPLY</text>
+    <text x="87" y="267" class="node-sub">Starts, Labor, Material</text>
+
+    <!-- Node 6: Home Prices & Equity (Top Left: x=15, y=115) -->
+    <rect x="15" y="115" width="145" height="42" class="node-box" />
+    <text x="87" y="133" class="node-text">6. PRICES &amp; EQUITY</text>
+    <text x="87" y="147" class="node-sub">Collateral Valuation</text>
+
+    <!-- Connecting Loop Curved Arrows -->
+    <!-- 1 -> 2 -->
+    <path d="M 310,80 Q 360,80 375,110" class="loop-arrow" />
+    <!-- 2 -> 3 -->
+    <path d="M 382,160 L 382,230" class="loop-arrow" />
+    <!-- 3 -> 4 -->
+    <path d="M 330,280 Q 290,310 310,310" class="loop-arrow" />
+    <!-- 4 -> 5 -->
+    <path d="M 160,310 Q 110,310 95,280" class="loop-arrow" />
+    <!-- 5 -> 6 -->
+    <path d="M 87,230 L 87,160" class="loop-arrow" />
+    <!-- 6 -> 1 -->
+    <path d="M 145,115 Q 165,80 160,80" class="loop-arrow" />
+
+    <!-- BREAK POINT A: RATE SHOCK (Between 2 & 3) -->
+    <g transform="translate(395, 185)">
+      <polygon points="0,0 24,0 20,24 0,24" fill="#b42318" />
+      <text x="10" y="16" class="break-tag" font-size="12">⚡</text>
+      <rect x="22" y="2" width="48" height="18" rx="3" fill="#b42318" />
+      <text x="26" y="15" class="break-tag" font-size="8">BREAK A</text>
+    </g>
+
+    <!-- BREAK POINT B: JOB LOSS (Between 6 & 1) -->
+    <g transform="translate(130, 85)">
+      <polygon points="0,0 24,0 20,24 0,24" fill="#b42318" />
+      <text x="10" y="16" class="break-tag" font-size="12">⚡</text>
+      <rect x="-42" y="2" width="48" height="18" rx="3" fill="#b42318" />
+      <text x="-38" y="15" class="break-tag" font-size="8">BREAK B</text>
+    </g>
+  </g>
+
+  <!-- Right: Payment Sensitivity Calculator ($1,500/Month Fixed Budget) -->
+  <g transform="translate(530, 85)">
+    <rect width="390" height="350" class="calc-card" />
+    
+    <text x="24" y="32" class="calc-head">THE $1,500/MONTH PAYMENT SENSITIVITY TEST</text>
+    <text x="24" y="48" font-family="'Segoe UI', sans-serif" font-size="11" fill="#64748b">
+      Same household monthly payment. Three wildly different purchasing worlds.
+    </text>
+    <line x1="24" y1="58" x2="366" y2="58" stroke="#e2e8f0" />
+
+    <!-- Scenario 1: All-Time Record Low Rate (Jan 2021: 2.65%) -->
+    <g transform="translate(24, 72)">
+      <rect width="342" height="68" rx="6" fill="#f0fdf4" stroke="#0f766e" stroke-width="1.5" />
+      <text x="14" y="22" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#0f766e">
+        RECORD LOW RATE — JAN 2021 (2.65% 30-YR FIXED)
+      </text>
+      <text x="14" y="52" class="calc-val" fill="#0f766e">$372,000</text>
+      <text x="135" y="45" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="600" fill="#334155">
+        Purchasing power at peak affordability.
+      </text>
+      <text x="135" y="58" font-family="'Segoe UI', sans-serif" font-size="9" fill="#64748b">
+        Fueled massive refinancing &amp; price surge.
+      </text>
+    </g>
+
+    <!-- Scenario 2: Recent Benchmark (Oct 2023: 7.79%) -->
+    <g transform="translate(24, 150)">
+      <rect width="342" height="68" rx="6" fill="#fffbeb" stroke="#b45309" stroke-width="1.5" />
+      <text x="14" y="22" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#b45309">
+        RECENT PEAK RATE — OCT 2023 (7.79% 30-YR FIXED)
+      </text>
+      <text x="14" y="52" class="calc-val" fill="#b45309">$206,000</text>
+      <text x="135" y="45" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="600" fill="#334155">
+        Purchasing power slashed by 45%.
+      </text>
+      <text x="135" y="58" font-family="'Segoe UI', sans-serif" font-size="9" fill="#64748b">
+        Buyers locked out; market froze.
+      </text>
+    </g>
+
+    <!-- Scenario 3: All-Time Record High Rate (Oct 1981: 18.63%) -->
+    <g transform="translate(24, 228)">
+      <rect width="342" height="68" rx="6" fill="#fef2f2" stroke="#b42318" stroke-width="1.5" />
+      <text x="14" y="22" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#b42318">
+        HISTORICAL VOLCKER PEAK — OCT 1981 (18.63%)
+      </text>
+      <text x="14" y="52" class="calc-val" fill="#b42318">$96,241</text>
+      <text x="135" y="45" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="600" fill="#334155">
+        Severe contraction. Cash required.
+      </text>
+      <text x="135" y="58" font-family="'Segoe UI', sans-serif" font-size="9" fill="#64748b">
+        Suburban expansion ground to a halt.
+      </text>
+    </g>
+
+    <!-- Dynamic takeaway text -->
+    <text x="24" y="325" font-family="'Segoe UI', sans-serif" font-size="10.5" font-weight="700" fill="#12263f">
+      CONCLUSION: Same $1,500 payment buys $96k vs. $372k. Rate shifts snap the loop!
+    </text>
+  </g>
+
+  <!-- Bottom Quote Anchor -->
+  <g transform="translate(40, 445)">
+    <rect width="880" height="55" rx="8" fill="#12263f" stroke="#f59e0b" stroke-width="1.5" />
+    <text x="24" y="24" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#fef3c7" letter-spacing="0.06em">
+      THE CORE OPERATIONAL TAKEAWAY:
+    </text>
+    <text x="24" y="42" font-family="'Georgia', serif" font-size="13" font-style="italic" fill="#ffffff">
+      "The house did not break. The loop broke. Remember that, and you will understand every empty house you ever walk into."
+    </text>
+  </g>
+
+  <!-- Footer -->
+  <text x="40" y="525" font-family="'Segoe UI', sans-serif" font-size="10" fill="#667085">
+    Figure M2.5: The Macroeconomic Feedback Loop and $1,500/Month Purchasing Power Calculator. Demonstrating causal drivers of default.
+  </text>
+</svg>

@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #f7f2e8; }
+      .title { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 18px; font-weight: 800; fill: #12263f; }
+      .col-header { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 15px; font-weight: 800; letter-spacing: 0.05em; }
+      .col-sub { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 11px; font-weight: 600; }
+      .item-title { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 12px; font-weight: 700; }
+      .item-desc { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 10px; font-weight: 500; fill: #334155; }
+      .item-stat { font-family: 'Consolas', monospace; font-size: 10px; font-weight: 700; }
+      .rule-callout { font-family: 'Georgia', serif; font-size: 13px; font-style: italic; }
+      .card-left { fill: #ffffff; stroke: #0f766e; stroke-width: 2; rx: 8; filter: drop-shadow(0 6px 16px rgba(15, 118, 110, 0.08)); }
+      .card-right { fill: #ffffff; stroke: #b42318; stroke-width: 2; rx: 8; filter: drop-shadow(0 6px 16px rgba(180, 35, 24, 0.08)); }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" class="bg" />
+
+  <!-- Top Title Bar -->
+  <rect x="40" y="20" width="880" height="50" rx="8" fill="#ffffff" stroke="#d6c8b2" stroke-width="1.5" />
+  <text x="65" y="51" class="title">THE SAME BOOM BUILT A FILTER: PROSPERITY &amp; EXCLUSION (1945–1975)</text>
+  <rect x="760" y="32" width="145" height="26" rx="4" fill="#fef2f2" stroke="#b42318" stroke-width="1" />
+  <text x="770" y="49" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800" fill="#991b1b">LEGAL &amp; POLICY FENCE</text>
+
+  <!-- Left Column: The Boom (Prosperity Engine) -->
+  <g transform="translate(40, 85)">
+    <rect width="425" height="355" class="card-left" />
+    
+    <!-- Header Block -->
+    <rect x="0" y="0" width="425" height="48" rx="8" fill="#0f766e" />
+    <text x="20" y="28" class="col-header" fill="#ffffff">SIDE A: THE POSTWAR BOOM</text>
+    <text x="20" y="42" class="col-sub" fill="#ccfbf1">Mass Suburbia, Middle-Class Wealth Creation, &amp; Federal Backing</text>
+
+    <!-- Point 1 -->
+    <g transform="translate(20, 62)">
+      <circle cx="8" cy="8" r="5" fill="#0f766e" />
+      <text x="22" y="11" class="item-title" fill="#12263f">The GI Bill &amp; The Veterans' Return</text>
+      <text x="22" y="26" class="item-desc">Signed June 22, 1944. Provided loan guarantees to returning soldiers.</text>
+      <text x="22" y="40" class="item-stat" fill="#0f766e">STAT: 13.9M LOANS GUARANTEED (1944–1993)</text>
+    </g>
+
+    <!-- Point 2 -->
+    <g transform="translate(20, 118)">
+      <circle cx="8" cy="8" r="5" fill="#0f766e" />
+      <text x="22" y="11" class="item-title" fill="#12263f">FHA Mortgage Revolution (National Housing Act 1934)</text>
+      <text x="22" y="26" class="item-desc">Replaced predatory 3-5yr balloon notes with 20-30yr amortizing notes.</text>
+      <text x="22" y="40" class="item-stat" fill="#b42318">LAW: FHA INSURES LOANS; IT DOES NOT LEND MONEY</text>
+    </g>
+
+    <!-- Point 3 -->
+    <g transform="translate(20, 174)">
+      <circle cx="8" cy="8" r="5" fill="#0f766e" />
+      <text x="22" y="11" class="item-title" fill="#12263f">Industrial Building Scale: Levittown (1947–1951)</text>
+      <text x="22" y="26" class="item-desc">27 assembly-line construction steps. 17,000+ homes built rapidly.</text>
+      <text x="22" y="40" class="item-stat" fill="#0f766e">PRICE: $6,900 TO $8,000 PER SINGLE-FAMILY HOME</text>
+    </g>
+
+    <!-- Point 4 -->
+    <g transform="translate(20, 230)">
+      <circle cx="8" cy="8" r="5" fill="#0f766e" />
+      <text x="22" y="11" class="item-title" fill="#12263f">Interstate Highways &amp; Mass Automobility</text>
+      <text x="22" y="26" class="item-desc">1956 Highway Act linked suburban rings to downtown work centers.</text>
+      <text x="22" y="40" class="item-stat" fill="#0f766e">CARS: 25.6M (1945) → 61.4M (1960) | 82% OWN CAR (1970)</text>
+    </g>
+
+    <!-- Point 5 -->
+    <g transform="translate(20, 286)">
+      <circle cx="8" cy="8" r="5" fill="#0f766e" />
+      <text x="22" y="11" class="item-title" fill="#12263f">Thrifts / S&amp;Ls Provided Local Capital</text>
+      <text x="22" y="26" class="item-desc">Savings &amp; Loan associations gathered local savings to fuel mortgages.</text>
+      <text x="22" y="40" class="item-stat" fill="#0f766e">SCALE: THRIFTS HELD ~57% OF RESIDENTIAL DEBT LATE 1960s</text>
+    </g>
+  </g>
+
+  <!-- Right Column: The Filter (Institutional Exclusion) -->
+  <g transform="translate(495, 85)">
+    <rect width="425" height="355" class="card-right" />
+    
+    <!-- Header Block -->
+    <rect x="0" y="0" width="425" height="48" rx="8" fill="#b42318" />
+    <text x="20" y="28" class="col-header" fill="#ffffff">SIDE B: THE INSTITUTIONAL FILTER</text>
+    <text x="20" y="42" class="col-sub" fill="#fee2e2">Racialized Barriers, Wealth Denial, &amp; Statutory Exclusion</text>
+
+    <!-- Point 1 -->
+    <g transform="translate(20, 62)">
+      <circle cx="8" cy="8" r="5" fill="#b42318" />
+      <text x="22" y="11" class="item-title" fill="#12263f">Single-Family Zoning as Economic Walls</text>
+      <text x="22" y="26" class="item-desc">Berkeley Elmwood (1916), Euclid v. Ambler (1926 Supreme Court).</text>
+      <text x="22" y="40" class="item-stat" fill="#b42318">MECHANISM: APARTMENTS &amp; MULTIFAMILY EXCLUDED BY LAW</text>
+    </g>
+
+    <!-- Point 2 -->
+    <g transform="translate(20, 118)">
+      <circle cx="8" cy="8" r="5" fill="#b42318" />
+      <text x="22" y="11" class="item-title" fill="#12263f">HOLC Redlining: The Color of Credit</text>
+      <text x="22" y="26" class="item-desc">Home Owners' Loan Corp mapped cities; minority districts colored red.</text>
+      <text x="22" y="40" class="item-stat" fill="#b42318">VERDICT: GRADE D "HAZARDOUS" DENIED BANK MORTGAGES</text>
+    </g>
+
+    <!-- Point 3 -->
+    <g transform="translate(20, 174)">
+      <circle cx="8" cy="8" r="5" fill="#b42318" />
+      <text x="22" y="11" class="item-title" fill="#12263f">FHA Underwriting Manual Covenants</text>
+      <text x="22" y="26" class="item-desc">Federal manual mandated racially restrictive covenants for mortgage eligibility.</text>
+      <text x="22" y="40" class="item-stat" fill="#b42318">POLICY: EXPLICIT MANDATE TO PRESERVE "RACIAL STABILITY"</text>
+    </g>
+
+    <!-- Point 4 -->
+    <g transform="translate(20, 230)">
+      <circle cx="8" cy="8" r="5" fill="#b42318" />
+      <text x="22" y="11" class="item-title" fill="#12263f">Predatory Contract Sales &amp; Blockbusting</text>
+      <text x="22" y="26" class="item-desc">Excluded buyers bought on contract; miss one payment = total eviction.</text>
+      <text x="22" y="40" class="item-stat" fill="#b42318">CHICAGO LAWNDALE: ~85% PURCHASED ON EXPLOITATIVE CONTRACT</text>
+    </g>
+
+    <!-- Point 5 -->
+    <g transform="translate(20, 286)">
+      <circle cx="8" cy="8" r="5" fill="#b42318" />
+      <text x="22" y="11" class="item-title" fill="#12263f">Judicial Bounds: Brown (1954) &amp; Milliken (1974)</text>
+      <text x="22" y="26" class="item-desc">Milliken v. Bradley held suburbs immune from urban desegregation busing.</text>
+      <text x="22" y="40" class="item-stat" fill="#b42318">EFFECT: SUBURBAN ENCLAVES LEGALLY INSULATED</text>
+    </g>
+  </g>
+
+  <!-- Bottom Synthesis Callout -->
+  <g transform="translate(40, 450)">
+    <rect width="880" height="55" rx="8" fill="#12263f" stroke="#f59e0b" stroke-width="1.5" />
+    <text x="20" y="24" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#fef3c7" letter-spacing="0.06em">
+      THE TEACHING STANDARD:
+    </text>
+    <text x="20" y="42" class="rule-callout" fill="#ffffff">
+      "No single cause built her. Loans + zoning + funding + highways + cars + utilities + air + tax + culture built her — with a filter. Never tell one half without the other."
+    </text>
+  </g>
+
+  <!-- Footer -->
+  <text x="40" y="525" font-family="'Segoe UI', sans-serif" font-size="10" fill="#667085">
+    Figure M2.3: Prosperity and Exclusion Comparative System. The institutional mechanics behind postwar suburban development.
+  </text>
+</svg>

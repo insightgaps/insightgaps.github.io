@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Module M2: Five Forces Built the System — and the Filter. | Property Preservation Class</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,650;6..72,800&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #e9e6de;
+      --stage: #f7f5ef;
+      --card: #ffffff;
+      --ink: #1d2422;
+      --ink-soft: #4c5551;
+      --line: #d8d2c4;
+      --accent: #b03a17;
+      --accent-ink: #8f2c10;
+      --gold: #a86f0c;
+      --teal: #1f5f57;
+      --panel: #fbf9f4;
+      --panel-line: #e2dccb;
+      --chip: #efe9db;
+      --shadow: 0 18px 50px rgba(29, 36, 34, 0.16);
+      --radius: 16px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #101312;
+        --stage: #171a19;
+        --card: #1e2321;
+        --ink: #eef0ea;
+        --ink-soft: #aeb6b1;
+        --line: #333a37;
+        --accent: #e0683c;
+        --accent-ink: #f08a5f;
+        --gold: #d29a2e;
+        --teal: #4fae9f;
+        --panel: #222825;
+        --panel-line: #39413d;
+        --chip: #262c29;
+        --shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Archivo", system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+      padding: 24px 16px 48px;
+    }
+
+    h1, h2, h3 {
+      font-family: "Newsreader", Georgia, serif;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; border: none; background: none; }
+
+    /* Container Shell */
+    .wrap {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    /* Top Brand & Retelling Rail */
+    header.top-rail {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .meta-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--ink-soft);
+    }
+
+    .brand-tag {
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--chip);
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .time-tag {
+      font-weight: 600;
+      background: var(--chip);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* The Whole-Course Retelling Spine */
+    .retelling-spine {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      overflow-x: auto;
+      padding: 8px 12px;
+      background: var(--stage);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      font-size: 0.78rem;
+      white-space: nowrap;
+    }
+
+    .retelling-spine span {
+      color: var(--ink-soft);
+      font-weight: 500;
+    }
+
+    .retelling-spine span.active {
+      color: var(--accent-ink);
+      font-weight: 800;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 1px;
+    }
+
+    .retelling-spine .arr {
+      color: var(--line);
+      font-weight: 400;
+    }
+
+    /* Main Stage Card */
+    main.stage-card {
+      background: var(--stage);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .kicker {
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    h1.title {
+      font-size: clamp(1.85rem, 3.8vw, 2.75rem);
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+
+    /* Short Story Opening */
+    .story-opening {
+      font-size: 1.15rem;
+      line-height: 1.55;
+      color: var(--ink);
+      border-left: 3px solid var(--gold);
+      padding-left: 16px;
+      font-style: italic;
+      font-family: "Newsreader", Georgia, serif;
+    }
+
+    /* Single Visual Element */
+    figure.primary-visual {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    figure.primary-visual img {
+      width: 100%;
+      height: auto;
+      max-height: 440px;
+      object-fit: contain;
+      display: block;
+      border-radius: 6px;
+    }
+
+    figcaption {
+      font-size: 0.8rem;
+      color: var(--ink-soft);
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    /* The One Decision Moment */
+    .decision-moment {
+      background: var(--panel);
+      border: 1px solid var(--panel-line);
+      border-radius: 10px;
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .decision-moment h3 {
+      font-size: 1.1rem;
+      color: var(--ink);
+    }
+
+    .decision-moment p {
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+    }
+
+    .choice-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip-btn {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--ink);
+      transition: all 0.15s ease;
+    }
+
+    .chip-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .chip-btn.selected {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .decision-feedback {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--teal);
+      line-height: 1.4;
+      display: none;
+      padding-top: 4px;
+    }
+
+    .decision-feedback.visible {
+      display: block;
+    }
+
+    /* The Three Key Catchphrases (At Most Three) */
+    .key-points {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+    }
+
+    .key-points-head {
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    .point-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .point-num {
+      font-family: var(--mono);
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .point-text {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.35;
+    }
+
+    .point-sub {
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 400;
+      color: var(--ink-soft);
+      margin-top: 2px;
+    }
+
+    /* Navigation Bar Only */
+    nav.page-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+      margin-top: 4px;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      transition: all 0.15s ease;
+    }
+
+    .nav-prev {
+      background: var(--card);
+      border: 1px solid var(--line);
+      color: var(--ink-soft);
+    }
+
+    .nav-prev:hover {
+      background: var(--panel);
+      color: var(--ink);
+      border-color: var(--ink-soft);
+    }
+
+    .nav-next {
+      background: var(--accent);
+      color: #ffffff;
+      border: 1px solid var(--accent);
+    }
+
+    .nav-next:hover {
+      background: var(--accent-ink);
+    }
+
+    /* Small Footer */
+    footer.simple-foot {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+      margin-top: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+    
+    <!-- Top Rail -->
+    <header class="top-rail">
+      <div class="meta-bar">
+        <span class="brand-tag">InsightGaps Class</span>
+        <span>Module M2 · Hour 1 (Block 3)</span>
+        <span class="time-tag">00:35–01:05 (30 MIN)</span>
+      </div>
+
+      <!-- Whole-Course Retelling Spine -->
+      <div class="retelling-spine" aria-label="Course progression spine">
+        <span class="active">1. House (M2)</span>
+        <span class="arr">→</span>
+        <span>2. Chain (M1)</span>
+        <span class="arr">→</span>
+        <span>3. Default (M3)</span>
+        <span class="arr">→</span>
+        <span>4. Order (M6)</span>
+        <span class="arr">→</span>
+        <span>5. Work (M7)</span>
+        <span class="arr">→</span>
+        <span>6. Evidence (M8)</span>
+        <span class="arr">→</span>
+        <span>7. Money (M9)</span>
+        <span class="arr">→</span>
+        <span>8. Capstone (M10)</span>
+      </div>
+    </header>
+
+    <!-- Main Stage Card -->
+    <main class="stage-card">
+      <div class="kicker">Module M2 · 30 Minutes Active</div>
+      <h1 class="title">Five Forces Built the System — and the Filter.</h1>
+
+      <!-- Short Story Opening -->
+      <div class="story-opening">
+        Spring, 1972. A new split-level house stands on Lot 42, smelling of fresh paint and cut Kentucky bluegrass. No one has slept in her yet. No one knows what she will survive. For the next five hours, she carries every rule, photo, and dollar in this class. People protect what they have named — her name will follow her all the way to the day she stands empty.
+      </div>
+
+      <!-- One Primary Visual -->
+      <figure class="primary-visual">
+        <img src="M2_visual_01_naming_ritual_house_1972.svg" alt="The 1972 composite house on Lot 42 and the 60-second naming ritual">
+        <figcaption>Figure M2.1: The composite house born in 1972. [FICTIONAL CASE / TEACHING ILLUSTRATION]</figcaption>
+      </figure>
+
+      <!-- The One Decision Moment -->
+      <div class="decision-moment">
+        <h3>First — name her or lose her</h3>
+        <p>Before a single lock is changed, decide how to see her. A contractor who sees an anonymous number cuts corners and loses pay. A contractor who sees a home protects what they named.</p>
+        <div class="choice-chips" role="group" aria-label="Name choice">
+          <button class="chip-btn" type="button" data-name="Maple House">Maple House (Canonical)</button>
+          <button class="chip-btn" type="button" data-name="Juniper House">Juniper House</button>
+          <button class="chip-btn" type="button" data-name="Oakwood Home">Oakwood Home</button>
+        </div>
+        <div class="decision-feedback" id="decisionFeedback">
+          Her name is <strong>Maple House</strong>. Remember it — you will protect her, prove her work, and bill her file without losing a dollar.
+        </div>
+      </div>
+
+      <!-- Key Points: At Most Three Catchphrases (Never a Paragraph) -->
+      <section class="key-points" aria-label="Three core catchphrases">
+        <div class="key-points-head">Three Rules That Carry the Whole Story</div>
+        
+        <div class="point-card">
+          <span class="point-num">01</span>
+          <div>
+            <span class="point-text">"No single cause built her — loans, roads, and factory lines built the suburb, but with a filter."</span>
+            <span class="point-sub">Demand + FHA loans + 1956 highways engineered prosperity; redlining and zoning set the fence. Never tell one half without the other.</span>
+          </div>
+        </div>
+
+        <div class="point-card">
+          <span class="point-num">02</span>
+          <div>
+            <span class="point-text">"Say TOTAL for 1972, SINGLE-FAMILY for 2005 — never add the peaks."</span>
+            <span class="point-sub">1972 was boomer household formation plus federal multifamily subsidies (2,379,000 TOTAL). 2005 was subprime credit and securitisation (1,716,000 SF).</span>
+          </div>
+        </div>
+
+        <div class="point-card">
+          <span class="point-num">03</span>
+          <div>
+            <span class="point-text">"The house did not break; the loop broke — rates and jobs fail before foundations do."</span>
+            <span class="point-sub">At $1,500/month, 2.65% bought $372k in 2021; 7.79% bought $206k in 2023. When rates reset or a factory closes, the payment snaps before paint peels.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Navigation ONLY -->
+      <nav class="page-nav" aria-label="Module navigation">
+        <a href="../M1/index.html" class="nav-btn nav-prev">&#8592; Previous: Module M1</a>
+        <a href="../M3/index.html" class="nav-btn nav-next">Next: Module M3 (Default to Foreclosure) &#8594;</a>
+      </nav>
+    </main>
+
+    <footer class="simple-foot">
+      InsightGaps Property Preservation Immersion · Staging Copy (M2) · Synthetic &amp; Company-Neutral
+    </footer>
+
+  </div>
+
+  <script>
+    (function() {
+      const chips = document.querySelectorAll('.chip-btn');
+      const feedback = document.getElementById('decisionFeedback');
+
+      chips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          chips.forEach(c => c.classList.remove('selected'));
+          chip.classList.add('selected');
+          const name = chip.getAttribute('data-name');
+          feedback.innerHTML = `Her name is <strong>${name}</strong>. Remember it — you will protect her, prove her work, and bill her file without losing a dollar.`;
+          feedback.classList.add('visible');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
