@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Story Course — Syllabus</title>
-  <meta name="description" content="Interactive 13-chapter tree for the property preservation class syllabus.">
+  <title>Master Syllabus</title>
+  <meta name="description" content="Master syllabus for the property preservation courses: The Story Course and The Preservation Office Course.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -94,6 +94,37 @@
       color: var(--ink-muted);
       font-size: clamp(0.95rem, 1.2vw, 1.05rem);
       line-height: 1.5;
+    }
+
+    .course-section {
+      margin-bottom: clamp(32px, 5vw, 48px);
+    }
+
+    .course-section:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .section-head {
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line-subtle);
+    }
+
+    h2.section-heading {
+      font-family: var(--serif);
+      font-size: clamp(1.3rem, 2.6vw, 1.75rem);
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    p.section-meta {
+      font-family: var(--mono);
+      font-size: clamp(12px, 1vw, 13px);
+      font-weight: 600;
+      color: var(--ink-muted);
+      letter-spacing: 0.02em;
     }
 
     .tree-wrap {
@@ -259,10 +290,15 @@
     <header class="syllabus-head">
       <a href="/" class="site-nav-back">← Back to Home</a>
       <h1>Syllabus</h1>
-      <p class="lead">Explore the full thirteen-chapter journey. Click any chapter heading to visit its lesson, or expand the row to reveal and jump across the complete curriculum path.</p>
+      <p class="lead">Explore the complete curriculum across both courses. Click any chapter heading to visit its lesson, or expand the row to reveal and jump across other chapters.</p>
     </header>
 
-    <main class="tree-wrap" aria-label="13-Chapter Curriculum Tree">
+    <main id="main-content">
+      <section class="course-section" aria-labelledby="story-course-title">
+        <div class="section-head">
+          <h2 id="story-course-title" class="section-heading">The Story Course</h2>
+        </div>
+        <div class="tree-wrap" aria-label="The Story Course Curriculum Tree">
       <details class="chapter-node">
         <summary class="chapter-row">
           <a href="/analysis/property-preservation/class/demo-class-page/" class="chapter-main-link">01 The Rise of the American House</a>
@@ -562,6 +598,248 @@
           </ul>
         </div>
       </details>
+        </div>
+      </section>
+
+      <section class="course-section" aria-labelledby="office-course-title">
+        <div class="section-head">
+          <h2 id="office-course-title" class="section-heading">The Preservation Office Course - Five Hours, One House</h2>
+          <p class="section-meta">Total: 300 min = 280 + 20 breaks</p>
+        </div>
+        <div class="tree-wrap" aria-label="The Preservation Office Course Curriculum Tree">
+      <details class="chapter-node">
+        <summary class="chapter-row">
+          <a href="/M0/" class="chapter-main-link">Ch1 (10 min) One House, Five Hours</a>
+          <span class="toggle-marker" aria-hidden="true">▶</span>
+        </summary>
+        <div class="nested-list-wrap">
+          <div class="nested-caption">Jump to other chapters</div>
+          <ul class="nested-tree">
+            <li class="nested-item"><a href="/M1/" class="nested-link">Ch2 (25 min) The Chain: Five Hands on One House</a></li>
+            <li class="nested-item"><a href="/M2/" class="nested-link">Ch3 (30 min) How the System Was Built</a></li>
+            <li class="nested-item"><a href="/M3/" class="nested-link">Ch4 (20 min) Foreclosure, Step by Step</a></li>
+            <li class="nested-item"><a href="/M4/" class="nested-link">Ch5 (10 min) Check Yourself: Rebuild the Chain</a></li>
+            <li class="nested-item"><a href="/M5/" class="nested-link">Ch6 (30 min) Who May Do What</a></li>
+            <li class="nested-item"><a href="/M6/" class="nested-link">Ch7 (35 min) The Job, Start to Finish</a></li>
+            <li class="nested-item"><a href="/M7/" class="nested-link">Ch8 (25 min) Five Jobs, Done Right</a></li>
+            <li class="nested-item"><a href="/M8/" class="nested-link">Ch9 (35 min) Prove It With Photos</a></li>
+            <li class="nested-item"><a href="/M9/" class="nested-link">Ch10 (25 min) Where the Money Goes</a></li>
+            <li class="nested-item"><a href="/M10/" class="nested-link">Ch11 (35 min) The Final Test: One Unseen House</a></li>
+          </ul>
+        </div>
+      </details>
+      <details class="chapter-node">
+        <summary class="chapter-row">
+          <a href="/M1/" class="chapter-main-link">Ch2 (25 min) The Chain: Five Hands on One House</a>
+          <span class="toggle-marker" aria-hidden="true">▶</span>
+        </summary>
+        <div class="nested-list-wrap">
+          <div class="nested-caption">Jump to other chapters</div>
+          <ul class="nested-tree">
+            <li class="nested-item"><a href="/M0/" class="nested-link">Ch1 (10 min) One House, Five Hours</a></li>
+            <li class="nested-item"><a href="/M2/" class="nested-link">Ch3 (30 min) How the System Was Built</a></li>
+            <li class="nested-item"><a href="/M3/" class="nested-link">Ch4 (20 min) Foreclosure, Step by Step</a></li>
+            <li class="nested-item"><a href="/M4/" class="nested-link">Ch5 (10 min) Check Yourself: Rebuild the Chain</a></li>
+            <li class="nested-item"><a href="/M5/" class="nested-link">Ch6 (30 min) Who May Do What</a></li>
+            <li class="nested-item"><a href="/M6/" class="nested-link">Ch7 (35 min) The Job, Start to Finish</a></li>
+            <li class="nested-item"><a href="/M7/" class="nested-link">Ch8 (25 min) Five Jobs, Done Right</a></li>
+            <li class="nested-item"><a href="/M8/" class="nested-link">Ch9 (35 min) Prove It With Photos</a></li>
+            <li class="nested-item"><a href="/M9/" class="nested-link">Ch10 (25 min) Where the Money Goes</a></li>
+            <li class="nested-item"><a href="/M10/" class="nested-link">Ch11 (35 min) The Final Test: One Unseen House</a></li>
+          </ul>
+        </div>
+      </details>
+      <details class="chapter-node">
+        <summary class="chapter-row">
+          <a href="/M2/" class="chapter-main-link">Ch3 (30 min) How the System Was Built</a>
+          <span class="toggle-marker" aria-hidden="true">▶</span>
+        </summary>
+        <div class="nested-list-wrap">
+          <div class="nested-caption">Jump to other chapters</div>
+          <ul class="nested-tree">
+            <li class="nested-item"><a href="/M0/" class="nested-link">Ch1 (10 min) One House, Five Hours</a></li>
+            <li class="nested-item"><a href="/M1/" class="nested-link">Ch2 (25 min) The Chain: Five Hands on One House</a></li>
+            <li class="nested-item"><a href="/M3/" class="nested-link">Ch4 (20 min) Foreclosure, Step by Step</a></li>
+            <li class="nested-item"><a href="/M4/" class="nested-link">Ch5 (10 min) Check Yourself: Rebuild the Chain</a></li>
+            <li class="nested-item"><a href="/M5/" class="nested-link">Ch6 (30 min) Who May Do What</a></li>
+            <li class="nested-item"><a href="/M6/" class="nested-link">Ch7 (35 min) The Job, Start to Finish</a></li>
+            <li class="nested-item"><a href="/M7/" class="nested-link">Ch8 (25 min) Five Jobs, Done Right</a></li>
+            <li class="nested-item"><a href="/M8/" class="nested-link">Ch9 (35 min) Prove It With Photos</a></li>
+            <li class="nested-item"><a href="/M9/" class="nested-link">Ch10 (25 min) Where the Money Goes</a></li>
+            <li class="nested-item"><a href="/M10/" class="nested-link">Ch11 (35 min) The Final Test: One Unseen House</a></li>
+          </ul>
+        </div>
+      </details>
+      <details class="chapter-node">
+        <summary class="chapter-row">
+          <a href="/M3/" class="chapter-main-link">Ch4 (20 min) Foreclosure, Step by Step</a>
+          <span class="toggle-marker" aria-hidden="true">▶</span>
+        </summary>
+        <div class="nested-list-wrap">
+          <div class="nested-caption">Jump to other chapters</div>
+          <ul class="nested-tree">
+            <li class="nested-item"><a href="/M0/" class="nested-link">Ch1 (10 min) One House, Five Hours</a></li>
+            <li class="nested-item"><a href="/M1/" class="nested-link">Ch2 (25 min) The Chain: Five Hands on One House</a></li>
+            <li class="nested-item"><a href="/M2/" class="nested-link">Ch3 (30 min) How the System Was Built</a></li>
+            <li class="nested-item"><a href="/M4/" class="nested-link">Ch5 (10 min) Check Yourself: Rebuild the Chain</a></li>
+            <li class="nested-item"><a href="/M5/" class="nested-link">Ch6 (30 min) Who May Do What</a></li>
+            <li class="nested-item"><a href="/M6/" class="nested-link">Ch7 (35 min) The Job, Start to Finish</a></li>
+            <li class="nested-item"><a href="/M7/" class="nested-link">Ch8 (25 min) Five Jobs, Done Right</a></li>
+            <li class="nested-item"><a href="/M8/" class="nested-link">Ch9 (35 min) Prove It With Photos</a></li>
+            <li class="nested-item"><a href="/M9/" class="nested-link">Ch10 (25 min) Where the Money Goes</a></li>
+            <li class="nested-item"><a href="/M10/" class="nested-link">Ch11 (35 min) The Final Test: One Unseen House</a></li>
+          </ul>
+        </div>
+      </details>
+      <details class="chapter-node">
+        <summary class="chapter-row">
+          <a href="/M4/" class="chapter-main-link">Ch5 (10 min) Check Yourself: Rebuild the Chain</a>
+          <span class="toggle-marker" aria-hidden="true">▶</span>
+        </summary>
+        <div class="nested-list-wrap">
+          <div class="nested-caption">Jump to other chapters</div>
+          <ul class="nested-tree">
+            <li class="nested-item"><a href="/M0/" class="nested-link">Ch1 (10 min) One House, Five Hours</a></li>
+            <li class="nested-item"><a href="/M1/" class="nested-link">Ch2 (25 min) The Chain: Five Hands on One House</a></li>
+            <li class="nested-item"><a href="/M2/" class="nested-link">Ch3 (30 min) How the System Was Built</a></li>
+            <li class="nested-item"><a href="/M3/" class="nested-link">Ch4 (20 min) Foreclosure, Step by Step</a></li>
+            <li class="nested-item"><a href="/M5/" class="nested-link">Ch6 (30 min) Who May Do What</a></li>
+            <li class="nested-item"><a href="/M6/" class="nested-link">Ch7 (35 min) The Job, Start to Finish</a></li>
+            <li class="nested-item"><a href="/M7/" class="nested-link">Ch8 (25 min) Five Jobs, Done Right</a></li>
+            <li class="nested-item"><a href="/M8/" class="nested-link">Ch9 (35 min) Prove It With Photos</a></li>
+            <li class="nested-item"><a href="/M9/" class="nested-link">Ch10 (25 min) Where the Money Goes</a></li>
+            <li class="nested-item"><a href="/M10/" class="nested-link">Ch11 (35 min) The Final Test: One Unseen House</a></li>
+          </ul>
+        </div>
+      </details>
+      <details class="chapter-node">
+        <summary class="chapter-row">
+          <a href="/M5/" class="chapter-main-link">Ch6 (30 min) Who May Do What</a>
+          <span class="toggle-marker" aria-hidden="true">▶</span>
+        </summary>
+        <div class="nested-list-wrap">
+          <div class="nested-caption">Jump to other chapters</div>
+          <ul class="nested-tree">
+            <li class="nested-item"><a href="/M0/" class="nested-link">Ch1 (10 min) One House, Five Hours</a></li>
+            <li class="nested-item"><a href="/M1/" class="nested-link">Ch2 (25 min) The Chain: Five Hands on One House</a></li>
+            <li class="nested-item"><a href="/M2/" class="nested-link">Ch3 (30 min) How the System Was Built</a></li>
+            <li class="nested-item"><a href="/M3/" class="nested-link">Ch4 (20 min) Foreclosure, Step by Step</a></li>
+            <li class="nested-item"><a href="/M4/" class="nested-link">Ch5 (10 min) Check Yourself: Rebuild the Chain</a></li>
+            <li class="nested-item"><a href="/M6/" class="nested-link">Ch7 (35 min) The Job, Start to Finish</a></li>
+            <li class="nested-item"><a href="/M7/" class="nested-link">Ch8 (25 min) Five Jobs, Done Right</a></li>
+            <li class="nested-item"><a href="/M8/" class="nested-link">Ch9 (35 min) Prove It With Photos</a></li>
+            <li class="nested-item"><a href="/M9/" class="nested-link">Ch10 (25 min) Where the Money Goes</a></li>
+            <li class="nested-item"><a href="/M10/" class="nested-link">Ch11 (35 min) The Final Test: One Unseen House</a></li>
+          </ul>
+        </div>
+      </details>
+      <details class="chapter-node">
+        <summary class="chapter-row">
+          <a href="/M6/" class="chapter-main-link">Ch7 (35 min) The Job, Start to Finish</a>
+          <span class="toggle-marker" aria-hidden="true">▶</span>
+        </summary>
+        <div class="nested-list-wrap">
+          <div class="nested-caption">Jump to other chapters</div>
+          <ul class="nested-tree">
+            <li class="nested-item"><a href="/M0/" class="nested-link">Ch1 (10 min) One House, Five Hours</a></li>
+            <li class="nested-item"><a href="/M1/" class="nested-link">Ch2 (25 min) The Chain: Five Hands on One House</a></li>
+            <li class="nested-item"><a href="/M2/" class="nested-link">Ch3 (30 min) How the System Was Built</a></li>
+            <li class="nested-item"><a href="/M3/" class="nested-link">Ch4 (20 min) Foreclosure, Step by Step</a></li>
+            <li class="nested-item"><a href="/M4/" class="nested-link">Ch5 (10 min) Check Yourself: Rebuild the Chain</a></li>
+            <li class="nested-item"><a href="/M5/" class="nested-link">Ch6 (30 min) Who May Do What</a></li>
+            <li class="nested-item"><a href="/M7/" class="nested-link">Ch8 (25 min) Five Jobs, Done Right</a></li>
+            <li class="nested-item"><a href="/M8/" class="nested-link">Ch9 (35 min) Prove It With Photos</a></li>
+            <li class="nested-item"><a href="/M9/" class="nested-link">Ch10 (25 min) Where the Money Goes</a></li>
+            <li class="nested-item"><a href="/M10/" class="nested-link">Ch11 (35 min) The Final Test: One Unseen House</a></li>
+          </ul>
+        </div>
+      </details>
+      <details class="chapter-node">
+        <summary class="chapter-row">
+          <a href="/M7/" class="chapter-main-link">Ch8 (25 min) Five Jobs, Done Right</a>
+          <span class="toggle-marker" aria-hidden="true">▶</span>
+        </summary>
+        <div class="nested-list-wrap">
+          <div class="nested-caption">Jump to other chapters</div>
+          <ul class="nested-tree">
+            <li class="nested-item"><a href="/M0/" class="nested-link">Ch1 (10 min) One House, Five Hours</a></li>
+            <li class="nested-item"><a href="/M1/" class="nested-link">Ch2 (25 min) The Chain: Five Hands on One House</a></li>
+            <li class="nested-item"><a href="/M2/" class="nested-link">Ch3 (30 min) How the System Was Built</a></li>
+            <li class="nested-item"><a href="/M3/" class="nested-link">Ch4 (20 min) Foreclosure, Step by Step</a></li>
+            <li class="nested-item"><a href="/M4/" class="nested-link">Ch5 (10 min) Check Yourself: Rebuild the Chain</a></li>
+            <li class="nested-item"><a href="/M5/" class="nested-link">Ch6 (30 min) Who May Do What</a></li>
+            <li class="nested-item"><a href="/M6/" class="nested-link">Ch7 (35 min) The Job, Start to Finish</a></li>
+            <li class="nested-item"><a href="/M8/" class="nested-link">Ch9 (35 min) Prove It With Photos</a></li>
+            <li class="nested-item"><a href="/M9/" class="nested-link">Ch10 (25 min) Where the Money Goes</a></li>
+            <li class="nested-item"><a href="/M10/" class="nested-link">Ch11 (35 min) The Final Test: One Unseen House</a></li>
+          </ul>
+        </div>
+      </details>
+      <details class="chapter-node">
+        <summary class="chapter-row">
+          <a href="/M8/" class="chapter-main-link">Ch9 (35 min) Prove It With Photos</a>
+          <span class="toggle-marker" aria-hidden="true">▶</span>
+        </summary>
+        <div class="nested-list-wrap">
+          <div class="nested-caption">Jump to other chapters</div>
+          <ul class="nested-tree">
+            <li class="nested-item"><a href="/M0/" class="nested-link">Ch1 (10 min) One House, Five Hours</a></li>
+            <li class="nested-item"><a href="/M1/" class="nested-link">Ch2 (25 min) The Chain: Five Hands on One House</a></li>
+            <li class="nested-item"><a href="/M2/" class="nested-link">Ch3 (30 min) How the System Was Built</a></li>
+            <li class="nested-item"><a href="/M3/" class="nested-link">Ch4 (20 min) Foreclosure, Step by Step</a></li>
+            <li class="nested-item"><a href="/M4/" class="nested-link">Ch5 (10 min) Check Yourself: Rebuild the Chain</a></li>
+            <li class="nested-item"><a href="/M5/" class="nested-link">Ch6 (30 min) Who May Do What</a></li>
+            <li class="nested-item"><a href="/M6/" class="nested-link">Ch7 (35 min) The Job, Start to Finish</a></li>
+            <li class="nested-item"><a href="/M7/" class="nested-link">Ch8 (25 min) Five Jobs, Done Right</a></li>
+            <li class="nested-item"><a href="/M9/" class="nested-link">Ch10 (25 min) Where the Money Goes</a></li>
+            <li class="nested-item"><a href="/M10/" class="nested-link">Ch11 (35 min) The Final Test: One Unseen House</a></li>
+          </ul>
+        </div>
+      </details>
+      <details class="chapter-node">
+        <summary class="chapter-row">
+          <a href="/M9/" class="chapter-main-link">Ch10 (25 min) Where the Money Goes</a>
+          <span class="toggle-marker" aria-hidden="true">▶</span>
+        </summary>
+        <div class="nested-list-wrap">
+          <div class="nested-caption">Jump to other chapters</div>
+          <ul class="nested-tree">
+            <li class="nested-item"><a href="/M0/" class="nested-link">Ch1 (10 min) One House, Five Hours</a></li>
+            <li class="nested-item"><a href="/M1/" class="nested-link">Ch2 (25 min) The Chain: Five Hands on One House</a></li>
+            <li class="nested-item"><a href="/M2/" class="nested-link">Ch3 (30 min) How the System Was Built</a></li>
+            <li class="nested-item"><a href="/M3/" class="nested-link">Ch4 (20 min) Foreclosure, Step by Step</a></li>
+            <li class="nested-item"><a href="/M4/" class="nested-link">Ch5 (10 min) Check Yourself: Rebuild the Chain</a></li>
+            <li class="nested-item"><a href="/M5/" class="nested-link">Ch6 (30 min) Who May Do What</a></li>
+            <li class="nested-item"><a href="/M6/" class="nested-link">Ch7 (35 min) The Job, Start to Finish</a></li>
+            <li class="nested-item"><a href="/M7/" class="nested-link">Ch8 (25 min) Five Jobs, Done Right</a></li>
+            <li class="nested-item"><a href="/M8/" class="nested-link">Ch9 (35 min) Prove It With Photos</a></li>
+            <li class="nested-item"><a href="/M10/" class="nested-link">Ch11 (35 min) The Final Test: One Unseen House</a></li>
+          </ul>
+        </div>
+      </details>
+      <details class="chapter-node">
+        <summary class="chapter-row">
+          <a href="/M10/" class="chapter-main-link">Ch11 (35 min) The Final Test: One Unseen House</a>
+          <span class="toggle-marker" aria-hidden="true">▶</span>
+        </summary>
+        <div class="nested-list-wrap">
+          <div class="nested-caption">Jump to other chapters</div>
+          <ul class="nested-tree">
+            <li class="nested-item"><a href="/M0/" class="nested-link">Ch1 (10 min) One House, Five Hours</a></li>
+            <li class="nested-item"><a href="/M1/" class="nested-link">Ch2 (25 min) The Chain: Five Hands on One House</a></li>
+            <li class="nested-item"><a href="/M2/" class="nested-link">Ch3 (30 min) How the System Was Built</a></li>
+            <li class="nested-item"><a href="/M3/" class="nested-link">Ch4 (20 min) Foreclosure, Step by Step</a></li>
+            <li class="nested-item"><a href="/M4/" class="nested-link">Ch5 (10 min) Check Yourself: Rebuild the Chain</a></li>
+            <li class="nested-item"><a href="/M5/" class="nested-link">Ch6 (30 min) Who May Do What</a></li>
+            <li class="nested-item"><a href="/M6/" class="nested-link">Ch7 (35 min) The Job, Start to Finish</a></li>
+            <li class="nested-item"><a href="/M7/" class="nested-link">Ch8 (25 min) Five Jobs, Done Right</a></li>
+            <li class="nested-item"><a href="/M8/" class="nested-link">Ch9 (35 min) Prove It With Photos</a></li>
+            <li class="nested-item"><a href="/M9/" class="nested-link">Ch10 (25 min) Where the Money Goes</a></li>
+          </ul>
+        </div>
+      </details>
+        </div>
+      </section>
     </main>
 
     <footer class="syllabus-foot">
