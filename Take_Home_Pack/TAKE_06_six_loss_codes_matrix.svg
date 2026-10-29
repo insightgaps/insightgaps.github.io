@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="100%" height="100%">
+  <defs>
+    <linearGradient id="code-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCFAF6"/>
+      <stop offset="100%" stop-color="#F2ECE1"/>
+    </linearGradient>
+    <filter id="cd-shadow" x="-3%" y="-4%" width="106%" height="110%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#12263F" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="580" fill="url(#code-bg)"/>
+  <rect x="20" y="20" width="920" height="540" rx="12" fill="none" stroke="#D6C8B2" stroke-width="1.5"/>
+
+  <!-- Top Title Banner -->
+  <rect x="36" y="34" width="888" height="56" rx="8" fill="#12263F"/>
+  <text x="54" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="800" fill="#F59E0B" letter-spacing="1.5">TAKE-HOME JOB AID 06: THE SIX RECONCILIATION LOSS CODES</text>
+  <rect x="796" y="48" width="112" height="28" rx="4" fill="#0F766E"/>
+  <text x="852" y="66" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8" text-anchor="middle">DRIVE TO ZERO</text>
+
+  <!-- Subtitle -->
+  <text x="38" y="116" font-family="Georgia, serif" font-size="18" font-weight="700" fill="#12263F">Every missing dollar gets a name. Unexplained is a queue, not a verdict.</text>
+  <text x="38" y="136" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="500" fill="#4B5563">The Client Manager reviews all open deduction queues weekly. A discrepancy without a reason code is an open wound.</text>
+
+  <!-- 6 Loss Codes Grid: 2 Rows of 3 Cards -->
+  <g transform="translate(38, 155)">
+    <!-- CODE 1: REJECTED -->
+    <g transform="translate(0, 0)">
+      <rect width="280" height="155" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#cd-shadow)"/>
+      <rect width="280" height="28" rx="6" fill="#B42318"/>
+      <text x="12" y="18" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8">1. REJECTED</text>
+      <text x="268" y="18" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="700" fill="#FEE2E2" text-anchor="end">PROOF DEFECT</text>
+      <text x="12" y="48" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#12263F">Deficient Evidence or Timing</text>
+      <text x="12" y="66" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#475569">• Client portal rejects specific line</text>
+      <text x="12" y="80" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#475569">• Missing date stamp or blurry shot</text>
+      <rect x="8" y="96" width="264" height="48" rx="4" fill="#FEF2F2" stroke="#FCA5A5"/>
+      <text x="14" y="112" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="800" fill="#B42318">REMEDY / ACTION:</text>
+      <text x="14" y="126" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="600" fill="#7F1D1D">CM + Processor compile rebuttal photos &amp; appeal.</text>
+    </g>
+
+    <!-- CODE 2: SHORT-PAID -->
+    <g transform="translate(304, 0)">
+      <rect width="280" height="155" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#cd-shadow)"/>
+      <rect width="280" height="28" rx="6" fill="#B45309"/>
+      <text x="12" y="18" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8">2. SHORT-PAID</text>
+      <text x="268" y="18" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="700" fill="#FEF3C7" text-anchor="end">QUANTITY DISPUTE</text>
+      <text x="12" y="48" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#12263F">Client Trimmed Billed Volume</text>
+      <text x="12" y="66" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#475569">• Client cut 10 CY debris bill to 6 CY</text>
+      <text x="12" y="80" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#475569">• Paid reduced rate per linear foot</text>
+      <rect x="8" y="96" width="264" height="48" rx="4" fill="#FFFBEB" stroke="#FDE68A"/>
+      <text x="14" y="112" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="800" fill="#B45309">REMEDY / ACTION:</text>
+      <text x="14" y="126" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="600" fill="#78350F">Audit CY measurements; dispute if math verified.</text>
+    </g>
+
+    <!-- CODE 3: UNALLOWABLE -->
+    <g transform="translate(608, 0)">
+      <rect width="280" height="155" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#cd-shadow)"/>
+      <rect width="280" height="28" rx="6" fill="#1E293B"/>
+      <text x="12" y="18" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8">3. UNALLOWABLE</text>
+      <text x="268" y="18" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="700" fill="#E2E8F0" text-anchor="end">OUT OF SCOPE</text>
+      <text x="12" y="48" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#12263F">Work Outside Client Matrix</text>
+      <text x="12" y="66" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#475569">• Personal property taken w/o order</text>
+      <text x="12" y="80" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#475569">• Over-allowable done w/o approval</text>
+      <rect x="8" y="96" width="264" height="48" rx="4" fill="#F1F5F9" stroke="#CBD5E1"/>
+      <text x="14" y="112" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="800" fill="#1E293B">REMEDY / ACTION:</text>
+      <text x="14" y="126" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="600" fill="#334155">Book to office loss; retrain dispatcher/tech.</text>
+    </g>
+
+    <!-- ROW 2 -->
+    <!-- CODE 4: ADJUSTED -->
+    <g transform="translate(0, 175)">
+      <rect width="280" height="155" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#cd-shadow)"/>
+      <rect width="280" height="28" rx="6" fill="#0F766E"/>
+      <text x="12" y="18" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8">4. ADJUSTED</text>
+      <text x="268" y="18" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="700" fill="#CCFBF1" text-anchor="end">SURPLUS OFFSET</text>
+      <text x="12" y="48" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#12263F">Property Ledger Reconciliation</text>
+      <text x="12" y="66" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#475569">• Offset loss against unspent funds</text>
+      <text x="12" y="80" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#475569">• E.g., $500 received, $300 loss applied</text>
+      <rect x="8" y="96" width="264" height="48" rx="4" fill="#F0FDF4" stroke="#86EFAC"/>
+      <text x="14" y="112" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="800" fill="#0F766E">REMEDY / ACTION:</text>
+      <text x="14" y="126" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="600" fill="#14532D">Authorised Approver signs off before booking.</text>
+    </g>
+
+    <!-- CODE 5: CHAIN-PAID -->
+    <g transform="translate(304, 175)">
+      <rect width="280" height="155" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#cd-shadow)"/>
+      <rect width="280" height="28" rx="6" fill="#1D3A5F"/>
+      <text x="12" y="18" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8">5. CHAIN-PAID</text>
+      <text x="268" y="18" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="700" fill="#BAE6FD" text-anchor="end">ADDRESS MATCH</text>
+      <text x="12" y="48" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#12263F">Paid on Linked Follow-up Order</text>
+      <text x="12" y="66" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#475569">• WO-A shows $0 paid in portal</text>
+      <text x="12" y="80" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#475569">• WO-B at same address paid $420</text>
+      <rect x="8" y="96" width="264" height="48" rx="4" fill="#EFF6FF" stroke="#93C5FD"/>
+      <text x="14" y="112" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="800" fill="#1D3A5F">REMEDY / ACTION:</text>
+      <text x="14" y="126" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="600" fill="#1E3A8A">Link order chain by address; balance is cleared.</text>
+    </g>
+
+    <!-- CODE 6: UNEXPLAINED -->
+    <g transform="translate(608, 175)">
+      <rect width="280" height="155" rx="6" fill="#FFFBEB" stroke="#F59E0B" stroke-width="1.8" filter="url(#cd-shadow)"/>
+      <rect width="280" height="28" rx="6" fill="#F59E0B"/>
+      <text x="12" y="18" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#12263F">6. UNEXPLAINED</text>
+      <text x="268" y="18" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="800" fill="#B45309" text-anchor="end">ACTIVE QUEUE</text>
+      <text x="12" y="48" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#B45309">Investigation in Progress</text>
+      <text x="12" y="66" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="600" fill="#78350F">• Dollar shortfall lacking reason code</text>
+      <text x="12" y="80" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="600" fill="#78350F">• UNEXPLAINED is never a final state</text>
+      <rect x="8" y="96" width="264" height="48" rx="4" fill="#FFFFFF" stroke="#FCD34D"/>
+      <text x="14" y="112" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="800" fill="#B42318">COMMAND: DRIVE TO ZERO</text>
+      <text x="14" y="126" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="700" fill="#78350F">CM reviews weekly; zero blank fields allowed.</text>
+    </g>
+  </g>
+
+  <!-- Bottom Strip -->
+  <g transform="translate(38, 505)">
+    <rect width="888" height="44" rx="6" fill="#12263F"/>
+    <text x="18" y="27" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F59E0B">THE ADDRESS CHAIN LAW:</text>
+    <text x="185" y="27" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="600" fill="#FFFDF8">
+      "Always match follow-up work orders by property address, never by work order number alone."
+    </text>
+    <text x="750" y="27" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" fill="#94A3B8">FIG 06: SIX LOSS CODES</text>
+  </g>
+</svg>

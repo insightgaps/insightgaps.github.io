@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="stair-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCFAF6"/>
+      <stop offset="100%" stop-color="#F2ECE1"/>
+    </linearGradient>
+    <filter id="s-shadow" x="-3%" y="-4%" width="106%" height="110%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#12263F" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="600" fill="url(#stair-bg)"/>
+  <rect x="20" y="20" width="960" height="560" rx="12" fill="none" stroke="#D6C8B2" stroke-width="1.5"/>
+
+  <!-- Top Title Banner -->
+  <rect x="36" y="34" width="928" height="56" rx="8" fill="#12263F"/>
+  <text x="54" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="800" fill="#F59E0B" letter-spacing="1.5">TAKE-HOME JOB AID 03: THE CANONICAL MONEY STAIRCASE</text>
+  <text x="575" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="600" fill="#E2E8F0">[CANONICAL STANDARD — FROM BID ONLY]</text>
+  <rect x="836" y="48" width="112" height="28" rx="4" fill="#B45309"/>
+  <text x="892" y="66" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8" text-anchor="middle">FROM BID ONLY</text>
+
+  <!-- Story Title -->
+  <text x="38" y="116" font-family="Georgia, serif" font-size="18" font-weight="700" fill="#12263F">Marcus billed $1,000 in sweat. The bank wired $550. Every drop has an owner.</text>
+  <text x="38" y="136" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="500" fill="#4B5563">Work done is not cash collected. Money travels down the staircase and bleeds at every handoff.</text>
+
+  <!-- RUNG 1: BID $1,000 -->
+  <g transform="translate(48, 160)">
+    <rect width="160" height="74" rx="8" fill="#12263F" filter="url(#s-shadow)"/>
+    <text x="16" y="28" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#F59E0B" letter-spacing="1">1. BID</text>
+    <text x="16" y="58" font-family="Georgia, serif" font-size="26" font-weight="800" fill="#FFFDF8">$1,000</text>
+    <text x="100" y="54" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="600" fill="#CBD5E1">Proposed</text>
+  </g>
+
+  <!-- LEAK 1: -$200 (Owner: Processor) -->
+  <g transform="translate(216, 175)">
+    <path d="M 6 12 L 28 12 L 28 65 L 36 65" fill="none" stroke="#B42318" stroke-width="2.5" stroke-dasharray="4 3"/>
+    <polygon points="36,61 44,65 36,69" fill="#B42318"/>
+    <rect x="50" y="40" width="160" height="54" rx="6" fill="#FEF2F2" stroke="#F87171" stroke-width="1.2"/>
+    <text x="60" y="58" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#B42318">-$200 BLEED</text>
+    <text x="60" y="72" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="500" fill="#7F1D1D">$120 unallowable + $80 unproven</text>
+    <text x="60" y="85" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="800" fill="#12263F">OWNER: PROCESSOR</text>
+  </g>
+
+  <!-- RUNG 2: ALLOWABLE $800 -->
+  <g transform="translate(230, 240)">
+    <rect width="160" height="74" rx="8" fill="#1D3A5F" filter="url(#s-shadow)"/>
+    <text x="16" y="28" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#F59E0B" letter-spacing="1">2. ALLOWABLE</text>
+    <text x="16" y="58" font-family="Georgia, serif" font-size="26" font-weight="800" fill="#FFFDF8">$800</text>
+    <text x="96" y="54" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="600" fill="#CBD5E1">Contract Cap</text>
+  </g>
+
+  <!-- LEAK 2: -$100 (Owner: Vendor Manager) -->
+  <g transform="translate(398, 255)">
+    <path d="M 6 12 L 28 12 L 28 65 L 36 65" fill="none" stroke="#B42318" stroke-width="2.5" stroke-dasharray="4 3"/>
+    <polygon points="36,61 44,65 36,69" fill="#B42318"/>
+    <rect x="50" y="40" width="160" height="54" rx="6" fill="#FEF2F2" stroke="#F87171" stroke-width="1.2"/>
+    <text x="60" y="58" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#B42318">-$100 BLEED</text>
+    <text x="60" y="72" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="500" fill="#7F1D1D">Over-allowable done w/o approval</text>
+    <text x="60" y="85" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="800" fill="#12263F">OWNER: VENDOR MGR</text>
+  </g>
+
+  <!-- RUNG 3: APPROVED $700 -->
+  <g transform="translate(412, 320)">
+    <rect width="160" height="74" rx="8" fill="#0F766E" filter="url(#s-shadow)"/>
+    <text x="16" y="28" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#F8FAFC" letter-spacing="1">3. APPROVED</text>
+    <text x="16" y="58" font-family="Georgia, serif" font-size="26" font-weight="800" fill="#FFFDF8">$700</text>
+    <text x="96" y="54" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="600" fill="#CCFBF1">Authorized</text>
+  </g>
+
+  <!-- ZERO VARIANCE: $0 BLEED -->
+  <g transform="translate(580, 335)">
+    <path d="M 6 12 L 28 12 L 28 65 L 36 65" fill="none" stroke="#0F766E" stroke-width="2.5"/>
+    <polygon points="36,61 44,65 36,69" fill="#0F766E"/>
+    <rect x="50" y="40" width="150" height="54" rx="6" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1.2"/>
+    <text x="60" y="58" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#166534">$0 VARIANCE</text>
+    <text x="60" y="72" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="500" fill="#14532D">Billed accurately to approval</text>
+    <text x="60" y="85" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="800" fill="#0F766E">PERFECT MATCH</text>
+  </g>
+
+  <!-- RUNG 4: INVOICED $700 -->
+  <g transform="translate(594, 400)">
+    <rect width="160" height="74" rx="8" fill="#1D3A5F" filter="url(#s-shadow)"/>
+    <text x="16" y="28" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#F59E0B" letter-spacing="1">4. INVOICED</text>
+    <text x="16" y="58" font-family="Georgia, serif" font-size="26" font-weight="800" fill="#FFFDF8">$700</text>
+    <text x="96" y="54" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="600" fill="#CBD5E1">Gross = Net</text>
+  </g>
+
+  <!-- LEAK 4: -$150 (Owner: CM + Processor) -->
+  <g transform="translate(762, 415)">
+    <path d="M 6 12 L 22 12 L 22 65 L 30 65" fill="none" stroke="#B42318" stroke-width="2.5" stroke-dasharray="4 3"/>
+    <polygon points="30,61 38,65 30,69" fill="#B42318"/>
+    <rect x="42" y="36" width="170" height="60" rx="6" fill="#FEF2F2" stroke="#F87171" stroke-width="1.2"/>
+    <text x="50" y="52" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="800" fill="#B42318">-$150 BLEED</text>
+    <text x="50" y="66" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="500" fill="#7F1D1D">$60 reject + $50 short + $40 adj</text>
+    <text x="50" y="79" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="800" fill="#12263F">OWNER: CM &amp; PROCESSOR</text>
+  </g>
+
+  <!-- RUNG 5: PAID $550 -->
+  <g transform="translate(776, 480)">
+    <rect width="176" height="74" rx="8" fill="#166534" filter="url(#s-shadow)"/>
+    <text x="16" y="28" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#86EFAC" letter-spacing="1">5. PAID IN BANK</text>
+    <text x="16" y="58" font-family="Georgia, serif" font-size="28" font-weight="800" fill="#FFFDF8">$550</text>
+    <text x="96" y="54" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" fill="#DCFCE7">Real Cash</text>
+  </g>
+
+  <!-- Side Note on Ladder Disciplines -->
+  <g transform="translate(48, 485)">
+    <rect width="710" height="68" rx="6" fill="#FFFFFF" stroke="#CBD5E1"/>
+    <text x="16" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#12263F">CRITICAL LADDER RULES:</text>
+    <text x="16" y="38" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="600" fill="#334155">1. Always start at BID — never "Claimed" | 2. Gross = Net presumed unless client contract specifies discount.</text>
+    <text x="16" y="54" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="600" fill="#334155">3. Over-allowables require formal bids filed $\ge$ 5 days before conveyance | 4. Discrepancies without an owner remain open debts.</text>
+  </g>
+</svg>

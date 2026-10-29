@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Five Core Work Types: Done Is a Claim, Proof Is the Test | Property Preservation Class</title>
+  <style>
+    /* Standing Simple Rule + Memory Bar Standard */
+    :root {
+      --bg-dark: #0b1320;
+      --bg-surface: #12263f;
+      --bg-card: #1e293b;
+      --amber: #f59e0b;
+      --amber-light: #fef08a;
+      --teal: #0f766e;
+      --teal-light: #2dd4bf;
+      --border: #334155;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --sans: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+      --serif: Georgia, Cambria, "Times New Roman", serif;
+      --radius: 8px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text);
+      font-family: var(--sans);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+    }
+    header.class-header {
+      background: rgba(11, 19, 32, 0.95);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-badge {
+      background: var(--teal);
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 13px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+    }
+    .brand-title { font-size: 14px; font-weight: 700; color: #ffffff; }
+    .course-retelling-step {
+      font-size: 11px;
+      color: var(--amber-light);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    main.content-wrap {
+      max-width: 1080px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .title-block { border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+    .kicker {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      color: var(--amber);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    h1.page-title {
+      font-family: var(--serif);
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.15;
+      color: #ffffff;
+      margin-bottom: 12px;
+      text-wrap: balance;
+    }
+    p.story-intro {
+      font-family: var(--serif);
+      font-size: 18px;
+      color: #e2e8f0;
+      font-style: italic;
+      line-height: 1.55;
+      max-width: 920px;
+    }
+    .focal-visual {
+      background: var(--bg-surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+    }
+    .focal-visual img { width: 100%; height: auto; display: block; border-radius: 4px; }
+    .key-points-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 8px;
+    }
+    @media (max-width: 860px) { .key-points-grid { grid-template-columns: 1fr; } }
+    .key-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-top: 3.5px solid var(--teal);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .card-num {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--teal-light);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .card-heading {
+      font-family: var(--serif);
+      font-size: 19px;
+      color: #ffffff;
+      line-height: 1.25;
+      font-weight: 700;
+    }
+    .card-body { font-size: 14px; color: var(--text-muted); line-height: 1.55; }
+    .card-body strong { color: #ffffff; }
+    .card-body em { color: var(--amber-light); font-style: normal; }
+    .retelling-bar {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 12.5px;
+    }
+    .retelling-label { color: var(--amber-light); font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
+    .retelling-chain { display: flex; align-items: center; gap: 6px; color: var(--text-muted); font-weight: 600; flex-wrap: wrap; }
+    .retelling-chain span.done { color: var(--teal-light); }
+    .retelling-chain span.curr { color: var(--amber); font-weight: 800; text-decoration: underline; }
+    nav.class-nav {
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .btn-link {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border);
+      color: var(--text);
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+    .btn-link:hover { background: var(--amber); color: var(--bg-dark); border-color: var(--amber); }
+    .btn-link.primary { background: var(--amber); color: var(--bg-dark); border-color: var(--amber); }
+    .btn-link.primary:hover { background: #d97706; }
+  </style>
+</head>
+<body>
+
+  <header class="class-header">
+    <div class="brand">
+      <span class="brand-badge">JOB AID 02</span>
+      <span class="brand-title">Property Preservation Class • Five Work Types</span>
+    </div>
+    <div class="course-retelling-step">
+      RETELLING: HOUSE → CHAIN → ORDER → [WORK: 5 TYPES] → EVIDENCE → MONEY → CAPSTONE
+    </div>
+  </header>
+
+  <main class="content-wrap">
+    <div class="title-block">
+      <div class="kicker">FIVE WORK TYPES • EXECUTION &amp; PROOF CHECKLISTS</div>
+      <h1 class="page-title">Five Core Work Types: Done Is a Claim; Proof Is the Test</h1>
+      <p class="story-intro">
+        "Marcus stands in the overgrown yard of Maple House with a commercial mower, a contractor lockbox, an air compressor, and a camera. He doesn't do what he feels like doing—he executes the ordered scope, checks the life hazards, and shoots the mandatory angles before leaving the curb. If a single angle is missing, the sweat is free."
+      </p>
+    </div>
+
+    <div class="focal-visual">
+      <img src="TAKE_09_debris_cubic_yard_geometry.svg" alt="Cubic Yard Geometry Formula showing 9x6x3 ft pile equals 6 cubic yards">
+    </div>
+
+    <div class="key-points-grid">
+      <div class="key-card">
+        <span class="card-num">KEY POINT 1 • EXTERIOR CRAFT</span>
+        <h2 class="card-heading">Grass Is the Face; Secure Is the Permission Slip</h2>
+        <p class="card-body">
+          <strong>Grass Cut &amp; Recut:</strong> Full lot coverage required (front, sides, rear, curb swale). Missing the wide rear after shot disallows the entire invoice. <strong>Initial Secure:</strong> Replace exterior deadbolts to client code; mount lockbox with tumblers spun off; board broken entries with carriage bolts. <em>Remember: Wrongful lockout triggers catastrophic civil trespass liability.</em>
+        </p>
+      </div>
+
+      <div class="key-card">
+        <span class="card-num">KEY POINT 2 • WINTERIZATION INTEGRITY</span>
+        <h2 class="card-heading">Never Fake a Failed Pressure Test</h2>
+        <p class="card-body">
+          Shut water meter, drain water heater (breaker OFF first!), blow supply lines clear with air, and pour pink non-toxic propylene glycol antifreeze into all toilet bowls, tanks, and sink traps. <strong>Hold 35–40 PSI static test:</strong> if the needle drops, <strong>NEVER</strong> mark pass. Declare <strong>HOLD / SYSTEM FAILED PRESSURE TEST</strong>, photograph the drop, and bid repair.
+        </p>
+      </div>
+
+      <div class="key-card">
+        <span class="card-num">KEY POINT 3 • HONEST MATH &amp; INSPECTION TRUTH</span>
+        <h2 class="card-heading">Measure the Pile; Report the Condition</h2>
+        <p class="card-body">
+          <strong>Debris CY Formula:</strong> $\mathbf{L \times W \times H \div 27}$. A $9'\times 6'\times 3'$ pile equals exactly <strong>6 CY</strong>; billing 15 CY is fraud. Never touch personal property of value without a formal court order. <strong>Property Inspection:</strong> Inspector fixes nothing—the written survey and photo roll <em>IS the product</em>.
+        </p>
+      </div>
+    </div>
+
+    <div class="retelling-bar">
+      <span class="retelling-label">The Whole-Course Retelling Arc:</span>
+      <div class="retelling-chain">
+        <span class="done">House (1972)</span> →
+        <span class="done">Chain (5 Links)</span> →
+        <span class="done">Order (Lifecycle)</span> →
+        <span class="curr">Work (5 Types)</span> →
+        <span>Evidence (Forensics)</span> →
+        <span>Money (Staircase)</span> →
+        <span>Capstone (Cold Trial)</span>
+      </div>
+    </div>
+
+    <nav class="class-nav">
+      <a href="wall_map_5_link_chain.html" class="btn-link">◀ Job Aid 1: The Wall Map</a>
+      <a href="index.html" class="btn-link">Master Take-Home Hub</a>
+      <a href="quick_reference_cards.html" class="btn-link primary">Job Aid 3: Quick Cards ▶</a>
+    </nav>
+  </main>
+
+</body>
+</html>

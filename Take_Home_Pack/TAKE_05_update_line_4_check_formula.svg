@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="up-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCFAF6"/>
+      <stop offset="100%" stop-color="#F2ECE1"/>
+    </linearGradient>
+    <filter id="u-shadow" x="-3%" y="-4%" width="106%" height="110%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#12263F" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" fill="url(#up-bg)"/>
+  <rect x="20" y="20" width="920" height="500" rx="12" fill="none" stroke="#D6C8B2" stroke-width="1.5"/>
+
+  <!-- Top Title Banner -->
+  <rect x="36" y="34" width="888" height="56" rx="8" fill="#12263F"/>
+  <text x="54" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="800" fill="#F59E0B" letter-spacing="1.5">TAKE-HOME JOB AID 05: THE 25-WORD UPDATE LINE EMERGENCY BRAKE</text>
+  <rect x="806" y="48" width="102" height="28" rx="4" fill="#B42318"/>
+  <text x="857" y="66" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8" text-anchor="middle">&#8804; 25 WORDS</text>
+
+  <!-- Subtitle -->
+  <text x="38" y="116" font-family="Georgia, serif" font-size="18" font-weight="700" fill="#12263F">When signs of life whisper, stop and type twenty-five words.</text>
+  <text x="38" y="136" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="500" fill="#4B5563">Every field escalation must pass the 4-check rubric before the crew leaves the curb.</text>
+
+  <!-- 4-Check Rubric Container -->
+  <g transform="translate(38, 155)">
+    <!-- CHECK 1: SIGNAL -->
+    <g transform="translate(0, 0)">
+      <rect width="210" height="155" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#u-shadow)"/>
+      <rect width="210" height="30" rx="6" fill="#1E293B"/>
+      <text x="12" y="20" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F59E0B">CHECK 1: CONCRETE SIGNAL</text>
+      <text x="14" y="52" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="700" fill="#12263F">Name What Was Seen</text>
+      <text x="14" y="74" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="400" fill="#475569">• Humming cold fridge</text>
+      <text x="14" y="90" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="400" fill="#475569">• Lit digital microwave clock</text>
+      <text x="14" y="106" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="400" fill="#475569">• Prescription filled 4 days ago</text>
+      <text x="14" y="130" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="700" fill="#B42318">Never say: "Looks lived in."</text>
+    </g>
+
+    <!-- CHECK 2: DECISION -->
+    <g transform="translate(226, 0)">
+      <rect width="210" height="155" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#u-shadow)"/>
+      <rect width="210" height="30" rx="6" fill="#1E293B"/>
+      <text x="12" y="20" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F59E0B">CHECK 2: STATED DECISION</text>
+      <text x="14" y="52" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="700" fill="#12263F">State the Command: HOLD</text>
+      <text x="14" y="74" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="400" fill="#475569">• Do NOT rekey locks</text>
+      <text x="14" y="90" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="400" fill="#475569">• Do NOT board windows</text>
+      <text x="14" y="106" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="400" fill="#475569">• Retreat to public right-of-way</text>
+      <text x="14" y="130" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="700" fill="#B42318">HOLD is not REJECT.</text>
+    </g>
+
+    <!-- CHECK 3: NEXT ACTION -->
+    <g transform="translate(452, 0)">
+      <rect width="210" height="155" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#u-shadow)"/>
+      <rect width="210" height="30" rx="6" fill="#1E293B"/>
+      <text x="12" y="20" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F59E0B">CHECK 3: NEXT ACTION</text>
+      <text x="14" y="52" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="700" fill="#12263F">Name Escalate Path</text>
+      <text x="14" y="74" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="400" fill="#475569">• Escalate to VM / Manager</text>
+      <text x="14" y="90" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="400" fill="#475569">• Request servicer occupancy check</text>
+      <text x="14" y="106" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="400" fill="#475569">• Document exterior from curb</text>
+      <text x="14" y="130" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="700" fill="#0F766E">Action must have an owner.</text>
+    </g>
+
+    <!-- CHECK 4: WORD COUNT -->
+    <g transform="translate(678, 0)">
+      <rect width="206" height="155" rx="6" fill="#FFFFFF" stroke="#B42318" stroke-width="1.5" filter="url(#u-shadow)"/>
+      <rect width="206" height="30" rx="6" fill="#B42318"/>
+      <text x="12" y="20" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8">CHECK 4: WORD CEILING</text>
+      <text x="14" y="52" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="700" fill="#B42318">&#8804; 25 Words Total</text>
+      <text x="14" y="74" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="600" fill="#1E293B">• Zero preamble fluff</text>
+      <text x="14" y="90" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="600" fill="#1E293B">• Zero guesses or emotions</text>
+      <text x="14" y="106" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="600" fill="#1E293B">• Punctuation is not a word</text>
+      <text x="14" y="130" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="800" fill="#B42318">26 words = AUDIT FAIL.</text>
+    </g>
+  </g>
+
+  <!-- Comparison Showcase: Strong Model vs Weak Guess -->
+  <g transform="translate(38, 330)">
+    <!-- Model Line Box -->
+    <rect width="436" height="150" rx="8" fill="#F0FDF4" stroke="#166534" stroke-width="1.5"/>
+    <rect width="436" height="28" rx="8" fill="#166534"/>
+    <text x="16" y="19" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8">CANONICAL MODEL UPDATE LINE — 18 WORDS (PASS)</text>
+    <text x="16" y="56" font-family="Georgia, serif" font-size="14" font-style="italic" fill="#14532D">
+      "Fridge cold, clock lit, prescription 4 days old: occupancy uncertain. HOLD work, escalate to manager for occupancy check."
+    </text>
+    <line x1="16" y1="84" x2="420" y2="84" stroke="#BBF7D0" stroke-width="1"/>
+    <text x="16" y="104" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" fill="#166534">Rubric Score: 4/4 PASS</text>
+    <text x="16" y="122" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="500" fill="#14532D">
+      • 3 concrete signals named • Decision explicitly stated • Clear next escalation owner • Exactly 18 words
+    </text>
+  </g>
+
+  <g transform="translate(490, 330)">
+    <!-- Weak Guess Box -->
+    <rect width="436" height="150" rx="8" fill="#FEF2F2" stroke="#B42318" stroke-width="1.5"/>
+    <rect width="436" height="28" rx="8" fill="#B42318"/>
+    <text x="16" y="19" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8">WEAK BLUFFING ATTEMPT — 22 WORDS (FAIL)</text>
+    <text x="16" y="56" font-family="Georgia, serif" font-size="14" font-style="italic" fill="#7F1D1D">
+      "It looks like maybe someone is still living here because things seem fresh, so we might want to wait and see what happens."
+    </text>
+    <line x1="16" y1="84" x2="420" y2="84" stroke="#FECACA" stroke-width="1"/>
+    <text x="16" y="104" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800" fill="#B42318">Rubric Score: 0/4 CRITICAL FAIL</text>
+    <text x="16" y="122" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="500" fill="#7F1D1D">
+      • Zero signals named ("things seem fresh") • No operational command • No next owner • Passive fluff
+    </text>
+  </g>
+</svg>

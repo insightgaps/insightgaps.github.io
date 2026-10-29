@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="100%" height="100%">
+  <defs>
+    <linearGradient id="adj-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCFAF6"/>
+      <stop offset="100%" stop-color="#F2ECE1"/>
+    </linearGradient>
+    <filter id="a-shadow" x="-3%" y="-4%" width="106%" height="110%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#12263F" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="520" fill="url(#adj-bg)"/>
+  <rect x="20" y="20" width="920" height="480" rx="12" fill="none" stroke="#D6C8B2" stroke-width="1.5"/>
+
+  <!-- Top Title Banner -->
+  <rect x="36" y="34" width="888" height="56" rx="8" fill="#12263F"/>
+  <text x="54" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="800" fill="#F59E0B" letter-spacing="1.5">TAKE-HOME JOB AID 08: CANONICAL PROPERTY ADJUSTMENT (500/300/200)</text>
+  <rect x="806" y="48" width="102" height="28" rx="4" fill="#0F766E"/>
+  <text x="857" y="66" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8" text-anchor="middle">LEDGER FLOW</text>
+
+  <!-- Subtitle -->
+  <text x="38" y="116" font-family="Georgia, serif" font-size="18" font-weight="700" fill="#12263F">Surplus funds belong to the house, not to the company profit margin.</text>
+  <text x="38" y="136" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="500" fill="#4B5563">Adjustment applies received but unspent client funds against a verified property-level loss with Approver sign-off.</text>
+
+  <!-- Visual Ledger Flow Containers -->
+  <g transform="translate(48, 160)">
+    <!-- BOX 1: CLIENT FUNDS RECEIVED -->
+    <g transform="translate(0, 0)">
+      <rect width="240" height="180" rx="8" fill="#FFFFFF" stroke="#0F766E" stroke-width="1.8" filter="url(#a-shadow)"/>
+      <rect width="240" height="34" rx="8" fill="#0F766E"/>
+      <text x="16" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#FFFDF8">STEP 1: FUNDS RECEIVED</text>
+      
+      <text x="16" y="62" font-family="Georgia, serif" font-size="32" font-weight="800" fill="#0F766E">$500</text>
+      <text x="16" y="86" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#12263F">Client Remittance on Property</text>
+      <text x="16" y="106" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="400" fill="#475569">• Funds remitted by national</text>
+      <text x="16" y="122" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="400" fill="#475569">• No matching direct field cost</text>
+      <text x="16" y="146" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" fill="#0F766E">Classification: Unspent Balance</text>
+    </g>
+
+    <!-- ARROW 1 -> 2 WITH OFFSET EXPLANATION -->
+    <g transform="translate(252, 70)">
+      <path d="M 6 20 L 44 20" stroke="#B42318" stroke-width="3" fill="none"/>
+      <polygon points="44,15 52,20 44,25" fill="#B42318"/>
+      <text x="28" y="10" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800" fill="#B42318" text-anchor="middle">OFFSET</text>
+    </g>
+
+    <!-- BOX 2: VERIFIED LOSS TO ABSORB -->
+    <g transform="translate(316, 0)">
+      <rect width="240" height="180" rx="8" fill="#FFFFFF" stroke="#B42318" stroke-width="1.8" filter="url(#a-shadow)"/>
+      <rect width="240" height="34" rx="8" fill="#B42318"/>
+      <text x="16" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#FFFDF8">STEP 2: PROPERTY LOSS</text>
+      
+      <text x="16" y="62" font-family="Georgia, serif" font-size="32" font-weight="800" fill="#B42318">-$300</text>
+      <text x="16" y="86" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#12263F">Prior Order Deficit on Maple House</text>
+      <text x="16" y="106" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="400" fill="#475569">• Disallowed debris line item</text>
+      <text x="16" y="122" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="400" fill="#475569">• Same parcel address history</text>
+      <text x="16" y="146" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800" fill="#B42318">Loss Absorbed: $300</text>
+    </g>
+
+    <!-- ARROW 2 -> 3 -->
+    <g transform="translate(568, 70)">
+      <path d="M 6 20 L 44 20" stroke="#0F766E" stroke-width="3" fill="none"/>
+      <polygon points="44,15 52,20 44,25" fill="#0F766E"/>
+      <text x="28" y="10" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800" fill="#0F766E" text-anchor="middle">EQUALS</text>
+    </g>
+
+    <!-- BOX 3: REMAINING UNSPENT RESERVE -->
+    <g transform="translate(632, 0)">
+      <rect width="232" height="180" rx="8" fill="#FFFFFF" stroke="#1D3A5F" stroke-width="1.8" filter="url(#a-shadow)"/>
+      <rect width="232" height="34" rx="8" fill="#1D3A5F"/>
+      <text x="16" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#FFFDF8">STEP 3: NET BALANCE</text>
+      
+      <text x="16" y="62" font-family="Georgia, serif" font-size="32" font-weight="800" fill="#1D3A5F">$200</text>
+      <text x="16" y="86" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#12263F">Unspent Property Reserve</text>
+      <text x="16" y="106" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="400" fill="#475569">• Retained on address ledger</text>
+      <text x="16" y="122" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="400" fill="#475569">• Available for future repairs</text>
+      <text x="16" y="146" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800" fill="#1D3A5F">Final Reserve: $200</text>
+    </g>
+  </g>
+
+  <!-- Governance & Authority Box Below -->
+  <g transform="translate(48, 365)">
+    <rect width="864" height="110" rx="8" fill="#12263F"/>
+    <text x="24" y="28" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#F59E0B" letter-spacing="1">AUTHORITY &amp; RECONCILIATION RULE:</text>
+    <text x="24" y="48" font-family="Georgia, serif" font-size="14" font-weight="600" fill="#FFFDF8">
+      "The Processor prepares the calculation; the Authorised Approver (Operations Manager) reviews and signs before booking."
+    </text>
+    <text x="24" y="74" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="500" fill="#E2E8F0">
+      Never book adjustments across unrelated properties. Adjustments apply strictly to the SAME property address chain.
+    </text>
+    <text x="680" y="94" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="700" fill="#F59E0B">FIG 08: 500/300/200 ADJUSTMENT</text>
+  </g>
+</svg>

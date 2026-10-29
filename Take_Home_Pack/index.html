@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Take-Home Pack: Take the Chain With You | Property Preservation Class</title>
+  <style>
+    /* ==========================================================================
+       Property Preservation Take-Home Pack: Master Student Reference
+       Standing Simple Rule + Memory Bar Standard
+       Intro + Max 3 Sticky Story Key Points + 1 Image + Navigation ONLY
+       No student-facing full-notes drawers. All frameworks in Instructor Runbook.
+       ========================================================================== */
+    :root {
+      --bg-dark: #0b1320;
+      --bg-surface: #12263f;
+      --bg-card: #1e293b;
+      --amber: #f59e0b;
+      --amber-light: #fef08a;
+      --teal: #0f766e;
+      --teal-light: #2dd4bf;
+      --border: #334155;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --sans: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+      --serif: Georgia, Cambria, "Times New Roman", serif;
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text);
+      font-family: var(--sans);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+    }
+
+    /* Minimal Header */
+    header.class-header {
+      background: rgba(11, 19, 32, 0.95);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      background: var(--amber);
+      color: var(--bg-dark);
+      font-weight: 900;
+      font-size: 13px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    .brand-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .course-retelling-step {
+      font-size: 11px;
+      color: var(--amber-light);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* Main Container */
+    main.content-wrap {
+      max-width: 1080px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    /* Title Block */
+    .title-block {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 24px;
+    }
+
+    .kicker {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      color: var(--amber);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    h1.page-title {
+      font-family: var(--serif);
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.15;
+      color: #ffffff;
+      margin-bottom: 12px;
+      text-wrap: balance;
+    }
+
+    p.story-intro {
+      font-family: var(--serif);
+      font-size: 18px;
+      color: #e2e8f0;
+      font-style: italic;
+      line-height: 1.55;
+      max-width: 920px;
+    }
+
+    /* Focal Image Container */
+    .focal-visual {
+      background: var(--bg-surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+    }
+
+    .focal-visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 4px;
+    }
+
+    /* Three Sticky Key Points */
+    .key-points-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 860px) {
+      .key-points-grid { grid-template-columns: 1fr; }
+    }
+
+    .key-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-top: 3.5px solid var(--amber);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .card-num {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--amber);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .card-heading {
+      font-family: var(--serif);
+      font-size: 19px;
+      color: #ffffff;
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .card-body strong {
+      color: #ffffff;
+    }
+
+    .card-body em {
+      color: var(--amber-light);
+      font-style: normal;
+    }
+
+    /* Retelling Arc Banner */
+    .retelling-bar {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 12.5px;
+    }
+
+    .retelling-label {
+      color: var(--amber-light);
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .retelling-chain {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-muted);
+      font-weight: 600;
+      flex-wrap: wrap;
+    }
+
+    .retelling-chain span.done { color: var(--teal-light); }
+    .retelling-chain span.curr { color: var(--amber); font-weight: 800; text-decoration: underline; }
+
+    /* Navigation Bar */
+    nav.class-nav {
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn-link {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border);
+      color: var(--text);
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-link:hover {
+      background: var(--amber);
+      color: var(--bg-dark);
+      border-color: var(--amber);
+    }
+
+    .btn-link.primary {
+      background: var(--amber);
+      color: var(--bg-dark);
+      border-color: var(--amber);
+    }
+
+    .btn-link.primary:hover {
+      background: #d97706;
+    }
+
+    /* Sub-Aids Links Grid (Navigation Only) */
+    .sub-aids-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .sub-aids-bar { grid-template-columns: 1fr; }
+    }
+
+    .sub-aid-link {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      padding: 12px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      transition: all 0.2s ease;
+    }
+
+    .sub-aid-link:hover {
+      border-color: var(--teal-light);
+      background: #193556;
+    }
+
+    .sub-aid-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--amber-light);
+    }
+
+    .sub-aid-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Minimal Header -->
+  <header class="class-header">
+    <div class="brand">
+      <span class="brand-badge">TAKE-HOME</span>
+      <span class="brand-title">Property Preservation Class • 300 Minutes</span>
+    </div>
+    <div class="course-retelling-step">
+      RETELLING: HOUSE → CHAIN → ORDER → WORK → EVIDENCE → MONEY → CAPSTONE
+    </div>
+  </header>
+
+  <!-- Main Content Wrap -->
+  <main class="content-wrap">
+
+    <!-- Story Opening Header -->
+    <div class="title-block">
+      <div class="kicker">TAKE-HOME PACK • PERMANENT FIELD &amp; DESK REFERENCE</div>
+      <h1 class="page-title">Take the Chain With You: The Complete Story Retelling</h1>
+      <p class="story-intro">
+        "Maple House was born in 1972 on a quiet suburban cul-de-sac. For fifty years, she was a home. When the economic loop broke, she traveled five separate desks before a single lock cylinder was touched. Today, she is preserved, proven, and sold to a new young family. You do not leave this class with loose notes—you leave with the entire machine in your head. House, chain, order, work, evidence, money, capstone. No single role sees what you now see."
+      </p>
+    </div>
+
+    <!-- ONE Primary Focal Visual -->
+    <div class="focal-visual">
+      <img src="TAKE_01_wall_map_5_link_chain.svg" alt="The Five-Link Preservation Chain Wall Map showing Bank to Field Crew handoffs and responsibilities">
+    </div>
+
+    <!-- Max Three Sticky Story-Anchored Key Points -->
+    <div class="key-points-grid">
+      
+      <!-- Key Point 1 -->
+      <div class="key-card">
+        <span class="card-num">KEY POINT 1 • THE WHOLE CHAIN OR NO MONEY</span>
+        <h2 class="card-heading">Five Desks, Eleven Stops, One Clean Handoff</h2>
+        <p class="card-body">
+          A work order travels from <strong>Bank → Servicer → National → Office → Crew</strong> before a deadbolt turns. The field earns the bid, but the office earns the cash. An order incomplete in proof or missing authority never clears the final rung. Remember the standing law: <em>Vendor Manager gets the right crew to the right house with permission → Processor turns field proof into a clean, honest invoice → Client Manager turns the invoice into cash and explains every dollar that did not come back</em>.
+        </p>
+      </div>
+
+      <!-- Key Point 2 -->
+      <div class="key-card">
+        <span class="card-num">KEY POINT 2 • INVARIANT CORE TRUTHS</span>
+        <h2 class="card-heading">Permission First, Proof Always, Math Honest</h2>
+        <p class="card-body">
+          <strong>FHA insures loans—it never lends money.</strong> <em>Jordan v. Nationstar</em> applies to <strong>Washington State lien theory ONLY</strong>. Never fake a winterization pressure test: a dropped needle is forensic diagnostic truth, so report <strong>HOLD</strong>. Honest debris is measured by length times width times height divided by twenty-seven (<strong>L×W×H÷27</strong>). When signs of life whisper, type twenty-five words and back away to the curb.
+        </p>
+      </div>
+
+      <!-- Key Point 3 -->
+      <div class="key-card">
+        <span class="card-num">KEY POINT 3 • THE THREE NON-BLENDED STATUSES</span>
+        <h2 class="card-heading">Attended vs Demonstrated vs Authorised</h2>
+        <p class="card-body">
+          <strong>Attended</strong> means complete classroom literacy. <strong>Demonstrated in Class</strong> means independently auditing the cold capstone file with all four deliberate traps caught and authoring an approved update line. <strong>Operationally Authorised</strong> is <em>never granted by class attendance alone</em>—it depends on your employer's supervised onboarding, client-specific rules, and management sign-off.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Retelling Arc Banner -->
+    <div class="retelling-bar">
+      <span class="retelling-label">The Whole-Course Retelling Arc:</span>
+      <div class="retelling-chain">
+        <span class="done">House (1972)</span> →
+        <span class="done">Chain (5 Links)</span> →
+        <span class="done">Order (Lifecycle)</span> →
+        <span class="done">Work (5 Types)</span> →
+        <span class="done">Evidence (Forensics)</span> →
+        <span class="done">Money (Staircase)</span> →
+        <span class="curr">Capstone (Cold Trial)</span>
+      </div>
+    </div>
+
+    <!-- Sub-Aids Links Grid (Navigation Only) -->
+    <div class="sub-aids-bar">
+      <a href="wall_map_5_link_chain.html" class="sub-aid-link">
+        <span class="sub-aid-title">1. The Wall Map</span>
+        <span class="sub-aid-sub">5 Links &amp; 11-Stop Lifecycle Map</span>
+      </a>
+      <a href="checklists_five_work_types.html" class="sub-aid-link">
+        <span class="sub-aid-title">2. Five Work Checklists</span>
+        <span class="sub-aid-sub">Grass, Secure, Winter, Debris, Inspection</span>
+      </a>
+      <a href="quick_reference_cards.html" class="sub-aid-link">
+        <span class="sub-aid-title">3. Quick Pocket Cards</span>
+        <span class="sub-aid-sub">25-Word Line, 5 Gates, Loss Codes</span>
+      </a>
+      <a href="per_type_dealing_cards.html" class="sub-aid-link">
+        <span class="sub-aid-title">4. Per-Type Dealing Cards</span>
+        <span class="sub-aid-sub">Scope, Proof Minimums, Failure Traps</span>
+      </a>
+      <a href="master_glossary.html" class="sub-aid-link">
+        <span class="sub-aid-title">5. Master Glossary</span>
+        <span class="sub-aid-sub">10 Core Terms + Operational Vocabulary</span>
+      </a>
+      <a href="deep_notes_booklet_outline.html" class="sub-aid-link">
+        <span class="sub-aid-title">6. Deep-Notes Booklet</span>
+        <span class="sub-aid-sub">Macro History, Peaks &amp; 2026 Normalization</span>
+      </a>
+      <a href="TAKE_05_update_line_4_check_formula.svg" target="_blank" class="sub-aid-link">
+        <span class="sub-aid-title">7. 25-Word Update Line</span>
+        <span class="sub-aid-sub">4-Check Rubric &amp; Field Stop Card (TAKE_05)</span>
+      </a>
+      <a href="TAKE_06_six_loss_codes_matrix.svg" target="_blank" class="sub-aid-link">
+        <span class="sub-aid-title">8. Six Loss Codes Matrix</span>
+        <span class="sub-aid-sub">Reconciliation Grid &amp; Desk Bleed (TAKE_06)</span>
+      </a>
+      <a href="TAKE_08_property_level_adjustment_flow.svg" target="_blank" class="sub-aid-link">
+        <span class="sub-aid-title">9. Property Adjustment Flow</span>
+        <span class="sub-aid-sub">Ledger Balance &amp; Client Deduction (TAKE_08)</span>
+      </a>
+    </div>
+
+    <!-- Navigation ONLY -->
+    <nav class="class-nav">
+      <a href="../M10/" class="btn-link">◀ Module 10: The Cold Capstone</a>
+      <a href="../" class="btn-link">Class Hub</a>
+      <a href="../Case_Packet/" class="btn-link primary">Case Packet Dossier ▶</a>
+    </nav>
+
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="map-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCFAF6"/>
+      <stop offset="100%" stop-color="#F2ECE1"/>
+    </linearGradient>
+    <filter id="box-shadow" x="-4%" y="-6%" width="108%" height="116%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#12263F" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1000" height="600" fill="url(#map-bg)"/>
+  <rect x="20" y="20" width="960" height="560" rx="12" fill="none" stroke="#D6C8B2" stroke-width="1.5"/>
+
+  <!-- Top Title Banner -->
+  <rect x="36" y="34" width="928" height="56" rx="8" fill="#12263F"/>
+  <text x="54" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="800" fill="#F59E0B" letter-spacing="1.5">TAKE-HOME JOB AID 01: THE FIVE-LINK CHAIN WALL MAP</text>
+  <text x="560" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="600" fill="#E2E8F0">[SYNTHETIC FIELD REFERENCE — MAPLE HOUSE PROTOCOL]</text>
+  <rect x="830" y="48" width="118" height="28" rx="4" fill="#0F766E"/>
+  <text x="889" y="66" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8" text-anchor="middle">PERMANENT AID</text>
+
+  <!-- Narrative Header -->
+  <text x="38" y="116" font-family="Georgia, serif" font-size="19" font-weight="700" fill="#12263F">One work order crosses five separate desks before a single deadbolt turns.</text>
+  <text x="38" y="136" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="500" fill="#4B5563">The mortgage loop breaks at the loan level, but liability lives at the property line. Protect the chain at every handoff.</text>
+
+  <!-- Five Link Containers Horizontal Flow -->
+
+  <!-- LINK 1: BANK / INVESTOR -->
+  <g transform="translate(38, 160)">
+    <rect width="168" height="270" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#box-shadow)"/>
+    <rect width="168" height="42" rx="8" fill="#1E293B"/>
+    <text x="84" y="26" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#F8FAFC" text-anchor="middle" letter-spacing="1">LINK 1: LENDER</text>
+    
+    <text x="84" y="66" font-family="Georgia, serif" font-size="15" font-weight="700" fill="#1E293B" text-anchor="middle">Bank / Investor</text>
+    <text x="84" y="82" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#0F766E" text-anchor="middle">Fannie / Freddie / FHA / VA</text>
+
+    <line x1="16" y1="96" x2="152" y2="96" stroke="#E2E8F0" stroke-width="1"/>
+
+    <text x="16" y="116" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#12263F">Role in the Chain:</text>
+    <text x="16" y="132" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="400" fill="#334155">• Owns or insures note</text>
+    <text x="16" y="148" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="400" fill="#334155">• Sets allowable guidelines</text>
+    <text x="16" y="164" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="400" fill="#334155">• Enforces conveyance rules</text>
+
+    <rect x="12" y="186" width="144" height="68" rx="6" fill="#F8FAFC" stroke="#E2E8F0"/>
+    <text x="20" y="204" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800" fill="#B45309">CRITICAL GUARD:</text>
+    <text x="20" y="220" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="600" fill="#1E293B">FHA insures mortgages;</text>
+    <text x="20" y="234" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="800" fill="#B42318">FHA NEVER lends money.</text>
+  </g>
+
+  <!-- Arrow 1 -> 2 -->
+  <g transform="translate(208, 275)">
+    <path d="M 4 10 L 20 10" stroke="#0F766E" stroke-width="3" fill="none"/>
+    <polygon points="20,5 28,10 20,15" fill="#0F766E"/>
+  </g>
+
+  <!-- LINK 2: SERVICER -->
+  <g transform="translate(230, 160)">
+    <rect width="168" height="270" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#box-shadow)"/>
+    <rect width="168" height="42" rx="8" fill="#1D3A5F"/>
+    <text x="84" y="26" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#F8FAFC" text-anchor="middle" letter-spacing="1">LINK 2: SERVICER</text>
+    
+    <text x="84" y="66" font-family="Georgia, serif" font-size="15" font-weight="700" fill="#1E293B" text-anchor="middle">Loan Servicer</text>
+    <text x="84" y="82" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#0F766E" text-anchor="middle">Default &amp; Loss Mit Dept</text>
+
+    <line x1="16" y1="96" x2="152" y2="96" stroke="#E2E8F0" stroke-width="1"/>
+
+    <text x="16" y="116" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#12263F">Role in the Chain:</text>
+    <text x="16" y="132" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="400" fill="#334155">• Collects monthly payments</text>
+    <text x="16" y="148" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="400" fill="#334155">• Enforces 120-day CFPB floor</text>
+    <text x="16" y="164" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="400" fill="#334155">• Orders pre-foreclosure checks</text>
+
+    <rect x="12" y="186" width="144" height="68" rx="6" fill="#F8FAFC" stroke="#E2E8F0"/>
+    <text x="20" y="204" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800" fill="#B45309">CRITICAL GUARD:</text>
+    <text x="20" y="220" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="600" fill="#1E293B">Loss mitigation FIRST;</text>
+    <text x="20" y="234" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="800" fill="#B42318">Foreclosure is last resort.</text>
+  </g>
+
+  <!-- Arrow 2 -> 3 -->
+  <g transform="translate(400, 275)">
+    <path d="M 4 10 L 20 10" stroke="#0F766E" stroke-width="3" fill="none"/>
+    <polygon points="20,5 28,10 20,15" fill="#0F766E"/>
+  </g>
+
+  <!-- LINK 3: NATIONAL MANAGER -->
+  <g transform="translate(422, 160)">
+    <rect width="168" height="270" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#box-shadow)"/>
+    <rect width="168" height="42" rx="8" fill="#0F766E"/>
+    <text x="84" y="26" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#F8FAFC" text-anchor="middle" letter-spacing="1">LINK 3: NATIONAL</text>
+    
+    <text x="84" y="66" font-family="Georgia, serif" font-size="15" font-weight="700" fill="#1E293B" text-anchor="middle">Field Management</text>
+    <text x="84" y="82" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#0F766E" text-anchor="middle">50-State Dispatch Portal</text>
+
+    <line x1="16" y1="96" x2="152" y2="96" stroke="#E2E8F0" stroke-width="1"/>
+
+    <text x="16" y="116" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#12263F">Role in the Chain:</text>
+    <text x="16" y="132" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="400" fill="#334155">• 3,143 US counties coverage</text>
+    <text x="16" y="148" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="400" fill="#334155">• Distributes work order batches</text>
+    <text x="16" y="164" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="400" fill="#334155">• Receives proof in Client Portal</text>
+
+    <rect x="12" y="186" width="144" height="68" rx="6" fill="#F8FAFC" stroke="#E2E8F0"/>
+    <text x="20" y="204" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800" fill="#B45309">CRITICAL GUARD:</text>
+    <text x="20" y="220" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="600" fill="#1E293B">Client Portal ≠ PPW;</text>
+    <text x="20" y="234" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="800" fill="#B42318">Never mix engine and portal.</text>
+  </g>
+
+  <!-- Arrow 3 -> 4 -->
+  <g transform="translate(592, 275)">
+    <path d="M 4 10 L 20 10" stroke="#0F766E" stroke-width="3" fill="none"/>
+    <polygon points="20,5 28,10 20,15" fill="#0F766E"/>
+  </g>
+
+  <!-- LINK 4: OUR PRESERVATION OFFICE -->
+  <g transform="translate(614, 160)">
+    <rect width="176" height="270" rx="8" fill="#FFFFFF" stroke="#0F766E" stroke-width="2" filter="url(#box-shadow)"/>
+    <rect width="176" height="42" rx="8" fill="#12263F"/>
+    <text x="88" y="26" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#F59E0B" text-anchor="middle" letter-spacing="1">LINK 4: OUR OFFICE</text>
+    
+    <text x="88" y="66" font-family="Georgia, serif" font-size="15" font-weight="700" fill="#12263F" text-anchor="middle">EPCS Operations</text>
+    <text x="88" y="82" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="700" fill="#0F766E" text-anchor="middle">VM → Processor → CM</text>
+
+    <line x1="16" y1="96" x2="160" y2="96" stroke="#E2E8F0" stroke-width="1"/>
+
+    <text x="16" y="116" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#12263F">Three Working Desks:</text>
+    <text x="16" y="132" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="400" fill="#334155">• <tspan font-weight="700">VM:</tspan> Dispatches + keys</text>
+    <text x="16" y="148" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="400" fill="#334155">• <tspan font-weight="700">Processor:</tspan> Proof QC &amp; prep</text>
+    <text x="16" y="164" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="400" fill="#334155">• <tspan font-weight="700">CM:</tspan> Submission &amp; collections</text>
+
+    <rect x="12" y="186" width="152" height="68" rx="6" fill="#FEF3C7" stroke="#F59E0B"/>
+    <text x="20" y="204" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800" fill="#B45309">RFO GATE RULE:</text>
+    <text x="20" y="220" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="700" fill="#1E293B">Processor preps up to ready;</text>
+    <text x="20" y="234" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="800" fill="#B42318">Approver marks RFO personally.</text>
+  </g>
+
+  <!-- Arrow 4 -> 5 -->
+  <g transform="translate(792, 275)">
+    <path d="M 4 10 L 20 10" stroke="#0F766E" stroke-width="3" fill="none"/>
+    <polygon points="20,5 28,10 20,15" fill="#0F766E"/>
+  </g>
+
+  <!-- LINK 5: FIELD CREW -->
+  <g transform="translate(814, 160)">
+    <rect width="150" height="270" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#box-shadow)"/>
+    <rect width="150" height="42" rx="8" fill="#B45309"/>
+    <text x="75" y="26" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#F8FAFC" text-anchor="middle" letter-spacing="1">LINK 5: CREW</text>
+    
+    <text x="75" y="66" font-family="Georgia, serif" font-size="15" font-weight="700" fill="#1E293B" text-anchor="middle">Field Techs</text>
+    <text x="75" y="82" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#B45309" text-anchor="middle">Boots on Property</text>
+
+    <line x1="14" y1="96" x2="136" y2="96" stroke="#E2E8F0" stroke-width="1"/>
+
+    <text x="14" y="116" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#12263F">Role in the Chain:</text>
+    <text x="14" y="132" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="400" fill="#334155">• Validates occupancy gate</text>
+    <text x="14" y="148" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="400" fill="#334155">• Executes ordered scope</text>
+    <text x="14" y="164" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="400" fill="#334155">• Captures B/D/A photos</text>
+
+    <rect x="10" y="186" width="130" height="68" rx="6" fill="#F8FAFC" stroke="#E2E8F0"/>
+    <text x="16" y="204" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="800" fill="#B45309">SAFETY RULE:</text>
+    <text x="16" y="220" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="600" fill="#1E293B">Safety first →</text>
+    <text x="16" y="234" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="800" fill="#0F766E">Proof 2nd → Work 3rd.</text>
+  </g>
+
+  <!-- Bottom Strip: Summary Banner & Handoff Standard -->
+  <g transform="translate(38, 452)">
+    <rect width="926" height="110" rx="8" fill="#12263F"/>
+    
+    <text x="24" y="30" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#F59E0B" letter-spacing="1">THE UNIFIED CHAIN HANDOFF LAW:</text>
+    <text x="24" y="52" font-family="Georgia, serif" font-size="14" font-weight="600" fill="#FFFDF8">
+      "Vendor Manager gets the right crew to the right house with permission → Processor turns field proof into a clean, honest invoice → Client Manager turns the invoice into cash and explains every dollar that did not come back."
+    </text>
+
+    <line x1="24" y1="68" x2="902" y2="68" stroke="#334155" stroke-width="1"/>
+
+    <text x="24" y="90" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#94A3B8">STATUS LEVEL IN FORCE:</text>
+    <text x="180" y="90" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="600" fill="#E2E8F0">Attended (Class Complete) | Demonstrated in Class (Provisional) | Operationally Authorised (Employer Decision)</text>
+    <text x="780" y="90" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="700" fill="#F59E0B">FIG 01: FIVE-LINK WALL MAP</text>
+  </g>
+</svg>

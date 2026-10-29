@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="road-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCFAF6"/>
+      <stop offset="100%" stop-color="#F2ECE1"/>
+    </linearGradient>
+    <filter id="r-shadow" x="-3%" y="-4%" width="106%" height="110%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#12263F" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="540" fill="url(#road-bg)"/>
+  <rect x="20" y="20" width="960" height="500" rx="12" fill="none" stroke="#D6C8B2" stroke-width="1.5"/>
+
+  <!-- Top Title Banner -->
+  <rect x="36" y="34" width="928" height="56" rx="8" fill="#12263F"/>
+  <text x="54" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="800" fill="#F59E0B" letter-spacing="1.5">TAKE-HOME JOB AID 10: THE STATUTORY FORECLOSURE ROAD</text>
+  <rect x="836" y="48" width="112" height="28" rx="4" fill="#0F766E"/>
+  <text x="892" y="66" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8" text-anchor="middle">STRICT ORDER</text>
+
+  <!-- Subtitle -->
+  <text x="38" y="116" font-family="Georgia, serif" font-size="18" font-weight="700" fill="#12263F">Default has an order. Do not reorder it.</text>
+  <text x="38" y="136" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="500" fill="#4B5563">The borrower falls behind, the law protects the timeline, and preservation protects the collateral.</text>
+
+  <!-- Five Road Stations Horizontal Chain -->
+  <g transform="translate(38, 160)">
+    <!-- STOP 1: DEFAULT -->
+    <g transform="translate(0, 0)">
+      <rect width="168" height="230" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#r-shadow)"/>
+      <rect width="168" height="34" rx="8" fill="#1E293B"/>
+      <text x="84" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F59E0B" text-anchor="middle">1. DEFAULT</text>
+      
+      <text x="14" y="56" font-family="Georgia, serif" font-size="13" font-weight="700" fill="#12263F">Delinquent Payments</text>
+      <text x="14" y="76" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#475569">• 30, 60, 90 days late</text>
+      <text x="14" y="92" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#475569">• Borrower loses job/income</text>
+      <text x="14" y="108" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#475569">• Notice of Default issued</text>
+      
+      <rect x="10" y="130" width="148" height="85" rx="4" fill="#F8FAFC" stroke="#E2E8F0"/>
+      <text x="16" y="148" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="800" fill="#B45309">PRESERVATION ACTION:</text>
+      <text x="16" y="164" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="600" fill="#334155">Drive-by exterior occupancy</text>
+      <text x="16" y="178" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="600" fill="#334155">check only. No entry!</text>
+      <text x="16" y="196" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="700" fill="#0F766E">Owner retains all rights.</text>
+    </g>
+
+    <!-- Arrow 1 -> 2 -->
+    <g transform="translate(174, 95)">
+      <path d="M 4 15 L 16 15" stroke="#0F766E" stroke-width="2.5" fill="none"/>
+      <polygon points="16,11 22,15 16,19" fill="#0F766E"/>
+    </g>
+
+    <!-- STOP 2: LOSS MITIGATION FIRST -->
+    <g transform="translate(200, 0)">
+      <rect width="176" height="230" rx="8" fill="#F0FDF4" stroke="#166534" stroke-width="2" filter="url(#r-shadow)"/>
+      <rect width="176" height="34" rx="8" fill="#166534"/>
+      <text x="88" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8" text-anchor="middle">2. LOSS MITIGATION</text>
+      
+      <text x="14" y="56" font-family="Georgia, serif" font-size="13" font-weight="700" fill="#14532D">Help Precedes Penalty</text>
+      <text x="14" y="76" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="600" fill="#14532D">• 120-Day CFPB Floor</text>
+      <text x="14" y="92" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#14532D">• Forbearance / Mod</text>
+      <text x="14" y="108" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#14532D">• Short sale / Deed-in-lieu</text>
+      
+      <rect x="10" y="130" width="156" height="85" rx="4" fill="#FFFFFF" stroke="#86EFAC"/>
+      <text x="16" y="148" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="800" fill="#15803D">FEDERAL REGULATION:</text>
+      <text x="16" y="164" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="600" fill="#14532D">CFPB Reg X 12 CFR 1024.41</text>
+      <text x="16" y="178" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="700" fill="#14532D">bars foreclosure referral</text>
+      <text x="16" y="196" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="700" fill="#B42318">before 120 days delinquent.</text>
+    </g>
+
+    <!-- Arrow 2 -> 3 -->
+    <g transform="translate(382, 95)">
+      <path d="M 4 15 L 16 15" stroke="#0F766E" stroke-width="2.5" fill="none"/>
+      <polygon points="16,11 22,15 16,19" fill="#0F766E"/>
+    </g>
+
+    <!-- STOP 3: FORECLOSURE (STATE LAW) -->
+    <g transform="translate(408, 0)">
+      <rect width="168" height="230" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#r-shadow)"/>
+      <rect width="168" height="34" rx="8" fill="#1D3A5F"/>
+      <text x="84" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F8FAFC" text-anchor="middle">3. FORECLOSURE</text>
+      
+      <text x="14" y="56" font-family="Georgia, serif" font-size="13" font-weight="700" fill="#12263F">State Legal Action</text>
+      <text x="14" y="76" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#475569">• Judicial (Courts/Lawsuit)</text>
+      <text x="14" y="92" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#475569">• Non-Judicial (Trustee)</text>
+      <text x="14" y="108" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#475569">• 563-day national avg</text>
+      
+      <rect x="10" y="130" width="148" height="85" rx="4" fill="#FEF2F2" stroke="#FCA5A5"/>
+      <text x="16" y="148" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="800" fill="#B42318">LEGAL FENCE WARNING:</text>
+      <text x="16" y="164" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="700" fill="#991B1B">Jordan v. Nationstar is</text>
+      <text x="16" y="178" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="800" fill="#B42318">WASHINGTON ONLY.</text>
+      <text x="16" y="196" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="500" fill="#7F1D1D">Check state lien theory.</text>
+    </g>
+
+    <!-- Arrow 3 -> 4 -->
+    <g transform="translate(582, 95)">
+      <path d="M 4 15 L 16 15" stroke="#0F766E" stroke-width="2.5" fill="none"/>
+      <polygon points="16,11 22,15 16,19" fill="#0F766E"/>
+    </g>
+
+    <!-- STOP 4: AUCTION -->
+    <g transform="translate(608, 0)">
+      <rect width="168" height="230" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#r-shadow)"/>
+      <rect width="168" height="34" rx="8" fill="#1E293B"/>
+      <text x="84" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F59E0B" text-anchor="middle">4. AUCTION</text>
+      
+      <text x="14" y="56" font-family="Georgia, serif" font-size="13" font-weight="700" fill="#12263F">Sheriff / Trustee Sale</text>
+      <text x="14" y="76" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#475569">• Lender enters credit bid</text>
+      <text x="14" y="92" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#475569">• Third-party buyers bid</text>
+      <text x="14" y="108" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#475569">• Title transfer moment</text>
+      
+      <rect x="10" y="130" width="148" height="85" rx="4" fill="#F8FAFC" stroke="#E2E8F0"/>
+      <text x="16" y="148" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="800" fill="#1D3A5F">CREDIT BID MECHANISM:</text>
+      <text x="16" y="164" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="500" fill="#334155">If no bidder exceeds loan debt,</text>
+      <text x="16" y="178" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="700" fill="#12263F">title reverts to the bank</text>
+      <text x="16" y="196" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="600" fill="#0F766E">and becomes REO property.</text>
+    </g>
+
+    <!-- Arrow 4 -> 5 -->
+    <g transform="translate(782, 95)">
+      <path d="M 4 15 L 16 15" stroke="#0F766E" stroke-width="2.5" fill="none"/>
+      <polygon points="16,11 22,15 16,19" fill="#0F766E"/>
+    </g>
+
+    <!-- STOP 5: REO / AGENCY HOME -->
+    <g transform="translate(808, 0)">
+      <rect width="118" height="230" rx="8" fill="#FFFFFF" stroke="#0F766E" stroke-width="1.8" filter="url(#r-shadow)"/>
+      <rect width="118" height="34" rx="8" fill="#0F766E"/>
+      <text x="59" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="800" fill="#FFFDF8" text-anchor="middle">5. REO / HUD</text>
+      
+      <text x="10" y="56" font-family="Georgia, serif" font-size="12" font-weight="700" fill="#12263F">Final Stage</text>
+      <text x="10" y="76" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="500" fill="#334155">• Bank-owned</text>
+      <text x="10" y="90" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="500" fill="#334155">• Conveyed HUD</text>
+      <text x="10" y="104" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="500" fill="#334155">• Sold as-is</text>
+      
+      <rect x="6" y="130" width="106" height="85" rx="4" fill="#F0FDF4" stroke="#BBF7D0"/>
+      <text x="10" y="148" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="800" fill="#15803D">RECONVEYANCE:</text>
+      <text x="10" y="164" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="500" fill="#14532D">Maple House sold</text>
+      <text x="10" y="178" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="500" fill="#14532D">to new family.</text>
+      <text x="10" y="196" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="800" fill="#0F766E">Cycle complete.</text>
+    </g>
+  </g>
+
+  <!-- Bottom Strip -->
+  <g transform="translate(38, 415)">
+    <rect width="926" height="90" rx="8" fill="#12263F"/>
+    <text x="24" y="28" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#F59E0B" letter-spacing="1">THE INVARIANT CHANT &amp; CHRONOLOGY LAW:</text>
+    <text x="24" y="50" font-family="Georgia, serif" font-size="14" font-weight="600" fill="#FFFDF8">
+      "Default &#8594; Loss Mitigation FIRST &#8594; Foreclosure (State Law) &#8594; Auction &#8594; REO or Agency Home."
+    </text>
+    <text x="24" y="72" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="500" fill="#CBD5E1">
+      Remember: A filing is not a foreclosure start; a start is not a completed auction; and an REO is not a work order. Read the label before you trust the number.
+    </text>
+    <text x="790" y="72" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="700" fill="#F59E0B">FIG 10: FORECLOSURE ROAD</text>
+  </g>
+</svg>

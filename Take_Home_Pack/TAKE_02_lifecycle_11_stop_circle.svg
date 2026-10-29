@@ -1,0 +1,236 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" width="100%" height="100%">
+  <defs>
+    <linearGradient id="circle-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCFAF6"/>
+      <stop offset="100%" stop-color="#F2ECE1"/>
+    </linearGradient>
+    <filter id="c-shadow" x="-3%" y="-4%" width="106%" height="110%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#12263F" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1000" height="640" fill="url(#circle-bg)"/>
+  <rect x="20" y="20" width="960" height="600" rx="12" fill="none" stroke="#D6C8B2" stroke-width="1.5"/>
+
+  <!-- Top Title Banner -->
+  <rect x="36" y="34" width="928" height="56" rx="8" fill="#12263F"/>
+  <text x="54" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="800" fill="#F59E0B" letter-spacing="1.5">TAKE-HOME JOB AID 02: THE 11-STOP WORK ORDER LIFECYCLE</text>
+  <text x="560" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="600" fill="#E2E8F0">[SYNTHETIC WORKFLOW MATRIX — MAPLE HOUSE CYCLE]</text>
+  <rect x="830" y="48" width="118" height="28" rx="4" fill="#0F766E"/>
+  <text x="889" y="66" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8" text-anchor="middle">LIFECYCLE MAP</text>
+
+  <!-- Narrative Subtitle -->
+  <text x="38" y="116" font-family="Georgia, serif" font-size="18" font-weight="700" fill="#12263F">Eleven stops. One rule: Pass it clean, or stop it honestly.</text>
+  <text x="38" y="136" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="500" fill="#4B5563">Every stop has an intake requirement, an active judgment, and a strict rejection route when evidence fails.</text>
+
+  <!-- Sequential 11 Stops Grid Layout: 2 Rows (1-6 top, 7-11 bottom with backward loops) -->
+
+  <!-- STOP 1: ORDER -->
+  <g transform="translate(38, 160)">
+    <rect width="145" height="180" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#c-shadow)"/>
+    <rect width="145" height="28" rx="6" fill="#1E293B"/>
+    <text x="72" y="18" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F59E0B" text-anchor="middle">01. ORDER</text>
+    <text x="12" y="48" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#12263F">Client Directive</text>
+    <text x="12" y="66" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#475569">• Property address</text>
+    <text x="12" y="82" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#475569">• Scope &amp; deadline</text>
+    <text x="12" y="98" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#475569">• Governing rulebook</text>
+    <rect x="8" y="116" width="129" height="52" rx="4" fill="#F1F5F9"/>
+    <text x="14" y="132" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="700" fill="#0F766E">OWNER: CLIENT</text>
+    <text x="14" y="146" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="500" fill="#334155">Enters external portal.</text>
+  </g>
+
+  <!-- Arrow 1->2 -->
+  <path d="M 187 250 L 199 250" stroke="#0F766E" stroke-width="2" fill="none"/>
+  <polygon points="199,247 205,250 199,253" fill="#0F766E"/>
+
+  <!-- STOP 2: INTAKE -->
+  <g transform="translate(208, 160)">
+    <rect width="145" height="180" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#c-shadow)"/>
+    <rect width="145" height="28" rx="6" fill="#1E293B"/>
+    <text x="72" y="18" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F59E0B" text-anchor="middle">02. INTAKE</text>
+    <text x="12" y="48" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#12263F">Deep Read Desk</text>
+    <text x="12" y="66" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#475569">• Match address chain</text>
+    <text x="12" y="82" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#475569">• Check loan type</text>
+    <text x="12" y="98" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#475569">• Log strict timeline</text>
+    <rect x="8" y="116" width="129" height="52" rx="4" fill="#F1F5F9"/>
+    <text x="14" y="132" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="700" fill="#0F766E">OWNER: VM DESK</text>
+    <text x="14" y="146" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="500" fill="#334155">Never skim order notes.</text>
+  </g>
+
+  <!-- Arrow 2->3 -->
+  <path d="M 357 250 L 369 250" stroke="#0F766E" stroke-width="2" fill="none"/>
+  <polygon points="369,247 375,250 369,253" fill="#0F766E"/>
+
+  <!-- STOP 3: PERMISSION GATE -->
+  <g transform="translate(378, 160)">
+    <rect width="145" height="180" rx="6" fill="#FEF2F2" stroke="#B42318" stroke-width="1.8" filter="url(#c-shadow)"/>
+    <rect width="145" height="28" rx="6" fill="#B42318"/>
+    <text x="72" y="18" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8" text-anchor="middle">03. PERMISSION</text>
+    <text x="12" y="48" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#B42318">Right of Entry?</text>
+    <text x="12" y="66" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="600" fill="#7F1D1D">• Confirmed vacant?</text>
+    <text x="12" y="82" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="600" fill="#7F1D1D">• Jordan WA fence</text>
+    <text x="12" y="98" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="600" fill="#7F1D1D">• Uncertain = HOLD</text>
+    <rect x="8" y="116" width="129" height="52" rx="4" fill="#FFFFFF" stroke="#FCA5A5"/>
+    <text x="14" y="132" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="800" fill="#B42318">FAIL: HOLD &amp; ESCALATE</text>
+    <text x="14" y="146" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="600" fill="#991B1B">Never enter uncertain house.</text>
+  </g>
+
+  <!-- Arrow 3->4 -->
+  <path d="M 527 250 L 539 250" stroke="#0F766E" stroke-width="2" fill="none"/>
+  <polygon points="539,247 545,250 539,253" fill="#0F766E"/>
+
+  <!-- STOP 4: DISPATCH -->
+  <g transform="translate(548, 160)">
+    <rect width="145" height="180" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#c-shadow)"/>
+    <rect width="145" height="28" rx="6" fill="#1E293B"/>
+    <text x="72" y="18" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F59E0B" text-anchor="middle">04. DISPATCH</text>
+    <text x="12" y="48" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#12263F">Field Routing</text>
+    <text x="12" y="66" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#475569">• Authorised scope only</text>
+    <text x="12" y="82" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#475569">• Verified lockbox code</text>
+    <text x="12" y="98" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#475569">• Code fails = STOP</text>
+    <rect x="8" y="116" width="129" height="52" rx="4" fill="#F1F5F9"/>
+    <text x="14" y="132" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="700" fill="#0F766E">OWNER: VM DESK</text>
+    <text x="14" y="146" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="500" fill="#334155">Never guess lock code.</text>
+  </g>
+
+  <!-- Arrow 4->5 -->
+  <path d="M 697 250 L 709 250" stroke="#0F766E" stroke-width="2" fill="none"/>
+  <polygon points="709,247 715,250 709,253" fill="#0F766E"/>
+
+  <!-- STOP 5: FIELD EXECUTION -->
+  <g transform="translate(718, 160)">
+    <rect width="145" height="180" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#c-shadow)"/>
+    <rect width="145" height="28" rx="6" fill="#1E293B"/>
+    <text x="72" y="18" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F59E0B" text-anchor="middle">05. FIELD WORK</text>
+    <text x="12" y="48" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#12263F">Hands on Property</text>
+    <text x="12" y="66" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#475569">• Perimeter safety walk</text>
+    <text x="12" y="82" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#475569">• Check occupancy signals</text>
+    <text x="12" y="98" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="400" fill="#475569">• Perform ordered work</text>
+    <rect x="8" y="116" width="129" height="52" rx="4" fill="#F1F5F9"/>
+    <text x="14" y="132" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="700" fill="#B45309">OWNER: FIELD CREW</text>
+    <text x="14" y="146" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="500" fill="#334155">Safety first → Proof 2nd.</text>
+  </g>
+
+  <!-- Arrow 5->6 -->
+  <path d="M 867 250 L 879 250" stroke="#0F766E" stroke-width="2" fill="none"/>
+  <polygon points="879,247 885,250 879,253" fill="#0F766E"/>
+
+  <!-- STOP 6: PROOF CAPTURE -->
+  <g transform="translate(888, 160)">
+    <rect width="76" height="180" rx="6" fill="#FFFFFF" stroke="#0F766E" stroke-width="1.8" filter="url(#c-shadow)"/>
+    <rect width="76" height="28" rx="6" fill="#0F766E"/>
+    <text x="38" y="18" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800" fill="#FFFDF8" text-anchor="middle">06. PROOF</text>
+    <text x="8" y="48" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="700" fill="#12263F">B / D / A</text>
+    <text x="8" y="66" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="500" fill="#334155">Before</text>
+    <text x="8" y="80" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="500" fill="#334155">During</text>
+    <text x="8" y="94" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="500" fill="#334155">After</text>
+    <rect x="4" y="116" width="68" height="52" rx="4" fill="#F0FDF4"/>
+    <text x="8" y="132" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="800" fill="#166534">DATE STAMP</text>
+    <text x="8" y="146" font-family="'Segoe UI', system-ui, sans-serif" font-size="7.5" font-weight="600" fill="#166534">Per rulebook.</text>
+  </g>
+
+  <!-- Connective Curved Arrow: Row 1 (Stop 6) Down to Row 2 (Stop 7) -->
+  <path d="M 926 344 C 926 370, 926 385, 888 385" stroke="#0F766E" stroke-width="2.5" fill="none"/>
+  <polygon points="888,381 880,385 888,389" fill="#0F766E"/>
+
+  <!-- ROW 2: STOPS 7 to 11 (FLOWING RIGHT TO LEFT) -->
+
+  <!-- STOP 7: QUALITY CONTROL (QC) -->
+  <g transform="translate(738, 360)">
+    <rect width="140" height="175" rx="6" fill="#FFFFFF" stroke="#0F766E" stroke-width="1.8" filter="url(#c-shadow)"/>
+    <rect width="140" height="28" rx="6" fill="#0F766E"/>
+    <text x="70" y="18" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8" text-anchor="middle">07. QC DESK</text>
+    <text x="12" y="48" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#0F766E">4-Point Forensic QC</text>
+    <text x="12" y="66" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="500" fill="#334155">1. PLACE (Address/house)</text>
+    <text x="12" y="80" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="500" fill="#334155">2. TIME (Order window)</text>
+    <text x="12" y="94" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="500" fill="#334155">3. SCOPE (Lot, trim, clear)</text>
+    <text x="12" y="108" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="500" fill="#334155">4. CLARITY (Sharp gauge)</text>
+    <rect x="8" y="118" width="124" height="48" rx="4" fill="#FEF2F2" stroke="#FCA5A5"/>
+    <text x="12" y="134" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="800" fill="#B42318">GAP REJECT LOOP:</text>
+    <text x="12" y="148" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="600" fill="#991B1B">Return to Crew for re-trip.</text>
+  </g>
+
+  <!-- Arrow 7 -> 8 -->
+  <path d="M 734 445 L 720 445" stroke="#0F766E" stroke-width="2" fill="none"/>
+  <polygon points="720,442 714,445 720,448" fill="#0F766E"/>
+
+  <!-- STOP 8: INVOICE PREP -->
+  <g transform="translate(562, 360)">
+    <rect width="148" height="175" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#c-shadow)"/>
+    <rect width="148" height="28" rx="6" fill="#1E293B"/>
+    <text x="74" y="18" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F59E0B" text-anchor="middle">08. INVOICE PREP</text>
+    <text x="12" y="48" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#12263F">Internal PPW Engine</text>
+    <text x="12" y="66" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="400" fill="#475569">• Tag line items B / D / A</text>
+    <text x="12" y="80" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="400" fill="#475569">• Calculate exact CY math</text>
+    <text x="12" y="94" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="400" fill="#475569">• Verify allowables</text>
+    <text x="12" y="108" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="800" fill="#B42318">• Stops at Ready (NO RFO)</text>
+    <rect x="8" y="118" width="132" height="48" rx="4" fill="#F1F5F9"/>
+    <text x="12" y="134" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="700" fill="#0F766E">OWNER: PROCESSOR</text>
+    <text x="12" y="148" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="500" fill="#334155">Completes file up to ready.</text>
+  </g>
+
+  <!-- Arrow 8 -> 9 -->
+  <path d="M 558 445 L 544 445" stroke="#0F766E" stroke-width="2" fill="none"/>
+  <polygon points="544,442 538,445 544,448" fill="#0F766E"/>
+
+  <!-- STOP 9: SUBMISSION GATE (RFO) -->
+  <g transform="translate(378, 360)">
+    <rect width="156" height="175" rx="6" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2" filter="url(#c-shadow)"/>
+    <rect width="156" height="28" rx="6" fill="#12263F"/>
+    <text x="78" y="18" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F59E0B" text-anchor="middle">09. SUBMISSION</text>
+    <text x="12" y="48" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#B45309">The RFO Gate</text>
+    <text x="12" y="66" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="700" fill="#1E293B">• Approver cross-checks</text>
+    <text x="12" y="80" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="700" fill="#1E293B">• Approver marks RFO</text>
+    <text x="12" y="94" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="600" fill="#475569">• Transmit to Client Portal</text>
+    <rect x="8" y="118" width="140" height="48" rx="4" fill="#FFFFFF" stroke="#FCD34D"/>
+    <text x="12" y="134" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="800" fill="#12263F">OWNER: APPROVER</text>
+    <text x="12" y="148" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="700" fill="#B45309">Never submitted unapproved.</text>
+  </g>
+
+  <!-- Arrow 9 -> 10 -->
+  <path d="M 374 445 L 360 445" stroke="#0F766E" stroke-width="2" fill="none"/>
+  <polygon points="360,442 354,445 360,448" fill="#0F766E"/>
+
+  <!-- STOP 10: PAYMENT / REMITTANCE -->
+  <g transform="translate(208, 360)">
+    <rect width="142" height="175" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#c-shadow)"/>
+    <rect width="142" height="28" rx="6" fill="#1E293B"/>
+    <text x="71" y="18" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F59E0B" text-anchor="middle">10. PAYMENT</text>
+    <text x="12" y="48" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#12263F">Remittance Audit</text>
+    <text x="12" y="66" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="400" fill="#475569">• ~60-day lag [ESTIMATE]</text>
+    <text x="12" y="80" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="700" fill="#0F766E">• MATCH BY ADDRESS</text>
+    <text x="12" y="94" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="400" fill="#475569">• Gross = Net default</text>
+    <rect x="8" y="118" width="126" height="48" rx="4" fill="#F1F5F9"/>
+    <text x="12" y="134" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="700" fill="#0F766E">OWNER: CM DESK</text>
+    <text x="12" y="148" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="500" fill="#334155">Never match number alone.</text>
+  </g>
+
+  <!-- Arrow 10 -> 11 -->
+  <path d="M 204 445 L 190 445" stroke="#0F766E" stroke-width="2" fill="none"/>
+  <polygon points="190,442 184,445 190,448" fill="#0F766E"/>
+
+  <!-- STOP 11: RECONCILIATION & LOSS CODES -->
+  <g transform="translate(38, 360)">
+    <rect width="142" height="175" rx="6" fill="#FFFFFF" stroke="#0F766E" stroke-width="1.8" filter="url(#c-shadow)"/>
+    <rect width="142" height="28" rx="6" fill="#0F766E"/>
+    <text x="71" y="18" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8" text-anchor="middle">11. FOLLOW-UP</text>
+    <text x="12" y="48" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#0F766E">Reconciliation Desk</text>
+    <text x="12" y="66" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="500" fill="#334155">• 6 unified loss codes</text>
+    <text x="12" y="80" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="700" fill="#B42318">• UNEXPLAINED $\to$ 0</text>
+    <text x="12" y="94" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="500" fill="#334155">• Weekly queue audit</text>
+    <rect x="8" y="118" width="126" height="48" rx="4" fill="#FEF3C7" stroke="#F59E0B"/>
+    <text x="12" y="134" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="800" fill="#12263F">OWNER: CM DESK</text>
+    <text x="12" y="148" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="700" fill="#B45309">No order left unclosed.</text>
+  </g>
+
+  <!-- Bottom Bar: Backward Failures Rule -->
+  <g transform="translate(38, 550)">
+    <rect width="926" height="60" rx="6" fill="#12263F"/>
+    <text x="20" y="24" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F59E0B" letter-spacing="1">CRITICAL BACKWARD ROUTING PROTOCOL:</text>
+    <text x="20" y="42" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="500" fill="#FFFDF8">
+      Missing/Deficient QC Evidence (Stop 07) → Dispatches return trip to Field (Stop 05) | Uncertain Occupancy (Stop 03) → HALTS all dispatch until servicer verifies.
+    </text>
+    <text x="800" y="42" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" fill="#F59E0B">FIG 02: 11-STOP LIFECYCLE</text>
+  </g>
+</svg>

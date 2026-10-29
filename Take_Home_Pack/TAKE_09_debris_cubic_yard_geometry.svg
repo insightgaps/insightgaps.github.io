@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cy-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCFAF6"/>
+      <stop offset="100%" stop-color="#F2ECE1"/>
+    </linearGradient>
+    <filter id="cy-shadow" x="-3%" y="-4%" width="106%" height="110%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#12263F" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" fill="url(#cy-bg)"/>
+  <rect x="20" y="20" width="920" height="500" rx="12" fill="none" stroke="#D6C8B2" stroke-width="1.5"/>
+
+  <!-- Top Title Banner -->
+  <rect x="36" y="34" width="888" height="56" rx="8" fill="#12263F"/>
+  <text x="54" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="800" fill="#F59E0B" letter-spacing="1.5">TAKE-HOME JOB AID 09: CUBIC YARD (CY) FORENSIC MATHEMATICS</text>
+  <rect x="806" y="48" width="102" height="28" rx="4" fill="#0F766E"/>
+  <text x="857" y="66" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8" text-anchor="middle">&#247; 27 LAW</text>
+
+  <!-- Subtitle -->
+  <text x="38" y="116" font-family="Georgia, serif" font-size="18" font-weight="700" fill="#12263F">Debris is where honesty is measured — literally, in cubic yards.</text>
+  <text x="38" y="136" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="500" fill="#4B5563">The camera sees the pile, the tape measure records the feet, and the math proves the invoice.</text>
+
+  <!-- Left: The Formula Box -->
+  <g transform="translate(38, 155)">
+    <rect width="420" height="190" rx="8" fill="#FFFFFF" stroke="#12263F" stroke-width="1.8" filter="url(#cy-shadow)"/>
+    <rect width="420" height="34" rx="8" fill="#12263F"/>
+    <text x="16" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#F59E0B" letter-spacing="1">THE MASTER CUBIC YARD FORMULA</text>
+    
+    <!-- Big Formula Display -->
+    <g transform="translate(24, 60)">
+      <rect width="372" height="66" rx="6" fill="#F1F5F9" stroke="#CBD5E1"/>
+      <text x="186" y="42" font-family="Georgia, serif" font-size="20" font-weight="700" fill="#12263F" text-anchor="middle">
+        CY = (Length &#215; Width &#215; Height) &#247; 27
+      </text>
+    </g>
+
+    <text x="24" y="152" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#1D3A5F">Why divide by 27?</text>
+    <text x="24" y="170" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="500" fill="#475569">
+      1 Yard = 3 Feet &#8594; 1 Cubic Yard = 3 ft &#215; 3 ft &#215; 3 ft = 27 Cubic Feet.
+    </text>
+  </g>
+
+  <!-- Right: Worked Classroom Drills -->
+  <g transform="translate(480, 155)">
+    <rect width="444" height="190" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#cy-shadow)"/>
+    <rect width="444" height="34" rx="8" fill="#1D3A5F"/>
+    <text x="16" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#FFFDF8">WORKED FORENSIC CALCULATION EXAMPLES</text>
+    
+    <g transform="translate(16, 46)">
+      <text x="0" y="16" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#12263F">Example 1: The Classroom Baseline</text>
+      <text x="0" y="32" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#0F766E">
+        9 ft &#215; 6 ft &#215; 3 ft = 162 cu ft &#247; 27 = <tspan font-weight="700">6 CY</tspan>.
+      </text>
+      <text x="0" y="46" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="600" fill="#B42318">
+        If contractor bills 15 CY &#8594; AUDIT FAIL (Reject or adjust to 6 CY).
+      </text>
+
+      <line x1="0" y1="58" x2="412" y2="58" stroke="#E2E8F0" stroke-width="1"/>
+
+      <text x="0" y="76" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#12263F">Example 2: The Capstone Cold Case Pile</text>
+      <text x="0" y="92" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#0F766E">
+        8 ft &#215; 5 ft &#215; 3 ft = 120 cu ft &#247; 27 = <tspan font-weight="700">4.44 CY</tspan>.
+      </text>
+      <text x="0" y="106" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="600" fill="#B42318">
+        Tech billed 9 CY &#8594; FRAUDULENT OVERBILL (Fix to 4.44 CY).
+      </text>
+    </g>
+  </g>
+
+  <!-- Bottom: Physical Visual Benchmark Equivalents -->
+  <g transform="translate(38, 365)">
+    <rect width="886" height="135" rx="8" fill="#12263F"/>
+    <text x="24" y="26" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#F59E0B" letter-spacing="1">FIELD BENCHMARKS FOR CUBIC YARD AUDITING:</text>
+    
+    <g transform="translate(24, 42)">
+      <!-- Bench 1 -->
+      <g transform="translate(0, 0)">
+        <rect width="260" height="72" rx="6" fill="#1E293B" stroke="#334155"/>
+        <text x="14" y="24" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F8FAFC">6.5 FT PICKUP BED</text>
+        <text x="14" y="44" font-family="Georgia, serif" font-size="16" font-weight="700" fill="#86EFAC">~2.0 to 2.5 CY</text>
+        <text x="14" y="60" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Level with truck sidewalls</text>
+      </g>
+
+      <!-- Bench 2 -->
+      <g transform="translate(285, 0)">
+        <rect width="260" height="72" rx="6" fill="#1E293B" stroke="#334155"/>
+        <text x="14" y="24" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F8FAFC">10-FOOT ENCLOSED TRAILER</text>
+        <text x="14" y="44" font-family="Georgia, serif" font-size="16" font-weight="700" fill="#86EFAC">~8.0 to 10.0 CY</text>
+        <text x="14" y="60" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Stacked to roofline</text>
+      </g>
+
+      <!-- Bench 3 -->
+      <g transform="translate(570, 0)">
+        <rect width="268" height="72" rx="6" fill="#1E293B" stroke="#334155"/>
+        <text x="14" y="24" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F8FAFC">14-FOOT DUMPSTER</text>
+        <text x="14" y="44" font-family="Georgia, serif" font-size="16" font-weight="700" fill="#86EFAC">~14.0 to 16.0 CY</text>
+        <text x="14" y="60" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Full commercial container</text>
+      </g>
+    </g>
+  </g>
+</svg>
