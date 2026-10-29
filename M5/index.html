@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ch6: Who May Do What — The Preservation Office Course</title>
+  <meta name="description" content="Four fences stand between a crew and a house: the law, the client’s programme and order, the company’s own rules, and ordinary practice. When two of them disagree, the outermost fence wins.">
+  <style>
+    :root {
+      --bg-dark: #0b1320;
+      --bg-surface: #12263f;
+      --bg-card: #1e293b;
+      --bg-depth: #0f1c30;
+      --amber: #f59e0b;
+      --amber-light: #fef08a;
+      --teal-light: #2dd4bf;
+      --border: #334155;
+      --border-accent: #475569;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-subtle: #cbd5e1;
+      --sans: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+      --serif: Georgia, Cambria, "Times New Roman", serif;
+      --mono: "Space Mono", Consolas, "Courier New", monospace;
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: clamp(15px, 1.1vw, 17px);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+      min-width: 320px;
+      overflow-x: hidden;
+    }
+
+    /* STUDENT FACE HEADER */
+    header.class-header {
+      background: rgba(11, 19, 32, 0.95);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      background: var(--amber);
+      color: var(--bg-dark);
+      font-weight: 900;
+      font-size: 13px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    .brand-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .course-retelling-step {
+      font-size: 11px;
+      color: var(--amber-light);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    main.content-wrap {
+      max-width: 1080px;
+      width: 100%;
+      margin: 0 auto;
+      padding: clamp(24px, 4vw, 40px) 24px 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .title-block {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
+    }
+
+    .kicker {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      color: var(--amber);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    h1.page-title {
+      font-family: var(--serif);
+      font-size: clamp(26px, 4vw, 40px);
+      line-height: 1.2;
+      color: #ffffff;
+      margin-bottom: 12px;
+      text-wrap: balance;
+    }
+
+    p.story-intro {
+      font-family: var(--serif);
+      font-size: clamp(16px, 1.3vw, 19px);
+      color: #e2e8f0;
+      font-style: italic;
+      line-height: 1.5;
+      max-width: 920px;
+    }
+
+    /* ONE-LOOK FOCAL IMAGE */
+    .focal-visual {
+      background: var(--bg-surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+      position: relative;
+    }
+
+    .visual-mock-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--amber-light);
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 4px 10px;
+      margin-bottom: 8px;
+      letter-spacing: 0.05em;
+    }
+
+    .focal-visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 4px;
+    }
+
+    /* MAX 3 KEY POINTS */
+    .key-points-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 4px;
+    }
+
+    @media (max-width: 860px) {
+      .key-points-grid { grid-template-columns: 1fr; }
+    }
+
+    .key-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-top: 3.5px solid var(--amber);
+      border-radius: var(--radius);
+      padding: 20px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .card-num {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--amber);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .card-heading {
+      font-family: var(--serif);
+      font-size: 18px;
+      color: #ffffff;
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .card-body strong { color: #ffffff; }
+
+    /* STEP NAVIGATION BUTTONS */
+    nav.class-nav {
+      margin-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .btn-step {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border);
+      color: var(--text);
+      min-height: 48px;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-step:hover:not(.disabled) {
+      background: var(--amber);
+      color: var(--bg-dark);
+      border-color: var(--amber);
+    }
+
+    .btn-step.primary {
+      background: var(--amber);
+      color: var(--bg-dark);
+      border-color: var(--amber);
+    }
+
+    .btn-step.primary:hover { background: #d97706; }
+
+    .btn-step.disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      border-color: var(--border);
+    }
+
+    /* CONTENT DEPTH CONTAINER */
+    section.chapter-depth-container {
+      margin-top: 16px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg-depth);
+      overflow: hidden;
+    }
+
+    .depth-summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      background: var(--bg-surface);
+      cursor: pointer;
+      user-select: none;
+      font-family: var(--sans);
+      font-weight: 700;
+      font-size: 15px;
+      color: #ffffff;
+      min-height: 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .depth-summary::-webkit-details-marker { display: none; }
+    .depth-summary:hover { background: #162c47; }
+
+    .depth-indicator {
+      color: var(--amber);
+      font-family: var(--mono);
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .depth-inner {
+      padding: 24px 20px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* WORK ORDER SPEC BOX */
+    .wo-spec-box {
+      background: #09101a;
+      border: 1px solid var(--border-accent);
+      border-left: 4px solid var(--teal-light);
+      border-radius: 6px;
+      padding: 18px 20px;
+    }
+
+    .wo-spec-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+      border-bottom: 1px dashed var(--border);
+      padding-bottom: 8px;
+    }
+
+    .wo-badge {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--teal-light);
+      letter-spacing: 0.08em;
+    }
+
+    .wo-client {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .wo-title {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .wo-body {
+      font-family: var(--mono);
+      font-size: 12.5px;
+      color: var(--text-subtle);
+      line-height: 1.55;
+    }
+
+    /* RULES & REQUIREMENTS */
+    .depth-section-title {
+      font-family: var(--serif);
+      font-size: 19px;
+      color: #ffffff;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .depth-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .depth-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .depth-card-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--amber-light);
+    }
+
+    .depth-card-body {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ALL CHAPTERS NAV BLOCK */
+    section.all-chapters-nav {
+      margin-top: 24px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+    }
+
+    .all-chapters-title {
+      font-family: var(--serif);
+      font-size: 18px;
+      color: #ffffff;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .all-chapters-title a {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--amber);
+      text-decoration: underline;
+    }
+
+    ul.chapters-menu-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 8px 16px;
+    }
+
+    li.nav-item {
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+    }
+
+    a.nav-link {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 13.5px;
+      min-height: 48px;
+      width: 100%;
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 4px;
+      transition: all 0.15s ease;
+    }
+
+    a.nav-link:hover {
+      color: var(--amber-light);
+      background: rgba(245, 158, 11, 0.1);
+      text-decoration: underline;
+    }
+
+    li.nav-item.current {
+      background: rgba(245, 158, 11, 0.15);
+      border-radius: 4px;
+      border-left: 3px solid var(--amber);
+    }
+
+    .nav-current-label {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--amber-light);
+      padding: 6px 10px;
+      display: inline-flex;
+      align-items: center;
+      min-height: 48px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="class-header">
+    <div class="brand">
+      <span class="brand-badge">Ch6</span>
+      <span class="brand-title">The Preservation Office Course — Five Hours, One House</span>
+    </div>
+    <div class="course-retelling-step">CHAPTER 6 OF 11 · 30 MINUTES</div>
+  </header>
+
+  <main class="content-wrap">
+
+    <div class="title-block">
+      <div class="kicker">CHAPTER 6 OF 11 · 30 MINUTES</div>
+      <h1 class="page-title">Who May Do What</h1>
+      <p class="story-intro">Four fences stand between a crew and a house: the law, the client’s programme and order, the company’s own rules, and ordinary practice. When two of them disagree, the outermost fence wins.</p>
+    </div>
+
+    <div class="focal-visual">
+      <div class="visual-mock-badge">
+        <span>⚙</span>
+        <span>FLOWCHART / FOUR CONCENTRIC AUTHORITY FENCES · 100% SYNTHETIC</span>
+      </div>
+      <img src="M5_visual_01_four_authority_fences.svg" alt="Who May Do What visual illustration" width="960" height="540">
+    </div>
+
+    <div class="key-points-grid">
+
+      <div class="key-card">
+        <span class="card-num">KEY POINT 1</span>
+        <h2 class="card-heading">Law Sits Outside Every Other Rule</h2>
+        <p class="card-body">Authority runs in order: law, client programme and order, company rules and matrix, and ordinary practice. An order can narrow what law allows; it can never widen it.</p>
+      </div>
+
+      <div class="key-card">
+        <span class="card-num">KEY POINT 2</span>
+        <h2 class="card-heading">Every Desk Has a Ceiling</h2>
+        <p class="card-body">The crew may stop work but cannot authorise a new line. Dispatch may send a board but cannot promise money. The processor proves; the owner settles.</p>
+      </div>
+
+      <div class="key-card">
+        <span class="card-num">KEY POINT 3</span>
+        <h2 class="card-heading">When Layers Disagree, Climb</h2>
+        <p class="card-body">A lower rule never overrides a higher one. If practice says “we always do it” but the order forbids it, the order wins. When layers clash, work stops and climbs.</p>
+      </div>
+
+    </div>
+
+    <nav class="class-nav" aria-label="Chapter Progression">
+      <a href="../M4/" class="btn-step">◀ Ch5 Check Yourself: Rebuild the Chain</a>
+      <a href="/Syllabus/syllabus.html" class="btn-step">Class Syllabus</a>
+      <a href="../M6/" class="btn-step primary">Ch7 The Job, Start to Finish ▶</a>
+    </nav>
+
+    <section class="chapter-depth-container" aria-label="Operational Depth & Case Specifications">
+      <details class="depth-accordion" open>
+        <summary class="depth-summary">
+          <span>Operational Depth: Work Order Docket, Rules &amp; Protocols</span>
+          <span class="depth-indicator">▼ Click to Toggle Depth Details</span>
+        </summary>
+        <div class="depth-inner">
+
+          <div class="wo-spec-box">
+            <div class="wo-spec-header">
+              <span class="wo-badge">SYNTHETIC WORK ORDER EXAMPLE: OFFICE-WO-CH06-AUTHORITY-LADDER</span>
+              <span class="wo-client">CLIENT POOL: MOCK CLIENT POOL DELTA (FICTIONAL)</span>
+            </div>
+            <div class="wo-title">FIELD WORK ORDER DISPATCH SCOPE (100% FICTIONAL / LABELED EXAMPLE):</div>
+            <p class="wo-body">AUTHORITY FENCE AUDIT & SCOPE ESCALATION: Evaluate work order scope for discovered secondary broken window. Crew is on site with lockbox opened. Review allowable ceiling, apply the four-tier authority ladder, and submit formal over-allowable bid through client portal.</p>
+          </div>
+
+          <div>
+            <h2 class="depth-section-title">Governing Rules &amp; Compliance Standards</h2>
+            <div class="depth-grid">
+          <div class="depth-card">
+            <h3 class="depth-card-title">The Outer Fence Supremacy Law</h3>
+            <p class="depth-card-body">Statutory law supersedes client contract; client contract supersedes company policy; company policy supersedes field practice.</p>
+          </div>
+          <div class="depth-card">
+            <h3 class="depth-card-title">Approval Ceiling Inviolability</h3>
+            <p class="depth-card-body">Field crews hold zero spend authority; vendor managers hold dispatch-only authority; client approval required for all over-allowables.</p>
+          </div>
+          <div class="depth-card">
+            <h3 class="depth-card-title">The Stop-and-Climb Rule</h3>
+            <p class="depth-card-body">When two authority layers contradict, work must halt immediately and the dilemma must climb the chain in writing.</p>
+          </div>
+            </div>
+          </div>
+
+          <div>
+            <h2 class="depth-section-title">Operational Requirements &amp; Dealing Protocols</h2>
+            <div class="depth-grid">
+          <div class="depth-card">
+            <h3 class="depth-card-title">Authority Layer Matrix Check</h3>
+            <p class="depth-card-body">Audit order against four concentric authority tiers before tool release.</p>
+          </div>
+          <div class="depth-card">
+            <h3 class="depth-card-title">Over-Allowable Bid Submission</h3>
+            <p class="depth-card-body">Include 2 wide-angle context photos and 2 close-up damage photos with contractor bid estimate.</p>
+          </div>
+          <div class="depth-card">
+            <h3 class="depth-card-title">Dealing Point — Field Crew Pushback</h3>
+            <p class="depth-card-body">When subcontractors demand instant telephone authorization for unlisted work, explain that unapproved work pays $0.00.</p>
+          </div>
+            </div>
+          </div>
+
+        </div>
+      </details>
+    </section>
+
+    <section class="all-chapters-nav" aria-label="All Chapters Menu">
+      <div class="all-chapters-title">
+        <span>All 11 Chapters in the Office Course Path (300 Min Total)</span>
+        <a href="/Syllabus/syllabus.html">View Full Interactive Syllabus Tree →</a>
+      </div>
+      <ul class="chapters-menu-list">
+            <li class="nav-item"><a href="../M0/" class="nav-link">Ch1 (10 min) One House, Five Hours</a></li>
+            <li class="nav-item"><a href="../M1/" class="nav-link">Ch2 (25 min) The Chain: Five Hands on One House</a></li>
+            <li class="nav-item"><a href="../M2/" class="nav-link">Ch3 (30 min) How the System Was Built</a></li>
+            <li class="nav-item"><a href="../M3/" class="nav-link">Ch4 (20 min) Foreclosure, Step by Step</a></li>
+            <li class="nav-item"><a href="../M4/" class="nav-link">Ch5 (10 min) Check Yourself: Rebuild the Chain</a></li>
+            <li class="nav-item current" aria-current="page"><span class="nav-current-label">▶ Ch6 (30 min) Who May Do What (Current)</span></li>
+            <li class="nav-item"><a href="../M6/" class="nav-link">Ch7 (35 min) The Job, Start to Finish</a></li>
+            <li class="nav-item"><a href="../M7/" class="nav-link">Ch8 (25 min) Five Jobs, Done Right</a></li>
+            <li class="nav-item"><a href="../M8/" class="nav-link">Ch9 (35 min) Prove It With Photos</a></li>
+            <li class="nav-item"><a href="../M9/" class="nav-link">Ch10 (25 min) Where the Money Goes</a></li>
+            <li class="nav-item"><a href="../M10/" class="nav-link">Ch11 (35 min) The Final Test: One Unseen House</a></li>
+      </ul>
+    </section>
+
+  </main>
+
+</body>
+</html>

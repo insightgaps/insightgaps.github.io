@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%" role="img" aria-labelledby="m5title m5desc">
+  <title id="m5title">Four layers of authority: the outer fence wins</title>
+  <desc id="m5desc">Four nested fences labelled law, client programme and order, company rules and approval matrix, and ordinary practice. The outer fence wins every conflict. A side ladder shows what each desk may and may not authorise.</desc>
+  <defs>
+    <linearGradient id="m5bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B1320"/>
+      <stop offset="100%" stop-color="#12263F"/>
+    </linearGradient>
+    <filter id="m5shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" fill="url(#m5bg)"/>
+  <rect x="20" y="20" width="920" height="500" rx="10" fill="none" stroke="#334155" stroke-width="1.5"/>
+
+  <!-- Header -->
+  <rect x="36" y="34" width="888" height="50" rx="6" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+  <text x="54" y="65" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="900" fill="#F59E0B" letter-spacing="1.1">FOUR LAYERS OF AUTHORITY — THE OUTER FENCE WINS</text>
+  <rect x="700" y="46" width="208" height="26" rx="4" fill="#B42318"/>
+  <text x="804" y="64" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8" text-anchor="middle" letter-spacing="0.6">STOP WHEN TWO LAYERS DISAGREE</text>
+
+  <!-- Nested fences -->
+  <g transform="translate(36, 100)">
+    <!-- LAW -->
+    <rect x="0" y="0" width="500" height="360" rx="10" fill="#1C1917" stroke="#EA580C" stroke-width="3"/>
+    <text x="16" y="24" font-family="'Segoe UI', system-ui, sans-serif" font-size="12.5" font-weight="900" fill="#FDBA74" letter-spacing="1.2">1 · LAW</text>
+    <text x="484" y="24" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="700" fill="#FDBA74" text-anchor="end">cannot be waived by any order</text>
+
+    <!-- CLIENT -->
+    <rect x="16" y="38" width="468" height="306" rx="9" fill="#1E293B" stroke="#0284C7" stroke-width="2.5"/>
+    <text x="32" y="62" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="900" fill="#7DD3FC" letter-spacing="1.1">2 · CLIENT PROGRAMME &amp; ORDER</text>
+
+    <!-- COMPANY -->
+    <rect x="32" y="76" width="436" height="252" rx="8" fill="#172033" stroke="#10B981" stroke-width="2.5"/>
+    <text x="48" y="100" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="900" fill="#6EE7B7" letter-spacing="1.1">3 · COMPANY RULES &amp; APPROVAL</text>
+
+    <!-- PRACTICE -->
+    <rect x="48" y="114" width="404" height="198" rx="7" fill="#0F172A" stroke="#8B5CF6" stroke-width="2.5"/>
+    <text x="64" y="138" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="900" fill="#C4B5FD" letter-spacing="1.1">4 · ORDINARY PRACTICE</text>
+    <text x="436" y="138" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" fill="#C4B5FD" text-anchor="end">defaults, never authority</text>
+
+    <!-- House glyph -->
+    <g transform="translate(250, 236)" stroke="#F8FAFC" stroke-width="2.5" fill="none" stroke-linejoin="round">
+      <path d="M-40 0 L0 -34 L40 0"/>
+      <path d="M-30 -2 V38 H30 V-2"/>
+      <rect x="-9" y="12" width="18" height="26" fill="#F59E0B" stroke="none"/>
+    </g>
+    <text x="250" y="298" font-family="Georgia, serif" font-size="14.5" font-style="italic" fill="#E2E8F0" text-anchor="middle">The house sits inside all four.</text>
+  </g>
+
+  <!-- Right ladder -->
+  <g transform="translate(552, 100)">
+    <rect x="0" y="0" width="372" height="360" rx="8" fill="#1E293B" stroke="#475569" stroke-width="1.5" filter="url(#m5shadow)"/>
+    <rect x="0" y="0" width="372" height="40" rx="8" fill="#334155"/>
+    <text x="18" y="25" font-family="'Segoe UI', system-ui, sans-serif" font-size="12.5" font-weight="900" fill="#F8FAFC" letter-spacing="1">WHO MAY SAY YES TO WHAT</text>
+
+    <!-- Crew -->
+    <g transform="translate(14, 54)">
+      <rect x="0" y="0" width="344" height="66" rx="6" fill="#0F172A" stroke="#475569" stroke-width="1"/>
+      <text x="12" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="900" fill="#F59E0B">FIELD CREW</text>
+      <text x="332" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" fill="#6EE7B7" text-anchor="end">MAY STOP</text>
+      <text x="12" y="41" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" fill="#CBD5E1">Can refuse unsafe or unauthorised work.</text>
+      <text x="12" y="57" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" fill="#F87171">Cannot authorise a new line or spend.</text>
+    </g>
+
+    <!-- Dispatch -->
+    <g transform="translate(14, 128)">
+      <rect x="0" y="0" width="344" height="66" rx="6" fill="#0F172A" stroke="#475569" stroke-width="1"/>
+      <text x="12" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="900" fill="#F59E0B">DISPATCH / VENDOR MANAGER</text>
+      <text x="332" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" fill="#6EE7B7" text-anchor="end">MAY SEND</text>
+      <text x="12" y="41" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" fill="#CBD5E1">Can send a crew or a board to a named scope.</text>
+      <text x="12" y="57" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" fill="#F87171">Cannot promise money the order has not set.</text>
+    </g>
+
+    <!-- Processor -->
+    <g transform="translate(14, 202)">
+      <rect x="0" y="0" width="344" height="66" rx="6" fill="#0F172A" stroke="#475569" stroke-width="1"/>
+      <text x="12" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="900" fill="#F59E0B">PROCESSOR</text>
+      <text x="332" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" fill="#6EE7B7" text-anchor="end">MAY PROVE</text>
+      <text x="12" y="41" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" fill="#CBD5E1">Can build the file and invoice the proven scope.</text>
+      <text x="12" y="57" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" fill="#F87171">Cannot approve an over-allowable line.</text>
+    </g>
+
+    <!-- Owner / client -->
+    <g transform="translate(14, 276)">
+      <rect x="0" y="0" width="344" height="66" rx="6" fill="#0F172A" stroke="#EA580C" stroke-width="1.5"/>
+      <text x="12" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="900" fill="#FDBA74">OWNER OF THE FILE / CLIENT</text>
+      <text x="332" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" fill="#6EE7B7" text-anchor="end">MAY SETTLE</text>
+      <text x="12" y="41" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" fill="#CBD5E1">Can release the file and answer new scope.</text>
+      <text x="12" y="57" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" fill="#F87171">Cannot override law or rewrite the order alone.</text>
+    </g>
+  </g>
+
+  <!-- Bottom rule -->
+  <g transform="translate(36, 474)">
+    <rect x="0" y="0" width="888" height="34" rx="6" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+    <text x="18" y="23" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="900" fill="#F59E0B">CONFLICT RULE:</text>
+    <text x="140" y="23" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#E2E8F0">A lower layer never overrides a higher one. Stop, write what has stopped, and climb.</text>
+  </g>
+</svg>
