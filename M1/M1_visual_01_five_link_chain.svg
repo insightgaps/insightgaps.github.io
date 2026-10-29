@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1320" />
+      <stop offset="100%" stop-color="#12263f" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000" flood-opacity="0.4" />
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#f59e0b" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="680" fill="url(#bgGrad)" rx="16" />
+  <rect x="20" y="20" width="1160" height="640" fill="none" stroke="#d6c8b2" stroke-opacity="0.15" stroke-width="1" rx="12" />
+
+  <!-- Title & Kicker -->
+  <text x="60" y="65" fill="#f59e0b" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="800" letter-spacing="2">MODULE M1 — THE INDUSTRY SYSTEM MAP</text>
+  <text x="60" y="105" fill="#fffdf8" font-family="Georgia, serif" font-size="30" font-weight="700">The Five-Link Preservation Chain</text>
+  <text x="60" y="135" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="15">One work order travels 1,200 miles and five distinct legal hands before a lock is touched.</text>
+
+  <!-- Status / Context Badge -->
+  <g transform="translate(930, 48)">
+    <rect width="210" height="32" rx="16" fill="#1e293b" stroke="#f59e0b" stroke-opacity="0.6" stroke-width="1.5" />
+    <circle cx="18" cy="16" r="5" fill="#f59e0b" />
+    <text x="32" y="21" fill="#f8fafc" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="700" letter-spacing="1">ILLUSTRATIVE CHAIN</text>
+  </g>
+
+  <!-- The Gap Banner -->
+  <rect x="60" y="165" width="1080" height="42" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1" />
+  <text x="80" y="191" fill="#e2e8f0" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="600">
+    <tspan fill="#f59e0b" font-weight="800">THE CORE REALITY: </tspan>
+    The gap between financial capital (investor/servicer) and physical structure (Maple House) is bridged exclusively by verified handoffs.
+  </text>
+
+  <!-- The 5 Links Container -->
+  <!-- Link 1: Bank / Investor -->
+  <g transform="translate(60, 240)" filter="url(#shadow)">
+    <rect width="195" height="260" rx="10" fill="#fffdf8" stroke="#d6c8b2" stroke-width="1.5" />
+    <rect width="195" height="44" rx="10" fill="#12263f" />
+    <rect y="34" width="195" height="10" fill="#12263f" />
+    <text x="16" y="28" fill="#f59e0b" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="800">LINK 1</text>
+    <text x="65" y="28" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="700">Bank / Lender</text>
+    <text x="16" y="75" fill="#12263f" font-family="Georgia, serif" font-size="18" font-weight="700">Financial Risk</text>
+    <text x="16" y="100" fill="#475569" font-family="'Segoe UI', sans-serif" font-size="13" line-height="1.4">Owns note or insures risk (FHA/Fannie/Freddie/Bank).</text>
+    <line x1="16" y1="130" x2="179" y2="130" stroke="#e2e8f0" stroke-width="1" />
+    <text x="16" y="152" fill="#0f766e" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700">ROLE &amp; FOCUS</text>
+    <text x="16" y="172" fill="#1e293b" font-family="'Segoe UI', sans-serif" font-size="12">• Capital preservation</text>
+    <text x="16" y="192" fill="#1e293b" font-family="'Segoe UI', sans-serif" font-size="12">• Regulatory compliance</text>
+    <text x="16" y="212" fill="#1e293b" font-family="'Segoe UI', sans-serif" font-size="12">• Conveyance recovery</text>
+    <rect x="16" y="226" width="163" height="22" rx="4" fill="#f1f5f9" />
+    <text x="22" y="241" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="600">Location: Wall St / Dallas</text>
+  </g>
+
+  <!-- Arrow 1 -->
+  <line x1="262" y1="365" x2="278" y2="365" stroke="#f59e0b" stroke-width="3" marker-end="url(#arrow)" />
+
+  <!-- Link 2: Servicer -->
+  <g transform="translate(285, 240)" filter="url(#shadow)">
+    <rect width="195" height="260" rx="10" fill="#fffdf8" stroke="#d6c8b2" stroke-width="1.5" />
+    <rect width="195" height="44" rx="10" fill="#12263f" />
+    <rect y="34" width="195" height="10" fill="#12263f" />
+    <text x="16" y="28" fill="#f59e0b" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="800">LINK 2</text>
+    <text x="65" y="28" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="700">Loan Servicer</text>
+    <text x="16" y="75" fill="#12263f" font-family="Georgia, serif" font-size="18" font-weight="700">Daily Loan Admin</text>
+    <text x="16" y="100" fill="#475569" font-family="'Segoe UI', sans-serif" font-size="13">Collects payments; manages default, loss mit &amp; legal.</text>
+    <line x1="16" y1="130" x2="179" y2="130" stroke="#e2e8f0" stroke-width="1" />
+    <text x="16" y="152" fill="#0f766e" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700">ROLE &amp; FOCUS</text>
+    <text x="16" y="172" fill="#1e293b" font-family="'Segoe UI', sans-serif" font-size="12">• Duty runs pre-REO</text>
+    <text x="16" y="192" fill="#1e293b" font-family="'Segoe UI', sans-serif" font-size="12">• Must protect property</text>
+    <text x="16" y="212" fill="#1e293b" font-family="'Segoe UI', sans-serif" font-size="12">• Cannot staff 3,143 cos.</text>
+    <rect x="16" y="226" width="163" height="22" rx="4" fill="#f1f5f9" />
+    <text x="22" y="241" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="600">Location: Charlotte / Plano</text>
+  </g>
+
+  <!-- Arrow 2 -->
+  <line x1="487" y1="365" x2="503" y2="365" stroke="#f59e0b" stroke-width="3" marker-end="url(#arrow)" />
+
+  <!-- Link 3: National FSM -->
+  <g transform="translate(510, 240)" filter="url(#shadow)">
+    <rect width="195" height="260" rx="10" fill="#fffdf8" stroke="#d6c8b2" stroke-width="1.5" />
+    <rect width="195" height="44" rx="10" fill="#12263f" />
+    <rect y="34" width="195" height="10" fill="#12263f" />
+    <text x="16" y="28" fill="#f59e0b" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="800">LINK 3</text>
+    <text x="65" y="28" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="700">National FSM</text>
+    <text x="16" y="75" fill="#12263f" font-family="Georgia, serif" font-size="18" font-weight="700">50-State Logistics</text>
+    <text x="16" y="100" fill="#475569" font-family="'Segoe UI', sans-serif" font-size="13">Coordinates vendors, sets pricing matrices &amp; portal.</text>
+    <line x1="16" y1="130" x2="179" y2="130" stroke="#e2e8f0" stroke-width="1" />
+    <text x="16" y="152" fill="#0f766e" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700">ROLE &amp; FOCUS</text>
+    <text x="16" y="172" fill="#1e293b" font-family="'Segoe UI', sans-serif" font-size="12">• Dispatches regional work</text>
+    <text x="16" y="192" fill="#1e293b" font-family="'Segoe UI', sans-serif" font-size="12">• Enforces client handbook</text>
+    <text x="16" y="212" fill="#1e293b" font-family="'Segoe UI', sans-serif" font-size="12">• Aggregates proof files</text>
+    <rect x="16" y="226" width="163" height="22" rx="4" fill="#f1f5f9" />
+    <text x="22" y="241" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="600">Location: Cleveland / Tampa</text>
+  </g>
+
+  <!-- Arrow 3 -->
+  <line x1="712" y1="365" x2="728" y2="365" stroke="#f59e0b" stroke-width="3" marker-end="url(#arrow)" />
+
+  <!-- Link 4: Preservation Office -->
+  <g transform="translate(735, 240)" filter="url(#shadow)">
+    <rect width="195" height="260" rx="10" fill="#fffdf8" stroke="#f59e0b" stroke-width="2.5" />
+    <rect width="195" height="44" rx="10" fill="#0f766e" />
+    <rect y="34" width="195" height="10" fill="#0f766e" />
+    <text x="16" y="28" fill="#fef08a" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="800">LINK 4 (YOU)</text>
+    <text x="100" y="28" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="700">Our Office</text>
+    <text x="16" y="75" fill="#0f766e" font-family="Georgia, serif" font-size="18" font-weight="700">The Quality Hub</text>
+    <text x="16" y="100" fill="#475569" font-family="'Segoe UI', sans-serif" font-size="13">Intake, permission gate, QC audit, invoice prep &amp; RFO.</text>
+    <line x1="16" y1="130" x2="179" y2="130" stroke="#e2e8f0" stroke-width="1" />
+    <text x="16" y="152" fill="#b45309" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700">DESK ROLES</text>
+    <text x="16" y="172" fill="#1e293b" font-family="'Segoe UI', sans-serif" font-size="12">• Vendor Mgr (Dispatch)</text>
+    <text x="16" y="192" fill="#1e293b" font-family="'Segoe UI', sans-serif" font-size="12">• Processor (Proof &amp; Math)</text>
+    <text x="16" y="212" fill="#1e293b" font-family="'Segoe UI', sans-serif" font-size="12">• Client Mgr (Submit &amp; $)</text>
+    <rect x="16" y="226" width="163" height="22" rx="4" fill="#ecfdf5" />
+    <text x="22" y="241" fill="#0f766e" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700">Engine: Internal (PPW)</text>
+  </g>
+
+  <!-- Arrow 4 -->
+  <line x1="937" y1="365" x2="953" y2="365" stroke="#f59e0b" stroke-width="3" marker-end="url(#arrow)" />
+
+  <!-- Link 5: Field Crew -->
+  <g transform="translate(960, 240)" filter="url(#shadow)">
+    <rect width="180" height="260" rx="10" fill="#fffdf8" stroke="#d6c8b2" stroke-width="1.5" />
+    <rect width="180" height="44" rx="10" fill="#12263f" />
+    <rect y="34" width="180" height="10" fill="#12263f" />
+    <text x="14" y="28" fill="#f59e0b" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="800">LINK 5</text>
+    <text x="60" y="28" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="700">Field Crew</text>
+    <text x="14" y="75" fill="#12263f" font-family="Georgia, serif" font-size="18" font-weight="700">Hands on House</text>
+    <text x="14" y="100" fill="#475569" font-family="'Segoe UI', sans-serif" font-size="13">Executes scope, shoots B/D/A photos, verifies safety.</text>
+    <line x1="14" y1="130" x2="166" y2="130" stroke="#e2e8f0" stroke-width="1" />
+    <text x="14" y="152" fill="#0f766e" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700">ROLE &amp; FOCUS</text>
+    <text x="14" y="172" fill="#1e293b" font-family="'Segoe UI', sans-serif" font-size="12">• Rekey, board, cut lawn</text>
+    <text x="14" y="192" fill="#1e293b" font-family="'Segoe UI', sans-serif" font-size="12">• Winterize &amp; clear trash</text>
+    <text x="14" y="212" fill="#1e293b" font-family="'Segoe UI', sans-serif" font-size="12">• Real-time mobile upload</text>
+    <rect x="14" y="226" width="152" height="22" rx="4" fill="#f1f5f9" />
+    <text x="20" y="241" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="600">At: Maple House Porch</text>
+  </g>
+
+  <!-- Bottom Insight Strip -->
+  <rect x="60" y="535" width="1080" height="95" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1" />
+  <circle cx="95" cy="582" r="18" fill="#f59e0b" fill-opacity="0.2" />
+  <text x="95" y="588" fill="#f59e0b" font-family="Georgia, serif" font-size="20" font-weight="700" text-anchor="middle">!</text>
+  
+  <text x="130" y="567" fill="#f8fafc" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="700">
+    THE ANCHOR FORMULA FOR MODULE M1:
+  </text>
+  <text x="130" y="590" fill="#cbd5e1" font-family="'Segoe UI', sans-serif" font-size="13">
+    "A property can APPEAR vacant yet lack legal permission. A work order can READ complete while proof is deficient."
+  </text>
+  <text x="130" y="612" fill="#f59e0b" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="600">
+    Handoff Rule: Every step passes verified evidence onward, or halts with an honest, documented HOLD.
+  </text>
+
+  <!-- Footer metadata -->
+  <text x="1000" y="660" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="11">Asset ID: M1_visual_01</text>
+</svg>

@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1320" />
+      <stop offset="100%" stop-color="#12263f" />
+    </linearGradient>
+    <filter id="shadow4" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#000" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="680" fill="url(#bgGrad4)" rx="16" />
+  <rect x="20" y="20" width="1160" height="640" fill="none" stroke="#d6c8b2" stroke-opacity="0.15" stroke-width="1" rx="12" />
+
+  <!-- Header -->
+  <text x="60" y="65" fill="#f59e0b" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="800" letter-spacing="2">EXERCISE INSERT X-02 — 7 MINUTES PAIR LAB</text>
+  <text x="60" y="105" fill="#fffdf8" font-family="Georgia, serif" font-size="30" font-weight="700">Actor Card Assembly Matrix</text>
+  <text x="60" y="135" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="15">Every actor needs specific inputs, possesses strictly fenced authority, and causes catastrophic loss if handoffs fail.</text>
+
+  <!-- Timer badge -->
+  <g transform="translate(930, 48)">
+    <rect width="210" height="32" rx="16" fill="#1e293b" stroke="#f59e0b" stroke-opacity="0.6" stroke-width="1.5" />
+    <circle cx="18" cy="16" r="5" fill="#f59e0b" />
+    <text x="32" y="21" fill="#f8fafc" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="700" letter-spacing="1">EXERCISE: 7 MIN</text>
+  </g>
+
+  <!-- Matrix: 6 Cards in 2 rows of 3 -->
+
+  <!-- Card 1: Bank / Investor -->
+  <g transform="translate(60, 160)" filter="url(#shadow4)">
+    <rect width="345" height="195" rx="8" fill="#fffdf8" stroke="#d6c8b2" stroke-width="1.5" />
+    <rect width="345" height="34" rx="8" fill="#12263f" />
+    <rect y="24" width="345" height="10" fill="#12263f" />
+    <text x="14" y="22" fill="#f59e0b" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800">ACTOR 1</text>
+    <text x="75" y="22" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="700">Bank / Loan Investor (FHA / Fannie)</text>
+    
+    <text x="14" y="54" fill="#0f766e" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700">NEEDS:</text>
+    <text x="65" y="54" fill="#334155" font-family="'Segoe UI', sans-serif" font-size="11">Protected loan collateral, flawless compliance with handbook.</text>
+
+    <text x="14" y="76" fill="#b45309" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700">CAN AUTHORISE:</text>
+    <text x="120" y="76" fill="#334155" font-family="'Segoe UI', sans-serif" font-size="11">Macro allowable schedules, insurance claim payouts.</text>
+
+    <text x="14" y="98" fill="#1d4ed8" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700">PASSES FORWARD:</text>
+    <text x="125" y="98" fill="#334155" font-family="'Segoe UI', sans-serif" font-size="11">Servicing rights, capital funds, official guidelines.</text>
+
+    <line x1="14" y1="112" x2="331" y2="112" stroke="#e2e8f0" stroke-width="1" />
+    <rect x="14" y="122" width="317" height="60" rx="6" fill="#fef2f2" stroke="#fecaca" />
+    <text x="22" y="138" fill="#b91c1c" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800">FATAL FAILURE RISK:</text>
+    <text x="22" y="154" fill="#7f1d1d" font-family="'Segoe UI', sans-serif" font-size="11">Disallowance of insurance claim (mortgagee loss),</text>
+    <text x="22" y="170" fill="#7f1d1d" font-family="'Segoe UI', sans-serif" font-size="11">CFPB regulatory fines for unlawful foreclosure actions.</text>
+  </g>
+
+  <!-- Card 2: Loan Servicer -->
+  <g transform="translate(427, 160)" filter="url(#shadow4)">
+    <rect width="345" height="195" rx="8" fill="#fffdf8" stroke="#d6c8b2" stroke-width="1.5" />
+    <rect width="345" height="34" rx="8" fill="#12263f" />
+    <rect y="24" width="345" height="10" fill="#12263f" />
+    <text x="14" y="22" fill="#f59e0b" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800">ACTOR 2</text>
+    <text x="75" y="22" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="700">Mortgage Servicer (Day-to-Day)</text>
+    
+    <text x="14" y="54" fill="#0f766e" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700">NEEDS:</text>
+    <text x="65" y="54" fill="#334155" font-family="'Segoe UI', sans-serif" font-size="11">Property inspected/preserved without hiring 3,000 local staff.</text>
+
+    <text x="14" y="76" fill="#b45309" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700">CAN AUTHORISE:</text>
+    <text x="120" y="76" fill="#334155" font-family="'Segoe UI', sans-serif" font-size="11">Default work orders, over-allowable requests via portal.</text>
+
+    <text x="14" y="98" fill="#1d4ed8" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700">PASSES FORWARD:</text>
+    <text x="125" y="98" fill="#334155" font-family="'Segoe UI', sans-serif" font-size="11">Contract scope, property address, loan insurer rules.</text>
+
+    <line x1="14" y1="112" x2="331" y2="112" stroke="#e2e8f0" stroke-width="1" />
+    <rect x="14" y="122" width="317" height="60" rx="6" fill="#fef2f2" stroke="#fecaca" />
+    <text x="22" y="138" fill="#b91c1c" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800">FATAL FAILURE RISK:</text>
+    <text x="22" y="154" fill="#7f1d1d" font-family="'Segoe UI', sans-serif" font-size="11">Breach of servicer duty (Fannie E-3.2-12),</text>
+    <text x="22" y="170" fill="#7f1d1d" font-family="'Segoe UI', sans-serif" font-size="11">wrongful foreclosure lawsuits if occupancy assumed.</text>
+  </g>
+
+  <!-- Card 3: National FSM -->
+  <g transform="translate(795, 160)" filter="url(#shadow4)">
+    <rect width="345" height="195" rx="8" fill="#fffdf8" stroke="#d6c8b2" stroke-width="1.5" />
+    <rect width="345" height="34" rx="8" fill="#12263f" />
+    <rect y="24" width="345" height="10" fill="#12263f" />
+    <text x="14" y="22" fill="#f59e0b" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800">ACTOR 3</text>
+    <text x="75" y="22" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="700">National Field Service Manager</text>
+    
+    <text x="14" y="54" fill="#0f766e" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700">NEEDS:</text>
+    <text x="65" y="54" fill="#334155" font-family="'Segoe UI', sans-serif" font-size="11">Scalable vendor coverage across all ZIP codes, clean proof.</text>
+
+    <text x="14" y="76" fill="#b45309" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700">CAN AUTHORISE:</text>
+    <text x="120" y="76" fill="#334155" font-family="'Segoe UI', sans-serif" font-size="11">Vendor assignments, client allowable rate distributions.</text>
+
+    <text x="14" y="98" fill="#1d4ed8" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700">PASSES FORWARD:</text>
+    <text x="125" y="98" fill="#334155" font-family="'Segoe UI', sans-serif" font-size="11">Work orders, portal access, deadline clocks (24-72h).</text>
+
+    <line x1="14" y1="112" x2="331" y2="112" stroke="#e2e8f0" stroke-width="1" />
+    <rect x="14" y="122" width="317" height="60" rx="6" fill="#fef2f2" stroke="#fecaca" />
+    <text x="22" y="138" fill="#b91c1c" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800">FATAL FAILURE RISK:</text>
+    <text x="22" y="154" fill="#7f1d1d" font-family="'Segoe UI', sans-serif" font-size="11">Loss of national master contract from servicer,</text>
+    <text x="22" y="170" fill="#7f1d1d" font-family="'Segoe UI', sans-serif" font-size="11">chargebacks to local vendor for missing photo evidence.</text>
+  </g>
+
+  <!-- Row 2: Our Office Desks & Field Crew -->
+
+  <!-- Card 4: Vendor Manager (Dispatch Desk) -->
+  <g transform="translate(60, 375)" filter="url(#shadow4)">
+    <rect width="345" height="195" rx="8" fill="#fffdf8" stroke="#d6c8b2" stroke-width="1.5" />
+    <rect width="345" height="34" rx="8" fill="#0f766e" />
+    <rect y="24" width="345" height="10" fill="#0f766e" />
+    <text x="14" y="22" fill="#fef08a" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800">OFFICE DESK 1</text>
+    <text x="110" y="22" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="700">Vendor Manager (Dispatch)</text>
+    
+    <text x="14" y="54" fill="#0f766e" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700">NEEDS:</text>
+    <text x="65" y="54" fill="#334155" font-family="'Segoe UI', sans-serif" font-size="11">Accurate intake, clear rulebook, verified right of entry.</text>
+
+    <text x="14" y="76" fill="#b45309" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700">CAN AUTHORISE:</text>
+    <text x="120" y="76" fill="#334155" font-family="'Segoe UI', sans-serif" font-size="11">Crew assignment, dispatch instruction, HOLD trigger.</text>
+
+    <text x="14" y="98" fill="#1d4ed8" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700">PASSES FORWARD:</text>
+    <text x="125" y="98" fill="#334155" font-family="'Segoe UI', sans-serif" font-size="11">Scope, lockbox codes, safety flags to Field Crew.</text>
+
+    <line x1="14" y1="112" x2="331" y2="112" stroke="#e2e8f0" stroke-width="1" />
+    <rect x="14" y="122" width="317" height="60" rx="6" fill="#fef2f2" stroke="#fecaca" />
+    <text x="22" y="138" fill="#b91c1c" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800">FATAL FAILURE RISK:</text>
+    <text x="22" y="154" fill="#7f1d1d" font-family="'Segoe UI', sans-serif" font-size="11">Dispatching crew to uncertain property (trespass risk),</text>
+    <text x="22" y="170" fill="#7f1d1d" font-family="'Segoe UI', sans-serif" font-size="11">approving unallowable scope without client authorization.</text>
+  </g>
+
+  <!-- Card 5: Field Crew -->
+  <g transform="translate(427, 375)" filter="url(#shadow4)">
+    <rect width="345" height="195" rx="8" fill="#fffdf8" stroke="#d6c8b2" stroke-width="1.5" />
+    <rect width="345" height="34" rx="8" fill="#12263f" />
+    <rect y="24" width="345" height="10" fill="#12263f" />
+    <text x="14" y="22" fill="#f59e0b" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800">FIELD DESK</text>
+    <text x="95" y="22" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="700">Field Subcontractor / Crew</text>
+    
+    <text x="14" y="54" fill="#0f766e" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700">NEEDS:</text>
+    <text x="65" y="54" fill="#334155" font-family="'Segoe UI', sans-serif" font-size="11">Working codes, exact scope, safe site, prompt payment.</text>
+
+    <text x="14" y="76" fill="#b45309" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700">CAN AUTHORISE:</text>
+    <text x="120" y="76" fill="#334155" font-family="'Segoe UI', sans-serif" font-size="11">STOP on site if hazard / signs of life discovered.</text>
+
+    <text x="14" y="98" fill="#1d4ed8" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700">PASSES FORWARD:</text>
+    <text x="125" y="98" fill="#334155" font-family="'Segoe UI', sans-serif" font-size="11">Before/During/After photos, yard measurements, notes.</text>
+
+    <line x1="14" y1="112" x2="331" y2="112" stroke="#e2e8f0" stroke-width="1" />
+    <rect x="14" y="122" width="317" height="60" rx="6" fill="#fef2f2" stroke="#fecaca" />
+    <text x="22" y="138" fill="#b91c1c" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800">FATAL FAILURE RISK:</text>
+    <text x="22" y="154" fill="#7f1d1d" font-family="'Segoe UI', sans-serif" font-size="11">Missing required photo angle (unpaid re-trip),</text>
+    <text x="22" y="170" fill="#7f1d1d" font-family="'Segoe UI', sans-serif" font-size="11">forcing entry into an occupied home (Jordan liability).</text>
+  </g>
+
+  <!-- Card 6: Processor & QC -->
+  <g transform="translate(795, 375)" filter="url(#shadow4)">
+    <rect width="345" height="195" rx="8" fill="#fffdf8" stroke="#f59e0b" stroke-width="2" />
+    <rect width="345" height="34" rx="8" fill="#0f766e" />
+    <rect y="24" width="345" height="10" fill="#0f766e" />
+    <text x="14" y="22" fill="#fef08a" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800">OFFICE DESK 2</text>
+    <text x="115" y="22" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="700">Processor / Quality Reviewer</text>
+    
+    <text x="14" y="54" fill="#0f766e" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700">NEEDS:</text>
+    <text x="65" y="54" fill="#334155" font-family="'Segoe UI', sans-serif" font-size="11">Clear B/D/A photos passing Place, Time, Scope, Clarity.</text>
+
+    <text x="14" y="76" fill="#b45309" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700">CAN AUTHORISE:</text>
+    <text x="120" y="76" fill="#334155" font-family="'Segoe UI', sans-serif" font-size="11">Invoice lines, tagging. STOPS AT READY. (Never RFO).</text>
+
+    <text x="14" y="98" fill="#1d4ed8" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700">PASSES FORWARD:</text>
+    <text x="125" y="98" fill="#334155" font-family="'Segoe UI', sans-serif" font-size="11">Verified file to Owner for RFO; then to Client Manager.</text>
+
+    <line x1="14" y1="112" x2="331" y2="112" stroke="#e2e8f0" stroke-width="1" />
+    <rect x="14" y="122" width="317" height="60" rx="6" fill="#fef2f2" stroke="#fecaca" />
+    <text x="22" y="138" fill="#b91c1c" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800">FATAL FAILURE RISK:</text>
+    <text x="22" y="154" fill="#7f1d1d" font-family="'Segoe UI', sans-serif" font-size="11">Submitting unallowable debris CY or missing date-stamps,</text>
+    <text x="22" y="170" fill="#7f1d1d" font-family="'Segoe UI', sans-serif" font-size="11">resulting in immediate client line-item rejection and loss.</text>
+  </g>
+
+  <!-- Bottom Synthesis Bar -->
+  <rect x="60" y="585" width="1080" height="50" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1" />
+  <text x="80" y="615" fill="#f8fafc" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="600">
+    <tspan fill="#f59e0b" font-weight="800">THE 3-DESK CHAIN SUMMARY: </tspan>
+    Vendor Manager gets crew to right house with permission → Processor turns proof into clean invoice → Client Manager turns invoice into cash.
+  </text>
+
+  <!-- Asset Label -->
+  <text x="1000" y="660" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="11">Asset ID: M1_visual_04</text>
+</svg>

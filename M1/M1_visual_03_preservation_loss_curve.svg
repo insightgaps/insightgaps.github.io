@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1320" />
+      <stop offset="100%" stop-color="#12263f" />
+    </linearGradient>
+    <filter id="shadow3" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="680" fill="url(#bgGrad3)" rx="16" />
+  <rect x="20" y="20" width="1160" height="640" fill="none" stroke="#d6c8b2" stroke-opacity="0.15" stroke-width="1" rx="12" />
+
+  <!-- Header -->
+  <text x="60" y="65" fill="#f59e0b" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="800" letter-spacing="2">THE BUSINESS FRAME — WHY PRESERVATION EXISTS</text>
+  <text x="60" y="105" fill="#fffdf8" font-family="Georgia, serif" font-size="30" font-weight="700">Preservation Protects a Financial Interest</text>
+  <text x="60" y="135" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="15">Preservation is not cleaning empty houses. It is early, controlled capital intervention to prevent catastrophic collateral loss.</text>
+
+  <!-- Status Chip -->
+  <g transform="translate(930, 48)">
+    <rect width="210" height="32" rx="16" fill="#1e293b" stroke="#10b981" stroke-opacity="0.6" stroke-width="1.5" />
+    <circle cx="18" cy="16" r="5" fill="#10b981" />
+    <text x="32" y="21" fill="#f8fafc" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="700" letter-spacing="1">BUSINESS METRIC</text>
+  </g>
+
+  <!-- Left: The Loss Curve Graph -->
+  <g transform="translate(60, 165)" filter="url(#shadow3)">
+    <rect width="680" height="400" rx="12" fill="#fffdf8" stroke="#d6c8b2" stroke-width="1.5" />
+    
+    <!-- Title inside chart -->
+    <text x="30" y="38" fill="#12263f" font-family="Georgia, serif" font-size="18" font-weight="700">Collateral Loss vs. Timely Preservation Intervention</text>
+    <text x="30" y="58" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="12">Timeline of an unmonitored vacant property (Days 1 to 120)</text>
+
+    <!-- Axes -->
+    <line x1="80" y1="340" x2="630" y2="340" stroke="#94a3b8" stroke-width="2" />
+    <line x1="80" y1="340" x2="80" y2="80" stroke="#94a3b8" stroke-width="2" />
+
+    <!-- Y-Axis Labels (Dollars of Loss) -->
+    <text x="70" y="344" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="11" text-anchor="end">$0</text>
+    <text x="70" y="280" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="11" text-anchor="end">-$5K</text>
+    <text x="70" y="215" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="11" text-anchor="end">-$15K</text>
+    <text x="70" y="150" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="11" text-anchor="end">-$30K</text>
+    <text x="70" y="95" fill="#b42318" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="700" text-anchor="end">-$45K+</text>
+
+    <!-- X-Axis Labels (Days) -->
+    <text x="100" y="360" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="11">Day 1</text>
+    <text x="210" y="360" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="11">Day 14</text>
+    <text x="340" y="360" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="11">Day 30</text>
+    <text x="470" y="360" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="11">Day 60</text>
+    <text x="590" y="360" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="11">Day 90+</text>
+
+    <!-- Grid lines -->
+    <line x1="80" y1="275" x2="630" y2="275" stroke="#e2e8f0" stroke-dasharray="4,4" />
+    <line x1="80" y1="210" x2="630" y2="210" stroke="#e2e8f0" stroke-dasharray="4,4" />
+    <line x1="80" y1="145" x2="630" y2="145" stroke="#e2e8f0" stroke-dasharray="4,4" />
+
+    <!-- Red Curve: Uncontrolled Vacancy Neglect -->
+    <path d="M 100 338 Q 230 330 340 280 T 480 180 T 600 95" fill="none" stroke="#b42318" stroke-width="4" />
+
+    <!-- Decay Event Nodes -->
+    <circle cx="210" cy="330" r="5" fill="#b42318" />
+    <text x="215" y="320" fill="#7f1d1d" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="700">Lawn fine $500</text>
+
+    <circle cx="340" cy="280" r="6" fill="#b42318" />
+    <text x="345" y="270" fill="#7f1d1d" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="700">Water leak: -$3,500</text>
+
+    <circle cx="475" cy="180" r="6" fill="#b42318" />
+    <text x="380" y="165" fill="#7f1d1d" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="700">Toxic mold bloom: -$15,000</text>
+
+    <circle cx="600" cy="95" r="7" fill="#b42318" />
+    <text x="490" y="90" fill="#7f1d1d" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800">Copper stripped / blighted: -$45,000</text>
+
+    <!-- Green Line: Controlled Preservation Baseline -->
+    <line x1="100" y1="330" x2="630" y2="330" stroke="#16a34a" stroke-width="3" />
+    <circle cx="120" cy="330" r="4" fill="#16a34a" />
+    <circle cx="160" cy="330" r="4" fill="#16a34a" />
+    <circle cx="210" cy="330" r="4" fill="#16a34a" />
+    <circle cx="280" cy="330" r="4" fill="#16a34a" />
+
+    <!-- Preservation Box -->
+    <rect x="110" y="250" width="180" height="65" rx="6" fill="#ecfdf5" stroke="#16a34a" stroke-width="1.5" />
+    <text x="120" y="268" fill="#166534" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800">PRESERVATION CARE: ~$320</text>
+    <text x="120" y="284" fill="#1e293b" font-family="'Segoe UI', sans-serif" font-size="10">• Grass cut: $60 • Secure: $120</text>
+    <text x="120" y="298" fill="#1e293b" font-family="'Segoe UI', sans-serif" font-size="10">• Winterize: $110 • Inspect: $30</text>
+    <text x="120" y="310" fill="#047857" font-family="'Segoe UI', sans-serif" font-size="9" font-weight="700">Saves $45,000 in collateral loss</text>
+  </g>
+
+  <!-- Right: The 6 Business Reasons -->
+  <g transform="translate(760, 165)" filter="url(#shadow3)">
+    <rect width="380" height="400" rx="12" fill="#fffdf8" stroke="#d6c8b2" stroke-width="1.5" />
+    
+    <path d="M 0 12 Q 0 0 12 0 L 368 0 Q 380 0 380 12 L 380 50 L 0 50 Z" fill="#12263f" />
+    <text x="20" y="32" fill="#ffffff" font-family="Georgia, serif" font-size="16" font-weight="700">The 6 Core Business Drivers</text>
+
+    <!-- 6 Items -->
+    <g transform="translate(20, 68)">
+      <!-- 1 -->
+      <rect x="0" y="0" width="340" height="46" rx="6" fill="#f8fafc" stroke="#e2e8f0" />
+      <circle cx="16" cy="23" r="10" fill="#0f766e" />
+      <text x="16" y="27" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" text-anchor="middle">1</text>
+      <text x="36" y="19" fill="#12263f" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="700">Risk &amp; Liability Reduction</text>
+      <text x="36" y="35" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="11">Eliminates attractive nuisances, trespass, injury claims</text>
+
+      <!-- 2 -->
+      <rect x="0" y="52" width="340" height="46" rx="6" fill="#f8fafc" stroke="#e2e8f0" />
+      <circle cx="16" cy="75" r="10" fill="#0f766e" />
+      <text x="16" y="79" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" text-anchor="middle">2</text>
+      <text x="36" y="71" fill="#12263f" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="700">Collateral Protection</text>
+      <text x="36" y="87" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="11">Protects the lender’s underlying physical loan asset</text>
+
+      <!-- 3 -->
+      <rect x="0" y="104" width="340" height="46" rx="6" fill="#f8fafc" stroke="#e2e8f0" />
+      <circle cx="16" cy="127" r="10" fill="#0f766e" />
+      <text x="16" y="131" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" text-anchor="middle">3</text>
+      <text x="36" y="123" fill="#12263f" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="700">Damage Prevention</text>
+      <text x="36" y="139" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="11">Draining pipes stops burst lines; boarding stops squatters</text>
+
+      <!-- 4 -->
+      <rect x="0" y="156" width="340" height="46" rx="6" fill="#f8fafc" stroke="#e2e8f0" />
+      <circle cx="16" cy="179" r="10" fill="#0f766e" />
+      <text x="16" y="183" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" text-anchor="middle">4</text>
+      <text x="36" y="175" fill="#12263f" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="700">Evidence Chain &amp; Audit Integrity</text>
+      <text x="36" y="191" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="11">B/D/A photo logs satisfy 7-year Claim Review File</text>
+
+      <!-- 5 -->
+      <rect x="0" y="208" width="340" height="46" rx="6" fill="#f8fafc" stroke="#e2e8f0" />
+      <circle cx="16" cy="231" r="10" fill="#0f766e" />
+      <text x="16" y="235" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" text-anchor="middle">5</text>
+      <text x="36" y="227" fill="#12263f" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="700">Reimbursement Eligibility</text>
+      <text x="36" y="243" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="11">Servicer recovers spent funds from HUD/Fannie claim</text>
+
+      <!-- 6 -->
+      <rect x="0" y="260" width="340" height="46" rx="6" fill="#f8fafc" stroke="#e2e8f0" />
+      <circle cx="16" cy="283" r="10" fill="#0f766e" />
+      <text x="16" y="287" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" text-anchor="middle">6</text>
+      <text x="36" y="279" fill="#12263f" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="700">Regulatory &amp; Code Compliance</text>
+      <text x="36" y="295" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="11">Complies with local municipal codes and CFPB Reg X</text>
+    </g>
+
+    <rect x="20" y="338" width="340" height="44" rx="6" fill="#fffbeb" stroke="#f59e0b" stroke-width="1" />
+    <text x="30" y="356" fill="#92400e" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700">THE CORE QUESTION FOR EVERY ORDER:</text>
+    <text x="30" y="372" fill="#78350f" font-family="'Segoe UI', sans-serif" font-size="11">"Who pays, under what rules, for what verified evidence?"</text>
+  </g>
+
+  <!-- Bottom Synthesis Bar -->
+  <rect x="60" y="585" width="1080" height="50" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1" />
+  <text x="80" y="615" fill="#f8fafc" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="600">
+    <tspan fill="#f59e0b" font-weight="800">OPERATIONAL REALITY: </tspan>
+    Every dollar spent on preservation protects $140 in physical asset value. But that dollar is only recovered if proof is complete.
+  </text>
+
+  <!-- Asset Label -->
+  <text x="1000" y="660" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="11">Asset ID: M1_visual_03</text>
+</svg>

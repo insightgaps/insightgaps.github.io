@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:," />
+  <title>Module M1: The Industry System Map — Property Preservation Class</title>
+  <style>
+    :root {
+      --bg: #e9e6de;
+      --stage: #f7f5ef;
+      --card: #ffffff;
+      --ink: #1d2422;
+      --ink-soft: #4c5551;
+      --line: #d8d2c4;
+      --accent: #b03a17;
+      --accent-ink: #8f2c10;
+      --gold: #a86f0c;
+      --gold-light: #fffbeb;
+      --teal: #1f5f57;
+      --teal-light: #ecfdf5;
+      --panel: #fbf9f4;
+      --shadow: 0 16px 40px rgba(29, 36, 34, 0.12);
+      --radius: 16px;
+      --serif: "Newsreader", Georgia, "Times New Roman", serif;
+      --sans: "Archivo", "Segoe UI", system-ui, -apple-system, sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #101312;
+        --stage: #171a19;
+        --card: #1e2321;
+        --ink: #eef0ea;
+        --ink-soft: #aeb6b1;
+        --line: #333a37;
+        --accent: #e0683c;
+        --accent-ink: #f08a5f;
+        --gold: #d29a2e;
+        --gold-light: #262118;
+        --teal: #4fae9f;
+        --teal-light: #162622;
+        --panel: #222825;
+        --shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 32px 16px 64px;
+    }
+
+    /* Course Spine Navigation Ribbon */
+    .course-spine {
+      width: 100%;
+      max-width: 860px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink-soft);
+      padding: 10px 16px;
+      background: var(--stage);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+    }
+
+    .spine-story {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .spine-story span {
+      opacity: 0.65;
+    }
+
+    .spine-story span.active {
+      opacity: 1;
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .spine-time {
+      flex-shrink: 0;
+      background: var(--line);
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* Main Lesson Stage */
+    .module-card {
+      width: 100%;
+      max-width: 860px;
+      background: var(--stage);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 44px 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    @media (max-width: 680px) {
+      .module-card { padding: 28px 20px; gap: 22px; }
+      .course-spine { font-size: 11px; padding: 8px 12px; }
+    }
+
+    /* Header */
+    .module-header {
+      border-bottom: 2px solid var(--line);
+      padding-bottom: 20px;
+    }
+
+    .module-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .module-meta span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(28px, 4.2vw, 42px);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .story-opening {
+      font-family: var(--serif);
+      font-size: clamp(17px, 2.2vw, 21px);
+      line-height: 1.45;
+      font-style: italic;
+      color: var(--ink-soft);
+      border-left: 3px solid var(--gold);
+      padding-left: 18px;
+      margin-top: 14px;
+    }
+
+    /* One Primary Visual */
+    .primary-visual {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .primary-visual img {
+      width: 100%;
+      height: auto;
+      max-height: 380px;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
+    .visual-caption {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink-soft);
+      text-align: center;
+    }
+
+    /* The Three Key Points */
+    .key-points-section {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .points-title {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    .key-point-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .point-number {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--teal);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    .point-text {
+      font-size: 15px;
+      line-height: 1.4;
+      color: var(--ink);
+    }
+
+    .point-text strong {
+      color: var(--accent);
+      font-size: 15px;
+    }
+
+    /* Memory-Bar Decision */
+    .decision-block {
+      background: var(--card);
+      border: 2px solid var(--line);
+      border-top: 5px solid var(--gold);
+      border-radius: 12px;
+      padding: 22px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .decision-kicker {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .decision-prompt {
+      font-family: var(--serif);
+      font-size: 18px;
+      line-height: 1.35;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .decision-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .decision-btn {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      color: var(--ink);
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.15s ease-out;
+    }
+
+    .decision-btn:hover {
+      background: var(--gold-light);
+      border-color: var(--gold);
+    }
+
+    .decision-btn.correct {
+      background: var(--teal-light);
+      border-color: var(--teal);
+      color: var(--teal);
+      font-weight: 700;
+    }
+
+    .decision-btn.incorrect {
+      background: #fef2f2;
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .decision-verdict {
+      display: none;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      line-height: 1.45;
+      margin-top: 4px;
+    }
+
+    .decision-verdict.show {
+      display: block;
+    }
+
+    .decision-verdict.pass {
+      background: var(--teal-light);
+      border-left: 4px solid var(--teal);
+      color: var(--teal);
+    }
+
+    .decision-verdict.retry {
+      background: #fef2f2;
+      border-left: 4px solid var(--accent);
+      color: var(--accent);
+    }
+
+    /* Navigation Only */
+    .module-nav {
+      border-top: 1px solid var(--line);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 10px 18px;
+      border-radius: 8px;
+      transition: all 0.15s ease-out;
+    }
+
+    .nav-btn.prev {
+      background: var(--card);
+      border: 1px solid var(--line);
+      color: var(--ink-soft);
+    }
+
+    .nav-btn.prev:hover {
+      background: var(--panel);
+      color: var(--ink);
+    }
+
+    .nav-btn.next {
+      background: var(--accent);
+      color: #ffffff;
+      border: 1px solid var(--accent-ink);
+    }
+
+    .nav-btn.next:hover {
+      background: var(--accent-ink);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Course Spine Navigation: One Story from House to Capstone -->
+  <nav class="course-spine" aria-label="Course Narrative Spine">
+    <div class="spine-story">
+      <span>House (M0)</span>
+      <span>&rarr;</span>
+      <span class="active">Chain (M1)</span>
+      <span>&rarr;</span>
+      <span>Order (M2/M6)</span>
+      <span>&rarr;</span>
+      <span>Work (M7)</span>
+      <span>&rarr;</span>
+      <span>Evidence (M8)</span>
+      <span>&rarr;</span>
+      <span>Money (M9)</span>
+      <span>&rarr;</span>
+      <span>Capstone (M10)</span>
+    </div>
+    <div class="spine-time">00:10 &ndash; 00:35 &bull; 25 MIN</div>
+  </nav>
+
+  <!-- Main Student Lesson Stage -->
+  <main class="module-card">
+
+    <!-- Header & Story Opening -->
+    <header class="module-header">
+      <div class="module-meta">
+        <span>Module M1</span>
+        <span class="dot"></span>
+        <span>The Industry System Map</span>
+      </div>
+      <h1>The Chain Is Illustrative; the Handoffs Are Real.</h1>
+      
+      <p class="story-opening">
+        Maple House sits quiet in the rain. Twelve hundred miles away in Dallas, an investor flags a missed mortgage payment. 
+        Neither can speak to the other. Between the bank’s ledger and the front porch stands a five-link chain. 
+        If any hand drops the baton, the house falls to decay and the money is lost.
+      </p>
+    </header>
+
+    <!-- One Primary Visual -->
+    <figure class="primary-visual">
+      <img 
+        src="M1_visual_01_five_link_chain.svg" 
+        alt="The Five-Link Preservation Chain from Bank to Field Crew"
+      />
+      <figcaption class="visual-caption">
+        Figure M1-1: The five-link industry chain connecting financial capital to the physical porch. [Synthetic Illustration]
+      </figcaption>
+    </figure>
+
+    <!-- Key Points (At Most Three — Short Lines Anchored to Stick) -->
+    <section class="key-points-section" aria-label="Key Module Principles">
+      <div class="points-title">Core Principles to Remember</div>
+
+      <div class="key-point-card">
+        <div class="point-number">1</div>
+        <div class="point-text">
+          <strong>Five Hands, One House.</strong> One work order travels <em>Bank &rarr; Servicer &rarr; National &rarr; Office &rarr; Crew</em> before a single lock is touched.
+        </div>
+      </div>
+
+      <div class="key-point-card">
+        <div class="point-number">2</div>
+        <div class="point-text">
+          <strong>Vacant Is a Condition, Not Permission.</strong> The lawn can be knee-high, but without verified legal authority, drilling the lock is criminal trespass.
+        </div>
+      </div>
+
+      <div class="key-point-card">
+        <div class="point-number">3</div>
+        <div class="point-text">
+          <strong>Permission First, Proof Always.</strong> Work done is not money earned without photo proof; missing photos turn completed labor into a dead claim.
+        </div>
+      </div>
+    </section>
+
+    <!-- One Decision (Memory-Bar QA) -->
+    <section class="decision-block" aria-label="Decision Checkpoint">
+      <div class="decision-kicker">One Decision Checkpoint</div>
+      <div class="decision-prompt">
+        Field technician Dave arrives at Maple House. The grass is fourteen inches tall, mail is spilling from the box, and a neighbor says the tenants left. Can Dave drill the lock and winterize right now?
+      </div>
+
+      <div class="decision-options">
+        <button class="decision-btn" onclick="handleDecision(this, false)">
+          A) Yes — the house is visibly abandoned and needs urgent protection.
+        </button>
+        <button class="decision-btn" onclick="handleDecision(this, true)">
+          B) No — HOLD and verify legal authority. Vacant is a condition, not permission.
+        </button>
+      </div>
+
+      <div class="decision-verdict" id="decisionFeedback"></div>
+    </section>
+
+    <!-- Navigation Only -->
+    <footer class="module-nav">
+      <a href="../M0/index.html" class="nav-btn prev">
+        &larr; M0: Opening &amp; Diagnostic
+      </a>
+      <a href="../M2/index.html" class="nav-btn next">
+        M2: The System Origin &rarr;
+      </a>
+    </footer>
+
+  </main>
+
+  <script>
+    function handleDecision(btn, isCorrect) {
+      const parent = btn.parentElement;
+      const btns = parent.querySelectorAll('.decision-btn');
+      btns.forEach(b => b.classList.remove('correct', 'incorrect'));
+
+      const fb = document.getElementById('decisionFeedback');
+      if (isCorrect) {
+        btn.classList.add('correct');
+        fb.className = 'decision-verdict show pass';
+        fb.innerHTML = '<strong>Correct!</strong> Vacant is a physical condition, NOT legal permission. If the loan is pre-foreclosure in a lien-theory state (like Washington <em>Jordan</em>), changing locks without verified authority is unlawful possession. Dave must HOLD and escalate.';
+      } else {
+        btn.classList.add('incorrect');
+        fb.className = 'decision-verdict show retry';
+        fb.innerHTML = '<strong>Incorrect.</strong> Never let physical appearance override the legal gate! A neighbor’s word has zero legal authority. Drilling the lock without verified authority exposes the company to wrongful lockout lawsuits. The answer is HOLD.';
+      }
+    }
+  </script>
+
+</body>
+</html>

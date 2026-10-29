@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1320" />
+      <stop offset="100%" stop-color="#12263f" />
+    </linearGradient>
+    <filter id="shadow2" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="680" fill="url(#bgGrad2)" rx="16" />
+  <rect x="20" y="20" width="1160" height="640" fill="none" stroke="#d6c8b2" stroke-opacity="0.15" stroke-width="1" rx="12" />
+
+  <!-- Header -->
+  <text x="60" y="65" fill="#f59e0b" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="800" letter-spacing="2">CORE MENTAL MODEL — NEVER COLLAPSE THEM</text>
+  <text x="60" y="105" fill="#fffdf8" font-family="Georgia, serif" font-size="30" font-weight="700">The Three Separate States</text>
+  <text x="60" y="135" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="15">Operational error happens when a trainee assumes physical appearance dictates legal right or billing truth.</text>
+
+  <!-- Status Chip -->
+  <g transform="translate(930, 48)">
+    <rect width="210" height="32" rx="16" fill="#1e293b" stroke="#3b82f6" stroke-opacity="0.6" stroke-width="1.5" />
+    <circle cx="18" cy="16" r="5" fill="#3b82f6" />
+    <text x="32" y="21" fill="#f8fafc" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="700" letter-spacing="1">MENTAL FRAMEWORK</text>
+  </g>
+
+  <!-- Danger / Guard Warning Banner -->
+  <rect x="60" y="160" width="1080" height="42" rx="8" fill="#450a0a" stroke="#b42318" stroke-width="1" />
+  <text x="80" y="186" fill="#fecaca" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="600">
+    <tspan fill="#f87171" font-weight="800">THE FATAL BLUNDER: </tspan>
+    "The house looks empty, so we can change the locks." — WRONG! Vacant is a condition, NOT permission.
+  </text>
+
+  <!-- 3 Columns -->
+
+  <!-- Column 1: Property Physical State -->
+  <g transform="translate(60, 225)" filter="url(#shadow2)">
+    <rect width="335" height="340" rx="12" fill="#fffdf8" stroke="#d6c8b2" stroke-width="1.5" />
+    <!-- Header banner -->
+    <path d="M 0 12 Q 0 0 12 0 L 323 0 Q 335 0 335 12 L 335 55 L 0 55 Z" fill="#1e293b" />
+    <text x="20" y="26" fill="#94a3b8" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" letter-spacing="1">STATE 1</text>
+    <text x="20" y="47" fill="#ffffff" font-family="Georgia, serif" font-size="18" font-weight="700">Property State (Physical)</text>
+
+    <!-- Subtitle / Question -->
+    <rect x="18" y="70" width="299" height="28" rx="6" fill="#f1f5f9" />
+    <text x="28" y="89" fill="#0f172a" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="700">QUESTION: What is happening on site?</text>
+
+    <!-- State list -->
+    <g transform="translate(20, 120)">
+      <circle cx="8" cy="8" r="4" fill="#0f766e" />
+      <text x="22" y="12" fill="#1e293b" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="700">Occupancy Status</text>
+      <text x="22" y="28" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="12">Occupied / Uncertain / Confirmed Vacant</text>
+
+      <circle cx="8" cy="52" r="4" fill="#0f766e" />
+      <text x="22" y="56" fill="#1e293b" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="700">Physical Envelope</text>
+      <text x="22" y="72" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="12">Intact roof, broken glazing, open entries</text>
+
+      <circle cx="8" cy="96" r="4" fill="#0f766e" />
+      <text x="22" y="100" fill="#1e293b" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="700">Environmental Hazards</text>
+      <text x="22" y="116" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="12">Active plumbing leaks, mold colonies, gas</text>
+
+      <circle cx="8" cy="140" r="4" fill="#0f766e" />
+      <text x="22" y="144" fill="#1e293b" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="700">Yard &amp; Neighborhood</text>
+      <text x="22" y="160" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="12">Lawn height (inches), debris piles, pool safety</text>
+    </g>
+
+    <line x1="20" y1="300" x2="315" y2="300" stroke="#e2e8f0" stroke-width="1" />
+    <text x="20" y="322" fill="#b45309" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700">DETERMINED BY: Field Observation &amp; Proof</text>
+  </g>
+
+  <!-- Column 2: Legal / Authority State -->
+  <g transform="translate(432, 225)" filter="url(#shadow2)">
+    <rect width="335" height="340" rx="12" fill="#fffdf8" stroke="#b45309" stroke-width="2" />
+    <!-- Header banner -->
+    <path d="M 0 12 Q 0 0 12 0 L 323 0 Q 335 0 335 12 L 335 55 L 0 55 Z" fill="#b45309" />
+    <text x="20" y="26" fill="#fef3c7" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" letter-spacing="1">STATE 2 (THE GATE)</text>
+    <text x="20" y="47" fill="#ffffff" font-family="Georgia, serif" font-size="18" font-weight="700">Legal Authority State</text>
+
+    <!-- Subtitle / Question -->
+    <rect x="18" y="70" width="299" height="28" rx="6" fill="#fffbeb" />
+    <text x="28" y="89" fill="#92400e" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="700">QUESTION: Do we have the right to act?</text>
+
+    <!-- State list -->
+    <g transform="translate(20, 120)">
+      <circle cx="8" cy="8" r="4" fill="#b45309" />
+      <text x="22" y="12" fill="#1e293b" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="700">Title &amp; Mortgage Stage</text>
+      <text x="22" y="28" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="12">Pre-foreclosure default vs Foreclosed REO</text>
+
+      <circle cx="8" cy="52" r="4" fill="#b45309" />
+      <text x="22" y="56" fill="#1e293b" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="700">State Legal Doctrine</text>
+      <text x="22" y="72" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="12">Lien Theory (borrower retains possession) vs Title</text>
+
+      <circle cx="8" cy="96" r="4" fill="#b45309" />
+      <text x="22" y="100" fill="#1e293b" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="700">Statutory Limitations</text>
+      <text x="22" y="116" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="12">e.g. Jordan v. Nationstar (WA lock change rules)</text>
+
+      <circle cx="8" cy="140" r="4" fill="#b45309" />
+      <text x="22" y="144" fill="#1e293b" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="700">Specific Scope Authorisation</text>
+      <text x="22" y="160" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="12">Authorised for exterior only vs full interior access</text>
+    </g>
+
+    <line x1="20" y1="300" x2="315" y2="300" stroke="#e2e8f0" stroke-width="1" />
+    <text x="20" y="322" fill="#b42318" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700">GOVERNS: Whether Any Work Is Permitted</text>
+  </g>
+
+  <!-- Column 3: Work-Order Lifecycle State -->
+  <g transform="translate(805, 225)" filter="url(#shadow2)">
+    <rect width="335" height="340" rx="12" fill="#fffdf8" stroke="#d6c8b2" stroke-width="1.5" />
+    <!-- Header banner -->
+    <path d="M 0 12 Q 0 0 12 0 L 323 0 Q 335 0 335 12 L 335 55 L 0 55 Z" fill="#12263f" />
+    <text x="20" y="26" fill="#94a3b8" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" letter-spacing="1">STATE 3</text>
+    <text x="20" y="47" fill="#ffffff" font-family="Georgia, serif" font-size="18" font-weight="700">Work-Order State (Admin)</text>
+
+    <!-- Subtitle / Question -->
+    <rect x="18" y="70" width="299" height="28" rx="6" fill="#f1f5f9" />
+    <text x="28" y="89" fill="#0f172a" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="700">QUESTION: Where is the file in process?</text>
+
+    <!-- State list -->
+    <g transform="translate(20, 120)">
+      <circle cx="8" cy="8" r="4" fill="#3b82f6" />
+      <text x="22" y="12" fill="#1e293b" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="700">Pre-Field Pipeline</text>
+      <text x="22" y="28" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="12">Intake → Scope Review → Gate → Dispatched</text>
+
+      <circle cx="8" cy="52" r="4" fill="#3b82f6" />
+      <text x="22" y="56" fill="#1e293b" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="700">Field &amp; Evidence Queue</text>
+      <text x="22" y="72" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="12">Field Execution → Photos Uploaded → QC Audit</text>
+
+      <circle cx="8" cy="96" r="4" fill="#3b82f6" />
+      <text x="22" y="100" fill="#1e293b" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="700">Billing &amp; RFO Gate</text>
+      <text x="22" y="116" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="12">Invoice Built → Owner Signs RFO → Submitted</text>
+
+      <circle cx="8" cy="140" r="4" fill="#3b82f6" />
+      <text x="22" y="144" fill="#1e293b" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="700">Accounting Settlement</text>
+      <text x="22" y="160" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="12">Paid (~60 days) / Loss Coded / Reconciled</text>
+    </g>
+
+    <line x1="20" y1="300" x2="315" y2="300" stroke="#e2e8f0" stroke-width="1" />
+    <text x="20" y="322" fill="#1d4ed8" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700">MANAGED BY: Office Workflow Engine</text>
+  </g>
+
+  <!-- Bottom Synthesis Box -->
+  <rect x="60" y="585" width="1080" height="50" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1" />
+  <text x="80" y="615" fill="#f8fafc" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="600">
+    <tspan fill="#f59e0b" font-weight="800">THE TRAINEE DISCIPLINE: </tspan>
+    Always isolate which column you are looking at. Never let a green light in Column 3 override an amber stop in Column 2.
+  </text>
+
+  <!-- Asset Label -->
+  <text x="1000" y="660" fill="#64748b" font-family="'Segoe UI', sans-serif" font-size="11">Asset ID: M1_visual_02</text>
+</svg>
