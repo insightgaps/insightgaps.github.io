@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="m6-v5-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#m6-v5-bg)" />
+
+  <!-- Header -->
+  <rect x="30" y="16" width="740" height="48" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+  <text x="50" y="45" fill="#f8fafc" font-family="'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="800">THE 25-WORD UPDATE LINE: 4-CHECK RUBRIC &amp; ANATOMY</text>
+  <rect x="625" y="26" width="130" height="28" rx="4" fill="#3b82f6" />
+  <text x="690" y="45" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" text-anchor="middle">DECISION TOOL</text>
+
+  <!-- 4-Check Rubric Strip -->
+  <g transform="translate(30, 75)">
+    <!-- Check 1 -->
+    <rect x="0" y="0" width="175" height="75" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5" />
+    <circle cx="20" cy="22" r="10" fill="#0284c7" />
+    <text x="20" y="26" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="900" text-anchor="middle">1</text>
+    <text x="38" y="26" fill="#38bdf8" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800">SIGNAL NAMED?</text>
+    <text x="12" y="48" fill="#cbd5e1" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="600">Specific physical clue</text>
+    <text x="12" y="63" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="9">(fridge / clock / Rx)</text>
+
+    <!-- Check 2 -->
+    <rect x="188" y="0" width="175" height="75" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5" />
+    <circle cx="208" cy="22" r="10" fill="#d97706" />
+    <text x="208" y="26" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="900" text-anchor="middle">2</text>
+    <text x="226" y="26" fill="#f59e0b" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800">HOLD STATED?</text>
+    <text x="200" y="48" fill="#cbd5e1" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="600">Explicit capital HOLD</text>
+    <text x="200" y="63" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="9">Never guess or assume</text>
+
+    <!-- Check 3 -->
+    <rect x="376" y="0" width="175" height="75" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5" />
+    <circle cx="396" cy="22" r="10" fill="#059669" />
+    <text x="396" y="26" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="900" text-anchor="middle">3</text>
+    <text x="414" y="26" fill="#10b981" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800">NEXT STEP?</text>
+    <text x="388" y="48" fill="#cbd5e1" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="600">Designated escalation</text>
+    <text x="388" y="63" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="9">Named owner &amp; action</text>
+
+    <!-- Check 4 -->
+    <rect x="564" y="0" width="176" height="75" rx="6" fill="#1e293b" stroke="#a855f7" stroke-width="1.5" />
+    <circle cx="584" cy="22" r="10" fill="#7e22ce" />
+    <text x="584" y="26" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="900" text-anchor="middle">4</text>
+    <text x="602" y="26" fill="#c084fc" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800">≤ 25 WORDS?</text>
+    <text x="576" y="48" fill="#cbd5e1" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="600">Strict word ceiling</text>
+    <text x="576" y="63" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="9">No flab, no commentary</text>
+  </g>
+
+  <!-- Canonical Line Anatomy Breakdown -->
+  <g transform="translate(30, 165)">
+    <rect x="0" y="0" width="740" height="155" rx="8" fill="#0f172a" stroke="#334155" stroke-width="2" />
+    
+    <rect x="18" y="14" width="120" height="24" rx="4" fill="#047857" />
+    <text x="78" y="30" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" text-anchor="middle">CANONICAL PASS</text>
+    
+    <!-- Word Count Badge -->
+    <rect x="615" y="14" width="105" height="24" rx="4" fill="#1e293b" stroke="#34d399" stroke-width="1" />
+    <text x="667" y="30" fill="#34d399" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" text-anchor="middle">18 / 25 WORDS</text>
+
+    <!-- The Text Display with Highlighted Tokens -->
+    <g transform="translate(20, 50)">
+      <!-- Signal block -->
+      <rect x="0" y="0" width="375" height="42" rx="4" fill="#0284c7" fill-opacity="0.2" stroke="#0284c7" stroke-width="1.5" />
+      <text x="12" y="26" fill="#e0f2fe" font-family="'Georgia', serif" font-size="15" font-weight="700">"Fridge cold, clock lit, prescription 4 days old:</text>
+      <text x="12" y="55" fill="#38bdf8" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700">CHECK 1: SIGNALS SPECIFICALLY NAMED</text>
+
+      <!-- Uncertainty & Decision block -->
+      <rect x="385" y="0" width="170" height="42" rx="4" fill="#d97706" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.5" />
+      <text x="395" y="26" fill="#fef3c7" font-family="'Georgia', serif" font-size="15" font-weight="700">occupancy uncertain. HOLD work,</text>
+      <text x="395" y="55" fill="#fbbf24" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700">CHECK 2: 'HOLD' STATED</text>
+
+      <!-- Next Step block -->
+      <g transform="translate(0, 68)">
+        <rect x="0" y="0" width="460" height="34" rx="4" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="1.5" />
+        <text x="12" y="22" fill="#d1fae5" font-family="'Georgia', serif" font-size="15" font-weight="700">escalate to manager for occupancy check."</text>
+        <text x="475" y="22" fill="#34d399" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700">CHECK 3: NEXT STEP &amp; OWNER DELEGATED</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Weak Line vs Strong Line Contrast -->
+  <g transform="translate(30, 335)">
+    <!-- Weak Box -->
+    <rect x="0" y="0" width="355" height="115" rx="8" fill="#450a0a" fill-opacity="0.3" stroke="#b91c1c" stroke-width="1.5" />
+    <rect x="14" y="12" width="90" height="20" rx="3" fill="#dc2626" />
+    <text x="59" y="26" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800" text-anchor="middle">✕ WEAK LINE</text>
+    <text x="115" y="27" fill="#fca5a5" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700">Fails 3 of 4 Rubric Checks</text>
+    
+    <text x="14" y="55" fill="#fecaca" font-family="'Georgia', serif" font-size="13" font-style="italic">"Not sure if vacant, seems like someone was here recently so maybe we should wait."</text>
+    <text x="14" y="80" fill="#f87171" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="600">• No signal named (what did you see?)</text>
+    <text x="14" y="96" fill="#f87171" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="600">• No command (no 'HOLD') • No next owner or step</text>
+
+    <!-- Strong Box (Variant Case) -->
+    <rect x="385" y="0" width="355" height="115" rx="8" fill="#064e3b" fill-opacity="0.3" stroke="#059669" stroke-width="1.5" />
+    <rect x="399" y="12" width="105" height="20" rx="3" fill="#059669" />
+    <text x="451" y="26" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800" text-anchor="middle">✓ VARIANT MODEL</text>
+    <text x="515" y="27" fill="#6ee7b7" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700">19 Words • All 4 Checks Pass</text>
+
+    <text x="399" y="55" fill="#d1fae5" font-family="'Georgia', serif" font-size="13" font-style="italic">"Porch light on timer, recent package, car in garage. HOLD work. Escalate occupancy verification to dispatcher."</text>
+    <text x="399" y="80" fill="#34d399" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="600">• Signal: Timer, 2-day package, registered car</text>
+    <text x="399" y="96" fill="#34d399" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="600">• Explicit HOLD • Next step: verify with dispatcher</text>
+  </g>
+
+  <!-- Footer Tip -->
+  <rect x="30" y="462" width="740" height="26" rx="4" fill="#0f172a" />
+  <text x="400" y="479" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Punctuation mark (hyphen, em dash, period) does not count as a word. Audit words before submitting.</text>
+</svg>

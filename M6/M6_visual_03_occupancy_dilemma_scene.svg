@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="m6-v3-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <radialGradient id="m6-v3-fridge-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="m6-v3-clock-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#22c55e" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#m6-v3-bg)" />
+
+  <!-- Header -->
+  <rect x="30" y="16" width="740" height="46" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+  <text x="50" y="44" fill="#f8fafc" font-family="'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="800">DECISION LAB 1: THE THREE SIGNS OF LIFE</text>
+  <rect x="620" y="26" width="135" height="26" rx="4" fill="#dc2626" />
+  <text x="687" y="43" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" text-anchor="middle">OCCUPANCY GATE</text>
+
+  <!-- Main Scene: Kitchen Interior Glimpse from Window Pane -->
+  <g transform="translate(30, 75)">
+    <!-- Window Frame Inset -->
+    <rect x="0" y="0" width="450" height="360" rx="8" fill="#0f172a" stroke="#475569" stroke-width="4" />
+    <!-- Glass Pane Texture -->
+    <rect x="8" y="8" width="434" height="344" fill="#131d2e" />
+    <path d="M 8 180 L 442 180 M 225 8 L 225 352" stroke="#334155" stroke-width="4" />
+
+    <!-- Interior Element 1: Refrigerator with Hum -->
+    <g transform="translate(30, 30)">
+      <rect x="0" y="0" width="110" height="280" rx="4" fill="#1e293b" stroke="#475569" stroke-width="1.5" />
+      <line x1="0" y1="90" x2="110" y2="90" stroke="#334155" stroke-width="1.5" />
+      <!-- Refrigerator Handle -->
+      <rect x="12" y="105" width="4" height="40" rx="2" fill="#94a3b8" />
+      <!-- Cold Glow & Hum Lines -->
+      <rect x="-15" y="-10" width="140" height="300" fill="url(#m6-v3-fridge-glow)" />
+      <!-- Sound wave icon -->
+      <path d="M 120 70 Q 130 80 120 90 M 125 65 Q 140 80 125 95" stroke="#38bdf8" stroke-width="2" fill="none" stroke-linecap="round" />
+      <text x="135" y="84" fill="#38bdf8" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700">HUMMM</text>
+    </g>
+
+    <!-- Interior Element 2: Kitchen Counter & Microwave with Clock -->
+    <g transform="translate(160, 110)">
+      <!-- Countertop Base -->
+      <rect x="0" y="120" width="260" height="110" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <line x1="0" y1="120" x2="260" y2="120" stroke="#64748b" stroke-width="3" />
+
+      <!-- Microwave Oven -->
+      <rect x="20" y="30" width="140" height="90" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1.5" />
+      <rect x="30" y="42" width="75" height="66" rx="2" fill="#1e293b" />
+      <rect x="115" y="42" width="35" height="66" rx="2" fill="#020617" />
+      <!-- Digital Clock -->
+      <circle cx="132" cy="55" r="22" fill="url(#m6-v3-clock-glow)" />
+      <text x="132" y="59" fill="#22c55e" font-family="'Courier New', monospace" font-size="11" font-weight="900" text-anchor="middle">08:14</text>
+      <!-- Buttons -->
+      <circle cx="125" cy="74" r="2.5" fill="#475569" /><circle cx="138" cy="74" r="2.5" fill="#475569" />
+      <circle cx="125" cy="84" r="2.5" fill="#475569" /><circle cx="138" cy="84" r="2.5" fill="#475569" />
+      <circle cx="125" cy="94" r="2.5" fill="#475569" /><circle cx="138" cy="94" r="2.5" fill="#475569" />
+
+      <!-- Prescription Medicine Bottle on Counter -->
+      <g transform="translate(180, 75)">
+        <rect x="0" y="10" width="28" height="35" rx="3" fill="#ea580c" stroke="#c2410c" stroke-width="1" />
+        <rect x="2" y="2" width="24" height="10" rx="2" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" />
+        <!-- Label -->
+        <rect x="2" y="15" width="24" height="22" fill="#ffffff" />
+        <line x1="4" y1="19" x2="22" y2="19" stroke="#0284c7" stroke-width="1.5" />
+        <line x1="4" y1="23" x2="18" y2="23" stroke="#64748b" stroke-width="1" />
+        <line x1="4" y1="27" x2="20" y2="27" stroke="#64748b" stroke-width="1" />
+        <line x1="4" y1="31" x2="15" y2="31" stroke="#dc2626" stroke-width="1.5" />
+      </g>
+    </g>
+
+    <!-- Inspection Callout Badges -->
+    <rect x="15" y="318" width="125" height="26" rx="4" fill="#0284c7" />
+    <text x="77" y="335" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800" text-anchor="middle">1. FRIDGE HUMMING</text>
+
+    <rect x="175" y="318" width="115" height="26" rx="4" fill="#16a34a" />
+    <text x="232" y="335" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800" text-anchor="middle">2. CLOCK LIT 08:14</text>
+
+    <rect x="305" y="318" width="130" height="26" rx="4" fill="#ea580c" />
+    <text x="370" y="335" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800" text-anchor="middle">3. RX DATED 4 DAYS AGO</text>
+  </g>
+
+  <!-- Right Side: Field Dilemma Panel -->
+  <g transform="translate(500, 75)">
+    <!-- Clipboard Container -->
+    <rect x="0" y="0" width="270" height="360" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1.5" />
+    
+    <!-- Clipboard Clip -->
+    <rect x="85" y="-10" width="100" height="20" rx="4" fill="#475569" stroke="#94a3b8" stroke-width="1" />
+
+    <text x="20" y="35" fill="#93c5fd" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800">FIELD WORK ORDER WO-4821</text>
+    <line x1="20" y1="45" x2="250" y2="45" stroke="#334155" stroke-width="1" />
+
+    <text x="20" y="65" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="600">INSTRUCTION:</text>
+    <text x="20" y="82" fill="#f8fafc" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="700">"Perform Initial Secure &amp; Lockbox"</text>
+
+    <text x="20" y="110" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="600">CLIENT STATUS ON FILE:</text>
+    <rect x="20" y="118" width="80" height="20" rx="3" fill="#3b82f6" fill-opacity="0.3" stroke="#60a5fa" stroke-width="1" />
+    <text x="60" y="132" fill="#93c5fd" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" text-anchor="middle">VACANT</text>
+
+    <!-- The Tension Box -->
+    <rect x="15" y="155" width="240" height="110" rx="6" fill="#450a0a" stroke="#b91c1c" stroke-width="1.5" />
+    <text x="25" y="175" fill="#fca5a5" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800">THE CONTRACTOR'S PRESSURE:</text>
+    <text x="25" y="195" fill="#fecaca" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="600">• $45 completion fee on line</text>
+    <text x="25" y="213" fill="#fecaca" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="600">• Noon deadline for photos</text>
+    <text x="25" y="231" fill="#fecaca" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="600">• Dispatcher text: "Is it done yet?"</text>
+    <text x="25" y="251" fill="#f87171" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700">DOES MARCUS REKEY OR RETREAT?</text>
+
+    <!-- Protocol Decision -->
+    <rect x="15" y="280" width="240" height="65" rx="6" fill="#065f46" stroke="#10b981" stroke-width="1.5" />
+    <text x="135" y="302" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" text-anchor="middle">MANDATORY PROTOCOL:</text>
+    <text x="135" y="322" fill="#6ee7b7" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="900" text-anchor="middle">HOLD AND ESCALATE</text>
+    <text x="135" y="337" fill="#d1fae5" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="600" text-anchor="middle">Retreat to curb • Do not touch lock</text>
+  </g>
+
+  <!-- Bottom Commandment -->
+  <rect x="30" y="450" width="740" height="35" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1" />
+  <text x="400" y="472" fill="#facc15" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" text-anchor="middle">DISCIPLINE: "SIGNS OF LIFE ALWAYS OVERRIDE A CLIENT'S VACANT TICKET."</text>
+</svg>

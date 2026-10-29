@@ -1,0 +1,300 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540">
+  <defs>
+    <linearGradient id="deck-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070c14" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#0a0f1d" />
+    </linearGradient>
+
+    <linearGradient id="gate-glow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#b45309" stop-opacity="0.05" />
+    </linearGradient>
+
+    <linearGradient id="rfo-glow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#047857" stop-opacity="0.05" />
+    </linearGradient>
+
+    <filter id="card-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+
+    <filter id="badge-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#38bdf8" flood-opacity="0.4" />
+    </filter>
+  </defs>
+
+  <!-- Deep Stage Background -->
+  <rect width="960" height="540" fill="url(#deck-bg)" />
+
+  <!-- Grid Blueprint Accent Lines -->
+  <g opacity="0.08" stroke="#94a3b8" stroke-width="1">
+    <line x1="0" y1="90" x2="960" y2="90" />
+    <line x1="0" y1="470" x2="960" y2="470" />
+    <line x1="192" y1="90" x2="192" y2="470" />
+    <line x1="384" y1="90" x2="384" y2="470" />
+    <line x1="576" y1="90" x2="576" y2="470" />
+    <line x1="768" y1="90" x2="768" y2="470" />
+  </g>
+
+  <!-- Top Title / Flight Deck Bar -->
+  <g transform="translate(32, 22)">
+    <rect x="0" y="0" width="896" height="52" rx="8" fill="#131d31" stroke="#334155" stroke-width="1.5" />
+    <circle cx="26" cy="26" r="10" fill="#0284c7" />
+    <text x="26" y="30" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="900" text-anchor="middle">M6</text>
+    <text x="48" y="27" fill="#f8fafc" font-family="'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="800" letter-spacing="0.04em">THE 11-STOP ORDER LIFECYCLE: FIVE-DESK ORCHESTRATION CONSOLE</text>
+    <text x="48" y="42" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="600">ONE WORK ORDER (WO-4821) TRAVELS ALL FIVE DESKS IN UNBROKEN SUCCESSION • TWO GOVERNING GATES</text>
+    <rect x="736" y="12" width="144" height="28" rx="4" fill="#0284c7" fill-opacity="0.2" stroke="#38bdf8" stroke-width="1.2" />
+    <text x="808" y="30" fill="#38bdf8" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800" text-anchor="middle" letter-spacing="0.05em">LIVE DECK SCREEN 1</text>
+  </g>
+
+  <!-- Master Traveling Handoff Cable / Baton Track -->
+  <g transform="translate(0, 94)">
+    <path d="M 120 18 L 840 18" stroke="#334155" stroke-width="3" stroke-dasharray="6,4" />
+    <path d="M 120 18 L 476 18" stroke="#f59e0b" stroke-width="3" />
+    <path d="M 476 18 L 840 18" stroke="#10b981" stroke-width="3" />
+    
+    <!-- Pulse Beads on Handoff Line -->
+    <circle cx="120" cy="18" r="6" fill="#38bdf8" filter="url(#badge-glow)" />
+    <circle cx="292" cy="18" r="7" fill="#f59e0b" />
+    <circle cx="480" cy="18" r="6" fill="#38bdf8" />
+    <circle cx="668" cy="18" r="6" fill="#10b981" />
+    <circle cx="840" cy="18" r="7" fill="#10b981" />
+  </g>
+
+  <!-- FIVE OPERATIONAL DESK PANELS (SWIMLANES) -->
+
+  <!-- DESK 1: INTAKE DESK (Stops 1 & 2) -->
+  <g transform="translate(32, 130)">
+    <rect x="0" y="0" width="168" height="326" rx="8" fill="#111c30" stroke="#1e293b" stroke-width="1.5" filter="url(#card-shadow)" />
+    <!-- Header -->
+    <rect x="0" y="0" width="168" height="38" rx="8" fill="#1e293b" />
+    <text x="12" y="19" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="800" letter-spacing="0.06em">DESK 01</text>
+    <text x="12" y="32" fill="#38bdf8" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800">INTAKE DESK</text>
+    <text x="156" y="24" fill="#64748b" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" text-anchor="end">08:00</text>
+
+    <!-- Stop 1 Card -->
+    <g transform="translate(10, 48)">
+      <rect x="0" y="0" width="148" height="114" rx="6" fill="#0b1322" stroke="#334155" stroke-width="1" />
+      <circle cx="16" cy="16" r="9" fill="#0284c7" />
+      <text x="16" y="20" fill="#fff" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="900" text-anchor="middle">1</text>
+      <text x="32" y="20" fill="#f8fafc" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800">ORDER</text>
+      <text x="12" y="40" fill="#38bdf8" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="700">Client Instruction</text>
+      <text x="12" y="58" fill="#cbd5e1" font-family="'Segoe UI', system-ui, sans-serif" font-size="9">• WO-4821 Received</text>
+      <text x="12" y="73" fill="#cbd5e1" font-family="'Segoe UI', system-ui, sans-serif" font-size="9">• Maple House target</text>
+      <text x="12" y="88" fill="#cbd5e1" font-family="'Segoe UI', system-ui, sans-serif" font-size="9">• 48-hour clock begins</text>
+      <rect x="12" y="96" width="124" height="12" rx="2" fill="#1e293b" />
+      <text x="74" y="105" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="7.5" font-weight="700" text-anchor="middle">CLIENT PORTAL SOURCE</text>
+    </g>
+
+    <!-- Stop 2 Card -->
+    <g transform="translate(10, 172)">
+      <rect x="0" y="0" width="148" height="114" rx="6" fill="#0b1322" stroke="#334155" stroke-width="1" />
+      <circle cx="16" cy="16" r="9" fill="#0284c7" />
+      <text x="16" y="20" fill="#fff" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="900" text-anchor="middle">2</text>
+      <text x="32" y="20" fill="#f8fafc" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800">INTAKE</text>
+      <text x="12" y="40" fill="#38bdf8" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="700">Read Before Moving</text>
+      <text x="12" y="58" fill="#cbd5e1" font-family="'Segoe UI', system-ui, sans-serif" font-size="9">• Ingest into PPW engine</text>
+      <text x="12" y="73" fill="#cbd5e1" font-family="'Segoe UI', system-ui, sans-serif" font-size="9">• Match loan &amp; address</text>
+      <text x="12" y="88" fill="#cbd5e1" font-family="'Segoe UI', system-ui, sans-serif" font-size="9">• Verify price allowables</text>
+      <rect x="12" y="96" width="124" height="12" rx="2" fill="#0c4a6e" />
+      <text x="74" y="105" fill="#7dd3fc" font-family="'Segoe UI', system-ui, sans-serif" font-size="7.5" font-weight="700" text-anchor="middle">OFFICE ENGINE: PPW</text>
+    </g>
+
+    <!-- Handoff Indicator Bottom -->
+    <text x="84" y="308" fill="#64748b" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="700" text-anchor="middle">PASS CLEAN →</text>
+  </g>
+
+  <!-- DESK 2: LEGAL & PERMISSION GATE (Stop 3 — SPECIAL FOCUS) -->
+  <g transform="translate(210, 130)">
+    <rect x="0" y="0" width="176" height="326" rx="8" fill="url(#gate-glow)" stroke="#f59e0b" stroke-width="2" filter="url(#card-shadow)" />
+    <!-- Header -->
+    <rect x="0" y="0" width="176" height="38" rx="8" fill="#78350f" fill-opacity="0.8" />
+    <text x="12" y="19" fill="#fef08a" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="800" letter-spacing="0.06em">DESK 02 • INVIOLABLE</text>
+    <text x="12" y="32" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="900">PERMISSION GATE</text>
+    <rect x="136" y="8" width="30" height="22" rx="3" fill="#dc2626" />
+    <text x="151" y="23" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="900" text-anchor="middle">HOLD</text>
+
+    <!-- Stop 3 Master Card -->
+    <g transform="translate(10, 48)">
+      <rect x="0" y="0" width="156" height="238" rx="6" fill="#181308" stroke="#b45309" stroke-width="1.5" />
+      <circle cx="20" cy="20" r="12" fill="#d97706" />
+      <text x="20" y="25" fill="#fff" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="900" text-anchor="middle">3</text>
+      <text x="40" y="24" fill="#fbbf24" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="900">PERMISSION GATE</text>
+      
+      <rect x="10" y="38" width="136" height="22" rx="3" fill="#451a03" stroke="#f59e0b" stroke-width="1" />
+      <text x="78" y="52" fill="#fef08a" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="800" text-anchor="middle">"RIGHT TO BE HERE?"</text>
+
+      <text x="12" y="78" fill="#fed7aa" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="800">1. JORDAN V. NATIONSTAR</text>
+      <text x="12" y="93" fill="#fdba74" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5">• WA lien theory ONLY</text>
+      <text x="12" y="106" fill="#fdba74" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5">• No pre-sale lockouts</text>
+
+      <text x="12" y="128" fill="#fed7aa" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="800">2. SIGNS OF LIFE LAB</text>
+      <text x="12" y="143" fill="#fdba74" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5">• Cold fridge / lit clock</text>
+      <text x="12" y="156" fill="#fdba74" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5">• Prescription (4 days old)</text>
+
+      <text x="12" y="178" fill="#fed7aa" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="800">3. INVIOLABLE VERDICT</text>
+      <text x="12" y="193" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="700">• Uncertainty = HOLD</text>
+      <text x="12" y="206" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="700">• Never rekey early</text>
+
+      <rect x="10" y="214" width="136" height="18" rx="3" fill="#b45309" />
+      <text x="78" y="226" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="900" text-anchor="middle" letter-spacing="0.04em">LAYER 1 (LAW) OVERRIDES</text>
+    </g>
+
+    <!-- Gate Status -->
+    <text x="88" y="308" fill="#fbbf24" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="800" text-anchor="middle">CLEARED ONLY →</text>
+  </g>
+
+  <!-- DESK 3: DISPATCH & FIELD CREW (Stops 4, 5, 6) -->
+  <g transform="translate(396, 130)">
+    <rect x="0" y="0" width="176" height="326" rx="8" fill="#111c30" stroke="#1e293b" stroke-width="1.5" filter="url(#card-shadow)" />
+    <!-- Header -->
+    <rect x="0" y="0" width="176" height="38" rx="8" fill="#1e293b" />
+    <text x="12" y="19" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="800" letter-spacing="0.06em">DESK 03 • PHYSICAL</text>
+    <text x="12" y="32" fill="#38bdf8" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800">DISPATCH &amp; FIELD</text>
+    <text x="164" y="24" fill="#64748b" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" text-anchor="end">09:30</text>
+
+    <!-- Stop 4 Mini-Card -->
+    <g transform="translate(10, 46)">
+      <rect x="0" y="0" width="156" height="70" rx="5" fill="#0b1322" stroke="#334155" stroke-width="1" />
+      <circle cx="14" cy="14" r="8" fill="#0284c7" />
+      <text x="14" y="18" fill="#fff" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="900" text-anchor="middle">4</text>
+      <text x="28" y="17" fill="#f8fafc" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800">DISPATCH</text>
+      <text x="10" y="34" fill="#cbd5e1" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5">• Lockbox code uploaded</text>
+      <text x="10" y="48" fill="#cbd5e1" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5">• Route assigned to Marcus</text>
+      <text x="10" y="62" fill="#fca5a5" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5">• Wrong code = STOP immediately</text>
+    </g>
+
+    <!-- Stop 5 Mini-Card -->
+    <g transform="translate(10, 122)">
+      <rect x="0" y="0" width="156" height="70" rx="5" fill="#0b1322" stroke="#334155" stroke-width="1" />
+      <circle cx="14" cy="14" r="8" fill="#0284c7" />
+      <text x="14" y="18" fill="#fff" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="900" text-anchor="middle">5</text>
+      <text x="28" y="17" fill="#f8fafc" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800">FIELD EXECUTION</text>
+      <text x="10" y="34" fill="#cbd5e1" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5">• Hands on the real estate</text>
+      <text x="10" y="48" fill="#cbd5e1" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5">• Execute approved scope ONLY</text>
+      <text x="10" y="62" fill="#cbd5e1" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5">• Never expand without order</text>
+    </g>
+
+    <!-- Stop 6 Mini-Card -->
+    <g transform="translate(10, 198)">
+      <rect x="0" y="0" width="156" height="74" rx="5" fill="#0b1322" stroke="#334155" stroke-width="1" />
+      <circle cx="14" cy="14" r="8" fill="#0284c7" />
+      <text x="14" y="18" fill="#fff" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="900" text-anchor="middle">6</text>
+      <text x="28" y="17" fill="#f8fafc" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800">PROOF CAPTURE</text>
+      <text x="10" y="34" fill="#cbd5e1" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5">• Before / During / After</text>
+      <text x="10" y="48" fill="#cbd5e1" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5">• Date-stamped metadata</text>
+      <text x="10" y="64" fill="#7dd3fc" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="700">FHA 2016-02 COMPLIANCE</text>
+    </g>
+
+    <text x="88" y="308" fill="#64748b" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="700" text-anchor="middle">TO QC DESK →</text>
+  </g>
+
+  <!-- DESK 4: QUALITY CONTROL & REVIEW (Stop 7) -->
+  <g transform="translate(582, 130)">
+    <rect x="0" y="0" width="168" height="326" rx="8" fill="#111c30" stroke="#1e293b" stroke-width="1.5" filter="url(#card-shadow)" />
+    <!-- Header -->
+    <rect x="0" y="0" width="168" height="38" rx="8" fill="#1e293b" />
+    <text x="12" y="19" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="800" letter-spacing="0.06em">DESK 04 • AUDIT</text>
+    <text x="12" y="32" fill="#34d399" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800">QC &amp; PROCESSOR</text>
+    <text x="156" y="24" fill="#64748b" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" text-anchor="end">14:00</text>
+
+    <!-- Stop 7 Master Card -->
+    <g transform="translate(10, 48)">
+      <rect x="0" y="0" width="148" height="238" rx="6" fill="#0b1322" stroke="#10b981" stroke-width="1.5" />
+      <circle cx="18" cy="18" r="10" fill="#059669" />
+      <text x="18" y="22" fill="#fff" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="900" text-anchor="middle">7</text>
+      <text x="36" y="22" fill="#34d399" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800">QC REVIEW</text>
+
+      <rect x="10" y="36" width="128" height="20" rx="3" fill="#064e3b" />
+      <text x="74" y="50" fill="#a7f3d0" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="800" text-anchor="middle">FOUR-LENS FILTER</text>
+
+      <text x="12" y="74" fill="#f8fafc" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="700">1. PLACE (Address/House)</text>
+      <text x="12" y="89" fill="#f8fafc" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="700">2. TIME (Date-Stamps)</text>
+      <text x="12" y="104" fill="#f8fafc" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="700">3. SCOPE (Quantities/CY)</text>
+      <text x="12" y="119" fill="#f8fafc" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="700">4. CLARITY (Sharp/Light)</text>
+
+      <!-- Operational Barrier Callout -->
+      <g transform="translate(8, 134)">
+        <rect x="0" y="0" width="132" height="72" rx="4" fill="#1e293b" stroke="#e2e8f0" stroke-width="1" />
+        <text x="8" y="16" fill="#fbbf24" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="800">SYSTEM WALL RULE:</text>
+        <text x="8" y="32" fill="#f8fafc" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5">• Processor marks:</text>
+        <rect x="8" y="36" width="56" height="14" rx="2" fill="#0284c7" />
+        <text x="36" y="46" fill="#fff" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="900" text-anchor="middle">"READY"</text>
+        <text x="8" y="62" fill="#f87171" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="800">NEVER MARKS RFO</text>
+      </g>
+
+      <rect x="8" y="212" width="132" height="16" rx="2" fill="#065f46" />
+      <text x="74" y="223" fill="#a7f3d0" font-family="'Segoe UI', system-ui, sans-serif" font-size="7.5" font-weight="800" text-anchor="middle">DEFICIENCIES RETURNED</text>
+    </g>
+
+    <text x="84" y="308" fill="#34d399" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="700" text-anchor="middle">FOUR-EYES CHECK →</text>
+  </g>
+
+  <!-- DESK 5: BILLING, RFO GATE & SETTLEMENT (Stops 8, 9, 10, 11) -->
+  <g transform="translate(760, 130)">
+    <rect x="0" y="0" width="168" height="326" rx="8" fill="url(#rfo-glow)" stroke="#10b981" stroke-width="1.8" filter="url(#card-shadow)" />
+    <!-- Header -->
+    <rect x="0" y="0" width="168" height="38" rx="8" fill="#064e3b" />
+    <text x="12" y="19" fill="#a7f3d0" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="800" letter-spacing="0.06em">DESK 05 • GATEKEEPER</text>
+    <text x="12" y="32" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="900">OFFICE &amp; REMIT</text>
+    <rect x="122" y="8" width="38" height="22" rx="3" fill="#059669" />
+    <text x="141" y="23" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="900" text-anchor="middle">RFO</text>
+
+    <!-- Stop 8 Mini-Card -->
+    <g transform="translate(8, 44)">
+      <rect x="0" y="0" width="152" height="48" rx="4" fill="#0b1322" stroke="#334155" stroke-width="1" />
+      <circle cx="12" cy="12" r="7" fill="#0284c7" />
+      <text x="12" y="16" fill="#fff" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="900" text-anchor="middle">8</text>
+      <text x="24" y="15" fill="#f8fafc" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="800">INVOICE PREP</text>
+      <text x="8" y="32" fill="#cbd5e1" font-family="'Segoe UI', system-ui, sans-serif" font-size="8">• Line-item draft in PPW</text>
+      <text x="8" y="43" fill="#cbd5e1" font-family="'Segoe UI', system-ui, sans-serif" font-size="8">• Quantities match proof</text>
+    </g>
+
+    <!-- Stop 9 RFO Gate Card -->
+    <g transform="translate(8, 98)">
+      <rect x="0" y="0" width="152" height="64" rx="4" fill="#064e3b" stroke="#10b981" stroke-width="1.5" />
+      <circle cx="12" cy="12" r="7" fill="#047857" />
+      <text x="12" y="16" fill="#fff" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="900" text-anchor="middle">9</text>
+      <text x="24" y="15" fill="#fef08a" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="900">SUBMISSION (RFO)</text>
+      <text x="8" y="32" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="700">• Manager authorizes RFO</text>
+      <text x="8" y="45" fill="#a7f3d0" font-family="'Segoe UI', system-ui, sans-serif" font-size="8">• Transmission to portal</text>
+      <text x="8" y="57" fill="#fde68a" font-family="'Segoe UI', system-ui, sans-serif" font-size="7.5" font-weight="800">THE AUDIT TRAIL CLOSES</text>
+    </g>
+
+    <!-- Stop 10 Mini-Card -->
+    <g transform="translate(8, 168)">
+      <rect x="0" y="0" width="152" height="52" rx="4" fill="#0b1322" stroke="#334155" stroke-width="1" />
+      <circle cx="12" cy="12" r="7" fill="#0284c7" />
+      <text x="12" y="16" fill="#fff" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="900" text-anchor="middle">10</text>
+      <text x="24" y="15" fill="#f8fafc" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="800">PAYMENT</text>
+      <text x="8" y="32" fill="#cbd5e1" font-family="'Segoe UI', system-ui, sans-serif" font-size="8">• 60-day remittance lag</text>
+      <text x="8" y="44" fill="#cbd5e1" font-family="'Segoe UI', system-ui, sans-serif" font-size="8">• Match checks by address</text>
+    </g>
+
+    <!-- Stop 11 Mini-Card -->
+    <g transform="translate(8, 226)">
+      <rect x="0" y="0" width="152" height="54" rx="4" fill="#0b1322" stroke="#334155" stroke-width="1" />
+      <circle cx="12" cy="12" r="7" fill="#0284c7" />
+      <text x="12" y="16" fill="#fff" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="900" text-anchor="middle">11</text>
+      <text x="24" y="15" fill="#f8fafc" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="800">FOLLOW-UP</text>
+      <text x="8" y="32" fill="#cbd5e1" font-family="'Segoe UI', system-ui, sans-serif" font-size="8">• Six unified loss codes</text>
+      <text x="8" y="45" fill="#cbd5e1" font-family="'Segoe UI', system-ui, sans-serif" font-size="8">• Zero unexplained variance</text>
+    </g>
+
+    <text x="84" y="308" fill="#10b981" font-family="'Segoe UI', system-ui, sans-serif" font-size="8.5" font-weight="800" text-anchor="middle">CASH SETTLEMENT ★</text>
+  </g>
+
+  <!-- Bottom Core Principle Banner -->
+  <g transform="translate(32, 474)">
+    <rect x="0" y="0" width="896" height="46" rx="6" fill="#0b1322" stroke="#334155" stroke-width="1.2" />
+    <circle cx="24" cy="23" r="10" fill="#f59e0b" />
+    <text x="24" y="27" fill="#000" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="900" text-anchor="middle">!</text>
+    <text x="46" y="22" fill="#f8fafc" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" letter-spacing="0.04em">OPERATIONS PRINCIPLE AT EVERY DESK:</text>
+    <text x="46" y="37" fill="#38bdf8" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700">"Your job at every stop is identical: pass it on clean, or stop it honestly."</text>
+    
+    <rect x="736" y="10" width="144" height="26" rx="4" fill="#1e293b" stroke="#64748b" stroke-width="1" />
+    <text x="808" y="26" fill="#e2e8f0" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="800" text-anchor="middle">5 DESKS • 11 STOPS</text>
+  </g>
+</svg>

@@ -1,0 +1,203 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="1000" height="560">
+  <defs>
+    <linearGradient id="m6-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1320" />
+      <stop offset="100%" stop-color="#12263f" />
+    </linearGradient>
+    <filter id="m6-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.5" />
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1000" height="560" fill="url(#m6-bg)" />
+
+  <!-- Header Banner -->
+  <g transform="translate(40, 24)">
+    <rect x="0" y="0" width="920" height="52" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+    <text x="24" y="32" fill="#f8fafc" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="800" letter-spacing="0.05em">MODULE 6: THE ELEVEN-STOP WORK ORDER LIFECYCLE</text>
+    <text x="24" y="44" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="600">35 MINUTES ACTIVE • ONE WORK ORDER TRAVELS ALL ELEVEN STOPS IN STRICT UNBROKEN SEQUENCE</text>
+    <rect x="750" y="12" width="150" height="28" rx="4" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.5" />
+    <text x="825" y="30" fill="#fef08a" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" text-anchor="middle">SYNTHETIC FLOW</text>
+  </g>
+
+  <!-- The 11 Stops Grid / Pipeline Flow -->
+
+  <!-- ROW 1: INTAKE & THE PERMISSION GATE (Stops 1 to 4) -->
+  <g transform="translate(40, 96)">
+    <!-- Stop 1: Order -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="205" height="110" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1.5" filter="url(#m6-glow)" />
+      <circle cx="24" cy="24" r="12" fill="#334155" />
+      <text x="24" y="28" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" text-anchor="middle">1</text>
+      <text x="44" y="28" fill="#38bdf8" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="800">ORDER</text>
+      <text x="14" y="55" fill="#e2e8f0" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700">Client Instruction</text>
+      <text x="14" y="72" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="10">• Which house &amp; job scope</text>
+      <text x="14" y="88" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="10">• Client deadline &amp; rulebook</text>
+    </g>
+
+    <!-- Connector Arrow 1 -> 2 -->
+    <path d="M 215 55 L 230 55" stroke="#64748b" stroke-width="2.5" stroke-linecap="round" />
+    <polygon points="230,51 237,55 230,59" fill="#64748b" />
+
+    <!-- Stop 2: Intake -->
+    <g transform="translate(242, 0)">
+      <rect x="0" y="0" width="205" height="110" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1.5" filter="url(#m6-glow)" />
+      <circle cx="24" cy="24" r="12" fill="#334155" />
+      <text x="24" y="28" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" text-anchor="middle">2</text>
+      <text x="44" y="28" fill="#38bdf8" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="800">INTAKE</text>
+      <text x="14" y="55" fill="#e2e8f0" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700">Read Before Moving</text>
+      <text x="14" y="72" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="10">• Ingest into PPW engine</text>
+      <text x="14" y="88" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="10">• Check address &amp; loan rules</text>
+    </g>
+
+    <!-- Connector Arrow 2 -> 3 -->
+    <path d="M 457 55 L 472 55" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" />
+    <polygon points="472,51 479,55 472,59" fill="#f59e0b" />
+
+    <!-- Stop 3: THE PERMISSION GATE (HIGHLIGHTED IN AMBER) -->
+    <g transform="translate(484, 0)">
+      <rect x="0" y="0" width="220" height="110" rx="8" fill="#78350f" fill-opacity="0.3" stroke="#f59e0b" stroke-width="2.5" filter="url(#m6-glow)" />
+      <circle cx="24" cy="24" r="12" fill="#d97706" />
+      <text x="24" y="28" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="900" text-anchor="middle">3</text>
+      <text x="44" y="28" fill="#fbbf24" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="900">PERMISSION GATE</text>
+      <text x="14" y="54" fill="#fef3c7" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800">"Right to Be Here?"</text>
+      <text x="14" y="72" fill="#fde68a" font-family="'Segoe UI', system-ui, sans-serif" font-size="10">• Jordan fence (WA lien theory)</text>
+      <text x="14" y="88" fill="#fde68a" font-family="'Segoe UI', system-ui, sans-serif" font-size="10">• Signs of life = HOLD &amp; escalate</text>
+      <!-- Pulse badge -->
+      <rect x="135" y="10" width="75" height="18" rx="3" fill="#dc2626" />
+      <text x="172" y="22" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="900" text-anchor="middle">CRITICAL GATE</text>
+    </g>
+
+    <!-- Connector Arrow 3 -> 4 -->
+    <path d="M 714 55 L 729 55" stroke="#64748b" stroke-width="2.5" stroke-linecap="round" />
+    <polygon points="729,51 736,55 729,59" fill="#64748b" />
+
+    <!-- Stop 4: Dispatch -->
+    <g transform="translate(741, 0)">
+      <rect x="0" y="0" width="179" height="110" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1.5" filter="url(#m6-glow)" />
+      <circle cx="24" cy="24" r="12" fill="#334155" />
+      <text x="24" y="28" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" text-anchor="middle">4</text>
+      <text x="44" y="28" fill="#38bdf8" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="800">DISPATCH</text>
+      <text x="14" y="55" fill="#e2e8f0" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700">To the Field</text>
+      <text x="14" y="72" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="10">• Scope + lockbox code</text>
+      <text x="14" y="88" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="10">• Failing code = STOP &amp; report</text>
+    </g>
+  </g>
+
+  <!-- Vertical Turn Downward from Stop 4 to Stop 5 -->
+  <path d="M 870 216 L 870 240" stroke="#64748b" stroke-width="2.5" stroke-linecap="round" />
+  <polygon points="866,240 870,247 874,240" fill="#64748b" />
+
+  <!-- ROW 2: FIELD EXECUTION & QUALITY REVIEW (Stops 5 to 7) -->
+  <g transform="translate(40, 245)">
+    <!-- Stop 7: QC Review (Left) -->
+    <g transform="translate(180, 0)">
+      <rect x="0" y="0" width="220" height="110" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.5" filter="url(#m6-glow)" />
+      <circle cx="24" cy="24" r="12" fill="#047857" />
+      <text x="24" y="28" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" text-anchor="middle">7</text>
+      <text x="44" y="28" fill="#34d399" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="800">QC REVIEW</text>
+      <text x="14" y="55" fill="#e2e8f0" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700">4-Point Proof Check</text>
+      <text x="14" y="72" fill="#a7f3d0" font-family="'Segoe UI', system-ui, sans-serif" font-size="10">• Place / Time / Scope / Clarity</text>
+      <text x="14" y="88" fill="#a7f3d0" font-family="'Segoe UI', system-ui, sans-serif" font-size="10">• Gaps go back to field crew</text>
+    </g>
+
+    <!-- Connector Arrow 6 <- 7 (Right to left) -->
+    <path d="M 470 55 L 410 55" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" />
+    <polygon points="410,51 403,55 410,59" fill="#10b981" />
+
+    <!-- Stop 6: Proof -->
+    <g transform="translate(480, 0)">
+      <rect x="0" y="0" width="220" height="110" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1.5" filter="url(#m6-glow)" />
+      <circle cx="24" cy="24" r="12" fill="#334155" />
+      <text x="24" y="28" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" text-anchor="middle">6</text>
+      <text x="44" y="28" fill="#38bdf8" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="800">PROOF</text>
+      <text x="14" y="55" fill="#e2e8f0" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700">Before / During / After</text>
+      <text x="14" y="72" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="10">• Date-stamped photographs</text>
+      <text x="14" y="88" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="10">• Missing photo = zero pay</text>
+    </g>
+
+    <!-- Connector Arrow 5 <- 6 (Right to left) -->
+    <path d="M 730 55 L 710 55" stroke="#64748b" stroke-width="2.5" stroke-linecap="round" />
+    <polygon points="710,51 703,55 710,59" fill="#64748b" />
+
+    <!-- Stop 5: Field -->
+    <g transform="translate(741, 0)">
+      <rect x="0" y="0" width="179" height="110" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1.5" filter="url(#m6-glow)" />
+      <circle cx="24" cy="24" r="12" fill="#334155" />
+      <text x="24" y="28" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" text-anchor="middle">5</text>
+      <text x="44" y="28" fill="#38bdf8" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="800">FIELD</text>
+      <text x="14" y="55" fill="#e2e8f0" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700">Hands on the House</text>
+      <text x="14" y="72" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="10">• Execute authorized scope only</text>
+      <text x="14" y="88" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="10">• Never expand without bid</text>
+    </g>
+  </g>
+
+  <!-- Vertical Turn Downward from Stop 7 to Stop 8 -->
+  <path d="M 290 365 L 290 380 L 140 380 L 140 395" stroke="#10b981" stroke-width="2.5" fill="none" stroke-linecap="round" />
+  <polygon points="136,395 140,402 144,395" fill="#10b981" />
+
+  <!-- ROW 3: INVOICE, SUBMISSION & CASH SETTLEMENT (Stops 8 to 11) -->
+  <g transform="translate(40, 400)">
+    <!-- Stop 8: Invoice -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="205" height="110" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1.5" filter="url(#m6-glow)" />
+      <circle cx="24" cy="24" r="12" fill="#334155" />
+      <text x="24" y="28" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" text-anchor="middle">8</text>
+      <text x="44" y="28" fill="#38bdf8" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="800">INVOICE</text>
+      <text x="14" y="55" fill="#e2e8f0" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700">PPW Office Engine</text>
+      <text x="14" y="72" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="10">• Processor prepares file</text>
+      <text x="14" y="88" fill="#f87171" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700">• Stops at Ready; NO RFO mark</text>
+    </g>
+
+    <!-- Connector Arrow 8 -> 9 -->
+    <path d="M 215 55 L 230 55" stroke="#64748b" stroke-width="2.5" stroke-linecap="round" />
+    <polygon points="230,51 237,55 230,59" fill="#64748b" />
+
+    <!-- Stop 9: Submission -->
+    <g transform="translate(242, 0)">
+      <rect x="0" y="0" width="205" height="110" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1.5" filter="url(#m6-glow)" />
+      <circle cx="24" cy="24" r="12" fill="#334155" />
+      <text x="24" y="28" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" text-anchor="middle">9</text>
+      <text x="44" y="28" fill="#38bdf8" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="800">SUBMISSION</text>
+      <text x="14" y="55" fill="#e2e8f0" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700">The RFO Gate</text>
+      <text x="14" y="72" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="10">• Manager marks RFO</text>
+      <text x="14" y="88" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="10">• Transmitted to client portal</text>
+    </g>
+
+    <!-- Connector Arrow 9 -> 10 -->
+    <path d="M 457 55 L 472 55" stroke="#64748b" stroke-width="2.5" stroke-linecap="round" />
+    <polygon points="472,51 479,55 472,59" fill="#64748b" />
+
+    <!-- Stop 10: Payment -->
+    <g transform="translate(484, 0)">
+      <rect x="0" y="0" width="205" height="110" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1.5" filter="url(#m6-glow)" />
+      <circle cx="24" cy="24" r="12" fill="#334155" />
+      <text x="24" y="28" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" text-anchor="middle">10</text>
+      <text x="44" y="28" fill="#38bdf8" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="800">PAYMENT</text>
+      <text x="14" y="55" fill="#e2e8f0" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700">Cash Remittance</text>
+      <text x="14" y="72" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="10">• ~60 days remittance lag</text>
+      <text x="14" y="88" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="10">• Match by property address</text>
+    </g>
+
+    <!-- Connector Arrow 10 -> 11 -->
+    <path d="M 699 55 L 714 55" stroke="#64748b" stroke-width="2.5" stroke-linecap="round" />
+    <polygon points="714,51 721,55 714,59" fill="#64748b" />
+
+    <!-- Stop 11: Follow-Up -->
+    <g transform="translate(726, 0)">
+      <rect x="0" y="0" width="194" height="110" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1.5" filter="url(#m6-glow)" />
+      <circle cx="24" cy="24" r="12" fill="#334155" />
+      <text x="24" y="28" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" text-anchor="middle">11</text>
+      <text x="44" y="28" fill="#38bdf8" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="800">FOLLOW-UP</text>
+      <text x="14" y="55" fill="#e2e8f0" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700">Reconciliation</text>
+      <text x="14" y="72" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="10">• 6 loss reason codes</text>
+      <text x="14" y="88" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="10">• Unexplained queue to zero</text>
+    </g>
+  </g>
+
+  <!-- Bottom Core Axiom Banner -->
+  <g transform="translate(40, 520)">
+    <text x="460" y="16" fill="#f59e0b" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" text-anchor="middle">THE CORE AXIOM: "ONE ORDER, ELEVEN STOPS, MANY HANDS. PASS IT ON CLEAN, OR STOP IT HONESTLY."</text>
+  </g>
+</svg>

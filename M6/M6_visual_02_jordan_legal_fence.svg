@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="m6-v2-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <filter id="m6-v2-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.5" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#m6-v2-bg)" />
+
+  <!-- Header -->
+  <rect x="30" y="20" width="740" height="50" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+  <text x="50" y="45" fill="#f8fafc" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="800">LEGAL FENCE: JORDAN V. NATIONSTAR (WASH. 2016)</text>
+  <text x="50" y="62" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="600">DOCKET NO. 92081-8 • WASH. SUPREME COURT (JULY 7, 2016) • RCW 7.28.230</text>
+  <rect x="635" y="30" width="120" height="28" rx="4" fill="#b45309" />
+  <text x="695" y="49" fill="#fef3c7" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" text-anchor="middle">LEGAL ANCHOR</text>
+
+  <!-- Two-Box Legal Fence -->
+  <!-- Box 1: APPLIES TO (Green Fence) -->
+  <g transform="translate(30, 85)">
+    <rect x="0" y="0" width="355" height="270" rx="10" fill="#064e3b" fill-opacity="0.25" stroke="#10b981" stroke-width="2" filter="url(#m6-v2-glow)" />
+    <rect x="16" y="-12" width="140" height="24" rx="4" fill="#059669" />
+    <text x="86" y="4" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" text-anchor="middle">✓ APPLIES TO</text>
+
+    <text x="24" y="38" fill="#34d399" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="700">Washington State Lien Theory ONLY</text>
+    
+    <circle cx="32" cy="72" r="4" fill="#10b981" />
+    <text x="46" y="76" fill="#f1f5f9" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="600"><tspan font-weight="800">RCW 7.28.230:</tspan> Mortgagor holds right to possession</text>
+
+    <circle cx="32" cy="110" r="4" fill="#10b981" />
+    <text x="46" y="114" fill="#f1f5f9" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="600">Pre-foreclosure mortgage entry clauses voided</text>
+
+    <circle cx="32" cy="148" r="4" fill="#10b981" />
+    <text x="46" y="152" fill="#f1f5f9" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="600">Changing lock cylinder = Taking physical possession</text>
+
+    <circle cx="32" cy="186" r="4" fill="#10b981" />
+    <text x="46" y="190" fill="#f1f5f9" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="600"><tspan font-weight="800">$17 Million</tspan> federal class settlement (May 3, 2019)</text>
+
+    <circle cx="32" cy="224" r="4" fill="#10b981" />
+    <text x="46" y="228" fill="#f1f5f9" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="600">Requires court-appointed receiver or post-sale deed</text>
+
+    <rect x="20" y="246" width="315" height="1" fill="#047857" />
+  </g>
+
+  <!-- Box 2: DOES NOT APPLY TO (Red Fence) -->
+  <g transform="translate(415, 85)">
+    <rect x="0" y="0" width="355" height="270" rx="10" fill="#7f1d1d" fill-opacity="0.25" stroke="#ef4444" stroke-width="2" filter="url(#m6-v2-glow)" />
+    <rect x="16" y="-12" width="180" height="24" rx="4" fill="#dc2626" />
+    <text x="106" y="4" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" text-anchor="middle">✕ DOES NOT APPLY TO</text>
+
+    <text x="24" y="38" fill="#f87171" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="700">Never Generalize Nationally</text>
+
+    <circle cx="32" cy="72" r="4" fill="#ef4444" />
+    <text x="46" y="76" fill="#f1f5f9" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="600"><tspan font-weight="800">NOT a National 50-State Ban:</tspan> WA statute only</text>
+
+    <circle cx="32" cy="110" r="4" fill="#ef4444" />
+    <text x="46" y="114" fill="#f1f5f9" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="600">Does NOT prohibit post-foreclosure REO securing</text>
+
+    <circle cx="32" cy="148" r="4" fill="#ef4444" />
+    <text x="46" y="152" fill="#f1f5f9" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="600">Does NOT govern Title Theory states (e.g. NC, GA)</text>
+
+    <circle cx="32" cy="186" r="4" fill="#ef4444" />
+    <text x="46" y="190" fill="#f1f5f9" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="600">Never conflate with CFPB $91M or $76M actions</text>
+
+    <circle cx="32" cy="224" r="4" fill="#ef4444" />
+    <text x="46" y="228" fill="#f1f5f9" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="600">Does NOT apply to emergency hazard board-ups (broken window)</text>
+
+    <rect x="20" y="246" width="315" height="1" fill="#b91c1c" />
+  </g>
+
+  <!-- Bottom Command Bar: 4 Layers of Authority Anchor -->
+  <g transform="translate(30, 375)">
+    <rect x="0" y="0" width="740" height="95" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1.5" />
+    <text x="24" y="28" fill="#cbd5e1" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="700">THE FOUR LAYERS OF AUTHORITY HIERARCHY:</text>
+
+    <!-- 4 Layers Flow -->
+    <g transform="translate(24, 42)">
+      <!-- Layer 1 -->
+      <rect x="0" y="0" width="160" height="38" rx="5" fill="#0f766e" />
+      <text x="80" y="18" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" text-anchor="middle">LAYER 1: LAW &amp; CODE</text>
+      <text x="80" y="31" fill="#ccfbf1" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="600" text-anchor="middle">Outer boundary • Unbreakable</text>
+      
+      <!-- Arrow -->
+      <path d="M 166 19 L 176 19" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)" />
+
+      <!-- Layer 2 -->
+      <rect x="182" y="0" width="160" height="38" rx="5" fill="#1e40af" />
+      <text x="262" y="18" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" text-anchor="middle">LAYER 2: CLIENT ORDER</text>
+      <text x="262" y="31" fill="#dbeafe" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="600" text-anchor="middle">Specific scope &amp; rulebook</text>
+
+      <!-- Arrow -->
+      <path d="M 348 19 L 358 19" stroke="#94a3b8" stroke-width="2" />
+
+      <!-- Layer 3 -->
+      <rect x="364" y="0" width="160" height="38" rx="5" fill="#4338ca" />
+      <text x="444" y="18" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" text-anchor="middle">LAYER 3: COMPANY SOP</text>
+      <text x="444" y="31" fill="#e0e7ff" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="600" text-anchor="middle">Internal approval matrix</text>
+
+      <!-- Arrow -->
+      <path d="M 530 19 L 540 19" stroke="#94a3b8" stroke-width="2" />
+
+      <!-- Layer 4 -->
+      <rect x="546" y="0" width="145" height="38" rx="5" fill="#334155" />
+      <text x="618" y="18" fill="#ffffff" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" text-anchor="middle">LAYER 4: PRACTICE</text>
+      <text x="618" y="31" fill="#cbd5e1" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="600" text-anchor="middle">Training illustration</text>
+    </g>
+  </g>
+
+  <!-- Sticky Mantra -->
+  <text x="400" y="490" fill="#f59e0b" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" text-anchor="middle">MANTRA: "WASHINGTON LAW ONLY. SAY IT EVERY TIME YOU SAY JORDAN."</text>
+</svg>
