@@ -107,7 +107,7 @@
   <g transform="translate(430, 70)" filter="url(#shadow1)">
     <rect width="410" height="260" rx="10" fill="#131d31" stroke="#253553" stroke-width="1.5"/>
     
-    <text x="24" y="32" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">The 1972 Peak & The Exclusion Filter</text>
+    <text x="24" y="32" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">The 1972 Peak &amp; The Exclusion Filter</text>
     <text x="24" y="48" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="11">How post-war policies built prosperity with structural barriers</text>
 
     <!-- Side-by-side comparative badges -->
@@ -125,7 +125,7 @@
       <text x="201" y="46" fill="#fda4af" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="600">• HOLC Redlining Maps</text>
       <text x="201" y="62" fill="#fda4af" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="600">• Restrictive Deed Covenants</text>
       <text x="201" y="78" fill="#fda4af" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="600">• Single-Family Zoning Gates</text>
-      <text x="201" y="92" fill="#fda4af" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" font-style="italic">Prosperity & exclusion side by side</text>
+      <text x="201" y="92" fill="#fda4af" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" font-style="italic">Prosperity &amp; exclusion side by side</text>
     </g>
 
     <!-- Bottom Anchor Banner inside right card -->
