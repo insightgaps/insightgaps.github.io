@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="50%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#090D16"/>
+    </linearGradient>
+    <linearGradient id="cyan-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="gold-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#EF4444"/>
+    </linearGradient>
+    <filter id="hero-shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1200" height="630" fill="url(#bg-grad)"/>
+
+  <!-- Subtle Forensic Grid Background -->
+  <g stroke="#334155" stroke-width="0.8" opacity="0.3">
+    <line x1="100" y1="0" x2="100" y2="630"/>
+    <line x1="250" y1="0" x2="250" y2="630"/>
+    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="550" y1="0" x2="550" y2="630"/>
+    <line x1="700" y1="0" x2="700" y2="630"/>
+    <line x1="850" y1="0" x2="850" y2="630"/>
+    <line x1="1000" y1="0" x2="1000" y2="630"/>
+    <line x1="1150" y1="0" x2="1150" y2="630"/>
+    <line x1="0" y1="100" x2="1200" y2="100"/>
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="500" x2="1200" y2="500"/>
+  </g>
+
+  <!-- Synthetic Badge -->
+  <rect x="50" y="40" width="340" height="26" rx="4" fill="#1E293B" stroke="#06B6D4" stroke-width="1.2"/>
+  <text x="65" y="58" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#38BDF8" letter-spacing="1.5">FORENSIC DATA JOURNALISM DESK &#8226; SYNTHETIC</text>
+
+  <!-- Left Main Visual: Investigative Data Layers & Charts -->
+  <g transform="translate(50, 95)" filter="url(#hero-shadow)">
+    <!-- Layer 1: Time Series Chart Window -->
+    <rect width="680" height="480" rx="10" fill="#111827" stroke="#374151" stroke-width="1.5"/>
+    <rect width="680" height="38" rx="10" fill="#1F2937"/>
+    <circle cx="20" cy="19" r="5" fill="#EF4444"/>
+    <circle cx="36" cy="19" r="5" fill="#F59E0B"/>
+    <circle cx="52" cy="19" r="5" fill="#10B981"/>
+    <text x="75" y="24" font-family="'Segoe UI', monospace" font-size="12" fill="#9CA3AF">investigation_timeseries_evidence_ledger.csv</text>
+
+    <!-- Chart Grid Lines -->
+    <g stroke="#1F2937" stroke-width="1">
+      <line x1="40" y1="120" x2="640" y2="120"/>
+      <line x1="40" y1="200" x2="640" y2="200"/>
+      <line x1="40" y1="280" x2="640" y2="280"/>
+      <line x1="40" y1="360" x2="640" y2="360"/>
+    </g>
+
+    <!-- Synthetic Data Curve 1 (Forecast vs Reported) -->
+    <path d="M 50 340 Q 140 310, 220 250 T 360 210 T 480 150 T 630 110" fill="none" stroke="#38BDF8" stroke-width="3.5"/>
+    <!-- Synthetic Data Curve 2 (Forensic Field Audits) -->
+    <path d="M 50 370 Q 140 360, 220 330 T 360 310 T 480 270 T 630 220" fill="none" stroke="#F59E0B" stroke-width="3" stroke-dasharray="6 4"/>
+
+    <!-- Data Points on Curve -->
+    <circle cx="220" cy="250" r="5" fill="#38BDF8"/>
+    <circle cx="360" cy="210" r="5" fill="#38BDF8"/>
+    <circle cx="480" cy="150" r="5" fill="#38BDF8"/>
+    <circle cx="630" cy="110" r="6" fill="#38BDF8" stroke="#FFFFFF" stroke-width="2"/>
+
+    <!-- Highlighted Callout Box inside Chart -->
+    <g transform="translate(320, 110)">
+      <rect width="180" height="60" rx="6" fill="#0F172A" stroke="#38BDF8" stroke-width="1.2"/>
+      <text x="12" y="22" font-family="'Segoe UI', sans-serif" font-size="10.5" font-weight="800" fill="#38BDF8">DISCREPANCY DETECTED</text>
+      <text x="12" y="38" font-family="'Segoe UI', sans-serif" font-size="10" fill="#E2E8F0">&#916; = 47.8% Unverified</text>
+      <text x="12" y="52" font-family="'Segoe UI', sans-serif" font-size="9" fill="#94A3B8">Cross-checked via 3 audits</text>
+    </g>
+
+    <!-- Bar Chart Motif in Lower Half -->
+    <g transform="translate(50, 390)">
+      <rect x="0" y="10" width="30" height="50" rx="3" fill="#334155"/>
+      <rect x="45" y="0" width="30" height="60" rx="3" fill="#334155"/>
+      <rect x="90" y="20" width="30" height="40" rx="3" fill="#334155"/>
+      <rect x="135" y="-15" width="30" height="75" rx="3" fill="#0EA5E9"/>
+      <rect x="180" y="5" width="30" height="55" rx="3" fill="#334155"/>
+      <rect x="225" y="-30" width="30" height="90" rx="3" fill="#F59E0B"/>
+      <rect x="270" y="15" width="30" height="45" rx="3" fill="#334155"/>
+      <text x="0" y="75" font-family="'Segoe UI', sans-serif" font-size="9.5" fill="#94A3B8">CHRONOLOGICAL AUDIT INTERVALS (Q1&#8211;Q8)</text>
+    </g>
+  </g>
+
+  <!-- Right Side Visual Cards: Forensic Investigative Notebook & Geospatial Trace -->
+  <g transform="translate(760, 95)" filter="url(#hero-shadow)">
+    <!-- Notebook Card -->
+    <rect width="390" height="260" rx="10" fill="#1E293B" stroke="#475569" stroke-width="1.5"/>
+    <rect width="390" height="38" rx="10" fill="#334155"/>
+    <text x="20" y="24" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="800" fill="#F8FAFC" letter-spacing="1">FIELD VERIFICATION PROTOCOL</text>
+    
+    <g transform="translate(20, 55)">
+      <text x="0" y="20" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="700" fill="#38BDF8">&#10003; 1. PRIMARY SOURCE ATTACHED</text>
+      <text x="20" y="38" font-family="'Segoe UI', sans-serif" font-size="10.5" fill="#94A3B8">Deed records, county filing books &amp; SEC exhibits.</text>
+
+      <text x="0" y="70" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="700" fill="#38BDF8">&#10003; 2. SATELLITE &amp; METADATA AUDIT</text>
+      <text x="20" y="88" font-family="'Segoe UI', sans-serif" font-size="10.5" fill="#94A3B8">EXIF timestamps, parcel polygon boundary match.</text>
+
+      <text x="0" y="120" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="700" fill="#F59E0B">&#10003; 3. EVIDENCE BEFORE NARRATIVE</text>
+      <text x="20" y="138" font-family="'Segoe UI', sans-serif" font-size="10.5" fill="#E2E8F0">Untraced claims struck out prior to dispatch.</text>
+      
+      <rect x="0" y="155" width="350" height="32" rx="4" fill="#0F172A" stroke="#06B6D4"/>
+      <text x="12" y="175" font-family="Georgia, serif" font-size="11" font-style="italic" fill="#38BDF8">"Every claim traceable to source, or marked untraced."</text>
+    </g>
+
+    <!-- Geospatial Coordinate Matrix -->
+    <g transform="translate(0, 280)">
+      <rect width="390" height="200" rx="10" fill="#0F172A" stroke="#334155" stroke-width="1.5"/>
+      <rect width="390" height="34" rx="10" fill="#1E293B"/>
+      <text x="20" y="22" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#10B981" letter-spacing="1">GEOSPATIAL ANCHOR POINTS</text>
+      
+      <!-- Coordinate Nodes -->
+      <g stroke="#334155" stroke-width="1.2">
+        <line x1="50" y1="80" x2="160" y2="120"/>
+        <line x1="160" y1="120" x2="280" y2="70"/>
+        <line x1="280" y1="70" x2="340" y2="140"/>
+        <line x1="160" y1="120" x2="210" y2="165"/>
+      </g>
+
+      <circle cx="50" cy="80" r="7" fill="#10B981" stroke="#FFFFFF" stroke-width="2"/>
+      <circle cx="160" cy="120" r="7" fill="#38BDF8" stroke="#FFFFFF" stroke-width="2"/>
+      <circle cx="280" cy="70" r="7" fill="#F59E0B" stroke="#FFFFFF" stroke-width="2"/>
+      <circle cx="340" cy="140" r="7" fill="#EF4444" stroke="#FFFFFF" stroke-width="2"/>
+      <circle cx="210" cy="165" r="7" fill="#8B5CF6" stroke="#FFFFFF" stroke-width="2"/>
+
+      <text x="65" y="84" font-family="'Segoe UI', monospace" font-size="10" fill="#CBD5E1">NODE A [PARCEL 041-02]</text>
+      <text x="175" y="124" font-family="'Segoe UI', monospace" font-size="10" fill="#CBD5E1">NODE B [INSPECTION]</text>
+      <text x="235" y="58" font-family="'Segoe UI', monospace" font-size="10" fill="#CBD5E1">NODE C [SERVICER]</text>
+    </g>
+  </g>
+</svg>
