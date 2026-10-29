@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="geom-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF8"/>
+      <stop offset="100%" stop-color="#F3EFE7"/>
+    </linearGradient>
+    <filter id="geom-shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#12263F" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" fill="url(#geom-bg)"/>
+  <rect x="24" y="24" width="912" height="492" rx="12" fill="none" stroke="#D6C8B2" stroke-width="1.5"/>
+
+  <!-- Header Banner -->
+  <rect x="40" y="40" width="880" height="48" rx="6" fill="#12263F"/>
+  <text x="56" y="70" font-family="'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="800" fill="#F59E0B" letter-spacing="1.5">DEBRIS GEOMETRY &amp; CY VERIFICATION</text>
+  <text x="420" y="70" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="600" fill="#E2E8F0">[MOCK TOOL — DECISION LAB 4 DISCIPLINE]</text>
+  <rect x="800" y="52" width="106" height="24" rx="4" fill="#0F766E"/>
+  <text x="853" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8" text-anchor="middle">DIVISOR: 27</text>
+
+  <!-- Formula Callout Top -->
+  <rect x="40" y="102" width="880" height="50" rx="6" fill="#F1F5F9" stroke="#CBD5E1"/>
+  <text x="60" y="132" font-family="Georgia, serif" font-size="18" font-weight="700" fill="#12263F">The Universal Cubic Yard Rule: </text>
+  <text x="325" y="132" font-family="'Courier New', monospace" font-size="18" font-weight="800" fill="#B45309">Volume (CY) = [ Length (ft) × Width (ft) × Height (ft) ] ÷ 27</text>
+
+  <!-- Left Side: Measured Reality (Isometric Pile) -->
+  <g transform="translate(40, 168)">
+    <rect x="0" y="0" width="425" height="300" rx="8" fill="#FFFDF8" stroke="#166534" stroke-width="2" filter="url(#geom-shadow)"/>
+    <rect x="0" y="0" width="425" height="36" rx="8" fill="#166534"/>
+    <text x="16" y="24" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="800" fill="#DCFCE7" letter-spacing="0.5">PHYSICAL FIELD REALITY: MEASURED PILE</text>
+
+    <!-- Isometric Box Representation -->
+    <!-- Front Face -->
+    <polygon points="70,180 250,180 250,240 70,240" fill="#E2E8F0" stroke="#12263F" stroke-width="2"/>
+    <!-- Top Face -->
+    <polygon points="70,180 140,120 320,120 250,180" fill="#CBD5E1" stroke="#12263F" stroke-width="2"/>
+    <!-- Right Face -->
+    <polygon points="250,180 320,120 320,180 250,240" fill="#94A3B8" stroke="#12263F" stroke-width="2"/>
+
+    <!-- Dimension Labels -->
+    <!-- Length (Front 9 ft) -->
+    <line x1="70" y1="255" x2="250" y2="255" stroke="#B45309" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <text x="160" y="272" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="800" fill="#B45309" text-anchor="middle">Length = 9 ft</text>
+
+    <!-- Height (Side 3 ft) -->
+    <line x1="55" y1="180" x2="55" y2="240" stroke="#B45309" stroke-width="2.5"/>
+    <text x="45" y="215" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="800" fill="#B45309" text-anchor="end">Height = 3 ft</text>
+
+    <!-- Width (Depth 6 ft) -->
+    <line x1="265" y1="245" x2="335" y2="185" stroke="#B45309" stroke-width="2.5"/>
+    <text x="315" y="225" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="800" fill="#B45309">Width = 6 ft</text>
+
+    <!-- Math Calculation Box -->
+    <rect x="20" y="48" width="385" height="58" rx="6" fill="#F0FDF4" stroke="#86EFAC"/>
+    <text x="32" y="70" font-family="'Courier New', monospace" font-size="14" font-weight="700" fill="#166534">9 ft × 6 ft × 3 ft = 162 cu ft</text>
+    <text x="32" y="92" font-family="'Courier New', monospace" font-size="15" font-weight="800" fill="#15803D">162 ÷ 27 = 6.0 CUBIC YARDS (CY)</text>
+    <rect x="290" y="60" width="105" height="32" rx="4" fill="#166534"/>
+    <text x="342" y="81" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#FFFDF8" text-anchor="middle">VERIFIED</text>
+  </g>
+
+  <!-- Right Side: The Discrepancy & Fraud Exposure -->
+  <g transform="translate(495, 168)">
+    <rect x="0" y="0" width="425" height="300" rx="8" fill="#FFFDF8" stroke="#B42318" stroke-width="2" filter="url(#geom-shadow)"/>
+    <rect x="0" y="0" width="425" height="36" rx="8" fill="#B42318"/>
+    <text x="16" y="24" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="800" fill="#FEE2E2" letter-spacing="0.5">INVOICE CLAIM VS. EVIDENCE AUDIT</text>
+
+    <!-- Crew Claim Box -->
+    <rect x="20" y="48" width="385" height="74" rx="6" fill="#FEF2F2" stroke="#FCA5A5"/>
+    <text x="32" y="70" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#991B1B">CREW INVOICE SUBMISSION:</text>
+    <text x="32" y="92" font-family="Georgia, serif" font-size="16" font-weight="700" fill="#B42318">"Hauled 15 CY Debris @ $15/CY = $225.00"</text>
+    <text x="32" y="110" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#7F1D1D">Mathematical Requirement for 15 CY: 405 cu ft!</text>
+
+    <!-- Exposure Breakdown -->
+    <rect x="20" y="132" width="385" height="152" rx="6" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="32" y="154" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#12263F">AUDIT VERDICT &amp; REMEDIATION (PROCESSOR):</text>
+    
+    <text x="32" y="178" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#B42318">❌ REJECT INFLATED 15 CY QUANTITY</text>
+    <text x="46" y="194" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#475569">The photo proof with scale tape only supports 6.0 CY.</text>
+    
+    <text x="32" y="216" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#0F766E">✓ CORRECT TO VERIFIED 6.0 CY</text>
+    <text x="46" y="232" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#475569">6.0 CY × $15/CY allowable rate = $90.00 payable.</text>
+
+    <text x="32" y="254" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#B45309">⚠️ PREVENT $135 DISALLOWANCE PENALTY</text>
+    <text x="46" y="270" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#475569">Submitting 15 CY triggers client audit failure &amp; vendor sanction.</text>
+  </g>
+
+  <!-- Footer Caption -->
+  <rect x="40" y="482" width="880" height="26" rx="4" fill="#F1F5F9" stroke="#CBD5E1"/>
+  <text x="56" y="499" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#334155">STORY LESSON: Marcus didn't try to steal—he estimated by eye from the truck bed. Elena protects him and the company with math.</text>
+</svg>

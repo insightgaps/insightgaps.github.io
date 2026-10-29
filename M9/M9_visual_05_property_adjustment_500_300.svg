@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="adj-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF8"/>
+      <stop offset="100%" stop-color="#F2EDE4"/>
+    </linearGradient>
+    <filter id="adj-shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#12263F" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" fill="url(#adj-bg)"/>
+  <rect x="24" y="24" width="912" height="492" rx="12" fill="none" stroke="#D6C8B2" stroke-width="1.5"/>
+
+  <!-- Header Banner -->
+  <rect x="40" y="40" width="880" height="48" rx="6" fill="#12263F"/>
+  <text x="56" y="70" font-family="'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="800" fill="#F59E0B" letter-spacing="1.5">PROPERTY-LEVEL ADJUSTMENT PROTOCOL</text>
+  <text x="430" y="70" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="600" fill="#E2E8F0">[CANONICAL 500/300 TEACHING MODEL]</text>
+  <rect x="800" y="52" width="106" height="24" rx="4" fill="#0F766E"/>
+  <text x="853" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8" text-anchor="middle">APPROVER SIGN</text>
+
+  <!-- Title Statement -->
+  <text x="40" y="112" font-family="Georgia, serif" font-size="17" font-weight="700" fill="#12263F">Unspent client money is not profit margin. It belongs to the property ledger until reconciled.</text>
+
+  <!-- Main Ledger Box -->
+  <g transform="translate(40, 130)">
+    <rect x="0" y="0" width="880" height="335" rx="8" fill="#FFFDF8" stroke="#D6C8B2" stroke-width="1.5" filter="url(#adj-shadow)"/>
+    
+    <!-- Ledger Header Strip -->
+    <rect x="0" y="0" width="880" height="38" rx="8" fill="#1E293B"/>
+    <text x="20" y="24" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#F8FAFC">PROPERTY LEDGER: 742 EVERGREEN ST — ESCROW &amp; RECONCILIATION SUMMARY</text>
+    <text x="750" y="24" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#38BDF8">STATUS: ACTIVE AUDIT</text>
+
+    <!-- Column 1: Funds Received (Unspent) -->
+    <g transform="translate(25, 55)">
+      <rect x="0" y="0" width="250" height="255" rx="6" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1.2"/>
+      <text x="16" y="28" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="800" fill="#166534">CLIENT FUNDS RECEIVED</text>
+      <text x="16" y="60" font-family="Georgia, serif" font-size="32" font-weight="800" fill="#15803D">$500.00</text>
+      <text x="16" y="85" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#166534">Condition:</text>
+      <text x="16" y="105" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="500" fill="#334155">Remitted by client for advance services not executed; no expense incurred.</text>
+      
+      <rect x="16" y="170" width="218" height="65" rx="4" fill="#DCFCE7" stroke="#4ADE80"/>
+      <text x="24" y="190" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800" fill="#14532D">CRITICAL DISTINCTION:</text>
+      <text x="24" y="206" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="600" fill="#14532D">This is NOT vendor gross margin. It is unspent client capital.</text>
+    </g>
+
+    <!-- Arrow Absorbing Loss -->
+    <g transform="translate(290, 160)">
+      <path d="M 0 20 L 40 20" stroke="#0F766E" stroke-width="3" stroke-dasharray="4 2"/>
+      <polygon points="40,15 50,20 40,25" fill="#0F766E"/>
+      <text x="25" y="10" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800" fill="#0F766E" text-anchor="middle">ABSORBS</text>
+    </g>
+
+    <!-- Column 2: The Verified Short-Pay Loss -->
+    <g transform="translate(355, 55)">
+      <rect x="0" y="0" width="250" height="255" rx="6" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1.2"/>
+      <text x="16" y="28" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="800" fill="#B91C1C">UNRESOLVED SHORT-PAY LOSS</text>
+      <text x="16" y="60" font-family="Georgia, serif" font-size="32" font-weight="800" fill="#DC2626">-$300.00</text>
+      <text x="16" y="85" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#991B1B">Origin:</text>
+      <text x="16" y="105" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="500" fill="#334155">Legitimate winterization &amp; board expense short-paid by servicer past appeal window.</text>
+      
+      <rect x="16" y="170" width="218" height="65" rx="4" fill="#FEE2E2" stroke="#F87171"/>
+      <text x="24" y="190" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800" fill="#991B1B">ACCOUNTING ACTION:</text>
+      <text x="24" y="206" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="600" fill="#7F1D1D">Absorb $300 against property surplus. Loss code: ADJUSTED.</text>
+    </g>
+
+    <!-- Arrow to Balance -->
+    <g transform="translate(620, 160)">
+      <path d="M 0 20 L 35 20" stroke="#12263F" stroke-width="3"/>
+      <polygon points="35,15 45,20 35,25" fill="#12263F"/>
+      <text x="20" y="10" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800" fill="#12263F" text-anchor="middle">EQUALS</text>
+    </g>
+
+    <!-- Column 3: The Resulting Balance -->
+    <g transform="translate(680, 55)">
+      <rect x="0" y="0" width="180" height="255" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+      <text x="14" y="28" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#1E293B">REMAINING UNSPENT</text>
+      <text x="14" y="60" font-family="Georgia, serif" font-size="32" font-weight="800" fill="#0284C7">$200.00</text>
+      
+      <text x="14" y="90" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" fill="#475569">Current Status:</text>
+      <text x="14" y="108" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="500" fill="#334155">Held on property ledger. Must still be accounted for or returned to client.</text>
+
+      <rect x="14" y="170" width="152" height="65" rx="4" fill="#F1F5F9" stroke="#94A3B8"/>
+      <text x="20" y="190" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="800" fill="#0F172A">AUTHORITY GATE:</text>
+      <text x="20" y="206" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="600" fill="#334155">Requires designated Approver sign-off.</text>
+    </g>
+  </g>
+
+  <!-- Footer Caption -->
+  <rect x="40" y="482" width="880" height="26" rx="4" fill="#F1F5F9" stroke="#CBD5E1"/>
+  <text x="56" y="499" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#334155">STORY LESSON: Never sweep money under the rug. An adjustment is a formal corporate reconciliation, not an off-the-books eraser.</text>
+</svg>

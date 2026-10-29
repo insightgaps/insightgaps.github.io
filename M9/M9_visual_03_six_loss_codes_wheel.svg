@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="wheel-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF8"/>
+      <stop offset="100%" stop-color="#F2EDE4"/>
+    </linearGradient>
+    <filter id="wheel-shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#12263F" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" fill="url(#wheel-bg)"/>
+  <rect x="24" y="24" width="912" height="492" rx="12" fill="none" stroke="#D6C8B2" stroke-width="1.5"/>
+
+  <!-- Header Banner -->
+  <rect x="40" y="40" width="880" height="48" rx="6" fill="#12263F"/>
+  <text x="56" y="70" font-family="'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="800" fill="#F59E0B" letter-spacing="1.5">THE SIX UNIFIED LOSS REASON CODES</text>
+  <text x="430" y="70" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="600" fill="#E2E8F0">[DISCIPLINE: EVERY LOST DOLLAR GETS A CODE]</text>
+  <rect x="800" y="52" width="106" height="24" rx="4" fill="#B42318"/>
+  <text x="853" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8" text-anchor="middle">QUEUE ≠ REASON</text>
+
+  <!-- Grid of 6 Loss Reason Cards -->
+  <!-- Card 1: REJECTED -->
+  <g transform="translate(40, 105)">
+    <rect x="0" y="0" width="275" height="170" rx="8" fill="#FFFDF8" stroke="#B42318" stroke-width="1.8" filter="url(#wheel-shadow)"/>
+    <rect x="0" y="0" width="275" height="32" rx="8" fill="#B42318"/>
+    <text x="14" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#FFFDF8" letter-spacing="1">1. REJECTED</text>
+    <text x="14" y="54" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#991B1B">Proof Defect / Expired Appeal</text>
+    <text x="14" y="74" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="500" fill="#475569">Client disallowed payment due to missing photos, blur, bad date-stamp, or late submission left unappealed.</text>
+    <rect x="14" y="132" width="247" height="26" rx="4" fill="#FEF2F2" stroke="#FCA5A5"/>
+    <text x="22" y="149" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" fill="#991B1B">OWNER: Client Manager / Processor</text>
+  </g>
+
+  <!-- Card 2: SHORT-PAID -->
+  <g transform="translate(342, 105)">
+    <rect x="0" y="0" width="275" height="170" rx="8" fill="#FFFDF8" stroke="#B45309" stroke-width="1.8" filter="url(#wheel-shadow)"/>
+    <rect x="0" y="0" width="275" height="32" rx="8" fill="#B45309"/>
+    <text x="14" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#FFFDF8" letter-spacing="1">2. SHORT-PAID</text>
+    <text x="14" y="54" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#B45309">Quantity / Rate Dispute</text>
+    <text x="14" y="74" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="500" fill="#475569">Client remitted payment, but reduced amount below invoiced figure (e.g. cut CY from 10 to 6, trimmed unit rate).</text>
+    <rect x="14" y="132" width="247" height="26" rx="4" fill="#FFFBEB" stroke="#FDE68A"/>
+    <text x="22" y="149" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" fill="#92400E">OWNER: Processor (Math/Tape Proof)</text>
+  </g>
+
+  <!-- Card 3: UNALLOWABLE -->
+  <g transform="translate(645, 105)">
+    <rect x="0" y="0" width="275" height="170" rx="8" fill="#FFFDF8" stroke="#64748B" stroke-width="1.8" filter="url(#wheel-shadow)"/>
+    <rect x="0" y="0" width="275" height="32" rx="8" fill="#475569"/>
+    <text x="14" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#FFFDF8" letter-spacing="1">3. UNALLOWABLE</text>
+    <text x="14" y="54" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#334155">Scope Exceeded Schedule</text>
+    <text x="14" y="74" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="500" fill="#475569">Field executed task outside client schedule or rulebook without prior written over-allowable consent (e.g. TV removal).</text>
+    <rect x="14" y="132" width="247" height="26" rx="4" fill="#F1F5F9" stroke="#CBD5E1"/>
+    <text x="22" y="149" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" fill="#334155">OWNER: Vendor Mgr (Bid Discipline)</text>
+  </g>
+
+  <!-- Card 4: ADJUSTED -->
+  <g transform="translate(40, 295)">
+    <rect x="0" y="0" width="275" height="170" rx="8" fill="#FFFDF8" stroke="#0F766E" stroke-width="1.8" filter="url(#wheel-shadow)"/>
+    <rect x="0" y="0" width="275" height="32" rx="8" fill="#0F766E"/>
+    <text x="14" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#FFFDF8" letter-spacing="1">4. ADJUSTED</text>
+    <text x="14" y="54" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#0F766E">Offset by Property Surplus</text>
+    <text x="14" y="74" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="500" fill="#475569">Deduction legitimately absorbed by unspent client funds held on the same property ledger (e.g., canonical 500/300).</text>
+    <rect x="14" y="132" width="247" height="26" rx="4" fill="#F0FDFA" stroke="#99F6E4"/>
+    <text x="22" y="149" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" fill="#115E59">OWNER: Client Manager + Approver</text>
+  </g>
+
+  <!-- Card 5: CHAIN-PAID -->
+  <g transform="translate(342, 295)">
+    <rect x="0" y="0" width="275" height="170" rx="8" fill="#FFFDF8" stroke="#166534" stroke-width="1.8" filter="url(#wheel-shadow)"/>
+    <rect x="0" y="0" width="275" height="32" rx="8" fill="#166534"/>
+    <text x="14" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#FFFDF8" letter-spacing="1">5. CHAIN-PAID</text>
+    <text x="14" y="54" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#166534">Paid on Linked Ticket (Same Address)</text>
+    <text x="14" y="74" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="500" fill="#475569">Item not paid on WO-A, but remitted under follow-up WO-B at identical street address. Address search prevents false write-off.</text>
+    <rect x="14" y="132" width="247" height="26" rx="4" fill="#F0FDF4" stroke="#86EFAC"/>
+    <text x="22" y="149" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" fill="#166534">OWNER: Client Manager (Address Search)</text>
+  </g>
+
+  <!-- Card 6: UNEXPLAINED -->
+  <g transform="translate(645, 295)">
+    <rect x="0" y="0" width="275" height="170" rx="8" fill="#FFFDF8" stroke="#DC2626" stroke-width="2" stroke-dasharray="5 3" filter="url(#wheel-shadow)"/>
+    <rect x="0" y="0" width="275" height="32" rx="8" fill="#991B1B"/>
+    <text x="14" y="22" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#FFFDF8" letter-spacing="1">6. UNEXPLAINED</text>
+    <text x="14" y="54" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="800" fill="#DC2626">INVESTIGATIVE QUEUE — NEVER A HOME!</text>
+    <text x="14" y="74" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="500" fill="#475569">The discrepancy has not yet been resolved. It is a holding status under active triage. Target: Driven to ZERO every Friday.</text>
+    <rect x="14" y="132" width="247" height="26" rx="4" fill="#FEF2F2" stroke="#EF4444"/>
+    <text x="22" y="149" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="800" fill="#B91C1C">OWNER: Client Mgr (Weekly Audit to $0)</text>
+  </g>
+
+  <!-- Footer Caption -->
+  <rect x="40" y="482" width="880" height="26" rx="4" fill="#F1F5F9" stroke="#CBD5E1"/>
+  <text x="56" y="499" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#334155">CORE DISCIPLINE: A discrepancy without a loss code is an unmanaged business bleed. UNEXPLAINED means you are still working.</text>
+</svg>
