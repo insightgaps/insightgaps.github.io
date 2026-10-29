@@ -3,678 +3,599 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Module M3 — Foreclosure: Default Has an Order. Do Not Reorder It. | Property Preservation Immersion</title>
+  <title>Ch4: Foreclosure, Step by Step — The Preservation Office Course</title>
+  <meta name="description" content="Default follows a strict statutory roadmap. Foreclosure is never instantaneous; loss mitigation must precede legal action by federal mandate.">
   <style>
     :root {
-      --bg: #0b1320;
-      --card-bg: #12263f;
-      --card-border: #23354d;
+      --bg-dark: #0b1320;
+      --bg-surface: #12263f;
+      --bg-card: #1e293b;
+      --bg-depth: #0f1c30;
       --amber: #f59e0b;
-      --amber-light: #fef3c7;
-      --emerald: #10b981;
-      --emerald-dark: #065f46;
-      --emerald-light: #d1fae5;
-      --ruby: #ef4444;
-      --ruby-dark: #991b1b;
-      --ruby-light: #fee2e2;
-      --ink: #f8fafc;
-      --ink-soft: #cbd5e1;
-      --ink-muted: #94a3b8;
-      --navy-dark: #090e17;
-      --navy-light: #1e293b;
+      --amber-light: #fef08a;
+      --teal-light: #2dd4bf;
+      --border: #334155;
+      --border-accent: #475569;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-subtle: #cbd5e1;
       --sans: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
-      --serif: Georgia, "Times New Roman", serif;
-      --mono: "Consolas", "Courier New", monospace;
+      --serif: Georgia, Cambria, "Times New Roman", serif;
+      --mono: "Space Mono", Consolas, "Courier New", monospace;
+      --radius: 8px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background-color: var(--bg);
-      color: var(--ink);
+      background-color: var(--bg-dark);
+      color: var(--text);
       font-family: var(--sans);
-      line-height: 1.6;
+      font-size: clamp(15px, 1.1vw, 17px);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      padding: 0;
+      line-height: 1.6;
+      min-width: 320px;
+      overflow-x: hidden;
     }
 
-    /* Top Navigation Header */
-    header.module-header {
-      background: var(--navy-dark);
-      border-bottom: 2px solid var(--amber);
-      padding: 0.85rem 2rem;
+    /* STUDENT FACE HEADER */
+    header.class-header {
+      background: rgba(11, 19, 32, 0.95);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 16px;
       flex-wrap: wrap;
-      gap: 1rem;
     }
 
-    .brand-group {
+    .brand {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 12px;
     }
 
-    .module-pill {
+    .brand-badge {
       background: var(--amber);
-      color: var(--navy-dark);
-      font-size: 0.75rem;
+      color: var(--bg-dark);
       font-weight: 900;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.3rem 0.65rem;
+      font-size: 13px;
+      padding: 4px 8px;
       border-radius: 4px;
+      letter-spacing: 0.05em;
     }
 
-    .time-pill {
-      background: var(--navy-light);
-      color: var(--ink-soft);
-      border: 1px solid var(--card-border);
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 0.3rem 0.65rem;
-      border-radius: 4px;
-      font-family: var(--mono);
-    }
-
-    /* Whole-Course Retelling Step Track */
-    .retelling-track {
-      font-size: 0.78rem;
-      color: var(--ink-muted);
-      font-family: var(--mono);
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .retelling-track span.step-active {
-      color: var(--amber);
-      font-weight: 800;
-      border-bottom: 1.5px solid var(--amber);
-    }
-
-    /* Main Container */
-    main.content-container {
-      max-width: 920px;
-      margin: 2rem auto;
-      padding: 0 1.25rem 3rem;
-      flex: 1;
-      width: 100%;
-    }
-
-    /* Hero Headline */
-    .module-hero {
-      margin-bottom: 1.75rem;
-    }
-
-    .module-tagline {
-      font-size: 0.85rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--amber);
-      margin-bottom: 0.3rem;
-    }
-
-    h1.module-title {
-      font-family: var(--serif);
-      font-size: 2.15rem;
+    .brand-title {
+      font-size: 14px;
       font-weight: 700;
       color: #ffffff;
-      line-height: 1.25;
-      margin-bottom: 0.5rem;
     }
 
-    p.module-subtitle {
-      font-size: 1.05rem;
-      color: var(--ink-soft);
-      max-width: 800px;
-    }
-
-    /* Short Story Opening */
-    .story-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-left: 4px solid var(--amber);
-      border-radius: 8px;
-      padding: 1.25rem 1.5rem;
-      margin-bottom: 1.75rem;
-    }
-
-    .story-card-label {
-      font-size: 0.72rem;
-      font-weight: 800;
-      text-transform: uppercase;
+    .course-retelling-step {
+      font-size: 11px;
+      color: var(--amber-light);
+      font-weight: 700;
       letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    main.content-wrap {
+      max-width: 1080px;
+      width: 100%;
+      margin: 0 auto;
+      padding: clamp(24px, 4vw, 40px) 24px 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .title-block {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
+    }
+
+    .kicker {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
       color: var(--amber);
-      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+      margin-bottom: 8px;
     }
 
-    .story-card p {
-      font-size: 1rem;
-      color: #f1f5f9;
+    h1.page-title {
+      font-family: var(--serif);
+      font-size: clamp(26px, 4vw, 40px);
+      line-height: 1.2;
+      color: #ffffff;
+      margin-bottom: 12px;
+      text-wrap: balance;
+    }
+
+    p.story-intro {
+      font-family: var(--serif);
+      font-size: clamp(16px, 1.3vw, 19px);
+      color: #e2e8f0;
       font-style: italic;
-      line-height: 1.6;
+      line-height: 1.5;
+      max-width: 920px;
     }
 
-    /* Focal Image Card */
-    .image-card {
-      background: var(--navy-dark);
-      border: 1px solid var(--card-border);
-      border-radius: 8px;
-      overflow: hidden;
-      margin-bottom: 2rem;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+    /* ONE-LOOK FOCAL IMAGE */
+    .focal-visual {
+      background: var(--bg-surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+      position: relative;
     }
 
-    .image-card img {
+    .visual-mock-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--amber-light);
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 4px 10px;
+      margin-bottom: 8px;
+      letter-spacing: 0.05em;
+    }
+
+    .focal-visual img {
       width: 100%;
       height: auto;
       display: block;
+      border-radius: 4px;
     }
 
-    .image-caption {
-      padding: 0.65rem 1.25rem;
-      background: #0f172a;
-      border-top: 1px solid var(--card-border);
-      font-size: 0.78rem;
-      color: var(--ink-muted);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.5rem;
+    /* MAX 3 KEY POINTS */
+    .key-points-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 4px;
     }
 
-    .image-caption span.synthetic-tag {
-      color: var(--amber);
-      font-weight: 700;
-      font-size: 0.72rem;
+    @media (max-width: 860px) {
+      .key-points-grid { grid-template-columns: 1fr; }
     }
 
-    /* Key Points Section: 3 Catchphrases */
-    .key-points-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 8px;
-      padding: 1.5rem 1.75rem;
-      margin-bottom: 2rem;
-    }
-
-    .key-points-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-      border-bottom: 1px solid var(--card-border);
-      padding-bottom: 0.5rem;
-    }
-
-    .key-points-header h2 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #ffffff;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .key-points-header span {
-      font-size: 0.75rem;
-      color: var(--ink-muted);
-      font-family: var(--mono);
-    }
-
-    .stick-list {
+    .key-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-top: 3.5px solid var(--amber);
+      border-radius: var(--radius);
+      padding: 20px 18px;
       display: flex;
       flex-direction: column;
-      gap: 0.9rem;
+      gap: 10px;
     }
 
-    .stick-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-    }
-
-    .stick-num {
-      background: var(--navy-light);
+    .card-num {
+      font-size: 11px;
+      font-weight: 800;
       color: var(--amber);
-      border: 1px solid var(--card-border);
-      font-size: 0.75rem;
-      font-weight: 900;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 2px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
 
-    .stick-content {
-      font-size: 0.95rem;
-      color: var(--ink-soft);
+    .card-heading {
+      font-family: var(--serif);
+      font-size: 18px;
+      color: #ffffff;
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text-muted);
       line-height: 1.5;
     }
 
-    .stick-content strong {
-      color: #ffffff;
-      font-size: 1rem;
-      display: block;
-      margin-bottom: 0.15rem;
-    }
+    .card-body strong { color: #ffffff; }
 
-    /* One Decision Card (Tactile Dilemma) */
-    .decision-card {
-      background: var(--navy-dark);
-      border: 2px solid var(--card-border);
-      border-top: 5px solid var(--amber);
-      border-radius: 8px;
-      padding: 1.5rem 1.75rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
-    }
-
-    .decision-head {
+    /* STEP NAVIGATION BUTTONS */
+    nav.class-nav {
+      margin-top: 8px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 0.75rem;
+      gap: 12px;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
     }
 
-    .decision-label {
-      font-size: 0.8rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--amber);
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .decision-badge {
-      background: var(--navy-light);
-      color: var(--ink-muted);
-      font-size: 0.72rem;
+    .btn-step {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border);
+      color: var(--text);
+      min-height: 48px;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 13px;
       font-weight: 700;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      font-family: var(--mono);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
     }
 
-    p.decision-prompt {
-      font-size: 0.98rem;
-      color: #f8fafc;
-      margin-bottom: 1.25rem;
+    .btn-step:hover:not(.disabled) {
+      background: var(--amber);
+      color: var(--bg-dark);
+      border-color: var(--amber);
+    }
+
+    .btn-step.primary {
+      background: var(--amber);
+      color: var(--bg-dark);
+      border-color: var(--amber);
+    }
+
+    .btn-step.primary:hover { background: #d97706; }
+
+    .btn-step.disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      border-color: var(--border);
+    }
+
+    /* CONTENT DEPTH CONTAINER */
+    section.chapter-depth-container {
+      margin-top: 16px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg-depth);
+      overflow: hidden;
+    }
+
+    .depth-summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      background: var(--bg-surface);
+      cursor: pointer;
+      user-select: none;
+      font-family: var(--sans);
+      font-weight: 700;
+      font-size: 15px;
+      color: #ffffff;
+      min-height: 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .depth-summary::-webkit-details-marker { display: none; }
+    .depth-summary:hover { background: #162c47; }
+
+    .depth-indicator {
+      color: var(--amber);
+      font-family: var(--mono);
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .depth-inner {
+      padding: 24px 20px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* WORK ORDER SPEC BOX */
+    .wo-spec-box {
+      background: #09101a;
+      border: 1px solid var(--border-accent);
+      border-left: 4px solid var(--teal-light);
+      border-radius: 6px;
+      padding: 18px 20px;
+    }
+
+    .wo-spec-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+      border-bottom: 1px dashed var(--border);
+      padding-bottom: 8px;
+    }
+
+    .wo-badge {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--teal-light);
+      letter-spacing: 0.08em;
+    }
+
+    .wo-client {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .wo-title {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .wo-body {
+      font-family: var(--mono);
+      font-size: 12.5px;
+      color: var(--text-subtle);
       line-height: 1.55;
     }
 
-    .choice-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      margin-bottom: 1rem;
-    }
-
-    button.choice-btn {
-      background: #152238;
-      border: 1px solid var(--card-border);
-      border-radius: 6px;
-      padding: 0.85rem 1rem;
-      text-align: left;
-      color: #e2e8f0;
-      font-family: inherit;
-      font-size: 0.92rem;
-      line-height: 1.45;
-      cursor: pointer;
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      transition: all 0.2s ease;
-    }
-
-    button.choice-btn:hover {
-      background: #1c2e4c;
-      border-color: #3b5278;
-    }
-
-    button.choice-btn .choice-letter {
-      background: #0f172a;
-      color: var(--amber);
-      border: 1px solid var(--card-border);
-      font-size: 0.75rem;
-      font-weight: 800;
-      width: 24px;
-      height: 24px;
-      border-radius: 4px;
+    /* RULES & REQUIREMENTS */
+    .depth-section-title {
+      font-family: var(--serif);
+      font-size: 19px;
+      color: #ffffff;
+      margin-bottom: 12px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+      gap: 8px;
     }
 
-    button.choice-btn.good {
-      background: rgba(16, 185, 129, 0.15);
-      border-color: var(--emerald);
-      color: #ffffff;
+    .depth-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
     }
 
-    button.choice-btn.good .choice-letter {
-      background: var(--emerald);
-      color: #ffffff;
-      border-color: var(--emerald);
-    }
-
-    button.choice-btn.bad {
-      background: rgba(239, 68, 68, 0.15);
-      border-color: var(--ruby);
-      color: #ffffff;
-    }
-
-    button.choice-btn.bad .choice-letter {
-      background: var(--ruby);
-      color: #ffffff;
-      border-color: var(--ruby);
-    }
-
-    /* Decision Feedback Box */
-    .decision-feedback {
-      display: none;
-      padding: 1rem 1.25rem;
+    .depth-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
       border-radius: 6px;
-      font-size: 0.9rem;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .depth-card-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--amber-light);
+    }
+
+    .depth-card-body {
+      font-size: 13px;
+      color: var(--text-muted);
       line-height: 1.5;
-      margin-top: 1rem;
-      animation: fadeIn 0.25s ease-out;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-4px); }
-      to { opacity: 1; transform: translateY(0); }
+    /* ALL CHAPTERS NAV BLOCK */
+    section.all-chapters-nav {
+      margin-top: 24px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 20px;
     }
 
-    .decision-feedback.good {
-      background: rgba(16, 185, 129, 0.12);
-      border: 1px solid var(--emerald);
-      color: #a7f3d0;
-    }
-
-    .decision-feedback.bad {
-      background: rgba(239, 68, 68, 0.12);
-      border: 1px solid var(--ruby);
-      color: #fecaca;
-    }
-
-    .feedback-title {
-      font-weight: 800;
-      font-size: 0.85rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 0.3rem;
-    }
-
-    .decision-feedback.good .feedback-title {
-      color: #34d399;
-    }
-
-    .decision-feedback.bad .feedback-title {
-      color: #f87171;
-    }
-
-    /* Short Bridge Callout */
-    .bridge-strip {
-      background: rgba(245, 158, 11, 0.08);
-      border-left: 3px solid var(--amber);
-      padding: 0.75rem 1rem;
-      border-radius: 0 4px 4px 0;
-      font-size: 0.9rem;
-      color: var(--ink-soft);
-      margin-bottom: 2rem;
-    }
-
-    .bridge-strip strong {
-      color: var(--amber);
-    }
-
-    /* Navigation Bar */
-    nav.module-navigation {
-      background: var(--navy-dark);
-      border: 1px solid var(--card-border);
-      border-radius: 8px;
-      padding: 0.85rem 1.25rem;
+    .all-chapters-title {
+      font-family: var(--serif);
+      font-size: 18px;
+      color: #ffffff;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 0.75rem;
+      gap: 8px;
     }
 
-    .nav-btn {
+    .all-chapters-title a {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--amber);
+      text-decoration: underline;
+    }
+
+    ul.chapters-menu-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 8px 16px;
+    }
+
+    li.nav-item {
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+    }
+
+    a.nav-link {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 13.5px;
+      min-height: 48px;
+      width: 100%;
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      padding: 0.55rem 1.1rem;
-      border-radius: 6px;
-      font-size: 0.88rem;
+      padding: 6px 10px;
+      border-radius: 4px;
+      transition: all 0.15s ease;
+    }
+
+    a.nav-link:hover {
+      color: var(--amber-light);
+      background: rgba(245, 158, 11, 0.1);
+      text-decoration: underline;
+    }
+
+    li.nav-item.current {
+      background: rgba(245, 158, 11, 0.15);
+      border-radius: 4px;
+      border-left: 3px solid var(--amber);
+    }
+
+    .nav-current-label {
+      font-size: 13.5px;
       font-weight: 700;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      cursor: pointer;
-    }
-
-    .nav-btn.secondary {
-      background: #1e293b;
-      color: #e2e8f0;
-      border: 1px solid var(--card-border);
-    }
-
-    .nav-btn.secondary:hover {
-      background: #334155;
-      color: #ffffff;
-    }
-
-    .nav-btn.center {
-      background: transparent;
-      color: var(--ink-muted);
-      border: 1px solid transparent;
-      font-weight: 600;
-    }
-
-    .nav-btn.center:hover {
-      color: var(--amber);
-    }
-
-    .nav-btn.primary {
-      background: var(--emerald-dark);
-      color: #ffffff;
-      border: 1px solid var(--emerald);
-    }
-
-    .nav-btn.primary:hover {
-      background: #047857;
-      box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
-    }
-
-    /* Footer Note */
-    footer.module-footer {
-      text-align: center;
-      padding: 2rem 0;
-      font-size: 0.78rem;
-      color: #475569;
-      border-top: 1px solid #1e293b;
-      margin-top: auto;
+      color: var(--amber-light);
+      padding: 6px 10px;
+      display: inline-flex;
+      align-items: center;
+      min-height: 48px;
+      width: 100%;
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Navigation Header -->
-  <header class="module-header">
-    <div class="brand-group">
-      <span class="module-pill">Module M3</span>
-      <span class="time-pill">01:05–01:25 • 20 Min</span>
+  <header class="class-header">
+    <div class="brand">
+      <span class="brand-badge">Ch4</span>
+      <span class="brand-title">The Preservation Office Course — Five Hours, One House</span>
     </div>
-    <!-- Whole-Course Retelling Track -->
-    <div class="retelling-track">
-      <span>house</span> ➔ <span>chain</span> ➔ <span class="step-active">order</span> ➔ <span>work</span> ➔ <span>evidence</span> ➔ <span>money</span> ➔ <span>capstone</span>
-    </div>
+    <div class="course-retelling-step">CHAPTER 4 OF 11 · 20 MINUTES</div>
   </header>
 
-  <!-- Main Content Container -->
-  <main class="content-container">
+  <main class="content-wrap">
 
-    <!-- Hero Header -->
-    <section class="module-hero">
-      <div class="module-tagline">Step 3 of 7 in the Course Retelling • Order</div>
-      <h1 class="module-title">Default Has an Order. Do Not Reorder It.</h1>
-      <p class="module-subtitle">Why you cannot jump straight from a missed mortgage payment to a padlock on the front door.</p>
-    </section>
-
-    <!-- Short Story Opening -->
-    <section class="story-card">
-      <div class="story-card-label">Story Opening • October 2008</div>
-      <p>
-        "October 2008. The automotive parts supplier in town downsizes its second shift. Mark Miller, who has lived at 742 Evergreen Road for eleven years, misses his first mortgage payment on October 1st. On November 1st, he misses payment two. A rookie contractor hears 'two missed payments' and thinks it's time to pack the van and change the locks. But default has an unbending legal order: help comes before punishment. Loss mitigation first, foreclosure second."
-      </p>
-    </section>
-
-    <!-- One Image: The Foreclosure Road -->
-    <section class="image-card">
-      <img src="M3_visual_01_the_foreclosure_road.svg" alt="The Foreclosure Road: Default, Loss Mitigation FIRST, Foreclosure, Auction, REO" width="960" height="540">
-      <div class="image-caption">
-        <span>Figure M3.1 — The Invariant 5-Stop Foreclosure Road</span>
-        <span class="synthetic-tag">[FICTIONAL COMPOSITE • REGULATION X STANDARDS]</span>
-      </div>
-    </section>
-
-    <!-- Key Points: 3 Catchphrases (Memory Bar) -->
-    <section class="key-points-card">
-      <div class="key-points-header">
-        <h2>Three Lines to Remember</h2>
-        <span>Memory-Bar Standard</span>
-      </div>
-      <div class="stick-list">
-        <div class="stick-item">
-          <div class="stick-num">1</div>
-          <div class="stick-content">
-            <strong>"Loss mitigation FIRST, foreclosure second."</strong>
-            Under federal law (CFPB Regulation X), a lender cannot file foreclosure before Day 120 of delinquency. Dual-tracking while reviewing an application is illegal. Help comes before punishment.
-          </div>
-        </div>
-        <div class="stick-item">
-          <div class="stick-num">2</div>
-          <div class="stick-content">
-            <strong>"Read the label before you quote the number."</strong>
-            A default filing is a legal paper, not a repossessed house, and not a work order. In 2010, the US had 2.9 million filings, but monthly completed repossessions peaked at 102,134.
-          </div>
-        </div>
-        <div class="stick-item">
-          <div class="stick-num">3</div>
-          <div class="stick-content">
-            <strong>"Vacancy itself is damage. Empty is enough."</strong>
-            An unheated 42-year-old house deteriorates from clogged gutters, damp eaves, and burst pipes without anyone ever throwing a brick.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- One Decision (Interactive Tactile Dilemma) -->
-    <section class="decision-card">
-      <div class="decision-head">
-        <span class="decision-label">⚡ Opening Decision: The Day 45 Lock Dilemma</span>
-        <span class="decision-badge">1-Minute Intuition Check</span>
-      </div>
-
-      <p class="decision-prompt">
-        You are dispatched for a pre-foreclosure inspection at 742 Evergreen Road. Mark Miller missed his October and November mortgage payments (Day 45 of delinquency). The lawn is 8 inches tall and a late notice is taped to the storm door. Can you change the locks and winterize the home?
-      </p>
-
-      <div class="choice-group">
-        <!-- Choice A -->
-        <button type="button" class="choice-btn" data-correct="false" data-msg="CRITICAL ERROR (FELONY BREAK-IN): Delinquency is not vacancy. The homeowner still holds legal title and full possessory rights. Changing locks at Day 45 without court authority or a verified abandonment determination is an unlawful lockout and criminal trespass." onclick="handleDecision(this)">
-          <span class="choice-letter">A</span>
-          <span><strong>YES — Secure immediately.</strong> Two missed payments constitutes default; change the locks now to protect the lender's collateral.</span>
-        </button>
-
-        <!-- Choice B (Correct) -->
-        <button type="button" class="choice-btn" data-correct="true" data-msg="CORRECT DECISION: Default has an inviolable order. Under CFPB Regulation X, foreclosure cannot begin before Day 120, and loss mitigation must be offered first. You document exterior occupancy signals with landmark photos and never touch the door handle." onclick="handleDecision(this)">
-          <span class="choice-letter">B</span>
-          <span><strong>NO — Default has an order.</strong> The 120-day loss mitigation shield is active, and the homeowner owns the property. Photograph exterior signals and do not breach the perimeter.</span>
-        </button>
-
-        <!-- Choice C -->
-        <button type="button" class="choice-btn" data-correct="false" data-msg="AUTHORITY TRAP: A dispatcher or trip fee cannot override federal lending law or constitutional property rights. Performing an unauthorized rekey on a servicer's oral instruction leaves the contractor fully liable." onclick="handleDecision(this)">
-          <span class="choice-letter">C</span>
-          <span><strong>ONLY IF —</strong> The national servicer dispatcher promises an extra $45 trip fee on the work order ticket.</span>
-        </button>
-      </div>
-
-      <!-- Feedback Box -->
-      <div class="decision-feedback" id="decision-feedback">
-        <div class="feedback-title" id="feedback-title"></div>
-        <div class="feedback-body" id="feedback-body"></div>
-      </div>
-    </section>
-
-    <!-- Short Bridge to M4 -->
-    <div class="bridge-strip">
-      <strong>Next Step in the Chain:</strong> Module M4 — <em>Rebuild the Chain Before Moving Forward (Mid-Flight Silent Retrieval Checkpoint)</em>. Trainees close their notes and prove they can recall the custody chain and foreclosure sequence from memory before moving to field work.
+    <div class="title-block">
+      <div class="kicker">CHAPTER 4 OF 11 · 20 MINUTES</div>
+      <h1 class="page-title">Foreclosure, Step by Step</h1>
+      <p class="story-intro">Default follows a strict statutory roadmap. Foreclosure is never instantaneous; loss mitigation must precede legal action by federal mandate.</p>
     </div>
 
-    <!-- Navigation ONLY -->
-    <nav class="module-navigation">
-      <a href="../M2/index.html" class="nav-btn secondary">◀ Previous: Module M2</a>
-      <a href="../Syllabus/syllabus.html" class="nav-btn center">Class Syllabus</a>
-      <a href="../M4/index.html" class="nav-btn primary">Next: Module M4 ▶</a>
+    <div class="focal-visual">
+      <div class="visual-mock-badge">
+        <span>⚙</span>
+        <span>FLOWCHART / STATUTORY FORECLOSURE TIMELINE · 100% SYNTHETIC</span>
+      </div>
+      <img src="M3_visual_01_the_foreclosure_road.svg" alt="Foreclosure, Step by Step visual illustration" width="960" height="540">
+    </div>
+
+    <div class="key-points-grid">
+
+      <div class="key-card">
+        <span class="card-num">KEY POINT 1</span>
+        <h2 class="card-heading">The 120-Day Statutory Floor</h2>
+        <p class="card-body">Federal CFPB regulations prohibit foreclosure referral until loan delinquency exceeds 120 days, allowing formal loan workout evaluation.</p>
+      </div>
+
+      <div class="key-card">
+        <span class="card-num">KEY POINT 2</span>
+        <h2 class="card-heading">State Jurisdictional Paths</h2>
+        <p class="card-body">Judicial states demand court foreclosure decrees; non-judicial states utilize deed-of-trust powers of sale for sheriff auctions.</p>
+      </div>
+
+      <div class="key-card">
+        <span class="card-num">KEY POINT 3</span>
+        <h2 class="card-heading">Vacancy Decay Timeline</h2>
+        <p class="card-body">Once abandoned, decay accelerates: minor roof leaks become structural rot, dampness breeds mould, and unwinterized pipes freeze.</p>
+      </div>
+
+    </div>
+
+    <nav class="class-nav" aria-label="Chapter Progression">
+      <a href="../M2/" class="btn-step">◀ Ch3 How the System Was Built</a>
+      <a href="/Syllabus/syllabus.html" class="btn-step">Class Syllabus</a>
+      <a href="../M4/" class="btn-step primary">Ch5 Check Yourself: Rebuild the Chain ▶</a>
     </nav>
 
+    <section class="chapter-depth-container" aria-label="Operational Depth & Case Specifications">
+      <details class="depth-accordion" open>
+        <summary class="depth-summary">
+          <span>Operational Depth: Work Order Docket, Rules &amp; Protocols</span>
+          <span class="depth-indicator">▼ Click to Toggle Depth Details</span>
+        </summary>
+        <div class="depth-inner">
+
+          <div class="wo-spec-box">
+            <div class="wo-spec-header">
+              <span class="wo-badge">SYNTHETIC WORK ORDER EXAMPLE: OFFICE-WO-CH04-FORECLOSURE-TRACK</span>
+              <span class="wo-client">CLIENT POOL: STATUTORY DEFAULT AUDIT TRUST (FICTIONAL)</span>
+            </div>
+            <div class="wo-title">FIELD WORK ORDER DISPATCH SCOPE (100% FICTIONAL / LABELED EXAMPLE):</div>
+            <p class="wo-body">PRE-FORECLOSURE TIMELINE COMPLIANCE REVIEW: Audit loan docket for 120-day loss mitigation notice compliance. Verify state-specific foreclosure jurisdiction. Confirm physical occupancy status prior to issuance of default preservation orders.</p>
+          </div>
+
+          <div>
+            <h2 class="depth-section-title">Governing Rules &amp; Compliance Standards</h2>
+            <div class="depth-grid">
+          <div class="depth-card">
+            <h3 class="depth-card-title">The Inviolable 120-Day Gate</h3>
+            <p class="depth-card-body">No preservation orders involving lock replacement or entry may be authorized during the active 120-day statutory window.</p>
+          </div>
+          <div class="depth-card">
+            <h3 class="depth-card-title">Statutory Separation Rule</h3>
+            <p class="depth-card-body">Follow judicial court dockets in judicial jurisdictions; follow recorded notice of trustee sale in non-judicial jurisdictions.</p>
+          </div>
+          <div class="depth-card">
+            <h3 class="depth-card-title">Occupancy Verification Priority</h3>
+            <p class="depth-card-body">Physical inspection confirming abandonment must precede all property preservation field actions.</p>
+          </div>
+            </div>
+          </div>
+
+          <div>
+            <h2 class="depth-section-title">Operational Requirements &amp; Dealing Protocols</h2>
+            <div class="depth-grid">
+          <div class="depth-card">
+            <h3 class="depth-card-title">CFPB Compliance Certification</h3>
+            <p class="depth-card-body">Attach servicer affidavit certifying loss mitigation attempts were exhausted.</p>
+          </div>
+          <div class="depth-card">
+            <h3 class="depth-card-title">Notice of Default Verification</h3>
+            <p class="depth-card-body">Cross-check county recorder stamped filing date against order issuance schedule.</p>
+          </div>
+          <div class="depth-card">
+            <h3 class="depth-card-title">Dealing Point — Occupant Rights</h3>
+            <p class="depth-card-body">If property is occupied at any point during pre-foreclosure inspections, do not engage; report occupied status immediately.</p>
+          </div>
+            </div>
+          </div>
+
+        </div>
+      </details>
+    </section>
+
+    <section class="all-chapters-nav" aria-label="All Chapters Menu">
+      <div class="all-chapters-title">
+        <span>All 11 Chapters in the Office Course Path (300 Min Total)</span>
+        <a href="/Syllabus/syllabus.html">View Full Interactive Syllabus Tree →</a>
+      </div>
+      <ul class="chapters-menu-list">
+            <li class="nav-item"><a href="../M0/" class="nav-link">Ch1 (10 min) One House, Five Hours</a></li>
+            <li class="nav-item"><a href="../M1/" class="nav-link">Ch2 (25 min) The Chain: Five Hands on One House</a></li>
+            <li class="nav-item"><a href="../M2/" class="nav-link">Ch3 (30 min) How the System Was Built</a></li>
+            <li class="nav-item current" aria-current="page"><span class="nav-current-label">▶ Ch4 (20 min) Foreclosure, Step by Step (Current)</span></li>
+            <li class="nav-item"><a href="../M4/" class="nav-link">Ch5 (10 min) Check Yourself: Rebuild the Chain</a></li>
+            <li class="nav-item"><a href="../M5/" class="nav-link">Ch6 (30 min) Who May Do What</a></li>
+            <li class="nav-item"><a href="../M6/" class="nav-link">Ch7 (35 min) The Job, Start to Finish</a></li>
+            <li class="nav-item"><a href="../M7/" class="nav-link">Ch8 (25 min) Five Jobs, Done Right</a></li>
+            <li class="nav-item"><a href="../M8/" class="nav-link">Ch9 (35 min) Prove It With Photos</a></li>
+            <li class="nav-item"><a href="../M9/" class="nav-link">Ch10 (25 min) Where the Money Goes</a></li>
+            <li class="nav-item"><a href="../M10/" class="nav-link">Ch11 (35 min) The Final Test: One Unseen House</a></li>
+      </ul>
+    </section>
+
   </main>
-
-  <!-- Clean Footer -->
-  <footer class="module-footer">
-    <p>Property Preservation Immersion Curriculum • InsightGaps Staging Build • Module M3</p>
-  </footer>
-
-  <script>
-    function handleDecision(btn) {
-      const container = btn.closest('.decision-card');
-      const buttons = container.querySelectorAll('.choice-btn');
-      const feedback = container.querySelector('.decision-feedback');
-      const title = container.querySelector('.feedback-title');
-      const body = container.querySelector('.feedback-body');
-
-      buttons.forEach(b => {
-        b.classList.remove('good', 'bad');
-      });
-
-      const isCorrect = btn.dataset.correct === 'true';
-
-      if (isCorrect) {
-        btn.classList.add('good');
-        feedback.className = 'decision-feedback good';
-        title.textContent = '✔ CORRECT: DEFAULT HAS AN ORDER';
-        body.textContent = btn.dataset.msg;
-      } else {
-        btn.classList.add('bad');
-        feedback.className = 'decision-feedback bad';
-        title.textContent = '✖ ILLEGAL ERROR: WRONG SEQUENCE';
-        body.textContent = btn.dataset.msg;
-      }
-
-      feedback.style.display = 'block';
-    }
-  </script>
 
 </body>
 </html>
