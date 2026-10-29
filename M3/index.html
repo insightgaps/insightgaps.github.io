@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module M3 — Foreclosure: Default Has an Order. Do Not Reorder It. | Property Preservation Immersion</title>
+  <style>
+    :root {
+      --bg: #0b1320;
+      --card-bg: #12263f;
+      --card-border: #23354d;
+      --amber: #f59e0b;
+      --amber-light: #fef3c7;
+      --emerald: #10b981;
+      --emerald-dark: #065f46;
+      --emerald-light: #d1fae5;
+      --ruby: #ef4444;
+      --ruby-dark: #991b1b;
+      --ruby-light: #fee2e2;
+      --ink: #f8fafc;
+      --ink-soft: #cbd5e1;
+      --ink-muted: #94a3b8;
+      --navy-dark: #090e17;
+      --navy-light: #1e293b;
+      --sans: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+      --serif: Georgia, "Times New Roman", serif;
+      --mono: "Consolas", "Courier New", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+    }
+
+    /* Top Navigation Header */
+    header.module-header {
+      background: var(--navy-dark);
+      border-bottom: 2px solid var(--amber);
+      padding: 0.85rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .module-pill {
+      background: var(--amber);
+      color: var(--navy-dark);
+      font-size: 0.75rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.65rem;
+      border-radius: 4px;
+    }
+
+    .time-pill {
+      background: var(--navy-light);
+      color: var(--ink-soft);
+      border: 1px solid var(--card-border);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.3rem 0.65rem;
+      border-radius: 4px;
+      font-family: var(--mono);
+    }
+
+    /* Whole-Course Retelling Step Track */
+    .retelling-track {
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+      font-family: var(--mono);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .retelling-track span.step-active {
+      color: var(--amber);
+      font-weight: 800;
+      border-bottom: 1.5px solid var(--amber);
+    }
+
+    /* Main Container */
+    main.content-container {
+      max-width: 920px;
+      margin: 2rem auto;
+      padding: 0 1.25rem 3rem;
+      flex: 1;
+      width: 100%;
+    }
+
+    /* Hero Headline */
+    .module-hero {
+      margin-bottom: 1.75rem;
+    }
+
+    .module-tagline {
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--amber);
+      margin-bottom: 0.3rem;
+    }
+
+    h1.module-title {
+      font-family: var(--serif);
+      font-size: 2.15rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.25;
+      margin-bottom: 0.5rem;
+    }
+
+    p.module-subtitle {
+      font-size: 1.05rem;
+      color: var(--ink-soft);
+      max-width: 800px;
+    }
+
+    /* Short Story Opening */
+    .story-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-left: 4px solid var(--amber);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .story-card-label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--amber);
+      margin-bottom: 0.4rem;
+    }
+
+    .story-card p {
+      font-size: 1rem;
+      color: #f1f5f9;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    /* Focal Image Card */
+    .image-card {
+      background: var(--navy-dark);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+    }
+
+    .image-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .image-caption {
+      padding: 0.65rem 1.25rem;
+      background: #0f172a;
+      border-top: 1px solid var(--card-border);
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .image-caption span.synthetic-tag {
+      color: var(--amber);
+      font-weight: 700;
+      font-size: 0.72rem;
+    }
+
+    /* Key Points Section: 3 Catchphrases */
+    .key-points-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .key-points-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 0.5rem;
+    }
+
+    .key-points-header h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .key-points-header span {
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+      font-family: var(--mono);
+    }
+
+    .stick-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .stick-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .stick-num {
+      background: var(--navy-light);
+      color: var(--amber);
+      border: 1px solid var(--card-border);
+      font-size: 0.75rem;
+      font-weight: 900;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .stick-content {
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+      line-height: 1.5;
+    }
+
+    .stick-content strong {
+      color: #ffffff;
+      font-size: 1rem;
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+
+    /* One Decision Card (Tactile Dilemma) */
+    .decision-card {
+      background: var(--navy-dark);
+      border: 2px solid var(--card-border);
+      border-top: 5px solid var(--amber);
+      border-radius: 8px;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .decision-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .decision-label {
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--amber);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .decision-badge {
+      background: var(--navy-light);
+      color: var(--ink-muted);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: var(--mono);
+    }
+
+    p.decision-prompt {
+      font-size: 0.98rem;
+      color: #f8fafc;
+      margin-bottom: 1.25rem;
+      line-height: 1.55;
+    }
+
+    .choice-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    button.choice-btn {
+      background: #152238;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 0.85rem 1rem;
+      text-align: left;
+      color: #e2e8f0;
+      font-family: inherit;
+      font-size: 0.92rem;
+      line-height: 1.45;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      transition: all 0.2s ease;
+    }
+
+    button.choice-btn:hover {
+      background: #1c2e4c;
+      border-color: #3b5278;
+    }
+
+    button.choice-btn .choice-letter {
+      background: #0f172a;
+      color: var(--amber);
+      border: 1px solid var(--card-border);
+      font-size: 0.75rem;
+      font-weight: 800;
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    button.choice-btn.good {
+      background: rgba(16, 185, 129, 0.15);
+      border-color: var(--emerald);
+      color: #ffffff;
+    }
+
+    button.choice-btn.good .choice-letter {
+      background: var(--emerald);
+      color: #ffffff;
+      border-color: var(--emerald);
+    }
+
+    button.choice-btn.bad {
+      background: rgba(239, 68, 68, 0.15);
+      border-color: var(--ruby);
+      color: #ffffff;
+    }
+
+    button.choice-btn.bad .choice-letter {
+      background: var(--ruby);
+      color: #ffffff;
+      border-color: var(--ruby);
+    }
+
+    /* Decision Feedback Box */
+    .decision-feedback {
+      display: none;
+      padding: 1rem 1.25rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-top: 1rem;
+      animation: fadeIn 0.25s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .decision-feedback.good {
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid var(--emerald);
+      color: #a7f3d0;
+    }
+
+    .decision-feedback.bad {
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid var(--ruby);
+      color: #fecaca;
+    }
+
+    .feedback-title {
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .decision-feedback.good .feedback-title {
+      color: #34d399;
+    }
+
+    .decision-feedback.bad .feedback-title {
+      color: #f87171;
+    }
+
+    /* Short Bridge Callout */
+    .bridge-strip {
+      background: rgba(245, 158, 11, 0.08);
+      border-left: 3px solid var(--amber);
+      padding: 0.75rem 1rem;
+      border-radius: 0 4px 4px 0;
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+      margin-bottom: 2rem;
+    }
+
+    .bridge-strip strong {
+      color: var(--amber);
+    }
+
+    /* Navigation Bar */
+    nav.module-navigation {
+      background: var(--navy-dark);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 1.1rem;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .nav-btn.secondary {
+      background: #1e293b;
+      color: #e2e8f0;
+      border: 1px solid var(--card-border);
+    }
+
+    .nav-btn.secondary:hover {
+      background: #334155;
+      color: #ffffff;
+    }
+
+    .nav-btn.center {
+      background: transparent;
+      color: var(--ink-muted);
+      border: 1px solid transparent;
+      font-weight: 600;
+    }
+
+    .nav-btn.center:hover {
+      color: var(--amber);
+    }
+
+    .nav-btn.primary {
+      background: var(--emerald-dark);
+      color: #ffffff;
+      border: 1px solid var(--emerald);
+    }
+
+    .nav-btn.primary:hover {
+      background: #047857;
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+    }
+
+    /* Footer Note */
+    footer.module-footer {
+      text-align: center;
+      padding: 2rem 0;
+      font-size: 0.78rem;
+      color: #475569;
+      border-top: 1px solid #1e293b;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="module-header">
+    <div class="brand-group">
+      <span class="module-pill">Module M3</span>
+      <span class="time-pill">01:05–01:25 • 20 Min</span>
+    </div>
+    <!-- Whole-Course Retelling Track -->
+    <div class="retelling-track">
+      <span>house</span> ➔ <span>chain</span> ➔ <span class="step-active">order</span> ➔ <span>work</span> ➔ <span>evidence</span> ➔ <span>money</span> ➔ <span>capstone</span>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="content-container">
+
+    <!-- Hero Header -->
+    <section class="module-hero">
+      <div class="module-tagline">Step 3 of 7 in the Course Retelling • Order</div>
+      <h1 class="module-title">Default Has an Order. Do Not Reorder It.</h1>
+      <p class="module-subtitle">Why you cannot jump straight from a missed mortgage payment to a padlock on the front door.</p>
+    </section>
+
+    <!-- Short Story Opening -->
+    <section class="story-card">
+      <div class="story-card-label">Story Opening • October 2008</div>
+      <p>
+        "October 2008. The automotive parts supplier in town downsizes its second shift. Mark Miller, who has lived at 742 Evergreen Road for eleven years, misses his first mortgage payment on October 1st. On November 1st, he misses payment two. A rookie contractor hears 'two missed payments' and thinks it's time to pack the van and change the locks. But default has an unbending legal order: help comes before punishment. Loss mitigation first, foreclosure second."
+      </p>
+    </section>
+
+    <!-- One Image: The Foreclosure Road -->
+    <section class="image-card">
+      <img src="M3_visual_01_the_foreclosure_road.svg" alt="The Foreclosure Road: Default, Loss Mitigation FIRST, Foreclosure, Auction, REO" width="960" height="540">
+      <div class="image-caption">
+        <span>Figure M3.1 — The Invariant 5-Stop Foreclosure Road</span>
+        <span class="synthetic-tag">[FICTIONAL COMPOSITE • REGULATION X STANDARDS]</span>
+      </div>
+    </section>
+
+    <!-- Key Points: 3 Catchphrases (Memory Bar) -->
+    <section class="key-points-card">
+      <div class="key-points-header">
+        <h2>Three Lines to Remember</h2>
+        <span>Memory-Bar Standard</span>
+      </div>
+      <div class="stick-list">
+        <div class="stick-item">
+          <div class="stick-num">1</div>
+          <div class="stick-content">
+            <strong>"Loss mitigation FIRST, foreclosure second."</strong>
+            Under federal law (CFPB Regulation X), a lender cannot file foreclosure before Day 120 of delinquency. Dual-tracking while reviewing an application is illegal. Help comes before punishment.
+          </div>
+        </div>
+        <div class="stick-item">
+          <div class="stick-num">2</div>
+          <div class="stick-content">
+            <strong>"Read the label before you quote the number."</strong>
+            A default filing is a legal paper, not a repossessed house, and not a work order. In 2010, the US had 2.9 million filings, but monthly completed repossessions peaked at 102,134.
+          </div>
+        </div>
+        <div class="stick-item">
+          <div class="stick-num">3</div>
+          <div class="stick-content">
+            <strong>"Vacancy itself is damage. Empty is enough."</strong>
+            An unheated 42-year-old house deteriorates from clogged gutters, damp eaves, and burst pipes without anyone ever throwing a brick.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- One Decision (Interactive Tactile Dilemma) -->
+    <section class="decision-card">
+      <div class="decision-head">
+        <span class="decision-label">⚡ Opening Decision: The Day 45 Lock Dilemma</span>
+        <span class="decision-badge">1-Minute Intuition Check</span>
+      </div>
+
+      <p class="decision-prompt">
+        You are dispatched for a pre-foreclosure inspection at 742 Evergreen Road. Mark Miller missed his October and November mortgage payments (Day 45 of delinquency). The lawn is 8 inches tall and a late notice is taped to the storm door. Can you change the locks and winterize the home?
+      </p>
+
+      <div class="choice-group">
+        <!-- Choice A -->
+        <button type="button" class="choice-btn" data-correct="false" data-msg="CRITICAL ERROR (FELONY BREAK-IN): Delinquency is not vacancy. The homeowner still holds legal title and full possessory rights. Changing locks at Day 45 without court authority or a verified abandonment determination is an unlawful lockout and criminal trespass." onclick="handleDecision(this)">
+          <span class="choice-letter">A</span>
+          <span><strong>YES — Secure immediately.</strong> Two missed payments constitutes default; change the locks now to protect the lender's collateral.</span>
+        </button>
+
+        <!-- Choice B (Correct) -->
+        <button type="button" class="choice-btn" data-correct="true" data-msg="CORRECT DECISION: Default has an inviolable order. Under CFPB Regulation X, foreclosure cannot begin before Day 120, and loss mitigation must be offered first. You document exterior occupancy signals with landmark photos and never touch the door handle." onclick="handleDecision(this)">
+          <span class="choice-letter">B</span>
+          <span><strong>NO — Default has an order.</strong> The 120-day loss mitigation shield is active, and the homeowner owns the property. Photograph exterior signals and do not breach the perimeter.</span>
+        </button>
+
+        <!-- Choice C -->
+        <button type="button" class="choice-btn" data-correct="false" data-msg="AUTHORITY TRAP: A dispatcher or trip fee cannot override federal lending law or constitutional property rights. Performing an unauthorized rekey on a servicer's oral instruction leaves the contractor fully liable." onclick="handleDecision(this)">
+          <span class="choice-letter">C</span>
+          <span><strong>ONLY IF —</strong> The national servicer dispatcher promises an extra $45 trip fee on the work order ticket.</span>
+        </button>
+      </div>
+
+      <!-- Feedback Box -->
+      <div class="decision-feedback" id="decision-feedback">
+        <div class="feedback-title" id="feedback-title"></div>
+        <div class="feedback-body" id="feedback-body"></div>
+      </div>
+    </section>
+
+    <!-- Short Bridge to M4 -->
+    <div class="bridge-strip">
+      <strong>Next Step in the Chain:</strong> Module M4 — <em>Rebuild the Chain Before Moving Forward (Mid-Flight Silent Retrieval Checkpoint)</em>. Trainees close their notes and prove they can recall the custody chain and foreclosure sequence from memory before moving to field work.
+    </div>
+
+    <!-- Navigation ONLY -->
+    <nav class="module-navigation">
+      <a href="../M2/index.html" class="nav-btn secondary">◀ Previous: Module M2</a>
+      <a href="../Syllabus/syllabus.html" class="nav-btn center">Class Syllabus</a>
+      <a href="../M4/index.html" class="nav-btn primary">Next: Module M4 ▶</a>
+    </nav>
+
+  </main>
+
+  <!-- Clean Footer -->
+  <footer class="module-footer">
+    <p>Property Preservation Immersion Curriculum • InsightGaps Staging Build • Module M3</p>
+  </footer>
+
+  <script>
+    function handleDecision(btn) {
+      const container = btn.closest('.decision-card');
+      const buttons = container.querySelectorAll('.choice-btn');
+      const feedback = container.querySelector('.decision-feedback');
+      const title = container.querySelector('.feedback-title');
+      const body = container.querySelector('.feedback-body');
+
+      buttons.forEach(b => {
+        b.classList.remove('good', 'bad');
+      });
+
+      const isCorrect = btn.dataset.correct === 'true';
+
+      if (isCorrect) {
+        btn.classList.add('good');
+        feedback.className = 'decision-feedback good';
+        title.textContent = '✔ CORRECT: DEFAULT HAS AN ORDER';
+        body.textContent = btn.dataset.msg;
+      } else {
+        btn.classList.add('bad');
+        feedback.className = 'decision-feedback bad';
+        title.textContent = '✖ ILLEGAL ERROR: WRONG SEQUENCE';
+        body.textContent = btn.dataset.msg;
+      }
+
+      feedback.style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>

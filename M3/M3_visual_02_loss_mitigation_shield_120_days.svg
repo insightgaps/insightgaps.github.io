@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090e17"/>
+      <stop offset="100%" stop-color="#141f32"/>
+    </linearGradient>
+    <filter id="shieldShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" fill="url(#bgGrad2)"/>
+  <rect x="20" y="20" width="920" height="500" rx="12" fill="none" stroke="#23354d" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+  <!-- Top Header Bar -->
+  <rect x="40" y="35" width="880" height="48" rx="8" fill="#12263f"/>
+  <text x="60" y="65" font-family="'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#f8fafc">THE 120-DAY SHIELD: REGULATION X &amp; LOSS MITIGATION FIRST</text>
+  <rect x="740" y="47" width="165" height="24" rx="12" fill="#10b981"/>
+  <text x="822" y="63" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">FEDERAL FLOOR</text>
+
+  <!-- Left: The 120-Day Shield Timeline -->
+  <g transform="translate(50, 110)" filter="url(#shieldShadow)">
+    <rect width="410" height="280" rx="10" fill="#152136" stroke="#10b981" stroke-width="2"/>
+    <rect x="0" y="0" width="410" height="34" rx="10" fill="#065f46"/>
+    <text x="20" y="22" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="800" fill="#ffffff">CFPB REGULATION X (12 CFR § 1024.41)</text>
+    <text x="390" y="22" font-family="'Courier New', monospace" font-size="11" font-weight="700" fill="#a7f3d0" text-anchor="end">120-DAY FLOOR</text>
+
+    <g transform="translate(20, 50)">
+      <!-- Timeline Bar -->
+      <line x1="20" y1="20" x2="350" y2="20" stroke="#334155" stroke-width="4"/>
+      <circle cx="20" cy="20" r="8" fill="#ef4444"/>
+      <text x="20" y="40" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="700" fill="#fca5a5" text-anchor="middle">Day 1</text>
+      <text x="20" y="52" font-family="'Segoe UI', sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">1st Late</text>
+
+      <circle cx="110" cy="20" r="6" fill="#f59e0b"/>
+      <text x="110" y="40" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="700" fill="#fcd34d" text-anchor="middle">Day 36</text>
+      <text x="110" y="52" font-family="'Segoe UI', sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Live Call</text>
+
+      <circle cx="190" cy="20" r="6" fill="#f59e0b"/>
+      <text x="190" y="40" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="700" fill="#fcd34d" text-anchor="middle">Day 45</text>
+      <text x="190" y="52" font-family="'Segoe UI', sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Letter</text>
+
+      <rect x="250" y="10" width="105" height="20" rx="4" fill="#047857"/>
+      <text x="302" y="24" font-family="'Segoe UI', sans-serif" font-size="9.5" font-weight="800" fill="#ffffff" text-anchor="middle">Day 120 SHIELD</text>
+
+      <!-- Shaded Protected Zone -->
+      <rect x="0" y="70" width="370" height="75" rx="6" fill="#0a2a1e" stroke="#10b981" stroke-width="1.5"/>
+      <text x="15" y="92" font-family="'Segoe UI', sans-serif" font-size="11.5" font-weight="800" fill="#34d399">THE STATUTORY PRE-FORECLOSURE ZONE:</text>
+      <text x="15" y="112" font-family="'Segoe UI', sans-serif" font-size="11" fill="#e2e8f0">
+        A servicer is strictly <tspan font-weight="700" fill="#f87171">PROHIBITED</tspan> from filing a foreclosure complaint or notice of default until delinquency exceeds 120 days.
+      </text>
+      <text x="15" y="132" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="700" fill="#a7f3d0">
+        Dual-Tracking Banned: Foreclosure frozen while review is active.
+      </text>
+
+      <!-- Core Principle Box -->
+      <rect x="0" y="155" width="370" height="55" rx="6" fill="#0f172a" stroke="#253752" stroke-width="1"/>
+      <text x="15" y="176" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#fbbf24">"Help comes before punishment."</text>
+      <text x="15" y="196" font-family="'Segoe UI', sans-serif" font-size="10.5" fill="#cbd5e1">Loss mitigation must be offered and evaluated first.</text>
+    </g>
+  </g>
+
+  <!-- Right: The 4 Loss Mitigation Remedies -->
+  <g transform="translate(490, 110)" filter="url(#shieldShadow)">
+    <rect width="420" height="280" rx="10" fill="#152136" stroke="#3b82f6" stroke-width="2"/>
+    <rect x="0" y="0" width="420" height="34" rx="10" fill="#1e3a8a"/>
+    <text x="20" y="22" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="800" fill="#ffffff">FOUR LOSS MITIGATION REMEDIES</text>
+
+    <!-- Remedy 1: Forbearance -->
+    <g transform="translate(18, 48)">
+      <rect width="384" height="46" rx="6" fill="#0f1f38" stroke="#3b82f6" stroke-width="1"/>
+      <text x="14" y="20" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#93c5fd">1. FORBEARANCE (PAUSE):</text>
+      <text x="14" y="36" font-family="'Segoe UI', sans-serif" font-size="10" fill="#cbd5e1">Temporary payment reduction or pause during hardship (e.g., job loss).</text>
+    </g>
+
+    <!-- Remedy 2: Loan Modification -->
+    <g transform="translate(18, 102)">
+      <rect width="384" height="46" rx="6" fill="#0f1f38" stroke="#3b82f6" stroke-width="1"/>
+      <text x="14" y="20" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#93c5fd">2. LOAN MODIFICATION (RESTRUCTURING):</text>
+      <text x="14" y="36" font-family="'Segoe UI', sans-serif" font-size="10" fill="#cbd5e1">Capitalizing arrears, lowering interest rate, extending term to 40 years.</text>
+    </g>
+
+    <!-- Remedy 3: Short Sale -->
+    <g transform="translate(18, 156)">
+      <rect width="384" height="46" rx="6" fill="#0f1f38" stroke="#3b82f6" stroke-width="1"/>
+      <text x="14" y="20" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#93c5fd">3. SHORT SALE (3RD-PARTY SALE):</text>
+      <text x="14" y="36" font-family="'Segoe UI', sans-serif" font-size="10" fill="#cbd5e1">Lender agrees to accept sale proceeds below the outstanding debt.</text>
+    </g>
+
+    <!-- Remedy 4: Deed-in-Lieu -->
+    <g transform="translate(18, 210)">
+      <rect width="384" height="46" rx="6" fill="#0f1f38" stroke="#3b82f6" stroke-width="1"/>
+      <text x="14" y="20" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#93c5fd">4. DEED-IN-LIEU (VOLUNTARY SURRENDER):</text>
+      <text x="14" y="36" font-family="'Segoe UI', sans-serif" font-size="10" fill="#cbd5e1">Borrower signs title over directly to lender to avoid foreclosure record.</text>
+    </g>
+  </g>
+
+  <!-- Bottom Core Principle Banner -->
+  <g transform="translate(50, 410)">
+    <rect width="860" height="75" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+    <text x="25" y="30" font-family="'Segoe UI', sans-serif" font-size="12.5" font-weight="800" fill="#10b981">THE LOSS MITIGATION AXIOM:</text>
+    <text x="25" y="52" font-family="'Segoe UI', sans-serif" font-size="12.5" font-weight="400" fill="#e2e8f0">
+      "Foreclosure is not a reflex; it is a last resort. 
+      <tspan font-weight="700" fill="#ffffff">If a complete application is on the desk, the courthouse door remains shut.</tspan>"
+    </text>
+  </g>
+</svg>
