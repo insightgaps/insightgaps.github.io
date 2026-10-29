@@ -1,494 +1,601 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="color-scheme" content="light dark" />
-  <title>Module M2: Five Forces Built the System — and the Filter. | Property Preservation Class</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,650;6..72,800&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ch3: How the System Was Built — The Preservation Office Course</title>
+  <meta name="description" content="The housing ecosystem was engineered through five structural forces: postwar baby boom, thrift banking, zoning boundaries, securitisation, and underwriting filters.">
   <style>
     :root {
-      --bg: #e9e6de;
-      --stage: #f7f5ef;
-      --card: #ffffff;
-      --ink: #1d2422;
-      --ink-soft: #4c5551;
-      --line: #d8d2c4;
-      --accent: #b03a17;
-      --accent-ink: #8f2c10;
-      --gold: #a86f0c;
-      --teal: #1f5f57;
-      --panel: #fbf9f4;
-      --panel-line: #e2dccb;
-      --chip: #efe9db;
-      --shadow: 0 18px 50px rgba(29, 36, 34, 0.16);
-      --radius: 16px;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #101312;
-        --stage: #171a19;
-        --card: #1e2321;
-        --ink: #eef0ea;
-        --ink-soft: #aeb6b1;
-        --line: #333a37;
-        --accent: #e0683c;
-        --accent-ink: #f08a5f;
-        --gold: #d29a2e;
-        --teal: #4fae9f;
-        --panel: #222825;
-        --panel-line: #39413d;
-        --chip: #262c29;
-        --shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
-      }
+      --bg-dark: #0b1320;
+      --bg-surface: #12263f;
+      --bg-card: #1e293b;
+      --bg-depth: #0f1c30;
+      --amber: #f59e0b;
+      --amber-light: #fef08a;
+      --teal-light: #2dd4bf;
+      --border: #334155;
+      --border-accent: #475569;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-subtle: #cbd5e1;
+      --sans: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+      --serif: Georgia, Cambria, "Times New Roman", serif;
+      --mono: "Space Mono", Consolas, "Courier New", monospace;
+      --radius: 8px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+
     body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: "Archivo", system-ui, -apple-system, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      line-height: 1.5;
-      padding: 24px 16px 48px;
-    }
-
-    h1, h2, h3 {
-      font-family: "Newsreader", Georgia, serif;
-      font-weight: 700;
-      line-height: 1.15;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; cursor: pointer; border: none; background: none; }
-
-    /* Container Shell */
-    .wrap {
-      max-width: 920px;
-      margin: 0 auto;
-    }
-
-    /* Top Brand & Retelling Rail */
-    header.top-rail {
+      background-color: var(--bg-dark);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: clamp(15px, 1.1vw, 17px);
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      margin-bottom: 24px;
+      line-height: 1.6;
+      min-width: 320px;
+      overflow-x: hidden;
     }
 
-    .meta-bar {
+    /* STUDENT FACE HEADER */
+    header.class-header {
+      background: rgba(11, 19, 32, 0.95);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 8px;
-      font-size: 0.85rem;
-      color: var(--ink-soft);
+      gap: 12px;
     }
 
-    .brand-tag {
-      font-weight: 800;
-      letter-spacing: 0.1em;
+    .brand-badge {
+      background: var(--amber);
+      color: var(--bg-dark);
+      font-weight: 900;
+      font-size: 13px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    .brand-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .course-retelling-step {
+      font-size: 11px;
+      color: var(--amber-light);
+      font-weight: 700;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--accent);
-      background: var(--chip);
-      padding: 3px 8px;
-      border-radius: 4px;
     }
 
-    .time-tag {
-      font-weight: 600;
-      background: var(--chip);
-      padding: 3px 8px;
-      border-radius: 4px;
-      font-variant-numeric: tabular-nums;
-    }
-
-    /* The Whole-Course Retelling Spine */
-    .retelling-spine {
+    main.content-wrap {
+      max-width: 1080px;
+      width: 100%;
+      margin: 0 auto;
+      padding: clamp(24px, 4vw, 40px) 24px 60px;
       display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .title-block {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
+    }
+
+    .kicker {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      color: var(--amber);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    h1.page-title {
+      font-family: var(--serif);
+      font-size: clamp(26px, 4vw, 40px);
+      line-height: 1.2;
+      color: #ffffff;
+      margin-bottom: 12px;
+      text-wrap: balance;
+    }
+
+    p.story-intro {
+      font-family: var(--serif);
+      font-size: clamp(16px, 1.3vw, 19px);
+      color: #e2e8f0;
+      font-style: italic;
+      line-height: 1.5;
+      max-width: 920px;
+    }
+
+    /* ONE-LOOK FOCAL IMAGE */
+    .focal-visual {
+      background: var(--bg-surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+      position: relative;
+    }
+
+    .visual-mock-badge {
+      display: inline-flex;
       align-items: center;
       gap: 6px;
-      overflow-x: auto;
-      padding: 8px 12px;
-      background: var(--stage);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      font-size: 0.78rem;
-      white-space: nowrap;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--amber-light);
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 4px 10px;
+      margin-bottom: 8px;
+      letter-spacing: 0.05em;
     }
 
-    .retelling-spine span {
-      color: var(--ink-soft);
-      font-weight: 500;
+    .focal-visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 4px;
     }
 
-    .retelling-spine span.active {
-      color: var(--accent-ink);
-      font-weight: 800;
-      border-bottom: 2px solid var(--accent);
-      padding-bottom: 1px;
+    /* MAX 3 KEY POINTS */
+    .key-points-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 4px;
     }
 
-    .retelling-spine .arr {
-      color: var(--line);
-      font-weight: 400;
+    @media (max-width: 860px) {
+      .key-points-grid { grid-template-columns: 1fr; }
     }
 
-    /* Main Stage Card */
-    main.stage-card {
-      background: var(--stage);
-      border: 1px solid var(--line);
+    .key-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-top: 3.5px solid var(--amber);
       border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 36px 32px;
+      padding: 20px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .card-num {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--amber);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .card-heading {
+      font-family: var(--serif);
+      font-size: 18px;
+      color: #ffffff;
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .card-body strong { color: #ffffff; }
+
+    /* STEP NAVIGATION BUTTONS */
+    nav.class-nav {
+      margin-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .btn-step {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border);
+      color: var(--text);
+      min-height: 48px;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-step:hover:not(.disabled) {
+      background: var(--amber);
+      color: var(--bg-dark);
+      border-color: var(--amber);
+    }
+
+    .btn-step.primary {
+      background: var(--amber);
+      color: var(--bg-dark);
+      border-color: var(--amber);
+    }
+
+    .btn-step.primary:hover { background: #d97706; }
+
+    .btn-step.disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      border-color: var(--border);
+    }
+
+    /* CONTENT DEPTH CONTAINER */
+    section.chapter-depth-container {
+      margin-top: 16px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg-depth);
+      overflow: hidden;
+    }
+
+    .depth-summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      background: var(--bg-surface);
+      cursor: pointer;
+      user-select: none;
+      font-family: var(--sans);
+      font-weight: 700;
+      font-size: 15px;
+      color: #ffffff;
+      min-height: 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .depth-summary::-webkit-details-marker { display: none; }
+    .depth-summary:hover { background: #162c47; }
+
+    .depth-indicator {
+      color: var(--amber);
+      font-family: var(--mono);
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .depth-inner {
+      padding: 24px 20px 28px;
       display: flex;
       flex-direction: column;
       gap: 24px;
     }
 
-    .kicker {
-      font-size: 0.82rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
+    /* WORK ORDER SPEC BOX */
+    .wo-spec-box {
+      background: #09101a;
+      border: 1px solid var(--border-accent);
+      border-left: 4px solid var(--teal-light);
+      border-radius: 6px;
+      padding: 18px 20px;
     }
 
-    h1.title {
-      font-size: clamp(1.85rem, 3.8vw, 2.75rem);
-      color: var(--ink);
-      letter-spacing: -0.02em;
-    }
-
-    /* Short Story Opening */
-    .story-opening {
-      font-size: 1.15rem;
-      line-height: 1.55;
-      color: var(--ink);
-      border-left: 3px solid var(--gold);
-      padding-left: 16px;
-      font-style: italic;
-      font-family: "Newsreader", Georgia, serif;
-    }
-
-    /* Single Visual Element */
-    figure.primary-visual {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 12px;
+    .wo-spec-header {
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+      border-bottom: 1px dashed var(--border);
+      padding-bottom: 8px;
+    }
+
+    .wo-badge {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--teal-light);
+      letter-spacing: 0.08em;
+    }
+
+    .wo-client {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .wo-title {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .wo-body {
+      font-family: var(--mono);
+      font-size: 12.5px;
+      color: var(--text-subtle);
+      line-height: 1.55;
+    }
+
+    /* RULES & REQUIREMENTS */
+    .depth-section-title {
+      font-family: var(--serif);
+      font-size: 19px;
+      color: #ffffff;
+      margin-bottom: 12px;
+      display: flex;
       align-items: center;
       gap: 8px;
     }
 
-    figure.primary-visual img {
-      width: 100%;
-      height: auto;
-      max-height: 440px;
-      object-fit: contain;
-      display: block;
+    .depth-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .depth-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
       border-radius: 6px;
-    }
-
-    figcaption {
-      font-size: 0.8rem;
-      color: var(--ink-soft);
-      text-align: center;
-      line-height: 1.4;
-    }
-
-    /* The One Decision Moment */
-    .decision-moment {
-      background: var(--panel);
-      border: 1px solid var(--panel-line);
-      border-radius: 10px;
-      padding: 18px 20px;
+      padding: 16px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 8px;
     }
 
-    .decision-moment h3 {
-      font-size: 1.1rem;
-      color: var(--ink);
+    .depth-card-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--amber-light);
     }
 
-    .decision-moment p {
-      font-size: 0.95rem;
-      color: var(--ink-soft);
+    .depth-card-body {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
     }
 
-    .choice-chips {
+    /* ALL CHAPTERS NAV BLOCK */
+    section.all-chapters-nav {
+      margin-top: 24px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+    }
+
+    .all-chapters-title {
+      font-family: var(--serif);
+      font-size: 18px;
+      color: #ffffff;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
       display: flex;
+      justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
       gap: 8px;
     }
 
-    .chip-btn {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 6px 14px;
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--ink);
-      transition: all 0.15s ease;
+    .all-chapters-title a {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--amber);
+      text-decoration: underline;
     }
 
-    .chip-btn:hover {
-      border-color: var(--accent);
-      color: var(--accent);
+    ul.chapters-menu-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 8px 16px;
     }
 
-    .chip-btn.selected {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #ffffff;
-    }
-
-    .decision-feedback {
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--teal);
-      line-height: 1.4;
-      display: none;
-      padding-top: 4px;
-    }
-
-    .decision-feedback.visible {
-      display: block;
-    }
-
-    /* The Three Key Catchphrases (At Most Three) */
-    .key-points {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      border-top: 1px solid var(--line);
-      padding-top: 20px;
-    }
-
-    .key-points-head {
-      font-size: 0.82rem;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-    }
-
-    .point-card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 12px 16px;
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
-    }
-
-    .point-num {
-      font-family: var(--mono);
-      font-weight: 800;
-      font-size: 0.95rem;
-      color: var(--accent);
-      flex-shrink: 0;
-    }
-
-    .point-text {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--ink);
-      line-height: 1.35;
-    }
-
-    .point-sub {
-      display: block;
-      font-size: 0.84rem;
-      font-weight: 400;
-      color: var(--ink-soft);
-      margin-top: 2px;
-    }
-
-    /* Navigation Bar Only */
-    nav.page-nav {
+    li.nav-item {
+      min-height: 48px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      border-top: 1px solid var(--line);
-      padding-top: 20px;
-      margin-top: 4px;
     }
 
-    .nav-btn {
+    a.nav-link {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 13.5px;
+      min-height: 48px;
+      width: 100%;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 10px 18px;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 0.92rem;
+      padding: 6px 10px;
+      border-radius: 4px;
       transition: all 0.15s ease;
     }
 
-    .nav-prev {
-      background: var(--card);
-      border: 1px solid var(--line);
-      color: var(--ink-soft);
+    a.nav-link:hover {
+      color: var(--amber-light);
+      background: rgba(245, 158, 11, 0.1);
+      text-decoration: underline;
     }
 
-    .nav-prev:hover {
-      background: var(--panel);
-      color: var(--ink);
-      border-color: var(--ink-soft);
+    li.nav-item.current {
+      background: rgba(245, 158, 11, 0.15);
+      border-radius: 4px;
+      border-left: 3px solid var(--amber);
     }
 
-    .nav-next {
-      background: var(--accent);
-      color: #ffffff;
-      border: 1px solid var(--accent);
-    }
-
-    .nav-next:hover {
-      background: var(--accent-ink);
-    }
-
-    /* Small Footer */
-    footer.simple-foot {
-      text-align: center;
-      font-size: 0.78rem;
-      color: var(--ink-soft);
-      margin-top: 24px;
+    .nav-current-label {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--amber-light);
+      padding: 6px 10px;
+      display: inline-flex;
+      align-items: center;
+      min-height: 48px;
+      width: 100%;
     }
   </style>
 </head>
 <body>
 
-  <div class="wrap">
-    
-    <!-- Top Rail -->
-    <header class="top-rail">
-      <div class="meta-bar">
-        <span class="brand-tag">InsightGaps Class</span>
-        <span>Module M2 · Hour 1 (Block 3)</span>
-        <span class="time-tag">00:35–01:05 (30 MIN)</span>
+  <header class="class-header">
+    <div class="brand">
+      <span class="brand-badge">Ch3</span>
+      <span class="brand-title">The Preservation Office Course — Five Hours, One House</span>
+    </div>
+    <div class="course-retelling-step">CHAPTER 3 OF 11 · 30 MINUTES</div>
+  </header>
+
+  <main class="content-wrap">
+
+    <div class="title-block">
+      <div class="kicker">CHAPTER 3 OF 11 · 30 MINUTES</div>
+      <h1 class="page-title">How the System Was Built</h1>
+      <p class="story-intro">The housing ecosystem was engineered through five structural forces: postwar baby boom, thrift banking, zoning boundaries, securitisation, and underwriting filters.</p>
+    </div>
+
+    <div class="focal-visual">
+      <div class="visual-mock-badge">
+        <span>⚙</span>
+        <span>FLOWCHART / HISTORIC FORCES CAUSAL SYSTEM · 100% SYNTHETIC</span>
+      </div>
+      <img src="M2_visual_02_five_forces_causal_system.svg" alt="How the System Was Built visual illustration" width="960" height="540">
+    </div>
+
+    <div class="key-points-grid">
+
+      <div class="key-card">
+        <span class="card-num">KEY POINT 1</span>
+        <h2 class="card-heading">The 1972 Postwar Thrift Machine</h2>
+        <p class="card-body">Local savings and loans pooled community paychecks to issue predictable 30-year mortgages under Regulation Q interest rate caps.</p>
       </div>
 
-      <!-- Whole-Course Retelling Spine -->
-      <div class="retelling-spine" aria-label="Course progression spine">
-        <span class="active">1. House (M2)</span>
-        <span class="arr">→</span>
-        <span>2. Chain (M1)</span>
-        <span class="arr">→</span>
-        <span>3. Default (M3)</span>
-        <span class="arr">→</span>
-        <span>4. Order (M6)</span>
-        <span class="arr">→</span>
-        <span>5. Work (M7)</span>
-        <span class="arr">→</span>
-        <span>6. Evidence (M8)</span>
-        <span class="arr">→</span>
-        <span>7. Money (M9)</span>
-        <span class="arr">→</span>
-        <span>8. Capstone (M10)</span>
-      </div>
-    </header>
-
-    <!-- Main Stage Card -->
-    <main class="stage-card">
-      <div class="kicker">Module M2 · 30 Minutes Active</div>
-      <h1 class="title">Five Forces Built the System — and the Filter.</h1>
-
-      <!-- Short Story Opening -->
-      <div class="story-opening">
-        Spring, 1972. A new split-level house stands on Lot 42, smelling of fresh paint and cut Kentucky bluegrass. No one has slept in her yet. No one knows what she will survive. For the next five hours, she carries every rule, photo, and dollar in this class. People protect what they have named — her name will follow her all the way to the day she stands empty.
+      <div class="key-card">
+        <span class="card-num">KEY POINT 2</span>
+        <h2 class="card-heading">The Macroeconomic Loop</h2>
+        <p class="card-body">Employment created deposits; deposits funded construction; construction drove jobs. The house did not fail on its own—the loop broke.</p>
       </div>
 
-      <!-- One Primary Visual -->
-      <figure class="primary-visual">
-        <img src="M2_visual_01_naming_ritual_house_1972.svg" alt="The 1972 composite house on Lot 42 and the 60-second naming ritual">
-        <figcaption>Figure M2.1: The composite house born in 1972. [FICTIONAL CASE / TEACHING ILLUSTRATION]</figcaption>
-      </figure>
-
-      <!-- The One Decision Moment -->
-      <div class="decision-moment">
-        <h3>First — name her or lose her</h3>
-        <p>Before a single lock is changed, decide how to see her. A contractor who sees an anonymous number cuts corners and loses pay. A contractor who sees a home protects what they named.</p>
-        <div class="choice-chips" role="group" aria-label="Name choice">
-          <button class="chip-btn" type="button" data-name="Maple House">Maple House (Canonical)</button>
-          <button class="chip-btn" type="button" data-name="Juniper House">Juniper House</button>
-          <button class="chip-btn" type="button" data-name="Oakwood Home">Oakwood Home</button>
-        </div>
-        <div class="decision-feedback" id="decisionFeedback">
-          Her name is <strong>Maple House</strong>. Remember it — you will protect her, prove her work, and bill her file without losing a dollar.
-        </div>
+      <div class="key-card">
+        <span class="card-num">KEY POINT 3</span>
+        <h2 class="card-heading">The Inclusion Filter</h2>
+        <p class="card-body">Zoning boundaries and underwriting filters determined capital investment geography long before default notices were served.</p>
       </div>
 
-      <!-- Key Points: At Most Three Catchphrases (Never a Paragraph) -->
-      <section class="key-points" aria-label="Three core catchphrases">
-        <div class="key-points-head">Three Rules That Carry the Whole Story</div>
-        
-        <div class="point-card">
-          <span class="point-num">01</span>
-          <div>
-            <span class="point-text">"No single cause built her — loans, roads, and factory lines built the suburb, but with a filter."</span>
-            <span class="point-sub">Demand + FHA loans + 1956 highways engineered prosperity; redlining and zoning set the fence. Never tell one half without the other.</span>
+    </div>
+
+    <nav class="class-nav" aria-label="Chapter Progression">
+      <a href="../M1/" class="btn-step">◀ Ch2 The Chain: Five Hands on One House</a>
+      <a href="/Syllabus/syllabus.html" class="btn-step">Class Syllabus</a>
+      <a href="../M3/" class="btn-step primary">Ch4 Foreclosure, Step by Step ▶</a>
+    </nav>
+
+    <section class="chapter-depth-container" aria-label="Operational Depth & Case Specifications">
+      <details class="depth-accordion" open>
+        <summary class="depth-summary">
+          <span>Operational Depth: Work Order Docket, Rules &amp; Protocols</span>
+          <span class="depth-indicator">▼ Click to Toggle Depth Details</span>
+        </summary>
+        <div class="depth-inner">
+
+          <div class="wo-spec-box">
+            <div class="wo-spec-header">
+              <span class="wo-badge">SYNTHETIC WORK ORDER EXAMPLE: OFFICE-WO-CH03-MACRO-ANALYSIS</span>
+              <span class="wo-client">CLIENT POOL: HOUSING POLICY HISTORICAL ARCHIVE (FICTIONAL)</span>
+            </div>
+            <div class="wo-title">FIELD WORK ORDER DISPATCH SCOPE (100% FICTIONAL / LABELED EXAMPLE):</div>
+            <p class="wo-body">PORTFOLIO MACRO-SYSTEM PROFILE: Analyze parcel origination documentation against historical capital cycles. Categorize mortgage instrument under local thrift portfolio standard or secondary market securitisation pool. Note systemic risk indicators.</p>
           </div>
-        </div>
 
-        <div class="point-card">
-          <span class="point-num">02</span>
           <div>
-            <span class="point-text">"Say TOTAL for 1972, SINGLE-FAMILY for 2005 — never add the peaks."</span>
-            <span class="point-sub">1972 was boomer household formation plus federal multifamily subsidies (2,379,000 TOTAL). 2005 was subprime credit and securitisation (1,716,000 SF).</span>
+            <h2 class="depth-section-title">Governing Rules &amp; Compliance Standards</h2>
+            <div class="depth-grid">
+          <div class="depth-card">
+            <h3 class="depth-card-title">Macro vs Micro Distinction</h3>
+            <p class="depth-card-body">Analyze neighborhood distress through economic loop failure rather than individual asset neglect.</p>
           </div>
-        </div>
+          <div class="depth-card">
+            <h3 class="depth-card-title">No-Repeat Flood Policy</h3>
+            <p class="depth-card-body">The 2008 national volume surge is taught in full in Chapter 3 of the Story course; cite here by reference only.</p>
+          </div>
+          <div class="depth-card">
+            <h3 class="depth-card-title">Underwriting Filter Isolation</h3>
+            <p class="depth-card-body">Examine municipal plat boundaries objectively to identify structural investment disparities.</p>
+          </div>
+            </div>
+          </div>
 
-        <div class="point-card">
-          <span class="point-num">03</span>
           <div>
-            <span class="point-text">"The house did not break; the loop broke — rates and jobs fail before foundations do."</span>
-            <span class="point-sub">At $1,500/month, 2.65% bought $372k in 2021; 7.79% bought $206k in 2023. When rates reset or a factory closes, the payment snaps before paint peels.</span>
+            <h2 class="depth-section-title">Operational Requirements &amp; Dealing Protocols</h2>
+            <div class="depth-grid">
+          <div class="depth-card">
+            <h3 class="depth-card-title">Historical Instrument Verification</h3>
+            <p class="depth-card-body">Classify mortgage loan type and origination regulatory framework in docket.</p>
           </div>
+          <div class="depth-card">
+            <h3 class="depth-card-title">Neighborhood Demographic Profile</h3>
+            <p class="depth-card-body">Document historical census tract development trends for the 1972 subdivision.</p>
+          </div>
+          <div class="depth-card">
+            <h3 class="depth-card-title">Dealing Point — Historic Research</h3>
+            <p class="depth-card-body">Maintain complete academic neutrality when reviewing historic municipal redlining or zoning records.</p>
+          </div>
+            </div>
+          </div>
+
         </div>
-      </section>
+      </details>
+    </section>
 
-      <!-- Navigation ONLY -->
-      <nav class="page-nav" aria-label="Module navigation">
-        <a href="../M1/index.html" class="nav-btn nav-prev">&#8592; Previous: Module M1</a>
-        <a href="../M3/index.html" class="nav-btn nav-next">Next: Module M3 (Default to Foreclosure) &#8594;</a>
-      </nav>
-    </main>
+    <section class="all-chapters-nav" aria-label="All Chapters Menu">
+      <div class="all-chapters-title">
+        <span>All 11 Chapters in the Office Course Path (300 Min Total)</span>
+        <a href="/Syllabus/syllabus.html">View Full Interactive Syllabus Tree →</a>
+      </div>
+      <ul class="chapters-menu-list">
+            <li class="nav-item"><a href="../M0/" class="nav-link">Ch1 (10 min) One House, Five Hours</a></li>
+            <li class="nav-item"><a href="../M1/" class="nav-link">Ch2 (25 min) The Chain: Five Hands on One House</a></li>
+            <li class="nav-item current" aria-current="page"><span class="nav-current-label">▶ Ch3 (30 min) How the System Was Built (Current)</span></li>
+            <li class="nav-item"><a href="../M3/" class="nav-link">Ch4 (20 min) Foreclosure, Step by Step</a></li>
+            <li class="nav-item"><a href="../M4/" class="nav-link">Ch5 (10 min) Check Yourself: Rebuild the Chain</a></li>
+            <li class="nav-item"><a href="../M5/" class="nav-link">Ch6 (30 min) Who May Do What</a></li>
+            <li class="nav-item"><a href="../M6/" class="nav-link">Ch7 (35 min) The Job, Start to Finish</a></li>
+            <li class="nav-item"><a href="../M7/" class="nav-link">Ch8 (25 min) Five Jobs, Done Right</a></li>
+            <li class="nav-item"><a href="../M8/" class="nav-link">Ch9 (35 min) Prove It With Photos</a></li>
+            <li class="nav-item"><a href="../M9/" class="nav-link">Ch10 (25 min) Where the Money Goes</a></li>
+            <li class="nav-item"><a href="../M10/" class="nav-link">Ch11 (35 min) The Final Test: One Unseen House</a></li>
+      </ul>
+    </section>
 
-    <footer class="simple-foot">
-      InsightGaps Property Preservation Immersion · Staging Copy (M2) · Synthetic &amp; Company-Neutral
-    </footer>
+  </main>
 
-  </div>
-
-  <script>
-    (function() {
-      const chips = document.querySelectorAll('.chip-btn');
-      const feedback = document.getElementById('decisionFeedback');
-
-      chips.forEach(chip => {
-        chip.addEventListener('click', () => {
-          chips.forEach(c => c.classList.remove('selected'));
-          chip.classList.add('selected');
-          const name = chip.getAttribute('data-name');
-          feedback.innerHTML = `Her name is <strong>${name}</strong>. Remember it — you will protect her, prove her work, and bill her file without losing a dollar.`;
-          feedback.classList.add('visible');
-        });
-      });
-    })();
-  </script>
 </body>
 </html>
