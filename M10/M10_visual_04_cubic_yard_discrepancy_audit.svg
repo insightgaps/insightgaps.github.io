@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="m10-bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF8"/>
+      <stop offset="100%" stop-color="#F4EFE6"/>
+    </linearGradient>
+    <filter id="m10-shadow4" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#12263F" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" fill="url(#m10-bg4)"/>
+  <rect x="24" y="24" width="912" height="492" rx="12" fill="none" stroke="#D6C8B2" stroke-width="1.5"/>
+
+  <!-- Header Banner -->
+  <rect x="40" y="40" width="880" height="48" rx="6" fill="#12263F"/>
+  <text x="56" y="70" font-family="'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="800" fill="#F59E0B" letter-spacing="1.5">DEBRIS VOLUME &amp; SCOPE AUDIT: CUBIC YARD MATHEMATICS</text>
+  <text x="610" y="70" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="600" fill="#E2E8F0">[QUANTITY FORENSICS — SYNTHETIC LAB]</text>
+  <rect x="800" y="52" width="106" height="24" rx="4" fill="#0F766E"/>
+  <text x="853" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8" text-anchor="middle">DIVISOR 27</text>
+
+  <!-- Subtitle -->
+  <text x="40" y="114" font-family="Georgia, serif" font-size="17" font-weight="700" fill="#12263F">Physical geometry refutes inflated claims: 120 cubic feet divided by 27 yields 4.44 CY, not the contractor's 9 CY.</text>
+
+  <!-- Left: 3D Isometric Pile Geometry -->
+  <g transform="translate(40, 130)" filter="url(#m10-shadow4)">
+    <rect width="440" height="345" rx="8" fill="#FFFDF8" stroke="#D6C8B2" stroke-width="1"/>
+    <rect width="440" height="32" rx="8" fill="#1D3A5F"/>
+    <text x="16" y="21" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F59E0B" letter-spacing="1">PHYSICAL PILE MEASUREMENT (FIELD PHOTO #22)</text>
+
+    <!-- Isometric Bounding Box -->
+    <g transform="translate(60, 60)">
+      <!-- Ground plane shadow -->
+      <polygon points="40,160 220,200 320,160 140,120" fill="#E2E8F0" opacity="0.6"/>
+
+      <!-- Front Face (8 ft x 3 ft) -->
+      <polygon points="40,80 220,120 220,200 40,160" fill="#CBD5E1" stroke="#475569" stroke-width="2"/>
+
+      <!-- Right Side Face (5 ft x 3 ft) -->
+      <polygon points="220,120 320,80 320,160 220,200" fill="#94A3B8" stroke="#475569" stroke-width="2"/>
+
+      <!-- Top Face (8 ft x 5 ft) -->
+      <polygon points="40,80 140,40 320,80 220,120" fill="#E2E8F0" stroke="#475569" stroke-width="2"/>
+
+      <!-- Trash textures inside -->
+      <text x="110" y="145" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#334155">YARD DEBRIS</text>
+      <text x="120" y="160" font-family="'Segoe UI', sans-serif" font-size="9" fill="#475569">branches &amp; scrap wood</text>
+
+      <!-- Dimension Lines & Annotations -->
+      <!-- Length: 8 ft (Front baseline) -->
+      <path d="M 35 175 L 215 215" stroke="#12263F" stroke-width="2"/>
+      <polygon points="35,175 42,172 41,180" fill="#12263F"/>
+      <polygon points="215,215 208,210 209,218" fill="#12263F"/>
+      <rect x="105" y="188" width="55" height="18" rx="3" fill="#12263F"/>
+      <text x="132" y="201" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800" fill="#F59E0B" text-anchor="middle">L = 8 FT</text>
+
+      <!-- Width: 5 ft (Right baseline) -->
+      <path d="M 235 210 L 335 170" stroke="#12263F" stroke-width="2"/>
+      <polygon points="235,210 242,207 241,215" fill="#12263F"/>
+      <polygon points="335,170 328,167 327,175" fill="#12263F"/>
+      <rect x="265" y="193" width="55" height="18" rx="3" fill="#12263F"/>
+      <text x="292" y="206" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800" fill="#F59E0B" text-anchor="middle">W = 5 FT</text>
+
+      <!-- Height: 3 ft (Left vertical) -->
+      <path d="M 25 80 L 25 160" stroke="#12263F" stroke-width="2"/>
+      <polygon points="25,80 21,87 29,87" fill="#12263F"/>
+      <polygon points="25,160 21,153 29,153" fill="#12263F"/>
+      <rect x="0" y="112" width="50" height="18" rx="3" fill="#12263F"/>
+      <text x="25" y="125" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800" fill="#F59E0B" text-anchor="middle">H = 3 FT</text>
+    </g>
+
+    <!-- Calculation Callout -->
+    <rect x="20" y="275" width="400" height="55" rx="4" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="32" y="295" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800" fill="#12263F">FORMULA:</text>
+    <text x="95" y="295" font-family="Georgia, serif" font-size="12" font-weight="700" fill="#0F766E">(8 ft × 5 ft × 3 ft) = 120 cu ft ÷ 27 cu ft/CY = 4.44 CY</text>
+    <text x="32" y="316" font-family="'Segoe UI', sans-serif" font-size="9.5" font-weight="600" fill="#475569">The pile contains exactly 4.44 CY. Billed at 9 CY, it exceeds reality by +102%.</text>
+  </g>
+
+  <!-- Right: The Invoice Discrepancy Reconciliation -->
+  <g transform="translate(500, 130)" filter="url(#m10-shadow4)">
+    <rect width="420" height="345" rx="8" fill="#FFFDF8" stroke="#D6C8B2" stroke-width="1"/>
+    <rect width="420" height="32" rx="8" fill="#12263F"/>
+    <text x="16" y="21" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F59E0B" letter-spacing="1">INVOICE AUDIT &amp; LINE CORRECTION TABLE</text>
+
+    <!-- Invoice Lines -->
+    <!-- Line 1: Debris -->
+    <rect x="16" y="45" width="388" height="90" rx="4" fill="#F8F9FA" stroke="#E2E8F0"/>
+    <text x="28" y="65" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#12263F">LINE ITEM: EXTERIOR DEBRIS REMOVAL</text>
+    <text x="28" y="82" font-family="'Segoe UI', sans-serif" font-size="10" fill="#64748B">Contractor Claimed:</text>
+    <text x="150" y="82" font-family="Georgia, serif" font-size="11" font-weight="700" fill="#B42318">9 CY @ $20/CY = $180.00</text>
+
+    <text x="28" y="100" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="700" fill="#059669">Processor Verified:</text>
+    <text x="150" y="100" font-family="Georgia, serif" font-size="11" font-weight="800" fill="#059669">4.44 CY @ $20/CY = $88.80</text>
+
+    <rect x="28" y="108" width="364" height="20" rx="2" fill="#FEF2F2" stroke="#FCA5A5"/>
+    <text x="36" y="122" font-family="'Segoe UI', sans-serif" font-size="9" font-weight="800" fill="#B42318">ACTION: ADJUST -$91.20 AT ALLOWABLE RUNG (OWNER: PROCESSOR)</text>
+
+    <!-- Line 2: Unauthorized Scope (Gutter Cleaning) -->
+    <rect x="16" y="145" width="388" height="90" rx="4" fill="#F8F9FA" stroke="#E2E8F0"/>
+    <text x="28" y="165" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#12263F">LINE ITEM: GUTTER CLEANING (ADD-ON)</text>
+    <text x="28" y="182" font-family="'Segoe UI', sans-serif" font-size="10" fill="#64748B">Contractor Claimed:</text>
+    <text x="150" y="182" font-family="Georgia, serif" font-size="11" font-weight="700" fill="#B42318">$75.00 Flat Fee</text>
+
+    <text x="28" y="200" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="700" fill="#64748B">Order Authority:</text>
+    <text x="150" y="200" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="700" fill="#B42318">NO WRITTEN AUTHORIZATION (UNALLOWABLE)</text>
+
+    <rect x="28" y="208" width="364" height="20" rx="2" fill="#FEF2F2" stroke="#FCA5A5"/>
+    <text x="36" y="222" font-family="'Segoe UI', sans-serif" font-size="9" font-weight="800" fill="#B42318">ACTION: STRIKE LINE ENTIRELY (-$75.00 DEDUCTION)</text>
+
+    <!-- Total Discrepancy Summary -->
+    <rect x="16" y="245" width="388" height="85" rx="4" fill="#1D3A5F"/>
+    <text x="28" y="268" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#F59E0B">TOTAL INVOICE CORRECTION SUMMARY:</text>
+    <text x="28" y="288" font-family="'Segoe UI', sans-serif" font-size="10" fill="#E2E8F0">Initial Bid Submitted: <tspan font-weight="700" fill="#FFFDF8">$485.00</tspan></text>
+    <text x="28" y="304" font-family="'Segoe UI', sans-serif" font-size="10" fill="#E2E8F0">Total Discrepancies Removed: <tspan font-weight="700" fill="#FCA5A5">-$166.20</tspan> ($91.20 debris + $75.00 gutter)</text>
+    <text x="28" y="320" font-family="'Segoe UI', sans-serif" font-size="10.5" font-weight="800" fill="#34D399">Allowable Clean Invoice: $318.80 (Held pending lock photo &amp; occupancy)</text>
+  </g>
+
+  <!-- Footer Advance Caption -->
+  <text x="40" y="512" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="600" fill="#667085">Auditing cubic yard math protects both the vendor and the mortgage servicer: accurate math earns quick payment; inflated math triggers total portal rejection.</text>
+</svg>

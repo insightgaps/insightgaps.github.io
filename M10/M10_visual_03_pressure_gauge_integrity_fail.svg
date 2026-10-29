@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="m10-bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF8"/>
+      <stop offset="100%" stop-color="#F4EFE6"/>
+    </linearGradient>
+    <filter id="m10-shadow3" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#12263F" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" fill="url(#m10-bg3)"/>
+  <rect x="24" y="24" width="912" height="492" rx="12" fill="none" stroke="#D6C8B2" stroke-width="1.5"/>
+
+  <!-- Header Banner -->
+  <rect x="40" y="40" width="880" height="48" rx="6" fill="#12263F"/>
+  <text x="56" y="70" font-family="'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="800" fill="#F59E0B" letter-spacing="1.5">WINTERIZATION INTEGRITY: THE PRESSURE TEST HARD RULE</text>
+  <text x="580" y="70" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="600" fill="#E2E8F0">[CRITICAL QUALITY CONTROL — SYNTHETIC LAB]</text>
+  <rect x="800" y="52" width="106" height="24" rx="4" fill="#B42318"/>
+  <text x="853" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8" text-anchor="middle">HARD RULE</text>
+
+  <!-- Subtitle -->
+  <text x="40" y="114" font-family="Georgia, serif" font-size="17" font-weight="700" fill="#12263F">A needle that drops is not a contractor failure; it is crucial diagnostic evidence of a ruptured copper pipe.</text>
+
+  <!-- Main Container -->
+  <!-- Left Side: Dual Gauge Display -->
+  <g transform="translate(40, 130)" filter="url(#m10-shadow3)">
+    <rect width="480" height="345" rx="8" fill="#FFFDF8" stroke="#D6C8B2" stroke-width="1"/>
+    <rect width="480" height="32" rx="8" fill="#1D3A5F"/>
+    <text x="16" y="21" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F59E0B" letter-spacing="1">PRESSURE TEST LOG: 15-MINUTE DURATION</text>
+
+    <!-- Gauge 1: Minute 0 (35 PSI) -->
+    <g transform="translate(30, 48)">
+      <circle cx="95" cy="95" r="75" fill="#F8F9FA" stroke="#12263F" stroke-width="3"/>
+      <circle cx="95" cy="95" r="70" fill="none" stroke="#D6C8B2" stroke-dasharray="2 4"/>
+      <!-- Gauge Marks -->
+      <text x="40" y="100" font-family="'Segoe UI', sans-serif" font-size="9" font-weight="700" fill="#64748B">0</text>
+      <text x="95" y="42" font-family="'Segoe UI', sans-serif" font-size="9" font-weight="700" fill="#64748B">30</text>
+      <text x="145" y="100" font-family="'Segoe UI', sans-serif" font-size="9" font-weight="700" fill="#64748B">60</text>
+      <!-- Target Zone: 35 PSI -->
+      <path d="M 95 95 L 115 50" stroke="#059669" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="95" cy="95" r="6" fill="#12263F"/>
+      <!-- Digital readout -->
+      <rect x="55" y="125" width="80" height="24" rx="3" fill="#12263F"/>
+      <text x="95" y="141" font-family="Georgia, serif" font-size="13" font-weight="800" fill="#34D399" text-anchor="middle">35.0 PSI</text>
+      <!-- Label -->
+      <text x="95" y="185" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#12263F" text-anchor="middle">T = 00:00 (INITIAL)</text>
+      <text x="95" y="200" font-family="'Segoe UI', sans-serif" font-size="9.5" fill="#166534" text-anchor="middle">Charged to 35 PSI specification</text>
+    </g>
+
+    <!-- Arrow between gauges -->
+    <g transform="translate(225, 125)">
+      <path d="M 0 15 L 30 15" stroke="#B42318" stroke-width="2.5" stroke-dasharray="3 3"/>
+      <polygon points="30,11 38,15 30,19" fill="#B42318"/>
+      <text x="19" y="32" font-family="'Segoe UI', sans-serif" font-size="9" font-weight="800" fill="#B42318" text-anchor="middle">15 MIN</text>
+    </g>
+
+    <!-- Gauge 2: Minute 15 (23 PSI - 12 PSI DROP) -->
+    <g transform="translate(265, 48)">
+      <circle cx="95" cy="95" r="75" fill="#FEF2F2" stroke="#B42318" stroke-width="3"/>
+      <circle cx="95" cy="95" r="70" fill="none" stroke="#FCA5A5" stroke-dasharray="2 4"/>
+      <!-- Gauge Marks -->
+      <text x="40" y="100" font-family="'Segoe UI', sans-serif" font-size="9" font-weight="700" fill="#64748B">0</text>
+      <text x="95" y="42" font-family="'Segoe UI', sans-serif" font-size="9" font-weight="700" fill="#64748B">30</text>
+      <text x="145" y="100" font-family="'Segoe UI', sans-serif" font-size="9" font-weight="700" fill="#64748B">60</text>
+      <!-- Drop needle: 23 PSI -->
+      <path d="M 95 95 L 80 52" stroke="#B42318" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="95" cy="95" r="6" fill="#B42318"/>
+      <!-- Digital readout -->
+      <rect x="55" y="125" width="80" height="24" rx="3" fill="#B42318"/>
+      <text x="95" y="141" font-family="Georgia, serif" font-size="13" font-weight="800" fill="#FFFDF8" text-anchor="middle">23.0 PSI</text>
+      <!-- Label -->
+      <text x="95" y="185" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#B42318" text-anchor="middle">T = 15:00 (RESULT)</text>
+      <text x="95" y="200" font-family="'Segoe UI', sans-serif" font-size="9.5" font-weight="700" fill="#B42318" text-anchor="middle">-12.0 PSI CRITICAL DROP</text>
+    </g>
+
+    <!-- Comparison Summary Banner -->
+    <rect x="20" y="265" width="440" height="65" rx="4" fill="#FEF2F2" stroke="#FCA5A5"/>
+    <text x="32" y="285" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="800" fill="#B42318">CRITICAL FAILURE DETECTED:</text>
+    <text x="32" y="301" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" fill="#344054">A 12 PSI drop over 15 minutes proves the plumbing system is breached.</text>
+    <text x="32" y="316" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" fill="#344054">Leaving water or signing off 'Pass' guarantees catastrophic freeze damage in winter.</text>
+  </g>
+
+  <!-- Right Side: Contractor Defect vs Trained Standard -->
+  <g transform="translate(540, 130)" filter="url(#m10-shadow3)">
+    <rect width="380" height="345" rx="8" fill="#FFFDF8" stroke="#D6C8B2" stroke-width="1"/>
+    <rect width="380" height="32" rx="8" fill="#12263F"/>
+    <text x="16" y="21" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F59E0B" letter-spacing="1">AUDIT RATIONALE &amp; GOVERNING ACTION</text>
+
+    <!-- Box 1: What the field crew did (WRONG) -->
+    <rect x="16" y="45" width="348" height="98" rx="4" fill="#FFF5F5" stroke="#FCA5A5"/>
+    <text x="26" y="63" font-family="'Segoe UI', sans-serif" font-size="10.5" font-weight="800" fill="#B42318">WHAT KEVIN WROTE (THE FIELD TRAP):</text>
+    <text x="26" y="80" font-family="Georgia, serif" font-size="10" font-style="italic" fill="#475569">"System had small pinhole leak near water heater. Blew lines anyway and added antifreeze. Marked task COMPLETE."</text>
+    <!-- Stamped Red Box -->
+    <rect x="26" y="98" width="328" height="32" rx="3" fill="#B42318"/>
+    <text x="190" y="118" font-family="'Segoe UI', sans-serif" font-size="10.5" font-weight="800" fill="#FFFDF8" text-anchor="middle">FATAL REPUTATIONAL &amp; CLAIM FAILURE</text>
+
+    <!-- Box 2: What the trained professional does (CORRECT) -->
+    <rect x="16" y="155" width="348" height="175" rx="4" fill="#F0FDF4" stroke="#86EFAC"/>
+    <text x="26" y="173" font-family="'Segoe UI', sans-serif" font-size="10.5" font-weight="800" fill="#166534">WHAT THE TRAINED AUDITOR DOES:</text>
+
+    <text x="26" y="194" font-family="'Segoe UI', sans-serif" font-size="9.5" font-weight="700" fill="#12263F">1. Reject the 'Complete' Claim:</text>
+    <text x="40" y="208" font-family="'Segoe UI', sans-serif" font-size="9" fill="#344054">Do not bill winterization as complete. System failed pressure hold.</text>
+
+    <text x="26" y="226" font-family="'Segoe UI', sans-serif" font-size="9.5" font-weight="700" fill="#12263F">2. Re-label as Diagnostic Discovery:</text>
+    <text x="40" y="240" font-family="'Segoe UI', sans-serif" font-size="9" fill="#344054">Declare: "HOLD — SYSTEM FAILED STATIC PRESSURE TEST (-12 PSI)".</text>
+
+    <text x="26" y="258" font-family="'Segoe UI', sans-serif" font-size="9.5" font-weight="700" fill="#12263F">3. Submit Repair Bid with Photo Evidence:</text>
+    <text x="40" y="272" font-family="'Segoe UI', sans-serif" font-size="9" fill="#344054">Photograph leaking joint with air gauge visible; bid plumbing repair.</text>
+
+    <rect x="26" y="286" width="328" height="32" rx="3" fill="#166534"/>
+    <text x="190" y="306" font-family="'Segoe UI', sans-serif" font-size="10.5" font-weight="800" fill="#FFFDF8" text-anchor="middle">HONEST AUDIT PROTECTS THE SERVICER</text>
+  </g>
+
+  <!-- Footer Advance Caption -->
+  <text x="40" y="512" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="600" fill="#667085">The winterization cardinal rule: never fake the test. A documented leak is billable intelligence that spares the loan servicer thousands in ruined drywall.</text>
+</svg>

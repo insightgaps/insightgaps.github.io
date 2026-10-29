@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="m10-bg5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF8"/>
+      <stop offset="100%" stop-color="#F4EFE6"/>
+    </linearGradient>
+    <filter id="m10-shadow5" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#12263F" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" fill="url(#m10-bg5)"/>
+  <rect x="24" y="24" width="912" height="492" rx="12" fill="none" stroke="#D6C8B2" stroke-width="1.5"/>
+
+  <!-- Header Banner -->
+  <rect x="40" y="40" width="880" height="48" rx="6" fill="#12263F"/>
+  <text x="56" y="70" font-family="'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="800" fill="#F59E0B" letter-spacing="1.5">THE 4-POINT UPDATE LINE RUBRIC (≤ 25 WORDS)</text>
+  <text x="570" y="70" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="600" fill="#E2E8F0">[DISPATCH &amp; AUDIT STANDARD — SYNTHETIC LAB]</text>
+  <rect x="800" y="52" width="106" height="24" rx="4" fill="#B45309"/>
+  <text x="853" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8" text-anchor="middle">RUBRIC CHECK</text>
+
+  <!-- Subtitle -->
+  <text x="40" y="114" font-family="Georgia, serif" font-size="17" font-weight="700" fill="#12263F">Four rapid checks, zero flab, under twenty-five words. Operational clarity protects the entire 5-link chain.</text>
+
+  <!-- Left Side: The 4-Point Checklist Standard -->
+  <g transform="translate(40, 130)" filter="url(#m10-shadow5)">
+    <rect width="410" height="345" rx="8" fill="#FFFDF8" stroke="#D6C8B2" stroke-width="1"/>
+    <rect width="410" height="32" rx="8" fill="#12263F"/>
+    <text x="16" y="21" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F59E0B" letter-spacing="1">THE FOUR MANDATORY CHECKS</text>
+
+    <!-- Check 1 -->
+    <g transform="translate(16, 46)">
+      <circle cx="16" cy="16" r="14" fill="#1D3A5F"/>
+      <text x="16" y="21" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="800" fill="#F59E0B" text-anchor="middle">1</text>
+      <text x="40" y="16" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#12263F">OCCUPANCY SIGNAL NAMED?</text>
+      <text x="40" y="30" font-family="'Segoe UI', sans-serif" font-size="9.5" fill="#475569">Cite the physical fact: fridge cold, clock lit, warm radiator, mail.</text>
+    </g>
+    <line x1="16" y1="92" x2="394" y2="92" stroke="#E2E8F0" stroke-width="1"/>
+
+    <!-- Check 2 -->
+    <g transform="translate(16, 102)">
+      <circle cx="16" cy="16" r="14" fill="#1D3A5F"/>
+      <text x="16" y="21" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="800" fill="#F59E0B" text-anchor="middle">2</text>
+      <text x="40" y="16" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#12263F">OPERATIONAL DECISION STATED?</text>
+      <text x="40" y="30" font-family="'Segoe UI', sans-serif" font-size="9.5" fill="#475569">Unambiguously declare the verdict: HOLD (or Approve / Reject).</text>
+    </g>
+    <line x1="16" y1="148" x2="394" y2="148" stroke="#E2E8F0" stroke-width="1"/>
+
+    <!-- Check 3 -->
+    <g transform="translate(16, 158)">
+      <circle cx="16" cy="16" r="14" fill="#1D3A5F"/>
+      <text x="16" y="21" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="800" fill="#F59E0B" text-anchor="middle">3</text>
+      <text x="40" y="16" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#12263F">NEXT STEP &amp; ESCALATION NAMED?</text>
+      <text x="40" y="30" font-family="'Segoe UI', sans-serif" font-size="9.5" fill="#475569">Identify the designated path: escalate to manager for verification.</text>
+    </g>
+    <line x1="16" y1="204" x2="394" y2="204" stroke="#E2E8F0" stroke-width="1"/>
+
+    <!-- Check 4 -->
+    <g transform="translate(16, 214)">
+      <circle cx="16" cy="16" r="14" fill="#B45309"/>
+      <text x="16" y="21" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="800" fill="#FFFDF8" text-anchor="middle">4</text>
+      <text x="40" y="16" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#B45309">25 WORDS OR FEWER?</text>
+      <text x="40" y="30" font-family="'Segoe UI', sans-serif" font-size="9.5" fill="#475569">Hard ceiling. Over 25 words = automatic fail. (Em dash ≠ word).</text>
+    </g>
+    <line x1="16" y1="260" x2="394" y2="260" stroke="#E2E8F0" stroke-width="1"/>
+
+    <!-- Summary Rule Box -->
+    <rect x="16" y="272" width="378" height="60" rx="4" fill="#FEF3C7" stroke="#FCD34D"/>
+    <text x="28" y="293" font-family="'Segoe UI', sans-serif" font-size="10.5" font-weight="800" fill="#92400E">INTEGRITY &amp; DISPATCH MANDATE:</text>
+    <text x="28" y="309" font-family="'Segoe UI', sans-serif" font-size="9.5" fill="#78350F">A flabby status line wastes critical field minutes and misinforms</text>
+    <text x="28" y="322" font-family="'Segoe UI', sans-serif" font-size="9.5" fill="#78350F">the national servicer. Write clean, direct, auditable facts only.</text>
+  </g>
+
+  <!-- Right Side: Exemplar Comparison (Strong vs Weak) -->
+  <g transform="translate(470, 130)" filter="url(#m10-shadow5)">
+    <rect width="450" height="345" rx="8" fill="#FFFDF8" stroke="#D6C8B2" stroke-width="1"/>
+    <rect width="450" height="32" rx="8" fill="#1D3A5F"/>
+    <text x="16" y="21" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F59E0B" letter-spacing="1">LINE AUDIT BENCHMARK: PASS VS AUTOMATIC REJECT</text>
+
+    <!-- Strong Model Line (Pass) -->
+    <rect x="16" y="45" width="418" height="130" rx="4" fill="#F0FDF4" stroke="#86EFAC"/>
+    <rect x="26" y="55" width="90" height="20" rx="3" fill="#166534"/>
+    <text x="71" y="69" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800" fill="#FFFDF8" text-anchor="middle">PASS (17 WDS)</text>
+    <text x="126" y="70" font-family="'Segoe UI', sans-serif" font-size="10.5" font-weight="800" fill="#166534">EXEMPLAR OPERATIONAL LINE:</text>
+
+    <!-- Quote -->
+    <text x="26" y="98" font-family="Georgia, serif" font-size="12" font-style="italic" font-weight="700" fill="#14532D">"Pantry stocked, warm radiator: occupancy uncertain. HOLD work, escalate to client manager for verification."</text>
+
+    <!-- Checkmark Pills -->
+    <g transform="translate(26, 128)">
+      <rect x="0" y="0" width="85" height="18" rx="3" fill="#DCFCE7"/>
+      <text x="42" y="13" font-family="'Segoe UI', sans-serif" font-size="8.5" font-weight="800" fill="#15803D" text-anchor="middle">✓ Signal Named</text>
+
+      <rect x="95" y="0" width="85" height="18" rx="3" fill="#DCFCE7"/>
+      <text x="137" y="13" font-family="'Segoe UI', sans-serif" font-size="8.5" font-weight="800" fill="#15803D" text-anchor="middle">✓ HOLD Stated</text>
+
+      <rect x="190" y="0" width="95" height="18" rx="3" fill="#DCFCE7"/>
+      <text x="237" y="13" font-family="'Segoe UI', sans-serif" font-size="8.5" font-weight="800" fill="#15803D" text-anchor="middle">✓ Escalation Set</text>
+
+      <rect x="295" y="0" width="85" height="18" rx="3" fill="#DCFCE7"/>
+      <text x="337" y="13" font-family="'Segoe UI', sans-serif" font-size="8.5" font-weight="800" fill="#15803D" text-anchor="middle">✓ 17 / 25 Words</text>
+    </g>
+
+    <!-- Weak Disallowed Line (Fail) -->
+    <rect x="16" y="190" width="418" height="135" rx="4" fill="#FEF2F2" stroke="#FCA5A5"/>
+    <rect x="26" y="200" width="130" height="20" rx="3" fill="#B42318"/>
+    <text x="91" y="214" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800" fill="#FFFDF8" text-anchor="middle">AUTOMATIC FAIL (31 WDS)</text>
+    <text x="166" y="215" font-family="'Segoe UI', sans-serif" font-size="10.5" font-weight="800" fill="#B42318">FLABBY, VAGUE DRAFT:</text>
+
+    <!-- Quote -->
+    <text x="26" y="242" font-family="Georgia, serif" font-size="10.5" font-style="italic" fill="#7F1D1D">"House looked pretty quiet when we pulled up but inside looks like someone might still live here so maybe hold off on doing everything until we check with someone upstairs."</text>
+
+    <!-- Defect Callouts -->
+    <g transform="translate(26, 280)">
+      <text x="0" y="14" font-family="'Segoe UI', sans-serif" font-size="9" font-weight="700" fill="#991B1B">✗ No specific observable signal named ("looks like someone might live here")</text>
+      <text x="0" y="28" font-family="'Segoe UI', sans-serif" font-size="9" font-weight="700" fill="#991B1B">✗ Vague hesitation ("maybe hold off") instead of formal HOLD command</text>
+      <text x="0" y="42" font-family="'Segoe UI', sans-serif" font-size="9" font-weight="700" fill="#991B1B">✗ 31 words: exceeds mandatory 25-word limit by 6 words (AUTOMATIC REJECT)</text>
+    </g>
+  </g>
+
+  <!-- Footer Advance Caption -->
+  <text x="40" y="512" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="600" fill="#667085">The 4-point rubric transforms intuition into operational discipline: name the signal, state the hold, assign the owner, and respect the word budget.</text>
+</svg>

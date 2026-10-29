@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="m10-bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF8"/>
+      <stop offset="100%" stop-color="#F4EFE6"/>
+    </linearGradient>
+    <filter id="m10-shadow2" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#12263F" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" fill="url(#m10-bg2)"/>
+  <rect x="24" y="24" width="912" height="492" rx="12" fill="none" stroke="#D6C8B2" stroke-width="1.5"/>
+
+  <!-- Header Banner -->
+  <rect x="40" y="40" width="880" height="48" rx="6" fill="#12263F"/>
+  <text x="56" y="70" font-family="'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="800" fill="#F59E0B" letter-spacing="1.5">THE FOUR CAPSTONE FAILURE TRAPS</text>
+  <text x="440" y="70" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="600" fill="#E2E8F0">[CORE EVALUATION CRITERIA — SYNTHETIC LAB]</text>
+  <rect x="800" y="52" width="106" height="24" rx="4" fill="#B42318"/>
+  <text x="853" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8" text-anchor="middle">CRITICAL QC</text>
+
+  <!-- Subtitle -->
+  <text x="40" y="114" font-family="Georgia, serif" font-size="17" font-weight="700" fill="#12263F">Kevin worked hard in the sleet, but hard work cannot replace missing proof or excuse an unlawful entry.</text>
+
+  <!-- 4 Trap Cards Grid -->
+  <!-- Card 1: Trap 1 - Occupancy Defect -->
+  <g transform="translate(40, 130)" filter="url(#m10-shadow2)">
+    <rect width="425" height="165" rx="6" fill="#FFFDF8" stroke="#D6C8B2" stroke-width="1"/>
+    <rect width="425" height="32" rx="6" fill="#12263F"/>
+    <text x="16" y="21" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F59E0B" letter-spacing="1">TRAP 1: OCCUPANCY DEFECT</text>
+    <rect x="315" y="6" width="98" height="20" rx="3" fill="#B42318"/>
+    <text x="364" y="20" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="800" fill="#FFFDF8" text-anchor="middle">AUTHORITY GATE</text>
+
+    <!-- Content -->
+    <text x="16" y="52" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" fill="#B42318">Observable Clues:</text>
+    <text x="16" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" fill="#344054">Recent utility notice on counter dated 3 days ago, warm radiator</text>
+    <text x="16" y="82" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" fill="#344054">in rear bedroom, pantry holds fresh bread and canned food.</text>
+
+    <line x1="16" y1="94" x2="409" y2="94" stroke="#E2E8F0" stroke-width="1"/>
+
+    <text x="16" y="110" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" fill="#12263F">Required Verdict &amp; Next Action:</text>
+    <rect x="16" y="118" width="393" height="36" rx="4" fill="#FEF2F2" stroke="#F87171" stroke-width="1"/>
+    <text x="24" y="133" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="800" fill="#B42318">HOLD &amp; ESCALATE IMMEDIATELY</text>
+    <text x="24" y="146" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="600" fill="#7F1D1D">Owner: Vendor Manager escalates to Client Manager for occupancy check.</text>
+  </g>
+
+  <!-- Card 2: Trap 2 - Evidence Gap -->
+  <g transform="translate(495, 130)" filter="url(#m10-shadow2)">
+    <rect width="425" height="165" rx="6" fill="#FFFDF8" stroke="#D6C8B2" stroke-width="1"/>
+    <rect width="425" height="32" rx="6" fill="#12263F"/>
+    <text x="16" y="21" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F59E0B" letter-spacing="1">TRAP 2: PHOTO EVIDENCE GAP</text>
+    <rect x="335" y="6" width="78" height="20" rx="3" fill="#B45309"/>
+    <text x="374" y="20" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="800" fill="#FFFDF8" text-anchor="middle">PROOF GATE</text>
+
+    <!-- Content -->
+    <text x="16" y="52" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" fill="#B45309">Observable Clues:</text>
+    <text x="16" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" fill="#344054">Front door deadbolt photographed before/during/after. But rear</text>
+    <text x="16" y="82" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" fill="#344054">patio sliding door lockset photo is missing entirely from log.</text>
+
+    <line x1="16" y1="94" x2="409" y2="94" stroke="#E2E8F0" stroke-width="1"/>
+
+    <text x="16" y="110" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" fill="#12263F">Required Verdict &amp; Next Action:</text>
+    <rect x="16" y="118" width="393" height="36" rx="4" fill="#FFFBEB" stroke="#FCD34D" stroke-width="1"/>
+    <text x="24" y="133" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="800" fill="#B45309">DISALLOW SECURE LINE — SEND CREW BACK</text>
+    <text x="24" y="146" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="600" fill="#78350F">Owner: Vendor Manager dispatches; Processor holds tagging until photo lands.</text>
+  </g>
+
+  <!-- Card 3: Trap 3 - Winterization Integrity -->
+  <g transform="translate(40, 310)" filter="url(#m10-shadow2)">
+    <rect width="425" height="165" rx="6" fill="#FFFDF8" stroke="#D6C8B2" stroke-width="1"/>
+    <rect width="425" height="32" rx="6" fill="#12263F"/>
+    <text x="16" y="21" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F59E0B" letter-spacing="1">TRAP 3: WINTERIZATION INTEGRITY</text>
+    <rect x="315" y="6" width="98" height="20" rx="3" fill="#B42318"/>
+    <text x="364" y="20" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="800" fill="#FFFDF8" text-anchor="middle">INTEGRITY GATE</text>
+
+    <!-- Content -->
+    <text x="16" y="52" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" fill="#B42318">Observable Clues:</text>
+    <text x="16" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" fill="#344054">Pressure test dropped 12 PSI in 15 min (from 35 PSI to 23 PSI).</text>
+    <text x="16" y="82" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" fill="#344054">Tech noted "small pinhole leak, winterized anyway" and marked pass.</text>
+
+    <line x1="16" y1="94" x2="409" y2="94" stroke="#E2E8F0" stroke-width="1"/>
+
+    <text x="16" y="110" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" fill="#12263F">Required Verdict &amp; Next Action:</text>
+    <rect x="16" y="118" width="393" height="36" rx="4" fill="#FEF2F2" stroke="#F87171" stroke-width="1"/>
+    <text x="24" y="133" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="800" fill="#B42318">REJECT PASS — HOLD &amp; BID SYSTEM REPAIR</text>
+    <text x="24" y="146" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="600" fill="#7F1D1D">Never fake the test. A failed test is critical diagnostic information!</text>
+  </g>
+
+  <!-- Card 4: Trap 4 - Quantity & Scope Inflation -->
+  <g transform="translate(495, 310)" filter="url(#m10-shadow2)">
+    <rect width="425" height="165" rx="6" fill="#FFFDF8" stroke="#D6C8B2" stroke-width="1"/>
+    <rect width="425" height="32" rx="6" fill="#12263F"/>
+    <text x="16" y="21" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F59E0B" letter-spacing="1">TRAP 4: QUANTITY &amp; SCOPE DISCREPANCY</text>
+    <rect x="335" y="6" width="78" height="20" rx="3" fill="#166534"/>
+    <text x="374" y="20" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="800" fill="#FFFDF8" text-anchor="middle">MONEY GATE</text>
+
+    <!-- Content -->
+    <text x="16" y="52" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" fill="#166534">Observable Clues:</text>
+    <text x="16" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" fill="#344054">Billed 9 CY for debris pile measuring 8 ft x 5 ft x 3 ft (4.44 CY actual).</text>
+    <text x="16" y="82" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" fill="#344054">Also billed $75 for unapproved gutter cleaning outside order scope.</text>
+
+    <line x1="16" y1="94" x2="409" y2="94" stroke="#E2E8F0" stroke-width="1"/>
+
+    <text x="16" y="110" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" fill="#12263F">Required Verdict &amp; Next Action:</text>
+    <rect x="16" y="118" width="393" height="36" rx="4" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1"/>
+    <text x="24" y="133" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="800" fill="#166534">CORRECT AT ALLOWABLE RUNG</text>
+    <text x="24" y="146" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" font-weight="600" fill="#14532D">Owner: Processor corrects 9 CY to 4.44 CY and strikes the $75 line.</text>
+  </g>
+
+  <!-- Footer Advance Caption -->
+  <text x="40" y="512" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="600" fill="#667085">Four deliberate traps teach one enduring lesson: authority comes before work, proof validates completion, and geometry governs the invoice.</text>
+</svg>

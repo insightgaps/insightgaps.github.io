@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="deskBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="folderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE68A"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <filter id="deskShadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="3" dy="6" stdDeviation="6" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background: Training Room & Chalkboard -->
+  <rect width="960" height="540" fill="url(#deskBg)"/>
+  <rect x="24" y="24" width="912" height="492" rx="12" fill="none" stroke="#334155" stroke-width="1.5"/>
+
+  <!-- Top Blackboard Strip -->
+  <rect x="40" y="40" width="880" height="100" rx="6" fill="#142132" stroke="#334155"/>
+  <text x="60" y="70" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="800" fill="#94A3B8" letter-spacing="2">CLASSROOM CHALKBOARD &bull; MINUTE 265 OF 300</text>
+  <text x="60" y="105" font-family="Georgia, serif" font-size="19" font-weight="700" fill="#F8FAFC">Bank &rarr; Servicer &rarr; National &rarr; <tspan fill="#F59E0B" text-decoration="underline">OUR OFFICE (QC AUDIT DESK)</tspan> &rarr; Field Crew</text>
+
+  <!-- Wall Clock (Right side) -->
+  <g transform="translate(800, 50)">
+    <circle cx="45" cy="40" r="32" fill="#F8FAFC" stroke="#94A3B8" stroke-width="3"/>
+    <!-- Clock Hands: 4:25 PM -->
+    <line x1="45" y1="40" x2="58" y2="52" stroke="#1E293B" stroke-width="3" stroke-linecap="round"/>
+    <line x1="45" y1="40" x2="45" y2="18" stroke="#EF4444" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="45" cy="40" r="3" fill="#1E293B"/>
+    <text x="45" y="85" font-family="'Segoe UI', sans-serif" font-size="9" font-weight="800" fill="#94A3B8" text-anchor="middle">04:25 PM</text>
+  </g>
+
+  <!-- The Auditor's Wooden Desk Surface -->
+  <g transform="translate(40, 160)" filter="url(#deskShadow)">
+    <rect width="880" height="315" rx="8" fill="#1E2430" stroke="#475569" stroke-width="1.5"/>
+
+    <!-- Manila Folder on Desk -->
+    <g transform="translate(40, 25)">
+      <!-- Folder base -->
+      <path d="M 0 20 L 160 20 L 185 0 L 460 0 L 480 20 L 520 20 L 520 250 L 0 250 Z" fill="#E2C17C" stroke="#B48A3C" stroke-width="1.5"/>
+      <rect x="15" y="25" width="490" height="215" rx="3" fill="#FFFDF8" stroke="#CBD5E1"/>
+
+      <!-- Work Order Summary Header -->
+      <rect x="25" y="35" width="470" height="40" rx="3" fill="#12263F"/>
+      <text x="35" y="52" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800" fill="#F59E0B">CASE DOSSIER:</text>
+      <text x="120" y="52" font-family="'Segoe UI', sans-serif" font-size="10.5" font-weight="700" fill="#FFFFFF">WO-SYN-2026-8841 &bull; Maple House</text>
+      <text x="35" y="66" font-family="'Segoe UI', sans-serif" font-size="9.5" fill="#E2E8F0">42 Field Photos &bull; Initial Secure + Winterize + Debris</text>
+
+      <!-- Subcontract Intake Note with Rain Streaks -->
+      <g transform="translate(25, 85)">
+        <rect width="470" height="85" rx="3" fill="#F8FAFC" stroke="#E2E8F0"/>
+        <text x="12" y="18" font-family="'Segoe UI', sans-serif" font-size="9.5" font-weight="800" fill="#1E293B">FIELD TECH LOG: Kevin R. (Subcontract Crew)</text>
+        <text x="12" y="34" font-family="Georgia, serif" font-size="9.5" font-style="italic" fill="#475569">"Arrived 4:15 PM in sleet. Changed deadbolt, winterized plumbing, hauled full truck debris.</text>
+        <text x="12" y="48" font-family="Georgia, serif" font-size="9.5" font-style="italic" fill="#475569">Left property locked &amp; secure at 6:40 PM. Total Invoiced: $485.00."</text>
+        <!-- Red Stamp -->
+        <g transform="translate(320, 30) rotate(-8)">
+          <rect width="130" height="28" rx="3" fill="none" stroke="#DC2626" stroke-width="2"/>
+          <text x="65" y="18" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="900" fill="#DC2626" letter-spacing="1" text-anchor="middle">PENDING QC</text>
+        </g>
+      </g>
+
+      <!-- Decision Form Ready on Desk -->
+      <g transform="translate(25, 180)">
+        <rect width="470" height="50" rx="3" fill="#FFFBEB" stroke="#FDE68A"/>
+        <text x="12" y="20" font-family="'Segoe UI', sans-serif" font-size="9.5" font-weight="800" fill="#92400E">AUDITOR DECISION REQUIRED (UNSEEN &amp; UNAIDED):</text>
+        <text x="12" y="36" font-family="'Segoe UI', sans-serif" font-size="9" fill="#78350F">Find all 4 traps &bull; Audit cubic yards &bull; Write 25-word Update Line &bull; Defend file line-by-line.</text>
+      </g>
+    </g>
+
+    <!-- Side Items: Pen, Timer, and Coffee Mug -->
+    <!-- Ballpoint Pen -->
+    <g transform="translate(610, 80) rotate(15)">
+      <rect x="0" y="0" width="10" height="180" rx="5" fill="#0284C7"/>
+      <polygon points="0,180 10,180 5,200" fill="#94A3B8"/>
+      <rect x="2" y="20" width="6" height="30" fill="#E0F2FE"/>
+    </g>
+
+    <!-- Timer / Stopwatch Card -->
+    <g transform="translate(650, 150)">
+      <rect width="200" height="110" rx="6" fill="#0B1320" stroke="#F59E0B" stroke-width="1.5"/>
+      <text x="100" y="30" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800" fill="#F59E0B" letter-spacing="1" text-anchor="middle">ACTIVE AUDIT TIMER</text>
+      <text x="100" y="70" font-family="Georgia, serif" font-size="34" font-weight="900" fill="#FFFFFF" text-anchor="middle">35:00</text>
+      <text x="100" y="94" font-family="'Segoe UI', sans-serif" font-size="9.5" font-weight="700" fill="#94A3B8" text-anchor="middle">ZERO COACHING ALLOWED</text>
+    </g>
+  </g>
+
+  <!-- Footer Advance Caption -->
+  <text x="40" y="512" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="600" fill="#94A3B8">The Desk Moment: Maple House was an unnamed blank at nine o'clock. Now forty-two photos and Kevin's hard work sit in your hands. No hints. No coach.</text>
+</svg>

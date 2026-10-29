@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF8"/>
+      <stop offset="100%" stop-color="#F4EFE6"/>
+    </linearGradient>
+    <filter id="shadow7" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#12263F" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="960" height="540" fill="url(#bg7)"/>
+  <rect x="24" y="24" width="912" height="492" rx="12" fill="none" stroke="#D6C8B2" stroke-width="1.5"/>
+
+  <!-- Projection Header Banner -->
+  <rect x="40" y="40" width="880" height="48" rx="6" fill="#12263F"/>
+  <text x="56" y="70" font-family="'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="800" fill="#F59E0B" letter-spacing="1.5">THE CASE FILE: DECIDE, DON'T GUESS</text>
+  <text x="490" y="70" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="600" fill="#E2E8F0">[SCREEN 29 ANCHOR — SEVEN PROGRESSIVE TABS]</text>
+  <rect x="800" y="52" width="106" height="24" rx="4" fill="#B45309"/>
+  <text x="853" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8" text-anchor="middle">SLIDE 29</text>
+
+  <!-- Subtitle Claim -->
+  <text x="40" y="114" font-family="Georgia, serif" font-size="17" font-weight="700" fill="#12263F">Open one tab at a time. The room commits to a verdict before the next tab opens.</text>
+
+  <!-- Seven Staged File Tabs -->
+  <g transform="translate(40, 130)">
+    <!-- Tab 1: House Profile -->
+    <path d="M 0 28 L 12 0 L 115 0 L 125 28 Z" fill="#CBD5E1" stroke="#94A3B8"/>
+    <text x="62" y="18" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="700" fill="#334155" text-anchor="middle">1. HOUSE</text>
+
+    <!-- Tab 2: Distress -->
+    <path d="M 120 28 L 132 0 L 235 0 L 245 28 Z" fill="#CBD5E1" stroke="#94A3B8"/>
+    <text x="182" y="18" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="700" fill="#334155" text-anchor="middle">2. DISTRESS</text>
+
+    <!-- Tab 3: Order Scope -->
+    <path d="M 240 28 L 252 0 L 355 0 L 365 28 Z" fill="#CBD5E1" stroke="#94A3B8"/>
+    <text x="302" y="18" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="700" fill="#334155" text-anchor="middle">3. ORDER</text>
+
+    <!-- Tab 4: Permission Gate (CURRENT ACTIVE TAB) -->
+    <path d="M 360 28 L 374 0 L 515 0 L 528 28 Z" fill="#F59E0B" stroke="#B45309" stroke-width="1.5"/>
+    <text x="444" y="18" font-family="'Segoe UI', sans-serif" font-size="10.5" font-weight="900" fill="#12263F" text-anchor="middle">4. PERMISSION GATE ◀</text>
+
+    <!-- Tab 5: Field Photos (Sealed) -->
+    <path d="M 522 28 L 534 0 L 638 0 L 648 28 Z" fill="#E2E8F0" stroke="#CBD5E1"/>
+    <text x="585" y="18" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="700" fill="#64748B" text-anchor="middle">5. FIELD [🔒]</text>
+
+    <!-- Tab 6: Invoice (Sealed) -->
+    <path d="M 642 28 L 654 0 L 758 0 L 768 28 Z" fill="#E2E8F0" stroke="#CBD5E1"/>
+    <text x="705" y="18" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="700" fill="#64748B" text-anchor="middle">6. INVOICE [🔒]</text>
+
+    <!-- Tab 7: Verdict (Sealed) -->
+    <path d="M 762 28 L 774 0 L 870 0 L 880 28 Z" fill="#E2E8F0" stroke="#CBD5E1"/>
+    <text x="821" y="18" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="700" fill="#64748B" text-anchor="middle">7. VERDICT [🔒]</text>
+
+    <!-- Dossier Body Sheet -->
+    <rect x="0" y="28" width="880" height="270" rx="4" fill="#FFFDF8" stroke="#D6C8B2" stroke-width="1.5" filter="url(#shadow7)"/>
+
+    <!-- Active Reveal Pane: Tab 4 Permission Inquiry -->
+    <g transform="translate(30, 50)">
+      <rect width="820" height="42" rx="4" fill="#FEF3C7" stroke="#FCD34D"/>
+      <text x="20" y="26" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="800" fill="#92400E">ACTIVE GATE REVEAL: AUTHORITY &amp; OCCUPANCY SIGNALS (PHOTO #08)</text>
+      <text x="640" y="26" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#B45309">STATUS: DISPUTED</text>
+
+      <!-- Three Signal Investigation Cards -->
+      <g transform="translate(0, 54)">
+        <rect x="0" y="0" width="260" height="110" rx="4" fill="#F8FAFC" stroke="#CBD5E1"/>
+        <text x="14" y="24" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#12263F">SIGNAL A: REFRIGERATOR</text>
+        <text x="14" y="44" font-family="'Segoe UI', sans-serif" font-size="10" fill="#475569">Compressor humming softly.</text>
+        <text x="14" y="60" font-family="'Segoe UI', sans-serif" font-size="10" fill="#475569">Interior bulb illuminated.</text>
+        <text x="14" y="76" font-family="'Segoe UI', sans-serif" font-size="10" fill="#475569">Cold air verified by tech.</text>
+        <rect x="14" y="86" width="90" height="16" rx="2" fill="#FEF2F2"/>
+        <text x="59" y="98" font-family="'Segoe UI', sans-serif" font-size="9" font-weight="800" fill="#B42318" text-anchor="middle">ACTIVE POWER</text>
+      </g>
+
+      <g transform="translate(280, 54)">
+        <rect x="0" y="0" width="260" height="110" rx="4" fill="#F8FAFC" stroke="#CBD5E1"/>
+        <text x="14" y="24" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#12263F">SIGNAL B: UTILITY NOTICE</text>
+        <text x="14" y="44" font-family="'Segoe UI', sans-serif" font-size="10" fill="#475569">Envelope on kitchen island.</text>
+        <text x="14" y="60" font-family="'Segoe UI', sans-serif" font-size="10" fill="#475569">Date stamped 3 days prior.</text>
+        <text x="14" y="76" font-family="'Segoe UI', sans-serif" font-size="10" fill="#475569">Addressed to occupant.</text>
+        <rect x="14" y="86" width="90" height="16" rx="2" fill="#FEF2F2"/>
+        <text x="59" y="98" font-family="'Segoe UI', sans-serif" font-size="9" font-weight="800" fill="#B42318" text-anchor="middle">RECENT MAIL</text>
+      </g>
+
+      <g transform="translate(560, 54)">
+        <rect x="0" y="0" width="260" height="110" rx="4" fill="#F8FAFC" stroke="#CBD5E1"/>
+        <text x="14" y="24" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#12263F">SIGNAL C: HEATING RADIATOR</text>
+        <text x="14" y="44" font-family="'Segoe UI', sans-serif" font-size="10" fill="#475569">Cast iron unit in bedroom.</text>
+        <text x="14" y="60" font-family="'Segoe UI', sans-serif" font-size="10" fill="#475569">Noticeable warmth radiating.</text>
+        <text x="14" y="76" font-family="'Segoe UI', sans-serif" font-size="10" fill="#475569">Thermostat set to 68°F.</text>
+        <rect x="14" y="86" width="90" height="16" rx="2" fill="#FEF2F2"/>
+        <text x="59" y="98" font-family="'Segoe UI', sans-serif" font-size="9" font-weight="800" fill="#B42318" text-anchor="middle">HEATING ON</text>
+      </g>
+
+      <!-- Bottom Decision Protocol Bar -->
+      <g transform="translate(0, 180)">
+        <rect width="820" height="42" rx="4" fill="#12263F"/>
+        <text x="24" y="26" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#F59E0B">PROTOCOL:</text>
+        <text x="105" y="26" font-family="'Segoe UI', sans-serif" font-size="11.5" font-weight="700" fill="#FFFDF8">1. SEE THE CLUES</text>
+        <text x="245" y="26" font-family="'Segoe UI', sans-serif" font-size="11.5" fill="#94A3B8">&rarr;</text>
+        <text x="270" y="26" font-family="'Segoe UI', sans-serif" font-size="11.5" font-weight="800" fill="#EF4444">2. JUDGE THE GATE (HOLD)</text>
+        <text x="490" y="26" font-family="'Segoe UI', sans-serif" font-size="11.5" fill="#94A3B8">&rarr;</text>
+        <text x="515" y="26" font-family="'Segoe UI', sans-serif" font-size="11.5" font-weight="700" fill="#38BDF8">3. ACT WITH OWNER (VM &bull; ESCALATE)</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Advance Caption -->
+  <text x="40" y="512" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="600" fill="#667085">Screen 29 Progressive Tab Staging: Trainees examine observable evidence tab-by-tab and commit to operational verdicts prior to subsequent reveals.</text>
+</svg>

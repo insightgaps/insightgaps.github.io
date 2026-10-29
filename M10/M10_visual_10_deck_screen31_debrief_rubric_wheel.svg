@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg10" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF8"/>
+      <stop offset="100%" stop-color="#F4EFE6"/>
+    </linearGradient>
+    <filter id="shadow10" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="2" dy="4" stdDeviation="5" flood-color="#12263F" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="960" height="540" fill="url(#bg10)"/>
+  <rect x="24" y="24" width="912" height="492" rx="12" fill="none" stroke="#D6C8B2" stroke-width="1.5"/>
+
+  <!-- Projection Header Banner -->
+  <rect x="40" y="40" width="880" height="48" rx="6" fill="#12263F"/>
+  <text x="56" y="70" font-family="'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="800" fill="#F59E0B" letter-spacing="1.5">WHAT CHANGED YOUR DECISION? JUDGE EVIDENCE, NOT EFFORT</text>
+  <text x="590" y="70" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="600" fill="#E2E8F0">[SCREEN 31 — DEBRIEF &amp; SCORING]</text>
+  <rect x="800" y="52" width="106" height="24" rx="4" fill="#166534"/>
+  <text x="853" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8" text-anchor="middle">SLIDE 31</text>
+
+  <!-- Subtitle Claim -->
+  <text x="40" y="114" font-family="Georgia, serif" font-size="17" font-weight="700" fill="#12263F">Good effort with deficient proof still waits. Did you protect the servicer or rubber-stamp a disaster?</text>
+
+  <!-- Left: The 4-Sector Critical Control Radar Wheel -->
+  <g transform="translate(40, 130)" filter="url(#shadow10)">
+    <rect width="450" height="345" rx="8" fill="#FFFDF8" stroke="#D6C8B2" stroke-width="1"/>
+    <rect width="450" height="32" rx="8" fill="#1D3A5F"/>
+    <text x="16" y="21" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#F59E0B" letter-spacing="1">CRITICAL CONTROL RADAR (FOUR AUDIT GATES)</text>
+
+    <!-- Radar Wheel Graphic (Center cx=130, cy=185) -->
+    <g transform="translate(25, 45)">
+      <!-- Outer Wheel Rings -->
+      <circle cx="105" cy="135" r="100" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+      <circle cx="105" cy="135" r="70" fill="none" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="3 3"/>
+      <circle cx="105" cy="135" r="40" fill="none" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="3 3"/>
+
+      <!-- Sector Dividers (Crosshair) -->
+      <line x1="105" y1="35" x2="105" y2="235" stroke="#94A3B8" stroke-width="1.5"/>
+      <line x1="5" y1="135" x2="205" y2="135" stroke="#94A3B8" stroke-width="1.5"/>
+
+      <!-- Sector 1: Top-Left (Authority / Red) -->
+      <path d="M 105 135 L 105 35 A 100 100 0 0 0 5 135 Z" fill="#F87171" opacity="0.3"/>
+      <text x="50" y="80" font-family="'Segoe UI', sans-serif" font-size="9" font-weight="900" fill="#B42318">AUTHORITY</text>
+      <text x="50" y="94" font-family="'Segoe UI', sans-serif" font-size="8" font-weight="700" fill="#7F1D1D">HOLD FILE</text>
+
+      <!-- Sector 2: Top-Right (Proof / Amber) -->
+      <path d="M 105 135 L 205 135 A 100 100 0 0 0 105 35 Z" fill="#FBBF24" opacity="0.3"/>
+      <text x="120" y="80" font-family="'Segoe UI', sans-serif" font-size="9" font-weight="900" fill="#B45309">PROOF GAP</text>
+      <text x="120" y="94" font-family="'Segoe UI', sans-serif" font-size="8" font-weight="700" fill="#78350F">PATIO LOCK</text>
+
+      <!-- Sector 3: Bottom-Left (Integrity / Red) -->
+      <path d="M 105 135 L 5 135 A 100 100 0 0 0 105 235 Z" fill="#F87171" opacity="0.4"/>
+      <text x="45" y="180" font-family="'Segoe UI', sans-serif" font-size="9" font-weight="900" fill="#B42318">INTEGRITY</text>
+      <text x="45" y="194" font-family="'Segoe UI', sans-serif" font-size="8" font-weight="700" fill="#7F1D1D">-12 PSI DROP</text>
+
+      <!-- Sector 4: Bottom-Right (Money / Green) -->
+      <path d="M 105 135 L 105 235 A 100 100 0 0 0 205 135 Z" fill="#34D399" opacity="0.3"/>
+      <text x="120" y="180" font-family="'Segoe UI', sans-serif" font-size="9" font-weight="900" fill="#166534">GEOMETRY</text>
+      <text x="120" y="194" font-family="'Segoe UI', sans-serif" font-size="8" font-weight="700" fill="#14532D">4.44 CY MATH</text>
+
+      <!-- Center Hub -->
+      <circle cx="105" cy="135" r="14" fill="#12263F"/>
+      <text x="105" y="139" font-family="'Segoe UI', sans-serif" font-size="8" font-weight="900" fill="#FFFDF8" text-anchor="middle">QC</text>
+
+      <!-- Explanatory Side List inside Left Box -->
+      <g transform="translate(225, 10)">
+        <text x="0" y="20" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800" fill="#B42318">1. Occupancy Signals:</text>
+        <text x="0" y="34" font-family="'Segoe UI', sans-serif" font-size="9" fill="#475569">Fridge cold, clock lit, utility bill &bull; HOLD</text>
+
+        <text x="0" y="65" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800" fill="#B45309">2. Photo Evidence Gap:</text>
+        <text x="0" y="79" font-family="'Segoe UI', sans-serif" font-size="9" fill="#475569">Rear patio sliding lock missing &bull; Return crew</text>
+
+        <text x="0" y="110" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800" fill="#B42318">3. Static Pressure Drop:</text>
+        <text x="0" y="124" font-family="'Segoe UI', sans-serif" font-size="9" fill="#475569">12 PSI loss &bull; Never fake &bull; Bid pipe repair</text>
+
+        <text x="0" y="155" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="800" fill="#166534">4. Volume &amp; Scope Math:</text>
+        <text x="0" y="169" font-family="'Segoe UI', sans-serif" font-size="9" fill="#475569">8x5x3 ft &divide; 27 = 4.44 CY &bull; Strike $75 gutter</text>
+
+        <!-- Final Model Update Line -->
+        <rect x="0" y="195" width="180" height="58" rx="3" fill="#F0FDF4" stroke="#86EFAC"/>
+        <text x="8" y="210" font-family="'Segoe UI', sans-serif" font-size="8.5" font-weight="900" fill="#166534">WINNING LINE (15 WDS):</text>
+        <text x="8" y="225" font-family="Georgia, serif" font-size="8.5" font-style="italic" fill="#14532D">"Pantry stocked, radiator warm:</text>
+        <text x="8" y="238" font-family="Georgia, serif" font-size="8.5" font-style="italic" fill="#14532D">HOLD file, escalate to CM."</text>
+      </g>
+    </g>
+
+    <!-- Bottom Rung Warning Banner -->
+    <rect x="15" y="300" width="420" height="32" rx="4" fill="#FEF2F2" stroke="#F87171"/>
+    <text x="25" y="320" font-family="'Segoe UI', sans-serif" font-size="9.5" font-weight="800" fill="#B42318">CRITICAL CONTROL: Approving this file buys an unlawful lockout lawsuit.</text>
+  </g>
+
+  <!-- Right: Scoring Tiers & Learning Boundary Box -->
+  <g transform="translate(510, 130)" filter="url(#shadow10)">
+    <rect width="410" height="345" rx="8" fill="#FFFDF8" stroke="#D6C8B2" stroke-width="1"/>
+    <rect width="410" height="32" rx="8" fill="#12263F"/>
+    <text x="16" y="21" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#F59E0B" letter-spacing="1">GRADUATION RUBRIC STANDARDS</text>
+
+    <!-- Tier 1: PASS -->
+    <g transform="translate(20, 48)">
+      <rect width="370" height="65" rx="4" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1.5"/>
+      <rect x="12" y="12" width="75" height="20" rx="3" fill="#166534"/>
+      <text x="49" y="26" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="900" fill="#FFFFFF" text-anchor="middle">PASS</text>
+      <text x="96" y="27" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#14532D">Demonstrated in Class Status</text>
+      <text x="12" y="45" font-family="'Segoe UI', sans-serif" font-size="9" fill="#14532D">&bull; All 4 failure traps identified &amp; named correctly.</text>
+      <text x="12" y="58" font-family="'Segoe UI', sans-serif" font-size="9" fill="#14532D">&bull; Declared HOLD &bull; Update Line &le;25 words passes 4/4 checks.</text>
+    </g>
+
+    <!-- Tier 2: REVISE & RETRY -->
+    <g transform="translate(20, 122)">
+      <rect width="370" height="65" rx="4" fill="#FFFBEB" stroke="#FDE68A" stroke-width="1.2"/>
+      <rect x="12" y="12" width="105" height="20" rx="3" fill="#B45309"/>
+      <text x="64" y="26" font-family="'Segoe UI', sans-serif" font-size="9" font-weight="900" fill="#FFFFFF" text-anchor="middle">REVISE &amp; RETRY</text>
+      <text x="125" y="27" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#92400E">5-Minute Oral Conference</text>
+      <text x="12" y="45" font-family="'Segoe UI', sans-serif" font-size="9" fill="#78350F">&bull; Identifies 3 of 4 traps, misses 1 secondary defect.</text>
+      <text x="12" y="58" font-family="'Segoe UI', sans-serif" font-size="9" fill="#78350F">&bull; OR Update Line fails word budget by &le;3 words.</text>
+    </g>
+
+    <!-- Tier 3: NOT YET -->
+    <g transform="translate(20, 196)">
+      <rect width="370" height="65" rx="4" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1.2"/>
+      <rect x="12" y="12" width="75" height="20" rx="3" fill="#DC2626"/>
+      <text x="49" y="26" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="900" fill="#FFFFFF" text-anchor="middle">NOT YET</text>
+      <text x="96" y="27" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#991B1B">Attended Status Only</text>
+      <text x="12" y="45" font-family="'Segoe UI', sans-serif" font-size="9" fill="#7F1D1D">&bull; Identifies fewer than 3 traps.</text>
+      <text x="12" y="58" font-family="'Segoe UI', sans-serif" font-size="9" fill="#7F1D1D">&bull; OR marked file 'Approve' (Fatal Critical Control Failure).</text>
+    </g>
+
+    <!-- The Honest Boundary Fence (Mandatory Policy) -->
+    <g transform="translate(20, 270)">
+      <rect width="370" height="62" rx="4" fill="#0B1320" stroke="#F59E0B" stroke-width="1"/>
+      <text x="12" y="18" font-family="'Segoe UI', sans-serif" font-size="9" font-weight="900" fill="#F59E0B" letter-spacing="0.5">HONEST BOUNDARY &bull; NO HIRING CUT-SCORE</text>
+      <text x="12" y="34" font-family="'Segoe UI', sans-serif" font-size="8.5" fill="#E2E8F0">This matrix certifies learning mastery in class. It is never used as</text>
+      <text x="12" y="46" font-family="'Segoe UI', sans-serif" font-size="8.5" fill="#E2E8F0">a competitive hiring exam. Critical control flags are scored separately.</text>
+    </g>
+  </g>
+
+  <!-- Advance Caption -->
+  <text x="40" y="512" font-family="'Segoe UI', system-ui, sans-serif" font-size="11.5" font-weight="600" fill="#667085">Screen 31 Scoring Wheel: Learners audit their capstone verdicts against four critical radar sectors, separating learning demonstration from hiring exams.</text>
+</svg>
