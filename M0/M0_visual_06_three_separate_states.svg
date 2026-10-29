@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="m0-bg-6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF8"/>
+      <stop offset="100%" stop-color="#F4EFE6"/>
+    </linearGradient>
+    <filter id="m0-shadow-6" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#12263F" flood-opacity="0.10"/>
+    </filter>
+    <linearGradient id="blue-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1E3A8A"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="amber-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#92400E"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <linearGradient id="emerald-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#065F46"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" fill="url(#m0-bg-6)"/>
+  <rect x="24" y="24" width="912" height="492" rx="12" fill="none" stroke="#D6C8B2" stroke-width="1.5"/>
+
+  <!-- Header Banner -->
+  <rect x="40" y="40" width="880" height="48" rx="6" fill="#12263F"/>
+  <text x="56" y="70" font-family="'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="800" fill="#F59E0B" letter-spacing="1.5">COGNITIVE CONTROL: THE THREE SEPARATE STATES</text>
+  <text x="515" y="70" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="600" fill="#E2E8F0">[NEVER COLLAPSE INTO ONE SENTENCE]</text>
+  <rect x="795" y="52" width="110" height="24" rx="4" fill="#B45309"/>
+  <text x="850" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFDF8" text-anchor="middle">CORE AXIOM</text>
+
+  <!-- Subtitle -->
+  <text x="40" y="114" font-family="Georgia, serif" font-size="17" font-weight="700" fill="#12263F">"One Property. Three Independent Judgments. Never Merge Physical, Legal, and Paperwork Reality."</text>
+
+  <!-- ================= COLUMN 1: PROPERTY STATE ================= -->
+  <g transform="translate(40, 135)">
+    <!-- Column Card -->
+    <rect x="0" y="0" width="280" height="300" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#m0-shadow-6)"/>
+    <!-- Column Header -->
+    <rect x="0" y="0" width="280" height="46" rx="8" fill="url(#blue-grad)"/>
+    <rect x="0" y="38" width="280" height="8" fill="#1E3A8A"/>
+    <text x="14" y="28" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#93C5FD" letter-spacing="0.8">STATE 1: THE DIRT</text>
+    <text x="145" y="28" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">Property State</text>
+
+    <!-- Icon: House & Physical Status -->
+    <g transform="translate(18, 56)">
+      <polygon points="18,6 2,18 34,18" fill="#3B82F6"/>
+      <rect x="6" y="18" width="24" height="16" fill="#60A5FA"/>
+      <rect x="14" y="24" width="8" height="10" fill="#1E3A8A"/>
+    </g>
+    <text x="64" y="72" font-family="Georgia, serif" font-size="13" font-weight="700" fill="#1E3A8A">Physical Reality</text>
+    <text x="64" y="88" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#64748B">What is happening on the ground?</text>
+
+    <!-- Divider Line -->
+    <line x1="14" y1="102" x2="266" y2="102" stroke="#E2E8F0" stroke-width="1"/>
+
+    <!-- Key Questions & Indicators -->
+    <text x="14" y="122" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="700" fill="#1E293B">• Physical Condition:</text>
+    <text x="22" y="138" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#475569">Occupied, Vacant, or Uncertain?</text>
+    <text x="14" y="158" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="700" fill="#1E293B">• Visible Signals:</text>
+    <text x="22" y="174" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#475569">Overgrown grass (6-10"+), flyers, mail.</text>
+    <text x="14" y="194" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="700" fill="#1E293B">• Physical Hazards:</text>
+    <text x="22" y="210" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#475569">Freeze threat, burst pipes, open door.</text>
+
+    <!-- Trap Warning Box -->
+    <rect x="12" y="228" width="256" height="58" rx="6" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+    <text x="20" y="246" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="800" fill="#1E40AF">ROOKIE TRAP: "It looks vacant!"</text>
+    <text x="20" y="262" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" fill="#334155">Visual appearance of vacancy is</text>
+    <text x="20" y="276" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="700" fill="#DC2626">NEVER legal permission to rekey.</text>
+  </g>
+
+  <!-- ================= COLUMN 2: LEGAL AUTHORITY STATE ================= -->
+  <g transform="translate(340, 135)">
+    <!-- Column Card -->
+    <rect x="0" y="0" width="280" height="300" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#m0-shadow-6)"/>
+    <!-- Column Header -->
+    <rect x="0" y="0" width="280" height="46" rx="8" fill="url(#amber-grad)"/>
+    <rect x="0" y="38" width="280" height="8" fill="#92400E"/>
+    <text x="14" y="28" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#FDE68A" letter-spacing="0.8">STATE 2: THE LAW</text>
+    <text x="145" y="28" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">Authority State</text>
+
+    <!-- Icon: Scales & Lock -->
+    <g transform="translate(18, 56)">
+      <line x1="18" y1="6" x2="18" y2="30" stroke="#D97706" stroke-width="2.5"/>
+      <line x1="6" y1="12" x2="30" y2="12" stroke="#D97706" stroke-width="2"/>
+      <circle cx="6" cy="18" r="4" fill="#F59E0B"/>
+      <circle cx="30" cy="18" r="4" fill="#F59E0B"/>
+    </g>
+    <text x="64" y="72" font-family="Georgia, serif" font-size="13" font-weight="700" fill="#92400E">Legal Standing</text>
+    <text x="64" y="88" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#64748B">Who owns &amp; controls the property?</text>
+
+    <!-- Divider Line -->
+    <line x1="14" y1="102" x2="266" y2="102" stroke="#E2E8F0" stroke-width="1"/>
+
+    <!-- Key Questions & Indicators -->
+    <text x="14" y="122" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="700" fill="#1E293B">• Ownership Standing:</text>
+    <text x="22" y="138" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#475569">Borrower Title vs. REO Bank Title.</text>
+    <text x="14" y="158" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="700" fill="#1E293B">• State Lien Theory:</text>
+    <text x="22" y="174" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#475569">Mortgage = financial lien, not title.</text>
+    <text x="14" y="194" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="700" fill="#1E293B">• Legal Precedent:</text>
+    <text x="22" y="210" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#475569">Jordan v. Nationstar (RCW 7.28.230).</text>
+
+    <!-- Trap Warning Box -->
+    <rect x="12" y="228" width="256" height="58" rx="6" fill="#FEF3C7" stroke="#FDE68A" stroke-width="1"/>
+    <text x="20" y="246" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="800" fill="#B45309">ROOKIE TRAP: "The bank ordered it!"</text>
+    <text x="20" y="262" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" fill="#334155">A servicer cannot contract away state law.</text>
+    <text x="20" y="276" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="700" fill="#DC2626">Unlawful lockout = major liability.</text>
+  </g>
+
+  <!-- ================= COLUMN 3: WORK-ORDER STATE ================= -->
+  <g transform="translate(640, 135)">
+    <!-- Column Card -->
+    <rect x="0" y="0" width="280" height="300" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#m0-shadow-6)"/>
+    <!-- Column Header -->
+    <rect x="0" y="0" width="280" height="46" rx="8" fill="url(#emerald-grad)"/>
+    <rect x="0" y="38" width="280" height="8" fill="#065F46"/>
+    <text x="14" y="28" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#A7F3D0" letter-spacing="0.8">STATE 3: PAPERWORK</text>
+    <text x="155" y="28" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">Order State</text>
+
+    <!-- Icon: Clipboard & Check -->
+    <g transform="translate(18, 56)">
+      <rect x="4" y="6" width="24" height="28" rx="3" fill="#10B981"/>
+      <rect x="10" y="2" width="12" height="6" rx="1.5" fill="#065F46"/>
+      <polyline points="10,20 14,24 22,14" fill="none" stroke="#FFFFFF" stroke-width="2.5"/>
+    </g>
+    <text x="64" y="72" font-family="Georgia, serif" font-size="13" font-weight="700" fill="#065F46">Administrative Status</text>
+    <text x="64" y="88" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#64748B">Where does the file sit in the portal?</text>
+
+    <!-- Divider Line -->
+    <line x1="14" y1="102" x2="266" y2="102" stroke="#E2E8F0" stroke-width="1"/>
+
+    <!-- Key Questions & Indicators -->
+    <text x="14" y="122" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="700" fill="#1E293B">• Order Lifecycle:</text>
+    <text x="22" y="138" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#475569">Dispatched → Complete → Verified → Paid.</text>
+    <text x="14" y="158" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="700" fill="#1E293B">• Verification Rule:</text>
+    <text x="22" y="174" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#475569">"Done is a claim; proof is the test."</text>
+    <text x="14" y="194" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="700" fill="#1E293B">• Photographic Audit:</text>
+    <text x="22" y="210" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#475569">Before, During, After, &amp; Street landmark.</text>
+
+    <!-- Trap Warning Box -->
+    <rect x="12" y="228" width="256" height="58" rx="6" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1"/>
+    <text x="20" y="246" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="800" fill="#065F46">ROOKIE TRAP: "The crew finished!"</text>
+    <text x="20" y="262" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" fill="#334155">Physical completion without wide photos</text>
+    <text x="20" y="276" font-family="'Segoe UI', system-ui, sans-serif" font-size="9.5" font-weight="700" fill="#DC2626">leaves the invoice contractually unpayable.</text>
+  </g>
+
+  <!-- ================= BOTTOM GOLDEN RULE BANNER ================= -->
+  <g transform="translate(40, 450)">
+    <rect x="0" y="0" width="880" height="52" rx="6" fill="#12263F"/>
+    <rect x="0" y="0" width="6" height="52" rx="3" fill="#F59E0B"/>
+    
+    <text x="20" y="24" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#F59E0B" letter-spacing="1">THE INVARIANT RULE:</text>
+    <text x="156" y="24" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="600" fill="#F1F5F9">A house can be physically vacant (State 1) while legally protected (State 2),</text>
+    <text x="20" y="42" font-family="'Segoe UI', system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#CBD5E1">making any unauthorized rekey an illegal lockout. Never collapse the three states into one sentence.</text>
+    
+    <rect x="715" y="12" width="150" height="28" rx="4" fill="#B45309"/>
+    <text x="790" y="30" font-family="Georgia, serif" font-size="11.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">Permission First. Proof Always.</text>
+  </g>
+</svg>
