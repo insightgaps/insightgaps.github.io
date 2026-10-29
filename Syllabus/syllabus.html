@@ -3,401 +3,558 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Story Course — Syllabus · Insight Gaps</title>
-  <meta name="description" content="The Story Course syllabus: fourteen property preservation chapters following one house, in order.">
+  <title>Class Syllabus: All Chapters — Insight Gaps Bureau</title>
+  <meta name="description" content="Interactive 13-chapter tree for the property preservation class syllabus.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;700&family=Space+Grotesk:wght@400;500;600&family=Space+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #F7F5EF;
-      --card: #FFFFFF;
+      --card-bg: #FFFFFF;
       --ink: #1D2422;
-      --muted: #4C5551;
+      --ink-muted: #4C5551;
       --line: #D8D2C4;
+      --line-subtle: #EBE7DC;
       --link: #1F5F57;
-      --tint: #F2EFE6;
-      --pad: clamp(16px, 4vw, 32px);
+      --link-hover: #8F2C10;
+      --accent: #9A620C;
+      --accent-soft: #FDF3E3;
+      --summary-hover: #F2EFE8;
+      --nested-bg: #FAF9F5;
+      --sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --serif: 'Newsreader', Georgia, serif;
+      --mono: 'Space Mono', 'Courier New', monospace;
     }
 
-    *, *::before, *::after { box-sizing: border-box; }
-
-    html { -webkit-text-size-adjust: 100%; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
-      margin: 0;
-      background: var(--bg);
+      background-color: var(--bg);
       color: var(--ink);
-      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-size: clamp(15px, 0.92rem + 0.25vw, 17px);
-      line-height: 1.6;
-      padding: clamp(24px, 6vw, 64px) clamp(14px, 4vw, 28px) clamp(40px, 8vw, 80px);
-      -webkit-font-smoothing: antialiased;
+      font-family: var(--sans);
+      font-size: clamp(15px, 1.1vw, 17px);
+      line-height: 1.5;
+      padding: clamp(20px, 4vw, 48px) clamp(14px, 3vw, 24px);
+      min-width: 320px;
+      overflow-x: hidden;
     }
 
-    .page { max-width: 860px; margin: 0 auto; }
+    .container {
+      max-width: 840px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: clamp(20px, 5vw, 44px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
 
-    .eyebrow {
-      margin: 0 0 0.9rem;
-      font-family: 'Space Mono', ui-monospace, monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--muted);
+    header.syllabus-head {
+      margin-bottom: clamp(24px, 4vw, 36px);
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .site-nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--link);
+      text-decoration: none;
+      margin-bottom: 16px;
+    }
+
+    .site-nav-back:hover {
+      color: var(--link-hover);
+      text-decoration: underline;
     }
 
     h1 {
-      margin: 0;
-      font-family: 'Newsreader', Georgia, serif;
+      font-family: var(--serif);
+      font-size: clamp(1.75rem, 3.8vw, 2.5rem);
       font-weight: 600;
-      font-size: clamp(2rem, 1.35rem + 3.1vw, 3.2rem);
-      line-height: 1.05;
-      letter-spacing: -0.015em;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 12px;
+      text-wrap: balance;
     }
 
-    .deck {
-      max-width: 56ch;
-      margin: clamp(10px, 1.6vw, 16px) 0 0;
-      color: var(--muted);
-      font-size: clamp(0.98rem, 0.94rem + 0.3vw, 1.1rem);
+    p.lead {
+      color: var(--ink-muted);
+      font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+      line-height: 1.5;
     }
 
-    .tree { margin-top: clamp(24px, 4vw, 40px); }
-
-    /* One class node = one details element. Chapters are the ordered list inside it. */
-    .class-node {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      box-shadow: 0 1px 0 rgba(29, 36, 34, 0.03);
-    }
-
-    .class-summary {
-      position: sticky;
-      top: 0;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      gap: clamp(12px, 2.2vw, 18px);
-      min-height: 72px;
-      padding: clamp(14px, 3vw, 22px) var(--pad);
-      background: var(--card);
-      border-radius: 9px;
-      cursor: pointer;
-      list-style: none;
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .class-summary::-webkit-details-marker { display: none; }
-    .class-summary::marker { content: ""; }
-
-    .class-summary:hover { background: #FCFBF7; }
-
-    .class-summary:focus-visible {
-      outline: 2px solid var(--link);
-      outline-offset: -3px;
-    }
-
-    .class-node[open] > .class-summary {
-      border-bottom: 1px solid var(--line);
-      border-radius: 9px 9px 0 0;
-    }
-
-    .class-bar {
-      flex: 0 0 auto;
-      align-self: stretch;
-      width: 4px;
-      min-height: 42px;
-      border-radius: 2px;
-      background: var(--link);
-    }
-
-    .class-text {
+    .tree-wrap {
       display: flex;
       flex-direction: column;
-      gap: 2px;
-      min-width: 0;
+      gap: 12px;
     }
 
-    .class-kicker {
-      font-family: 'Space Mono', ui-monospace, monospace;
-      font-size: 0.66rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .class-title {
-      font-family: 'Newsreader', Georgia, serif;
-      font-weight: 600;
-      font-size: clamp(1.25rem, 1.05rem + 0.8vw, 1.55rem);
-      line-height: 1.2;
-    }
-
-    .class-meta {
-      font-size: 0.86rem;
-      color: var(--muted);
-    }
-
-    .toggle {
-      flex: 0 0 auto;
-      display: grid;
-      place-items: center;
-      width: 36px;
-      height: 36px;
-      margin-left: auto;
+    details.chapter-node {
       border: 1px solid var(--line);
-      border-radius: 50%;
-      transition: border-color 0.18s ease, background 0.18s ease;
-    }
-
-    .toggle::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-right: 2px solid var(--muted);
-      border-bottom: 2px solid var(--muted);
-      transform: translateY(-1px) rotate(45deg);
-      transition: transform 0.2s ease;
-    }
-
-    .class-node[open] .toggle {
-      border-color: var(--link);
-      background: var(--tint);
-    }
-
-    .class-node[open] .toggle::before {
-      border-color: var(--link);
-      transform: translateY(1px) rotate(-135deg);
-    }
-
-    .chapters {
-      list-style: none;
-      margin: 0 0 6px clamp(10px, 2.5vw, 18px);
-      padding: 6px 0 10px clamp(8px, 2vw, 14px);
-      border-left: 1px solid var(--line);
-    }
-
-    .chapter + .chapter { border-top: 1px solid rgba(216, 210, 196, 0.6); }
-
-    .chapter-link {
-      display: grid;
-      grid-template-columns: 2.25rem minmax(0, 1fr);
-      gap: clamp(8px, 1.8vw, 14px);
-      align-items: start;
-      min-height: 52px;
-      padding: clamp(11px, 2vw, 15px) clamp(6px, 1.6vw, 12px);
       border-radius: 6px;
-      color: inherit;
+      background: var(--card-bg);
+      transition: border-color 0.15s ease, background-color 0.15s ease;
+      overflow: hidden;
+    }
+
+    details.chapter-node[open] {
+      border-color: var(--accent);
+      background-color: var(--card-bg);
+    }
+
+    summary.chapter-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 48px;
+      padding: 12px 18px;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--ink);
+      user-select: none;
+      background: var(--card-bg);
+      list-style: none;
+      transition: background-color 0.15s ease;
+    }
+
+    summary.chapter-row::-webkit-details-marker {
+      display: none;
+    }
+
+    summary.chapter-row:hover {
+      background-color: var(--summary-hover);
+    }
+
+    .chapter-main-link {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 8px;
+      color: var(--ink);
       text-decoration: none;
-      transition: background 0.15s ease;
+      font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+      flex: 1;
+      min-width: 0;
+      word-break: break-word;
     }
 
-    .chapter-link:hover { background: var(--tint); }
-    .chapter-link:hover .chapter-name { color: var(--link); }
-
-    .chapter-link:focus-visible {
-      outline: 2px solid var(--link);
-      outline-offset: -2px;
+    .chapter-main-link:hover {
+      color: var(--link);
+      text-decoration: underline;
     }
 
-    .chapter-num {
-      padding-top: 0.32em;
-      font-family: 'Space Mono', ui-monospace, monospace;
-      font-size: 0.74rem;
-      letter-spacing: 0.06em;
-      color: var(--muted);
-      font-variant-numeric: tabular-nums;
+    .toggle-marker {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      font-size: 14px;
+      color: var(--ink-muted);
+      transition: transform 0.2s ease, color 0.15s ease;
+      flex-shrink: 0;
     }
 
-    .chapter-body { min-width: 0; }
-
-    .chapter-name {
-      display: block;
-      font-weight: 500;
-      font-size: clamp(1rem, 0.96rem + 0.25vw, 1.12rem);
-      line-height: 1.35;
-      overflow-wrap: break-word;
+    details.chapter-node[open] > summary.chapter-row .toggle-marker {
+      transform: rotate(90deg);
+      color: var(--accent);
     }
 
-    .chapter-line {
-      display: block;
-      margin-top: 3px;
-      color: var(--muted);
-      font-size: clamp(0.875rem, 0.86rem + 0.15vw, 0.95rem);
-      line-height: 1.45;
-      text-wrap: pretty;
+    .nested-list-wrap {
+      background-color: var(--nested-bg);
+      border-top: 1px solid var(--line-subtle);
+      padding: 16px 20px 20px 28px;
     }
 
-    @media (any-pointer: coarse) {
-      .chapter-link { padding-top: 14px; padding-bottom: 14px; }
-      .toggle { width: 40px; height: 40px; }
+    .nested-caption {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 12px;
     }
 
-    @media print {
-      .class-summary { position: static; }
-      .class-node { break-inside: avoid; }
+    ul.nested-tree {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation: none !important;
-        transition: none !important;
-      }
+    li.nested-item {
+      display: flex;
+      align-items: center;
+      min-height: 48px;
+      padding: 4px 0;
+    }
+
+    a.nested-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 48px;
+      width: 100%;
+      color: var(--link);
+      text-decoration: none;
+      font-size: clamp(0.9rem, 1.2vw, 0.98rem);
+      line-height: 1.4;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: background-color 0.15s ease, color 0.15s ease;
+      word-break: break-word;
+    }
+
+    a.nested-link:hover {
+      color: var(--link-hover);
+      background-color: var(--summary-hover);
+      text-decoration: underline;
+    }
+
+    footer.syllabus-foot {
+      margin-top: clamp(28px, 5vw, 44px);
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      font-size: 13px;
+      color: var(--ink-muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    footer.syllabus-foot a {
+      color: var(--link);
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <main class="page">
-    <header>
-      <p class="eyebrow">Property preservation</p>
-      <h1>Syllabus</h1>
-      <p class="deck">Fourteen chapters that follow one house — from the year she was built to the day she is a home again.</p>
+  <div class="container">
+    <header class="syllabus-head">
+      <a href="/" class="site-nav-back">← Back to Home</a>
+      <h1>Class Syllabus: All Chapters</h1>
+      <p class="lead">Explore the full thirteen-chapter journey. Click any chapter heading to visit its lesson, or expand the row to reveal and jump across the complete curriculum path.</p>
     </header>
 
-    <section class="tree" aria-label="Course chapters">
-      <details class="class-node" open>
-        <summary class="class-summary">
-          <span class="class-bar" aria-hidden="true"></span>
-          <span class="class-text">
-            <span class="class-kicker">Class</span>
-            <span class="class-title">The Story Course</span>
-            <span class="class-meta">14 chapters</span>
-          </span>
-          <span class="toggle" aria-hidden="true"></span>
+    <main class="tree-wrap" aria-label="13-Chapter Curriculum Tree">
+      <details class="chapter-node">
+        <summary class="chapter-row">
+          <a href="/analysis/property-preservation/class/demo-class-page/" class="chapter-main-link">01 The Rise of the American House</a>
+          <span class="toggle-marker" aria-hidden="true">▶</span>
         </summary>
-
-        <ol class="chapters">
-          <li class="chapter">
-            <a class="chapter-link" href="https://www.insightgaps.com/analysis/property-preservation/class/demo-class-page/">
-              <span class="chapter-num" aria-hidden="true">01</span>
-              <span class="chapter-body">
-                <span class="chapter-name">The Rise of the American House</span>
-                <span class="chapter-line">How America got its houses — the boom, the loans, and the filter.</span>
-              </span>
-            </a>
-          </li>
-          <li class="chapter">
-            <a class="chapter-link" href="https://www.insightgaps.com/analysis/property-preservation/class/demo-class-page-2/">
-              <span class="chapter-num" aria-hidden="true">02</span>
-              <span class="chapter-body">
-                <span class="chapter-name">The Peaks and the Loop</span>
-                <span class="chapter-line">Two building waves, and the money loop that fed them.</span>
-              </span>
-            </a>
-          </li>
-          <li class="chapter">
-            <a class="chapter-link" href="https://www.insightgaps.com/analysis/property-preservation/class/safeguard-demo-page/">
-              <span class="chapter-num" aria-hidden="true">03</span>
-              <span class="chapter-body">
-                <span class="chapter-name">Who Looks After an Empty House</span>
-                <span class="chapter-line">The chain of hands, the Safeguard example, and the 2008 flood.</span>
-              </span>
-            </a>
-          </li>
-          <li class="chapter">
-            <a class="chapter-link" href="https://www.insightgaps.com/analysis/property-preservation/class/class-3-demo-page/">
-              <span class="chapter-num" aria-hidden="true">04</span>
-              <span class="chapter-body">
-                <span class="chapter-name">How a House Falls</span>
-                <span class="chapter-line">From a missed payment to an empty house, step by step.</span>
-              </span>
-            </a>
-          </li>
-          <li class="chapter">
-            <a class="chapter-link" href="https://www.insightgaps.com/analysis/property-preservation/class/class-4-demo-page/">
-              <span class="chapter-num" aria-hidden="true">05</span>
-              <span class="chapter-body">
-                <span class="chapter-name">Proof, Rules, and Many Clients</span>
-                <span class="chapter-line">Three eras of proof, one courtroom question, and a rulebook per client.</span>
-              </span>
-            </a>
-          </li>
-          <li class="chapter">
-            <a class="chapter-link" href="https://www.insightgaps.com/analysis/property-preservation/class/class-5-demo-page/">
-              <span class="chapter-num" aria-hidden="true">06</span>
-              <span class="chapter-body">
-                <span class="chapter-name">One Work Order, Eleven Stops</span>
-                <span class="chapter-line">A single order's whole journey, from intake to follow-up.</span>
-              </span>
-            </a>
-          </li>
-          <li class="chapter">
-            <a class="chapter-link" href="https://www.insightgaps.com/analysis/property-preservation/class/class-6-demo-page/">
-              <span class="chapter-num" aria-hidden="true">07</span>
-              <span class="chapter-body">
-                <span class="chapter-name">The First Jobs: Grass and Doors</span>
-                <span class="chapter-line">The face of the house, and every opening that has to be closed.</span>
-              </span>
-            </a>
-          </li>
-          <li class="chapter">
-            <a class="chapter-link" href="https://www.insightgaps.com/analysis/property-preservation/class/class-7-demo-page/">
-              <span class="chapter-num" aria-hidden="true">08</span>
-              <span class="chapter-body">
-                <span class="chapter-name">Winter, Debris, and Inspection</span>
-                <span class="chapter-line">Three more jobs, and the proof each one demands.</span>
-              </span>
-            </a>
-          </li>
-          <li class="chapter">
-            <a class="chapter-link" href="https://www.insightgaps.com/analysis/property-preservation/class/class-8-demo-page/">
-              <span class="chapter-num" aria-hidden="true">09</span>
-              <span class="chapter-body">
-                <span class="chapter-name">How to Read a Damaged House</span>
-                <span class="chapter-line">Water, mold, weather, and neglect — and what to do first.</span>
-              </span>
-            </a>
-          </li>
-          <li class="chapter">
-            <a class="chapter-link" href="https://www.insightgaps.com/analysis/property-preservation/class/class-9-demo-page/">
-              <span class="chapter-num" aria-hidden="true">10</span>
-              <span class="chapter-body">
-                <span class="chapter-name">Follow the Money</span>
-                <span class="chapter-line">A bid, five leaks, and the three desks that move the money.</span>
-              </span>
-            </a>
-          </li>
-          <li class="chapter">
-            <a class="chapter-link" href="https://www.insightgaps.com/analysis/property-preservation/class/class-10-demo-page/">
-              <span class="chapter-num" aria-hidden="true">11</span>
-              <span class="chapter-body">
-                <span class="chapter-name">The Last House, With No Help</span>
-                <span class="chapter-line">Loose money, an unseen house, and a verdict defended in twenty-five words.</span>
-              </span>
-            </a>
-          </li>
-          <li class="chapter">
-            <a class="chapter-link" href="https://www.insightgaps.com/analysis/property-preservation/class/2008-demo-page/">
-              <span class="chapter-num" aria-hidden="true">12</span>
-              <span class="chapter-body">
-                <span class="chapter-name">2008: The Flood</span>
-                <span class="chapter-line">The year the system broke — and the industry it left behind.</span>
-              </span>
-            </a>
-          </li>
-          <li class="chapter">
-            <a class="chapter-link" href="https://www.insightgaps.com/analysis/property-preservation/class/full-work-circle-demo-page/">
-              <span class="chapter-num" aria-hidden="true">13</span>
-              <span class="chapter-body">
-                <span class="chapter-name">One Job, Eight Stations</span>
-                <span class="chapter-line">The work as a circle — and the gaps where jobs die.</span>
-              </span>
-            </a>
-          </li>
-          <li class="chapter">
-            <a class="chapter-link" href="https://www.insightgaps.com/analysis/property-preservation/class/what-we-do-demo-page/">
-              <span class="chapter-num" aria-hidden="true">14</span>
-              <span class="chapter-body">
-                <span class="chapter-name">The Work Itself</span>
-                <span class="chapter-line">All five jobs in one pass, on one house.</span>
-              </span>
-            </a>
-          </li>
-        </ol>
+        <div class="nested-list-wrap">
+          <div class="nested-caption">Jump to other chapters</div>
+          <ul class="nested-tree">
+            <li class="nested-item"><a href="/analysis/property-preservation/class/demo-class-page-2/" class="nested-link">02 The Peaks and the Loop</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/safeguard-demo-page/" class="nested-link">03 Who Looks After an Empty House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-3-demo-page/" class="nested-link">04 How a House Falls</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-4-demo-page/" class="nested-link">05 Proof, Rules, and Many Clients</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-5-demo-page/" class="nested-link">06 One Work Order, Eleven Stops</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-6-demo-page/" class="nested-link">07 The First Jobs: Grass and Doors</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-7-demo-page/" class="nested-link">08 Winter, Debris, and Inspection</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-8-demo-page/" class="nested-link">09 How to Read a Damaged House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-9-demo-page/" class="nested-link">10 Follow the Money</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-10-demo-page/" class="nested-link">11 The Last House, With No Help</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/full-work-circle-demo-page/" class="nested-link">12 One Job, Eight Stations</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/what-we-do-demo-page/" class="nested-link">13 The Work Itself</a></li>
+          </ul>
+        </div>
       </details>
-    </section>
-  </main>
+      <details class="chapter-node">
+        <summary class="chapter-row">
+          <a href="/analysis/property-preservation/class/demo-class-page-2/" class="chapter-main-link">02 The Peaks and the Loop</a>
+          <span class="toggle-marker" aria-hidden="true">▶</span>
+        </summary>
+        <div class="nested-list-wrap">
+          <div class="nested-caption">Jump to other chapters</div>
+          <ul class="nested-tree">
+            <li class="nested-item"><a href="/analysis/property-preservation/class/demo-class-page/" class="nested-link">01 The Rise of the American House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/safeguard-demo-page/" class="nested-link">03 Who Looks After an Empty House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-3-demo-page/" class="nested-link">04 How a House Falls</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-4-demo-page/" class="nested-link">05 Proof, Rules, and Many Clients</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-5-demo-page/" class="nested-link">06 One Work Order, Eleven Stops</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-6-demo-page/" class="nested-link">07 The First Jobs: Grass and Doors</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-7-demo-page/" class="nested-link">08 Winter, Debris, and Inspection</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-8-demo-page/" class="nested-link">09 How to Read a Damaged House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-9-demo-page/" class="nested-link">10 Follow the Money</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-10-demo-page/" class="nested-link">11 The Last House, With No Help</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/full-work-circle-demo-page/" class="nested-link">12 One Job, Eight Stations</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/what-we-do-demo-page/" class="nested-link">13 The Work Itself</a></li>
+          </ul>
+        </div>
+      </details>
+      <details class="chapter-node">
+        <summary class="chapter-row">
+          <a href="/analysis/property-preservation/class/safeguard-demo-page/" class="chapter-main-link">03 Who Looks After an Empty House</a>
+          <span class="toggle-marker" aria-hidden="true">▶</span>
+        </summary>
+        <div class="nested-list-wrap">
+          <div class="nested-caption">Jump to other chapters</div>
+          <ul class="nested-tree">
+            <li class="nested-item"><a href="/analysis/property-preservation/class/demo-class-page/" class="nested-link">01 The Rise of the American House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/demo-class-page-2/" class="nested-link">02 The Peaks and the Loop</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-3-demo-page/" class="nested-link">04 How a House Falls</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-4-demo-page/" class="nested-link">05 Proof, Rules, and Many Clients</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-5-demo-page/" class="nested-link">06 One Work Order, Eleven Stops</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-6-demo-page/" class="nested-link">07 The First Jobs: Grass and Doors</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-7-demo-page/" class="nested-link">08 Winter, Debris, and Inspection</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-8-demo-page/" class="nested-link">09 How to Read a Damaged House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-9-demo-page/" class="nested-link">10 Follow the Money</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-10-demo-page/" class="nested-link">11 The Last House, With No Help</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/full-work-circle-demo-page/" class="nested-link">12 One Job, Eight Stations</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/what-we-do-demo-page/" class="nested-link">13 The Work Itself</a></li>
+          </ul>
+        </div>
+      </details>
+      <details class="chapter-node">
+        <summary class="chapter-row">
+          <a href="/analysis/property-preservation/class/class-3-demo-page/" class="chapter-main-link">04 How a House Falls</a>
+          <span class="toggle-marker" aria-hidden="true">▶</span>
+        </summary>
+        <div class="nested-list-wrap">
+          <div class="nested-caption">Jump to other chapters</div>
+          <ul class="nested-tree">
+            <li class="nested-item"><a href="/analysis/property-preservation/class/demo-class-page/" class="nested-link">01 The Rise of the American House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/demo-class-page-2/" class="nested-link">02 The Peaks and the Loop</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/safeguard-demo-page/" class="nested-link">03 Who Looks After an Empty House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-4-demo-page/" class="nested-link">05 Proof, Rules, and Many Clients</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-5-demo-page/" class="nested-link">06 One Work Order, Eleven Stops</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-6-demo-page/" class="nested-link">07 The First Jobs: Grass and Doors</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-7-demo-page/" class="nested-link">08 Winter, Debris, and Inspection</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-8-demo-page/" class="nested-link">09 How to Read a Damaged House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-9-demo-page/" class="nested-link">10 Follow the Money</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-10-demo-page/" class="nested-link">11 The Last House, With No Help</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/full-work-circle-demo-page/" class="nested-link">12 One Job, Eight Stations</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/what-we-do-demo-page/" class="nested-link">13 The Work Itself</a></li>
+          </ul>
+        </div>
+      </details>
+      <details class="chapter-node">
+        <summary class="chapter-row">
+          <a href="/analysis/property-preservation/class/class-4-demo-page/" class="chapter-main-link">05 Proof, Rules, and Many Clients</a>
+          <span class="toggle-marker" aria-hidden="true">▶</span>
+        </summary>
+        <div class="nested-list-wrap">
+          <div class="nested-caption">Jump to other chapters</div>
+          <ul class="nested-tree">
+            <li class="nested-item"><a href="/analysis/property-preservation/class/demo-class-page/" class="nested-link">01 The Rise of the American House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/demo-class-page-2/" class="nested-link">02 The Peaks and the Loop</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/safeguard-demo-page/" class="nested-link">03 Who Looks After an Empty House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-3-demo-page/" class="nested-link">04 How a House Falls</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-5-demo-page/" class="nested-link">06 One Work Order, Eleven Stops</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-6-demo-page/" class="nested-link">07 The First Jobs: Grass and Doors</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-7-demo-page/" class="nested-link">08 Winter, Debris, and Inspection</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-8-demo-page/" class="nested-link">09 How to Read a Damaged House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-9-demo-page/" class="nested-link">10 Follow the Money</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-10-demo-page/" class="nested-link">11 The Last House, With No Help</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/full-work-circle-demo-page/" class="nested-link">12 One Job, Eight Stations</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/what-we-do-demo-page/" class="nested-link">13 The Work Itself</a></li>
+          </ul>
+        </div>
+      </details>
+      <details class="chapter-node">
+        <summary class="chapter-row">
+          <a href="/analysis/property-preservation/class/class-5-demo-page/" class="chapter-main-link">06 One Work Order, Eleven Stops</a>
+          <span class="toggle-marker" aria-hidden="true">▶</span>
+        </summary>
+        <div class="nested-list-wrap">
+          <div class="nested-caption">Jump to other chapters</div>
+          <ul class="nested-tree">
+            <li class="nested-item"><a href="/analysis/property-preservation/class/demo-class-page/" class="nested-link">01 The Rise of the American House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/demo-class-page-2/" class="nested-link">02 The Peaks and the Loop</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/safeguard-demo-page/" class="nested-link">03 Who Looks After an Empty House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-3-demo-page/" class="nested-link">04 How a House Falls</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-4-demo-page/" class="nested-link">05 Proof, Rules, and Many Clients</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-6-demo-page/" class="nested-link">07 The First Jobs: Grass and Doors</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-7-demo-page/" class="nested-link">08 Winter, Debris, and Inspection</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-8-demo-page/" class="nested-link">09 How to Read a Damaged House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-9-demo-page/" class="nested-link">10 Follow the Money</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-10-demo-page/" class="nested-link">11 The Last House, With No Help</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/full-work-circle-demo-page/" class="nested-link">12 One Job, Eight Stations</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/what-we-do-demo-page/" class="nested-link">13 The Work Itself</a></li>
+          </ul>
+        </div>
+      </details>
+      <details class="chapter-node">
+        <summary class="chapter-row">
+          <a href="/analysis/property-preservation/class/class-6-demo-page/" class="chapter-main-link">07 The First Jobs: Grass and Doors</a>
+          <span class="toggle-marker" aria-hidden="true">▶</span>
+        </summary>
+        <div class="nested-list-wrap">
+          <div class="nested-caption">Jump to other chapters</div>
+          <ul class="nested-tree">
+            <li class="nested-item"><a href="/analysis/property-preservation/class/demo-class-page/" class="nested-link">01 The Rise of the American House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/demo-class-page-2/" class="nested-link">02 The Peaks and the Loop</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/safeguard-demo-page/" class="nested-link">03 Who Looks After an Empty House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-3-demo-page/" class="nested-link">04 How a House Falls</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-4-demo-page/" class="nested-link">05 Proof, Rules, and Many Clients</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-5-demo-page/" class="nested-link">06 One Work Order, Eleven Stops</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-7-demo-page/" class="nested-link">08 Winter, Debris, and Inspection</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-8-demo-page/" class="nested-link">09 How to Read a Damaged House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-9-demo-page/" class="nested-link">10 Follow the Money</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-10-demo-page/" class="nested-link">11 The Last House, With No Help</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/full-work-circle-demo-page/" class="nested-link">12 One Job, Eight Stations</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/what-we-do-demo-page/" class="nested-link">13 The Work Itself</a></li>
+          </ul>
+        </div>
+      </details>
+      <details class="chapter-node">
+        <summary class="chapter-row">
+          <a href="/analysis/property-preservation/class/class-7-demo-page/" class="chapter-main-link">08 Winter, Debris, and Inspection</a>
+          <span class="toggle-marker" aria-hidden="true">▶</span>
+        </summary>
+        <div class="nested-list-wrap">
+          <div class="nested-caption">Jump to other chapters</div>
+          <ul class="nested-tree">
+            <li class="nested-item"><a href="/analysis/property-preservation/class/demo-class-page/" class="nested-link">01 The Rise of the American House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/demo-class-page-2/" class="nested-link">02 The Peaks and the Loop</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/safeguard-demo-page/" class="nested-link">03 Who Looks After an Empty House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-3-demo-page/" class="nested-link">04 How a House Falls</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-4-demo-page/" class="nested-link">05 Proof, Rules, and Many Clients</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-5-demo-page/" class="nested-link">06 One Work Order, Eleven Stops</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-6-demo-page/" class="nested-link">07 The First Jobs: Grass and Doors</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-8-demo-page/" class="nested-link">09 How to Read a Damaged House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-9-demo-page/" class="nested-link">10 Follow the Money</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-10-demo-page/" class="nested-link">11 The Last House, With No Help</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/full-work-circle-demo-page/" class="nested-link">12 One Job, Eight Stations</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/what-we-do-demo-page/" class="nested-link">13 The Work Itself</a></li>
+          </ul>
+        </div>
+      </details>
+      <details class="chapter-node">
+        <summary class="chapter-row">
+          <a href="/analysis/property-preservation/class/class-8-demo-page/" class="chapter-main-link">09 How to Read a Damaged House</a>
+          <span class="toggle-marker" aria-hidden="true">▶</span>
+        </summary>
+        <div class="nested-list-wrap">
+          <div class="nested-caption">Jump to other chapters</div>
+          <ul class="nested-tree">
+            <li class="nested-item"><a href="/analysis/property-preservation/class/demo-class-page/" class="nested-link">01 The Rise of the American House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/demo-class-page-2/" class="nested-link">02 The Peaks and the Loop</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/safeguard-demo-page/" class="nested-link">03 Who Looks After an Empty House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-3-demo-page/" class="nested-link">04 How a House Falls</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-4-demo-page/" class="nested-link">05 Proof, Rules, and Many Clients</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-5-demo-page/" class="nested-link">06 One Work Order, Eleven Stops</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-6-demo-page/" class="nested-link">07 The First Jobs: Grass and Doors</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-7-demo-page/" class="nested-link">08 Winter, Debris, and Inspection</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-9-demo-page/" class="nested-link">10 Follow the Money</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-10-demo-page/" class="nested-link">11 The Last House, With No Help</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/full-work-circle-demo-page/" class="nested-link">12 One Job, Eight Stations</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/what-we-do-demo-page/" class="nested-link">13 The Work Itself</a></li>
+          </ul>
+        </div>
+      </details>
+      <details class="chapter-node">
+        <summary class="chapter-row">
+          <a href="/analysis/property-preservation/class/class-9-demo-page/" class="chapter-main-link">10 Follow the Money</a>
+          <span class="toggle-marker" aria-hidden="true">▶</span>
+        </summary>
+        <div class="nested-list-wrap">
+          <div class="nested-caption">Jump to other chapters</div>
+          <ul class="nested-tree">
+            <li class="nested-item"><a href="/analysis/property-preservation/class/demo-class-page/" class="nested-link">01 The Rise of the American House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/demo-class-page-2/" class="nested-link">02 The Peaks and the Loop</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/safeguard-demo-page/" class="nested-link">03 Who Looks After an Empty House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-3-demo-page/" class="nested-link">04 How a House Falls</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-4-demo-page/" class="nested-link">05 Proof, Rules, and Many Clients</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-5-demo-page/" class="nested-link">06 One Work Order, Eleven Stops</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-6-demo-page/" class="nested-link">07 The First Jobs: Grass and Doors</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-7-demo-page/" class="nested-link">08 Winter, Debris, and Inspection</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-8-demo-page/" class="nested-link">09 How to Read a Damaged House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-10-demo-page/" class="nested-link">11 The Last House, With No Help</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/full-work-circle-demo-page/" class="nested-link">12 One Job, Eight Stations</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/what-we-do-demo-page/" class="nested-link">13 The Work Itself</a></li>
+          </ul>
+        </div>
+      </details>
+      <details class="chapter-node">
+        <summary class="chapter-row">
+          <a href="/analysis/property-preservation/class/class-10-demo-page/" class="chapter-main-link">11 The Last House, With No Help</a>
+          <span class="toggle-marker" aria-hidden="true">▶</span>
+        </summary>
+        <div class="nested-list-wrap">
+          <div class="nested-caption">Jump to other chapters</div>
+          <ul class="nested-tree">
+            <li class="nested-item"><a href="/analysis/property-preservation/class/demo-class-page/" class="nested-link">01 The Rise of the American House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/demo-class-page-2/" class="nested-link">02 The Peaks and the Loop</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/safeguard-demo-page/" class="nested-link">03 Who Looks After an Empty House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-3-demo-page/" class="nested-link">04 How a House Falls</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-4-demo-page/" class="nested-link">05 Proof, Rules, and Many Clients</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-5-demo-page/" class="nested-link">06 One Work Order, Eleven Stops</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-6-demo-page/" class="nested-link">07 The First Jobs: Grass and Doors</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-7-demo-page/" class="nested-link">08 Winter, Debris, and Inspection</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-8-demo-page/" class="nested-link">09 How to Read a Damaged House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-9-demo-page/" class="nested-link">10 Follow the Money</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/full-work-circle-demo-page/" class="nested-link">12 One Job, Eight Stations</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/what-we-do-demo-page/" class="nested-link">13 The Work Itself</a></li>
+          </ul>
+        </div>
+      </details>
+      <details class="chapter-node">
+        <summary class="chapter-row">
+          <a href="/analysis/property-preservation/class/full-work-circle-demo-page/" class="chapter-main-link">12 One Job, Eight Stations</a>
+          <span class="toggle-marker" aria-hidden="true">▶</span>
+        </summary>
+        <div class="nested-list-wrap">
+          <div class="nested-caption">Jump to other chapters</div>
+          <ul class="nested-tree">
+            <li class="nested-item"><a href="/analysis/property-preservation/class/demo-class-page/" class="nested-link">01 The Rise of the American House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/demo-class-page-2/" class="nested-link">02 The Peaks and the Loop</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/safeguard-demo-page/" class="nested-link">03 Who Looks After an Empty House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-3-demo-page/" class="nested-link">04 How a House Falls</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-4-demo-page/" class="nested-link">05 Proof, Rules, and Many Clients</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-5-demo-page/" class="nested-link">06 One Work Order, Eleven Stops</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-6-demo-page/" class="nested-link">07 The First Jobs: Grass and Doors</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-7-demo-page/" class="nested-link">08 Winter, Debris, and Inspection</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-8-demo-page/" class="nested-link">09 How to Read a Damaged House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-9-demo-page/" class="nested-link">10 Follow the Money</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-10-demo-page/" class="nested-link">11 The Last House, With No Help</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/what-we-do-demo-page/" class="nested-link">13 The Work Itself</a></li>
+          </ul>
+        </div>
+      </details>
+      <details class="chapter-node">
+        <summary class="chapter-row">
+          <a href="/analysis/property-preservation/class/what-we-do-demo-page/" class="chapter-main-link">13 The Work Itself</a>
+          <span class="toggle-marker" aria-hidden="true">▶</span>
+        </summary>
+        <div class="nested-list-wrap">
+          <div class="nested-caption">Jump to other chapters</div>
+          <ul class="nested-tree">
+            <li class="nested-item"><a href="/analysis/property-preservation/class/demo-class-page/" class="nested-link">01 The Rise of the American House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/demo-class-page-2/" class="nested-link">02 The Peaks and the Loop</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/safeguard-demo-page/" class="nested-link">03 Who Looks After an Empty House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-3-demo-page/" class="nested-link">04 How a House Falls</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-4-demo-page/" class="nested-link">05 Proof, Rules, and Many Clients</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-5-demo-page/" class="nested-link">06 One Work Order, Eleven Stops</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-6-demo-page/" class="nested-link">07 The First Jobs: Grass and Doors</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-7-demo-page/" class="nested-link">08 Winter, Debris, and Inspection</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-8-demo-page/" class="nested-link">09 How to Read a Damaged House</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-9-demo-page/" class="nested-link">10 Follow the Money</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/class-10-demo-page/" class="nested-link">11 The Last House, With No Help</a></li>
+            <li class="nested-item"><a href="/analysis/property-preservation/class/full-work-circle-demo-page/" class="nested-link">12 One Job, Eight Stations</a></li>
+          </ul>
+        </div>
+      </details>
+    </main>
+
+    <footer class="syllabus-foot">
+      <span>Insight Gaps Bureau — Property Preservation Curriculum</span>
+      <a href="/">Return to Home</a>
+    </footer>
+  </div>
 </body>
 </html>
