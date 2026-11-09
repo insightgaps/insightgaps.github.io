@@ -1,28 +1,15 @@
 # Insight Gaps Bureau crawler policy
 # Reporting is licensed CC BY 4.0 for human reuse; machine-training use is not
-# granted by default. This file therefore does two things at once:
-#  (1) it lets search and retrieval AI systems FIND and CITE the site, and
-#  (2) it keeps the bureau's pre-existing training-crawler block in place.
-# Do NOT remove the training blocks below without an explicit owner decision:
-# GPTBot, ClaudeBot, CCBot, Bytespider and Google-Extended were deliberately
-# blocked in the bureau's earlier robots policy, and this file preserves that.
+# granted by default. This file lets search and retrieval systems find the site,
+# while keeping machine training crawlers and internal unlinked paths blocked.
 
 User-agent: *
 Content-Signal: search=yes, ai-train=no, use=reference
 Allow: /
-Allow: /analysis/property-preservation/class/
-Disallow: /analysis/property-preservation/demo/
-Disallow: /analysis/property-preservation/slides/
-Disallow: /analysis/property-preservation/photo-qc/
-Disallow: /analysis/property-preservation/properties/
-Disallow: /analysis/property-preservation/reconciliation/
-Disallow: /analysis/property-preservation/submission-queue/
-Disallow: /analysis/property-preservation/vault/
+Disallow: /analysis/property-preservation/
 Disallow: /in-progress/
 
-# Search and retrieval AI crawlers — explicitly allowed (findability).
-# These bots retrieve pages to answer questions and cite sources; they are
-# not the training crawlers blocked below.
+# Search and retrieval AI crawlers (explicitly allowed)
 User-agent: ChatGPT-User
 Allow: /
 
@@ -38,7 +25,7 @@ Allow: /
 User-agent: Applebot
 Allow: /
 
-# Machine-training crawlers — reserved by bureau policy (deliberate block, kept).
+# Machine-training crawlers (deliberate block, kept)
 User-agent: GPTBot
 Disallow: /
 

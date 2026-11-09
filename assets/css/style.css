@@ -1,22 +1,108 @@
-/* Insight Gaps — refined minimal design system. DRAFT ONLY.
-   System fonts only: no webfont download, no JavaScript required to read.
+/* Insight Gaps — refined minimal design system.
+   Self-hosted subsetted .woff2 fonts with system fallbacks.
+   Vanilla CSS custom properties with documented colour and spacing tokens.
    One accent, used sparingly. Hairlines, not boxes or shadows. */
 
+/* ==========================================================================
+   SELF-HOSTED SUBSETTED .WOFF2 FONTS
+   ========================================================================== */
+@font-face {
+  font-family: "KaTeX_Main";
+  src: url("/assets/fonts/KaTeX_Main-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "KaTeX_Main";
+  src: url("/assets/fonts/KaTeX_Main-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "KaTeX_SansSerif";
+  src: url("/assets/fonts/KaTeX_SansSerif-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "KaTeX_SansSerif";
+  src: url("/assets/fonts/KaTeX_SansSerif-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrainsMono";
+  src: url("/assets/fonts/JetBrainsMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --ink: #16130f;
-  --paper: #fdfcf8;
-  --paper-soft: #f5f1e8;
-  --muted: #6d675c;
-  --faint: #8a8478;
-  --line: #e3ddd0;
-  --line-strong: #16130f;
-  --accent: #8c2b18;
-  --accent-soft: #f7ece8;
-  --serif: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, "Times New Roman", serif;
-  --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* ==========================================================================
+     COLOUR TOKENS — Documented Semantic Palette
+     Warm paper background, deep charcoal ink, terracotta/crimson accent.
+     ========================================================================== */
+  --color-bg: #fdfcf8;           /* Primary page background (warm paper) */
+  --color-bg-soft: #f5f1e8;      /* Secondary surface / soft background */
+  --color-bg-card: #f9f7f2;      /* Elevated surface / card background */
+  --color-ink: #16130f;          /* Primary body & headline text (deep charcoal) */
+  --color-ink-muted: #6d675c;    /* Secondary text / captions / deks */
+  --color-ink-faint: #8a8478;    /* Muted metadata / labels / unselected items */
+  --color-line: #e3ddd0;         /* Standard hairline divider / table borders */
+  --color-line-strong: #16130f;  /* Prominent division line (header/footer top) */
+  --color-accent: #8c2b18;       /* Primary editorial accent (terracotta / crimson) */
+  --color-accent-soft: #f7ece8;  /* Accent tint for banners and highlight boxes */
+  --color-accent-hover: #b03820; /* Interactive hover / focus state */
+
+  /* Verification & Claim Grades */
+  --color-grade-confirmed: #2f5d3a;  /* Confirmed claim (forest green) */
+  --color-grade-supported: #3d382f;  /* Supported claim (charcoal brown) */
+  --color-grade-contested: #8c2b18;  /* Contested claim (deep crimson) */
+  --color-grade-untraced: #8a8478;   /* Untraced / void claim (slate gray) */
+
+  /* Legacy & convenient aliases */
+  --ink: var(--color-ink);
+  --paper: var(--color-bg);
+  --paper-soft: var(--color-bg-soft);
+  --muted: var(--color-ink-muted);
+  --faint: var(--color-ink-faint);
+  --line: var(--color-line);
+  --line-strong: var(--color-line-strong);
+  --accent: var(--color-accent);
+  --accent-soft: var(--color-accent-soft);
+
+  /* ==========================================================================
+     SPACING TOKENS — Documented Scale
+     ========================================================================== */
+  --space-3xs: 0.25rem;   /* 4px  — micro gaps, borders, badges */
+  --space-2xs: 0.5rem;    /* 8px  — tight padding, inline items */
+  --space-xs:  0.75rem;   /* 12px — compact element padding */
+  --space-sm:  1rem;      /* 16px — standard padding, card inner */
+  --space-md:  1.5rem;    /* 24px — section rhythm, block margins */
+  --space-lg:  2rem;      /* 32px — major layout divisions */
+  --space-xl:  3rem;      /* 48px — chapter breaks, prominent padding */
+  --space-2xl: 4rem;      /* 64px — page vertical rhythm */
+  --space-3xl: 6rem;      /* 96px — hero spacing */
+  --space: clamp(1rem, 2.5vw, 1.5rem);
+
+  /* ==========================================================================
+     TYPOGRAPHY TOKENS
+     Self-hosted subsetted fonts with system fallbacks.
+     ========================================================================== */
+  --font-serif: "KaTeX_Main", Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+  --font-sans: "KaTeX_SansSerif", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "JetBrainsMono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --serif: var(--font-serif);
+  --sans: var(--font-sans);
+
+  /* Layout dimensions */
   --measure: 68ch;
   --page: 74rem;
-  --space: clamp(1rem, 2.5vw, 1.5rem);
 }
 
 * { box-sizing: border-box; }
