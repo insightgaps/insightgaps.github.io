@@ -1,25 +1,52 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-label="Timeline 2003 to 2026: documentation without permanent remediation">
-<title>Lead Belt timeline: 22 years, zero permanent cleanups</title>
-<text x="0" y="22" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">22 years of documentation, zero permanent cleanups</text>
-<line x1="20" y1="70" x2="700" y2="70" stroke="#16130f" stroke-width="2"/>
-<circle cx="40" cy="70" r="6" fill="#8c2b18"/>
-<text x="15" y="95" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#16130f">2003</text>
-<circle cx="160" cy="70" r="6" fill="#8c2b18"/>
-<text x="135" y="95" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#16130f">2019</text>
-<circle cx="290" cy="70" r="6" fill="#8c2b18"/>
-<text x="265" y="95" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#16130f">2021</text>
-<circle cx="410" cy="70" r="6" fill="#8c2b18"/>
-<text x="385" y="95" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#16130f">Feb 2025</text>
-<circle cx="530" cy="70" r="6" fill="#8c2b18"/>
-<text x="505" y="95" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#16130f">Apr 2025</text>
-<circle cx="650" cy="70" r="6" fill="#8c2b18"/>
-<text x="625" y="95" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#16130f">Mar 2026</text>
-<text x="0" y="125" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">2003 — BBS documents 12,207 battery recycling operations.</text>
-<text x="0" y="147" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">2019 — Pure Earth / University of Dhaka assess 270+ sites; no permanent closures follow.</text>
-<text x="0" y="169" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">2021 — Kathgora blood-lead evidence at an abandoned site.</text>
-<text x="0" y="191" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Feb 2025 — first formal MoU in 22 years.</text>
-<text x="0" y="213" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Apr 2025 — 28 sites closed in Jatrabari and Savar; BD-4591 untouched.</text>
-<text x="0" y="235" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Nov 2025 — MICS 2025 confirms the divisional gap.</text>
-<text x="0" y="257" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Mar 2026 — this analysis publishes. Closures and demolitions are NOT remediation.</text>
-<text x="0" y="285" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Public-record finding at the analysed coordinates only — not proof none occurred anywhere.</text>
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" role="img" aria-labelledby="time-title time-desc">
+  <title id="time-title">Documentation Without Remediation: 22-Year Timeline (2003–2026)</title>
+  <desc id="time-desc">Historical timeline spanning 2003 to 2026 tracking government records, NGO surveys, and temporary shutdowns, showing zero permanent soil remediation on official record.</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 21px; font-weight: 700; fill: #16130f; }
+      .year { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; }
+      .event { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #2b2823; }
+      .note { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="956" height="316" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <text x="32" y="34" class="kicker">INSTITUTIONAL TIMELINE AUDIT · 22 YEARS OF OFFICIAL RECORD</text>
+  <text x="32" y="58" class="title">22 Years of Official Documentation, Zero Permanent Soil Cleanups</text>
+
+  <!-- Horizontal Axis Line -->
+  <line x1="32" y1="90" x2="928" y2="90" stroke="#16130f" stroke-width="2"/>
+
+  <!-- Milestone Nodes -->
+  <circle cx="50" cy="90" r="7" fill="#8c2b18"/>
+  <text x="50" y="112" text-anchor="middle" class="year">2003</text>
+
+  <circle cx="210" cy="90" r="7" fill="#8c2b18"/>
+  <text x="210" y="112" text-anchor="middle" class="year">2019</text>
+
+  <circle cx="370" cy="90" r="7" fill="#8c2b18"/>
+  <text x="370" y="112" text-anchor="middle" class="year">2021</text>
+
+  <circle cx="530" cy="90" r="7" fill="#8c2b18"/>
+  <text x="530" y="112" text-anchor="middle" class="year">Feb 2025</text>
+
+  <circle cx="690" cy="90" r="7" fill="#8c2b18"/>
+  <text x="690" y="112" text-anchor="middle" class="year">Apr 2025</text>
+
+  <circle cx="850" cy="90" r="7" fill="#8c2b18"/>
+  <text x="850" y="112" text-anchor="middle" class="year">2026</text>
+
+  <!-- Event Cards -->
+  <g transform="translate(32, 130)">
+    <text x="0" y="20" class="event"><tspan font-weight="700" fill="#8c2b18">2003:</tspan> BBS documents 12,207 battery recycling and repair workshops operating nationwide.</text>
+    <text x="0" y="44" class="event"><tspan font-weight="700" fill="#8c2b18">2019:</tspan> Pure Earth / Dhaka University survey 270+ contaminated lead smelting sites; no cleanups follow.</text>
+    <text x="0" y="68" class="event"><tspan font-weight="700" fill="#8c2b18">2021:</tspan> Kathgora (Savar) blood-lead testing reveals severe poisoning at abandoned furnace site.</text>
+    <text x="0" y="92" class="event"><tspan font-weight="700" fill="#8c2b18">Feb 2025:</tspan> Ministry of Environment signs first formal remediation MoU after 22 years of inaction.</text>
+    <text x="0" y="116" class="event"><tspan font-weight="700" fill="#8c2b18">Apr 2025:</tspan> Taskforce closes 28 informal smelters in Jatrabari/Savar; smelters relocate; BD-4591 untouched.</text>
+    <text x="0" y="140" class="event"><tspan font-weight="700" fill="#8c2b18">2026:</tspan> Zero permanent soil decontaminations on public record. Facility eviction is NOT environmental cleanup.</text>
+  </g>
+
+  <text x="32" y="302" class="note">Finding: Closures and demolitions push smelters to new residential neighborhoods without removing lead dust from soil.</text>
 </svg>

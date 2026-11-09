@@ -54,12 +54,12 @@
 <p>If the search index has not been generated yet, use the <a href="/investigations/">investigations index</a> and the <a href="/archive/">archive</a> to browse published work.</p>
 <div id="search"></div>
 <noscript><p>Search needs JavaScript; browse the <a href="/investigations/">investigations index</a> and the <a href="/archive/">archive</a> instead.</p></noscript>
-<link href="/pagefind/pagefind-ui.css" rel="stylesheet">
-<script src="/pagefind/pagefind-ui.js" defer></script>
+<link href="/_pagefind/pagefind-ui.css" rel="stylesheet">
+<script src="/_pagefind/pagefind-ui.js" defer></script>
 <script>
 window.addEventListener('DOMContentLoaded', () => {
   if (window.PagefindUI) {
-    new PagefindUI({ element: "#search", showSubResults: true });
+    new PagefindUI({ element: "#search", bundlePath: "/_pagefind/", showSubResults: true });
   } else {
     document.getElementById("search").innerHTML = "<p>Search is unavailable right now; browse the <a href=\"/investigations/\">investigations index</a> and the <a href=\"/archive/\">archive</a> instead.</p>";
   }

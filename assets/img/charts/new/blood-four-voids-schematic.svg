@@ -1,21 +1,67 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 260" role="img" aria-label="Schematic, not a map: four held datasets and what each would test">
-<title>Four held datasets: schematic, not a map</title>
-<text x="0" y="22" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">Four datasets held, not published — schematic, NOT a map</text>
-<rect x="0" y="40" width="340" height="80" fill="#f2ede3" stroke="#16130f"/>
-<text x="12" y="62" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">VOID-01 · Chassis registry</text>
-<text x="12" y="84" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">BRTA bus crash registry by chassis.</text>
-<text x="12" y="104" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Would test: Phoenix ownership chains.</text>
-<rect x="370" y="40" width="350" height="80" fill="#f2ede3" stroke="#16130f"/>
-<text x="382" y="62" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">VOID-02 · Hospital records</text>
-<text x="382" y="84" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Trauma records linked to crash cause.</text>
-<text x="382" y="104" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Would test: the 5.8× undercount.</text>
-<rect x="0" y="140" width="340" height="80" fill="#f2ede3" stroke="#16130f"/>
-<text x="12" y="162" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">VOID-03 · Operator-linked FIRs</text>
-<text x="12" y="184" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">FIRs record registration numbers,</text>
-<text x="12" y="204" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">not operator brands.</text>
-<rect x="370" y="140" width="350" height="80" fill="#f2ede3" stroke="#16130f"/>
-<text x="382" y="162" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">VOID-04 · Beneficial owners</text>
-<text x="382" y="184" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Route-permit beneficial-owner registry.</text>
-<text x="382" y="204" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Many permits held via front companies.</text>
-<text x="0" y="248" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Each absence is a documented accountability gap, not a technical limitation.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 410" role="img" aria-labelledby="voids-title voids-desc">
+  <title id="voids-title">Four Government Datasets Held, Not Published — Accountability Voids</title>
+  <desc id="voids-desc">Schematic analysis of four critical public data absences: chassis-level crash registry, hospital trauma linkage, operator-linked FIRs, and route-permit beneficial ownership.</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 22px; font-weight: 700; fill: #16130f; }
+      .sub { font-family: system-ui, -apple-system, sans-serif; font-size: 15px; fill: #5c5954; }
+      .card-tag { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; }
+      .card-title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 18px; font-weight: 700; fill: #16130f; }
+      .card-body { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #2b2823; }
+      .card-test { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; font-style: italic; }
+      .footer-note { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; }
+    </style>
+  </defs>
+
+  <!-- Container Box -->
+  <rect x="2" y="2" width="956" height="406" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <!-- Header -->
+  <text x="32" y="36" class="kicker">DATA ARCHITECTURE AUDIT · SCHEMATIC (NOT A MAP)</text>
+  <text x="32" y="62" class="title">Four Datasets Held, Not Published: The Accountability Voids</text>
+  <text x="32" y="85" class="sub">Key government-held records that would prove, calibrate, or disprove systemic road transport failures</text>
+
+  <!-- Card 1: VOID-01 -->
+  <g transform="translate(32, 102)">
+    <rect width="436" height="130" rx="6" fill="#ffffff" stroke="#16130f" stroke-width="2"/>
+    <text x="18" y="26" class="card-tag">VOID-01 · BRTA VEHICLE REGISTRY</text>
+    <text x="18" y="52" class="card-title">Chassis-Level Crash Log</text>
+    <text x="18" y="78" class="card-body">Crashes logged by surface plate number, not persistent chassis.</text>
+    <text x="18" y="98" class="card-body">Chassis numbers remain unlinked across re-registrations.</text>
+    <text x="18" y="118" class="card-test">Would test: Phoenix fleet ownership continuity and banned hardware return.</text>
+  </g>
+
+  <!-- Card 2: VOID-02 -->
+  <g transform="translate(492, 102)">
+    <rect width="436" height="130" rx="6" fill="#ffffff" stroke="#16130f" stroke-width="2"/>
+    <text x="18" y="26" class="card-tag">VOID-02 · HEALTH &amp; POLICE LINKAGE</text>
+    <text x="18" y="52" class="card-title">Hospital Trauma Admissions</text>
+    <text x="18" y="78" class="card-body">Emergency trauma and post-admission deaths are never matched</text>
+    <text x="18" y="98" class="card-body">to police crash records or road injury reports.</text>
+    <text x="18" y="118" class="card-test">Would test: The 5.8× undercount between FIR-only logs and 30-day mortality.</text>
+  </g>
+
+  <!-- Card 3: VOID-03 -->
+  <g transform="translate(32, 246)">
+    <rect width="436" height="130" rx="6" fill="#ffffff" stroke="#16130f" stroke-width="2"/>
+    <text x="18" y="26" class="card-tag">VOID-03 · POLICE FIR RECORDS</text>
+    <text x="18" y="52" class="card-title">Operator-Linked Crash FIRs</text>
+    <text x="18" y="78" class="card-body">Police First Information Reports record individual drivers only,</text>
+    <text x="18" y="98" class="card-body">omitting corporate fleet operator identities and permit holders.</text>
+    <text x="18" y="118" class="card-test">Would test: Corporate and institutional liability versus isolated driver blame.</text>
+  </g>
+
+  <!-- Card 4: VOID-04 -->
+  <g transform="translate(492, 246)">
+    <rect width="436" height="130" rx="6" fill="#ffffff" stroke="#16130f" stroke-width="2"/>
+    <text x="18" y="26" class="card-tag">VOID-04 · REGULATORY COMMERCE</text>
+    <text x="18" y="52" class="card-title">Route Permit Beneficial Ownership</text>
+    <text x="18" y="78" class="card-body">Regional Transport Committee (RTC) route permits are held</text>
+    <text x="18" y="98" class="card-body">through unregistered associations, proxies, and front entities.</text>
+    <text x="18" y="118" class="card-test">Would test: Political patronage and regulatory capture across bus corridors.</text>
+  </g>
+
+  <!-- Bottom Finding -->
+  <text x="32" y="394" class="footer-note"><tspan font-weight="700">Bureau finding:</tspan> Each void is an administrative and regulatory reporting choice, not a technical data collection limit.</text>
 </svg>

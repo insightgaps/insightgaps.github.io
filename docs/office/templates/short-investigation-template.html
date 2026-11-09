@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{HEADLINE_TITLE}} — Insight Gaps</title>
+  <meta name="description" content="{{META_DESCRIPTION_150_CHARS}}">
+  <link rel="canonical" href="https://insightgaps.com/investigations/{{SLUG}}/">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{HEADLINE_TITLE}} — Insight Gaps">
+  <meta property="og:description" content="{{META_DESCRIPTION_150_CHARS}}">
+  <meta property="og:image" content="https://insightgaps.com/assets/img/hero-{{SLUG}}-gemini.jpg">
+  <meta property="og:url" content="https://insightgaps.com/investigations/{{SLUG}}/">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{HEADLINE_TITLE}}">
+  <meta name="twitter:description" content="{{META_DESCRIPTION_150_CHARS}}">
+  <meta name="twitter:image" content="https://insightgaps.com/assets/img/hero-{{SLUG}}-gemini.jpg">
+
+  <!-- Design System CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <!-- NewsArticle JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://insightgaps.com/investigations/{{SLUG}}/"
+    },
+    "headline": "{{HEADLINE_TITLE}}",
+    "description": "{{META_DESCRIPTION_150_CHARS}}",
+    "image": [
+      "https://insightgaps.com/assets/img/hero-{{SLUG}}-gemini.jpg"
+    ],
+    "datePublished": "{{PUBLISH_DATE_ISO}}",
+    "dateModified": "{{MODIFY_DATE_ISO}}",
+    "author": {
+      "@type": "Organization",
+      "name": "Insight Gaps Bureau",
+      "url": "https://insightgaps.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Insight Gaps",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://insightgaps.com/assets/img/logo.png"
+      }
+    }
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Global Header Navigation -->
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+      <a href="/" class="site-header__logo" aria-label="Insight Gaps Homepage">
+        <span class="logo__brand">Insight Gaps</span>
+      </a>
+      <nav class="site-nav" aria-label="Main Navigation">
+        <a href="/investigations/" class="site-nav__link is-active">Investigations</a>
+        <a href="/methodology/" class="site-nav__link">Methodology</a>
+        <a href="/corrections/" class="site-nav__link">Corrections</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Investigation Container -->
+  <main id="main-content" class="page--report">
+    <article class="report-article" data-pagefind-body>
+      
+      <!-- Article Header & Hero -->
+      <header class="report-header">
+        <div class="report-header__badge">
+          <span class="badge badge--investigation">Public Data Investigation</span>
+        </div>
+        <h1 class="report-header__title" data-pagefind-weight="10">{{HEADLINE_TITLE}}</h1>
+        <p class="report-header__deck">{{INVESTIGATIVE_DECK_OR_SUBHEAD}}</p>
+        
+        <div class="report-header__meta">
+          <span class="meta__author">By <strong>Insight Gaps Bureau</strong></span>
+          <span class="meta__sep">/</span>
+          <time datetime="{{PUBLISH_DATE_ISO}}">{{PUBLISH_DATE_HUMAN}}</time>
+          <span class="meta__sep">/</span>
+          <span class="meta__standard">Evidence Standard: <strong>Public Data Only</strong></span>
+        </div>
+
+        <figure class="report-header__hero">
+          <img src="/assets/img/hero-{{SLUG}}-gemini.jpg" alt="{{HERO_IMAGE_ALT_TEXT}}" width="960" height="480" loading="eager">
+          <figcaption class="hero__caption">{{HERO_IMAGE_CAPTION}} (Visual generated from verified spatial parameters)</figcaption>
+        </figure>
+      </header>
+
+      <!-- Key Stat Callout Grid (Act 1 Findings) -->
+      <section class="stat-callout-grid" aria-label="Key Investigative Findings">
+        <div class="stat-card">
+          <span class="stat-card__number">{{STAT_1_NUMBER}}</span>
+          <span class="stat-card__label">{{STAT_1_LABEL}}</span>
+          <span class="stat-card__source">{{STAT_1_SOURCE}}</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card__number">{{STAT_2_NUMBER}}</span>
+          <span class="stat-card__label">{{STAT_2_LABEL}}</span>
+          <span class="stat-card__source">{{STAT_2_SOURCE}}</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card__number">{{STAT_3_NUMBER}}</span>
+          <span class="stat-card__label">{{STAT_3_LABEL}}</span>
+          <span class="stat-card__source">{{STAT_3_SOURCE}}</span>
+        </div>
+      </section>
+
+      <!-- Story Narrative Sections -->
+      <div class="report-body">
+        
+        <!-- ACT 1 -->
+        <section class="report-section">
+          <h2>{{ACT_1_HEADING}}</h2>
+          <p>{{ACT_1_PARAGRAPH_1}}</p>
+          <p>{{ACT_1_PARAGRAPH_2}}</p>
+
+          <!-- Full Width Chart 1 -->
+          <figure class="chart-full">
+            <img src="/assets/img/charts/{{SLUG}}-gap.svg" alt="{{CHART_1_ALT}}" width="960" height="260" loading="lazy">
+            <figcaption>{{CHART_1_CAPTION}}</figcaption>
+          </figure>
+        </section>
+
+        <!-- ACT 2 -->
+        <section class="report-section">
+          <h2>{{ACT_2_HEADING}}</h2>
+          <p>{{ACT_2_PARAGRAPH_1}}</p>
+          <p>{{ACT_2_PARAGRAPH_2}}</p>
+
+          <!-- Full Width Chart 2 -->
+          <figure class="chart-full">
+            <img src="/assets/img/charts/{{SLUG}}-cycle.svg" alt="{{CHART_2_ALT}}" width="960" height="280" loading="lazy">
+            <figcaption>{{CHART_2_CAPTION}}</figcaption>
+          </figure>
+        </section>
+
+        <!-- ACT 3 -->
+        <section class="report-section">
+          <h2>{{ACT_3_HEADING}}</h2>
+          <p>{{ACT_3_PARAGRAPH_1}}</p>
+
+          <!-- Full Width Chart 3 -->
+          <figure class="chart-full">
+            <img src="/assets/img/charts/{{SLUG}}-spatial.svg" alt="{{CHART_3_ALT}}" width="960" height="320" loading="lazy">
+            <figcaption>{{CHART_3_CAPTION}}</figcaption>
+          </figure>
+
+          <!-- Expandable Evidence Box -->
+          <details class="evidence-box">
+            <summary>View Complete {{DATA_TABLE_TITLE}} & Raw Data ({{ROW_COUNT}} Rows)</summary>
+            <div class="evidence-box__content">
+              <p class="evidence-box__desc">{{TABLE_DESCRIPTION_AND_METHODOLOGY_NOTE}}</p>
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Administrative Unit</th>
+                      <th>Statutory Threshold</th>
+                      <th>Measured Value</th>
+                      <th>Exceedance Ratio</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{{UNIT_1}}</td>
+                      <td>{{THRESH_1}}</td>
+                      <td>{{VAL_1}}</td>
+                      <td>{{RATIO_1}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </details>
+        </section>
+
+        <!-- ACT 4 -->
+        <section class="report-section">
+          <h2>{{ACT_4_HEADING}}</h2>
+          <p>{{ACT_4_PARAGRAPH_1}}</p>
+          <p>{{ACT_4_PARAGRAPH_2}}</p>
+        </section>
+
+        <!-- ACT 5: Audited Evidence & Claim Register -->
+        <section class="report-section report-section--evidence">
+          <h2>Audited Claim Register & Evidence Standard</h2>
+          <p>Every factual finding in this report has been audited and graded under our pre-publication bulletproofing standards.</p>
+
+          <div class="claim-register-card">
+            <table class="data-table data-table--compact">
+              <thead>
+                <tr>
+                  <th>Claim</th>
+                  <th>Primary Public Source</th>
+                  <th>Assigned Grade</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>{{CLAIM_1_SUMMARY}}</strong></td>
+                  <td>{{CLAIM_1_SOURCE}}</td>
+                  <td><span class="badge badge--confirmed">Confirmed</span></td>
+                </tr>
+                <tr>
+                  <td><strong>{{CLAIM_2_SUMMARY}}</strong></td>
+                  <td>{{CLAIM_2_SOURCE}}</td>
+                  <td><span class="badge badge--supported">Supported</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Trust & Verification Footer Block -->
+      <footer class="report-footer">
+        <div class="trust-anchor-box">
+          <h3>Verification & Public Data Integrity</h3>
+          <p>Insight Gaps operates under an Evidence-Before-Narrative mandate. We do not conduct interviews, file RTI requests, or deploy undercover recordings. All conclusions derive strictly from published official datasets, remote sensing, and government gazettes.</p>
+          <ul class="trust-anchor-links">
+            <li><a href="/methodology/">Read Our 7-Step Verification Methodology</a></li>
+            <li><a href="/docs/rules-and-methods.md">Review Bureau Rules & Bulletproofing Standards</a></li>
+            <li><a href="/corrections/">View Permanent Public Corrections Log</a></li>
+          </ul>
+        </div>
+      </footer>
+
+    </article>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__inner">
+      <p class="site-footer__copy">&copy; 2026 Insight Gaps Bureau. Public Data Only. Published under CC BY 4.0.</p>
+      <nav class="site-footer__nav">
+        <a href="/">Home</a>
+        <a href="/investigations/">Investigations</a>
+        <a href="/methodology/">Methodology</a>
+        <a href="/corrections/">Corrections</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

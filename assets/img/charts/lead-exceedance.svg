@@ -1,14 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 178" role="img" aria-label="Soil lead at featured sites: multiples of the 400 ppm residential threshold">
-<title>Soil lead at featured sites: multiples of the 400 ppm residential threshold</title>
-<text x="0" y="22" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">Soil lead at featured sites: multiples of the 400 ppm residential threshold</text>
-<text x="0" y="57" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Kathgora, Savar (BD-4921)</text>
-<rect x="210" y="42" width="430.0" height="20" fill="#8c2b18"/>
-<text x="645" y="57" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">1,702×</text>
-<text x="0" y="91" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Kamrangir Char (BD-4591)</text>
-<rect x="210" y="76" width="208.4" height="20" fill="#16130f"/>
-<text x="423" y="91" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">825×</text>
-<text x="0" y="125" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Jatrabari (BD-4802)</text>
-<rect x="210" y="110" width="188.0" height="20" fill="#16130f"/>
-<text x="403" y="125" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">744×</text>
-<text x="0" y="170" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Multiples as published. Peak soil lead at Kathgora: 680,872 ppm.</text>
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 260" role="img" aria-labelledby="exc-title exc-desc">
+  <title id="exc-title">Soil Lead Toxicity: Exceedance Multiples Above Residential Safety Limits</title>
+  <desc id="exc-desc">Horizontal bar chart displaying soil lead concentrations at investigated sites as multiples of the 400 ppm safety limit: Kathgora at 1,702x (681,000 ppm), Kamrangir Char at 825x, and Jatrabari at 744x.</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 21px; font-weight: 700; fill: #16130f; }
+      .label { font-family: system-ui, -apple-system, sans-serif; font-size: 16px; font-weight: 600; fill: #16130f; }
+      .val { font-family: "Space Mono", ui-monospace, monospace; font-size: 20px; font-weight: 700; }
+      .note { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="956" height="256" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <text x="32" y="34" class="kicker">TOXICITY AUDIT · MULTIPLES OF RESIDENTIAL SAFETY THRESHOLD (400 PPM)</text>
+  <text x="32" y="58" class="title">Peak Soil Lead Concentrations: Up to 1,702× Residential Safety Limits</text>
+
+  <!-- Row 1: Kathgora -->
+  <text x="32" y="104" class="label">Kathgora, Savar (Site BD-4921)</text>
+  <rect x="360" y="84" width="450" height="28" rx="4" fill="#8c2b18"/>
+  <text x="822" y="105" class="val" fill="#8c2b18">1,702× (681,000 ppm)</text>
+
+  <!-- Row 2: Kamrangir Char -->
+  <text x="32" y="146" class="label">Kamrangir Char (Site BD-4591)</text>
+  <rect x="360" y="126" width="218" height="28" rx="4" fill="#16130f"/>
+  <text x="590" y="147" class="val" fill="#16130f">825× (330,000 ppm)</text>
+
+  <!-- Row 3: Jatrabari -->
+  <text x="32" y="188" class="label">Jatrabari (Site BD-4802)</text>
+  <rect x="360" y="168" width="197" height="28" rx="4" fill="#16130f"/>
+  <text x="568" y="189" class="val" fill="#16130f">744× (297,600 ppm)</text>
+
+  <text x="32" y="234" class="note">Baseline: 400 ppm (parts per million) residential soil safety guideline. Industrial standard: 1,200 ppm (Kathgora is 568× the industrial limit). Peak measurement at Savar: 680,872 ppm (rounded to 681,000 ppm).</text>
 </svg>

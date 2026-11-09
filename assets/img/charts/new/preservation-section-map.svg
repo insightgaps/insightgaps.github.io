@@ -1,11 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="720" height="180" viewBox="0 0 720 180" role="img" aria-labelledby="t d">
-<title id="t">Preservation section map, sample only</title>
-<desc id="d">Diagram only, no real data. Showcase explains what the system does, Class teaches on one scrollable page, Demo shows the system with fake data only, and the Vault is for adding and editing slides only and is currently locked. Reading is by direct link only. Hiding is not privacy.</desc>
-<rect width="720" height="180" fill="#fdfcf8"/>
-<text x="20" y="30" font-family="Georgia,serif" font-size="20" font-weight="700" fill="#16130f">One section, three doors — plus Vault</text>
-<rect x="20" y="50" width="150" height="60" fill="#f5f1e8" stroke="#16130f"/><text x="30" y="85" font-family="system-ui,sans-serif" font-size="16" font-weight="700" fill="#16130f">Showcase</text>
-<rect x="190" y="50" width="150" height="60" fill="#f5f1e8" stroke="#16130f"/><text x="200" y="85" font-family="system-ui,sans-serif" font-size="16" font-weight="700" fill="#16130f">Class</text>
-<rect x="360" y="50" width="150" height="60" fill="#f5f1e8" stroke="#16130f"/><text x="370" y="85" font-family="system-ui,sans-serif" font-size="16" font-weight="700" fill="#16130f">Demo — FAKE</text>
-<rect x="530" y="50" width="150" height="60" fill="#f7ece8" stroke="#8c2b18"/><text x="540" y="85" font-family="system-ui,sans-serif" font-size="16" font-weight="700" fill="#8c2b18">Vault — LOCKED</text>
-<text x="20" y="140" font-family="system-ui,sans-serif" font-size="14" fill="#6d675c">Reading: direct link only. Adding/editing: Vault only. No real data anywhere here.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 210" role="img" aria-labelledby="map-title map-desc">
+  <title id="map-title">Preservation Section Map, Sample Only</title>
+  <desc id="map-desc">Diagram only with fake data: one section with Showcase, Class, Demo, and Vault.</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 22px; font-weight: 700; fill: #16130f; }
+      .box-label { font-family: system-ui, sans-serif; font-size: 16px; font-weight: 700; fill: #16130f; text-anchor: middle; }
+      .box-label--locked { font-family: system-ui, sans-serif; font-size: 16px; font-weight: 700; fill: #8c2b18; text-anchor: middle; }
+      .note { font-family: system-ui, sans-serif; font-size: 14px; fill: #5c5954; }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="956" height="206" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <text x="32" y="34" class="kicker">WORKSPACE ARCHITECTURE · SECTION OVERVIEW</text>
+  <text x="32" y="58" class="title">One Section, Three Doors — Plus Vault</text>
+
+  <!-- 4 Boxes -->
+  <rect x="32" y="78" width="206" height="70" rx="6" fill="#f5f1e8" stroke="#16130f" stroke-width="2"/>
+  <text x="135" y="120" class="box-label">Showcase</text>
+
+  <rect x="262" y="78" width="206" height="70" rx="6" fill="#f5f1e8" stroke="#16130f" stroke-width="2"/>
+  <text x="365" y="120" class="box-label">Class</text>
+
+  <rect x="492" y="78" width="206" height="70" rx="6" fill="#f5f1e8" stroke="#16130f" stroke-width="2"/>
+  <text x="595" y="120" class="box-label">Demo — FAKE</text>
+
+  <rect x="722" y="78" width="206" height="70" rx="6" fill="#f7ece8" stroke="#8c2b18" stroke-width="2"/>
+  <text x="825" y="120" class="box-label--locked">Vault — LOCKED</text>
+
+  <text x="32" y="180" class="note">Reading: direct link only. Adding/editing: Vault only. No real data anywhere here.</text>
 </svg>

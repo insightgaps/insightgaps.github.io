@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evidence Dossier: [Topic] — Insight Gaps</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="/" class="site-header__logo">
+        <span class="logo__brand">Insight Gaps</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/investigations/[slug]/">&larr; Back to Investigation</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page--report">
+    <p class="eyebrow">Public Data Dossier · Open Science</p>
+    <h1>Evidence & Data Appendix: [Topic Title]</h1>
+    <p class="report__dek">Complete data provenance, cryptographic checksums, mathematical transformation scripts, and audited raw tables.</p>
+
+    <section>
+      <h2>1. Public Datasets & Cryptographic Hashes</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Dataset Name</th>
+            <th>Issuing Agency</th>
+            <th>Acquisition Date</th>
+            <th>SHA-256 Checksum</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Raw File 01</td>
+            <td>Bangladesh Bureau of Statistics</td>
+            <td>2026-11-09</td>
+            <td><code>e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>2. Mathematical Proofs & Rate Calculations</h2>
+      <pre><code># Independent Verification Path
+def calculate_rate(numerator, denominator):
+    return (numerator / denominator) * 100000
+
+# Verified against BBS 2022 Census data</code></pre>
+    </section>
+
+    <section>
+      <h2>3. Download Open Microdata</h2>
+      <p>Download audited clean dataset: <a href="/data/processed/[slug]/data.csv" download>data.csv</a> (CSV, UTF-8).</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p>&copy; 2026 Insight Gaps Bureau. Public Data Only.</p>
+    </div>
+  </footer>
+</body>
+</html>

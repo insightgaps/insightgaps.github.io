@@ -1,16 +1,50 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 260" role="img" aria-label="Arithmetic check: 31,578 divided by 5,480 equals 5.76, rounded to 5.8; 351 divided by 15 equals 23.4 per day; 312 minus 262 divided by 262 equals 19.08 percent; 47,680 minus 2,331 divided by 47,680 equals 95.11 percent padding">
-<title>Check the maths: four calculations from published figures</title>
-<text x="0" y="22" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">Check the maths yourself — four calculations, no new figures</text>
-<text x="0" y="52" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">31,578 ÷ 5,480 = 5.76 → </text>
-<text x="195" y="52" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#8c2b18">5.8× (modelled vs official)</text>
-<text x="0" y="82" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">351 ÷ 15 days = 23.4 → </text>
-<text x="195" y="82" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#8c2b18">23 deaths per day (rounded)</text>
-<text x="0" y="112" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">(312 − 262) ÷ 262 = 19.08% → </text>
-<text x="240" y="112" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#8c2b18">19% rise, Eid-ul-Adha (not 29%)</text>
-<text x="0" y="142" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">(47,680 − 2,331) ÷ 47,680 = 95.11% → </text>
-<text x="315" y="142" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#8c2b18">padding; 4.89% kept</text>
-<text x="0" y="182" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Every input is a published figure from the claim register BD-INV-001 or its CSV.</text>
-<text x="0" y="204" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Rounding is shown, not hidden: 5.76 becomes 5.8, 23.4 becomes 23, 19.08% becomes 19%.</text>
-<text x="0" y="226" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Two gaps are NOT calculations and cannot be checked this way: 2,331 vs 2,332, and the</text>
-<text x="0" y="248" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Eid-ul-Fitr 2026 figure, reported not re-computed. Both are flagged, not smoothed.</text>
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" role="img" aria-labelledby="arith-title arith-desc">
+  <title id="arith-title">Arithmetic Audit: Check the Four Calculations From Published Records</title>
+  <desc id="arith-desc">Audit card detailing the four core calculations: 31,578 divided by 5,480 equals 5.8x; 351 divided by 15 equals 23.4 deaths per day; 312 vs 262 equals 19.08% rise; 47,680 vs 2,331 equals 95.11% padding.</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 21px; font-weight: 700; fill: #16130f; }
+      .calc-box { fill: #ffffff; stroke: #16130f; stroke-width: 1.5; }
+      .formula { font-family: "Space Mono", ui-monospace, monospace; font-size: 16px; font-weight: 700; fill: #16130f; }
+      .result { font-family: "Space Mono", ui-monospace, monospace; font-size: 16px; font-weight: 700; fill: #8c2b18; }
+      .expl { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; }
+      .note { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="956" height="296" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <text x="32" y="34" class="kicker">STATISTICAL AUDIT · REPRODUCIBLE RE-CALCULATIONS</text>
+  <text x="32" y="58" class="title">Arithmetic Check: Four Calculations Derived From Primary Records</text>
+
+  <!-- Row 1 -->
+  <g transform="translate(32, 78)">
+    <rect width="436" height="74" rx="6" class="calc-box"/>
+    <text x="16" y="28" class="formula">31,578 ÷ 5,480 = 5.76 → <tspan class="result">5.8× Gap</tspan></text>
+    <text x="16" y="54" class="expl">WHO 2023 modelled vs. BRTA official police FIR count.</text>
+  </g>
+
+  <!-- Row 2 -->
+  <g transform="translate(492, 78)">
+    <rect width="436" height="74" rx="6" class="calc-box"/>
+    <text x="16" y="28" class="formula">351 ÷ 15 days = <tspan class="result">23.4 Deaths / Day</tspan></text>
+    <text x="16" y="54" class="expl">Eid-ul-Fitr 2026 monitoring (reported, not re-computed).</text>
+  </g>
+
+  <!-- Row 3 -->
+  <g transform="translate(32, 166)">
+    <rect width="436" height="74" rx="6" class="calc-box"/>
+    <text x="16" y="28" class="formula">(312 − 262) ÷ 262 = <tspan class="result">19.08% Rise</tspan></text>
+    <text x="16" y="54" class="expl">Eid-ul-Adha 2024–2025. Corrected from 29% (Correction C-002).</text>
+  </g>
+
+  <!-- Row 4 -->
+  <g transform="translate(492, 166)">
+    <rect width="436" height="74" rx="6" class="calc-box"/>
+    <text x="16" y="28" class="formula">(47,680 − 2,331) ÷ 47,680 = <tspan class="result">95.11% Padding</tspan></text>
+    <text x="16" y="54" class="expl">Figshare deduplication audit; 4.89% unique accidents kept.</text>
+  </g>
+
+  <text x="32" y="274" class="note">Audit standard: Rounding is transparent (5.76 to 5.8; 19.08% to 19%). 2,331 vs. 2,332 difference flagged unresolved.</text>
 </svg>

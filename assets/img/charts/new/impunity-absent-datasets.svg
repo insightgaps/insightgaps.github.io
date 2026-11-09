@@ -1,13 +1,45 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" role="img" aria-label="Diagram: twelve confirmed-absent datasets in three groups">
-<title>Twelve confirmed-absent datasets</title>
-<text x="0" y="22" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">Twelve datasets confirmed absent (GA-001 to GA-012)</text>
-<rect x="0" y="40" width="720" height="70" fill="#f2ede3" stroke="#16130f"/>
-<text x="12" y="62" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">Absent · Rates and compliance</text>
-<text x="12" y="84" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Annual conviction rates by tribunal/district · FIR registration · 90-day compliance · withdrawal / abandonment · pre/post-2020 comparison.</text>
-<rect x="0" y="125" width="720" height="70" fill="#f2ede3" stroke="#16130f"/>
-<text x="12" y="147" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">Absent · Protection and law</text>
-<text x="12" y="169" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">National §17 prosecution counts · Witness Protection Bill (drafted, pending since 2015, not enacted) · marital rape exemption (CEDAW required removal 2016, still in force 2026).</text>
-<rect x="0" y="210" width="720" height="55" fill="#f2ede3" stroke="#16130f"/>
-<text x="12" y="232" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">Absent · Forensic tracking</text>
-<text x="12" y="254" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">DNA times by district/case type · district convictions · disposal-vs-conviction breakdowns · §32 hospital-refusal tracking.</text>
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" role="img" aria-labelledby="absent-title absent-desc">
+  <title id="absent-title">Institutional Data Voids: Twelve Confirmed Absent Datasets (GA-001 to GA-012)</title>
+  <desc id="absent-desc">Schematic diagram grouping twelve critical government datasets absent from public record across three categories: rates and compliance, legal protections, and forensic tracking.</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 21px; font-weight: 700; fill: #16130f; }
+      .card-tag { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; }
+      .card-title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 17px; font-weight: 700; fill: #16130f; }
+      .card-body { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #2b2823; }
+      .note { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="956" height="356" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <text x="32" y="34" class="kicker">ACCOUNTABILITY VOIDS AUDIT · TWELVE UNPUBLISHED DATASETS</text>
+  <text x="32" y="58" class="title">Twelve Datasets Confirmed Absent From Official Records (GA-001 – GA-012)</text>
+
+  <!-- Group 1 -->
+  <g transform="translate(32, 78)">
+    <rect width="896" height="74" rx="6" fill="#ffffff" stroke="#16130f" stroke-width="2"/>
+    <text x="18" y="26" class="card-tag">GROUP 1 · RATES, FILINGS &amp; STATUTORY COMPLIANCE (GA-001 TO GA-005)</text>
+    <text x="18" y="48" class="card-title">Tribunal Conviction Registers &amp; Timelines</text>
+    <text x="18" y="66" class="card-body">Annual conviction rates by district/tribunal · FIR registration logs · 90-day statutory compliance rate · Case abandonment tracking.</text>
+  </g>
+
+  <!-- Group 2 -->
+  <g transform="translate(32, 162)">
+    <rect width="896" height="74" rx="6" fill="#ffffff" stroke="#16130f" stroke-width="2"/>
+    <text x="18" y="26" class="card-tag">GROUP 2 · STATUTORY PROTECTION &amp; LEGAL REFORM (GA-006 TO GA-008)</text>
+    <text x="18" y="48" class="card-title">Prosecution Under §17 &amp; Witness Safety</text>
+    <text x="18" y="66" class="card-body">False-allegation (§17) prosecution metrics · Witness Protection Act enactment status (pending since 2015) · Marital rape legal exception status.</text>
+  </g>
+
+  <!-- Group 3 -->
+  <g transform="translate(32, 246)">
+    <rect width="896" height="74" rx="6" fill="#ffffff" stroke="#16130f" stroke-width="2"/>
+    <text x="18" y="26" class="card-tag">GROUP 3 · FORENSIC &amp; MEDICAL TRACKING (GA-009 TO GA-012)</text>
+    <text x="18" y="48" class="card-title">Forensic Turnaround Times &amp; Medical Denials</text>
+    <text x="18" y="66" class="card-body">District-level DNA backlog breakdown · Hospital medical examination denial logs (§32 tracking) · Comprehensive forensic pipeline tracing.</text>
+  </g>
+
+  <text x="32" y="342" class="note">Audit standard: Each absence represents a specific information gap where public data is withheld, fragmented, or unmonitored.</text>
 </svg>

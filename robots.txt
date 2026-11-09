@@ -6,7 +6,7 @@
 User-agent: *
 Content-Signal: search=yes, ai-train=no, use=reference
 Allow: /
-Disallow: /analysis/property-preservation/
+Disallow: /preservation/
 Disallow: /in-progress/
 
 # Search and retrieval AI crawlers (explicitly allowed)

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evidence & Data Appendix: {{HEADLINE_TITLE}} — Insight Gaps</title>
+  <meta name="description" content="Complete public microdata, mathematical formulas, transformation logs, and source gazettes for the {{HEADLINE_TITLE}} investigation.">
+  <link rel="canonical" href="https://insightgaps.com/investigations/{{SLUG}}/evidence/">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+      <a href="/" class="site-header__logo">
+        <span class="logo__brand">Insight Gaps</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/investigations/{{SLUG}}/" class="site-nav__link">&larr; Back to Investigation</a>
+        <a href="/methodology/" class="site-nav__link">Methodology</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="page--report">
+    <header class="report-header">
+      <div class="report-header__badge">
+        <span class="badge badge--evidence">Evidence & Methodology Appendix</span>
+      </div>
+      <h1 class="report-header__title">Evidence Dossier: {{HEADLINE_TITLE}}</h1>
+      <p class="report-header__deck">Complete data provenance, cryptographic checksums, mathematical transformation scripts, and audited raw tables.</p>
+    </header>
+
+    <div class="report-body">
+      <!-- Section 1: Provenance -->
+      <section class="report-section">
+        <h2>1. Data Provenance & File Checksums</h2>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Dataset Name</th>
+                <th>Source Body</th>
+                <th>Acquisition Date</th>
+                <th>SHA-256 Checksum</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>`{{DATASET_1}}`</td>
+                <td>{{AGENCY_1}}</td>
+                <td>{{DATE_1}}</td>
+                <td><code>{{HASH_1}}</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 2: Mathematical Proof -->
+      <section class="report-section">
+        <h2>2. Calculation Formulations & Dual-Path Verification</h2>
+        <p>Key ratios were independently calculated using dual computation paths:</p>
+        <pre class="code-block"><code># Verification Formula for Finding M-01
+Numerator = {{NUMERATOR_VALUE}}   # Source: Table X, Page Y
+Denominator = {{DENOM_VALUE}}     # Source: BBS 2022 Census
+Ratio = Numerator / Denominator
+# Recalculation Check Result: {{RATIO_RESULT}} (0.00% variance)</code></pre>
+      </section>
+
+      <!-- Section 3: Full Raw Microdata -->
+      <section class="report-section">
+        <h2>3. Full Audited Record Microdata</h2>
+        <p>Download clean tidy data: <a href="/data/processed/{{SLUG}}/clean_records.csv" download>clean_records.csv</a> (UTF-8, CSV format).</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p class="site-footer__copy">&copy; 2026 Insight Gaps Bureau. Public Data Only.</p>
+    </div>
+  </footer>
+</body>
+</html>

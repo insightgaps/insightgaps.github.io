@@ -1,26 +1,55 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 314" role="img" aria-label="Conviction-rate measurements: same crisis, different denominators">
-<title>Conviction-rate measurements: same crisis, different denominators</title>
-<text x="0" y="22" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">Conviction-rate measurements: same crisis, different denominators</text>
-<text x="0" y="57" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">PHQ, filed cases, 2012–2017</text>
-<rect x="210" y="42" width="14.1" height="20" fill="#8c2b18"/>
-<text x="229" y="57" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">0.12%</text>
-<text x="0" y="91" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Naripokkho, filed, 2011–2018</text>
-<rect x="210" y="76" width="45.8" height="20" fill="#16130f"/>
-<text x="261" y="91" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">0.39%</text>
-<text x="0" y="125" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">OCC visitors, 2001–Jul 2024</text>
-<rect x="210" y="110" width="54.0" height="20" fill="#16130f"/>
-<text x="269" y="125" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">0.46%</text>
-<text x="0" y="159" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">BLAST, disposed, 2003–2016</text>
-<rect x="210" y="144" width="90.5" height="20" fill="#16130f"/>
-<text x="305" y="159" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">0.77%</text>
-<text x="0" y="193" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">BRAC/UNDP, disposed, 2009–2014</text>
-<rect x="210" y="178" width="101.0" height="20" fill="#16130f"/>
-<text x="316" y="193" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">0.86%</text>
-<text x="0" y="227" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">UN Women, filed, 2013–2019</text>
-<rect x="210" y="212" width="235.0" height="20" fill="#16130f"/>
-<text x="450" y="227" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">2.0%</text>
-<text x="0" y="261" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">BRAC/Agile ceiling, disposed accused-level</text>
-<rect x="210" y="246" width="430.0" height="20" fill="#16130f"/>
-<text x="645" y="261" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">3.66%</text>
-<text x="0" y="306" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Do not compare these as like-for-like rates: denominators differ. See data table.</text>
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" role="img" aria-labelledby="rates-title rates-desc">
+  <title id="rates-title">Conviction-Rate Measurements: Different Denominators Across Seven Published Studies</title>
+  <desc id="rates-desc">Horizontal bar chart displaying seven conviction rate measurements from 0.12% to 3.66%, illustrating how varying denominators (filed cases, OCC visitors, disposed cases) produce different metrics.</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 21px; font-weight: 700; fill: #16130f; }
+      .label { font-family: system-ui, -apple-system, sans-serif; font-size: 15px; font-weight: 600; fill: #16130f; }
+      .val { font-family: "Space Mono", ui-monospace, monospace; font-size: 16px; font-weight: 700; }
+      .note { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="956" height="356" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <text x="32" y="34" class="kicker">DENOMINATOR AUDIT · SEVEN INDEPENDENT MEASUREMENTS</text>
+  <text x="32" y="58" class="title">Conviction Rates Across Bangladesh Studies: 0.12% to 3.66%</text>
+
+  <!-- Row 1: Police HQ -->
+  <text x="32" y="96" class="label">Police HQ (Filed Cases, 2012–2017)</text>
+  <rect x="420" y="80" width="22" height="22" rx="3" fill="#8c2b18"/>
+  <text x="450" y="97" class="val" fill="#8c2b18">0.12% (17 of ~14,000)</text>
+
+  <!-- Row 2: Naripokkho -->
+  <text x="32" y="130" class="label">Naripokkho (Filed Cases, 2011–2018)</text>
+  <rect x="420" y="114" width="48" height="22" rx="3" fill="#16130f"/>
+  <text x="476" y="131" class="val" fill="#16130f">0.39%</text>
+
+  <!-- Row 3: OCC Visitors -->
+  <text x="32" y="164" class="label">OCC Total Visitors (2001–Jul 2024)</text>
+  <rect x="420" y="148" width="56" height="22" rx="3" fill="#8c2b18"/>
+  <text x="484" y="165" class="val" fill="#8c2b18">0.46% (310 of 66,711)</text>
+
+  <!-- Row 4: BLAST -->
+  <text x="32" y="198" class="label">BLAST (Disposed Cases, 2003–2016)</text>
+  <rect x="420" y="182" width="94" height="22" rx="3" fill="#16130f"/>
+  <text x="522" y="199" class="val" fill="#16130f">0.77%</text>
+
+  <!-- Row 5: BRAC/UNDP -->
+  <text x="32" y="232" class="label">BRAC / UNDP (Disposed Cases, 2009–2014)</text>
+  <rect x="420" y="216" width="105" height="22" rx="3" fill="#16130f"/>
+  <text x="533" y="233" class="val" fill="#16130f">0.86%</text>
+
+  <!-- Row 6: UN Women -->
+  <text x="32" y="266" class="label">UN Women (Filed Cases, 2013–2019)</text>
+  <rect x="420" y="250" width="244" height="22" rx="3" fill="#16130f"/>
+  <text x="672" y="267" class="val" fill="#16130f">2.00%</text>
+
+  <!-- Row 7: BRAC/Agile -->
+  <text x="32" y="300" class="label">BRAC / Agile Ceiling (Disposed Accused-Level)</text>
+  <rect x="420" y="284" width="446" height="22" rx="3" fill="#16130f"/>
+  <text x="874" y="301" class="val" fill="#16130f">3.66%</text>
+
+  <text x="32" y="338" class="note">Crucial Rule: Do NOT average these rates. Each measurement uses a distinct denominator (total victims vs. filed cases vs. completed trials). None exceeds 3.7%.</text>
 </svg>

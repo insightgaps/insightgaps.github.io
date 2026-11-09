@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 250" role="img" aria-labelledby="loss-title loss-desc">
+  <title id="loss-title">Loss Reason Queue: Sample Only</title>
+  <desc id="loss-desc">Sample process diagram showing loss reason code classification: every loss requires a reason code, unexplained queue driven to zero.</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 22px; font-weight: 700; fill: #16130f; }
+      .box-tag { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #16130f; }
+      .box-body { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #16130f; }
+      .arrow { font-family: system-ui, sans-serif; font-size: 24px; font-weight: 700; fill: #8c2b18; text-anchor: middle; }
+      .note { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #16130f; }
+      .note-sub { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #6d675c; }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="956" height="246" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <text x="32" y="34" class="kicker">ACCOUNTING CONTROLS · LOSS RESOLUTION</text>
+  <text x="32" y="58" class="title">SAMPLE ONLY — FAKE DATA — Every Loss Needs a Reason</text>
+
+  <!-- Box 1 -->
+  <g transform="translate(32, 78)">
+    <rect width="180" height="90" rx="6" fill="#f2ede3" stroke="#16130f" stroke-width="2"/>
+    <text x="14" y="26" class="box-tag">LOSS FOUND</text>
+    <text x="14" y="52" class="box-body">(sample entry)</text>
+    <text x="14" y="74" class="box-body">No amount shown.</text>
+  </g>
+
+  <!-- Arrow 1 -->
+  <text x="236" y="130" class="arrow">→</text>
+
+  <!-- Box 2 -->
+  <g transform="translate(260, 78)">
+    <rect width="180" height="90" rx="6" fill="#f2ede3" stroke="#16130f" stroke-width="2"/>
+    <text x="14" y="26" class="box-tag">REASON CODE?</text>
+    <text x="14" y="52" class="box-body">Yes → record it.</text>
+    <text x="14" y="74" class="box-body">No → UNEXPLAINED.</text>
+  </g>
+
+  <!-- Arrow 2 -->
+  <text x="464" y="130" class="arrow">→</text>
+
+  <!-- Box 3 -->
+  <g transform="translate(488, 78)">
+    <rect width="185" height="90" rx="6" fill="#f2ede3" stroke="#16130f" stroke-width="2"/>
+    <text x="14" y="26" class="box-tag">ADDRESS CHECK</text>
+    <text x="14" y="52" class="box-body">Same-property</text>
+    <text x="14" y="74" class="box-body">successor / chain?</text>
+  </g>
+
+  <!-- Arrow 3 -->
+  <text x="697" y="130" class="arrow">→</text>
+
+  <!-- Box 4 -->
+  <g transform="translate(721, 78)">
+    <rect width="207" height="90" rx="6" fill="#f2ede3" stroke="#16130f" stroke-width="2"/>
+    <text x="14" y="26" class="box-tag">QUEUE → 0</text>
+    <text x="14" y="52" class="box-body">Adjust same</text>
+    <text x="14" y="74" class="box-body">property only.</text>
+  </g>
+
+  <!-- Footers -->
+  <text x="32" y="192" class="note">Rule shown, not a real case: no “unpaid” label is final until the same-property chain check runs.</text>
+  <text x="32" y="214" class="note">No real WO numbers, addresses, amounts, or client names. Diagram only, for class training only.</text>
+  <text x="32" y="234" class="note-sub">UNEXPLAINED is a queue driven to zero — it is never a final answer.</text>
+</svg>

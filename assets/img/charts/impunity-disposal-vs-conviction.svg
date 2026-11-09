@@ -1,0 +1,31 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 250" role="img" aria-labelledby="disp-title disp-desc">
+  <title id="disp-title">Statistical Fallacy Check: Case Disposal Rate is NOT a Conviction Rate</title>
+  <desc id="disp-desc">Horizontal comparison chart demonstrating the distinction between true conviction rates (0.12% to 3.66%) and the CEDAW case disposal rate of 53.52%, which includes dismissals and acquittals.</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 21px; font-weight: 700; fill: #16130f; }
+      .label { font-family: system-ui, -apple-system, sans-serif; font-size: 16px; font-weight: 600; fill: #16130f; }
+      .val { font-family: "Space Mono", ui-monospace, monospace; font-size: 20px; font-weight: 700; }
+      .note { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="956" height="246" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <text x="32" y="34" class="kicker">STATISTICAL METRIC AUDIT · CEDAW REPORTING CHECK</text>
+  <text x="32" y="58" class="title">Case Disposal is NOT Conviction: Clarifying the 53.52% Metric</text>
+
+  <!-- Bar 1: Conviction range -->
+  <text x="32" y="104" class="label">Actual Conviction Rates (All Studies Range)</text>
+  <rect x="440" y="84" width="46" height="30" rx="4" fill="#8c2b18"/>
+  <text x="496" y="106" class="val" fill="#8c2b18">0.12% – 3.66%</text>
+
+  <!-- Bar 2: CEDAW disposal -->
+  <text x="32" y="152" class="label">CEDAW "Disposal Rate" (Govt Filing, 2022)</text>
+  <rect x="440" y="132" width="440" height="30" rx="4" fill="#5c5954"/>
+  <text x="496" y="154" class="val" fill="#ffffff" dx="10">53.52% CASE DISPOSAL</text>
+
+  <text x="32" y="194" class="label" font-size="14.5px" fill="#8c2b18">Critical distinction: "Disposal" means the court closed the file — via dismissal, compromise, acquittal, or withdrawal.</text>
+  <text x="32" y="218" class="note">Source: Bangladesh CEDAW 9th Periodic Report (2022). It measures case clearance, not justice outcomes. Treating disposal as conviction is a major reporting error.</text>
+</svg>

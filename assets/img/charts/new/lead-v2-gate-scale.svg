@@ -1,16 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 210" role="img" aria-label="Scale bar, 0 to 500 metres: the school gate at BD-4591 is 59 metres from the factory, inside the 500 metre screening buffer">
-<title>59 metres against 500 metres — drawn to scale</title>
-<text x="0" y="24" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">59 metres against 500 metres — drawn to scale</text>
-<text x="0" y="52" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">SCHOOL GATE — BD-4591, Kamrangir Char</text>
-<rect x="0" y="62" width="620" height="22" fill="#f2ede3" stroke="#16130f"/>
-<rect x="0" y="62" width="73" height="22" fill="#8c2b18"/>
-<text x="0" y="108" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#8c2b18">59 m to the factory</text>
-<text x="73" y="108" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">↑ factory wall (red segment, to scale)</text>
-<text x="620" y="108" font-family="system-ui, sans-serif" font-size="12" fill="#16130f" text-anchor="end">500 m screening buffer ends here →</text>
-<line x1="0" y1="130" x2="620" y2="130" stroke="#16130f" stroke-width="1"/>
-<text x="0" y="152" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">0 m</text>
-<text x="310" y="152" font-family="system-ui, sans-serif" font-size="12" fill="#16130f" text-anchor="middle">250 m</text>
-<text x="620" y="152" font-family="system-ui, sans-serif" font-size="12" fill="#16130f" text-anchor="end">500 m</text>
-<text x="0" y="180" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Schematic scale bar, not a map. 18 schools lie within 500 m of this single furnace.</text>
-<text x="0" y="200" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Colour + text: red = the 59 m gap; grey = the rest of the buffer. Never colour alone.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 240" role="img" aria-labelledby="gate-title gate-desc">
+  <title id="gate-title">59 Metres Against 500 Metres — Drawn to Scale</title>
+  <desc id="gate-desc">Scale bar showing the 59-metre proximity between the school gate and illegal lead furnace at BD-4591 against the 500-metre screening buffer.</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 22px; font-weight: 700; fill: #16130f; }
+      .label-head { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #16130f; }
+      .bar-val { font-family: "Space Mono", ui-monospace, monospace; font-size: 15px; font-weight: 700; fill: #8c2b18; }
+      .bar-info { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #16130f; }
+      .axis-tick { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; fill: #16130f; }
+      .note { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="956" height="236" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <text x="32" y="34" class="kicker">PROXIMITY SCALE · HAVERSINE SPATIAL AUDIT</text>
+  <text x="32" y="58" class="title">59 Metres Against 500 Metres — Proximity Drawn to Scale</text>
+
+  <text x="32" y="86" class="label-head">SITE BD-4591 (KAMRANGIR CHAR) · SCHOOL GATE TO FURNACE</text>
+
+  <!-- Scale Bar: 500m = 800px width (1.6px per meter). 59m = 94.4px -->
+  <rect x="32" y="98" width="800" height="28" rx="4" fill="#f2ede3" stroke="#16130f" stroke-width="1.5"/>
+  <rect x="32" y="98" width="94.4" height="28" rx="4" fill="#8c2b18"/>
+
+  <text x="32" y="148" class="bar-val">59m to smelter</text>
+  <text x="145" y="148" class="bar-info">↑ Factory boundary (red segment, strictly to scale)</text>
+  <text x="832" y="148" class="bar-info" text-anchor="end">500m screening buffer boundary →</text>
+
+  <!-- Ruler Line -->
+  <line x1="32" y1="162" x2="832" y2="162" stroke="#16130f" stroke-width="1.5"/>
+  <text x="32" y="182" class="axis-tick">0 m</text>
+  <text x="432" y="182" class="axis-tick" text-anchor="middle">250 m</text>
+  <text x="832" y="182" class="axis-tick" text-anchor="end">500 m</text>
+
+  <text x="32" y="215" class="note">Schematic scale bar, not a map. 18 schools lie within the 500m buffer of this single furnace. Red = 59m gap; grey = remainder.</text>
 </svg>

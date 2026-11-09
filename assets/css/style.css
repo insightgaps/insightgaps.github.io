@@ -457,3 +457,86 @@ table[tabindex="0"]:focus-visible { outline: 2px solid var(--accent); outline-of
 .image-placeholder p:last-child { margin-bottom: 0; }
 /* Consistent spacing for extra figures in v2 pages. */
 .figure-note { font-size: 0.85rem; color: var(--muted); }
+
+/* Full-width story-first desktop layout for investigations */
+.page--report {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 3.5rem) var(--space) 4rem;
+}
+
+@media (min-width: 960px) {
+  .page--report {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 960px !important;
+  }
+}
+
+.page--report .prose {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+.page--report .prose > p,
+.page--report .prose > h1,
+.page--report .prose > h2,
+.page--report .prose > h3,
+.page--report .prose > h4,
+.page--report .prose > ul,
+.page--report .prose > ol,
+.page--report .prose > details,
+.page--report .prose > blockquote,
+.page--report .prose > hr,
+.page--report .prose > .eyebrow,
+.page--report .prose > .meta,
+.page--report .prose > .hero__standfirst,
+.page--report .prose > nav,
+.page--report .prose > .scene-key,
+.page--report .step__text {
+  max-width: 68ch !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: var(--space);
+  padding-right: var(--space);
+}
+
+.scroll-step--full { display: block !important; border-top: 1px solid var(--line); padding: 2.25rem 0 2.5rem; }
+.scroll-step--full:first-of-type { border-top: 0; padding-top: 1.25rem; }
+
+.page--report figure.chart-full,
+.page--report .scroll-step--full figure,
+.page--report .stat-strip {
+  position: static !important;
+  width: 100% !important;
+  max-width: 960px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.page--report figure.chart-full img,
+.page--report .scroll-step--full figure img {
+  width: 100% !important;
+  max-width: 960px !important;
+  height: auto !important;
+  display: block;
+  margin: 0 auto;
+  border-radius: 6px;
+}
+
+@media (min-width: 960px) {
+  .page--report figure.chart-full img,
+  .page--report .scroll-step--full figure img {
+    width: 960px !important;
+  }
+}
+
+.scroll-step--full figcaption, figure.chart-full figcaption {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin-top: 0.65rem;
+  text-align: center;
+}

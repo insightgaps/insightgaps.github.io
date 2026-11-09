@@ -1,13 +1,69 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 165" role="img" aria-label="The joma contract: fixed daily fee, costs on top, small net income">
-<title>The joma contract: fixed daily fee, costs on top, small net income</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 260" role="img" aria-labelledby="joma-title joma-desc">
+  <title id="joma-title">The Joma Contract: Economic Structure of Driver Speed and Trip Racing</title>
+  <desc id="joma-desc">Process diagram illustrating the daily joma bus lease: owner fixed fee BDT 4,000 to 6,000, rising to Tk 8,000 on Eid, fuel and gate expenses on top, leaving BDT 300 to 500 net income that forces drivers to race for passengers.</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 22px; font-weight: 700; fill: #16130f; }
+      .card-tag { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; }
+      .card-title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 18px; font-weight: 700; fill: #16130f; }
+      .card-body { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #3d382f; }
+      .card-sub { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; font-weight: 700; }
+      .arrow { font-family: system-ui, sans-serif; font-size: 28px; font-weight: 700; fill: #8c2b18; text-anchor: middle; }
+      .note { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #3d382f; }
+    </style>
+  </defs>
 
-<text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">The joma contract, step by step (TIB 2024, as cited)</text>
-<rect x="10" y="50" width="150" height="70" fill="#f5f1e8" stroke="#16130f"/><text x="85" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#16130f">Owner leases bus</text><text x="85" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">to driver team</text>
-<text x="175" y="92" font-family="system-ui, sans-serif" font-size="18" fill="#8c2b18">→</text>
-<rect x="200" y="50" width="150" height="70" fill="#f5f1e8" stroke="#16130f"/><text x="275" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#16130f">Fixed daily fee</text><text x="275" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">BDT 4,000–6,000</text>
-<text x="365" y="92" font-family="system-ui, sans-serif" font-size="18" fill="#8c2b18">→</text>
-<rect x="390" y="50" width="150" height="70" fill="#f5f1e8" stroke="#16130f"/><text x="465" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#16130f">Fuel, helper, gate</text><text x="465" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">fees on top</text>
-<text x="555" y="92" font-family="system-ui, sans-serif" font-size="18" fill="#8c2b18">→</text>
-<rect x="580" y="50" width="130" height="70" fill="#8c2b18"/><text x="645" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#fff">Net: BDT 300–500</text><text x="645" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#fff">per day — race first</text>
-<text x="360" y="150" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Fee rises to Tk 8,000 or more during Eid. Figures are TIB estimates, not independently replicated.</text>
+  <rect x="2" y="2" width="956" height="256" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <text x="32" y="34" class="kicker">COMMERCIAL INCENTIVE AUDIT · LABOR ECONOMICS</text>
+  <text x="32" y="58" class="title">The Joma Contract: Why Drivers Race for Street Margins</text>
+
+  <!-- Step 1 -->
+  <g transform="translate(32, 74)">
+    <rect width="202" height="130" rx="6" fill="#ffffff" stroke="#16130f" stroke-width="2"/>
+    <text x="14" y="26" class="card-tag">1 · LEASE AGREEMENT</text>
+    <text x="14" y="52" class="card-title">Daily Bus Handover</text>
+    <text x="14" y="76" class="card-body">Owner leases bus to</text>
+    <text x="14" y="96" class="card-body">driver-helper team.</text>
+    <text x="14" y="116" class="card-sub" fill="#5c5954">No salary contract</text>
+  </g>
+
+  <text x="250" y="146" class="arrow">→</text>
+
+  <!-- Step 2 -->
+  <g transform="translate(266, 74)">
+    <rect width="202" height="130" rx="6" fill="#ffffff" stroke="#16130f" stroke-width="2"/>
+    <text x="14" y="26" class="card-tag">2 · FIXED DAILY TARGET</text>
+    <text x="14" y="52" class="card-title">BDT 4,000–6,000</text>
+    <text x="14" y="76" class="card-body">Guaranteed to owner</text>
+    <text x="14" y="96" class="card-body">before any earning.</text>
+    <text x="14" y="116" class="card-sub" fill="#8c2b18">Tk 8,000+ on Eid</text>
+  </g>
+
+  <text x="484" y="146" class="arrow">→</text>
+
+  <!-- Step 3 -->
+  <g transform="translate(500, 74)">
+    <rect width="202" height="130" rx="6" fill="#ffffff" stroke="#16130f" stroke-width="2"/>
+    <text x="14" y="26" class="card-tag">3 · OPERATING BURDEN</text>
+    <text x="14" y="52" class="card-title">Fuel &amp; Gate Fees</text>
+    <text x="14" y="76" class="card-body">Fuel, gas, and line fees</text>
+    <text x="14" y="96" class="card-body">paid on top by crew.</text>
+    <text x="14" y="116" class="card-sub" fill="#5c5954">Borne by driver</text>
+  </g>
+
+  <text x="718" y="146" class="arrow">→</text>
+
+  <!-- Step 4 -->
+  <g transform="translate(734, 74)">
+    <rect width="194" height="130" rx="6" fill="#fff5f5" stroke="#8c2b18" stroke-width="2"/>
+    <text x="14" y="26" class="card-tag" fill="#8c2b18">4 · NET EARNINGS</text>
+    <text x="14" y="52" class="card-title" fill="#8c2b18">BDT 300–500</text>
+    <text x="14" y="76" class="card-body">Driver net income.</text>
+    <text x="14" y="96" class="card-body" font-weight="700">Must race rival buses</text>
+    <text x="14" y="116" class="card-sub" fill="#8c2b18">Caution = cash loss</text>
+  </g>
+
+  <text x="32" y="234" class="note">Source: Transparency International Bangladesh (TIB 2024 transport survey). Fixed daily fee BDT 4,000–6,000 (Tk 8,000 on Eid); net driver income BDT 300–500/day.</text>
 </svg>

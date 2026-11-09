@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 260" role="img" aria-labelledby="path-title path-desc">
+  <title id="path-title">Survivor Path: Aggregate Institutional Attrition Stages</title>
+  <desc id="path-desc">Diagram showing aggregate institutional attrition stages: non-disclosure (62-64 percent), forensic window closure (78 percent), and forensic DNA laboratory backlog (92 percent).</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 22px; font-weight: 700; fill: #16130f; }
+      .card-tag { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; }
+      .card-body { font-family: system-ui, -apple-system, sans-serif; font-size: 15px; fill: #16130f; }
+      .card-src { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; }
+      .note-dark { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #3d382f; }
+      .note-sub { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="956" height="256" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <text x="32" y="34" class="kicker">ATTRITION PATH · AGGREGATE INSTITUTIONAL STAGES</text>
+  <text x="32" y="58" class="title">Where the Path Narrows — Aggregates Only (No Case-Level Detail)</text>
+
+  <!-- Card 1 -->
+  <g transform="translate(32, 78)">
+    <rect width="280" height="125" rx="6" fill="#f4f1ea" stroke="#16130f" stroke-width="2"/>
+    <text x="16" y="26" class="card-tag">1 · DISCLOSURE</text>
+    <text x="16" y="52" class="card-body">62–64% do not disclose</text>
+    <text x="16" y="74" class="card-body">non-partner sexual violence.</text>
+    <text x="16" y="104" class="card-src">UNFPA / BBS VAW Survey 2024</text>
+  </g>
+
+  <!-- Card 2 -->
+  <g transform="translate(340, 78)">
+    <rect width="280" height="125" rx="6" fill="#f4f1ea" stroke="#16130f" stroke-width="2"/>
+    <text x="16" y="26" class="card-tag">2 · FORENSIC WINDOW</text>
+    <text x="16" y="52" class="card-body">78% arrive after the</text>
+    <text x="16" y="74" class="card-body">72-hour forensic window.</text>
+    <text x="16" y="104" class="card-src">BRAC 2022 Study</text>
+  </g>
+
+  <!-- Card 3 -->
+  <g transform="translate(648, 78)">
+    <rect width="280" height="125" rx="6" fill="#f4f1ea" stroke="#16130f" stroke-width="2"/>
+    <text x="16" y="26" class="card-tag">3 · DNA BOTTLENECK</text>
+    <text x="16" y="52" class="card-body">92% samples backlogged</text>
+    <text x="16" y="74" class="card-body">(1,204 / 1,304 unprofiled).</text>
+    <text x="16" y="104" class="card-src">2 national DNA analyzers</text>
+  </g>
+
+  <text x="32" y="226" class="note-dark">Aggregate figures only. No case-level tables, no identifying detail, no jigsaw identification.</text>
+  <text x="32" y="246" class="note-sub">Stages represent distinct institutional bottlenecks, not a single unified mathematical funnel.</text>
+</svg>

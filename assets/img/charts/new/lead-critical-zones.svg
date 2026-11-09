@@ -1,14 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 170" role="img" aria-label="Bar chart: 294 sites mapped, 68 critical zones, 65 exceeding 100,000 ppm">
-<title>Critical zones among 294 mapped sites</title>
-<text x="0" y="22" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">Among 294 mapped sites: 68 critical, 65 over 100,000 ppm</text>
-<text x="0" y="57" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">All sites mapped</text>
-<rect x="210" y="42" width="430" height="20" fill="#16130f"/>
-<text x="645" y="57" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">294</text>
-<text x="0" y="91" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Critical zones</text>
-<rect x="210" y="76" width="99" height="20" fill="#8c2b18"/>
-<text x="314" y="91" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">68</text>
-<text x="0" y="125" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Over 100,000 ppm (250× the 400 ppm threshold)</text>
-<rect x="340" y="110" width="95" height="20" fill="#8c2b18"/>
-<text x="440" y="125" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">65</text>
-<text x="0" y="160" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">68 and 65 are different numbers — do not merge them. Source: live report, Claim R-08, Confirmed.</text>
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 220" role="img" aria-labelledby="crit-title crit-desc">
+  <title id="crit-title">Critical Contamination Zones: 68 Critical Sites, 65 Exceeding 100,000 PPM</title>
+  <desc id="crit-desc">Horizontal bar chart displaying site severity: 294 total mapped sites, 68 designated critical contamination zones, and 65 sites exceeding 100,000 ppm soil lead (250x residential threshold).</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 21px; font-weight: 700; fill: #16130f; }
+      .label { font-family: system-ui, -apple-system, sans-serif; font-size: 16px; font-weight: 600; fill: #16130f; }
+      .val { font-family: "Space Mono", ui-monospace, monospace; font-size: 20px; font-weight: 700; }
+      .note { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="956" height="216" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <text x="32" y="34" class="kicker">SITE CLASSIFICATION AUDIT · 294 INVESTIGATED SITES</text>
+  <text x="32" y="58" class="title">Contamination Severity: Critical Zones &amp; 100,000+ PPM Thresholds</text>
+
+  <!-- Row 1: All sites -->
+  <text x="32" y="104" class="label">All Mapped Contaminated Sites</text>
+  <rect x="420" y="84" width="410" height="26" rx="4" fill="#16130f"/>
+  <text x="838" y="104" class="val" fill="#16130f">294 sites</text>
+
+  <!-- Row 2: Critical zones -->
+  <text x="32" y="142" class="label">Designated Critical Contamination Zones</text>
+  <rect x="420" y="122" width="95" height="26" rx="4" fill="#8c2b18"/>
+  <text x="524" y="142" class="val" fill="#8c2b18">68 zones</text>
+
+  <!-- Row 3: Over 100k ppm -->
+  <text x="32" y="180" class="label">Sites Exceeding 100,000 ppm (250× limit)</text>
+  <rect x="420" y="160" width="91" height="26" rx="4" fill="#8c2b18"/>
+  <text x="520" y="180" class="val" fill="#8c2b18">65 sites</text>
+
+  <text x="32" y="206" class="note">Crucial: 68 and 65 are distinct audited figures. 68 represents designated critical zones; 65 represents sites with measured soil concentrations above 100,000 ppm.</text>
 </svg>

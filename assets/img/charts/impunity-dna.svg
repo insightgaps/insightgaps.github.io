@@ -1,6 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 120" role="img" aria-label="DNA samples 2025: unprocessed vs processed">
-<title>DNA samples 2025: unprocessed vs processed</title>
-<text x="0" y="22" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">DNA samples received in 2025: processed vs unprocessed</text>
-<rect x="0" y="40" width="644" height="26" fill="#8c2b18"/><rect x="644" y="40" width="56" height="26" fill="#16130f"/>
-<text x="0" y="86" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Unprocessed: 1,204 of 1,304 (92%)</text>
-<text x="0" y="106" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Processed: 100 of 1,304 (8%) — derived: 1,304 minus 1,204.</text></svg>
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 220" role="img" aria-labelledby="dna-title dna-desc">
+  <title id="dna-title">Forensic Evidence Backlog: 92% of DNA Samples Unprocessed in 2025</title>
+  <desc id="dna-desc">Horizontal bar chart displaying National Forensic DNA Profiling Laboratory records for 2025: 1,204 unprocessed samples (92%) versus 100 processed samples (8%) out of 1,304 total received.</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 21px; font-weight: 700; fill: #16130f; }
+      .label { font-family: system-ui, -apple-system, sans-serif; font-size: 16px; font-weight: 600; fill: #16130f; }
+      .val { font-family: "Space Mono", ui-monospace, monospace; font-size: 20px; font-weight: 700; }
+      .note { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="956" height="216" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <text x="32" y="34" class="kicker">FORENSIC BOTTLENECK AUDIT · NATIONAL DNA LABORATORY (SEP 2025)</text>
+  <text x="32" y="58" class="title">DNA Samples Received in 2025: Processed vs. Unprocessed</text>
+
+  <!-- Segmented Full Bar -->
+  <g transform="translate(32, 84)">
+    <!-- Unprocessed (92% = 824px) -->
+    <rect x="0" y="0" width="824" height="42" rx="4" fill="#8c2b18"/>
+    <text x="20" y="27" font-family="Space Grotesk, sans-serif" font-size="16px" font-weight="700" fill="#ffffff">UNPROCESSED: 1,204 SAMPLES (92.3%)</text>
+
+    <!-- Processed (8% = 72px) -->
+    <rect x="828" y="0" width="68" height="42" rx="4" fill="#16130f"/>
+    <text x="862" y="27" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="14px" font-weight="700" fill="#ffffff">8%</text>
+  </g>
+
+  <!-- Labels under bar -->
+  <text x="32" y="156" class="label"><tspan fill="#8c2b18" font-weight="700">1,204 Unprocessed Samples:</tspan> Stored awaiting reagent kits, staff, and laboratory capacity.</text>
+  <text x="32" y="180" class="label"><tspan fill="#16130f" font-weight="700">100 Processed Samples:</tspan> Completed through Sep 2025 (derived: 1,304 received minus 1,204 backlogged).</text>
+
+  <text x="32" y="202" class="note">Source: National Forensic DNA Profiling Laboratory, Ministry of Women and Children Affairs, September 2025 release.</text>
+</svg>

@@ -1,4 +1,34 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 140" role="img" aria-label="Raw rows vs deduplicated unique accidents">
-<title>Raw rows vs deduplicated unique accidents</title>
-<text x="0" y="22" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">Raw rows vs deduplicated unique accidents</text><text x="0" y="57" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Raw rows</text><rect x="210" y="42" width="430" height="20" fill="#8c2b18"/><text x="645" y="57" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">47,680</text><text x="0" y="91" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Unique accidents</text><rect x="210" y="76" width="21.0" height="20" fill="#16130f"/><text x="236.0" y="91" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">2,331</text><text x="0" y="126" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">95.11% of raw rows were artificial padding, per the bureau deduplication audit.</text>
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 220" role="img" aria-labelledby="dedup-title dedup-desc">
+  <title id="dedup-title">Deduplication Audit: 47,680 Raw Rows vs. 2,331 Unique Accidents</title>
+  <desc id="dedup-desc">Bar chart comparing 47,680 raw Figshare dataset rows against the 2,331 audited unique accidents, revealing 95.11% artificial padding.</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 21px; font-weight: 700; fill: #16130f; }
+      .label { font-family: system-ui, -apple-system, sans-serif; font-size: 16px; font-weight: 600; fill: #16130f; }
+      .val { font-family: "Space Mono", ui-monospace, monospace; font-size: 20px; font-weight: 700; }
+      .note { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="956" height="216" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <text x="32" y="34" class="kicker">DATA CLEANING AUDIT · FIGSHARE REPOSITORY CHECK</text>
+  <text x="32" y="58" class="title">Raw Dataset Padding vs. Audited Unique Road Accidents</text>
+
+  <!-- Raw Rows Bar -->
+  <text x="32" y="104" class="label">Raw Figshare Rows (DOI: 10.6084/m9.figshare)</text>
+  <rect x="420" y="84" width="410" height="30" rx="4" fill="#8c2b18"/>
+  <text x="838" y="106" class="val" fill="#8c2b18">47,680</text>
+
+  <!-- Cleaned Bar -->
+  <text x="32" y="152" class="label">Audited Unique Accidents (2022–2024)</text>
+  <rect x="420" y="132" width="20" height="30" rx="4" fill="#16130f"/>
+  <text x="448" y="154" class="val" fill="#16130f">2,331 unique crashes (4.89%)</text>
+
+  <!-- Padding note -->
+  <rect x="680" y="132" width="240" height="30" rx="4" fill="#fff5f5" stroke="#8c2b18" stroke-width="1.5"/>
+  <text x="800" y="152" text-anchor="middle" font-family="Space Mono, monospace" font-size="14px" font-weight="700" fill="#8c2b18">95.11% DISCARDED PADDING</text>
+
+  <text x="32" y="196" class="note">Method: Raw rows cross-joined identical incidents across metadata fields. Grouped by 9 unique identifiers; 1-record gap (2,331 vs. 2,332) flagged as unresolved.</text>
 </svg>

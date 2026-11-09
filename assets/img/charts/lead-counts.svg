@@ -1,13 +1,50 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 165" role="img" aria-label="From 294 mapped sites to 121 unique schools">
-<title>From 294 mapped sites to 121 unique schools</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 220" role="img" aria-labelledby="counts-title counts-desc">
+  <title id="counts-title">From 294 Mapped Sites to 121 Unique Schools</title>
+  <desc id="counts-desc">Flow diagram showing transition from 294 mapped sites, to 44 headline sites, 145 intersections within 500m, and 121 unique schools.</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 22px; font-weight: 700; fill: #16130f; }
+      .step-val { font-family: "Space Mono", ui-monospace, monospace; font-size: 16px; font-weight: 700; text-anchor: middle; }
+      .step-sub { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; text-anchor: middle; }
+      .arrow { font-family: system-ui, sans-serif; font-size: 24px; font-weight: 700; fill: #8c2b18; text-anchor: middle; }
+      .note { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; }
+    </style>
+  </defs>
 
-<text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">From sites to schools — published counts, not a single merged number</text>
-<rect x="10" y="50" width="130" height="70" fill="#f5f1e8" stroke="#16130f"/><text x="75" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#16130f">294 sites</text><text x="75" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">mapped</text>
-<text x="152" y="92" font-family="system-ui, sans-serif" font-size="18" fill="#8c2b18">→</text>
-<rect x="180" y="50" width="130" height="70" fill="#f5f1e8" stroke="#16130f"/><text x="245" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#16130f">44 headline</text><text x="245" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">sites</text>
-<text x="322" y="92" font-family="system-ui, sans-serif" font-size="18" fill="#8c2b18">→</text>
-<rect x="350" y="50" width="130" height="70" fill="#f5f1e8" stroke="#16130f"/><text x="415" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#16130f">145 intersections</text><text x="415" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">within 500 m</text>
-<text x="492" y="92" font-family="system-ui, sans-serif" font-size="18" fill="#8c2b18">→</text>
-<rect x="520" y="50" width="190" height="70" fill="#8c2b18"/><text x="615" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#fff">121 unique schools</text><text x="615" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#fff">24 overlaps make 145 ≠ 121</text>
-<text x="360" y="150" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Re-run snapshot differs (51 / 166 / 125) — different snapshot and counting rule, both shown in the appendix.</text>
+  <rect x="2" y="2" width="956" height="216" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <text x="32" y="34" class="kicker">GEOSPATIAL ATTRITION · SCHOOL EXPOSURE DERIVATION</text>
+  <text x="32" y="58" class="title">From Sites to Schools — Published Counts (Not a Single Merged Number)</text>
+
+  <!-- Step 1 -->
+  <rect x="32" y="78" width="180" height="80" rx="6" fill="#f5f1e8" stroke="#16130f" stroke-width="2"/>
+  <text x="122" y="112" class="step-val" fill="#16130f">294 Sites</text>
+  <text x="122" y="136" class="step-sub" fill="#16130f">Mapped</text>
+
+  <!-- Arrow 1 -->
+  <text x="232" y="125" class="arrow">→</text>
+
+  <!-- Step 2 -->
+  <rect x="252" y="78" width="180" height="80" rx="6" fill="#f5f1e8" stroke="#16130f" stroke-width="2"/>
+  <text x="342" y="112" class="step-val" fill="#16130f">44 Headline</text>
+  <text x="342" y="136" class="step-sub" fill="#16130f">Assessed Sites</text>
+
+  <!-- Arrow 2 -->
+  <text x="452" y="125" class="arrow">→</text>
+
+  <!-- Step 3 -->
+  <rect x="472" y="78" width="180" height="80" rx="6" fill="#f5f1e8" stroke="#16130f" stroke-width="2"/>
+  <text x="562" y="112" class="step-val" fill="#8c2b18">145 Intersect</text>
+  <text x="562" y="136" class="step-sub" fill="#16130f">Within 500m</text>
+
+  <!-- Arrow 3 -->
+  <text x="672" y="125" class="arrow">→</text>
+
+  <!-- Step 4 -->
+  <rect x="692" y="78" width="236" height="80" rx="6" fill="#8c2b18" stroke="#8c2b18" stroke-width="2"/>
+  <text x="810" y="112" class="step-val" fill="#ffffff">121 Unique Schools</text>
+  <text x="810" y="136" class="step-sub" fill="#ffffff">24 Overlaps: 145 ≠ 121</text>
+
+  <text x="32" y="190" class="note">Re-run snapshot differs (51 / 166 / 125) due to OSM drift — both rule sets documented in the evidence appendix.</text>
 </svg>

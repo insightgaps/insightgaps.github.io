@@ -1,11 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="720" height="230" viewBox="0 0 720 230" role="img" aria-labelledby="t d">
-<title id="t">Disposal is not conviction</title>
-<desc id="d">Conviction rates shown in the report range from 0.12 percent to 3.66 percent. The CEDAW figure of 53.52 percent is a disposal figure only, not a conviction rate, and must not be read as like-for-like with conviction rates.</desc>
-<rect width="720" height="230" fill="#fdfcf8"/>
-<text x="20" y="30" font-family="Georgia,serif" font-size="22" font-weight="700" fill="#16130f">Disposal is not conviction</text>
-<text x="20" y="70" font-family="system-ui,sans-serif" font-size="16" fill="#16130f">Conviction rates, range: 0.12% – 3.66%</text>
-<rect x="20" y="80" width="60" height="28" fill="#8c2b18"/>
-<text x="20" y="135" font-family="system-ui,sans-serif" font-size="16" fill="#16130f">CEDAW disposal, NOT a conviction rate: 53.52%</text>
-<rect x="20" y="145" width="386" height="28" fill="#6d675c"/>
-<text x="20" y="200" font-family="system-ui,sans-serif" font-size="14" fill="#6d675c">Do not compare these two bars as if they measured the same thing.</text>
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 250" role="img" aria-labelledby="disp-title disp-desc">
+  <title id="disp-title">Statistical Fallacy Check: Case Disposal Rate is NOT a Conviction Rate</title>
+  <desc id="disp-desc">Horizontal comparison chart demonstrating the distinction between true conviction rates (0.12% to 3.66%) and the CEDAW case disposal rate of 53.52%, which includes dismissals and acquittals.</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 21px; font-weight: 700; fill: #16130f; }
+      .label { font-family: system-ui, -apple-system, sans-serif; font-size: 16px; font-weight: 600; fill: #16130f; }
+      .val { font-family: "Space Mono", ui-monospace, monospace; font-size: 20px; font-weight: 700; }
+      .note { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="956" height="246" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <text x="32" y="34" class="kicker">STATISTICAL METRIC AUDIT · CEDAW REPORTING CHECK</text>
+  <text x="32" y="58" class="title">Case Disposal is NOT Conviction: Clarifying the 53.52% Metric</text>
+
+  <!-- Bar 1: Conviction range -->
+  <text x="32" y="104" class="label">Actual Conviction Rates (All Studies Range)</text>
+  <rect x="440" y="84" width="46" height="30" rx="4" fill="#8c2b18"/>
+  <text x="496" y="106" class="val" fill="#8c2b18">0.12% – 3.66%</text>
+
+  <!-- Bar 2: CEDAW disposal -->
+  <text x="32" y="152" class="label">CEDAW "Disposal Rate" (Govt Filing, 2022)</text>
+  <rect x="440" y="132" width="440" height="30" rx="4" fill="#5c5954"/>
+  <text x="496" y="154" class="val" fill="#ffffff" dx="10">53.52% CASE DISPOSAL</text>
+
+  <text x="32" y="194" class="label" font-size="14.5px" fill="#8c2b18">Critical distinction: "Disposal" means the court closed the file — via dismissal, compromise, acquittal, or withdrawal.</text>
+  <text x="32" y="218" class="note">Source: Bangladesh CEDAW 9th Periodic Report (2022). It measures case clearance, not justice outcomes. Treating disposal as conviction is a major reporting error.</text>
 </svg>

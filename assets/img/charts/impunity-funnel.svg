@@ -1,11 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 225" role="img" aria-label="The justice funnel: disclosure, police, charge sheet, trial, conviction">
-<title>The justice funnel: disclosure, police, charge sheet, trial, conviction</title>
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 270" role="img" aria-labelledby="funnel-title funnel-desc">
+  <title id="funnel-title">The Impunity Funnel: Survivor Attrition at Each Judicial Stage</title>
+  <desc id="funnel-desc">Horizontal funnel diagram showing how reported gender violence cases narrow across stages: disclosure, police contact, charge sheet, trial, down to conviction.</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 21px; font-weight: 700; fill: #16130f; }
+      .funnel-label { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 15px; font-weight: 700; fill: #ffffff; text-anchor: middle; }
+      .funnel-sub { font-family: system-ui, sans-serif; font-size: 14px; fill: #ffffff; text-anchor: middle; }
+      .note { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; }
+    </style>
+  </defs>
 
-<text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">The funnel: each stage loses most of what enters it (stages only, not rates)</text>
-<rect x="110" y="45" width="500" height="26" fill="#8c2b18"/><text x="360" y="63" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#fff">1 · Disclosure</text>
-<rect x="150" y="75" width="420" height="26" fill="#16130f"/><text x="360" y="93" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#fff">2 · Police contact</text>
-<rect x="190" y="105" width="340" height="26" fill="#6d675c"/><text x="360" y="123" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#fff">3 · Charge sheet</text>
-<rect x="230" y="135" width="260" height="26" fill="#8a8478"/><text x="360" y="153" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#fff">4 · Trial</text>
-<rect x="270" y="165" width="180" height="26" fill="#e3ddd0" stroke="#16130f"/><text x="360" y="183" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#16130f">5 · Conviction</text>
-<text x="360" y="212" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Widths are illustrative only. The measured range is 0.12% to 3.66% on different denominators — never averaged.</text>
+  <rect x="2" y="2" width="956" height="266" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <text x="32" y="34" class="kicker">SYSTEMIC ATTRITION AUDIT · STAGES OF JUSTICE FAILURE</text>
+  <text x="32" y="58" class="title">The Justice Funnel: Where Cases Drop Out Before Trial</text>
+
+  <!-- Funnel Stages -->
+  <g transform="translate(32, 78)">
+    <!-- Stage 1 -->
+    <rect x="0" y="0" width="896" height="24" rx="4" fill="#8c2b18"/>
+    <text x="448" y="17" class="funnel-label">1 · DISCLOSURE &amp; REPORTING (62%–64% NEVER REPORT)</text>
+
+    <!-- Stage 2 -->
+    <rect x="68" y="30" width="760" height="24" rx="4" fill="#2b2823"/>
+    <text x="448" y="47" class="funnel-label">2 · POLICE CONTACT &amp; FIRST INFORMATION REPORT (FIR)</text>
+
+    <!-- Stage 3 -->
+    <rect x="148" y="60" width="600" height="24" rx="4" fill="#5c5954"/>
+    <text x="448" y="77" class="funnel-label">3 · INVESTIGATION &amp; CHARGE SHEET SUBMISSION</text>
+
+    <!-- Stage 4 -->
+    <rect x="238" y="90" width="420" height="24" rx="4" fill="#8a8478"/>
+    <text x="448" y="107" class="funnel-label">4 · SPECIAL TRIBUNAL TRIAL (AVERAGE 2,349 DAYS)</text>
+
+    <!-- Stage 5 -->
+    <rect x="338" y="120" width="220" height="26" rx="4" fill="#ffffff" stroke="#8c2b18" stroke-width="2.5"/>
+    <text x="448" y="138" font-family="Space Grotesk, sans-serif" font-size="15px" font-weight="700" fill="#8c2b18" text-anchor="middle">5 · CONVICTION: 0.12% – 3.66%</text>
+  </g>
+
+  <text x="32" y="246" class="note">Measurement standard: Widths illustrate progressive attrition. Measured conviction rates range from 0.12% (Police HQ) to 3.66% (Special Tribunals) across separate denominators — never averaged.</text>
 </svg>

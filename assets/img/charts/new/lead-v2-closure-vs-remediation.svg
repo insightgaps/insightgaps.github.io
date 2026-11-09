@@ -1,17 +1,41 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 230" role="img" aria-label="Before and after comparison: closure or demolition is an enforcement event, remediation is soil cleaned and verified clean; only the second changes the zero">
-<title>Before / after: closure is not cleanup</title>
-<text x="0" y="24" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">Before / after: closure is not cleanup</text>
-<rect x="0" y="40" width="350" height="110" fill="#ffffff" stroke="#16130f"/>
-<text x="12" y="64" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">BEFORE — enforcement event</text>
-<text x="12" y="88" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">• Facility shut down (28 in Jatrabari, 2025)</text>
-<text x="12" y="110" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">• Smelter demolished</text>
-<text x="12" y="132" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">• Soil lead: UNCHANGED, unmeasured after</text>
-<rect x="370" y="40" width="350" height="110" fill="#f2ede3" stroke="#8c2b18"/>
-<text x="382" y="64" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#8c2b18">AFTER — remediation (none on record)</text>
-<text x="382" y="88" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">• Contaminated soil removed or treated</text>
-<text x="382" y="110" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">• Clean soil verified by testing</text>
-<text x="382" y="132" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">• Public record published</text>
-<text x="0" y="178" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">Public-record count of the AFTER column at analysed coordinates: 0.</text>
-<text x="0" y="200" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Absence of a record is not proof nothing ever happened anywhere — it is a record finding.</text>
-<text x="0" y="220" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Claim R-04, Confirmed, scoped to the public record at analysed coordinates.</text>
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 260" role="img" aria-labelledby="closure-title closure-desc">
+  <title id="closure-title">Remediation Audit: Enforcement Closure is NOT Soil Cleanup</title>
+  <desc id="closure-desc">Comparison diagram distinguishing administrative enforcement events (temporary closures, demolitions) from true soil remediation, highlighting that zero sites have been permanently remediated on public record.</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 21px; font-weight: 700; fill: #16130f; }
+      .card-tag { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; }
+      .card-title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 18px; font-weight: 700; fill: #16130f; }
+      .card-item { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #2b2823; }
+      .note { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="956" height="256" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <text x="32" y="34" class="kicker">ENVIRONMENTAL POLICY AUDIT · REMEDIATION DEFINITION</text>
+  <text x="32" y="58" class="title">Administrative Closure is NOT Soil Decontamination</text>
+
+  <!-- Left Card: Administrative Closure -->
+  <g transform="translate(32, 78)">
+    <rect width="436" height="130" rx="6" fill="#ffffff" stroke="#16130f" stroke-width="2"/>
+    <text x="18" y="26" class="card-tag" fill="#16130f">ENFORCEMENT EVENT (EVICTION / CLOSURE)</text>
+    <text x="18" y="52" class="card-title">Administrative Factory Shutdown</text>
+    <text x="18" y="78" class="card-item">• Taskforce demolishes furnaces (e.g. 28 sites in Jatrabari, 2025).</text>
+    <text x="18" y="100" class="card-item">• Operators relocate smelters to adjacent residential wards.</text>
+    <text x="18" y="122" class="card-item" font-weight="700" fill="#8c2b18">• Soil lead concentration remains UNCHANGED &amp; toxic.</text>
+  </g>
+
+  <!-- Right Card: Actual Remediation -->
+  <g transform="translate(492, 78)">
+    <rect width="436" height="130" rx="6" fill="#fff5f5" stroke="#8c2b18" stroke-width="2"/>
+    <text x="18" y="26" class="card-tag" fill="#8c2b18">PERMANENT REMEDIATION (CLEANUP)</text>
+    <text x="18" y="52" class="card-title" fill="#8c2b18">Verified Soil Decontamination</text>
+    <text x="18" y="78" class="card-item">• Toxic topsoil excavated, stabilized, or encapsulated.</text>
+    <text x="18" y="100" class="card-item">• Post-cleanup soil assays verified below 400 ppm limit.</text>
+    <text x="18" y="122" class="card-item" font-weight="700" fill="#8c2b18">• PUBLIC RECORD COUNT AT FEATURED SITES: EXACTLY 0</text>
+  </g>
+
+  <text x="32" y="240" class="note">Finding (Claim R-04 · Confirmed): 22 years of government survey documentation has resulted in zero permanently remediated sites on public record.</text>
 </svg>

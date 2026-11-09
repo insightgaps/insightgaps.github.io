@@ -1,0 +1,52 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 260" role="img" aria-labelledby="proj-title proj-desc">
+  <title id="proj-title">Statistical Standard: 39,875 is an Exposure Projection, NOT Poisoned Children</title>
+  <desc id="proj-desc">Formula diagram showing how the 39,875 exposure instance metric is calculated: 145 school buffer intersections multiplied by 275 average enrollment, with strict guidance against calling it children poisoned.</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 21px; font-weight: 700; fill: #16130f; }
+      .card-tag { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; }
+      .card-title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 18px; font-weight: 700; fill: #16130f; }
+      .card-sub { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #3d382f; }
+      .oper { font-family: system-ui, sans-serif; font-size: 28px; font-weight: 700; fill: #16130f; text-anchor: middle; }
+      .warning { font-family: system-ui, -apple-system, sans-serif; font-size: 14.5px; font-weight: 700; fill: #8c2b18; }
+      .note { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="956" height="256" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <text x="32" y="34" class="kicker">METHODOLOGICAL INTEGRITY AUDIT · PROJECTION DERIVATION</text>
+  <text x="32" y="58" class="title">39,875: A Projection of Exposure Instances, NOT "Children Poisoned"</text>
+
+  <!-- Box 1 -->
+  <g transform="translate(32, 76)">
+    <rect width="250" height="96" rx="6" fill="#ffffff" stroke="#16130f" stroke-width="2"/>
+    <text x="16" y="26" class="card-tag" fill="#8c2b18">1 · BUFFER OVERLAPS</text>
+    <text x="16" y="52" class="card-title">145 Intersections</text>
+    <text x="16" y="76" class="card-sub">Schools within 500m screening zone</text>
+  </g>
+
+  <text x="306" y="132" class="oper">×</text>
+
+  <!-- Box 2 -->
+  <g transform="translate(330, 76)">
+    <rect width="250" height="96" rx="6" fill="#ffffff" stroke="#16130f" stroke-width="2"/>
+    <text x="16" y="26" class="card-tag" fill="#16130f">2 · AVERAGE ENROLLMENT</text>
+    <text x="16" y="52" class="card-title">275 Pupils / School</text>
+    <text x="16" y="76" class="card-sub">Annual Primary Census 2024</text>
+  </g>
+
+  <text x="604" y="132" class="oper">=</text>
+
+  <!-- Box 3 -->
+  <g transform="translate(628, 76)">
+    <rect width="300" height="96" rx="6" fill="#fff5f5" stroke="#8c2b18" stroke-width="2"/>
+    <text x="16" y="26" class="card-tag" fill="#8c2b18">3 · PROJECTED EXPOSURES</text>
+    <text x="16" y="52" class="card-title" fill="#8c2b18">≈ 39,875 Instances</text>
+    <text x="16" y="76" class="card-sub">Unique-school estimate ≈ 33,275</text>
+  </g>
+
+  <text x="32" y="202" class="warning">MANDATORY RULE: Never write "39,875 children poisoned" or "children poisoned by lead".</text>
+  <text x="32" y="226" class="note">These are modelled student-buffer exposure instances from school census data. They are not clinically tested individual children (Claim R-05 · Supported).</text>
+</svg>

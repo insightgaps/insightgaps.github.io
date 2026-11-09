@@ -1,12 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 170" role="img" aria-label="Eid-ul-Fitr 2026: 351 deaths in 15 days, about 23 per day, reported not re-computed">
-<title>Eid-ul-Fitr 2026 deaths per day</title>
-<text x="0" y="22" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">Eid-ul-Fitr 2026: 351 deaths in 15 days</text>
-<text x="0" y="57" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">15 days</text>
-<rect x="150" y="42" width="300" height="20" fill="#8c2b18"/>
-<text x="455" y="57" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">351 deaths</text>
-<text x="0" y="91" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Average per day (calculated: 351 ÷ 15)</text>
-<rect x="250" y="76" width="47" height="20" fill="#16130f"/>
-<text x="302" y="91" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">23.4 / day</text>
-<text x="0" y="130" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Reported by Road Safety Foundation / Jatri Kalyan Samity; NOT re-computed from the 2022–2024 cleaned dataset.</text>
-<text x="0" y="152" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Headline period sits outside the cleaned dataset range — reported, not re-computed.</text>
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 220" role="img" aria-labelledby="fitr-title fitr-desc">
+  <title id="fitr-title">Eid-ul-Fitr 2026: 351 Deaths in 15 Days (Reported, Not Re-Computed)</title>
+  <desc id="fitr-desc">Bar chart showing 351 reported fatalities across the 15-day Eid-ul-Fitr rush, averaging 23.4 deaths per day, reported by Road Safety Foundation and BJKS.</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 21px; font-weight: 700; fill: #16130f; }
+      .label { font-family: system-ui, -apple-system, sans-serif; font-size: 16px; font-weight: 600; fill: #16130f; }
+      .val { font-family: "Space Mono", ui-monospace, monospace; font-size: 20px; font-weight: 700; }
+      .calc { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; fill: #5c5954; }
+      .note { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="956" height="216" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <text x="32" y="34" class="kicker">EID-UL-FITR 2026 TRAVEL RUSH · REPORTED TOTALS</text>
+  <text x="32" y="58" class="title">Eid-ul-Fitr 2026: 351 Fatalities Across 15 Travel Days</text>
+
+  <!-- Total Bar -->
+  <text x="32" y="104" class="label">Total Rush Fatalities (15 days)</text>
+  <rect x="360" y="84" width="440" height="30" rx="4" fill="#8c2b18"/>
+  <text x="812" y="106" class="val" fill="#8c2b18">351 deaths</text>
+
+  <!-- Rate Bar -->
+  <text x="32" y="152" class="label">Average Fatalities Per Day</text>
+  <rect x="360" y="132" width="147" height="30" rx="4" fill="#16130f"/>
+  <text x="518" y="154" class="val" fill="#16130f">23.4 deaths / day</text>
+  <text x="730" y="152" class="calc">(Calculated: 351 ÷ 15 days)</text>
+
+  <text x="32" y="196" class="note">Source: Road Safety Foundation (RSF) &amp; Bangladesh Jatri Kalyan Samity (BJKS). Audited as reported: underlying incident logs unarchived; period is outside the 2022–2024 cleaned microdata.</text>
 </svg>

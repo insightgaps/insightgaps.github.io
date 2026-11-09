@@ -1,20 +1,45 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 246" role="img" aria-label="Dhaka crash hotspots: unique crashes in the deduplicated dataset">
-<title>Dhaka crash hotspots: unique crashes in the deduplicated dataset</title>
-<text x="0" y="22" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">Dhaka crash hotspots: unique crashes in the deduplicated dataset</text>
-<text x="0" y="57" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Tejgaon Industrial Area</text>
-<rect x="210" y="42" width="430.0" height="20" fill="#8c2b18"/>
-<text x="645" y="57" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">8</text>
-<text x="0" y="91" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Airport Roundabout</text>
-<rect x="210" y="76" width="322.5" height="20" fill="#16130f"/>
-<text x="538" y="91" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">6</text>
-<text x="0" y="125" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Jatrabari Intersection</text>
-<rect x="210" y="110" width="322.5" height="20" fill="#16130f"/>
-<text x="538" y="125" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">6</text>
-<text x="0" y="159" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Mayor Mohammad Hanif Flyover</text>
-<rect x="210" y="144" width="268.8" height="20" fill="#16130f"/>
-<text x="484" y="159" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">5</text>
-<text x="0" y="193" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Shonir Akhra, Dhaka–Chittagong Hwy</text>
-<rect x="210" y="178" width="215.0" height="20" fill="#16130f"/>
-<text x="430" y="193" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">4</text>
-<text x="0" y="238" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Counts are unique crashes in the 2,331-record deduplicated dataset, 2022–2024.</text>
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 310" role="img" aria-labelledby="hotspots-title hotspots-desc">
+  <title id="hotspots-title">Dhaka Crash Hotspots: Incident Clustering in the Deduplicated Dataset</title>
+  <desc id="hotspots-desc">Horizontal bar chart displaying unique crash frequencies across top Dhaka locations: Tejgaon (8), Airport Roundabout (6), Jatrabari (6), Hanif Flyover (5), and Shonir Akhra (4).</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 21px; font-weight: 700; fill: #16130f; }
+      .label { font-family: system-ui, -apple-system, sans-serif; font-size: 16px; font-weight: 600; fill: #16130f; }
+      .val { font-family: "Space Mono", ui-monospace, monospace; font-size: 19px; font-weight: 700; }
+      .note { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="956" height="306" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <text x="32" y="34" class="kicker">GEOGRAPHIC CLUSTERING · DEDUPLICATED 2022–2024 CRASHES</text>
+  <text x="32" y="58" class="title">Dhaka Crash Hotspots: Arterial Entry Points &amp; Intersections</text>
+
+  <!-- Row 1: Tejgaon -->
+  <text x="32" y="98" class="label">Tejgaon Industrial Area</text>
+  <rect x="360" y="78" width="440" height="26" rx="4" fill="#8c2b18"/>
+  <text x="810" y="98" class="val" fill="#8c2b18">8 crashes</text>
+
+  <!-- Row 2: Airport Roundabout -->
+  <text x="32" y="136" class="label">Airport Roundabout</text>
+  <rect x="360" y="116" width="330" height="26" rx="4" fill="#16130f"/>
+  <text x="700" y="136" class="val" fill="#16130f">6 crashes</text>
+
+  <!-- Row 3: Jatrabari -->
+  <text x="32" y="174" class="label">Jatrabari Intersection</text>
+  <rect x="360" y="154" width="330" height="26" rx="4" fill="#16130f"/>
+  <text x="700" y="174" class="val" fill="#16130f">6 crashes</text>
+
+  <!-- Row 4: Hanif Flyover -->
+  <text x="32" y="212" class="label">Mayor Mohammad Hanif Flyover</text>
+  <rect x="360" y="192" width="275" height="26" rx="4" fill="#16130f"/>
+  <text x="645" y="212" class="val" fill="#16130f">5 crashes</text>
+
+  <!-- Row 5: Shonir Akhra -->
+  <text x="32" y="250" class="label">Shonir Akhra (Dhaka–Ctg Highway)</text>
+  <rect x="360" y="230" width="220" height="26" rx="4" fill="#16130f"/>
+  <text x="590" y="250" class="val" fill="#16130f">4 crashes</text>
+
+  <text x="32" y="290" class="note">Analysis: 29 crashes total in these 5 clusters. Finding is the clustering by infrastructure type (highway entryways and grade splits), not the precise ranking of small counts.</text>
 </svg>

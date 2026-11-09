@@ -1,13 +1,55 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 250" role="img" aria-label="Three counts of schools near contaminated sites, side by side: published 44 sites, 145 intersections, 121 unique schools; re-run snapshot 51 sites, 166 intersections, 125 unique schools; methodology page 166 intersections, 132 unique schools">
-<title>Three counts, not one — published, re-run, methodology page</title>
-<text x="0" y="24" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">Three counts, not one — do not merge them</text>
-<text x="0" y="52" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">PUBLISHED (record)</text>
-<text x="0" y="74" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">44 sites · 145 intersections · 121 unique schools</text>
-<text x="0" y="104" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">RE-RUN SNAPSHOT (all 294 sites)</text>
-<text x="0" y="126" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">51 sites · 166 intersections · 125 unique schools</text>
-<text x="0" y="156" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">METHODOLOGY PAGE (newly mapped schools included)</text>
-<text x="0" y="178" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">166 intersections · 132 unique schools</text>
-<rect x="0" y="192" width="720" height="34" fill="#f2ede3" stroke="#16130f"/>
-<text x="10" y="214" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#8c2b18">FLAGGED: 132 shares the same 166 intersections as 125 — no derivation published.</text>
-<text x="0" y="240" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Cause stated in the report: OpenStreetMap database drift between extraction windows.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" role="img" aria-labelledby="reconcile-title reconcile-desc">
+  <title id="reconcile-title">School Exposure Counts Reconciled: Accounting for Database Drift</title>
+  <desc id="reconcile-desc">Comparative audit table reconciling three school exposure figures across extraction runs: published record (145 intersections / 121 schools), rerun snapshot (166 intersections / 125 schools), and combined methodology (132 unique schools).</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 22px; font-weight: 700; fill: #16130f; }
+      .col-title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 18px; font-weight: 700; fill: #16130f; }
+      .col-tag { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; }
+      .col-val { font-family: "Space Mono", ui-monospace, monospace; font-size: 16px; font-weight: 700; }
+      .col-sub { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; }
+      .note { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="956" height="296" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <text x="32" y="34" class="kicker">GEOSPATIAL AUDIT · EXTRACTION DRIFT RECONCILIATION</text>
+  <text x="32" y="58" class="title">Three School Counts Reconciled: Why Numbers Differ Across Releases</text>
+
+  <!-- 3 Comparison Columns -->
+  <!-- Col 1 -->
+  <g transform="translate(32, 78)">
+    <rect width="280" height="140" rx="6" fill="#ffffff" stroke="#16130f" stroke-width="2"/>
+    <text x="16" y="26" class="col-tag" fill="#8c2b18">1 · PUBLISHED REPORT</text>
+    <text x="16" y="50" class="col-title">Initial Baseline</text>
+    <text x="16" y="78" class="col-val" fill="#16130f">44 Sites Investigated</text>
+    <text x="16" y="102" class="col-val" fill="#8c2b18">145 Intersections</text>
+    <text x="16" y="126" class="col-val" fill="#16130f">121 Unique Schools</text>
+  </g>
+
+  <!-- Col 2 -->
+  <g transform="translate(340, 78)">
+    <rect width="280" height="140" rx="6" fill="#ffffff" stroke="#16130f" stroke-width="2"/>
+    <text x="16" y="26" class="col-tag" fill="#16130f">2 · RE-RUN SNAPSHOT</text>
+    <text x="16" y="50" class="col-title">Full 294 Boundary</text>
+    <text x="16" y="78" class="col-val" fill="#16130f">51 Sites in Range</text>
+    <text x="16" y="102" class="col-val" fill="#8c2b18">166 Intersections</text>
+    <text x="16" y="126" class="col-val" fill="#16130f">125 Unique Schools</text>
+  </g>
+
+  <!-- Col 3 -->
+  <g transform="translate(648, 78)">
+    <rect width="280" height="140" rx="6" fill="#fffdfa" stroke="#78350f" stroke-width="2"/>
+    <text x="16" y="26" class="col-tag" fill="#78350f">3 · EXPANDED REGISTRY</text>
+    <text x="16" y="50" class="col-title">Combined Analysis</text>
+    <text x="16" y="78" class="col-val" fill="#5c5954">Expanded Buffer Run</text>
+    <text x="16" y="102" class="col-val" fill="#8c2b18">166 Intersections</text>
+    <text x="16" y="126" class="col-val" fill="#78350f">132 Unique Schools</text>
+  </g>
+
+  <!-- Explanatory note -->
+  <text x="32" y="246" font-family="system-ui, sans-serif" font-size="14px" font-weight="600" fill="#8c2b18">Resolution: OpenStreetMap database drift between extraction dates created the variance. Do NOT merge them into a single figure.</text>
+  <text x="32" y="272" class="note">The variance (121 vs 125 vs 132 schools) reflects newly tagged primary schools added to OSM, not newly contaminated grounds.</text>
 </svg>

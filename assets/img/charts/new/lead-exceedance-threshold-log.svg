@@ -1,13 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="720" height="240" viewBox="0 0 720 240" role="img" aria-labelledby="t d">
-<title id="t">Lead exceedance on a log scale, threshold at 1x</title>
-<desc id="d">Log scale, values labelled, not a linear bar chart. Threshold: 1 times, which is 400 parts per million. Published exceedance multiples: 744 times, 825 times, and 1,702 times. The 744-times site has no published parts-per-million value in the report, so only its multiple is shown. Satellite wording is corroboration, never proof.</desc>
-<rect width="720" height="240" fill="#fdfcf8"/>
-<text x="20" y="30" font-family="Georgia,serif" font-size="22" font-weight="700" fill="#16130f">Exceedance, log scale — threshold is 1×</text>
-<line x1="80" y1="180" x2="680" y2="180" stroke="#16130f" stroke-width="2"/>
-<circle cx="80" cy="180" r="8" fill="#16130f"/><text x="60" y="210" font-family="system-ui,sans-serif" font-size="14" fill="#16130f">1× threshold</text>
-<circle cx="540" cy="180" r="8" fill="#8c2b18"/><text x="500" y="210" font-family="system-ui,sans-serif" font-size="14" fill="#16130f">744×</text>
-<circle cx="560" cy="180" r="8" fill="#8c2b18"/><text x="540" y="150" font-family="system-ui,sans-serif" font-size="14" fill="#16130f">825×</text>
-<circle cx="620" cy="180" r="8" fill="#8c2b18"/><text x="590" y="150" font-family="system-ui,sans-serif" font-size="14" fill="#16130f">1,702×</text>
-<text x="20" y="70" font-family="system-ui,sans-serif" font-size="14" fill="#6d675c">Log scale, values labelled. A linear chart would hide the threshold entirely.</text>
-<text x="20" y="95" font-family="system-ui,sans-serif" font-size="14" fill="#6d675c">400 ppm = 1×. 330,001 ppm = 825×. 680,872 ppm = 1,702×. 744×: no ppm published.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 250" role="img" aria-labelledby="t d">
+  <title id="t">Lead Exceedance on a Log Scale, Threshold at 1x</title>
+  <desc id="d">Log-scale diagram illustrating soil lead concentration multiples above safety limits: baseline threshold 1x (400 ppm), and peak sites 744x, 825x (330,001 ppm), and 1,702x (680,872 ppm).</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 22px; font-weight: 700; fill: #16130f; }
+      .point-title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 16px; font-weight: 700; fill: #16130f; text-anchor: middle; }
+      .point-title--highlight { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 17px; font-weight: 700; fill: #8c2b18; text-anchor: middle; }
+      .point-sub { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; fill: #5c5954; text-anchor: middle; }
+      .note { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #3d382f; }
+      .note-sub { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="956" height="246" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <text x="32" y="34" class="kicker">TOXICOLOGICAL AUDIT · LOG-SCALE EXCEEDANCE RATIOS</text>
+  <text x="32" y="58" class="title">Lead Exceedance Ratios (Log Scale — Baseline Residential Limit is 1×)</text>
+
+  <text x="32" y="86" class="note-sub">Log scale comparison prevents the 1× safety threshold from vanishing beside extreme 1,702× industrial readings.</text>
+
+  <!-- Axis line -->
+  <line x1="80" y1="145" x2="880" y2="145" stroke="#16130f" stroke-width="2.5"/>
+
+  <!-- Threshold 1x -->
+  <circle cx="100" cy="145" r="8" fill="#16130f" stroke="#ffffff" stroke-width="2"/>
+  <text x="100" y="120" class="point-title">1× Threshold</text>
+  <text x="100" y="175" class="point-sub">400 ppm limit</text>
+
+  <!-- 744x -->
+  <circle cx="620" cy="145" r="8" fill="#8c2b18" stroke="#ffffff" stroke-width="2"/>
+  <text x="620" y="120" class="point-title">744×</text>
+  <text x="620" y="175" class="point-sub">(no ppm published)</text>
+
+  <!-- 825x -->
+  <circle cx="710" cy="145" r="8" fill="#8c2b18" stroke="#ffffff" stroke-width="2"/>
+  <text x="710" y="120" class="point-title">825×</text>
+  <text x="710" y="175" class="point-sub">330,001 ppm</text>
+
+  <!-- 1702x -->
+  <circle cx="830" cy="145" r="9" fill="#8c2b18" stroke="#ffffff" stroke-width="2"/>
+  <text x="830" y="120" class="point-title--highlight">1,702×</text>
+  <text x="830" y="175" class="point-sub" font-weight="700">680,872 ppm</text>
+
+  <!-- Footnote -->
+  <text x="32" y="222" class="note">Standards: 400 ppm residential screening threshold. 330,001 ppm = 825× (Kamrangir Char). 680,872 ppm = 1,702× (Savar BD-4921).</text>
 </svg>

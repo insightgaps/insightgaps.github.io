@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fresher Assessment Examination — Preservation Workspace</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    .exam-container {
+      max-width: 54rem;
+      margin: clamp(1.5rem, 4vw, 3rem) auto;
+      padding: 0 var(--space) 4rem;
+    }
+    .exam-header {
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 1.25rem;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+    }
+    .exam-header h1 {
+      margin: 0;
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    }
+    .exam-meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-family: var(--sans);
+    }
+    .lock-btn {
+      background: none;
+      border: 1px solid var(--line);
+      padding: 0.35rem 0.75rem;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      color: var(--muted);
+    }
+    .lock-btn:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+    .exam-card {
+      background: var(--paper-soft);
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--ink);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    .stage-indicator {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Timer Widget */
+    .timer-widget {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 0.4rem 0.85rem;
+      font-family: var(--font-mono);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .timer-widget.warning {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      animation: pulse 1s infinite alternate;
+    }
+    @keyframes pulse {
+      from { opacity: 1; }
+      to { opacity: 0.65; }
+    }
+
+    /* Typing Test Elements */
+    .typing-passage {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 1.25rem 1.5rem;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin: 1.25rem 0;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .typing-passage .char-correct { color: #15803d; font-weight: 600; }
+    .typing-passage .char-wrong { color: #b91c1c; background: #fee2e2; text-decoration: underline; }
+    .typing-passage .char-current { background: #cbd5e1; border-left: 2px solid var(--accent); }
+    .typing-input {
+      width: 100%;
+      min-height: 120px;
+      padding: 1rem;
+      font-family: var(--sans);
+      font-size: 1.05rem;
+      line-height: 1.6;
+      border: 2px solid var(--line-strong);
+      background: var(--paper);
+      color: var(--ink);
+      box-sizing: border-box;
+      resize: vertical;
+    }
+    .typing-input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .stat-box {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 1rem;
+      text-align: center;
+    }
+    .stat-box .num {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .stat-box .lbl {
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.25rem;
+    }
+
+    /* IQ Examination Elements */
+    .progress-bar-wrap {
+      width: 100%;
+      height: 8px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      margin: 1rem 0 1.5rem;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--accent);
+      width: 0%;
+      transition: width 0.2s ease;
+    }
+    .question-nav-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .q-pill {
+      width: 2.25rem;
+      height: 2.25rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      cursor: pointer;
+      color: var(--muted);
+    }
+    .q-pill.active {
+      border: 2px solid var(--ink);
+      color: var(--ink);
+      font-weight: 900;
+      background: #f0ece3;
+    }
+    .q-pill.answered {
+      background: var(--ink);
+      color: #fff;
+      border-color: var(--ink);
+    }
+    .q-pill.flagged {
+      border-bottom: 3px solid var(--accent);
+    }
+    .question-prompt {
+      font-size: 1.25rem;
+      font-family: var(--serif);
+      line-height: 1.45;
+      margin: 1rem 0 1.5rem;
+    }
+    .question-category {
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin: 1.5rem 0;
+    }
+    .option-card {
+      display: flex;
+      align-items: center;
+      padding: 0.9rem 1.25rem;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      cursor: pointer;
+      transition: border 0.15s ease, background 0.15s ease;
+    }
+    .option-card:hover {
+      border-color: var(--muted);
+      background: #faf8f2;
+    }
+    .option-card.selected {
+      border: 2px solid var(--ink);
+      background: #f4efe4;
+    }
+    .option-radio {
+      margin-right: 1rem;
+      accent-color: var(--accent);
+    }
+    .option-text {
+      font-size: 1rem;
+      color: var(--ink);
+    }
+    .nav-buttons-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+    }
+    .btn-action {
+      padding: 0.7rem 1.4rem;
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid var(--ink);
+      background: var(--paper);
+      color: var(--ink);
+      cursor: pointer;
+    }
+    .btn-action:hover {
+      background: var(--paper-soft);
+    }
+    .btn-action.btn-primary {
+      background: var(--ink);
+      color: #fff;
+    }
+    .btn-action.btn-primary:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    .btn-action.btn-submit {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .btn-action.btn-submit:hover {
+      background: var(--color-accent-hover);
+    }
+
+    /* Review & Results */
+    .results-hero {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      margin-bottom: 2rem;
+    }
+    .results-score-big {
+      font-family: var(--serif);
+      font-size: 3.5rem;
+      line-height: 1;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 0.5rem 0;
+    }
+    .badge-rating {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      margin-top: 0.5rem;
+      border: 1px solid var(--line);
+    }
+    .badge-rating.distinction { background: #dcfce7; color: #166534; border-color: #86efac; }
+    .badge-rating.merit { background: #e0f2fe; color: #075985; border-color: #7dd3fc; }
+    .badge-rating.pass { background: #fef3c7; color: #92400e; border-color: #fde68a; }
+    .badge-rating.fail { background: #fee2e2; color: #991b1b; border-color: #fca5a5; }
+    .review-item {
+      border-bottom: 1px solid var(--line);
+      padding: 1.5rem 0;
+    }
+    .review-item:last-child {
+      border-bottom: none;
+    }
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .explanation-box {
+      margin-top: 0.75rem;
+      padding: 0.85rem 1rem;
+      background: #fdfaf5;
+      border-left: 3px solid var(--muted);
+      font-size: 0.92rem;
+      color: #3d382f;
+    }
+
+    /* Access Denied Card */
+    .access-denied {
+      max-width: 32rem;
+      margin: 5rem auto;
+      text-align: center;
+      padding: 2.5rem;
+      background: var(--paper-soft);
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+      <a href="/preservation/" class="site-header__logo">
+        <span class="logo__brand">Insight Gaps</span>
+        <small>Preservation Fresher Exam</small>
+      </a>
+      <nav class="site-nav">
+        <button type="button" class="lock-btn" onclick="lockAndExit()">Lock Session & Exit</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="exam-container" data-pagefind-ignore>
+    
+    <!-- Access Denied View (shown if gate not unlocked) -->
+    <div id="accessDeniedView" class="access-denied" style="display:none;">
+      <h2 style="color:var(--accent); margin-top:0;">Access Restricted</h2>
+      <p>This evaluation portal requires authorization via the Preservation Gate.</p>
+      <p class="meta">Redirecting to gate...</p>
+      <a href="/preservation/" class="btn-action btn-primary" style="text-decoration:none; display:inline-block; margin-top:1rem;">Go to Preservation Gate</a>
+    </div>
+
+    <!-- Active Exam Container -->
+    <div id="examRootView" style="display:none;">
+      
+      <!-- Stage 0: Candidate Registration & Instructions -->
+      <section id="candidateSetupView" class="exam-card">
+        <span class="stage-indicator">Fresher Candidate Intake</span>
+        <h2>Property Preservation Candidate Evaluation</h2>
+        <p>This standard exam evaluates keyboard accuracy, speed, and analytical reasoning required for field operations, inventory transcription, and forensic record verification.</p>
+        
+        <div class="banner">
+          <h3 style="margin-top:0;">Examination Structure</h3>
+          <ul style="margin-bottom:0;">
+            <li><strong>Section 1: 1-Minute Neutral Typing Test</strong> — Evaluates keyboard fluency and transcription accuracy against a standardized operational passage.</li>
+            <li><strong>Section 2: 15-Minute IQ &amp; Logical Reasoning</strong> — 30 original medium-hard and hard multiple-choice questions (Sequences, Deductive Logic, Spatial &amp; Arithmetic Reasoning). Auto-submits at 15:00.</li>
+            <li><strong>Section 3: Instant Scorecard &amp; Audit Review</strong> — Detailed results, performance benchmark, and exportable JSON/CSV archives.</li>
+          </ul>
+        </div>
+
+        <form id="candidateForm" onsubmit="startTypingStage(event)">
+          <div class="form-group" style="margin-bottom:1.5rem;">
+            <label for="candidateName" style="display:block; font-weight:700; font-size:0.85rem; text-transform:uppercase; margin-bottom:0.4rem;">Candidate Name / Identifier</label>
+            <input type="text" id="candidateName" class="form-input" style="width:100%; max-width:24rem; padding:0.7rem; font-size:1rem; border:1px solid var(--line);" placeholder="e.g. Candidate A-402 or Full Name" required>
+          </div>
+          <button type="submit" class="btn-action btn-primary" style="padding:0.85rem 1.8rem; font-size:0.9rem;">Start Section 1: Typing Test &rarr;</button>
+        </form>
+      </section>
+
+      <!-- Stage 1: Typing Test -->
+      <section id="typingStageView" class="exam-card" style="display:none;">
+        <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap;">
+          <div>
+            <span class="stage-indicator">Section 1 of 2 · Typing Assessment</span>
+            <h2 style="margin:0 0 0.5rem;">Operational Transcription Test</h2>
+          </div>
+          <div class="timer-widget" id="typingTimerWidget">
+            <span>Time Left:</span>
+            <span id="typingTimerDisplay">01:00</span>
+          </div>
+        </div>
+
+        <p class="meta" style="margin-top:0.5rem;">Type the exact passage below. The 60-second timer starts on your first keystroke. Capitalization and punctuation count.</p>
+
+        <div class="typing-passage" id="typingPassageEl"></div>
+
+        <textarea id="typingInputEl" class="typing-input" placeholder="Click here and begin typing to start the 60-second timer..." autocomplete="off" autocapitalize="off" spellcheck="false"></textarea>
+
+        <div class="stats-row">
+          <div class="stat-box">
+            <span class="num" id="liveWpm">0</span>
+            <span class="lbl">Words / Min (WPM)</span>
+          </div>
+          <div class="stat-box">
+            <span class="num" id="liveAccuracy">100%</span>
+            <span class="lbl">Accuracy</span>
+          </div>
+          <div class="stat-box">
+            <span class="num" id="liveCharacters">0</span>
+            <span class="lbl">Characters Typed</span>
+          </div>
+          <div class="stat-box">
+            <span class="num" id="liveErrors">0</span>
+            <span class="lbl">Errors</span>
+          </div>
+        </div>
+
+        <div id="typingCompletionBox" style="display:none; text-align:right; margin-top:1.5rem; padding-top:1.25rem; border-top:1px solid var(--line);">
+          <button type="button" class="btn-action btn-submit" onclick="startIqStage()">Proceed to Section 2: IQ &amp; Logical Reasoning (15 Mins) &rarr;</button>
+        </div>
+      </section>
+
+      <!-- Stage 2: IQ Examination -->
+      <section id="iqStageView" class="exam-card" style="display:none;">
+        <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:1rem;">
+          <div>
+            <span class="stage-indicator">Section 2 of 2 · Cognitive &amp; Reasoning Examination</span>
+            <h2 style="margin:0;">30 Original IQ &amp; Reasoning Questions</h2>
+          </div>
+          <div class="timer-widget" id="iqTimerWidget">
+            <span>Remaining:</span>
+            <span id="iqTimerDisplay">15:00</span>
+          </div>
+        </div>
+
+        <div class="progress-bar-wrap">
+          <div id="iqProgressBar" class="progress-bar-fill"></div>
+        </div>
+
+        <!-- Navigation Pills (1 to 30) -->
+        <div class="question-nav-pills" id="questionNavPills"></div>
+
+        <!-- Active Question Container -->
+        <div id="activeQuestionCard">
+          <div style="display:flex; justify-content:space-between; align-items:baseline;">
+            <span class="question-category" id="qCategoryEl">Category</span>
+            <span class="meta" id="qDifficultyEl">Difficulty</span>
+          </div>
+
+          <div class="question-prompt" id="qPromptEl">Question prompt goes here...</div>
+
+          <div class="options-grid" id="qOptionsEl"></div>
+
+          <div class="nav-buttons-row">
+            <div>
+              <button type="button" class="btn-action" id="btnPrevQ" onclick="navigateQuestion(-1)">&larr; Previous</button>
+              <button type="button" class="btn-action" id="btnNextQ" onclick="navigateQuestion(1)" style="margin-left:0.5rem;">Next &rarr;</button>
+            </div>
+            <div>
+              <button type="button" class="btn-action" id="btnFlagQ" onclick="toggleFlagCurrentQuestion()">Flag for Review</button>
+              <button type="button" class="btn-action btn-submit" onclick="confirmSubmitIqExam()" style="margin-left:0.5rem;">Submit Examination</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stage 3: Results & Comprehensive Review -->
+      <section id="resultsStageView" class="exam-card" style="display:none;">
+        <span class="stage-indicator">Assessment Complete · Official Scorecard</span>
+        <h2>Candidate Performance Evaluation</h2>
+        <p class="meta" id="resultCandidateInfo">Candidate: - · Completed on: -</p>
+
+        <div class="results-hero">
+          <span class="meta">Overall IQ Score</span>
+          <div class="results-score-big" id="resultIqScoreBig">0 / 30</div>
+          <div id="resultRatingBadge" class="badge-rating merit">Performance Rating</div>
+          <p class="meta" style="margin-top:0.75rem;" id="resultSummaryStats">Accuracy: 0% · Total Time: 00:00</p>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat-box">
+            <span class="num" id="resTypingWpm">0</span>
+            <span class="lbl">Typing WPM</span>
+          </div>
+          <div class="stat-box">
+            <span class="num" id="resTypingAccuracy">0%</span>
+            <span class="lbl">Typing Accuracy</span>
+          </div>
+          <div class="stat-box">
+            <span class="num" id="resIqPercentage">0%</span>
+            <span class="lbl">IQ Accuracy</span>
+          </div>
+          <div class="stat-box">
+            <span class="num" id="resIqTimeUsed">00:00</span>
+            <span class="lbl">IQ Time Used</span>
+          </div>
+        </div>
+
+        <div style="display:flex; flex-wrap:wrap; gap:0.75rem; margin:1.75rem 0; padding-bottom:1.5rem; border-bottom:1px solid var(--line);">
+          <button type="button" class="btn-action btn-primary" onclick="exportResultJSON()">Download Scorecard (JSON)</button>
+          <button type="button" class="btn-action" onclick="exportAllAttemptsCSV()">Export All Attempts (CSV)</button>
+          <button type="button" class="btn-action" onclick="retakeExam()">Retake Examination</button>
+        </div>
+
+        <!-- Detailed Question Review Accordion / List -->
+        <details class="evidence-box" open style="margin-top:1.5rem;">
+          <summary>Detailed Question-by-Question Audit &amp; Derivations (30 Questions)</summary>
+          <div id="detailedReviewContainer" style="margin-top:1rem;"></div>
+        </details>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p>&copy; 2026 Insight Gaps Bureau. Preservation Assessment System. All results stored locally.</p>
+    </div>
+  </footer>
+
+  <script>
+    // -------------------------------------------------------------
+    // 1. GATE SECURITY VALIDATION
+    // -------------------------------------------------------------
+    const SESSION_KEY = 'ig_preservation_session_unlocked';
+    const EXAM_STORAGE_KEY = 'ig_preservation_exam_records';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const isUnlocked = sessionStorage.getItem(SESSION_KEY) === 'true';
+      if (!isUnlocked) {
+        document.getElementById('accessDeniedView').style.display = 'block';
+        document.getElementById('examRootView').style.display = 'none';
+        setTimeout(() => {
+          window.location.href = '/preservation/';
+        }, 2200);
+      } else {
+        document.getElementById('accessDeniedView').style.display = 'none';
+        document.getElementById('examRootView').style.display = 'block';
+      }
+    });
+
+    function lockAndExit() {
+      sessionStorage.removeItem(SESSION_KEY);
+      window.location.href = '/preservation/';
+    }
+
+    // -------------------------------------------------------------
+    // 2. CANDIDATE & STATE MANAGEMENT
+    // -------------------------------------------------------------
+    const examState = {
+      candidateName: '',
+      startTime: null,
+      typing: {
+        rawInput: '',
+        wpm: 0,
+        accuracy: 100,
+        totalChars: 0,
+        errors: 0,
+        timeElapsedSeconds: 60
+      },
+      iq: {
+        answers: {}, // questionId: optionIndex
+        flagged: {}, // questionId: boolean
+        score: 0,
+        percentage: 0,
+        timeUsedSeconds: 0,
+        timeRemainingSeconds: 900 // 15:00
+      }
+    };
+
+    // -------------------------------------------------------------
+    // 3. SECTION 1: TYPING TEST PASSAGE & LOGIC
+    // -------------------------------------------------------------
+    const TYPING_PASSAGE = "Accurate documentation and forensic data collection require disciplined attention to detail. Every record entered into a public registry must be verified against source manifests, date stamps, and verified identifiers. When analysts inspect infrastructure or survey municipal properties, consistent formatting and methodical transcription prevent downstream distortions. Clear communication, rapid keyboard fluency, and calm cognitive evaluation are foundational attributes of effective operations in the field. Maintaining rigorous evidentiary integrity ensures that conclusions withstand adversarial scrutiny.";
+
+    let typingTimerInterval = null;
+    let typingSecondsLeft = 60;
+    let typingStarted = false;
+
+    function startTypingStage(event) {
+      event.preventDefault();
+      const name = document.getElementById('candidateName').value.trim();
+      if (!name) return;
+      examState.candidateName = name;
+      examState.startTime = new Date().toISOString();
+
+      document.getElementById('candidateSetupView').style.display = 'none';
+      document.getElementById('typingStageView').style.display = 'block';
+
+      renderTypingPassage();
+      const inputEl = document.getElementById('typingInputEl');
+      inputEl.value = '';
+      inputEl.disabled = false;
+      inputEl.focus();
+
+      inputEl.addEventListener('input', handleTypingInput);
+    }
+
+    function renderTypingPassage() {
+      const container = document.getElementById('typingPassageEl');
+      container.innerHTML = '';
+      for (let i = 0; i < TYPING_PASSAGE.length; i++) {
+        const span = document.createElement('span');
+        span.id = 'char-' + i;
+        span.textContent = TYPING_PASSAGE[i];
+        if (i === 0) span.className = 'char-current';
+        container.appendChild(span);
+      }
+    }
+
+    function handleTypingInput(e) {
+      if (!typingStarted) {
+        typingStarted = true;
+        startTypingCountdown();
+      }
+
+      const typed = e.target.value;
+      examState.typing.rawInput = typed;
+
+      let errors = 0;
+      let correctChars = 0;
+
+      for (let i = 0; i < TYPING_PASSAGE.length; i++) {
+        const charEl = document.getElementById('char-' + i);
+        if (!charEl) continue;
+
+        if (i < typed.length) {
+          if (typed[i] === TYPING_PASSAGE[i]) {
+            charEl.className = 'char-correct';
+            correctChars++;
+          } else {
+            charEl.className = 'char-wrong';
+            errors++;
+          }
+        } else if (i === typed.length) {
+          charEl.className = 'char-current';
+        } else {
+          charEl.className = '';
+        }
+      }
+
+      // Calculations
+      const timeElapsed = Math.max(1, 60 - typingSecondsLeft);
+      const minutes = timeElapsed / 60;
+      const wpm = Math.round((correctChars / 5) / minutes);
+      const accuracy = typed.length > 0 ? Math.round((correctChars / typed.length) * 100) : 100;
+
+      examState.typing.wpm = wpm;
+      examState.typing.accuracy = Math.max(0, Math.min(100, accuracy));
+      examState.typing.totalChars = typed.length;
+      examState.typing.errors = errors;
+
+      document.getElementById('liveWpm').textContent = wpm;
+      document.getElementById('liveAccuracy').textContent = examState.typing.accuracy + '%';
+      document.getElementById('liveCharacters').textContent = typed.length;
+      document.getElementById('liveErrors').textContent = errors;
+
+      if (typed.length >= TYPING_PASSAGE.length) {
+        finishTypingTest();
+      }
+    }
+
+    function startTypingCountdown() {
+      typingTimerInterval = setInterval(() => {
+        typingSecondsLeft--;
+        const mins = Math.floor(typingSecondsLeft / 60).toString().padStart(2, '0');
+        const secs = (typingSecondsLeft % 60).toString().padStart(2, '0');
+        document.getElementById('typingTimerDisplay').textContent = `${mins}:${secs}`;
+
+        if (typingSecondsLeft <= 10) {
+          document.getElementById('typingTimerWidget').classList.add('warning');
+        }
+
+        if (typingSecondsLeft <= 0) {
+          finishTypingTest();
+        }
+      }, 1000);
+    }
+
+    function finishTypingTest() {
+      clearInterval(typingTimerInterval);
+      const inputEl = document.getElementById('typingInputEl');
+      inputEl.disabled = true;
+      document.getElementById('typingTimerDisplay').textContent = '00:00';
+      document.getElementById('typingCompletionBox').style.display = 'block';
+    }
+
+    // -------------------------------------------------------------
+    // 4. SECTION 2: 30 ORIGINAL IQ QUESTIONS BANK
+    // -------------------------------------------------------------
+    const IQ_QUESTIONS = [
+      {
+        id: 1,
+        category: "Number Sequences",
+        difficulty: "Medium-Hard",
+        prompt: "What is the next number in the sequence: 3, 7, 16, 35, 74, ?",
+        options: ["148", "151", "153", "158"],
+        correct: 2,
+        explanation: "Each term follows the formula 2n + k where k increments by 1: (3×2)+1=7, (7×2)+2=16, (16×2)+3=35, (35×2)+4=74. The next term is (74×2)+5 = 148 + 5 = 153."
+      },
+      {
+        id: 2,
+        category: "Number Sequences",
+        difficulty: "Medium-Hard",
+        prompt: "Identify the missing value: 2, 6, 12, 20, 30, 42, 56, ?",
+        options: ["68", "72", "74", "76"],
+        correct: 1,
+        explanation: "The differences between consecutive terms increase by 2: +4, +6, +8, +10, +12, +14. The next difference is +16, giving 56 + 16 = 72 (or formula n(n+1) for n=8: 8×9=72)."
+      },
+      {
+        id: 3,
+        category: "Alphanumeric Sequences",
+        difficulty: "Hard",
+        prompt: "Determine the subsequent term: B4, E9, I16, N25, T36, ?",
+        options: ["Y49", "Z49", "A49", "B49"],
+        correct: 2,
+        explanation: "Letters advance with increasing intervals: B(2) +3 -> E(5) +4 -> I(9) +5 -> N(14) +6 -> T(20) +7 -> 27. Since the alphabet has 26 letters, position 27 wraps to A. Numbers are consecutive squares: 2^2, 3^2, 4^2, 5^2, 6^2, 7^2 = 49. Result: A49."
+      },
+      {
+        id: 4,
+        category: "Number Sequences",
+        difficulty: "Hard",
+        prompt: "What number completes the series: 5, 11, 24, 51, 106, ?",
+        options: ["212", "217", "221", "225"],
+        correct: 1,
+        explanation: "The recurrence is 2n + k where k = 1, 2, 3, 4, 5: (5×2)+1=11, (11×2)+2=24, (24×2)+3=51, (51×2)+4=106. The next term is (106×2)+5 = 212 + 5 = 217."
+      },
+      {
+        id: 5,
+        category: "Letter Patterns",
+        difficulty: "Medium-Hard",
+        prompt: "Which letter continues the pattern: D, G, K, P, V, ?",
+        options: ["B", "C", "D", "E"],
+        correct: 1,
+        explanation: "Letter positions in the alphabet: D(4), G(7, +3), K(11, +4), P(16, +5), V(22, +6). The next step is +7: 22 + 7 = 29. Wrapping around 26 letters: 29 - 26 = 3, which is the letter C."
+      },
+      {
+        id: 6,
+        category: "Interleaved Series",
+        difficulty: "Hard",
+        prompt: "Find the 9th term in this series: 100, 2, 95, 6, 85, 18, 70, 54, ?",
+        options: ["45", "50", "55", "162"],
+        correct: 1,
+        explanation: "Two interleaved sequences: Odd positions decrement by increasing multiples of 5: 100 (-5) -> 95 (-10) -> 85 (-15) -> 70 (-20) -> 50. Even positions multiply by 3: 2, 6, 18, 54. The 9th term belongs to the odd series: 70 - 20 = 50."
+      },
+      {
+        id: 7,
+        category: "Recursive Differences",
+        difficulty: "Hard",
+        prompt: "What number comes next: 1, 2, 4, 7, 12, 20, 33, ?",
+        options: ["51", "53", "54", "56"],
+        correct: 2,
+        explanation: "The differences between consecutive terms are: 1, 2, 3, 5, 8, 13 (the Fibonacci sequence). The next difference is 21. Therefore, 33 + 21 = 54."
+      },
+      {
+        id: 8,
+        category: "Polynomial Sequences",
+        difficulty: "Medium-Hard",
+        prompt: "Identify the next term: 0, 7, 26, 63, 124, ?",
+        options: ["215", "216", "217", "225"],
+        correct: 0,
+        explanation: "Each term is of the form n^3 - 1: 1^3-1=0, 2^3-1=7, 3^3-1=26, 4^3-1=63, 5^3-1=124. For n=6, 6^3 - 1 = 216 - 1 = 215."
+      },
+      {
+        id: 9,
+        category: "Deductive Syllogisms",
+        difficulty: "Medium-Hard",
+        prompt: "Premise 1: All audited registries are verified documents.\nPremise 2: Some verified documents contain confidential annotations.\nPremise 3: No confidential annotations are released to public indices.\nWhich conclusion logically MUST follow?",
+        options: [
+          "All audited registries are released to public indices.",
+          "Some verified documents are not released to public indices.",
+          "No audited registry contains confidential annotations.",
+          "All verified documents are audited registries."
+        ],
+        correct: 1,
+        explanation: "Since some verified documents contain confidential annotations, and no confidential annotations are released to public indices, those specific verified documents are not released to public indices."
+      },
+      {
+        id: 10,
+        category: "Conditional Logic",
+        difficulty: "Hard",
+        prompt: "Rule A: If a vessel lacks an automated AIS transponder, it is barred from entering the channel.\nRule B: If a vessel carries hazardous cargo, it MUST possess both an automated AIS transponder AND a double-hulled certificate.\nVessel K is cleared to enter the channel and carries hazardous cargo. What is definitely true?",
+        options: [
+          "Vessel K does not require a double-hulled certificate.",
+          "Vessel K possesses both an AIS transponder and a double-hulled certificate.",
+          "Vessel K is exempt from standard maritime regulations.",
+          "Vessel K was cleared through administrative error."
+        ],
+        correct: 1,
+        explanation: "Because Vessel K carries hazardous cargo, Rule B strictly obligates it to possess both an AIS transponder and a double-hulled certificate. Clearance to enter confirms it also meets Rule A."
+      },
+      {
+        id: 11,
+        category: "Verbal Analogies",
+        difficulty: "Medium-Hard",
+        prompt: "HYPOTHESIS is to EMPIRICAL VERIFICATION as ALLEGATION is to:",
+        options: ["Speculation", "Judicial Proof", "Hearsay", "Publication"],
+        correct: 1,
+        explanation: "A scientific hypothesis is validated and established into fact via empirical verification, just as a legal allegation is tested and established via judicial proof."
+      },
+      {
+        id: 12,
+        category: "Sequential Logic",
+        difficulty: "Hard",
+        prompt: "Five inspectors (Arif, Basheer, Chitra, Dawood, Esha) inspect five properties from Monday through Friday (one per day). Basheer inspects earlier than Dawood. Chitra inspects immediately after Arif. Esha inspects on Wednesday. Dawood does not inspect on Friday. Who inspects on Monday?",
+        options: ["Arif", "Basheer", "Chitra", "Dawood"],
+        correct: 1,
+        explanation: "Esha is Wednesday (Day 3). Arif and Chitra must occupy consecutive days: either {Mon, Tue} or {Thu, Fri}. If Arif and Chitra were {Mon, Tue}, then Basheer and Dawood would have to take {Thu, Fri}. Since Basheer is before Dawood, Dawood would be on Friday, violating the condition that Dawood is not on Friday. Thus, Arif and Chitra take {Thu, Fri}, leaving {Mon, Tue} for Basheer and Dawood. Since Basheer is earlier than Dawood, Basheer inspects on Monday."
+      },
+      {
+        id: 13,
+        category: "Formal Negation",
+        difficulty: "Hard",
+        prompt: "Statement: 'It is false that neither Inspector Rana nor Inspector Tariq filed the compliance report.' Which statement is logically equivalent?",
+        options: [
+          "Neither Rana nor Tariq filed the report.",
+          "Both Rana and Tariq failed to file the report.",
+          "At least one of Rana or Tariq filed the compliance report.",
+          "Exactly one of them filed the report, but not both."
+        ],
+        correct: 2,
+        explanation: "The statement 'Neither A nor B' means (not A and not B). Negating this statement: not(not A and not B) = A or B (De Morgan's law), meaning at least one of them filed the report."
+      },
+      {
+        id: 14,
+        category: "Positional Logic",
+        difficulty: "Medium-Hard",
+        prompt: "If the 12 letters of the word PRESERVATION are arranged in reverse alphabetical order (Z to A), which letter occupies the 5th position from the left?",
+        options: ["S", "R", "P", "T"],
+        correct: 1,
+        explanation: "The letters in PRESERVATION are: A, E, E, I, N, O, P, R, R, S, T, V. In descending (Z to A) order: 1st=V, 2nd=T, 3rd=S, 4th=R, 5th=R. The 5th letter is R."
+      },
+      {
+        id: 15,
+        category: "Logical Fallacy Identification",
+        difficulty: "Hard",
+        prompt: "'Every property in Sector 4 inspected by the municipal team had severe structural corrosion. Therefore, Sector 4 has the highest rate of structural corrosion in the entire district.' Which option highlights the primary flaw?",
+        options: [
+          "It assumes corrosion is the only form of structural damage.",
+          "It confuses the proportion of inspected properties that have damage with the overall rate relative to uninspected sectors.",
+          "It fails to define the exact chemical composition of the corrosion.",
+          "It relies on municipal inspectors rather than private structural engineers."
+        ],
+        correct: 1,
+        explanation: "Selection bias: the inspected properties in Sector 4 might have been chosen specifically because they were visibly corroded, and other sectors may have higher rates that were not surveyed."
+      },
+      {
+        id: 16,
+        category: "Inequality Transitivity",
+        difficulty: "Medium-Hard",
+        prompt: "Four storage crates (W, X, Y, Z) are weighed: Crate W is heavier than Crate X. Crate Y is lighter than Crate Z. Crate X is heavier than Crate Z. Which crate is the second heaviest?",
+        options: ["Crate W", "Crate X", "Crate Y", "Crate Z"],
+        correct: 1,
+        explanation: "Transitivity: W > X, X > Z, and Z > Y. Combining inequalities: W > X > Z > Y. The second heaviest is Crate X."
+      },
+      {
+        id: 17,
+        category: "Matrix Logic",
+        difficulty: "Medium-Hard",
+        prompt: "In a 3×3 grid, each row, column, and main diagonal sums to 15. The first row contains [4, 9, 2], and the second row contains [3, 5, 7]. The third row contains [8, 1, ?]. What is the missing value?",
+        options: ["5", "6", "7", "8"],
+        correct: 1,
+        explanation: "In the 3rd row, 8 + 1 + ? = 15. Thus ? = 15 - 9 = 6. Column check: 2 + 7 + 6 = 15. Diagonal check: 4 + 5 + 6 = 15."
+      },
+      {
+        id: 18,
+        category: "Matrix Arithmetic",
+        difficulty: "Hard",
+        prompt: "Row 1: [3, 7, 22]\nRow 2: [4, 5, 21]\nRow 3: [6, 8, ?]\nIdentify the missing value based on the underlying row rule.",
+        options: ["47", "48", "49", "50"],
+        correct: 2,
+        explanation: "Rule for each row: (Element 1 × Element 2) + 1 = Element 3. Row 1: (3×7)+1=22. Row 2: (4×5)+1=21. Row 3: (6×8)+1 = 48 + 1 = 49."
+      },
+      {
+        id: 19,
+        category: "Spatial Geometry",
+        difficulty: "Hard",
+        prompt: "On a standard die, opposite faces always sum to 7. If face 3 is on the bottom, and face 2 is facing North, which number is on the face pointing East, given that face 1 is situated between faces 2 and 3?",
+        options: ["1", "4", "5", "6"],
+        correct: 0,
+        explanation: "Bottom is 3 (so Top is 4). North is 2 (so South is 5). The remaining East and West faces must be 1 and 6. Because face 1 shares an edge between North (2) and Bottom (3), it lies on the East face."
+      },
+      {
+        id: 20,
+        category: "Mechanical Kinematics",
+        difficulty: "Medium-Hard",
+        prompt: "Five interlocking gears (A, B, C, D, E) are arranged in a straight linear train (A meshes with B, B with C, C with D, D with E). If Gear A rotates Clockwise, which direction does Gear E rotate?",
+        options: ["Clockwise", "Counter-Clockwise", "Remains stationary", "Oscillates alternately"],
+        correct: 0,
+        explanation: "Adjacent meshed gears alternate directions: A (Clockwise) -> B (Counter-Clockwise) -> C (Clockwise) -> D (Counter-Clockwise) -> E (Clockwise)."
+      },
+      {
+        id: 21,
+        category: "Matrix Operations",
+        difficulty: "Hard",
+        prompt: "Row 1: [8, 5, 39]\nRow 2: [7, 4, 33]\nRow 3: [9, 6, ?]\nWhat is the missing value?",
+        options: ["42", "45", "48", "51"],
+        correct: 1,
+        explanation: "Rule: (Element 1)^2 - (Element 2)^2 = Element 3. Row 1: 8^2 - 5^2 = 64 - 25 = 39. Row 2: 7^2 - 4^2 = 49 - 16 = 33. Row 3: 9^2 - 6^2 = 81 - 36 = 45."
+      },
+      {
+        id: 22,
+        category: "Geometry & Angles",
+        difficulty: "Hard",
+        prompt: "At exactly 3:40, what is the smaller angle between the hour hand and the minute hand of an analog clock?",
+        options: ["120°", "125°", "130°", "135°"],
+        correct: 2,
+        explanation: "Minute hand at 40 min = 40 × 6° = 240°. Hour hand at 3:40 = (3 × 30°) + (40 × 0.5°) = 90° + 20° = 110°. Difference = 240° - 110° = 130°."
+      },
+      {
+        id: 23,
+        category: "Vector Displacement",
+        difficulty: "Medium-Hard",
+        prompt: "A field surveyor drives 12 km North, turns West and drives 5 km, turns South and drives 3 km, and finally turns East and drives 5 km. How far and in what direction is the surveyor from the starting point?",
+        options: ["7 km North", "9 km North", "12 km North-West", "15 km North"],
+        correct: 1,
+        explanation: "North-South net change: +12 km - 3 km = +9 km North. East-West net change: -5 km + 5 km = 0 km. Net displacement is exactly 9 km North."
+      },
+      {
+        id: 24,
+        category: "Work-Rate Arithmetic",
+        difficulty: "Hard",
+        prompt: "Analyst A can verify 60 property files in 6 hours. Analyst B can verify the same 60 files in 4 hours. Working together at their constant rates, how long will it take them to verify 100 property files?",
+        options: ["3 hours 30 mins", "4 hours", "4 hours 15 mins", "5 hours"],
+        correct: 1,
+        explanation: "Rate of A = 60/6 = 10 files/hr. Rate of B = 60/4 = 15 files/hr. Combined rate = 10 + 15 = 25 files/hr. Time required for 100 files = 100 / 25 = 4 hours."
+      },
+      {
+        id: 25,
+        category: "Harmonic Mean",
+        difficulty: "Medium-Hard",
+        prompt: "A maintenance van travels from Depot A to Site B at an average speed of 60 km/h, and returns along the identical route at an average speed of 40 km/h. What is the average speed for the entire round trip?",
+        options: ["48 km/h", "50 km/h", "52 km/h", "54 km/h"],
+        correct: 0,
+        explanation: "Average speed for equal distances is the harmonic mean: (2 × 60 × 40) / (60 + 40) = 4800 / 100 = 48 km/h."
+      },
+      {
+        id: 26,
+        category: "Mixture & Concentration",
+        difficulty: "Hard",
+        prompt: "A 40-liter drum contains a solution of 25% industrial solvent and 75% water. How many liters of pure solvent must be added to produce a mixture containing 40% solvent?",
+        options: ["8 liters", "10 liters", "12 liters", "15 liters"],
+        correct: 1,
+        explanation: "Initial solvent = 40 × 0.25 = 10 L; water = 30 L. In the new mixture, water represents 60% of total volume T: 0.60 × T = 30 => T = 50 L. Added solvent = 50 L - 40 L = 10 L. Check: (10 + 10) / 50 = 20 / 50 = 40%."
+      },
+      {
+        id: 27,
+        category: "Probability & Combinatorics",
+        difficulty: "Hard",
+        prompt: "A crate contains 10 inspection devices, of which exactly 3 are defective. If 2 devices are drawn at random without replacement, what is the probability that AT LEAST ONE device is defective?",
+        options: ["7/15", "8/15", "3/10", "13/15"],
+        correct: 1,
+        explanation: "Total ways to choose 2 from 10 = C(10,2) = 45. Ways to choose 2 non-defective = C(7,2) = 21. Probability of neither being defective = 21/45 = 7/15. Probability of at least one defective = 1 - 7/15 = 8/15."
+      },
+      {
+        id: 28,
+        category: "Modular Cycles",
+        difficulty: "Hard",
+        prompt: "If today is Tuesday, what day of the week will it be exactly 10^100 days from today?",
+        options: ["Thursday", "Friday", "Saturday", "Sunday"],
+        correct: 2,
+        explanation: "We evaluate 10^100 mod 7. Powers of 10 mod 7 repeat with period 6: 10^1=3, 10^2=2, 10^3=6, 10^4=4, 10^5=5, 10^6=1. Exponent 100 mod 6 = 4. Thus 10^100 = 10^4 = 4 mod 7. Counting 4 days forward from Tuesday: Wednesday (+1), Thursday (+2), Friday (+3), Saturday (+4)."
+      },
+      {
+        id: 29,
+        category: "Algebraic Systems",
+        difficulty: "Medium-Hard",
+        prompt: "Six years ago, a supervisor was 4 times as old as an apprentice. In 6 years from today, the supervisor will be twice as old as the apprentice. What is the current age of the apprentice?",
+        options: ["10 years", "12 years", "14 years", "16 years"],
+        correct: 1,
+        explanation: "Let current ages be S and A. Six years ago: S - 6 = 4(A - 6) => S = 4A - 18. In six years: S + 6 = 2(A + 6) => S = 2A + 6. Equating: 4A - 18 = 2A + 6 => 2A = 24 => A = 12 years."
+      },
+      {
+        id: 30,
+        category: "Set Theory & Overlaps",
+        difficulty: "Hard",
+        prompt: "100 commercial properties were audited: 55 failed electrical wiring, 50 failed fire safety, and 40 failed structural load standards. 25 failed both electrical and fire, 20 failed both fire and structural, 15 failed both electrical and structural, and 10 failed all three. How many properties passed ALL THREE standards without any failure?",
+        options: ["5", "8", "10", "12"],
+        correct: 0,
+        explanation: "By Inclusion-Exclusion, total failing at least one: 55 + 50 + 40 - (25 + 20 + 15) + 10 = 145 - 60 + 10 = 95 properties. Properties passing all three = 100 - 95 = 5."
+      }
+    ];
+
+    let currentQuestionIndex = 0;
+    let iqTimerInterval = null;
+    let iqSecondsLeft = 900; // 15 mins
+    let examSubmitted = false;
+
+    function startIqStage() {
+      document.getElementById('typingStageView').style.display = 'none';
+      document.getElementById('iqStageView').style.display = 'block';
+
+      renderQuestionNavPills();
+      loadQuestion(0);
+      startIqCountdown();
+    }
+
+    function renderQuestionNavPills() {
+      const container = document.getElementById('questionNavPills');
+      container.innerHTML = '';
+      for (let i = 0; i < IQ_QUESTIONS.length; i++) {
+        const pill = document.createElement('button');
+        pill.type = 'button';
+        pill.id = 'q-pill-' + i;
+        pill.className = 'q-pill';
+        pill.textContent = (i + 1);
+        pill.onclick = () => loadQuestion(i);
+        container.appendChild(pill);
+      }
+    }
+
+    function loadQuestion(index) {
+      if (index < 0 || index >= IQ_QUESTIONS.length) return;
+      currentQuestionIndex = index;
+
+      const q = IQ_QUESTIONS[index];
+      document.getElementById('qCategoryEl').textContent = `Q${index + 1} of 30 · ${q.category}`;
+      document.getElementById('qDifficultyEl').textContent = `Difficulty: ${q.difficulty}`;
+      document.getElementById('qPromptEl').textContent = q.prompt;
+
+      // Update options
+      const optContainer = document.getElementById('qOptionsEl');
+      optContainer.innerHTML = '';
+
+      q.options.forEach((optText, optIdx) => {
+        const card = document.createElement('label');
+        card.className = 'option-card' + (examState.iq.answers[q.id] === optIdx ? ' selected' : '');
+        
+        const radio = document.createElement('input');
+        radio.type = 'radio';
+        radio.name = 'questionOption';
+        radio.value = optIdx;
+        radio.className = 'option-radio';
+        radio.checked = examState.iq.answers[q.id] === optIdx;
+
+        radio.onchange = () => {
+          selectAnswer(q.id, optIdx);
+        };
+
+        const span = document.createElement('span');
+        span.className = 'option-text';
+        span.innerHTML = `<strong>${String.fromCharCode(65 + optIdx)})</strong> ${optText}`;
+
+        card.appendChild(radio);
+        card.appendChild(span);
+        optContainer.appendChild(card);
+      });
+
+      // Update nav pills
+      for (let i = 0; i < IQ_QUESTIONS.length; i++) {
+        const pill = document.getElementById('q-pill-' + i);
+        if (!pill) continue;
+        pill.className = 'q-pill';
+        if (i === currentQuestionIndex) pill.classList.add('active');
+        if (examState.iq.answers[IQ_QUESTIONS[i].id] !== undefined) pill.classList.add('answered');
+        if (examState.iq.flagged[IQ_QUESTIONS[i].id]) pill.classList.add('flagged');
+      }
+
+      // Update flag button label
+      const flagBtn = document.getElementById('btnFlagQ');
+      flagBtn.textContent = examState.iq.flagged[q.id] ? 'Unflag Question' : 'Flag for Review';
+
+      // Update progress bar
+      const answeredCount = Object.keys(examState.iq.answers).length;
+      const pct = (answeredCount / IQ_QUESTIONS.length) * 100;
+      document.getElementById('iqProgressBar').style.width = pct + '%';
+
+      // Previous button disable on first
+      document.getElementById('btnPrevQ').disabled = (index === 0);
+      document.getElementById('btnNextQ').textContent = (index === IQ_QUESTIONS.length - 1) ? 'Review & Finish' : 'Next →';
+    }
+
+    function selectAnswer(questionId, optionIndex) {
+      examState.iq.answers[questionId] = optionIndex;
+      loadQuestion(currentQuestionIndex);
+    }
+
+    function toggleFlagCurrentQuestion() {
+      const q = IQ_QUESTIONS[currentQuestionIndex];
+      examState.iq.flagged[q.id] = !examState.iq.flagged[q.id];
+      loadQuestion(currentQuestionIndex);
+    }
+
+    function navigateQuestion(delta) {
+      const target = currentQuestionIndex + delta;
+      if (target >= 0 && target < IQ_QUESTIONS.length) {
+        loadQuestion(target);
+      } else if (target >= IQ_QUESTIONS.length) {
+        confirmSubmitIqExam();
+      }
+    }
+
+    function startIqCountdown() {
+      iqTimerInterval = setInterval(() => {
+        iqSecondsLeft--;
+        const mins = Math.floor(iqSecondsLeft / 60).toString().padStart(2, '0');
+        const secs = (iqSecondsLeft % 60).toString().padStart(2, '0');
+        document.getElementById('iqTimerDisplay').textContent = `${mins}:${secs}`;
+
+        if (iqSecondsLeft <= 120) { // last 2 minutes
+          document.getElementById('iqTimerWidget').classList.add('warning');
+        }
+
+        if (iqSecondsLeft <= 0) {
+          clearInterval(iqTimerInterval);
+          alert('Time has expired for the IQ Examination. Submitting your answers now.');
+          submitIqExam();
+        }
+      }, 1000);
+    }
+
+    function confirmSubmitIqExam() {
+      const answered = Object.keys(examState.iq.answers).length;
+      const unanswered = IQ_QUESTIONS.length - answered;
+
+      let msg = `Are you ready to submit your examination?\n\nAnswered: ${answered} / ${IQ_QUESTIONS.length}`;
+      if (unanswered > 0) {
+        msg += `\nUnanswered: ${unanswered} question(s) will be marked as incorrect.`;
+      }
+
+      if (window.confirm(msg)) {
+        submitIqExam();
+      }
+    }
+
+    function submitIqExam() {
+      if (examSubmitted) return;
+      examSubmitted = true;
+      clearInterval(iqTimerInterval);
+
+      examState.iq.timeUsedSeconds = 900 - iqSecondsLeft;
+
+      // Grade questions
+      let score = 0;
+      IQ_QUESTIONS.forEach(q => {
+        if (examState.iq.answers[q.id] === q.correct) {
+          score++;
+        }
+      });
+
+      examState.iq.score = score;
+      examState.iq.percentage = Math.round((score / IQ_QUESTIONS.length) * 100);
+
+      // Save record to localStorage
+      saveExamRecordToStorage();
+
+      // Render Results Screen
+      renderResultsScreen();
+    }
+
+    // -------------------------------------------------------------
+    // 5. STAGE 3: RESULTS, SCORECARD & AUDIT REVIEW
+    // -------------------------------------------------------------
+    function renderResultsScreen() {
+      document.getElementById('iqStageView').style.display = 'none';
+      document.getElementById('resultsStageView').style.display = 'block';
+
+      document.getElementById('resultCandidateInfo').textContent = 
+        `Candidate: ${examState.candidateName} · Date: ${new Date().toLocaleDateString()} · ID: IG-${Date.now().toString().slice(-6)}`;
+
+      document.getElementById('resultIqScoreBig').textContent = `${examState.iq.score} / 30`;
+
+      // Rating badge
+      const ratingEl = document.getElementById('resultRatingBadge');
+      const pct = examState.iq.percentage;
+      if (pct >= 85) {
+        ratingEl.className = 'badge-rating distinction';
+        ratingEl.textContent = 'Distinction (≥ 85%)';
+      } else if (pct >= 70) {
+        ratingEl.className = 'badge-rating merit';
+        ratingEl.textContent = 'Merit Standard (70–84%)';
+      } else if (pct >= 55) {
+        ratingEl.className = 'badge-rating pass';
+        ratingEl.textContent = 'Pass Benchmark (55–69%)';
+      } else {
+        ratingEl.className = 'badge-rating fail';
+        ratingEl.textContent = 'Below Benchmark (< 55%)';
+      }
+
+      const timeUsedMin = Math.floor(examState.iq.timeUsedSeconds / 60);
+      const timeUsedSec = examState.iq.timeUsedSeconds % 60;
+      const formattedTime = `${timeUsedMin}m ${timeUsedSec.toString().padStart(2, '0')}s`;
+
+      document.getElementById('resultSummaryStats').textContent = 
+        `IQ Accuracy: ${pct}% · IQ Time Used: ${formattedTime} · Typing: ${examState.typing.wpm} WPM (${examState.typing.accuracy}% accuracy)`;
+
+      document.getElementById('resTypingWpm').textContent = examState.typing.wpm;
+      document.getElementById('resTypingAccuracy').textContent = examState.typing.accuracy + '%';
+      document.getElementById('resIqPercentage').textContent = pct + '%';
+      document.getElementById('resIqTimeUsed').textContent = formattedTime;
+
+      // Render Question-by-Question Review
+      const reviewContainer = document.getElementById('detailedReviewContainer');
+      reviewContainer.innerHTML = '';
+
+      IQ_QUESTIONS.forEach((q, idx) => {
+        const candidateAns = examState.iq.answers[q.id];
+        const isCorrect = (candidateAns === q.correct);
+        const item = document.createElement('div');
+        item.className = 'review-item';
+
+        const candidateChoiceText = candidateAns !== undefined 
+          ? `${String.fromCharCode(65 + candidateAns)}) ${q.options[candidateAns]}`
+          : '<em>No Answer Selected</em>';
+        
+        const correctChoiceText = `${String.fromCharCode(65 + q.correct)}) ${q.options[q.correct]}`;
+
+        item.innerHTML = `
+          <div class="review-header">
+            <span>Question ${idx + 1} (${q.category} · ${q.difficulty})</span>
+            <span style="color:${isCorrect ? '#15803d' : '#b91c1c'}; font-weight:800;">
+              ${isCorrect ? '✓ CORRECT' : '✗ INCORRECT'}
+            </span>
+          </div>
+          <p style="margin:0.25rem 0 0.6rem; font-size:1.02rem;">${q.prompt.replace(/\n/g, '<br>')}</p>
+          <div style="font-size:0.9rem; line-height:1.5;">
+            <div><strong>Candidate Selected:</strong> <span style="color:${isCorrect ? '#15803d' : '#b91c1c'};">${candidateChoiceText}</span></div>
+            <div><strong>Correct Answer:</strong> <span style="color:#15803d; font-weight:700;">${correctChoiceText}</span></div>
+          </div>
+          <div class="explanation-box">
+            <strong>Logical Derivation:</strong> ${q.explanation}
+          </div>
+        `;
+        reviewContainer.appendChild(item);
+      });
+    }
+
+    function saveExamRecordToStorage() {
+      const record = {
+        recordId: 'EXAM-' + Date.now(),
+        timestamp: new Date().toISOString(),
+        candidateName: examState.candidateName,
+        typingWpm: examState.typing.wpm,
+        typingAccuracy: examState.typing.accuracy,
+        typingTotalChars: examState.typing.totalChars,
+        typingErrors: examState.typing.errors,
+        iqScore: examState.iq.score,
+        iqTotal: IQ_QUESTIONS.length,
+        iqPercentage: examState.iq.percentage,
+        iqTimeUsedSeconds: examState.iq.timeUsedSeconds
+      };
+
+      try {
+        const existing = JSON.parse(localStorage.getItem(EXAM_STORAGE_KEY) || '[]');
+        existing.push(record);
+        localStorage.setItem(EXAM_STORAGE_KEY, JSON.stringify(existing));
+      } catch (e) {
+        console.error('Could not save exam record to localStorage:', e);
+      }
+    }
+
+    function exportResultJSON() {
+      const exportData = {
+        candidateName: examState.candidateName,
+        timestamp: new Date().toISOString(),
+        typingAssessment: examState.typing,
+        iqAssessment: {
+          score: examState.iq.score,
+          total: IQ_QUESTIONS.length,
+          percentage: examState.iq.percentage,
+          timeUsedSeconds: examState.iq.timeUsedSeconds,
+          answers: examState.iq.answers
+        }
+      };
+
+      const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      const safeName = examState.candidateName.toLowerCase().replace(/[^a-z0-9]/g, '_');
+      a.href = url;
+      a.download = `scorecard_${safeName}_${Date.now()}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function exportAllAttemptsCSV() {
+      try {
+        const records = JSON.parse(localStorage.getItem(EXAM_STORAGE_KEY) || '[]');
+        if (records.length === 0) {
+          alert('No examination records found in this browser.');
+          return;
+        }
+
+        const headers = [
+          'RecordID', 'Timestamp', 'CandidateName', 'TypingWPM', 'TypingAccuracy', 
+          'TypingChars', 'TypingErrors', 'IQScore', 'IQTotal', 'IQPercentage', 'IQTimeUsedSeconds'
+        ];
+
+        const rows = records.map(r => [
+          r.recordId,
+          r.timestamp,
+          `"${(r.candidateName || '').replace(/"/g, '""')}"`,
+          r.typingWpm,
+          r.typingAccuracy,
+          r.typingTotalChars,
+          r.typingErrors,
+          r.iqScore,
+          r.iqTotal,
+          r.iqPercentage,
+          r.iqTimeUsedSeconds
+        ].join(','));
+
+        const csvContent = [headers.join(','), ...rows].join('\n');
+        const blob = new Blob([csvContent], { type: 'text/csv' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `preservation_exam_records_${Date.now()}.csv`;
+        a.click();
+        URL.revokeObjectURL(url);
+      } catch (e) {
+        alert('Error generating CSV export: ' + e.message);
+      }
+    }
+
+    function retakeExam() {
+      if (confirm('Start a new assessment attempt for another candidate?')) {
+        window.location.reload();
+      }
+    }
+  </script>
+</body>
+</html>

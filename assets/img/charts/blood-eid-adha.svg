@@ -1,11 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 144" role="img" aria-label="Eid-ul-Adha road deaths: 2024 vs 2025">
-<title>Eid-ul-Adha road deaths: 2024 vs 2025</title>
-<text x="0" y="22" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">Eid-ul-Adha road deaths: 2024 vs 2025</text>
-<text x="0" y="57" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">2025</text>
-<rect x="210" y="42" width="430.0" height="20" fill="#8c2b18"/>
-<text x="645" y="57" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">312</text>
-<text x="0" y="91" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">2024</text>
-<rect x="210" y="76" width="361.1" height="20" fill="#16130f"/>
-<text x="576" y="91" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">262</text>
-<text x="0" y="136" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">A 19% year-on-year rise (312 vs 262), corrected 2026-09-03; the earlier 29% figure was wrong.</text>
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 220" role="img" aria-labelledby="adha-title adha-desc">
+  <title id="adha-title">Eid-ul-Adha Road Fatalities: 2024 vs. 2025 (Corrected Comparison)</title>
+  <desc id="adha-desc">Horizontal bar chart comparing 312 road fatalities in 2025 against 262 in 2024 during the Eid-ul-Adha holiday, showing a 19.08% rise.</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 21px; font-weight: 700; fill: #16130f; }
+      .label { font-family: system-ui, -apple-system, sans-serif; font-size: 16px; font-weight: 600; fill: #16130f; }
+      .val { font-family: "Space Mono", ui-monospace, monospace; font-size: 20px; font-weight: 700; }
+      .note { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="956" height="216" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <text x="32" y="34" class="kicker">EID-UL-ADHA COMPARISON · YEAR-ON-YEAR TOLL</text>
+  <text x="32" y="58" class="title">Eid-ul-Adha Road Fatalities: 2024 vs. 2025</text>
+
+  <!-- 2025 Bar -->
+  <text x="32" y="104" class="label">2025 Eid-ul-Adha Rush (13 days)</text>
+  <rect x="360" y="84" width="430" height="30" rx="4" fill="#8c2b18"/>
+  <text x="802" y="106" class="val" fill="#8c2b18">312 deaths</text>
+
+  <!-- 2024 Bar -->
+  <text x="32" y="152" class="label">2024 Eid-ul-Adha Rush (14 days)</text>
+  <rect x="360" y="132" width="361" height="30" rx="4" fill="#16130f"/>
+  <text x="732" y="154" class="val" fill="#16130f">262 deaths</text>
+
+  <text x="32" y="196" class="note">Year-on-year increase: 19.08% (rounded to 19%). Corrected 2026-09-03 (Correction C-002: earlier 29% calculation retracted).</text>
 </svg>

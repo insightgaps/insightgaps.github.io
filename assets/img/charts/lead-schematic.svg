@@ -1,8 +1,46 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 260" role="img" aria-label="Schematic, not to scale: a school gate 59 metres from a battery recycling factory, inside a 500 metre buffer">
-<title>Schematic, not to scale: school gate 59 metres from a factory, inside a 500 metre buffer</title>
-<circle cx="360" cy="130" r="110" fill="none" stroke="#e3ddd0" stroke-width="2" stroke-dasharray="6 5"/>
-<text x="360" y="28" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#6d675c">500 metre screening buffer (schematic, not to scale — not a map)</text>
-<rect x="330" y="105" width="60" height="50" fill="#8c2b18"/><text x="360" y="135" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#fff">FACTORY</text>
-<rect x="470" y="115" width="50" height="40" fill="#16130f"/><text x="495" y="170" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">SCHOOL GATE</text>
-<line x1="390" y1="130" x2="470" y2="130" stroke="#8c2b18" stroke-width="2"/><text x="430" y="120" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#8c2b18">59 m</text>
-<text x="360" y="250" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">BD-4591, Kamrangir Char: 18 schools within 500 m of this single furnace, as published.</text></svg>
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 260" role="img" aria-labelledby="schem-title schem-desc">
+  <title id="schem-title">Proximity Schematic: Primary School Gate 59 Metres From Lead Battery Smelter</title>
+  <desc id="schem-desc">Proximity diagram at site BD-4591 in Kamrangir Char, illustrating the 59-metre physical gap between an illegal used lead-acid battery furnace and an active primary school gate within a 500-metre screening zone.</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 21px; font-weight: 700; fill: #16130f; }
+      .label { font-family: system-ui, -apple-system, sans-serif; font-size: 15px; font-weight: 700; }
+      .dist { font-family: "Space Mono", ui-monospace, monospace; font-size: 22px; font-weight: 700; fill: #8c2b18; }
+      .note { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="956" height="256" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <text x="32" y="34" class="kicker">PHYSICAL PROXIMITY AUDIT · KAMRANGIR CHAR (SITE BD-4591)</text>
+  <text x="32" y="58" class="title">59-Metre Gap: Lead Recycling Furnace to Primary School Gate</text>
+
+  <!-- 500m screening perimeter boundary -->
+  <rect x="32" y="80" width="896" height="130" rx="8" fill="#ffffff" stroke="#c8c4bc" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="50" y="104" font-family="Space Mono, monospace" font-size="14px" font-weight="700" fill="#5c5954">500-METRE SCREENING BUFFER BOUNDARY (18 SCHOOLS IN BUFFER)</text>
+
+  <!-- Factory Box -->
+  <g transform="translate(80, 115)">
+    <rect width="180" height="74" rx="6" fill="#8c2b18"/>
+    <text x="90" y="34" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="16px" font-weight="700" fill="#ffffff">ULAB FURNACE</text>
+    <text x="90" y="56" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14px" fill="#ffffff">Secondary Smelter</text>
+  </g>
+
+  <!-- Connecting Dimension Line -->
+  <line x1="260" y1="152" x2="680" y2="152" stroke="#8c2b18" stroke-width="3" stroke-dasharray="6 4"/>
+  <circle cx="260" cy="152" r="5" fill="#8c2b18"/>
+  <circle cx="680" cy="152" r="5" fill="#8c2b18"/>
+
+  <rect x="420" y="126" width="120" height="48" rx="6" fill="#fff5f5" stroke="#8c2b18" stroke-width="2"/>
+  <text x="480" y="157" text-anchor="middle" class="dist">59 m</text>
+
+  <!-- School Gate Box -->
+  <g transform="translate(680, 115)">
+    <rect width="200" height="74" rx="6" fill="#16130f"/>
+    <text x="100" y="34" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="16px" font-weight="700" fill="#ffffff">PRIMARY SCHOOL</text>
+    <text x="100" y="56" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14px" fill="#ffffff">School Gate Boundary</text>
+  </g>
+
+  <text x="32" y="238" class="note">Schematic representation (not a geospatial satellite map). At BD-4591, 18 educational institutions operate within 500m of the active battery furnace.</text>
+</svg>

@@ -1,23 +1,50 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" role="img" aria-label="Children above the safe blood-lead limit, by division (MICS 2025)">
-<title>Children above the safe blood-lead limit, by division (MICS 2025)</title>
-<text x="0" y="22" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">Children above the safe blood-lead limit, by division (MICS 2025)</text>
-<text x="0" y="57" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Dhaka</text>
-<rect x="210" y="42" width="430.0" height="20" fill="#8c2b18"/>
-<text x="645" y="57" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">65.2%</text>
-<text x="0" y="91" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Khulna</text>
-<rect x="210" y="76" width="316.6" height="20" fill="#16130f"/>
-<text x="532" y="91" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">48.0%</text>
-<text x="0" y="125" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Sylhet</text>
-<rect x="210" y="110" width="308.0" height="20" fill="#16130f"/>
-<text x="523" y="125" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">46.7%</text>
-<text x="0" y="159" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Chattogram</text>
-<rect x="210" y="144" width="277.7" height="20" fill="#16130f"/>
-<text x="493" y="159" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">42.1%</text>
-<text x="0" y="193" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">National</text>
-<rect x="210" y="178" width="252.6" height="20" fill="#16130f"/>
-<text x="468" y="193" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">38.3%</text>
-<text x="0" y="227" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Rajshahi</text>
-<rect x="210" y="212" width="104.9" height="20" fill="#16130f"/>
-<text x="320" y="227" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">15.9%</text>
-<text x="0" y="272" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">UNICEF / BBS MICS 2025, children above the safe limit. Division rates, not a national average.</text>
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" role="img" aria-labelledby="div-title div-desc">
+  <title id="div-title">Childhood Blood Lead Levels: Elevated Concentrations Across Divisions (MICS 2025)</title>
+  <desc id="div-desc">Horizontal bar chart displaying percentage of children with elevated blood lead levels (≥3.5 ug/dL) across Bangladesh divisions: Dhaka highest at 65.2%, Khulna 48.0%, Sylhet 46.7%, Chattogram 42.1%, National 38.3%, and Rajshahi 15.9%.</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 21px; font-weight: 700; fill: #16130f; }
+      .label { font-family: system-ui, -apple-system, sans-serif; font-size: 16px; font-weight: 600; fill: #16130f; }
+      .val { font-family: "Space Mono", ui-monospace, monospace; font-size: 18px; font-weight: 700; }
+      .note { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="956" height="316" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <text x="32" y="34" class="kicker">PUBLIC HEALTH SURVEY AUDIT · UNICEF / BBS MICS 2025</text>
+  <text x="32" y="58" class="title">Children With Elevated Blood Lead (≥3.5 µg/dL) by Division</text>
+
+  <!-- Row 1: Dhaka -->
+  <text x="32" y="98" class="label">Dhaka Division (Industrial Core)</text>
+  <rect x="360" y="78" width="440" height="24" rx="4" fill="#8c2b18"/>
+  <text x="810" y="96" class="val" fill="#8c2b18">65.2%</text>
+
+  <!-- Row 2: Khulna -->
+  <text x="32" y="132" class="label">Khulna Division</text>
+  <rect x="360" y="112" width="324" height="24" rx="4" fill="#16130f"/>
+  <text x="694" y="130" class="val" fill="#16130f">48.0%</text>
+
+  <!-- Row 3: Sylhet -->
+  <text x="32" y="166" class="label">Sylhet Division</text>
+  <rect x="360" y="146" width="315" height="24" rx="4" fill="#16130f"/>
+  <text x="685" y="164" class="val" fill="#16130f">46.7%</text>
+
+  <!-- Row 4: Chattogram -->
+  <text x="32" y="200" class="label">Chattogram Division</text>
+  <rect x="360" y="180" width="284" height="24" rx="4" fill="#16130f"/>
+  <text x="654" y="198" class="val" fill="#16130f">42.1%</text>
+
+  <!-- Row 5: National -->
+  <text x="32" y="234" class="label">National Baseline</text>
+  <rect x="360" y="214" width="258" height="24" rx="4" fill="#5c5954"/>
+  <text x="628" y="232" class="val" fill="#5c5954">38.3%</text>
+
+  <!-- Row 6: Rajshahi -->
+  <text x="32" y="268" class="label">Rajshahi Division</text>
+  <rect x="360" y="248" width="107" height="24" rx="4" fill="#16130f"/>
+  <text x="477" y="266" class="val" fill="#16130f">15.9%</text>
+
+  <text x="32" y="304" class="note">Source: Multiple Indicator Cluster Survey (MICS 2025), Bangladesh Bureau of Statistics &amp; UNICEF. Reference threshold: ≥3.5 µg/dL (CDC/WHO reference level).</text>
 </svg>

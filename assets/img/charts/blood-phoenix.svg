@@ -1,11 +1,64 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 165" role="img" aria-label="The Phoenix pattern: banned fleet, same chassis and route, new names">
-<title>The Phoenix pattern: banned fleet, same chassis and route, new names</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 260" role="img" aria-labelledby="phoenix-title phoenix-desc">
+  <title id="phoenix-title">The Phoenix Pattern: How Banned Fleets Return to the Road Under New Identities</title>
+  <desc id="phoenix-desc">Process diagram showing Suprobhat Paribahan banned in 2019, operating on the same Sadarghat to Gazipur route with identical chassis, and returning under new names Victor Classic and Akash.</desc>
+  <defs>
+    <style>
+      .bg { fill: #fcfbf9; }
+      .border { stroke: #16130f; stroke-width: 2; fill: #ffffff; }
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 22px; font-weight: 700; fill: #16130f; }
+      .card-tag { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; }
+      .card-title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 18px; font-weight: 700; fill: #16130f; }
+      .card-sub { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #3d382f; }
+      .card-status { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; }
+      .arrow { font-family: system-ui, sans-serif; font-size: 32px; font-weight: 700; fill: #8c2b18; text-anchor: middle; }
+      .footer-text { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; }
+    </style>
+  </defs>
 
-<text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">The Phoenix pattern — what is probable, what is only alleged</text>
-<rect x="10" y="50" width="200" height="70" fill="#f5f1e8" stroke="#16130f"/><text x="110" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#16130f">Banned fleet, 2019</text><text x="110" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Suprobhat Paribahan</text>
-<text x="225" y="92" font-family="system-ui, sans-serif" font-size="18" fill="#8c2b18">→</text>
-<rect x="260" y="50" width="200" height="70" fill="#f5f1e8" stroke="#16130f"/><text x="360" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#16130f">Same chassis, same route</text><text x="360" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Sadarghat–Gazipur</text>
-<text x="475" y="92" font-family="system-ui, sans-serif" font-size="18" fill="#8c2b18">→</text>
-<rect x="510" y="50" width="200" height="70" fill="#f5f1e8" stroke="#16130f"/><text x="610" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#16130f">New operator names</text><text x="610" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">incl. Victor Classic, Akash</text>
-<text x="360" y="150" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Route continuity: probable. Ownership continuity: alleged, not a registry finding. No guilt without a conviction.</text>
+  <!-- Container Box -->
+  <rect x="2" y="2" width="956" height="256" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <!-- Header -->
+  <text x="32" y="34" class="kicker">PHOENIX PATTERN · ROUTE REBRANDING AUDIT</text>
+  <text x="32" y="58" class="title">How Banned Bus Fleets Return to the Road Under New Identities</text>
+
+  <!-- Box 1: Banned Fleet -->
+  <g transform="translate(32, 74)">
+    <rect width="260" height="126" rx="6" fill="#fff5f5" stroke="#8c2b18" stroke-width="2"/>
+    <text x="16" y="25" class="card-tag" fill="#8c2b18">1 · REGISTRATION BANNED</text>
+    <text x="16" y="52" class="card-title">Suprobhat Paribahan</text>
+    <text x="16" y="76" class="card-sub">Route permits revoked (2019)</text>
+    <text x="16" y="96" class="card-sub">following fatal student crash</text>
+    <text x="16" y="116" class="card-status" fill="#8c2b18">STATUS: REGISTRATION REVOKED</text>
+  </g>
+
+  <!-- Arrow 1 -->
+  <text x="318" y="146" class="arrow">→</text>
+
+  <!-- Box 2: Physical Hardware -->
+  <g transform="translate(350, 74)">
+    <rect width="260" height="126" rx="6" fill="#ffffff" stroke="#16130f" stroke-width="2"/>
+    <text x="16" y="25" class="card-tag" fill="#16130f">2 · HARDWARE &amp; CORRIDOR</text>
+    <text x="16" y="52" class="card-title">Sadarghat–Gazipur</text>
+    <text x="16" y="76" class="card-sub">Same chassis, drivers, and halts</text>
+    <text x="16" y="96" class="card-sub">retained on primary arterial axis</text>
+    <text x="16" y="116" class="card-status" fill="#1a6b3c">ROUTE CONTINUITY: PROBABLE</text>
+  </g>
+
+  <!-- Arrow 2 -->
+  <text x="636" y="146" class="arrow">→</text>
+
+  <!-- Box 3: Rebranded Operators -->
+  <g transform="translate(668, 74)">
+    <rect width="260" height="126" rx="6" fill="#fffdfa" stroke="#78350f" stroke-width="2"/>
+    <text x="16" y="25" class="card-tag" fill="#78350f">3 · REBRANDED IDENTITIES</text>
+    <text x="16" y="52" class="card-title">Victor Classic &amp; Akash</text>
+    <text x="16" y="76" class="card-sub">New livery and company names</text>
+    <text x="16" y="96" class="card-sub">operating identical route schedules</text>
+    <text x="16" y="116" class="card-status" fill="#78350f">OWNERSHIP: ALLEGED (UNVERIFIED)</text>
+  </g>
+
+  <!-- Bottom Verification Standard -->
+  <text x="32" y="232" class="footer-text"><tspan font-weight="700">Verification standard:</tspan> Route continuity is probable based on route-permit matching. Ownership continuity remains alleged (unconfirmed by BRTA beneficial-ownership records). No guilt without judicial conviction.</text>
 </svg>

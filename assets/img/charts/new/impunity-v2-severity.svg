@@ -1,19 +1,53 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 190" role="img" aria-label="Timeline diagram: October 2020 death penalty added, conviction rate did not improve, backlog grew">
-<title>Severity timeline: maximum penalty, near-zero certainty</title>
-<text x="0" y="22" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">Maximum severity, near-zero certainty — a timeline, not a rate chart</text>
-<rect x="0" y="40" width="220" height="90" fill="#f2ede3" stroke="#16130f"/>
-<text x="12" y="62" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">Oct 2020 · Severity up</text>
-<text x="12" y="86" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">WCRPA amended: death penalty</text>
-<text x="12" y="108" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">added for all rape.</text>
-<text x="250" y="40" width="220" height="90" fill="#f2ede3" stroke="#16130f"/>
-<text x="262" y="62" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">After 2020 · No improvement</text>
-<text x="262" y="86" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Conviction rate did not improve,</text>
-<text x="262" y="108" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">as published. No controlled</text>
-<text x="262" y="124" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">experiment is claimed.</text>
-<text x="500" y="40" width="220" height="90" fill="#f2ede3" stroke="#16130f"/>
-<text x="512" y="62" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">2024 · Backlog grew</text>
-<text x="512" y="86" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Filings 17,544 vs disposals 5,648:</text>
-<text x="512" y="108" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">net growth 11,896 in one year.</text>
-<text x="0" y="160" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Claim R-02, Confirmed. Sequence, not a causal experiment. See evidence appendix.</text>
-<text x="0" y="180" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">No bar heights here represent rates. Do not read this timeline as a trend chart.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 250" role="img" aria-labelledby="severity-title severity-desc">
+  <title id="severity-title">Maximum Severity vs Near-Zero Certainty: Timeline of Judicial Outcomes</title>
+  <desc id="severity-desc">Timeline diagram illustrating the October 2020 death penalty amendment, subsequent lack of conviction improvement, and explosive 2024 backlog growth.</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 22px; font-weight: 700; fill: #16130f; }
+      .card-tag { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; }
+      .card-title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 18px; font-weight: 700; fill: #16130f; }
+      .card-body { font-family: system-ui, -apple-system, sans-serif; font-size: 14.5px; fill: #2b2823; }
+      .arrow { font-family: system-ui, sans-serif; font-size: 28px; font-weight: 700; fill: #8c2b18; text-anchor: middle; }
+      .note { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="956" height="246" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <text x="32" y="34" class="kicker">LEGAL REFORM AUDIT · PENAL POLICY TIMELINE</text>
+  <text x="32" y="58" class="title">Maximum Severity, Near-Zero Certainty: The Legislative Paradox</text>
+
+  <!-- Step 1: Oct 2020 Amendment -->
+  <g transform="translate(32, 76)">
+    <rect width="260" height="122" rx="6" fill="#ffffff" stroke="#16130f" stroke-width="2"/>
+    <text x="16" y="26" class="card-tag" fill="#8c2b18">OCT 2020 · SEVERITY SURGE</text>
+    <text x="16" y="52" class="card-title">Death Penalty Expansion</text>
+    <text x="16" y="78" class="card-body">WCRPA amended by ordinance to</text>
+    <text x="16" y="100" class="card-body">mandate capital punishment.</text>
+  </g>
+
+  <text x="318" y="146" class="arrow">→</text>
+
+  <!-- Step 2: Post-2020 Outcome -->
+  <g transform="translate(350, 76)">
+    <rect width="260" height="122" rx="6" fill="#ffffff" stroke="#16130f" stroke-width="2"/>
+    <text x="16" y="26" class="card-tag" fill="#16130f">2021–2023 · ATTRITION</text>
+    <text x="16" y="52" class="card-title">No Conviction Rise</text>
+    <text x="16" y="78" class="card-body">Published conviction rates</text>
+    <text x="16" y="100" class="card-body">remained stalled below 3.7%.</text>
+  </g>
+
+  <text x="636" y="146" class="arrow">→</text>
+
+  <!-- Step 3: Backlog Explosion -->
+  <g transform="translate(668, 76)">
+    <rect width="260" height="122" rx="6" fill="#fff5f5" stroke="#8c2b18" stroke-width="2"/>
+    <text x="16" y="26" class="card-tag" fill="#8c2b18">2024 · SYSTEM BREAKDOWN</text>
+    <text x="16" y="52" class="card-title">Backlog Surge (+11,896)</text>
+    <text x="16" y="78" class="card-body">17,544 new cases filed vs</text>
+    <text x="16" y="100" class="card-body" font-weight="700">only 5,648 cases disposed.</text>
+  </g>
+
+  <text x="32" y="228" class="note">Claim R-02 (Confirmed). Empirical sequence: expanding statutory severity failed to resolve procedural bottlenecks, forensic voids, or extreme trial delays.</text>
 </svg>

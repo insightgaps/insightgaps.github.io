@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 260" role="img" aria-labelledby="chain-title chain-desc">
+  <title id="chain-title">Preservation Evidence Chain: Sample Only</title>
+  <desc id="chain-desc">Sample diagram with fake data illustrating the property preservation evidence chain: field photos, tagging, quality control, owner cross-check, and submission gate.</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 22px; font-weight: 700; fill: #16130f; }
+      .box-tag { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #16130f; }
+      .box-body { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #16130f; }
+      .gate-warn { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; font-weight: 700; fill: #8c2b18; }
+      .note { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #16130f; }
+      .note-sub { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #6d675c; }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="956" height="256" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <text x="32" y="34" class="kicker">PROCESS AUDIT · EVIDENCE CHAIN GATES</text>
+  <text x="32" y="58" class="title">SAMPLE ONLY — FAKE DATA — The Evidence Chain, with Its Gates</text>
+
+  <!-- 5 Boxes -->
+  <!-- Box 1 -->
+  <g transform="translate(32, 78)">
+    <rect width="166" height="96" rx="6" fill="#fbeede" stroke="#16130f" stroke-width="2"/>
+    <text x="14" y="26" class="box-tag">1 · FIELD</text>
+    <text x="14" y="52" class="box-body">Photos +</text>
+    <text x="14" y="74" class="box-body">scope shown.</text>
+  </g>
+
+  <!-- Box 2 -->
+  <g transform="translate(212, 78)">
+    <rect width="166" height="96" rx="6" fill="#f2ede3" stroke="#16130f" stroke-width="2"/>
+    <text x="14" y="26" class="box-tag">2 · TAG</text>
+    <text x="14" y="52" class="box-body">Per line item</text>
+    <text x="14" y="74" class="box-body">+ flags.</text>
+  </g>
+
+  <!-- Box 3 -->
+  <g transform="translate(392, 78)">
+    <rect width="166" height="96" rx="6" fill="#f2ede3" stroke="#16130f" stroke-width="2"/>
+    <text x="14" y="26" class="box-tag">3 · QC</text>
+    <text x="14" y="52" class="box-body">Place, time,</text>
+    <text x="14" y="74" class="box-body">scope, clarity.</text>
+  </g>
+
+  <!-- Box 4 -->
+  <g transform="translate(572, 78)">
+    <rect width="166" height="96" rx="6" fill="#fbeede" stroke="#16130f" stroke-width="2"/>
+    <text x="14" y="26" class="box-tag">4 · OWNER</text>
+    <text x="14" y="52" class="box-body">Cross-check</text>
+    <text x="14" y="74" class="box-body">+ RFO (owner).</text>
+  </g>
+
+  <!-- Box 5 -->
+  <g transform="translate(752, 78)">
+    <rect width="176" height="96" rx="6" fill="#f2ede3" stroke="#16130f" stroke-width="2"/>
+    <text x="14" y="26" class="box-tag">5 · SUBMIT</text>
+    <text x="14" y="52" class="box-body">Only on owner</text>
+    <text x="14" y="74" class="box-body">word. Never alone.</text>
+  </g>
+
+  <!-- Footers -->
+  <text x="32" y="196" class="gate-warn">Gates that must never be skipped: owner cross-check, owner RFO, owner submit word.</text>
+  <text x="32" y="218" class="note">No real WO numbers, addresses, client names, amounts, crew names, or payment handles appear here.</text>
+  <text x="32" y="238" class="note-sub">Diagram only — not a real photograph, not a real work order. For class training only.</text>
+</svg>

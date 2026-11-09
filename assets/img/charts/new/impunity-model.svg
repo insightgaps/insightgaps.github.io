@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 220" role="img" aria-labelledby="model-title model-desc">
+  <title id="model-title">Punishment Probability Model Range on a Log Scale</title>
+  <desc id="model-desc">Log-scale diagram illustrating the estimated punishment probability range for violent crimes against women in Bangladesh: floor 0.00034 percent, mid 0.0215 percent (1 in 4,650), ceiling 0.2756 percent.</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 22px; font-weight: 700; fill: #16130f; }
+      .point-title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 16px; font-weight: 700; fill: #16130f; text-anchor: middle; }
+      .point-title--highlight { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 17px; font-weight: 700; fill: #8c2b18; text-anchor: middle; }
+      .point-sub { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; fill: #5c5954; text-anchor: middle; }
+      .note { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #3d382f; }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="956" height="216" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <text x="32" y="34" class="kicker">MATHEMATICAL MODEL · CONVICTION PROBABILITY RANGE</text>
+  <text x="32" y="58" class="title">Punishment Probability Model — Log Scale (Model, Not a Count)</text>
+
+  <!-- Axis line -->
+  <line x1="80" y1="115" x2="880" y2="115" stroke="#16130f" stroke-width="2.5"/>
+
+  <!-- Floor Point -->
+  <circle cx="160" cy="115" r="8" fill="#8c2b18" stroke="#ffffff" stroke-width="2"/>
+  <text x="160" y="92" class="point-title">Floor: 0.00034%</text>
+  <text x="160" y="142" class="point-sub">1 in ~294,000</text>
+
+  <!-- Midpoint Point -->
+  <circle cx="520" cy="115" r="9" fill="#8c2b18" stroke="#ffffff" stroke-width="2"/>
+  <text x="520" y="92" class="point-title--highlight">Midpoint: 0.0215%</text>
+  <text x="520" y="142" class="point-sub" font-weight="700">1 in ~4,650</text>
+
+  <!-- Ceiling Point -->
+  <circle cx="820" cy="115" r="8" fill="#8c2b18" stroke="#ffffff" stroke-width="2"/>
+  <text x="820" y="92" class="point-title">Ceiling: 0.2756%</text>
+  <text x="820" y="142" class="point-sub">1 in ~360</text>
+
+  <!-- Footnote -->
+  <text x="32" y="190" class="note">Model derivation: 0.0146 × 0.59 × 0.025 = 0.0215% (1 in about 4,650). Direction is structurally stable across ranges; no single point estimate without its bounds.</text>
+</svg>

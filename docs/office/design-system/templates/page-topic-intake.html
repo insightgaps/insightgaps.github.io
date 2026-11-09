@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Topic Idea Intake — Insight Gaps Bureau Office</title>
+  <meta name="description" content="Autonomous investigation intake portal for the Insight Gaps Bureau. Submit a topic idea to initiate the public data journalism pipeline.">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    .intake-form { margin: 2rem 0; }
+    .form-group { margin-bottom: 1.5rem; }
+    .form-group label { display: block; font-family: var(--sans); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.4rem; color: var(--ink); }
+    .form-group .form-help { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.5rem; }
+    .form-control { width: 100%; padding: 0.75rem 1rem; font-family: var(--sans); font-size: 1rem; border: 1px solid var(--line); background: var(--paper); color: var(--ink); box-sizing: border-box; }
+    .form-control:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
+    textarea.form-control { min-height: 120px; resize: vertical; line-height: 1.5; }
+    .intake-btn { display: inline-block; padding: 0.8rem 1.6rem; background: var(--accent); color: #fff; font-family: var(--sans); font-size: 0.88rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; }
+    .intake-btn:hover { background: var(--color-accent-hover); }
+    .output-box { display: none; background: var(--paper-soft); border: 1px solid var(--line); border-left: 4px solid var(--accent); padding: 1.5rem; margin-top: 2rem; }
+    .output-box pre { background: transparent; padding: 0; white-space: pre-wrap; font-size: 0.88rem; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="/" class="site-header__logo">
+        <span class="logo__brand">Insight Gaps</span>
+        <small>Data Journalism Office</small>
+      </a>
+      <nav class="site-nav">
+        <a href="/investigations/">Investigations</a>
+        <a href="/methodology/">Methodology</a>
+        <a href="/docs/office/">Office Manual</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page page--narrow">
+    <p class="eyebrow">Autonomous Newsroom Intake</p>
+    <h1>Topic Idea Intake</h1>
+    <p class="hero__standfirst">The user gives only topic ideas. The autonomous 10-agent office handles the research, data cleaning, dual verification, visualization, editing, and staging.</p>
+
+    <div class="banner">
+      <h3>The Single-Input Rule</h3>
+      <p>Submit a topic idea below. The Topic Scout (Agent 01) screens the subject against public datasets (BBS, departmental gazettes, court records, remote sensing). If viable, the office initiates the 10-step investigation workflow.</p>
+    </div>
+
+    <form class="intake-form" id="intakeForm" onsubmit="generateIntakePrompt(event)">
+      <div class="form-group">
+        <label for="topicTitle">Proposed Topic / Core Hypothesis</label>
+        <p class="form-help">State the systemic failure or public-interest question (e.g. "Hospital medical oxygen supply shortages vs tariff exemptions in divisional towns").</p>
+        <input type="text" id="topicTitle" class="form-control" placeholder="e.g. River sand-mining lease boundaries vs embankment breaches" required>
+      </div>
+
+      <div class="form-group">
+        <label for="topicAgency">Target Public Agency or Regulatory Boundary</label>
+        <p class="form-help">Which ministry, department, or statutory act governs this subject?</p>
+        <input type="text" id="topicAgency" class="form-control" placeholder="e.g. Bangladesh Water Development Board, Sand Quarry and Soil Management Act 2010" required>
+      </div>
+
+      <div class="form-group">
+        <label for="topicDatasets">Known Public Datasets (Optional)</label>
+        <p class="form-help">List any known public portals, gazettes, or satellite sources (public data only; no RTI/FOI).</p>
+        <textarea id="topicDatasets" class="form-control" placeholder="e.g. BWDB annual embankment breach logs, Sentinel-2 remote sensing riverbank imagery, Ministry of Land gazette leases"></textarea>
+      </div>
+
+      <button type="submit" class="intake-btn">Generate Antigravity Intake Prompt</button>
+    </form>
+
+    <div class="output-box" id="outputBox">
+      <h3>Generated Antigravity Prompt</h3>
+      <p class="meta">Copy and paste this prompt into an Antigravity conversation in this InsightGaps workspace (branch <code>main</code>) to launch the autonomous office pipeline:</p>
+      <pre id="promptText"></pre>
+    </div>
+  </main>
+
+  <script>
+    function generateIntakePrompt(event) {
+      event.preventDefault();
+      const topic = document.getElementById('topicTitle').value.trim();
+      const agency = document.getElementById('topicAgency').value.trim();
+      const datasets = document.getElementById('topicDatasets').value.trim() || 'Public departmental bulletins, government gazettes, and remote sensing.';
+      
+      const slug = topic.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '').substring(0, 32);
+
+      const prompt = `NEW INVESTIGATION LAUNCH — INSIGHT GAPS OFFICE
+
+Role: Agent 01 (Topic Scout)
+Workspace: insightgaps/insightgaps.github.io (branch main, STAGED ONLY)
+Standard: Public Data Only (No RTI/FOI, No Fieldwork/Interviews, No Invented Numbers)
+
+Topic Idea: "${topic}"
+Target Regulatory Body / Statute: ${agency}
+Identified Public Data Sources: ${datasets}
+Target Slug: ${slug}
+
+Instructions:
+1. Adopt the Agent 01 Topic Scout brief in docs/office/agents/01-topic-scout.md.
+2. Evaluate this topic against the 5-point Public Data Feasibility Rubric.
+3. Generate the Topic Intake Memo using docs/office/templates/topic-intake-memo.md and save to docs/office/workspace/intake/${slug}-intake-memo.md.
+4. If approved (score >= 8/10), proceed through the end-to-end office pipeline (Agents 02 through 09) to build, verify, visualize (960px SVG), shorten (~2,200 words), and stage the complete investigation at investigations/${slug}/index.html.
+5. All work STAGED ONLY (git add -A), uncommitted, no push.`;
+
+      document.getElementById('promptText').textContent = prompt;
+      document.getElementById('outputBox').style.display = 'block';
+      document.getElementById('outputBox').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p>&copy; 2026 Insight Gaps Bureau. Public Data Only.</p>
+    </div>
+  </footer>
+</body>
+</html>

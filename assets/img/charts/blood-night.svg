@@ -1,4 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 140" role="img" aria-label="Fatal Dhaka crashes at night vs rest of day">
-<title>Fatal Dhaka crashes at night vs rest of day</title>
-<text x="0" y="22" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">Fatal Dhaka crashes, 10pm–6am vs rest of day</text><text x="0" y="57" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">10pm–6am</text><rect x="210" y="42" width="178.7" height="20" fill="#8c2b18"/><text x="393.7" y="57" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">41.56%</text><text x="0" y="91" font-family="system-ui, sans-serif" font-size="13" fill="#16130f">Rest of day (calculated)</text><rect x="210" y="76" width="251.3" height="20" fill="#16130f"/><text x="466.3" y="91" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">58.44%</text><text x="0" y="126" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Night share 41.56% as corrected 2026-06-08 (C-001); rest = 100 − 41.56, calculated.</text>
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 220" role="img" aria-labelledby="night-title night-desc">
+  <title id="night-title">Temporal Distribution: Fatal Dhaka Crashes at Night vs. Rest of Day</title>
+  <desc id="night-desc">Horizontal stacked bar chart showing 41.56% of fatal Dhaka crashes occurring during the 8-hour window between 10pm and 6am.</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 21px; font-weight: 700; fill: #16130f; }
+      .label { font-family: system-ui, -apple-system, sans-serif; font-size: 16px; font-weight: 600; fill: #16130f; }
+      .val { font-family: "Space Mono", ui-monospace, monospace; font-size: 20px; font-weight: 700; }
+      .note { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="956" height="216" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <text x="32" y="34" class="kicker">TEMPORAL CLUSTERING · 8-HOUR NIGHT WINDOW AUDIT</text>
+  <text x="32" y="58" class="title">Fatal Dhaka Crashes: 10pm–6am Window vs. Rest of Day</text>
+
+  <!-- Night window bar -->
+  <text x="32" y="104" class="label">10pm–6am Window (8 hours · Truck Entry)</text>
+  <rect x="420" y="84" width="249" height="30" rx="4" fill="#8c2b18"/>
+  <text x="680" y="106" class="val" fill="#8c2b18">41.56% of fatal crashes</text>
+
+  <!-- Daytime bar -->
+  <text x="32" y="152" class="label">Remaining 16 Hours (6am–10pm Daytime)</text>
+  <rect x="420" y="132" width="351" height="30" rx="4" fill="#16130f"/>
+  <text x="782" y="154" class="val" fill="#16130f">58.44%</text>
+
+  <text x="32" y="196" class="note">Finding: Over 41% of fatal collisions concentrate in the 8 nighttime hours when long-distance heavy haulers enter city arteries. Corrected 2026-06-08 (Correction C-001).</text>
 </svg>

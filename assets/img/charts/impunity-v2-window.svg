@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 230" role="img" aria-labelledby="window-title window-desc">
+  <title id="window-title">Forensic Window: 78 Percent Arrive After 72 Hours</title>
+  <desc id="window-desc">Bar chart showing 78 percent of survivors arrive at One-Stop Crisis Centres after the 72-hour forensic window (BRAC 2022), while only 22 percent arrive within the 72-hour window.</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 22px; font-weight: 700; fill: #16130f; }
+      .bar-label { font-family: system-ui, -apple-system, sans-serif; font-size: 16px; font-weight: 600; fill: #16130f; }
+      .bar-val { font-family: "Space Mono", ui-monospace, monospace; font-size: 16px; font-weight: 700; fill: #16130f; }
+      .note-bold { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; font-weight: 700; fill: #16130f; }
+      .note-sub { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="956" height="226" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <text x="32" y="34" class="kicker">FORENSIC ATTRITION WINDOW · SURVIVOR ARRIVAL AUDIT</text>
+  <text x="32" y="58" class="title">The 72-Hour Forensic Window Closes Before Most Survivors Arrive</text>
+
+  <!-- Row 1: After 72 hours -->
+  <text x="32" y="101" class="bar-label">After 72 hours</text>
+  <rect x="220" y="80" width="500" height="30" rx="4" fill="#8c2b18"/>
+  <text x="735" y="101" class="bar-val">78% (BRAC 2022)</text>
+
+  <!-- Row 2: Within 72 hours -->
+  <text x="32" y="146" class="bar-label">Within 72 hours</text>
+  <rect x="220" y="125" width="141" height="30" rx="4" fill="#16130f"/>
+  <text x="375" y="146" class="bar-val">22% (derived: 100 − 78%)</text>
+
+  <!-- Footers -->
+  <text x="32" y="185" class="note-bold">§32 mandates hospital examination — but no institution tracks refusal compliance.</text>
+  <text x="32" y="208" class="note-sub">Colour plus text labels: red = after window, dark = within window. Aggregate public data only.</text>
+</svg>

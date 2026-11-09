@@ -1,21 +1,52 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 210" role="img" aria-label="Diagram: how the 39,875 exposure-instance projection is built, and what it must never be quoted as">
-<title>Exposure projection: anatomy, not a headcount</title>
-<text x="0" y="22" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#16130f">39,875 — a projection of exposure instances, NOT children poisoned</text>
-<rect x="0" y="40" width="200" height="70" fill="#f2ede3" stroke="#16130f"/>
-<text x="12" y="62" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">145 intersections</text>
-<text x="12" y="84" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Schools within 500 m</text>
-<text x="12" y="104" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">of headline sites.</text>
-<text x="215" y="75" font-family="system-ui, sans-serif" font-size="20" font-weight="700" fill="#16130f">×</text>
-<rect x="240" y="40" width="200" height="70" fill="#f2ede3" stroke="#16130f"/>
-<text x="252" y="62" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">275 pupils / school</text>
-<text x="252" y="84" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Average enrolment,</text>
-<text x="252" y="104" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Annual Primary Census 2024.</text>
-<text x="455" y="75" font-family="system-ui, sans-serif" font-size="20" font-weight="700" fill="#16130f">=</text>
-<rect x="480" y="40" width="240" height="70" fill="#f2ede3" stroke="#16130f"/>
-<text x="492" y="62" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#16130f">≈ 39,875 instances</text>
-<text x="492" y="84" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Unique-school estimate ≈ 33,275.</text>
-<text x="492" y="104" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Audited range 24,650–50,750.</text>
-<text x="0" y="140" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#8c2b18">NEVER quote as “39,875 children poisoned” or “children at extreme risk”.</text>
-<text x="0" y="165" font-family="system-ui, sans-serif" font-size="12" fill="#16130f">Claim R-05, Supported. Exposure instances are not tested children.</text>
-<text x="0" y="187" font-family="system-ui, sans-serif" font-size="12" fill="#6d675c">Published counts retained as publication of record; re-run differs (51 / 166 / 125) — see report.</text>
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 260" role="img" aria-labelledby="proj-title proj-desc">
+  <title id="proj-title">Statistical Standard: 39,875 is an Exposure Projection, NOT Poisoned Children</title>
+  <desc id="proj-desc">Formula diagram showing how the 39,875 exposure instance metric is calculated: 145 school buffer intersections multiplied by 275 average enrollment, with strict guidance against calling it children poisoned.</desc>
+  <defs>
+    <style>
+      .kicker { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; fill: #8c2b18; letter-spacing: 0.12em; text-transform: uppercase; }
+      .title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 21px; font-weight: 700; fill: #16130f; }
+      .card-tag { font-family: "Space Mono", ui-monospace, monospace; font-size: 14px; font-weight: 700; }
+      .card-title { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 18px; font-weight: 700; fill: #16130f; }
+      .card-sub { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #3d382f; }
+      .oper { font-family: system-ui, sans-serif; font-size: 28px; font-weight: 700; fill: #16130f; text-anchor: middle; }
+      .warning { font-family: system-ui, -apple-system, sans-serif; font-size: 14.5px; font-weight: 700; fill: #8c2b18; }
+      .note { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5c5954; }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="956" height="256" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+
+  <text x="32" y="34" class="kicker">METHODOLOGICAL INTEGRITY AUDIT · PROJECTION DERIVATION</text>
+  <text x="32" y="58" class="title">39,875: A Projection of Exposure Instances, NOT "Children Poisoned"</text>
+
+  <!-- Box 1 -->
+  <g transform="translate(32, 76)">
+    <rect width="250" height="96" rx="6" fill="#ffffff" stroke="#16130f" stroke-width="2"/>
+    <text x="16" y="26" class="card-tag" fill="#8c2b18">1 · BUFFER OVERLAPS</text>
+    <text x="16" y="52" class="card-title">145 Intersections</text>
+    <text x="16" y="76" class="card-sub">Schools within 500m screening zone</text>
+  </g>
+
+  <text x="306" y="132" class="oper">×</text>
+
+  <!-- Box 2 -->
+  <g transform="translate(330, 76)">
+    <rect width="250" height="96" rx="6" fill="#ffffff" stroke="#16130f" stroke-width="2"/>
+    <text x="16" y="26" class="card-tag" fill="#16130f">2 · AVERAGE ENROLLMENT</text>
+    <text x="16" y="52" class="card-title">275 Pupils / School</text>
+    <text x="16" y="76" class="card-sub">Annual Primary Census 2024</text>
+  </g>
+
+  <text x="604" y="132" class="oper">=</text>
+
+  <!-- Box 3 -->
+  <g transform="translate(628, 76)">
+    <rect width="300" height="96" rx="6" fill="#fff5f5" stroke="#8c2b18" stroke-width="2"/>
+    <text x="16" y="26" class="card-tag" fill="#8c2b18">3 · PROJECTED EXPOSURES</text>
+    <text x="16" y="52" class="card-title" fill="#8c2b18">≈ 39,875 Instances</text>
+    <text x="16" y="76" class="card-sub">Unique-school estimate ≈ 33,275</text>
+  </g>
+
+  <text x="32" y="202" class="warning">MANDATORY RULE: Never write "39,875 children poisoned" or "children poisoned by lead".</text>
+  <text x="32" y="226" class="note">These are modelled student-buffer exposure instances from school census data. They are not clinically tested individual children (Claim R-05 · Supported).</text>
 </svg>

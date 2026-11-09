@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Investigations — Insight Gaps</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/_pagefind/pagefind-ui.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="/" class="site-header__logo">
+        <span class="logo__brand">Insight Gaps</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/investigations/">Investigations</a>
+        <a href="/methodology/">Methodology</a>
+        <a href="/corrections/">Corrections</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page page--narrow">
+    <p class="eyebrow">Client-Side Search</p>
+    <h1>Search Public Investigations</h1>
+    <p class="hero__standfirst">Search across all published investigations, statutory analyses, and evidence dossiers.</p>
+
+    <div id="search"></div>
+  </main>
+
+  <script src="/_pagefind/pagefind-ui.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+      new PagefindUI({ element: "#search", showSubResults: true });
+    });
+  </script>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p>&copy; 2026 Insight Gaps Bureau. Public Data Only.</p>
+    </div>
+  </footer>
+</body>
+</html>
