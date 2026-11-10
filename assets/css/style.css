@@ -1019,20 +1019,21 @@ body.visual-story {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 2;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
 .boat-canvas-container svg {
   width: 100%;
   height: 100%;
-  max-width: 100%;
+  max-width: 100vw;
   max-height: 100%;
   display: block;
 }
@@ -1061,7 +1062,7 @@ body.visual-story {
   top: 2.2rem;
   left: 0;
   width: 100%;
-  padding: 0.5rem 2.5rem;
+  padding: 0.5rem 3.5rem 0.5rem 2.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1314,7 +1315,7 @@ body.visual-story {
   }
   .boat-header-bar {
     top: 3.5rem;
-    padding: 0.3rem 0.65rem;
+    padding: 0.3rem 0.85rem 0.3rem 0.65rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -1340,9 +1341,10 @@ body.visual-story {
   .boat-header-right {
     max-width: 44%;
     text-align: right;
+    flex-shrink: 0;
   }
   .boat-hero-stat {
-    font-size: clamp(0.92rem, 3.2vw, 1.2rem);
+    font-size: clamp(0.85rem, 3.2vw, 1.15rem);
     white-space: nowrap;
   }
   .boat-canvas-container {
@@ -1353,7 +1355,7 @@ body.visual-story {
     gap: 0.55rem;
   }
   .boat-bottom-controls {
-    bottom: 4.8rem;
+    bottom: 6.8rem;
     left: 0.65rem;
     gap: 0.35rem;
   }

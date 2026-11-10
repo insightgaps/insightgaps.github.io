@@ -217,9 +217,55 @@
       }
     ];
 
-    const sceneData = (storyKey === 'impunity-machine' || storyKey === 'the-impunity-machine')
-      ? impunityMachineScenes
-      : bloodRoutesScenes;
+    const leadBeltScenes = [
+      {
+        num: '01 / 05',
+        title: '59 Metres to Furnace',
+        stat: '59 Metres',
+        narration: 'Fifty-nine metres separate a school gate from an unlicensed battery furnace.',
+        nextText: 'Scroll to advance ↓',
+        nextHref: '#scene-2'
+      },
+      {
+        num: '02 / 05',
+        title: '1,702× Safety Limit',
+        stat: '680,872 ppm',
+        narration: 'Safe soil is 400 parts per million; Savar tests at 680,872 — 1,702 times the limit.',
+        nextText: 'Scroll to advance ↓',
+        nextHref: '#scene-3'
+      },
+      {
+        num: '03 / 05',
+        title: 'Two in Three Poisoned',
+        stat: '65.2% in Dhaka',
+        narration: 'Two in three children in Dhaka Division carry elevated lead in their blood.',
+        nextText: 'Scroll to advance ↓',
+        nextHref: '#scene-4'
+      },
+      {
+        num: '04 / 05',
+        title: 'The Informal Monopoly',
+        stat: '294 Sites',
+        narration: 'Six thousand informal kilns melt seventy percent of scrap batteries with zero filters.',
+        nextText: 'Scroll to advance ↓',
+        nextHref: '#scene-5'
+      },
+      {
+        num: '05 / 05',
+        title: '22 Years, 0 Cleanups',
+        stat: '0 Cleanups',
+        narration: 'Twenty-two years of documented surveys; zero contaminated sites have ever been cleaned.',
+        nextText: 'The Missing Variable: Enter Hub →',
+        nextHref: '/investigations/the-missing-variable/'
+      }
+    ];
+
+    let sceneData = bloodRoutesScenes;
+    if (storyKey === 'lead-belt' || storyKey === 'the-lead-belt') {
+      sceneData = leadBeltScenes;
+    } else if (storyKey === 'impunity-machine' || storyKey === 'the-impunity-machine') {
+      sceneData = impunityMachineScenes;
+    }
 
     let currentSceneIdx = -1;
     let ticking = false;
@@ -277,7 +323,38 @@
       }
 
       // Continuous SVG attribute scrubbing for active scene
-      if (storyKey === 'impunity-machine' || storyKey === 'the-impunity-machine') {
+      if (storyKey === 'lead-belt' || storyKey === 'the-lead-belt') {
+        if (currentSceneIdx === 0) {
+          const proxBar = document.getElementById('scrub-proximity-bar');
+          if (proxBar) proxBar.setAttribute('width', '212');
+        } else if (currentSceneIdx === 1) {
+          const p1 = document.getElementById('scrub-lead-peak');
+          const p2 = document.getElementById('scrub-lead-kam');
+          const p3 = document.getElementById('scrub-lead-jat');
+          if (p1) p1.setAttribute('width', '1450');
+          if (p2) p2.setAttribute('width', '703');
+          if (p3) p3.setAttribute('width', '634');
+        } else if (currentSceneIdx === 2) {
+          const b1 = document.getElementById('scrub-bll-dhaka');
+          const b2 = document.getElementById('scrub-bll-khulna');
+          const b3 = document.getElementById('scrub-bll-nat');
+          const b4 = document.getElementById('scrub-bll-raj');
+          if (b1) b1.setAttribute('width', '978');
+          if (b2) b2.setAttribute('width', '720');
+          if (b3) b3.setAttribute('width', '575');
+          if (b4) b4.setAttribute('width', '239');
+        } else if (currentSceneIdx === 3) {
+          const c1 = document.getElementById('scrub-belt-c1');
+          const c2 = document.getElementById('scrub-belt-c2');
+          const c3 = document.getElementById('scrub-belt-c3');
+          if (c1) c1.style.opacity = '1';
+          if (c2) c2.style.opacity = '1';
+          if (c3) c3.style.opacity = '1';
+        } else if (currentSceneIdx === 4) {
+          const cc = document.getElementById('scrub-cleanups-card');
+          if (cc) cc.style.opacity = '1';
+        }
+      } else if (storyKey === 'impunity-machine' || storyKey === 'the-impunity-machine') {
         if (currentSceneIdx === 0) {
           const s1 = document.getElementById('scrub-imp-s1');
           const s2 = document.getElementById('scrub-imp-s2');
