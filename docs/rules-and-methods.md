@@ -195,3 +195,26 @@ The visual language communicates forensic precision, editorial authority, and ma
 - **Prose Column:** `720px` (comfortable 65–75 character reading measure)
 - **Visual & Chart Width:** `960px` (full desktop reading width for SVGs and data tables)
 - **Max Page Width:** `1200px`
+
+---
+
+## 9. The 90/10 Visual Essay Standard (The Pudding & NYT Style)
+
+All core investigations must follow the **90/10 Visual Essay** presentation format:
+
+1. **One Visual per Screen:** Full width (up to 960px container), chart fills the viewport cleanly without cramped sidebars.
+2. **On-Visual Annotation:** A crisp 10–15 word annotation card pointing directly to the decisive bar, line, or metric that drives the finding.
+3. **Scroll-Driven Progression:** The vertical scroll advances the story sequentially (bars compare, funnels narrow, distance scales move).
+4. **Ruthless Scroll Economy:** Zero dense prose in the main scroll. Each screen consists strictly of:
+   - Screen kicker / eyebrow
+   - Punchy headline stating the finding
+   - Prominent stat callout badge
+   - Full-width SVG chart
+   - 10–15 word pointed annotation
+   - 1–2 sentence narrative spine
+   - Interactive `<details>` decision point ("Decide first... Reveal...")
+5. **The Narrative Spine ("The Missing Variable"):** An anonymised human spine (Tanvir searching for his sister Nusrat, guided by data agent VIGIL and inquiry agent MUKTI) threads through each screen, grounding technical datasets in human consequences without ever fabricating evidence, naming living individuals, or referencing interviews.
+6. **Narrator Decision Point:** At each screen or step, the narrator halts and prompts the reader to decide before revealing the audited regulatory or empirical finding.
+7. **Five-Line Summary & Verdict:** The story concludes with an exact 5-line factual takeaway followed by a verdict callout handing judgment to the reader.
+8. **Evidence Appendix Behind a Tap:** All comprehensive data tables, complete claim registers (with grades Confirmed/Supported/Contested), regulatory citations, documented gaps, and permanent corrections logs are enclosed within an expandable `<details class="evidence-appendix">` element. Every verified number remains 100% accessible and verifiable upon tap.
+

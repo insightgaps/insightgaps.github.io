@@ -540,3 +540,226 @@ table[tabindex="0"]:focus-visible { outline: 2px solid var(--accent); outline-of
   margin-top: 0.65rem;
   text-align: center;
 }
+
+/* ---------- 90/10 Visual Essay Format (Pudding & NYT style) ---------- */
+.page--report .essay-screen {
+  position: relative;
+  width: 100% !important;
+  max-width: 960px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 3.5rem;
+  padding: 1.5rem 0 2rem 0;
+  border-top: 1px solid var(--line);
+  display: block !important;
+}
+.page--report .essay-screen:first-of-type {
+  border-top: none;
+  padding-top: 0.5rem;
+}
+.page--report .screen-header {
+  max-width: 68ch;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.25rem;
+  padding-left: var(--space);
+  padding-right: var(--space);
+}
+.screen-header .screen-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.25rem;
+}
+.screen-header h2 {
+  font-family: var(--font-head);
+  font-size: 1.85rem;
+  line-height: 1.2;
+  margin: 0.25rem 0 0.5rem 0;
+  color: var(--fg);
+}
+.screen-header .screen-stat-badge {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  background: var(--accent-soft);
+  border: 1px solid rgba(140, 43, 24, 0.25);
+  border-radius: 4px;
+  padding: 0.35rem 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.screen-header .screen-stat-badge small {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--fg);
+}
+.page--report .screen-visual-wrap {
+  position: relative;
+  width: 100% !important;
+  max-width: 960px !important;
+  margin: 1rem auto;
+  display: block;
+}
+.page--report .screen-visual-wrap figure {
+  margin: 0;
+  width: 100% !important;
+  max-width: 960px !important;
+}
+.page--report .screen-visual-wrap img {
+  width: 100% !important;
+  max-width: 960px !important;
+  height: auto !important;
+  display: block;
+  margin: 0 auto;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+.page--report .visual-annotation {
+  max-width: 68ch;
+  margin: 0.85rem auto 1rem auto;
+  padding: 0.65rem 1rem;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 4px 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--fg);
+  line-height: 1.4;
+}
+.page--report .visual-annotation strong {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.page--report .story-spine {
+  max-width: 68ch;
+  margin: 0.85rem auto;
+  padding: 0.65rem 1rem;
+  background: rgba(22, 19, 15, 0.03);
+  border-left: 3px solid #8a8478;
+  font-style: italic;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+.page--report .story-spine strong {
+  font-style: normal;
+  color: var(--fg);
+}
+.page--report .screen-decision {
+  max-width: 68ch;
+  margin: 0.85rem auto 1.25rem auto;
+  padding-left: var(--space);
+  padding-right: var(--space);
+}
+.page--report .screen-decision summary {
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--fg);
+  padding: 0.4rem 0;
+}
+.page--report .screen-decision-content {
+  margin-top: 0.5rem;
+  padding: 0.85rem 1.15rem;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.page--report .five-line-summary {
+  max-width: 68ch;
+  margin: 3rem auto 2rem auto;
+  padding: 1.5rem;
+  background: #ffffff;
+  border: 2px solid var(--fg);
+  border-radius: 6px;
+}
+.page--report .five-line-summary h3 {
+  margin-top: 0;
+  font-family: var(--font-head);
+  font-size: 1.25rem;
+  color: var(--fg);
+  margin-bottom: 0.85rem;
+}
+.page--report .five-line-summary ol {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.page--report .five-line-summary li {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--fg);
+}
+.page--report .verdict-box {
+  max-width: 68ch;
+  margin: 2rem auto 3rem auto;
+  padding: 1.5rem;
+  background: var(--accent-soft);
+  border: 2px solid var(--accent);
+  border-radius: 6px;
+  text-align: center;
+}
+.page--report .verdict-box h3 {
+  margin-top: 0;
+  font-family: var(--font-head);
+  color: var(--accent);
+  font-size: 1.35rem;
+}
+.page--report .verdict-box p {
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin: 0.5rem 0 0 0;
+  color: var(--fg);
+  line-height: 1.45;
+}
+.page--report .evidence-appendix {
+  max-width: 960px;
+  margin: 3rem auto;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #ffffff;
+  overflow: hidden;
+}
+.page--report .evidence-appendix > summary {
+  cursor: pointer;
+  padding: 1.15rem 1.5rem;
+  font-family: var(--font-head);
+  font-size: 1.2rem;
+  font-weight: 700;
+  background: #f7f6f2;
+  border-bottom: 1px solid var(--line);
+  color: var(--fg);
+}
+.page--report .evidence-appendix-body {
+  padding: 1.5rem 2rem;
+}
+.page--report .evidence-appendix-body h3 {
+  font-family: var(--font-head);
+  font-size: 1.15rem;
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+  color: var(--fg);
+}
+.page--report .evidence-appendix-body table {
+  width: 100%;
+  margin: 1rem 0 2rem 0;
+  font-size: 0.88rem;
+}
+

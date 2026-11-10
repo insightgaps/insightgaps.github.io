@@ -57,3 +57,16 @@ Every investigation follows a disciplined 5-act structure:
 2. **Subheadings Every 250–350 Words:** Break prose into digestible visual modules. Subheadings must be factual statements, not clever puns.
 3. **Evidence Box Delegation:** Any table exceeding 5 rows, any complex statistical derivation formula, or any lengthy list of upazilas must be enclosed in `<details class="evidence-box">`. The main scroll must remain clean and readable.
 4. **No Meta-Journalism:** Remove all phrases like *"In this report, Insight Gaps examines..."*, *"As we will discover below..."*, or *"Let us first decide..."*. State the evidence directly.
+
+---
+
+## 4. The 90/10 Visual Essay Standard (The Pudding & NYT Style)
+
+To maximize comprehension and visual impact on both desktop and mobile, all investigations follow the 90/10 visual essay standard:
+
+1. **Visual-First Screens:** Every major section is a standalone `.essay-screen` centered around a full-width SVG visualization (up to 960px).
+2. **Targeted Annotations:** Exactly 10–15 words highlighting the crucial bar, node, or threshold.
+3. **The Narrative Spine ("The Missing Variable"):** An anonymised through-line (protagonist Tanvir searching for his sister Nusrat, guided by data agent VIGIL and inquiry agent MUKTI) brings emotional coherence across the technical evidence without citing living persons, private cases, or interviews.
+4. **Interactive Decision Points:** The narrator poses a provocative policy or empirical choice ("Decide first..."), with the audited finding revealed upon user tap.
+5. **Five-Line Summary & Verdict:** The scroll ends with an exact 5-point factual takeaway and hands the verdict to the reader.
+6. **Complete Evidence Behind a Tap:** Full claim registers, raw data tables, calculation methodologies, and correction logs live in `<details class="evidence-appendix">` at the foot of the document.

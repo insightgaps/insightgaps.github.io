@@ -188,3 +188,74 @@ Mandatory audit register at the conclusion of every investigation:
   </div>
 </footer>
 ```
+
+---
+
+## 9. 90/10 Visual Essay Components
+
+The scrollytelling visual essay architecture (The Pudding & NYT style) relies on these components:
+
+```html
+<!-- Screen Block -->
+<section class="essay-screen" id="screen-1">
+  <div class="screen-header">
+    <p class="screen-kicker">Screen 1 · Spatial Proximity Audit</p>
+    <h2>The Walk: 59 Metres to the Furnace</h2>
+    <div class="screen-stat-badge">
+      59 METRES <small>School gate to illegal battery smelter</small>
+    </div>
+  </div>
+
+  <div class="screen-visual-wrap">
+    <figure>
+      <img width="960" height="240" src="/assets/img/charts/chart-slug.svg" alt="Accessible description">
+    </figure>
+  </div>
+
+  <!-- On-Visual Annotation (10-15 words) -->
+  <div class="visual-annotation">
+    <strong>59 METRES</strong>
+    <span>Fifty-nine paces separate school classrooms from an unlicensed battery smelter boiling lead at night.</span>
+  </div>
+
+  <!-- Narrative Spine Callout -->
+  <div class="story-spine">
+    <strong>The Missing Variable:</strong> Tanvir walks the school perimeter. VIGIL measures the perimeter: 59 paces from classroom threshold to an open smelting crucible.
+  </div>
+
+  <!-- Decide-First Decision Point -->
+  <details class="screen-decision">
+    <summary><strong>Decision point 1 — Decide first: would you report the police count or epidemiological model?</strong></summary>
+    <div class="screen-decision-content">
+      <p><strong>Reveal — Claim R-02 · Supported.</strong> Audited factual context and claim grade revealed after user decision.</p>
+    </div>
+  </details>
+</section>
+
+<!-- Five-Line Summary -->
+<section class="five-line-summary">
+  <h3>Investigation in Five Lines</h3>
+  <ol>
+    <li>Line 1: Core metric and empirical undercount.</li>
+    <li>Line 2: Economic or contractual driver.</li>
+    <li>Line 3: Regulatory loophole or institutional failure.</li>
+    <li>Line 4: Scope of affected population or schools.</li>
+    <li>Line 5: Conclusion on systemic design vs accident.</li>
+  </ol>
+</section>
+
+<!-- Reader Verdict Box -->
+<section class="verdict-box">
+  <h3>The Verdict Handed to the Reader</h3>
+  <p>Now decide: Is the breakdown a failure of individual discipline, or an institutional system operating as designed?</p>
+</section>
+
+<!-- Expandable Evidence Appendix -->
+<details class="evidence-appendix" id="evidence">
+  <summary>Evidence Appendix & Full Claim Register (Tap to expand all verified data)</summary>
+  <div class="evidence-appendix-body">
+    <!-- Complete Claim Register Table, Data Tables, Methodology, Limitations, Corrections -->
+  </div>
+</details>
+```
+
