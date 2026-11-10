@@ -612,10 +612,33 @@ table[tabindex="0"]:focus-visible { outline: 2px solid var(--accent); outline-of
 
 @media (max-width: 768px) {
   .scrolly-screen {
-    padding: 0.6rem 0.75rem 0.5rem 0.75rem;
+    padding: 0.5rem 0.65rem 0.4rem 0.65rem;
     height: auto;
     min-height: 100svh;
     max-height: none;
+  }
+  .screen-top-bar {
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    align-items: flex-start;
+  }
+  .screen-ch-tag {
+    flex-wrap: wrap;
+    font-size: 0.72rem;
+    gap: 0.35rem;
+  }
+  .fiction-pill {
+    font-size: 0.62rem;
+  }
+  .screen-title-h2 {
+    font-size: 1.25rem;
+  }
+  .screen-stat-display {
+    font-size: 1.5rem;
+    align-self: flex-end;
+  }
+  .screen-story-kicker {
+    font-size: 0.85rem;
   }
 }
 
@@ -844,9 +867,13 @@ table[tabindex="0"]:focus-visible { outline: 2px solid var(--accent); outline-of
 
 .evidence-appendix-body table {
   width: 100%;
+  max-width: 100%;
   margin: 1.25rem 0 2rem 0;
   font-size: 0.88rem;
   border-collapse: collapse;
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .evidence-appendix-body table th,
