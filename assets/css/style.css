@@ -604,7 +604,7 @@ table[tabindex="0"]:focus-visible { outline: 2px solid var(--accent); outline-of
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
-  padding: 0.85rem 1.5rem 0.5rem 1.5rem;
+  padding: 0.85rem 2.25rem 0.5rem 2.25rem;
   background: #fcfbf9;
   border-bottom: 2px solid var(--line, #e2e0dc);
   overflow: hidden;
@@ -612,7 +612,7 @@ table[tabindex="0"]:focus-visible { outline: 2px solid var(--accent); outline-of
 
 @media (max-width: 768px) {
   .scrolly-screen {
-    padding: 0.5rem 0.65rem 0.4rem 0.65rem;
+    padding: 0.5rem 1rem 0.4rem 1rem;
     height: auto;
     min-height: 100svh;
     max-height: none;
@@ -621,6 +621,7 @@ table[tabindex="0"]:focus-visible { outline: 2px solid var(--accent); outline-of
     flex-wrap: wrap;
     gap: 0.25rem;
     align-items: flex-start;
+    padding-right: 0.5rem;
   }
   .screen-ch-tag {
     flex-wrap: wrap;
@@ -635,6 +636,8 @@ table[tabindex="0"]:focus-visible { outline: 2px solid var(--accent); outline-of
   }
   .screen-stat-display {
     font-size: 1.5rem;
+    padding-right: 0.5rem;
+    margin-right: 0.25rem;
     align-self: flex-end;
   }
   .screen-story-kicker {
@@ -649,7 +652,7 @@ table[tabindex="0"]:focus-visible { outline: 2px solid var(--accent); outline-of
   justify-content: space-between;
   align-items: center;
   border-bottom: 2px solid var(--fg, #16130f);
-  padding-bottom: 0.4rem;
+  padding: 0 1rem 0.4rem 0;
   margin-bottom: 0.25rem;
   box-sizing: border-box;
   flex-shrink: 0;
@@ -725,12 +728,16 @@ table[tabindex="0"]:focus-visible { outline: 2px solid var(--accent); outline-of
 
 .screen-stat-display {
   font-family: var(--font-mono, monospace);
-  font-size: 3rem;
+  font-size: 2.75rem;
   font-weight: 700;
   color: var(--accent, #8c2b18);
   line-height: 0.95;
   text-align: right;
   white-space: nowrap;
+  padding-right: 0.75rem;
+  margin-right: 0.5rem;
+  box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
