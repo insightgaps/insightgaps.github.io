@@ -220,7 +220,7 @@ The scrollytelling visual essay architecture (The Pudding & NYT style) relies on
 
   <!-- Narrative Spine Callout -->
   <div class="story-spine">
-    <strong>The Missing Variable:</strong> Tanvir walks the school perimeter. VIGIL measures the perimeter: 59 paces from classroom threshold to an open smelting crucible.
+    <strong>The Missing Variable:</strong> Tanvir walks the school perimeter. ORACLE measures the perimeter: 59 paces from classroom threshold to an open smelting crucible.
   </div>
 
   <!-- Decide-First Decision Point -->

@@ -541,225 +541,445 @@ table[tabindex="0"]:focus-visible { outline: 2px solid var(--accent); outline-of
   text-align: center;
 }
 
-/* ---------- 90/10 Visual Essay Format (Pudding & NYT style) ---------- */
-.page--report .essay-screen {
+/* ==========================================================================
+   TRUE 90% FULL-BLEED VISUAL ESSAY & SCROLLYTELLING SYSTEM
+   Reverse-Engineered from NYT Snow Fall, Guardian Firestorm, Bloomberg Warming, & The Pudding
+   ========================================================================== */
+
+/* Top fixed reading progress bar */
+.visual-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background: var(--accent, #8c2b18);
+  z-index: 99999;
+  transition: width 0.1s linear;
+}
+
+/* Outer stream escaping all container boundaries */
+.visual-essay-stream {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  background: var(--bg, #fcfbf9);
+}
+
+/* Fullscreen Screen: 100vh / 100svh edge-to-edge */
+.scrolly-screen {
   position: relative;
-  width: 100% !important;
-  max-width: 960px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  margin-bottom: 3.5rem;
-  padding: 1.5rem 0 2rem 0;
-  border-top: 1px solid var(--line);
-  display: block !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  min-height: 100vh;
+  min-height: 100svh;
+  height: 100vh;
+  height: 100svh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4.5rem 2.5rem 2rem 2.5rem;
+  background: #fcfbf9;
+  border-bottom: 2px solid var(--line, #e2e0dc);
+  overflow: hidden;
 }
-.page--report .essay-screen:first-of-type {
-  border-top: none;
-  padding-top: 0.5rem;
+
+@media (max-width: 768px) {
+  .scrolly-screen {
+    padding: 3.5rem 1rem 1.25rem 1rem;
+    height: auto;
+    min-height: 100svh;
+  }
 }
-.page--report .screen-header {
-  max-width: 68ch;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1.25rem;
-  padding-left: var(--space);
-  padding-right: var(--space);
+
+/* Screen Top Header Bar */
+.screen-top-bar {
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 2px solid var(--fg, #16130f);
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.5rem;
+  box-sizing: border-box;
 }
-.screen-header .screen-kicker {
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
+
+.screen-top-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.screen-ch-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  color: var(--accent, #8c2b18);
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 0.25rem;
-}
-.screen-header h2 {
-  font-family: var(--font-head);
-  font-size: 1.85rem;
-  line-height: 1.2;
-  margin: 0.25rem 0 0.5rem 0;
-  color: var(--fg);
-}
-.screen-header .screen-stat-badge {
-  display: inline-flex;
-  align-items: baseline;
+  display: flex;
+  align-items: center;
   gap: 0.5rem;
-  background: var(--accent-soft);
-  border: 1px solid rgba(140, 43, 24, 0.25);
-  border-radius: 4px;
-  padding: 0.35rem 0.75rem;
-  font-family: var(--font-mono);
-  font-size: 1.15rem;
+}
+
+.fiction-pill {
+  display: inline-block;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.7rem;
   font-weight: 700;
-  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: #f2ede3;
+  color: #5c5954;
+  border: 1px solid #dcd7ce;
+  border-radius: 3px;
+  padding: 0.15rem 0.45rem;
 }
-.screen-header .screen-stat-badge small {
-  font-family: var(--font-sans);
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: var(--fg);
+
+.triptych-nav-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--accent, #8c2b18);
+  text-decoration: none;
+  background: #fff5f5;
+  border: 1.5px solid var(--accent, #8c2b18);
+  border-radius: 4px;
+  padding: 0.35rem 0.85rem;
+  transition: all 0.2s;
+  margin-top: 0.4rem;
 }
-.page--report .screen-visual-wrap {
-  position: relative;
-  width: 100% !important;
-  max-width: 960px !important;
-  margin: 1rem auto;
-  display: block;
+.triptych-nav-pill:hover {
+  background: var(--accent, #8c2b18);
+  color: #ffffff;
 }
-.page--report .screen-visual-wrap figure {
+
+.screen-title-h2 {
+  font-family: var(--font-head, sans-serif);
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: var(--fg, #16130f);
   margin: 0;
-  width: 100% !important;
-  max-width: 960px !important;
+  line-height: 1.1;
 }
-.page--report .screen-visual-wrap img {
+
+@media (max-width: 768px) {
+  .screen-title-h2 {
+    font-size: 1.45rem;
+  }
+}
+
+.screen-stat-display {
+  font-family: var(--font-mono, monospace);
+  font-size: 3.4rem;
+  font-weight: 700;
+  color: var(--accent, #8c2b18);
+  line-height: 0.95;
+  text-align: right;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .screen-stat-display {
+    font-size: 1.85rem;
+  }
+}
+
+/* Middle Screen Canvas: Inline SVG occupies 65-75% height */
+.screen-canvas-wrap {
+  width: 100%;
+  max-width: 1400px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 0.5rem 0;
+  box-sizing: border-box;
+}
+
+.screen-canvas-wrap svg {
   width: 100% !important;
-  max-width: 960px !important;
-  height: auto !important;
+  height: 100% !important;
+  max-height: 65vh !important;
   display: block;
-  margin: 0 auto;
-  border-radius: 6px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
 }
-.page--report .visual-annotation {
-  max-width: 68ch;
-  margin: 0.85rem auto 1rem auto;
-  padding: 0.65rem 1rem;
+
+@media (max-width: 768px) {
+  .screen-canvas-wrap svg {
+    max-height: 52vh !important;
+  }
+}
+
+/* On-Visual Pointed Annotation Card */
+.screen-annotation-bar {
+  width: 100%;
+  max-width: 1400px;
   background: #ffffff;
-  border: 1px solid var(--line);
-  border-left: 4px solid var(--accent);
-  border-radius: 0 4px 4px 0;
+  border-left: 6px solid var(--accent, #8c2b18);
+  border-top: 1px solid var(--line, #e2e0dc);
+  border-right: 1px solid var(--line, #e2e0dc);
+  border-bottom: 1px solid var(--line, #e2e0dc);
+  border-radius: 0 6px 6px 0;
+  padding: 0.85rem 1.5rem;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  margin-top: 0.4rem;
+}
+
+.screen-annotation-bar p {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--fg, #16130f);
+  line-height: 1.35;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .screen-annotation-bar p {
+    font-size: 0.95rem;
+  }
+}
+
+/* "You Draw It" (NYT) Interactive Widget */
+.you-draw-it-box {
+  width: 100%;
+  max-width: 1400px;
+  background: #f4ede4;
+  border: 1.5px solid rgba(140, 43, 24, 0.4);
+  border-radius: 6px;
+  padding: 0.65rem 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  box-sizing: border-box;
+  margin-bottom: 0.4rem;
+}
+
+.you-draw-it-label {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--fg, #16130f);
+}
+
+.you-draw-it-group {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-size: 0.95rem;
-  color: var(--fg);
-  line-height: 1.4;
 }
-.page--report .visual-annotation strong {
-  color: var(--accent);
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  letter-spacing: 0.04em;
-  white-space: nowrap;
-}
-.page--report .story-spine {
-  max-width: 68ch;
-  margin: 0.85rem auto;
-  padding: 0.65rem 1rem;
-  background: rgba(22, 19, 15, 0.03);
-  border-left: 3px solid #8a8478;
-  font-style: italic;
-  font-size: 0.92rem;
-  line-height: 1.45;
-  color: var(--muted);
-}
-.page--report .story-spine strong {
-  font-style: normal;
-  color: var(--fg);
-}
-.page--report .screen-decision {
-  max-width: 68ch;
-  margin: 0.85rem auto 1.25rem auto;
-  padding-left: var(--space);
-  padding-right: var(--space);
-}
-.page--report .screen-decision summary {
+
+.you-draw-it-slider {
+  width: 170px;
   cursor: pointer;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--fg);
-  padding: 0.4rem 0;
+  accent-color: var(--accent, #8c2b18);
 }
-.page--report .screen-decision-content {
-  margin-top: 0.5rem;
-  padding: 0.85rem 1.15rem;
-  background: #ffffff;
-  border: 1px solid var(--line);
+
+.you-draw-it-val {
+  font-family: var(--font-mono, monospace);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--accent, #8c2b18);
+  min-width: 4.5rem;
+}
+
+.you-draw-it-btn {
+  background: var(--accent, #8c2b18);
+  color: #ffffff;
+  border: none;
   border-radius: 4px;
-  font-size: 0.9rem;
-  line-height: 1.5;
+  padding: 0.45rem 1rem;
+  font-family: var(--font-sans, sans-serif);
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: background 0.2s;
 }
-.page--report .five-line-summary {
-  max-width: 68ch;
-  margin: 3rem auto 2rem auto;
-  padding: 1.5rem;
-  background: #ffffff;
-  border: 2px solid var(--fg);
+
+.you-draw-it-btn:hover {
+  background: #702112;
+}
+
+.you-draw-it-result {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1a6b3c;
+  display: none;
+}
+
+/* Animations for SVG elements */
+@keyframes barGrowX {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes walkerSlideX {
+  from { transform: translateX(0); }
+  to { transform: translateX(var(--target-walk, 160px)); }
+}
+
+@keyframes nodePopFade {
+  0% { transform: scale(0.65); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.scrolly-screen.is-active .anim-bar-grow {
+  transform-origin: left center;
+  animation: barGrowX 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.scrolly-screen.is-active .anim-walker-slide {
+  animation: walkerSlideX 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.scrolly-screen.is-active .anim-node-pop {
+  animation: nodePopFade 0.8s ease-out forwards;
+}
+
+/* Hidden target revealed upon You Draw It interaction */
+.reveal-on-guess {
+  opacity: 0.15;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-guess.is-revealed {
+  opacity: 1 !important;
+}
+
+/* Evidence Appendix at the Foot */
+.evidence-appendix-outer {
+  width: 100%;
+  max-width: 960px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+}
+
+.evidence-appendix {
+  width: 100%;
+  border: 2px solid var(--fg, #16130f);
   border-radius: 6px;
+  background: #ffffff;
+  overflow: hidden;
+  margin-bottom: 4rem;
 }
-.page--report .five-line-summary h3 {
-  margin-top: 0;
-  font-family: var(--font-head);
+
+.evidence-appendix > summary {
+  cursor: pointer;
+  padding: 1.25rem 1.75rem;
+  font-family: var(--font-head, sans-serif);
   font-size: 1.25rem;
-  color: var(--fg);
-  margin-bottom: 0.85rem;
+  font-weight: 700;
+  background: #f7f6f2;
+  border-bottom: 1px solid var(--line, #e2e0dc);
+  color: var(--fg, #16130f);
 }
-.page--report .five-line-summary ol {
+
+.evidence-appendix-body {
+  padding: 2rem 2.25rem;
+}
+
+.evidence-appendix-body h3 {
+  font-family: var(--font-head, sans-serif);
+  font-size: 1.25rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  color: var(--fg, #16130f);
+}
+
+.evidence-appendix-body table {
+  width: 100%;
+  margin: 1.25rem 0 2rem 0;
+  font-size: 0.88rem;
+  border-collapse: collapse;
+}
+
+.evidence-appendix-body table th,
+.evidence-appendix-body table td {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--line, #e2e0dc);
+}
+
+.evidence-appendix-body table th {
+  background: #f7f6f2;
+  font-family: var(--font-mono, monospace);
+  font-weight: 700;
+  text-align: left;
+}
+
+.thematic-spine-callout {
+  padding: 1rem 1.25rem;
+  background: #f9f8f5;
+  border-left: 4px solid #8a8478;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--muted, #5c5954);
+  margin-bottom: 2rem;
+}
+
+.thematic-spine-callout strong {
+  color: var(--fg, #16130f);
+}
+
+.summary-five-lines {
+  background: #fff5f5;
+  border: 1.5px solid var(--accent, #8c2b18);
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.summary-five-lines h4 {
+  margin-top: 0;
+  font-family: var(--font-head, sans-serif);
+  font-size: 1.15rem;
+  color: var(--accent, #8c2b18);
+  margin-bottom: 0.75rem;
+}
+
+.summary-five-lines ol {
   margin: 0;
   padding-left: 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-}
-.page--report .five-line-summary li {
+  gap: 0.45rem;
   font-size: 0.95rem;
-  line-height: 1.45;
-  color: var(--fg);
 }
-.page--report .verdict-box {
-  max-width: 68ch;
-  margin: 2rem auto 3rem auto;
-  padding: 1.5rem;
-  background: var(--accent-soft);
-  border: 2px solid var(--accent);
+
+.verdict-question-card {
+  background: #f4ede4;
+  border: 2px solid var(--accent, #8c2b18);
   border-radius: 6px;
+  padding: 1.25rem 1.5rem;
   text-align: center;
+  margin: 2rem 0;
 }
-.page--report .verdict-box h3 {
-  margin-top: 0;
-  font-family: var(--font-head);
-  color: var(--accent);
-  font-size: 1.35rem;
-}
-.page--report .verdict-box p {
-  font-size: 1.05rem;
-  font-weight: 500;
-  margin: 0.5rem 0 0 0;
-  color: var(--fg);
-  line-height: 1.45;
-}
-.page--report .evidence-appendix {
-  max-width: 960px;
-  margin: 3rem auto;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: #ffffff;
-  overflow: hidden;
-}
-.page--report .evidence-appendix > summary {
-  cursor: pointer;
-  padding: 1.15rem 1.5rem;
-  font-family: var(--font-head);
+
+.verdict-question-card h4 {
+  margin: 0 0 0.5rem 0;
+  font-family: var(--font-head, sans-serif);
+  color: var(--accent, #8c2b18);
   font-size: 1.2rem;
-  font-weight: 700;
-  background: #f7f6f2;
-  border-bottom: 1px solid var(--line);
-  color: var(--fg);
 }
-.page--report .evidence-appendix-body {
-  padding: 1.5rem 2rem;
+
+.verdict-question-card p {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--fg, #16130f);
 }
-.page--report .evidence-appendix-body h3 {
-  font-family: var(--font-head);
-  font-size: 1.15rem;
-  margin-top: 1.75rem;
-  margin-bottom: 0.75rem;
-  color: var(--fg);
-}
-.page--report .evidence-appendix-body table {
-  width: 100%;
-  margin: 1rem 0 2rem 0;
-  font-size: 0.88rem;
-}
+
 
