@@ -1,0 +1,33 @@
+﻿<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Team Access - Property Preservation OS (Demo)</title>
+<meta name="description" content="Team Access - roles, money read-only, and the audit-log structure.">
+<link rel="canonical" href="https://www.insightgaps.com/analysis/property-preservation/os/team-access/">
+<link rel="stylesheet" href="/analysis/property-preservation/os/assets/os.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="os-top">
+<a class="brand" href="/analysis/property-preservation/">Property Preservation OS</a>
+<span class="asof">Demo - fictional data - snapshot as of 2026-11-10</span>
+<span class="os-demo">DEMO</span>
+</header>
+<div class="os-banner">This is a <strong>demo</strong> of a property preservation operations system. Every figure on this page is computed from the fictional Demo OS snapshot as of <strong>2026-11-10</strong>. No real properties, clients, crew, or money appear anywhere.</div>
+<div class="os-wrap">
+<nav class="os-nav" aria-label="OS sections">
+<h3>Overview</h3><ul><li><a href="/analysis/property-preservation/">Dashboard</a></li><li><a href="/analysis/property-preservation/os/command-board/">Command Board</a></li><li><a href="/analysis/property-preservation/os/meeting-brief/">Meeting Brief</a></li></ul><h3>Work</h3><ul><li><a href="/analysis/property-preservation/os/intake/">Intake</a></li><li><a href="/analysis/property-preservation/os/live-ops/">Live Ops</a></li><li><a href="/analysis/property-preservation/os/deadlines/">Deadlines</a></li><li><a href="/analysis/property-preservation/os/work-orders/">Work Orders</a></li><li><a href="/analysis/property-preservation/os/bids/">Bids</a></li><li><a href="/analysis/property-preservation/os/submission-queue/">Submission Queue</a></li></ul><h3>Money</h3><ul><li><a href="/analysis/property-preservation/os/invoices/">Invoices</a></li><li><a href="/analysis/property-preservation/os/payments/">Payments</a></li><li><a href="/analysis/property-preservation/os/war-room/">War Room</a></li><li><a href="/analysis/property-preservation/os/losses/">Losses</a></li></ul><h3>Quality</h3><ul><li><a href="/analysis/property-preservation/os/photo-qc/">Photo QC</a></li><li><a href="/analysis/property-preservation/os/visual-twin/">Visual Twin</a></li></ul><h3>People</h3><ul><li><a href="/analysis/property-preservation/os/clients/">Clients</a></li><li><a href="/analysis/property-preservation/os/crew/">Crew</a></li><li><a href="/analysis/property-preservation/os/quo/">Quo</a></li></ul><h3>Reference</h3><ul><li><a href="/analysis/property-preservation/os/property-master/">Property Master</a></li><li><a href="/analysis/property-preservation/os/problems/">Problems to Solve</a></li><li><a href="/analysis/property-preservation/os/growth/">Growth</a></li><li><a href="/analysis/property-preservation/os/team-access/" aria-current="page">Team Access</a></li><li><a href="/analysis/property-preservation/os/search/">Search</a></li></ul>
+</nav>
+<main id="main">
+<h1>Team Access</h1><p class="lede">Who can see and do what. Snapshot as of <strong>2026-11-10</strong>.</p><div class="note">This page is <strong>structure only</strong>. It lists roles, not people - no fictional roster is shown, and crew pay is never shown in this app.</div><h2>Roles</h2><table class="os-table" id="team-roles"><thead><tr><th scope="col" data-sort>Role</th><th scope="col" data-sort>Sees</th><th scope="col" data-sort>Can do</th><th scope="col" data-sort>Notes</th></tr></thead><tbody><tr><td>Owner</td><td>Everything</td><td>Full access</td><td>Sees and changes everything.</td></tr><tr><td>Operations manager</td><td>Work, money, quality</td><td>Assigns and directs work</td><td>Runs Live Ops and Deadlines.</td></tr><tr><td>Accounts</td><td>Money only (read)</td><td>Records money in, chases money owed</td><td>Money is read-only for other roles.</td></tr><tr><td>Dispatcher</td><td>Work orders and messages</td><td>Dispatches crew, answers Questions</td><td>Works from Quo and Live Ops.</td></tr><tr><td>Crew lead</td><td>Own crew jobs</td><td>Reports completion and photos</td><td>Own crew jobs only.</td></tr></tbody></table><h2>Money is read-only</h2><p>Only the Accounts role changes money records. Every other role reads money. Crew pay is not recorded in the snapshot and is never shown.</p><h2>Audit log - structure</h2><p>The snapshot was built from daily batches dated 2026-01-01 through 2026-11-10 (see the <a href="/analysis/property-preservation/data/demo-os-2026-11-10/manifest.json">snapshot manifest</a>). The audit log is the sequence of those daily batches: 3131 days of batches, frozen as of 2026-11-10. After 2026-12-31 the feed ends and the snapshot stays frozen at 2026-11-10.</p>
+</main>
+</div>
+<footer class="os-foot">
+<p><strong>Method.</strong> All figures are computed from the Demo OS snapshot (10 JSON tables) as of 2026-11-10. Money reconciles: billed $128,285 = received $91,948 + outstanding $36,337. <a href="/analysis/property-preservation/data/demo-os-2026-11-10/manifest.json">Snapshot manifest (JSON)</a> - <a href="/analysis/property-preservation/data/demo-os-2026-11-10/">Snapshot data (JSON)</a>. Fictional data only.</p>
+<p><a href="https://www.insightgaps.com/">InsightGaps</a> - Property Preservation OS demo - Snapshot as of 2026-11-10</p>
+</footer>
+<script src="/analysis/property-preservation/os/assets/os.js"></script>
+</body>
+</html>
