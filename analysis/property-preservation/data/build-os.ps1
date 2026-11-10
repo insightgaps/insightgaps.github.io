@@ -535,7 +535,7 @@ $dash += '<h2>Today - 2026-11-10</h2>'
 $dash += KV -Pairs @(
     @('Work orders assigned today', [string]$WoToday.Count),
     @('Crew messages today', [string]$MsgsToday.Count),
-    @('Open work orders due today', ([string]$DueToday.Count + ' - ' + (H $DueToday[0].'WO Number'))),
+    @('Open work orders due today', ([string](@($DueToday).Count) + ' - ' + (H $DueToday[0].'WO Number'))),
     @('Open work orders due in the next 48 hours', [string]$Due48.Count),
     @('New properties first seen in 2026', [string]$NewProps26.Count)
 )
