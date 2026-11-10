@@ -525,7 +525,7 @@ $dash += '<h2>Properties by state</h2>'
 $dash += Tbl -Id 'prop-state' -Headers @('State','#Properties') -Rows $PropStateRows -NoFilter
 $dash += '<h2>Clients</h2>'
 $dash += '<p>Income ratio = received / billed. Verdict rule: ratio 0.75 or more = Scale, 0.50-0.75 = Monitor, below 0.50 = Reprice. Approval rate = (Approved + Cut) / all bids for that client.</p>'
-$ClientRows = @($ClientTable | ForEach-Object { ,@((H $_.Name), [string]$_.WOs, (Money $_.Billed), (Money $_.Received), (Money $_.Outstanding), (Money $_.OverdueBal), (($_.ApprovalRate * 100).ToString('F1') + '%'), ($_.Ratio).ToString('F2'), (H $_.Verdict)) })
+$ClientRows = @($ClientTable | ForEach-Object { ,@((H $_.Name), [string]$_.WOs, (Money $_.Billed), (Money $_.Received), (Money $_.Outstanding), (Money $_.OverdueBal), (($_.ApprovalRate).ToString('F1') + '%'), ($_.Ratio).ToString('F2'), (H $_.Verdict)) })
 $dash += Tbl -Id 'clients' -Headers @('Client','#Work orders','#Billed','#Received','#Outstanding','#Overdue','#Approval rate','#Income ratio','Verdict') -Rows $ClientRows
 $dash += '<h2>Crew - top 5 by closed work orders</h2>'
 $CrewRows = @($CrewTable | Select-Object -First 5 | ForEach-Object { ,@((H $_.Name), (H $_.Role), (H $_.Base), [string]$_.Closed, [string]$_.Open, [string]$_.Messages, [string]$_.Questions) })
@@ -535,7 +535,7 @@ $dash += '<h2>Today - 2026-11-10</h2>'
 $dash += KV -Pairs @(
     @('Work orders assigned today', [string]$WoToday.Count),
     @('Crew messages today', [string]$MsgsToday.Count),
-    @('Open work orders due today', [string]$DueToday.Count + ' - ' + (H $DueToday[0].'WO Number')),
+    @('Open work orders due today', ([string]$DueToday.Count + ' - ' + (H $DueToday[0].'WO Number'))),
     @('Open work orders due in the next 48 hours', [string]$Due48.Count),
     @('New properties first seen in 2026', [string]$NewProps26.Count)
 )
@@ -1098,7 +1098,8 @@ $gateRows = @($PhotoGate | Sort-Object 'Due Date' | ForEach-Object {
 })
 $pq += Tbl -Id 'pq-gate' -Headers @('Work order','Property','Client','Crew','Assigned','Due','Status','Invoice') -Rows $gateRows
 $pq += '<h2>Work orders with a missing photo phase</h2>'
-$anyZeroRows = @($AnyZeroPhase | Sort-Object 'Date Assigned' -Descending | ForEach-Object {
+$anyZeroList = @($WOs | Where-Object { [int]$_.'Photos Before' -eq 0 -or [int]$_.'Photos During' -eq 0 -or [int]$_.'Photos After' -eq 0 })
+$anyZeroRows = @($anyZeroList | Sort-Object 'Date Assigned' -Descending | ForEach-Object {
     $w = $_
     ,@(
         (WoLink $w.'WO Number'),
@@ -1316,7 +1317,7 @@ $clRows = @($ClientTable | ForEach-Object {
         (Money $c.OverdueBal),
         [string]$c.Paid,
         [string]$c.Invoices,
-        (($c.ApprovalRate * 100).ToString('F1') + '%'),
+        (($c.ApprovalRate).ToString('F1') + '%'),
         [string]$c.Cut,
         (Money $c.CutTotal),
         $c.AvgDays.ToString('F1'),
@@ -1341,7 +1342,7 @@ foreach ($c in $Clients) {
         @('Received', (Money $ct.Received)),
         @('Outstanding', (Money $ct.Outstanding)),
         @('Overdue balance', (Money $ct.OverdueBal)),
-        @('Approval rate', (($ct.ApprovalRate * 100).ToString('F1') + '%')),
+        @('Approval rate', (($ct.ApprovalRate).ToString('F1') + '%')),
         @('Cut - bids / total',( $ct.Cut.ToString() + ' / ' + (Money $ct.CutTotal))),
         @('Avg days to pay', $ct.AvgDays.ToString('F1')),
         @('Income ratio / verdict',( ($ct.Ratio).ToString('F2') + ' / ' + (H $ct.Verdict)))
