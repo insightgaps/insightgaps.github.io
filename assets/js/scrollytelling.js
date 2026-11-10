@@ -106,17 +106,358 @@
   }
 
   // Initialize on DOM load
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function () {
-      initProgressBar();
-      initScreenObserver();
-      initYouDrawIt();
-      initScreenJump();
-    });
-  } else {
+  function initAll() {
     initProgressBar();
     initScreenObserver();
     initYouDrawIt();
     initScreenJump();
+    initBoatScrolly();
+    initAtmosphereAudio();
+    initAutoScroll();
+  }
+
+  // 5. SBS The Boat Scrubbed Stage & Timeline Engine
+  function initBoatScrolly() {
+    const track = document.querySelector('.boat-scroll-track');
+    const stage = document.querySelector('.boat-stage');
+    if (!track || !stage) return;
+
+    const scenes = track.querySelectorAll('.boat-scene');
+    const chapterNumEl = document.getElementById('boat-chapter-num');
+    const titleEl = document.getElementById('boat-title');
+    const heroStatEl = document.getElementById('boat-hero-stat');
+    const narrationEl = document.getElementById('boat-narration-text');
+    const nextLinkEl = document.getElementById('boat-next-link');
+    const dots = track.querySelectorAll('.boat-rail-dot');
+
+    const sceneData = [
+      {
+        num: '01 / 05',
+        title: 'The Five-Fold Gap',
+        stat: '5.8×',
+        narration: 'WHO models 31,578 road deaths every year; the state counts 5,480. Most vanish.',
+        nextText: 'Scroll to advance ↓',
+        nextHref: '#scene-2'
+      },
+      {
+        num: '02 / 05',
+        title: '351 Deaths in 15 Days',
+        stat: '351 Deaths',
+        narration: '351 die in fifteen Eid travel days; forty-two percent strike in the night truck window.',
+        nextText: 'Scroll to advance ↓',
+        nextHref: '#scene-3'
+      },
+      {
+        num: '03 / 05',
+        title: 'Built to Force Racing',
+        stat: 'Tk 4,000–6,000',
+        narration: 'Drivers start every morning in debt; the daily lease contract forces the race.',
+        nextText: 'Scroll to advance ↓',
+        nextHref: '#scene-4'
+      },
+      {
+        num: '04 / 05',
+        title: 'Banned Fleets Reincarnate',
+        stat: '100% Re-Entered',
+        narration: 'Banned after killing a student in 2019, the same buses return under fresh paint.',
+        nextText: 'Scroll to advance ↓',
+        nextHref: '#scene-5'
+      },
+      {
+        num: '05 / 05',
+        title: 'Four Unpublished Registries',
+        stat: '4 Sealed Voids',
+        narration: 'Four public registries stay locked; fleet owners stay legally invisible.',
+        nextText: 'Next: Cause 2 · Impunity Machine →',
+        nextHref: '/investigations/the-impunity-machine/'
+      }
+    ];
+
+    let currentSceneIdx = -1;
+    let ticking = false;
+
+    function updateScrub() {
+      const rect = track.getBoundingClientRect();
+      const scrollableDist = rect.height - window.innerHeight;
+      if (scrollableDist <= 0) {
+        ticking = false;
+        return;
+      }
+
+      const progress = Math.min(1, Math.max(0, -rect.top / scrollableDist));
+      const numScenes = sceneData.length;
+      const targetSceneIdx = Math.min(numScenes - 1, Math.floor(progress * numScenes));
+      const localProgress = (progress * numScenes) - targetSceneIdx;
+
+      // Update scene active classes
+      if (targetSceneIdx !== currentSceneIdx) {
+        currentSceneIdx = targetSceneIdx;
+        const data = sceneData[currentSceneIdx];
+
+        scenes.forEach(function (sc, i) {
+          if (i === currentSceneIdx) {
+            sc.classList.remove('is-inactive');
+            sc.classList.add('is-active');
+          } else {
+            sc.classList.remove('is-active');
+            sc.classList.add('is-inactive');
+          }
+        });
+
+        if (chapterNumEl) chapterNumEl.textContent = data.num;
+        if (titleEl) titleEl.textContent = data.title;
+        if (heroStatEl) heroStatEl.textContent = data.stat;
+        if (narrationEl) {
+          narrationEl.style.opacity = '0';
+          setTimeout(function () {
+            narrationEl.textContent = data.narration;
+            narrationEl.style.opacity = '1';
+          }, 120);
+        }
+        if (nextLinkEl) {
+          nextLinkEl.textContent = data.nextText;
+          nextLinkEl.setAttribute('href', data.nextHref);
+        }
+
+        dots.forEach(function (dot, idx) {
+          if (idx === currentSceneIdx) {
+            dot.classList.add('is-active');
+          } else {
+            dot.classList.remove('is-active');
+          }
+        });
+      }
+
+      // Continuous SVG attribute scrubbing for active scene
+      if (currentSceneIdx === 0) {
+        const whoBar = document.getElementById('scrub-who-bar');
+        const brtaBar = document.getElementById('scrub-brta-bar');
+        const voidBox = document.getElementById('scrub-void-box');
+        if (whoBar) whoBar.setAttribute('width', '1100');
+        if (brtaBar) brtaBar.setAttribute('width', '191');
+        if (voidBox) voidBox.style.opacity = '1';
+      } else if (currentSceneIdx === 1) {
+        const eidBar = document.getElementById('scrub-eid-bar');
+        const nightBar = document.getElementById('scrub-night-bar');
+        if (eidBar) eidBar.setAttribute('width', '760');
+        if (nightBar) nightBar.setAttribute('width', '500');
+      } else if (currentSceneIdx === 2) {
+        const flowCard1 = document.getElementById('scrub-joma-c1');
+        const flowCard2 = document.getElementById('scrub-joma-c2');
+        const flowCard3 = document.getElementById('scrub-joma-c3');
+        if (flowCard1) flowCard1.style.opacity = '1';
+        if (flowCard2) flowCard2.style.opacity = '1';
+        if (flowCard3) flowCard3.style.opacity = '1';
+      } else if (currentSceneIdx === 3) {
+        const phoenixCard1 = document.getElementById('scrub-phx-c1');
+        const phoenixCard2 = document.getElementById('scrub-phx-c2');
+        const phoenixCard3 = document.getElementById('scrub-phx-c3');
+        if (phoenixCard1) phoenixCard1.style.opacity = '1';
+        if (phoenixCard2) phoenixCard2.style.opacity = '1';
+        if (phoenixCard3) phoenixCard3.style.opacity = '1';
+      } else if (currentSceneIdx === 4) {
+        const v1 = document.getElementById('scrub-void-1');
+        const v2 = document.getElementById('scrub-void-2');
+        const v3 = document.getElementById('scrub-void-3');
+        const v4 = document.getElementById('scrub-void-4');
+        if (v1) v1.style.opacity = '1';
+        if (v2) v2.style.opacity = '1';
+        if (v3) v3.style.opacity = '1';
+        if (v4) v4.style.opacity = '1';
+      }
+
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        window.requestAnimationFrame(updateScrub);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // Chapter Rail dot clicks: Jump directly to the chapter offset
+    dots.forEach(function (dot) {
+      dot.addEventListener('click', function () {
+        const targetIdx = parseInt(dot.getAttribute('data-chapter-idx'), 10);
+        if (!isNaN(targetIdx)) {
+          const trackRect = track.getBoundingClientRect();
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          const trackTop = trackRect.top + scrollTop;
+          const scrollableDist = trackRect.height - window.innerHeight;
+          const targetOffset = trackTop + (scrollableDist * (targetIdx / sceneData.length)) + 5;
+          window.scrollTo({ top: targetOffset, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Deep link support (?chapter=N or ?screen=N)
+    const urlParams = new URLSearchParams(window.location.search);
+    const chapterParam = urlParams.get('chapter') || urlParams.get('screen');
+    if (chapterParam) {
+      const idx = parseInt(chapterParam, 10) - 1;
+      if (idx >= 0 && idx < sceneData.length) {
+        setTimeout(function () {
+          const trackRect = track.getBoundingClientRect();
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          const trackTop = trackRect.top + scrollTop;
+          const scrollableDist = trackRect.height - window.innerHeight;
+          const targetOffset = trackTop + (scrollableDist * (idx / sceneData.length)) + 10;
+          window.scrollTo({ top: targetOffset, behavior: 'instant' });
+        }, 100);
+      }
+    }
+
+    // Run first calculation
+    updateScrub();
+  }
+
+  // 6. Web Audio API Ambient Sound Generator (Muted by default)
+  function initAtmosphereAudio() {
+    const btn = document.getElementById('boat-sound-btn');
+    if (!btn) return;
+
+    let audioCtx = null;
+    let masterGain = null;
+    let isPlaying = false;
+
+    function setupAudio() {
+      if (audioCtx) return;
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioContext();
+
+        masterGain = audioCtx.createGain();
+        masterGain.gain.setValueAtTime(0.0001, audioCtx.currentTime);
+        masterGain.connect(audioCtx.destination);
+
+        // Sub-bass drone (55Hz highway rumble)
+        const osc = audioCtx.createOscillator();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(55, audioCtx.currentTime);
+
+        const oscGain = audioCtx.createGain();
+        oscGain.gain.setValueAtTime(0.35, audioCtx.currentTime);
+        osc.connect(oscGain);
+        oscGain.connect(masterGain);
+        osc.start();
+
+        // 110Hz harmonic drone
+        const osc2 = audioCtx.createOscillator();
+        osc2.type = 'triangle';
+        osc2.frequency.setValueAtTime(110, audioCtx.currentTime);
+
+        const filter = audioCtx.createBiquadFilter();
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(140, audioCtx.currentTime);
+
+        const osc2Gain = audioCtx.createGain();
+        osc2Gain.gain.setValueAtTime(0.18, audioCtx.currentTime);
+        osc2.connect(filter);
+        filter.connect(osc2Gain);
+        osc2Gain.connect(masterGain);
+        osc2.start();
+
+        // Asphalt hiss / rain noise buffer
+        const bufferSize = audioCtx.sampleRate * 2;
+        const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+        const output = noiseBuffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) {
+          output[i] = (Math.random() * 2 - 1) * 0.12;
+        }
+
+        const whiteNoise = audioCtx.createBufferSource();
+        whiteNoise.buffer = noiseBuffer;
+        whiteNoise.loop = true;
+
+        const noiseFilter = audioCtx.createBiquadFilter();
+        noiseFilter.type = 'bandpass';
+        noiseFilter.frequency.setValueAtTime(850, audioCtx.currentTime);
+        noiseFilter.Q.setValueAtTime(1.2, audioCtx.currentTime);
+
+        whiteNoise.connect(noiseFilter);
+        noiseFilter.connect(masterGain);
+        whiteNoise.start();
+      } catch (err) {
+        console.warn('Web Audio API not supported', err);
+      }
+    }
+
+    btn.addEventListener('click', function () {
+      setupAudio();
+      if (!audioCtx) return;
+
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+
+      if (!isPlaying) {
+        masterGain.gain.linearRampToValueAtTime(0.12, audioCtx.currentTime + 1.2);
+        btn.innerHTML = '🔊 Atmosphere: On';
+        btn.classList.add('is-active');
+        isPlaying = true;
+      } else {
+        masterGain.gain.linearRampToValueAtTime(0.0001, audioCtx.currentTime + 0.6);
+        btn.innerHTML = '🔇 Atmosphere: Off';
+        btn.classList.remove('is-active');
+        isPlaying = false;
+      }
+    });
+  }
+
+  // 7. Auto-Scroll Cinematic Reader Engine
+  function initAutoScroll() {
+    const btn = document.getElementById('boat-autoscroll-btn');
+    if (!btn) return;
+
+    let isScrolling = false;
+    let animId = null;
+
+    function step() {
+      if (!isScrolling) return;
+      window.scrollBy(0, 1.5);
+      if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 50) {
+        stopAutoScroll();
+        return;
+      }
+      animId = requestAnimationFrame(step);
+    }
+
+    function startAutoScroll() {
+      isScrolling = true;
+      btn.innerHTML = '⏸ Auto-Scroll: On';
+      btn.classList.add('is-active');
+      animId = requestAnimationFrame(step);
+    }
+
+    function stopAutoScroll() {
+      isScrolling = false;
+      btn.innerHTML = '▶ Auto-Scroll';
+      btn.classList.remove('is-active');
+      if (animId) cancelAnimationFrame(animId);
+    }
+
+    btn.addEventListener('click', function () {
+      if (isScrolling) {
+        stopAutoScroll();
+      } else {
+        startAutoScroll();
+      }
+    });
+
+    // Pause on user wheel or touch
+    window.addEventListener('wheel', function () {
+      if (isScrolling) stopAutoScroll();
+    }, { passive: true });
+    window.addEventListener('touchmove', function () {
+      if (isScrolling) stopAutoScroll();
+    }, { passive: true });
+  }
+
+  // Initialize on DOM load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAll);
+  } else {
+    initAll();
   }
 })();
