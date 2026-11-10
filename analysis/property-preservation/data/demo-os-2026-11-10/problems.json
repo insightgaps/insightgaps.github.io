@@ -1,0 +1,76 @@
+{
+ "as_of": "2026-11-10",
+ "table": "problems",
+ "columns": [
+  "Problem #",
+  "Title",
+  "Priority",
+  "What Happened",
+  "Where to Look (exact IDs)",
+  "What \"Solved\" Looks Like",
+  "Owner Role",
+  "Status"
+ ],
+ "rows": [
+  {
+   "Problem #": "P1",
+   "Title": "Bid approval overdue \u2014 100+ days",
+   "Priority": "High",
+   "What Happened": "Bid DEMO-B-2901 ($685) for a lockset + boarding job was submitted 12 Nov 2025 and is still Pending. The work order is In Progress and the crew is waiting on approval to proceed.",
+   "Where to Look (exact IDs)": "Work Order DEMO-WO-1901 \u00b7 Property DEMO-P-042 \u00b7 Bid DEMO-B-2901 \u00b7 Client CL-02 Prairie State Asset Group \u00b7 Crew DEMO-C-04 Priya Nair",
+   "What \"Solved\" Looks Like": "The bid has a decision (Approved, Cut, or Rejected) recorded in Bids, with a Date Decided. If approved, the WO proceeds; if cut, the crew is told the approved amount.",
+   "Owner Role": "Team Lead",
+   "Status": "Open"
+  },
+  {
+   "Problem #": "P2",
+   "Title": "Invoice unpaid 82 days past due",
+   "Priority": "High",
+   "What Happened": "Invoice DEMO-INV-3901 ($1,150, debris removal) was due 8 Dec 2025 and has $0 received. No payment, no dispute, no note.",
+   "Where to Look (exact IDs)": "Invoice DEMO-INV-3901 \u00b7 WO DEMO-WO-1902 \u00b7 Property DEMO-P-017 \u00b7 Client CL-01 Heartland National Servicing \u00b7 Bid DEMO-B-2902",
+   "What \"Solved\" Looks Like": "The client is contacted, a payment date is agreed and the follow-up recorded; or a dispute/deduction reason is recorded with evidence. The invoice status changes only when money arrives.",
+   "Owner Role": "Accounts / Team Lead",
+   "Status": "Open"
+  },
+  {
+   "Problem #": "P3",
+   "Title": "Looks unpaid \u2014 but it was paid under a follow-up WO",
+   "Priority": "High",
+   "What Happened": "Invoice DEMO-INV-3902 ($240, grass cut) shows $0 received and looks overdue. But the same property got a follow-up grass WO DEMO-WO-1904, and the client paid $260 under THAT invoice (DEMO-INV-3903, paid 20 Sep 2025).",
+   "Where to Look (exact IDs)": "WO DEMO-WO-1903 (old) \u2192 WO DEMO-WO-1904 (successor) \u00b7 Property DEMO-P-058 \u00b7 Invoices DEMO-INV-3902 and DEMO-INV-3903 \u00b7 Client CL-03 Riverbend Property Partners",
+   "What \"Solved\" Looks Like": "The two WOs are linked as a chain (successor recorded), DEMO-INV-3902 is reclassified as paid-via-successor, and nobody chases the client for money already paid.",
+   "Owner Role": "Team Lead",
+   "Status": "Open"
+  },
+  {
+   "Problem #": "P4",
+   "Title": "One crew, two jobs, same day",
+   "Priority": "Medium",
+   "What Happened": "Crew DEMO-C-07 Rachel Boone is assigned two different jobs on 16 Sep 2025 \u2014 an inspection at DEMO-P-023 and a secure at DEMO-P-077. She cannot do both.",
+   "Where to Look (exact IDs)": "Crew DEMO-C-07 Rachel Boone \u00b7 WO DEMO-WO-1905 (DEMO-P-023) \u00b7 WO DEMO-WO-1906 (DEMO-P-077) \u00b7 both assigned 2025-09-16",
+   "What \"Solved\" Looks Like": "One job is reassigned to another crew member (Crew ID changed on the WO) or rescheduled to another day. No crew has two jobs on the same day after the fix.",
+   "Owner Role": "Operations Manager",
+   "Status": "Open"
+  },
+  {
+   "Problem #": "P5",
+   "Title": "Winterization closed with no pressure-test photo",
+   "Priority": "High",
+   "What Happened": "WO DEMO-WO-1907 (full winterization) is Closed and its bid is approved, but the pressure-test photo is Missing. The photo gate says: no proof, no invoice \u2014 and indeed no invoice exists yet.",
+   "Where to Look (exact IDs)": "WO DEMO-WO-1907 \u00b7 Property DEMO-P-073 \u00b7 Client CL-04 Meridian Bank REO Services \u00b7 Crew DEMO-C-02 Dana Whitfield \u00b7 Bid DEMO-B-2905 ($520 approved)",
+   "What \"Solved\" Looks Like": "The crew returns (or sends the photo from the visit) and the pressure-test photo is filed; only then is the invoice created. If the test was never done, the winterization is redone.",
+   "Owner Role": "Team Lead / Crew",
+   "Status": "Open"
+  },
+  {
+   "Problem #": "P6",
+   "Title": "Bid $550 above the client ceiling",
+   "Priority": "Medium",
+   "What Happened": "Bid DEMO-B-2906 prices an eviction cleanout at $1,450, but the client's ceiling for this job is $900. Submitting it as-is guarantees a cut or a rejection.",
+   "Where to Look (exact IDs)": "Bid DEMO-B-2906 \u00b7 WO DEMO-WO-1908 \u00b7 Property DEMO-P-091 \u00b7 Client CL-05 Cornerstone Home Investors \u00b7 Ceiling $900",
+   "What \"Solved\" Looks Like": "The bid is repriced to $900 or below, or a written exception from the client is filed with the bid. The bid is never submitted above ceiling without that exception.",
+   "Owner Role": "Team Lead",
+   "Status": "Open"
+  }
+ ]
+}

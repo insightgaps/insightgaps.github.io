@@ -1,0 +1,23 @@
+{
+  "as_of": "2026-11-10",
+  "source": "2025 base CSVs + daily_2026 batches 2026-01-01..2026-11-10, completions applied in date order, invoices reconciled from payments",
+  "fictional": true,
+  "counts": {
+    "properties": 108,
+    "clients": 5,
+    "crew": 12,
+    "work_orders": 664,
+    "bids": 487,
+    "invoices": 297,
+    "payments": 379,
+    "problems": 6,
+    "crew_messages": 940
+  },
+  "money": {
+    "billed": 128285.0,
+    "received": 91948.0,
+    "outstanding": 36337.0,
+    "overdue_balance": 32089.0
+  },
+  "verification": "all blueprint \u00a72 checks pass"
+}

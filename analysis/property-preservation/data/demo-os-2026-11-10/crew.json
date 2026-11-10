@@ -1,0 +1,162 @@
+{
+ "as_of": "2026-11-10",
+ "table": "crew",
+ "columns": [
+  "Crew ID",
+  "Name",
+  "Role",
+  "Home Base",
+  "Phone",
+  "Skills",
+  "Active Since",
+  "Rating",
+  "Jobs Completed 2025",
+  "Status"
+ ],
+ "rows": [
+  {
+   "Crew ID": "DEMO-C-01",
+   "Name": "Marcus Webb",
+   "Role": "Field Lead",
+   "Home Base": "Mason City, IA",
+   "Phone": "555-0111",
+   "Skills": "Secure; Winterization; Inspection",
+   "Active Since": "2023-03-15",
+   "Rating": 4.8,
+   "Jobs Completed 2025": 25,
+   "Status": "Active"
+  },
+  {
+   "Crew ID": "DEMO-C-02",
+   "Name": "Dana Whitfield",
+   "Role": "Winterization Specialist",
+   "Home Base": "Waterloo, IA",
+   "Phone": "555-0112",
+   "Skills": "Winterization; Plumbing",
+   "Active Since": "2023-05-02",
+   "Rating": 4.9,
+   "Jobs Completed 2025": 19,
+   "Status": "Active"
+  },
+  {
+   "Crew ID": "DEMO-C-03",
+   "Name": "Luis Herrera",
+   "Role": "Technician",
+   "Home Base": "Rockford, IL",
+   "Phone": "555-0113",
+   "Skills": "Grass; Debris; Secure",
+   "Active Since": "2023-06-20",
+   "Rating": 4.6,
+   "Jobs Completed 2025": 16,
+   "Status": "Active"
+  },
+  {
+   "Crew ID": "DEMO-C-04",
+   "Name": "Priya Nair",
+   "Role": "Technician",
+   "Home Base": "Peoria, IL",
+   "Phone": "555-0114",
+   "Skills": "Secure; Inspection; Debris",
+   "Active Since": "2024-01-08",
+   "Rating": 4.7,
+   "Jobs Completed 2025": 15,
+   "Status": "Active"
+  },
+  {
+   "Crew ID": "DEMO-C-05",
+   "Name": "Tom Okafor",
+   "Role": "Field Lead",
+   "Home Base": "Lincoln, NE",
+   "Phone": "555-0115",
+   "Skills": "Debris; Eviction; Secure",
+   "Active Since": "2023-02-11",
+   "Rating": 4.5,
+   "Jobs Completed 2025": 21,
+   "Status": "Active"
+  },
+  {
+   "Crew ID": "DEMO-C-06",
+   "Name": "Kevin Doyle",
+   "Role": "Technician",
+   "Home Base": "Columbia, MO",
+   "Phone": "555-0116",
+   "Skills": "Grass; Inspection",
+   "Active Since": "2024-04-01",
+   "Rating": 4.4,
+   "Jobs Completed 2025": 27,
+   "Status": "Active"
+  },
+  {
+   "Crew ID": "DEMO-C-07",
+   "Name": "Rachel Boone",
+   "Role": "Inspector",
+   "Home Base": "Wichita, KS",
+   "Phone": "555-0117",
+   "Skills": "Inspection; Photo QC",
+   "Active Since": "2023-08-19",
+   "Rating": 4.9,
+   "Jobs Completed 2025": 20,
+   "Status": "Active"
+  },
+  {
+   "Crew ID": "DEMO-C-08",
+   "Name": "Angela Frost",
+   "Role": "Technician",
+   "Home Base": "Fort Wayne, IN",
+   "Phone": "555-0118",
+   "Skills": "Winterization; Secure",
+   "Active Since": "2024-02-12",
+   "Rating": 4.6,
+   "Jobs Completed 2025": 23,
+   "Status": "Active"
+  },
+  {
+   "Crew ID": "DEMO-C-09",
+   "Name": "Ben Osei",
+   "Role": "Debris Crew Lead",
+   "Home Base": "Dayton, OH",
+   "Phone": "555-0119",
+   "Skills": "Debris; Eviction",
+   "Active Since": "2023-04-25",
+   "Rating": 4.7,
+   "Jobs Completed 2025": 23,
+   "Status": "Active"
+  },
+  {
+   "Crew ID": "DEMO-C-10",
+   "Name": "Carla Mendes",
+   "Role": "Technician",
+   "Home Base": "Madison, WI",
+   "Phone": "555-0120",
+   "Skills": "Grass; Secure; Inspection",
+   "Active Since": "2024-06-03",
+   "Rating": 4.5,
+   "Jobs Completed 2025": 16,
+   "Status": "Active"
+  },
+  {
+   "Crew ID": "DEMO-C-11",
+   "Name": "Josh Tanner",
+   "Role": "Field Lead",
+   "Home Base": "Duluth, MN",
+   "Phone": "555-0121",
+   "Skills": "Eviction; Secure; Debris",
+   "Active Since": "2023-09-30",
+   "Rating": 4.6,
+   "Jobs Completed 2025": 25,
+   "Status": "Active"
+  },
+  {
+   "Crew ID": "DEMO-C-12",
+   "Name": "Nina Kowalski",
+   "Role": "Inspector",
+   "Home Base": "Sioux Falls, SD",
+   "Phone": "555-0122",
+   "Skills": "Inspection; Winterization",
+   "Active Since": "2024-03-18",
+   "Rating": 4.8,
+   "Jobs Completed 2025": 31,
+   "Status": "Active"
+  }
+ ]
+}

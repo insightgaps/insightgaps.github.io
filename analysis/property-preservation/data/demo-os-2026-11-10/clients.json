@@ -1,0 +1,66 @@
+{
+ "as_of": "2026-11-10",
+ "table": "clients",
+ "columns": [
+  "Client ID",
+  "Client Name",
+  "Type",
+  "Contact Name",
+  "Contact Email",
+  "Phone",
+  "Payment Terms",
+  "Notes"
+ ],
+ "rows": [
+  {
+   "Client ID": "CL-01",
+   "Client Name": "Heartland National Servicing",
+   "Type": "National servicer",
+   "Contact Name": "Karen Ellison",
+   "Contact Email": "k.ellison@heartlandnational.example",
+   "Phone": "555-0101",
+   "Payment Terms": "Net 45",
+   "Notes": "DEMO \u2014 fictional client"
+  },
+  {
+   "Client ID": "CL-02",
+   "Client Name": "Prairie State Asset Group",
+   "Type": "Regional",
+   "Contact Name": "Greg Halvorson",
+   "Contact Email": "g.halvorson@prairiestate.example",
+   "Phone": "555-0102",
+   "Payment Terms": "Net 30",
+   "Notes": "DEMO \u2014 fictional client"
+  },
+  {
+   "Client ID": "CL-03",
+   "Client Name": "Riverbend Property Partners",
+   "Type": "Regional",
+   "Contact Name": "Monica Reyes",
+   "Contact Email": "m.reyes@riverbend.example",
+   "Phone": "555-0103",
+   "Payment Terms": "Net 30",
+   "Notes": "DEMO \u2014 fictional client"
+  },
+  {
+   "Client ID": "CL-04",
+   "Client Name": "Meridian Bank REO Services",
+   "Type": "Bank servicer",
+   "Contact Name": "Daniel Chen",
+   "Contact Email": "d.chen@meridianbank.example",
+   "Phone": "555-0104",
+   "Payment Terms": "Net 60",
+   "Notes": "DEMO \u2014 fictional client"
+  },
+  {
+   "Client ID": "CL-05",
+   "Client Name": "Cornerstone Home Investors",
+   "Type": "Local investor",
+   "Contact Name": "Sofia Patel",
+   "Contact Email": "s.patel@cornerstone.example",
+   "Phone": "555-0105",
+   "Payment Terms": "Net 30",
+   "Notes": "DEMO \u2014 fictional client"
+  }
+ ]
+}
