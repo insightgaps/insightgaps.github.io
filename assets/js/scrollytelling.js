@@ -122,6 +122,7 @@
     const stage = document.querySelector('.boat-stage');
     if (!track || !stage) return;
 
+    const storyKey = track.getAttribute('data-story') || 'blood-routes';
     const scenes = track.querySelectorAll('.boat-scene');
     const chapterNumEl = document.getElementById('boat-chapter-num');
     const titleEl = document.getElementById('boat-title');
@@ -130,7 +131,7 @@
     const nextLinkEl = document.getElementById('boat-next-link');
     const dots = track.querySelectorAll('.boat-rail-dot');
 
-    const sceneData = [
+    const bloodRoutesScenes = [
       {
         num: '01 / 05',
         title: 'The Five-Fold Gap',
@@ -172,6 +173,53 @@
         nextHref: '/investigations/the-impunity-machine/'
       }
     ];
+
+    const impunityMachineScenes = [
+      {
+        num: '01 / 05',
+        title: 'The Impunity Funnel',
+        stat: '310 Convictions',
+        narration: '66,711 women entered state crisis centres; only 310 cases ended in conviction.',
+        nextText: 'Scroll to advance ↓',
+        nextHref: '#scene-2'
+      },
+      {
+        num: '02 / 05',
+        title: 'The 72-Hour Window',
+        stat: '78.0% Late',
+        narration: 'Physical evidence expires in seventy-two hours; seventy-eight percent arrive after it closes.',
+        nextText: 'Scroll to advance ↓',
+        nextHref: '#scene-3'
+      },
+      {
+        num: '03 / 05',
+        title: 'The DNA Backlog',
+        stat: '92.3% Backlog',
+        narration: 'Two forensic DNA machines serve 170 million people; ninety-two percent wait untested.',
+        nextText: 'Scroll to advance ↓',
+        nextHref: '#scene-4'
+      },
+      {
+        num: '04 / 05',
+        title: 'Six Years to Verdict',
+        stat: '2,349 Days',
+        narration: 'The law promises a verdict in ninety days; trials take twenty-six times longer.',
+        nextText: 'Scroll to advance ↓',
+        nextHref: '#scene-5'
+      },
+      {
+        num: '05 / 05',
+        title: 'Punishment by Chance',
+        stat: '1 in 4,650',
+        narration: 'The state promises the death penalty, but delivers a one in 4,650 chance of punishment.',
+        nextText: 'Next: Cause 3 · Lead Belt →',
+        nextHref: '/investigations/the-lead-belt/'
+      }
+    ];
+
+    const sceneData = (storyKey === 'impunity-machine' || storyKey === 'the-impunity-machine')
+      ? impunityMachineScenes
+      : bloodRoutesScenes;
 
     let currentSceneIdx = -1;
     let ticking = false;
@@ -229,41 +277,81 @@
       }
 
       // Continuous SVG attribute scrubbing for active scene
-      if (currentSceneIdx === 0) {
-        const whoBar = document.getElementById('scrub-who-bar');
-        const brtaBar = document.getElementById('scrub-brta-bar');
-        const voidBox = document.getElementById('scrub-void-box');
-        if (whoBar) whoBar.setAttribute('width', '1100');
-        if (brtaBar) brtaBar.setAttribute('width', '191');
-        if (voidBox) voidBox.style.opacity = '1';
-      } else if (currentSceneIdx === 1) {
-        const eidBar = document.getElementById('scrub-eid-bar');
-        const nightBar = document.getElementById('scrub-night-bar');
-        if (eidBar) eidBar.setAttribute('width', '760');
-        if (nightBar) nightBar.setAttribute('width', '500');
-      } else if (currentSceneIdx === 2) {
-        const flowCard1 = document.getElementById('scrub-joma-c1');
-        const flowCard2 = document.getElementById('scrub-joma-c2');
-        const flowCard3 = document.getElementById('scrub-joma-c3');
-        if (flowCard1) flowCard1.style.opacity = '1';
-        if (flowCard2) flowCard2.style.opacity = '1';
-        if (flowCard3) flowCard3.style.opacity = '1';
-      } else if (currentSceneIdx === 3) {
-        const phoenixCard1 = document.getElementById('scrub-phx-c1');
-        const phoenixCard2 = document.getElementById('scrub-phx-c2');
-        const phoenixCard3 = document.getElementById('scrub-phx-c3');
-        if (phoenixCard1) phoenixCard1.style.opacity = '1';
-        if (phoenixCard2) phoenixCard2.style.opacity = '1';
-        if (phoenixCard3) phoenixCard3.style.opacity = '1';
-      } else if (currentSceneIdx === 4) {
-        const v1 = document.getElementById('scrub-void-1');
-        const v2 = document.getElementById('scrub-void-2');
-        const v3 = document.getElementById('scrub-void-3');
-        const v4 = document.getElementById('scrub-void-4');
-        if (v1) v1.style.opacity = '1';
-        if (v2) v2.style.opacity = '1';
-        if (v3) v3.style.opacity = '1';
-        if (v4) v4.style.opacity = '1';
+      if (storyKey === 'impunity-machine' || storyKey === 'the-impunity-machine') {
+        if (currentSceneIdx === 0) {
+          const s1 = document.getElementById('scrub-imp-s1');
+          const s2 = document.getElementById('scrub-imp-s2');
+          const s3 = document.getElementById('scrub-imp-s3');
+          const s4 = document.getElementById('scrub-imp-s4');
+          const s5 = document.getElementById('scrub-imp-s5');
+          if (s1) s1.style.opacity = '1';
+          if (s2) s2.style.opacity = '1';
+          if (s3) s3.style.opacity = '1';
+          if (s4) s4.style.opacity = '1';
+          if (s5) s5.style.opacity = '1';
+        } else if (currentSceneIdx === 1) {
+          const lateBar = document.getElementById('scrub-late-bar');
+          const earlyBar = document.getElementById('scrub-early-bar');
+          if (lateBar) lateBar.setAttribute('width', '858');
+          if (earlyBar) earlyBar.setAttribute('width', '242');
+        } else if (currentSceneIdx === 2) {
+          const dnaBar = document.getElementById('scrub-dna-bar');
+          const c1 = document.getElementById('scrub-dna-c1');
+          const c2 = document.getElementById('scrub-dna-c2');
+          if (dnaBar) dnaBar.setAttribute('width', '1200');
+          if (c1) c1.style.opacity = '1';
+          if (c2) c2.style.opacity = '1';
+        } else if (currentSceneIdx === 3) {
+          const statBar = document.getElementById('scrub-statutory-bar');
+          const delayBar = document.getElementById('scrub-verdict-bar');
+          const pileupCard = document.getElementById('scrub-pileup-card');
+          if (statBar) statBar.setAttribute('width', '45');
+          if (delayBar) delayBar.setAttribute('width', '1050');
+          if (pileupCard) pileupCard.style.opacity = '1';
+        } else if (currentSceneIdx === 4) {
+          const probCard = document.getElementById('scrub-prob-card');
+          const deterCard = document.getElementById('scrub-deter-card');
+          if (probCard) probCard.style.opacity = '1';
+          if (deterCard) deterCard.style.opacity = '1';
+        }
+      } else {
+        // Blood Routes scrubbing
+        if (currentSceneIdx === 0) {
+          const whoBar = document.getElementById('scrub-who-bar');
+          const brtaBar = document.getElementById('scrub-brta-bar');
+          const voidBox = document.getElementById('scrub-void-box');
+          if (whoBar) whoBar.setAttribute('width', '1100');
+          if (brtaBar) brtaBar.setAttribute('width', '191');
+          if (voidBox) voidBox.style.opacity = '1';
+        } else if (currentSceneIdx === 1) {
+          const eidBar = document.getElementById('scrub-eid-bar');
+          const nightBar = document.getElementById('scrub-night-bar');
+          if (eidBar) eidBar.setAttribute('width', '760');
+          if (nightBar) nightBar.setAttribute('width', '500');
+        } else if (currentSceneIdx === 2) {
+          const flowCard1 = document.getElementById('scrub-joma-c1');
+          const flowCard2 = document.getElementById('scrub-joma-c2');
+          const flowCard3 = document.getElementById('scrub-joma-c3');
+          if (flowCard1) flowCard1.style.opacity = '1';
+          if (flowCard2) flowCard2.style.opacity = '1';
+          if (flowCard3) flowCard3.style.opacity = '1';
+        } else if (currentSceneIdx === 3) {
+          const phoenixCard1 = document.getElementById('scrub-phx-c1');
+          const phoenixCard2 = document.getElementById('scrub-phx-c2');
+          const phoenixCard3 = document.getElementById('scrub-phx-c3');
+          if (phoenixCard1) phoenixCard1.style.opacity = '1';
+          if (phoenixCard2) phoenixCard2.style.opacity = '1';
+          if (phoenixCard3) phoenixCard3.style.opacity = '1';
+        } else if (currentSceneIdx === 4) {
+          const v1 = document.getElementById('scrub-void-1');
+          const v2 = document.getElementById('scrub-void-2');
+          const v3 = document.getElementById('scrub-void-3');
+          const v4 = document.getElementById('scrub-void-4');
+          if (v1) v1.style.opacity = '1';
+          if (v2) v2.style.opacity = '1';
+          if (v3) v3.style.opacity = '1';
+          if (v4) v4.style.opacity = '1';
+        }
       }
 
       ticking = false;
