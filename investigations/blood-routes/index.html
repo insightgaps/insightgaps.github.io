@@ -23,6 +23,17 @@
 <meta name="twitter:title" content="Blood Routes — Insight Gaps Bureau">
 <meta name="twitter:description" content="Bangladesh road deaths kill at six times the official count.">
 <link rel="stylesheet" href="/assets/css/style.css">
+<script>
+  (function(){
+    var m = window.location.search.match(/[?&]screen=(\d+)/);
+    if (m) {
+      var n = parseInt(m[1], 10);
+      var s = '';
+      for (var i = 1; i < n; i++) { s += '#screen-' + i + '{display:none!important;}'; }
+      if (s) { document.write('<style>' + s + '</style>'); }
+    }
+  })();
+</script>
 
 <script type="application/ld+json">
 {
@@ -80,38 +91,28 @@
       <div class="screen-stat-display">5.8×</div>
     </div>
 
-    <p class="screen-story-kicker" style="font-family:var(--font-sans); font-size:1.05rem; color:#5c5954; margin:0 0 0.5rem 0; font-weight:600; width:100%; max-width:1400px; text-align:left;">Tanvir warns Nusrat: Eid rush approaches in ninety days; transit is primed to race.</p>
-
-    <div class="you-draw-it-box" data-target-screen="screen-1" data-unit="×">
-      <span class="you-draw-it-label">You Draw It: Guess the undercount multiple (WHO estimate vs police FIRs)</span>
-      <div class="you-draw-it-group">
-        <input type="range" min="1.0" max="10.0" step="0.1" value="2.0" class="you-draw-it-slider" aria-label="Guess undercount multiple">
-        <span class="you-draw-it-val">2.0×</span>
-        <button type="button" class="you-draw-it-btn">Reveal True Ratio</button>
-        <span class="you-draw-it-result">True ratio: 5.76× (5.8×) — 31,578 vs 5,480!</span>
-      </div>
-    </div>
+    <p class="screen-story-kicker">Tanvir warns Nusrat: Eid rush approaches in ninety days; transit is primed to race.</p>
 
     <div class="screen-canvas-wrap">
-      <svg viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid meet" role="img" aria-label="WHO Modelled 31,578 deaths vs BRTA Official 5,480 deaths">
-        <rect x="10" y="10" width="1180" height="500" rx="12" fill="#ffffff" stroke="#e2e0dc" stroke-width="2"/>
+      <svg viewBox="0 0 1600 700" preserveAspectRatio="xMidYMid meet" role="img" aria-label="WHO Modelled 31,578 deaths vs BRTA Official 5,480 deaths">
+        <rect x="5" y="5" width="1590" height="690" rx="12" fill="#ffffff" stroke="#e2e0dc" stroke-width="2"/>
         
-        <!-- WHO Row -->
-        <text x="50" y="125" font-family="'Space Grotesk', system-ui, sans-serif" font-size="32" font-weight="700" fill="#16130f">WHO Modelled Estimate (30-Day Definition)</text>
-        <rect class="anim-bar-grow" x="50" y="150" width="860" height="70" rx="6" fill="#8c2b18"/>
-        <text x="930" y="198" font-family="'Space Mono', monospace" font-size="38" font-weight="700" fill="#8c2b18">31,578</text>
+        <!-- WHO Row: 31,578 spans full 100% of 1100px track -->
+        <text x="80" y="115" font-family="'Space Grotesk', system-ui, sans-serif" font-size="34" font-weight="700" fill="#16130f">WHO Modelled Estimate (30-Day Definition)</text>
+        <rect class="anim-bar-grow" x="80" y="145" width="1100" height="80" rx="8" fill="#8c2b18"/>
+        <text x="1215" y="202" font-family="'Space Mono', monospace" font-size="44" font-weight="700" fill="#8c2b18">31,578</text>
 
-        <!-- BRTA Row -->
-        <text x="50" y="305" font-family="'Space Grotesk', system-ui, sans-serif" font-size="32" font-weight="700" fill="#16130f">BRTA Official Count (Police FIR Only)</text>
-        <rect class="anim-bar-grow" x="50" y="330" width="149" height="70" rx="6" fill="#16130f"/>
-        <text x="220" y="378" font-family="'Space Mono', monospace" font-size="38" font-weight="700" fill="#16130f">5,480</text>
+        <!-- BRTA Row: 5,480 spans 17.4% of track (191px) -->
+        <text x="80" y="315" font-family="'Space Grotesk', system-ui, sans-serif" font-size="34" font-weight="700" fill="#16130f">BRTA Official Count (Police FIR Only)</text>
+        <rect class="anim-bar-grow" x="80" y="345" width="191" height="80" rx="8" fill="#16130f"/>
+        <text x="295" y="402" font-family="'Space Mono', monospace" font-size="44" font-weight="700" fill="#16130f">5,480</text>
 
-        <!-- Undercount Callout Box -->
+        <!-- Undercount Callout Box: Completely separate, zero overlap -->
         <g class="reveal-on-guess">
-          <rect x="420" y="325" width="490" height="80" rx="8" fill="#fff5f5" stroke="#8c2b18" stroke-width="2"/>
-          <text x="665" y="375" text-anchor="middle" font-family="'Space Grotesk', system-ui, sans-serif" font-size="32" font-weight="700" fill="#8c2b18">← 5.76× (5.8×) FATALITY UNDERCOUNT</text>
+          <rect x="520" y="342" width="940" height="86" rx="8" fill="#fff5f5" stroke="#8c2b18" stroke-width="3"/>
+          <text x="990" y="398" text-anchor="middle" font-family="'Space Grotesk', system-ui, sans-serif" font-size="32" font-weight="700" fill="#8c2b18">← 5.76× (5.8×) FATALITY UNDERCOUNT · 26,098 UNRECORDED</text>
         </g>
-        <text x="50" y="475" font-family="system-ui, sans-serif" font-size="22" fill="#5c5954">Source: WHO Global Status Report 2023 (modelled) vs. BRTA 2023 Annual Report (police FIR registry)</text>
+        <text x="80" y="640" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Source: WHO Global Status Report 2023 (modelled) vs. BRTA 2023 Annual Report (police FIR registry)</text>
       </svg>
     </div>
 
@@ -131,32 +132,33 @@
     </div>
 
     <div class="screen-canvas-wrap">
-      <svg viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Eid travel surge: 351 deaths across 15 travel days and 41.56% night fatalities">
-        <rect x="10" y="10" width="1180" height="500" rx="12" fill="#ffffff" stroke="#e2e0dc" stroke-width="2"/>
+      <svg viewBox="0 0 1600 700" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Eid travel surge: 351 deaths across 15 travel days and 41.56% night fatalities">
+        <rect x="5" y="5" width="1590" height="690" rx="12" fill="#ffffff" stroke="#e2e0dc" stroke-width="2"/>
 
         <!-- Top Panel: 351 deaths bar -->
-        <text x="50" y="80" font-family="'Space Grotesk', system-ui, sans-serif" font-size="30" font-weight="700" fill="#16130f">Eid-ul-Fitr 2026 Travel Rush (15 Days Monitoring)</text>
-        <rect class="anim-bar-grow" x="50" y="105" width="820" height="60" rx="6" fill="#8c2b18"/>
-        <text x="890" y="148" font-family="'Space Mono', monospace" font-size="36" font-weight="700" fill="#8c2b18">351 Deaths (~23.4 / day)</text>
+        <text x="80" y="90" font-family="'Space Grotesk', system-ui, sans-serif" font-size="32" font-weight="700" fill="#16130f">Eid-ul-Fitr 2026 Travel Rush (15 Days Monitoring)</text>
+        <rect class="anim-bar-grow" x="80" y="120" width="1000" height="70" rx="8" fill="#8c2b18"/>
+        <text x="1110" y="170" font-family="'Space Mono', monospace" font-size="38" font-weight="700" fill="#8c2b18">351 Deaths (~23.4 / day)</text>
 
         <!-- Divider Line -->
-        <line x1="50" y1="210" x2="1150" y2="210" stroke="#e2e0dc" stroke-width="2"/>
+        <line x1="80" y1="230" x2="1520" y2="230" stroke="#e2e0dc" stroke-width="2"/>
 
         <!-- Bottom Left: Night Corridor -->
-        <g transform="translate(50, 235)">
-          <text x="0" y="40" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#16130f">Nocturnal Fatal Window (10pm – 6am)</text>
-          <rect class="anim-bar-grow" x="0" y="65" width="460" height="55" rx="6" fill="#16130f"/>
-          <text x="480" y="105" font-family="'Space Mono', monospace" font-size="34" font-weight="700" fill="#8c2b18">41.56%</text>
-          <text x="0" y="165" font-family="system-ui, sans-serif" font-size="22" fill="#5c5954">Heavy freight races empty streets during city truck entry hours</text>
+        <g transform="translate(80, 270)">
+          <text x="0" y="40" font-family="'Space Grotesk', system-ui, sans-serif" font-size="30" font-weight="700" fill="#16130f">Nocturnal Fatal Window (10pm – 6am)</text>
+          <rect class="anim-bar-grow" x="0" y="70" width="500" height="65" rx="6" fill="#16130f"/>
+          <text x="530" y="118" font-family="'Space Mono', monospace" font-size="40" font-weight="700" fill="#8c2b18">41.56%</text>
+          <text x="0" y="180" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Heavy freight races empty streets during city truck entry hours</text>
         </g>
 
         <!-- Bottom Right: Pedestrians -->
-        <g transform="translate(680, 235)">
-          <text x="0" y="40" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#16130f">Dhaka Pedestrian Share</text>
-          <rect class="anim-bar-grow" x="0" y="65" width="340" height="55" rx="6" fill="#5c5954"/>
-          <text x="360" y="105" font-family="'Space Mono', monospace" font-size="34" font-weight="700" fill="#16130f">47.0%</text>
-          <text x="0" y="165" font-family="system-ui, sans-serif" font-size="22" fill="#5c5954">Nearly half of all metropolitan road victims are on foot</text>
+        <g transform="translate(860, 270)">
+          <text x="0" y="40" font-family="'Space Grotesk', system-ui, sans-serif" font-size="30" font-weight="700" fill="#16130f">Dhaka Pedestrian Share</text>
+          <rect class="anim-bar-grow" x="0" y="70" width="440" height="65" rx="6" fill="#5c5954"/>
+          <text x="470" y="118" font-family="'Space Mono', monospace" font-size="40" font-weight="700" fill="#16130f">47.0%</text>
+          <text x="0" y="180" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Nearly half of all metropolitan road victims are on foot</text>
         </g>
+        <text x="80" y="640" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Source: Jatri Kalyan Samity Eid crash report &amp; Dhaka Urban Transport Study</text>
       </svg>
     </div>
 
@@ -176,41 +178,41 @@
     </div>
 
     <div class="screen-canvas-wrap">
-      <svg viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid meet" role="img" aria-label="The Joma Contract flow diagram: fixed lease fee, fuel costs, and residual driver wage">
-        <rect x="10" y="10" width="1180" height="500" rx="12" fill="#ffffff" stroke="#e2e0dc" stroke-width="2"/>
+      <svg viewBox="0 0 1600 700" preserveAspectRatio="xMidYMid meet" role="img" aria-label="The Joma Contract flow diagram: fixed lease fee, fuel costs, and residual driver wage">
+        <rect x="5" y="5" width="1590" height="690" rx="12" fill="#ffffff" stroke="#e2e0dc" stroke-width="2"/>
 
-        <g transform="translate(50, 60)">
+        <g transform="translate(80, 80)">
           <!-- Card 1 -->
-          <rect x="0" y="50" width="320" height="280" rx="8" fill="#fff5f5" stroke="#8c2b18" stroke-width="3"/>
-          <text x="25" y="105" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#8c2b18">1 · FIXED OWNER DEBT</text>
-          <text x="25" y="155" font-family="'Space Mono', monospace" font-size="36" font-weight="700" fill="#16130f">BDT 4,000–6,000</text>
-          <text x="25" y="200" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Guaranteed lease paid daily</text>
-          <text x="25" y="235" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">to bus owner before first trip.</text>
-          <text x="25" y="280" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#8c2b18">Surges to Tk 8,000+ Eid</text>
+          <rect x="0" y="20" width="440" height="420" rx="10" fill="#fff5f5" stroke="#8c2b18" stroke-width="3"/>
+          <text x="30" y="75" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#8c2b18">1 · FIXED OWNER DEBT</text>
+          <text x="30" y="135" font-family="'Space Mono', monospace" font-size="40" font-weight="700" fill="#16130f">BDT 4,000–6,000</text>
+          <text x="30" y="195" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Guaranteed lease paid daily</text>
+          <text x="30" y="235" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">to bus owner before first trip.</text>
+          <text x="30" y="315" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#8c2b18">Surges to Tk 8,000+ Eid</text>
 
           <!-- Arrow 1 -->
-          <text x="345" y="205" font-family="system-ui, sans-serif" font-size="44" font-weight="700" fill="#8c2b18">→</text>
+          <text x="475" y="245" font-family="system-ui, sans-serif" font-size="52" font-weight="700" fill="#8c2b18">→</text>
 
           <!-- Card 2 -->
-          <rect x="390" y="50" width="320" height="280" rx="8" fill="#fcfbf9" stroke="#16130f" stroke-width="2"/>
-          <text x="415" y="105" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#16130f">2 · RUNNING EXPENSES</text>
-          <text x="415" y="155" font-family="'Space Mono', monospace" font-size="36" font-weight="700" fill="#16130f">Fuel &amp; Gate Fees</text>
-          <text x="415" y="200" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Diesel costs and terminal fees</text>
-          <text x="415" y="235" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">borne 100% by driver crew.</text>
-          <text x="415" y="280" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#5c5954">Zero owner risk</text>
+          <rect x="520" y="20" width="440" height="420" rx="10" fill="#fcfbf9" stroke="#16130f" stroke-width="2"/>
+          <text x="550" y="75" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#16130f">2 · RUNNING EXPENSES</text>
+          <text x="550" y="135" font-family="'Space Mono', monospace" font-size="40" font-weight="700" fill="#16130f">Fuel &amp; Gate Fees</text>
+          <text x="550" y="195" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Diesel costs and terminal fees</text>
+          <text x="550" y="235" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">borne 100% by driver crew.</text>
+          <text x="550" y="315" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#5c5954">Zero owner risk</text>
 
           <!-- Arrow 2 -->
-          <text x="735" y="205" font-family="system-ui, sans-serif" font-size="44" font-weight="700" fill="#8c2b18">→</text>
+          <text x="995" y="245" font-family="system-ui, sans-serif" font-size="52" font-weight="700" fill="#8c2b18">→</text>
 
           <!-- Card 3 -->
-          <rect x="780" y="50" width="320" height="280" rx="8" fill="#ffffff" stroke="#8c2b18" stroke-width="3"/>
-          <text x="805" y="105" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#8c2b18">3 · RESIDUAL DRIVER WAGE</text>
-          <text x="805" y="155" font-family="'Space Mono', monospace" font-size="36" font-weight="700" fill="#8c2b18">BDT 300–500</text>
-          <text x="805" y="200" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Residual margin only after</text>
-          <text x="805" y="235" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">fixed lease and fuel cleared.</text>
-          <text x="805" y="280" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#8c2b18">Forces lethal street racing</text>
+          <rect x="1040" y="20" width="440" height="420" rx="10" fill="#ffffff" stroke="#8c2b18" stroke-width="3"/>
+          <text x="1070" y="75" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#8c2b18">3 · RESIDUAL DRIVER WAGE</text>
+          <text x="1070" y="135" font-family="'Space Mono', monospace" font-size="40" font-weight="700" fill="#8c2b18">BDT 300–500</text>
+          <text x="1070" y="195" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Residual margin only after</text>
+          <text x="1070" y="235" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">fixed lease and fuel cleared.</text>
+          <text x="1070" y="315" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#8c2b18">Forces lethal street racing</text>
         </g>
-        <text x="50" y="475" font-family="system-ui, sans-serif" font-size="22" fill="#5c5954">Source: Transparency International Bangladesh 2024 road transport survey</text>
+        <text x="80" y="640" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Source: Transparency International Bangladesh 2024 road transport survey</text>
       </svg>
     </div>
 
@@ -230,39 +232,39 @@
     </div>
 
     <div class="screen-canvas-wrap">
-      <svg viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid meet" role="img" aria-label="The Phoenix Return: banned bus fleets re-registered under new names on same routes">
-        <rect x="10" y="10" width="1180" height="500" rx="12" fill="#ffffff" stroke="#e2e0dc" stroke-width="2"/>
+      <svg viewBox="0 0 1600 700" preserveAspectRatio="xMidYMid meet" role="img" aria-label="The Phoenix Return: banned bus fleets re-registered under new names on same routes">
+        <rect x="5" y="5" width="1590" height="690" rx="12" fill="#ffffff" stroke="#e2e0dc" stroke-width="2"/>
 
-        <g transform="translate(50, 70)">
+        <g transform="translate(80, 80)">
           <!-- Node 1 -->
-          <rect x="0" y="60" width="310" height="260" rx="8" fill="#fff5f5" stroke="#8c2b18" stroke-width="2"/>
-          <text x="25" y="110" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#8c2b18">2019: BANNED FLEET</text>
-          <text x="25" y="160" font-family="'Space Grotesk', system-ui, sans-serif" font-size="32" font-weight="700" fill="#16130f">Suprobhat</text>
-          <text x="25" y="200" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Permits revoked by court</text>
-          <text x="25" y="235" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">after student fatality.</text>
-          <text x="25" y="280" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#8c2b18">PERMIT REVOKED</text>
+          <rect x="0" y="20" width="440" height="420" rx="10" fill="#fff5f5" stroke="#8c2b18" stroke-width="2"/>
+          <text x="30" y="75" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#8c2b18">2019: BANNED FLEET</text>
+          <text x="30" y="140" font-family="'Space Grotesk', system-ui, sans-serif" font-size="38" font-weight="700" fill="#16130f">Suprobhat</text>
+          <text x="30" y="200" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Permits revoked by court</text>
+          <text x="30" y="240" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">after student fatality.</text>
+          <text x="30" y="320" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#8c2b18">PERMIT REVOKED</text>
 
-          <text x="335" y="200" font-family="system-ui, sans-serif" font-size="44" font-weight="700" fill="#8c2b18">→</text>
+          <text x="475" y="245" font-family="system-ui, sans-serif" font-size="52" font-weight="700" fill="#8c2b18">→</text>
 
           <!-- Node 2 -->
-          <rect x="380" y="60" width="310" height="260" rx="8" fill="#fcfbf9" stroke="#16130f" stroke-width="2"/>
-          <text x="405" y="110" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#16130f">SAME CORRIDOR</text>
-          <text x="405" y="160" font-family="'Space Grotesk', system-ui, sans-serif" font-size="32" font-weight="700" fill="#16130f">Sadarghat–Gazipur</text>
-          <text x="405" y="200" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Identical hardware, drivers,</text>
-          <text x="405" y="235" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">and stops on primary arterial.</text>
-          <text x="405" y="280" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#1a6b3c">ROUTE CONTINUITY</text>
+          <rect x="520" y="20" width="440" height="420" rx="10" fill="#fcfbf9" stroke="#16130f" stroke-width="2"/>
+          <text x="550" y="75" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#16130f">SAME CORRIDOR</text>
+          <text x="550" y="140" font-family="'Space Grotesk', system-ui, sans-serif" font-size="36" font-weight="700" fill="#16130f">Sadarghat–Gazipur</text>
+          <text x="550" y="200" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Identical hardware, drivers,</text>
+          <text x="550" y="240" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">and stops on primary arterial.</text>
+          <text x="550" y="320" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#1a6b3c">ROUTE CONTINUITY</text>
 
-          <text x="715" y="200" font-family="system-ui, sans-serif" font-size="44" font-weight="700" fill="#8c2b18">→</text>
+          <text x="995" y="245" font-family="system-ui, sans-serif" font-size="52" font-weight="700" fill="#8c2b18">→</text>
 
           <!-- Node 3 -->
-          <rect x="760" y="60" width="330" height="260" rx="8" fill="#ffffff" stroke="#16130f" stroke-width="3"/>
-          <text x="785" y="110" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#1a6b3c">NEW IDENTITIES</text>
-          <text x="785" y="160" font-family="'Space Grotesk', system-ui, sans-serif" font-size="32" font-weight="700" fill="#16130f">Victor Classic / Akash</text>
-          <text x="785" y="200" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Buses repainted and re-entered</text>
-          <text x="785" y="235" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">without chassis-level audit.</text>
-          <text x="785" y="280" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#16130f">OWNERSHIP ALLEGED</text>
+          <rect x="1040" y="20" width="440" height="420" rx="10" fill="#ffffff" stroke="#16130f" stroke-width="3"/>
+          <text x="1070" y="75" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#1a6b3c">NEW IDENTITIES</text>
+          <text x="1070" y="140" font-family="'Space Grotesk', system-ui, sans-serif" font-size="36" font-weight="700" fill="#16130f">Victor Classic / Akash</text>
+          <text x="1070" y="200" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Buses repainted and re-entered</text>
+          <text x="1070" y="240" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">without chassis-level audit.</text>
+          <text x="1070" y="320" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#16130f">OWNERSHIP ALLEGED</text>
         </g>
-        <text x="50" y="475" font-family="system-ui, sans-serif" font-size="22" fill="#5c5954">Source: High Court Division writ orders &amp; transport monitoring record</text>
+        <text x="80" y="640" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Source: High Court Division writ orders &amp; transport monitoring record</text>
       </svg>
     </div>
 
@@ -282,35 +284,35 @@
     </div>
 
     <div class="screen-canvas-wrap">
-      <svg viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Four critical government datasets held but not published">
-        <rect x="10" y="10" width="1180" height="500" rx="12" fill="#ffffff" stroke="#e2e0dc" stroke-width="2"/>
+      <svg viewBox="0 0 1600 700" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Four critical government datasets held but not published">
+        <rect x="5" y="5" width="1590" height="690" rx="12" fill="#ffffff" stroke="#e2e0dc" stroke-width="2"/>
 
-        <g transform="translate(50, 60)">
+        <g transform="translate(80, 70)">
           <!-- Void 1 -->
-          <rect x="0" y="30" width="520" height="160" rx="8" fill="#fff5f5" stroke="#8c2b18" stroke-width="2"/>
-          <text x="30" y="75" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#8c2b18">VOID 1 · BRTA VEHICLE REGISTRY</text>
-          <text x="30" y="115" font-family="'Space Grotesk', system-ui, sans-serif" font-size="30" font-weight="700" fill="#16130f">Chassis-Level Crash Log</text>
-          <text x="30" y="155" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Crashes logged by surface plate only, concealing vehicle history.</text>
+          <rect x="0" y="20" width="690" height="220" rx="10" fill="#fff5f5" stroke="#8c2b18" stroke-width="2"/>
+          <text x="35" y="70" font-family="'Space Grotesk', system-ui, sans-serif" font-size="26" font-weight="700" fill="#8c2b18">VOID 1 · BRTA VEHICLE REGISTRY</text>
+          <text x="35" y="120" font-family="'Space Grotesk', system-ui, sans-serif" font-size="34" font-weight="700" fill="#16130f">Chassis-Level Crash Log</text>
+          <text x="35" y="175" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Crashes logged by surface plate only, concealing vehicle history.</text>
 
           <!-- Void 2 -->
-          <rect x="580" y="30" width="520" height="160" rx="8" fill="#fff5f5" stroke="#8c2b18" stroke-width="2"/>
-          <text x="610" y="75" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#8c2b18">VOID 2 · HEALTH &amp; POLICE LINKAGE</text>
-          <text x="610" y="115" font-family="'Space Grotesk', system-ui, sans-serif" font-size="30" font-weight="700" fill="#16130f">Hospital Trauma Records</text>
-          <text x="610" y="155" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Post-admission deaths never linked to police crash registers.</text>
+          <rect x="750" y="20" width="690" height="220" rx="10" fill="#fff5f5" stroke="#8c2b18" stroke-width="2"/>
+          <text x="785" y="70" font-family="'Space Grotesk', system-ui, sans-serif" font-size="26" font-weight="700" fill="#8c2b18">VOID 2 · HEALTH &amp; POLICE LINKAGE</text>
+          <text x="785" y="120" font-family="'Space Grotesk', system-ui, sans-serif" font-size="34" font-weight="700" fill="#16130f">Hospital Trauma Records</text>
+          <text x="785" y="175" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Post-admission deaths never linked to police crash registers.</text>
 
           <!-- Void 3 -->
-          <rect x="0" y="220" width="520" height="160" rx="8" fill="#fff5f5" stroke="#8c2b18" stroke-width="2"/>
-          <text x="30" y="265" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#8c2b18">VOID 3 · POLICE FIR LEDGERS</text>
-          <text x="30" y="305" font-family="'Space Grotesk', system-ui, sans-serif" font-size="30" font-weight="700" fill="#16130f">Operator-Named FIRs</text>
-          <text x="30" y="345" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">First Information Reports name drivers only, never fleet owners.</text>
+          <rect x="0" y="280" width="690" height="220" rx="10" fill="#fff5f5" stroke="#8c2b18" stroke-width="2"/>
+          <text x="35" y="330" font-family="'Space Grotesk', system-ui, sans-serif" font-size="26" font-weight="700" fill="#8c2b18">VOID 3 · POLICE FIR LEDGERS</text>
+          <text x="35" y="380" font-family="'Space Grotesk', system-ui, sans-serif" font-size="34" font-weight="700" fill="#16130f">Operator-Named FIRs</text>
+          <text x="35" y="435" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">First Information Reports name drivers only, never fleet owners.</text>
 
           <!-- Void 4 -->
-          <rect x="580" y="220" width="520" height="160" rx="8" fill="#fff5f5" stroke="#8c2b18" stroke-width="2"/>
-          <text x="610" y="265" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#8c2b18">VOID 4 · BENEFICIAL OWNERSHIP</text>
-          <text x="610" y="305" font-family="'Space Grotesk', system-ui, sans-serif" font-size="30" font-weight="700" fill="#16130f">Route Permit Ownership</text>
-          <text x="610" y="345" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Commercial route lease syndicates operate behind sealed ledgers.</text>
+          <rect x="750" y="280" width="690" height="220" rx="10" fill="#fff5f5" stroke="#8c2b18" stroke-width="2"/>
+          <text x="785" y="330" font-family="'Space Grotesk', system-ui, sans-serif" font-size="26" font-weight="700" fill="#8c2b18">VOID 4 · BENEFICIAL OWNERSHIP</text>
+          <text x="785" y="380" font-family="'Space Grotesk', system-ui, sans-serif" font-size="34" font-weight="700" fill="#16130f">Route Permit Ownership</text>
+          <text x="785" y="435" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Commercial route lease syndicates operate behind sealed ledgers.</text>
         </g>
-        <text x="50" y="475" font-family="system-ui, sans-serif" font-size="22" fill="#5c5954">Source: Bureau administrative transparency audit across BRTA, DGHS, and Police HQ</text>
+        <text x="80" y="640" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Source: Bureau administrative transparency audit across BRTA, DGHS, and Police HQ</text>
       </svg>
     </div>
 

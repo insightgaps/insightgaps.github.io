@@ -106,10 +106,12 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 body {
+  overflow-x: hidden;
+  max-width: 100%;
   margin: 0;
   background: var(--paper);
   color: var(--ink);
@@ -344,7 +346,9 @@ tbody tr:last-child td { border-bottom: 2px solid var(--ink); }
 
 /* ---------- Wider screens: calm, not crowded ---------- */
 @media (min-width: 48rem) {
-  body { font-size: 1.1rem; }
+  body {
+  overflow-x: hidden;
+  max-width: 100%; font-size: 1.1rem; }
   .site-header__inner { padding-top: 1.4rem; padding-bottom: 1.25rem; }
   .cards--grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2.5rem; }
   .cards--grid .card { padding: 2rem 0; }
@@ -365,7 +369,9 @@ tbody tr:last-child td { border-bottom: 2px solid var(--ink); }
    scrolls beside it. Mobile: visual stacks above its text. If CSS or JS
    fails, the steps still read in order, figure first, text second. */
 .report--visual { max-width: var(--page); }
-.report--visual .report__body { max-width: none; }
+.report--visual .report__body {
+  overflow-x: hidden;
+  max-width: 100%; max-width: none; }
 .visual-note {
   background: var(--paper-soft); border-left: 3px solid var(--accent);
   padding: 1rem 1.25rem; margin: 1.5rem 0; font-size: 0.95rem;
@@ -422,7 +428,9 @@ tbody tr:last-child td { border-bottom: 2px solid var(--ink); }
 /* Print: hide nav/footer/ad, black on white, show evidence link URLs */
 @media print {
   .site-header, .site-footer, .skip-link { display: none; }
-  body { background: #fff; color: #000; }
+  body {
+  overflow-x: hidden;
+  max-width: 100%; background: #fff; color: #000; }
   a::after { content: " (" attr(href) ")"; font-size: 0.8em; }
 }
 
@@ -558,10 +566,22 @@ table[tabindex="0"]:focus-visible { outline: 2px solid var(--accent); outline-of
   transition: width 0.1s linear;
 }
 
+/* Fullscreen Visual Essay & Scrollytelling Styles */
+.visual-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background: var(--accent, #8c2b18);
+  z-index: 99999;
+  transition: width 0.1s linear;
+}
+
 /* Outer stream escaping all container boundaries */
 .visual-essay-stream {
-  width: 100vw !important;
-  max-width: 100vw !important;
+  width: 100% !important;
+  max-width: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
   overflow-x: hidden !important;
@@ -571,18 +591,20 @@ table[tabindex="0"]:focus-visible { outline: 2px solid var(--accent); outline-of
 /* Fullscreen Screen: 100vh / 100svh edge-to-edge */
 .scrolly-screen {
   position: relative;
-  width: 100vw !important;
-  max-width: 100vw !important;
+  width: 100% !important;
+  max-width: 100% !important;
   min-height: 100vh;
   min-height: 100svh;
   height: 100vh;
   height: 100svh;
+  max-height: 100vh;
+  max-height: 100svh;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  padding: 4.5rem 2.5rem 2rem 2.5rem;
+  align-items: stretch;
+  padding: 0.85rem 1.5rem 0.5rem 1.5rem;
   background: #fcfbf9;
   border-bottom: 2px solid var(--line, #e2e0dc);
   overflow: hidden;
@@ -590,29 +612,30 @@ table[tabindex="0"]:focus-visible { outline: 2px solid var(--accent); outline-of
 
 @media (max-width: 768px) {
   .scrolly-screen {
-    padding: 3.5rem 1rem 1.25rem 1rem;
+    padding: 0.6rem 0.75rem 0.5rem 0.75rem;
     height: auto;
     min-height: 100svh;
+    max-height: none;
   }
 }
 
 /* Screen Top Header Bar */
 .screen-top-bar {
   width: 100%;
-  max-width: 1400px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   border-bottom: 2px solid var(--fg, #16130f);
-  padding-bottom: 0.6rem;
-  margin-bottom: 0.5rem;
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.25rem;
   box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 .screen-top-left {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.2rem;
 }
 
 .screen-ch-tag {
@@ -664,7 +687,7 @@ table[tabindex="0"]:focus-visible { outline: 2px solid var(--accent); outline-of
 
 .screen-title-h2 {
   font-family: var(--font-head, sans-serif);
-  font-size: 2.3rem;
+  font-size: 2.1rem;
   font-weight: 700;
   color: var(--fg, #16130f);
   margin: 0;
@@ -673,13 +696,13 @@ table[tabindex="0"]:focus-visible { outline: 2px solid var(--accent); outline-of
 
 @media (max-width: 768px) {
   .screen-title-h2 {
-    font-size: 1.45rem;
+    font-size: 1.35rem;
   }
 }
 
 .screen-stat-display {
   font-family: var(--font-mono, monospace);
-  font-size: 3.4rem;
+  font-size: 3rem;
   font-weight: 700;
   color: var(--accent, #8c2b18);
   line-height: 0.95;
@@ -689,174 +712,91 @@ table[tabindex="0"]:focus-visible { outline: 2px solid var(--accent); outline-of
 
 @media (max-width: 768px) {
   .screen-stat-display {
-    font-size: 1.85rem;
+    font-size: 1.65rem;
   }
 }
 
-/* Middle Screen Canvas: Inline SVG occupies 65-75% height */
+.screen-story-kicker {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 0.98rem;
+  color: #5c5954;
+  margin: 0 0 0.25rem 0;
+  font-weight: 600;
+  width: 100%;
+  text-align: left;
+  flex-shrink: 0;
+}
+
+/* Middle Screen Canvas: Inline SVG occupies at least 80% height */
 .screen-canvas-wrap {
   width: 100%;
-  max-width: 1400px;
   flex: 1;
+  min-height: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  margin: 0.5rem 0;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .screen-canvas-wrap svg {
   width: 100% !important;
   height: 100% !important;
-  max-height: 65vh !important;
+  max-height: 78vh !important;
+  max-height: 78svh !important;
   display: block;
 }
 
 @media (max-width: 768px) {
   .screen-canvas-wrap svg {
-    max-height: 52vh !important;
+    max-height: 58vh !important;
+    max-height: 58svh !important;
   }
 }
 
 /* On-Visual Pointed Annotation Card */
 .screen-annotation-bar {
   width: 100%;
-  max-width: 1400px;
   background: #ffffff;
-  border-left: 6px solid var(--accent, #8c2b18);
+  border-left: 5px solid var(--accent, #8c2b18);
   border-top: 1px solid var(--line, #e2e0dc);
   border-right: 1px solid var(--line, #e2e0dc);
   border-bottom: 1px solid var(--line, #e2e0dc);
-  border-radius: 0 6px 6px 0;
-  padding: 0.85rem 1.5rem;
+  border-radius: 0 4px 4px 0;
+  padding: 0.45rem 1.25rem;
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  margin-top: 0.4rem;
+  margin-top: 0.25rem;
+  flex-shrink: 0;
 }
 
 .screen-annotation-bar p {
   font-family: var(--font-sans, sans-serif);
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: var(--fg, #16130f);
-  line-height: 1.35;
+  line-height: 1.25;
   margin: 0;
 }
 
 @media (max-width: 768px) {
   .screen-annotation-bar p {
-    font-size: 0.95rem;
+    font-size: 0.88rem;
   }
 }
 
-/* "You Draw It" (NYT) Interactive Widget */
-.you-draw-it-box {
-  width: 100%;
-  max-width: 1400px;
-  background: #f4ede4;
-  border: 1.5px solid rgba(140, 43, 24, 0.4);
-  border-radius: 6px;
-  padding: 0.65rem 1.25rem;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  box-sizing: border-box;
-  margin-bottom: 0.4rem;
-}
-
-.you-draw-it-label {
-  font-family: var(--font-sans, sans-serif);
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--fg, #16130f);
-}
-
-.you-draw-it-group {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.you-draw-it-slider {
-  width: 170px;
-  cursor: pointer;
-  accent-color: var(--accent, #8c2b18);
-}
-
-.you-draw-it-val {
-  font-family: var(--font-mono, monospace);
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--accent, #8c2b18);
-  min-width: 4.5rem;
-}
-
-.you-draw-it-btn {
-  background: var(--accent, #8c2b18);
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
-  padding: 0.45rem 1rem;
-  font-family: var(--font-sans, sans-serif);
-  font-weight: 700;
-  font-size: 0.88rem;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.you-draw-it-btn:hover {
-  background: #702112;
-}
-
-.you-draw-it-result {
-  font-family: var(--font-mono, monospace);
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: #1a6b3c;
-  display: none;
-}
-
-/* Animations for SVG elements */
-@keyframes barGrowX {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
-}
-
-@keyframes walkerSlideX {
-  from { transform: translateX(0); }
-  to { transform: translateX(var(--target-walk, 160px)); }
-}
-
-@keyframes nodePopFade {
-  0% { transform: scale(0.65); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-.scrolly-screen.is-active .anim-bar-grow {
-  transform-origin: left center;
-  animation: barGrowX 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.scrolly-screen.is-active .anim-walker-slide {
-  animation: walkerSlideX 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.scrolly-screen.is-active .anim-node-pop {
-  animation: nodePopFade 0.8s ease-out forwards;
-}
-
-/* Hidden target revealed upon You Draw It interaction */
+/* Fully visible reveal targets, zero opacity ghosting */
 .reveal-on-guess {
-  opacity: 0.15;
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 1 !important;
 }
 
-.reveal-on-guess.is-revealed {
-  opacity: 1 !important;
+/* Transitions for SVG elements */
+.anim-bar-grow, .anim-walker-slide, .anim-node-pop {
+  transition: opacity 0.2s ease;
 }
 
 /* Evidence Appendix at the Foot */
@@ -889,6 +829,8 @@ table[tabindex="0"]:focus-visible { outline: 2px solid var(--accent); outline-of
 }
 
 .evidence-appendix-body {
+  overflow-x: hidden;
+  max-width: 100%;
   padding: 2rem 2.25rem;
 }
 

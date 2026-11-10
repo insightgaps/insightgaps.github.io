@@ -88,16 +88,35 @@
     });
   }
 
+  // 4. Instant Deep-Linking / Screen Parameter Support
+  function initScreenJump() {
+    const params = new URLSearchParams(window.location.search);
+    const jumpScreen = params.get('screen');
+    const hash = window.location.hash ? window.location.hash.replace('#', '') : null;
+    const targetId = jumpScreen ? ('screen-' + jumpScreen) : hash;
+
+    if (targetId) {
+      const el = document.getElementById(targetId);
+      if (el) {
+        // Instant jump without smooth scroll animation delay
+        el.scrollIntoView({ behavior: 'instant', block: 'start' });
+        el.classList.add('is-active');
+      }
+    }
+  }
+
   // Initialize on DOM load
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {
       initProgressBar();
       initScreenObserver();
       initYouDrawIt();
+      initScreenJump();
     });
   } else {
     initProgressBar();
     initScreenObserver();
     initYouDrawIt();
+    initScreenJump();
   }
 })();

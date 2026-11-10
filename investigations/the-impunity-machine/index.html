@@ -23,6 +23,17 @@
 <meta name="twitter:title" content="The Impunity Machine — Insight Gaps Bureau">
 <meta name="twitter:description" content="310 convictions from 66,711 One-Stop Crisis Centre arrivals.">
 <link rel="stylesheet" href="/assets/css/style.css">
+<script>
+  (function(){
+    var m = window.location.search.match(/[?&]screen=(\d+)/);
+    if (m) {
+      var n = parseInt(m[1], 10);
+      var s = '';
+      for (var i = 1; i < n; i++) { s += '#screen-' + i + '{display:none!important;}'; }
+      if (s) { document.write('<style>' + s + '</style>'); }
+    }
+  })();
+</script>
 
 <script type="application/ld+json">
 {
@@ -76,49 +87,40 @@
       <div class="screen-top-left">
         <span class="screen-ch-tag">CAUSE 2 OF 3 · THE JUSTICE SYSTEM <span class="fiction-pill">Fictional prediction</span></span>
         <h2 class="screen-title-h2">The Impunity Funnel</h2>
-        <p class="screen-story-kicker" style="font-family:var(--font-sans); font-size:1.05rem; color:#5c5954; margin:0 0 0.5rem 0; font-weight:600;">If the highway takes her, courts offer no reckoning: a pipeline built to exhaust survivors.</p>
       </div>
       <div class="screen-stat-display">0.46%</div>
     </div>
 
-    <div class="you-draw-it-box" data-target-screen="screen-1" data-unit="%">
-      <span class="you-draw-it-label">You Draw It: Guess the conviction rate from 66,711 crisis centre arrivals</span>
-      <div class="you-draw-it-group">
-        <input type="range" min="0.1" max="10.0" step="0.1" value="3.0" class="you-draw-it-slider" aria-label="Guess conviction rate">
-        <span class="you-draw-it-val">3.0%</span>
-        <button type="button" class="you-draw-it-btn">Reveal True Rate</button>
-        <span class="you-draw-it-result">True rate: 0.46% — 310 convictions from 66,711 arrivals over 23 years!</span>
-      </div>
-    </div>
+    <p class="screen-story-kicker">If the highway takes her, courts offer no reckoning: a pipeline built to exhaust survivors.</p>
 
     <div class="screen-canvas-wrap">
-      <svg viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid meet" role="img" aria-label="The Impunity Funnel: 66,711 arrivals narrowing down to 310 convictions">
-        <rect x="10" y="10" width="1180" height="500" rx="12" fill="#ffffff" stroke="#e2e0dc" stroke-width="2"/>
+      <svg viewBox="0 0 1600 700" preserveAspectRatio="xMidYMid meet" role="img" aria-label="The Impunity Funnel: 66,711 arrivals narrowing down to 310 convictions">
+        <rect x="5" y="5" width="1590" height="690" rx="12" fill="#ffffff" stroke="#e2e0dc" stroke-width="2"/>
 
-        <g transform="translate(50, 45)">
+        <g transform="translate(80, 50)">
           <!-- Stage 1 -->
-          <rect class="anim-bar-grow" x="0" y="30" width="1100" height="50" rx="6" fill="#8c2b18"/>
-          <text x="550" y="65" text-anchor="middle" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#ffffff">1 · ONE-STOP CRISIS CENTRE ARRIVALS: 66,711 SURVIVORS</text>
+          <rect class="anim-bar-grow" x="20" y="30" width="1400" height="65" rx="8" fill="#8c2b18"/>
+          <text x="720" y="73" text-anchor="middle" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#ffffff">1 · ONE-STOP CRISIS CENTRE ARRIVALS: 66,711 SURVIVORS</text>
 
           <!-- Stage 2 -->
-          <rect class="anim-bar-grow" x="80" y="100" width="940" height="50" rx="6" fill="#2b2823"/>
-          <text x="550" y="135" text-anchor="middle" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#ffffff">2 · POLICE FIRST INFORMATION REPORT (FIR)</text>
+          <rect class="anim-bar-grow" x="120" y="115" width="1200" height="65" rx="8" fill="#2b2823"/>
+          <text x="720" y="158" text-anchor="middle" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#ffffff">2 · POLICE FIRST INFORMATION REPORT (FIR): 11,043 CASES</text>
 
           <!-- Stage 3 -->
-          <rect class="anim-bar-grow" x="190" y="170" width="720" height="50" rx="6" fill="#5c5954"/>
-          <text x="550" y="205" text-anchor="middle" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#ffffff">3 · POLICE CHARGE SHEET SUBMISSION</text>
+          <rect class="anim-bar-grow" x="240" y="200" width="960" height="65" rx="8" fill="#5c5954"/>
+          <text x="720" y="243" text-anchor="middle" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#ffffff">3 · POLICE CHARGE SHEET SUBMISSION: 8,767 CASES</text>
 
           <!-- Stage 4 -->
-          <rect class="anim-bar-grow" x="310" y="240" width="480" height="50" rx="6" fill="#8a8478"/>
-          <text x="550" y="275" text-anchor="middle" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#ffffff">4 · SPECIAL TRIBUNAL TRIAL (AVG 2,349 DAYS)</text>
+          <rect class="anim-bar-grow" x="370" y="285" width="700" height="65" rx="8" fill="#8a8478"/>
+          <text x="720" y="328" text-anchor="middle" font-family="'Space Grotesk', system-ui, sans-serif" font-size="26" font-weight="700" fill="#ffffff">4 · SPECIAL TRIBUNAL TRIAL (AVG 2,349 DAYS WAIT)</text>
 
           <!-- Stage 5: Final Conviction -->
           <g class="reveal-on-guess">
-            <rect x="420" y="310" width="260" height="58" rx="8" fill="#ffffff" stroke="#8c2b18" stroke-width="3.5"/>
-            <text x="550" y="348" text-anchor="middle" font-family="'Space Mono', monospace" font-size="28" font-weight="700" fill="#8c2b18">5 · CONVICTION: 310 (0.46%)</text>
+            <rect x="320" y="380" width="800" height="90" rx="10" fill="#ffffff" stroke="#8c2b18" stroke-width="4"/>
+            <text x="720" y="437" text-anchor="middle" font-family="'Space Mono', monospace" font-size="34" font-weight="700" fill="#8c2b18">5 · CONVICTION: 310 (0.46%)</text>
           </g>
         </g>
-        <text x="50" y="475" font-family="system-ui, sans-serif" font-size="22" fill="#5c5954">Source: Ministry of Women and Children Affairs One-Stop Crisis Programme (2001–July 2024)</text>
+        <text x="80" y="640" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Source: Ministry of Women and Children Affairs One-Stop Crisis Programme (2001–July 2024)</text>
       </svg>
     </div>
 
@@ -138,20 +140,20 @@
     </div>
 
     <div class="screen-canvas-wrap">
-      <svg viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid meet" role="img" aria-label="78% of survivors arrive after the 72-hour forensic window">
-        <rect x="10" y="10" width="1180" height="500" rx="12" fill="#ffffff" stroke="#e2e0dc" stroke-width="2"/>
+      <svg viewBox="0 0 1600 700" preserveAspectRatio="xMidYMid meet" role="img" aria-label="78% of survivors arrive after the 72-hour forensic window">
+        <rect x="5" y="5" width="1590" height="690" rx="12" fill="#ffffff" stroke="#e2e0dc" stroke-width="2"/>
 
         <!-- Row 1: After 72h -->
-        <text x="50" y="115" font-family="'Space Grotesk', system-ui, sans-serif" font-size="32" font-weight="700" fill="#16130f">Arrive After 72 Hours (Biological Evidence Expired)</text>
-        <rect class="anim-bar-grow" x="50" y="140" width="820" height="70" rx="6" fill="#8c2b18"/>
-        <text x="890" y="188" font-family="'Space Mono', monospace" font-size="38" font-weight="700" fill="#8c2b18">78.0%</text>
+        <text x="80" y="115" font-family="'Space Grotesk', system-ui, sans-serif" font-size="34" font-weight="700" fill="#16130f">Arrive After 72 Hours (Biological Evidence Expired)</text>
+        <rect class="anim-bar-grow" x="80" y="145" width="936" height="75" rx="8" fill="#8c2b18"/>
+        <text x="1050" y="200" font-family="'Space Mono', monospace" font-size="44" font-weight="700" fill="#8c2b18">78.0%</text>
 
         <!-- Row 2: Within 72h -->
-        <text x="50" y="295" font-family="'Space Grotesk', system-ui, sans-serif" font-size="32" font-weight="700" fill="#16130f">Arrive Within 72 Hours (Viable Forensic Window)</text>
-        <rect class="anim-bar-grow" x="50" y="320" width="230" height="70" rx="6" fill="#16130f"/>
-        <text x="300" y="368" font-family="'Space Mono', monospace" font-size="38" font-weight="700" fill="#16130f">22.0%</text>
+        <text x="80" y="315" font-family="'Space Grotesk', system-ui, sans-serif" font-size="34" font-weight="700" fill="#16130f">Arrive Within 72 Hours (Viable Forensic Window)</text>
+        <rect class="anim-bar-grow" x="80" y="345" width="264" height="75" rx="8" fill="#16130f"/>
+        <text x="375" y="400" font-family="'Space Mono', monospace" font-size="44" font-weight="700" fill="#16130f">22.0%</text>
 
-        <text x="50" y="475" font-family="system-ui, sans-serif" font-size="22" fill="#5c5954">Source: BRAC 2022 survivor justice survey; §32 WCRPA mandates medical exam with zero hospital compliance tracking</text>
+        <text x="80" y="640" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Source: BRAC 2022 survivor justice survey; §32 WCRPA mandates medical exam with zero hospital compliance tracking</text>
       </svg>
     </div>
 
@@ -171,33 +173,33 @@
     </div>
 
     <div class="screen-canvas-wrap">
-      <svg viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid meet" role="img" aria-label="National Forensic DNA Profiling Laboratory 2025: 1,204 unprocessed samples (92.3%) vs 100 processed (7.7%)">
-        <rect x="10" y="10" width="1180" height="500" rx="12" fill="#ffffff" stroke="#e2e0dc" stroke-width="2"/>
+      <svg viewBox="0 0 1600 700" preserveAspectRatio="xMidYMid meet" role="img" aria-label="National Forensic DNA Profiling Laboratory 2025: 1,204 unprocessed samples (92.3%) vs 100 processed (7.7%)">
+        <rect x="5" y="5" width="1590" height="690" rx="12" fill="#ffffff" stroke="#e2e0dc" stroke-width="2"/>
 
-        <g transform="translate(50, 70)">
+        <g transform="translate(80, 80)">
           <text x="0" y="40" font-family="'Space Grotesk', system-ui, sans-serif" font-size="32" font-weight="700" fill="#16130f">National DNA Samples Received (Sep 2025 Status)</text>
 
           <!-- Mega Stacked Bar -->
           <g transform="translate(0, 70)">
-            <rect class="anim-bar-grow" x="0" y="0" width="1015" height="90" rx="6" fill="#8c2b18"/>
-            <text x="25" y="55" font-family="'Space Grotesk', system-ui, sans-serif" font-size="30" font-weight="700" fill="#ffffff">UNPROCESSED: 1,204 SAMPLES (92.3%)</text>
+            <rect class="anim-bar-grow" x="0" y="0" width="1330" height="85" rx="8" fill="#8c2b18"/>
+            <text x="30" y="55" font-family="'Space Grotesk', system-ui, sans-serif" font-size="30" font-weight="700" fill="#ffffff">UNPROCESSED: 1,204 SAMPLES (92.3%)</text>
 
-            <rect x="1025" y="0" width="75" height="90" rx="6" fill="#16130f"/>
-            <text x="1040" y="55" font-family="'Space Mono', monospace" font-size="26" font-weight="700" fill="#ffffff">8%</text>
+            <rect x="1345" y="0" width="95" height="85" rx="8" fill="#16130f"/>
+            <text x="1365" y="55" font-family="'Space Mono', monospace" font-size="26" font-weight="700" fill="#ffffff">8%</text>
           </g>
 
           <!-- Context Badges -->
-          <g transform="translate(0, 210)">
-            <rect x="0" y="0" width="520" height="90" rx="8" fill="#fff5f5" stroke="#8c2b18" stroke-width="2"/>
-            <text x="25" y="40" font-family="'Space Mono', monospace" font-size="22" font-weight="700" fill="#8c2b18">COURT IMPACT</text>
-            <text x="25" y="70" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#16130f">789 Active Trials Stalled for DNA</text>
+          <g transform="translate(0, 200)">
+            <rect x="0" y="0" width="690" height="150" rx="10" fill="#fff5f5" stroke="#8c2b18" stroke-width="2.5"/>
+            <text x="35" y="50" font-family="'Space Mono', monospace" font-size="24" font-weight="700" fill="#8c2b18">COURT IMPACT</text>
+            <text x="35" y="105" font-family="'Space Grotesk', system-ui, sans-serif" font-size="34" font-weight="700" fill="#16130f">789 Active Trials Stalled for DNA</text>
 
-            <rect x="560" y="0" width="530" height="90" rx="8" fill="#fcfbf9" stroke="#16130f" stroke-width="2"/>
-            <text x="585" y="40" font-family="'Space Mono', monospace" font-size="22" font-weight="700" fill="#16130f">INFRASTRUCTURE LIMIT</text>
-            <text x="585" y="70" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#16130f">2 National DNA Machines for 170M People</text>
+            <rect x="750" y="0" width="690" height="150" rx="10" fill="#fcfbf9" stroke="#16130f" stroke-width="2.5"/>
+            <text x="785" y="50" font-family="'Space Mono', monospace" font-size="24" font-weight="700" fill="#16130f">INFRASTRUCTURE LIMIT</text>
+            <text x="785" y="105" font-family="'Space Grotesk', system-ui, sans-serif" font-size="32" font-weight="700" fill="#16130f">2 National DNA Machines for 170M People</text>
           </g>
         </g>
-        <text x="50" y="475" font-family="system-ui, sans-serif" font-size="22" fill="#5c5954">Source: National Forensic DNA Profiling Laboratory caseload and backlog status report (Sep 2025)</text>
+        <text x="80" y="640" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Source: National Forensic DNA Profiling Laboratory caseload and backlog status report (Sep 2025)</text>
       </svg>
     </div>
 
@@ -217,29 +219,29 @@
     </div>
 
     <div class="screen-canvas-wrap">
-      <svg viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Special Tribunal timeline: 2,349 days average verdict wait vs 90-day statutory limit">
-        <rect x="10" y="10" width="1180" height="500" rx="12" fill="#ffffff" stroke="#e2e0dc" stroke-width="2"/>
+      <svg viewBox="0 0 1600 700" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Special Tribunal timeline: 2,349 days average verdict wait vs 90-day statutory limit">
+        <rect x="5" y="5" width="1590" height="690" rx="12" fill="#ffffff" stroke="#e2e0dc" stroke-width="2"/>
 
-        <g transform="translate(50, 50)">
+        <g transform="translate(80, 60)">
           <text x="0" y="40" font-family="'Space Grotesk', system-ui, sans-serif" font-size="32" font-weight="700" fill="#16130f">Special Tribunal Verdict Timeline</text>
 
           <!-- 90 Day Bar -->
           <text x="0" y="105" font-family="system-ui, sans-serif" font-size="28" font-weight="600" fill="#5c5954">Statutory Legal Ceiling (§20 WCRPA): 90 Days</text>
-          <rect class="anim-bar-grow" x="0" y="120" width="42" height="50" rx="4" fill="#16130f"/>
-          <text x="55" y="155" font-family="'Space Mono', monospace" font-size="28" font-weight="700" fill="#16130f">90 Days</text>
+          <rect class="anim-bar-grow" x="0" y="125" width="45" height="55" rx="6" fill="#16130f"/>
+          <text x="65" y="165" font-family="'Space Mono', monospace" font-size="30" font-weight="700" fill="#16130f">90 Days</text>
 
           <!-- 2,349 Day Bar -->
-          <text x="0" y="225" font-family="system-ui, sans-serif" font-size="28" font-weight="600" fill="#8c2b18">Actual Average Wait to Verdict: 2,349 Days (6.4+ Years)</text>
-          <rect class="anim-bar-grow" x="0" y="240" width="940" height="60" rx="6" fill="#8c2b18"/>
-          <text x="960" y="282" font-family="'Space Mono', monospace" font-size="34" font-weight="700" fill="#8c2b18">26.1× DELAY</text>
+          <text x="0" y="240" font-family="system-ui, sans-serif" font-size="28" font-weight="600" fill="#8c2b18">Actual Average Wait to Verdict: 2,349 Days (6.4+ Years)</text>
+          <rect class="anim-bar-grow" x="0" y="260" width="1175" height="65" rx="8" fill="#8c2b18"/>
+          <text x="1200" y="308" font-family="'Space Mono', monospace" font-size="38" font-weight="700" fill="#8c2b18">26.1× DELAY</text>
 
           <!-- 2024 Pileup -->
-          <g transform="translate(0, 335)">
-            <rect x="0" y="0" width="1090" height="75" rx="6" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
-            <text x="25" y="45" font-family="'Space Grotesk', system-ui, sans-serif" font-size="26" font-weight="700" fill="#16130f">2024 Judicial Pileup: 17,544 New Filings vs. 5,648 Disposals (+11,896 Net Backlog Surge)</text>
+          <g transform="translate(0, 360)">
+            <rect x="0" y="0" width="1440" height="85" rx="8" fill="#fcfbf9" stroke="#e2e0dc" stroke-width="2"/>
+            <text x="35" y="52" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" font-weight="700" fill="#16130f">2024 Judicial Pileup: 17,544 New Filings vs. 5,648 Disposals (+11,896 Net Backlog Surge)</text>
           </g>
         </g>
-        <text x="50" y="475" font-family="system-ui, sans-serif" font-size="22" fill="#5c5954">Source: Supreme Court of Bangladesh Annual Judicial Statistics 2024 &amp; BRAC 2022 survey</text>
+        <text x="80" y="640" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Source: Supreme Court of Bangladesh Annual Judicial Statistics 2024 &amp; BRAC 2022 survey</text>
       </svg>
     </div>
 
@@ -259,33 +261,33 @@
     </div>
 
     <div class="screen-canvas-wrap">
-      <svg viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Compound probability of punishment: 0.0215% or 1 in 4,650">
-        <rect x="10" y="10" width="1180" height="500" rx="12" fill="#ffffff" stroke="#e2e0dc" stroke-width="2"/>
+      <svg viewBox="0 0 1600 700" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Compound probability of punishment: 0.0215% or 1 in 4,650">
+        <rect x="5" y="5" width="1590" height="690" rx="12" fill="#ffffff" stroke="#e2e0dc" stroke-width="2"/>
 
-        <g transform="translate(50, 60)">
+        <g transform="translate(80, 70)">
           <!-- Left Column: Probability Box -->
-          <rect x="0" y="30" width="520" height="340" rx="10" fill="#fff5f5" stroke="#8c2b18" stroke-width="3"/>
-          <text x="35" y="80" font-family="'Space Mono', monospace" font-size="26" font-weight="700" fill="#8c2b18">COMPOUND PUNISHMENT PROBABILITY</text>
-          <text x="35" y="145" font-family="'Space Mono', monospace" font-size="46" font-weight="700" fill="#8c2b18">0.0215%</text>
-          <text x="35" y="195" font-family="'Space Grotesk', system-ui, sans-serif" font-size="32" font-weight="700" fill="#16130f">1 in about 4,650 Incidents</text>
-          <text x="35" y="245" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Derived across disclosure, police filtering,</text>
-          <text x="35" y="280" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">trial attrition, and conviction likelihood.</text>
-          <text x="35" y="335" font-family="'Space Mono', monospace" font-size="24" font-weight="700" fill="#8c2b18">Sensitivity Range: 0.00034% to 0.2756%</text>
+          <rect x="0" y="20" width="690" height="430" rx="10" fill="#fff5f5" stroke="#8c2b18" stroke-width="3"/>
+          <text x="35" y="75" font-family="'Space Mono', monospace" font-size="24" font-weight="700" fill="#8c2b18">COMPOUND PUNISHMENT PROBABILITY</text>
+          <text x="35" y="145" font-family="'Space Mono', monospace" font-size="52" font-weight="700" fill="#8c2b18">0.0215%</text>
+          <text x="35" y="200" font-family="'Space Grotesk', system-ui, sans-serif" font-size="34" font-weight="700" fill="#16130f">1 in about 4,650 Incidents</text>
+          <text x="35" y="255" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Derived across disclosure, police filtering,</text>
+          <text x="35" y="295" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">trial attrition, and conviction likelihood.</text>
+          <text x="35" y="380" font-family="'Space Mono', monospace" font-size="24" font-weight="700" fill="#8c2b18">Sensitivity Range: 0.00034% to 0.2756%</text>
 
           <!-- Right Column: Severity vs Certainty -->
-          <rect x="570" y="30" width="530" height="340" rx="10" fill="#fcfbf9" stroke="#16130f" stroke-width="2"/>
-          <text x="605" y="80" font-family="'Space Mono', monospace" font-size="26" font-weight="700" fill="#16130f">STATUTORY INVERSION AUDIT</text>
-          <text x="605" y="130" font-family="'Space Grotesk', system-ui, sans-serif" font-size="30" font-weight="700" fill="#16130f">Maximum Severity</text>
-          <text x="605" y="170" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Capital punishment expanded in Oct 2020</text>
-          <text x="605" y="205" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">amendment to Section 9(1) WCRPA.</text>
+          <rect x="750" y="20" width="690" height="430" rx="10" fill="#fcfbf9" stroke="#16130f" stroke-width="2.5"/>
+          <text x="785" y="75" font-family="'Space Mono', monospace" font-size="24" font-weight="700" fill="#16130f">STATUTORY INVERSION AUDIT</text>
+          <text x="785" y="130" font-family="'Space Grotesk', system-ui, sans-serif" font-size="32" font-weight="700" fill="#16130f">Maximum Severity</text>
+          <text x="785" y="175" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Capital punishment expanded in Oct 2020</text>
+          <text x="785" y="215" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">amendment to Section 9(1) WCRPA.</text>
 
-          <line x1="605" y1="230" x2="1055" y2="230" stroke="#e2e0dc" stroke-width="2"/>
+          <line x1="785" y1="255" x2="1400" y2="255" stroke="#e2e0dc" stroke-width="2"/>
 
-          <text x="605" y="275" font-family="'Space Grotesk', system-ui, sans-serif" font-size="30" font-weight="700" fill="#8c2b18">Near-Zero Certainty</text>
-          <text x="605" y="315" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Certainty of facing conviction remains &lt;1%,</text>
-          <text x="605" y="350" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">inverting classical deterrence doctrine.</text>
+          <text x="785" y="310" font-family="'Space Grotesk', system-ui, sans-serif" font-size="32" font-weight="700" fill="#8c2b18">Near-Zero Certainty</text>
+          <text x="785" y="355" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Certainty of facing conviction remains &lt;1%,</text>
+          <text x="785" y="395" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">inverting classical deterrence doctrine.</text>
         </g>
-        <text x="50" y="475" font-family="system-ui, sans-serif" font-size="22" fill="#5c5954">Source: Bureau statistical deterrence model combining BBS survey, police logs, and court disposal records</text>
+        <text x="80" y="640" font-family="system-ui, sans-serif" font-size="24" fill="#5c5954">Source: Bureau statistical deterrence model combining BBS survey, police logs, and court disposal records</text>
       </svg>
     </div>
 
